@@ -6,7 +6,7 @@ Preparar um catálogo em português com pelo menos 500 respostas para o jogo des
 
 O contrato JSON e os lotes de 25 respostas deste guia foram aprovados pelo responsável pelo projeto. O importador ainda será implementado. Recomendações editoriais e de implementação são identificadas separadamente e não adicionam novas regras ao jogo.
 
-A pasta `Agents/` está ignorada pelo Git, mas este guia será incluído explicitamente no versionamento para preservar o contrato aprovado. A pasta proposta para os arquivos de conteúdo é `data/palavras/`.
+A pasta `Agents/` tem exceções no `.gitignore` para versionar este guia e `Regras.md`. A pasta proposta para os arquivos de conteúdo é `dados/palavras/`, seguindo as convenções de português do projeto.
 
 ## Regras do conteúdo
 

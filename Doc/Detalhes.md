@@ -164,7 +164,7 @@ Não haverá área administrativa no site nesta versão. O conteúdo será prepa
 
 O formato JSON do guia local `Agents/Geracao-de-conteudo.md` foi aprovado: cada lote terá versão de formato, identificador e lista de respostas; cada resposta terá identificador estável, texto correto, temáticas, dificuldade e cinco dicas ordenadas. Os lotes terão 25 respostas. Os dados não deverão ser importados sem validação estrutural, verificação de duplicatas e revisão do conteúdo gerado.
 
-A pasta `Agents/` é ignorada pelo Git, mas o guia `Agents/Geracao-de-conteudo.md` será incluído explicitamente no versionamento para preservar as instruções aprovadas. Os demais arquivos da pasta continuam sujeitos ao `.gitignore`. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, proposta como `data/palavras/`.
+A pasta `Agents/` tem duas exceções explícitas no `.gitignore`: `Regras.md` e `Geracao-de-conteudo.md` serão versionados. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, proposta como `dados/palavras/`.
 
 Sugestões de conteúdo por jogadores poderão ser discutidas em uma atualização futura. Denúncias de dicas ou respostas não fazem parte da versão atual.
 
@@ -852,3 +852,11 @@ Ideias visuais para avaliação: abrir e fechar a capa como gesto, movimentar p�
 ## 24. Planejamento técnico
 
 As bibliotecas, a arquitetura inicial e a sequência de implementação estão em [Planejamento-tecnico.md](Planejamento-tecnico.md). O planejamento foi aprovado pelo responsável pelo projeto. Sua aprovação não representa bibliotecas instaladas ou funcionalidades implementadas; versões e compatibilidade ainda serão verificadas na preparação do ambiente.
+
+## 25. Regras para implementação por IA
+
+O arquivo [AGENTS.md](../AGENTS.md), na raiz, aponta para [Agents/Regras.md](../Agents/Regras.md) como fonte das recomendações de desenvolvimento. Agentes que reconhecem esse arquivo deverão ler as regras antes de implementar.
+
+Todo código controlado pelo projeto deverá usar português, incluindo banco, API, interface, testes e documentação, respeitando palavras reservadas e contratos externos. O guia detalha convenções de nomes, arquitetura, integridade dos dados, segurança, acessibilidade, dependências, testes e colaboração.
+
+O planejamento de pastas foi ajustado para essas convenções. Ferramentas que não carreguem `AGENTS.md` automaticamente deverão receber a orientação de ler os arquivos; a presença do arquivo não garante, por si só, que qualquer ferramenta externa siga as instruções.

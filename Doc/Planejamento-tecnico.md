@@ -4,6 +4,8 @@
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
+**Regras de implementação:** [Agents/Regras.md](../Agents/Regras.md), com português obrigatório nos nomes controlados pelo projeto e exceções de compatibilidade para ferramentas e bibliotecas. A entrada dessas instruções para agentes fica em [AGENTS.md](../AGENTS.md).
+
 Este plano atende aos dois modos na primeira entrega, com React, FastAPI, PostgreSQL, MongoDB, animações, áudio e publicação gratuita. As bibliotecas e a direção técnica foram aprovadas pelo responsável pelo projeto. As versões exatas serão fixadas após verificar compatibilidade no ambiente local; não se presume que a versão mais recente de cada pacote seja a combinação correta. Pontos identificados como ainda em aberto permanecem sujeitos à modelagem e às verificações descritas.
 
 ## 1. Arquitetura
@@ -103,23 +105,24 @@ Domínios, encaminhamento de `/api`, CORS e atributos dos cookies serão definid
 ```text
 frontend/
   src/
-    app/
-    components/
-    features/       # auth, solo, galera, profile, rankings, settings
-    mascot/
+    aplicacao/
+    componentes/
+    funcionalidades/  # autenticacao, individual, galera, perfil,
+                      # classificacoes e configuracoes
+    mascote/
     audio/
-    services/
-    styles/
+    servicos/
+    estilos/
 backend/
-  app/
-    core/
-    db/
-    modules/        # auth, players, catalog, solo, galera, history,
-                    # rankings e preferences
-  migrations/
-  scripts/
-  tests/
-data/
+  aplicacao/
+    nucleo/
+    bancos/
+    modulos/          # autenticacao, jogadores, catalogo, individual,
+                      # galera, historico, classificacoes e preferencias
+  migracoes/
+  comandos/
+  testes/
+dados/
   palavras/
 Doc/
 ```
