@@ -22,7 +22,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 03 | 1 | `animais-001.json` | 10 | 10 | 5 | 25 | 25 | Aguardando validação automática |
 | 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Aguardando validação automática |
-| 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Não iniciado |
+| 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Aguardando validação automática |
 | 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Não iniciado |
 | 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Não iniciado |
 | 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Não iniciado |
@@ -118,6 +118,25 @@ Conferência no Atlas: Pendente
 Pendências: Nenhuma
 ```
 
+#### Lote marcas-001 (Fase 07)
+```text
+Lote: marcas-001
+Fase: 07
+Arquivo: Data/palavras/marcas-001.json
+Estado: Aguardando validação automática
+Data da revisão: 2026-10-26
+Responsável pela revisão: Antigravity (IA) com aprovação do responsável
+Quantidade gerada: 25
+Quantidade aprovada: 25
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: Estrutura JSON válida; 125 dicas conferidas
+Duplicatas e substituições: Nenhuma (conferido contra lotes anteriores de animais e filmes/séries)
+Fatos e grafias conferidos: Sim (todas em caixa alta, acentos preservados, sem slogans temporários ou pontuações ambíguas)
+Importação local: Pendente (importador será desenvolvido na fase 12)
+Conferência no Atlas: Pendente
+Pendências: Nenhuma
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -139,10 +158,10 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | --- | --- | --- | --- | --- | --- |
 | Animais | 100 | 25 | 25 | 0 | 0 |
 | Filmes e séries | 100 | 25 | 25 | 0 | 0 |
-| Marcas | 100 | 0 | 0 | 0 | 0 |
+| Marcas | 100 | 25 | 25 | 0 | 0 |
 | Países | 100 | 0 | 0 | 0 | 0 |
 | Objetos | 100 | 0 | 0 | 0 | 0 |
-| **Total** | **500** | **50** | **50** | **0** | **0** |
+| **Total** | **500** | **75** | **75** | **0** | **0** |
 
 ## 6. Fechamento global
 

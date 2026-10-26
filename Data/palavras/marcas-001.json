@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "marcas-001",
+  "palavras": [
+    {
+      "id": "apple",
+      "resposta": "APPLE",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma empresa multinacional norte-americana do setor de tecnologia e eletrônicos.",
+        "Fui fundada na década de setenta por Steve Jobs, Steve Wozniak e Ronald Wayne na Califórnia.",
+        "Meus sistemas operacionais exclusivos incluem nomes como iOS e macOS.",
+        "Revolucionei a comunicação móvel e a música digital com aparelhos icônicos no início dos anos 2000.",
+        "Meu logotipo mundialmente famoso é uma maçã mordida na lateral direita."
+      ]
+    },
+    {
+      "id": "google",
+      "resposta": "GOOGLE",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma gigante global de tecnologia fundada no final dos anos noventa nos Estados Unidos.",
+        "Comecei como um projeto de doutorado desenvolvido pelos estudantes Larry Page e Sergey Brin.",
+        "Desenvolvo o sistema operacional móvel Android e o navegador de internet Chrome.",
+        "Meu nome é uma variação bem-humorada do termo matemático que representa o número um seguido de cem zeros.",
+        "Sou a ferramenta de busca e pesquisa na internet mais utilizada do planeta."
+      ]
+    },
+    {
+      "id": "microsoft",
+      "resposta": "MICROSOFT",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma das maiores empresas de tecnologia e computação do mundo, fundada em 1975.",
+        "Fui criada pelos empresários e programadores Bill Gates e Paul Allen em Albuquerque.",
+        "Minha suíte de aplicativos de escritório inclui ferramentas populares de texto, planilhas e apresentações.",
+        "Fabrico a linha de consoles de videogame domésticos da marca Xbox.",
+        "Desenvolvo o sistema operacional Windows, presente na imensa maioria dos computadores pessoais."
+      ]
+    },
+    {
+      "id": "samsung",
+      "resposta": "SAMSUNG",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um gigantesco conglomerado multinacional fundado na Coreia do Sul em 1938.",
+        "Comecei como uma empresa exportadora de alimentos secos e peixes antes de entrar no ramo da tecnologia.",
+        "Fabrico uma vasta gama de produtos que vai de semicondutores a televisores e eletrodomésticos.",
+        "Minha famosa linha de smartphones, tablets e relógios inteligentes utiliza o nome Galaxy.",
+        "Sou uma das maiores fabricantes globais de telas e celulares concorrente direta dos aparelhos iPhone."
+      ]
+    },
+    {
+      "id": "nike",
+      "resposta": "NIKE",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma empresa norte-americana de calçados, roupas e equipamentos para a prática de esportes.",
+        "Fui fundada em 1964 pelo atleta Philip Knight e pelo treinador de atletismo Bill Bowerman.",
+        "Meu nome é uma homenagem direta à deusa grega da vitória na mitologia antiga.",
+        "Criei linhas lendárias de tênis de basquete em parceria histórica com o astro Michael Jordan.",
+        "Meu símbolo visual é uma asa curva minimalista e meu lema icônico é a frase Just Do It."
+      ]
+    },
+    {
+      "id": "adidas",
+      "resposta": "ADIDAS",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma célebre empresa multinacional de artigos esportivos sediada na Alemanha.",
+        "Fui fundada no final dos anos quarenta pelo empresário alemão Adolf Dassler após uma cisão familiar.",
+        "Forneço bolas oficiais e patrocino uniformes de várias seleções nas edições da Copa do Mundo.",
+        "Meu nome comercial foi criado a partir da junção do apelido e do sobrenome do meu fundador.",
+        "Minha identidade visual é inconfundível por exibir três listras paralelas em calçados e vestuários."
+      ]
+    },
+    {
+      "id": "ferrari",
+      "resposta": "FERRARI",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma lendária fabricante italiana de automóveis esportivos de luxo e alto desempenho.",
+        "Fui fundada pelo piloto de corridas Enzo Ferrari na cidade de Maranello.",
+        "Sou a equipe mais tradicional, vitoriosa e antiga em atividade contínua na história da Fórmula 1.",
+        "Minha cor de pintura mais emblemática e associada à minha história é um vibrante tom de vermelho.",
+        "Meu escudo clássico de fundo amarelo exibe a famosa figura de um cavalo negro empinado."
+      ]
+    },
+    {
+      "id": "toyota",
+      "resposta": "TOYOTA",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma grande corporação multinacional do setor automotivo originária do Japão.",
+        "Fui fundada na década de trinta por Kiichiro Toyoda a partir de uma fábrica de teares automáticos.",
+        "Revolucionei a indústria global criando um método de produção enxuta focado na eliminação de desperdícios.",
+        "Popularizei a tecnologia de propulsão híbrida em carros de passeio com o lançamento do modelo Prius.",
+        "Produzo modelos de carros consagrados pelo público e mercado como o Corolla e a picape Hilux."
+      ]
+    },
+    {
+      "id": "netflix",
+      "resposta": "NETFLIX",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma empresa norte-americana de entretenimento e mídia digital fundada em 1997.",
+        "Comecei minhas atividades oferecendo serviço de entrega e locação de filmes em DVD pelo correio.",
+        "Transformei os hábitos de consumo de entretenimento ao migrar para a transmissão de vídeo pela internet.",
+        "Meus conteúdos originais são precedidos por uma vinheta sonora característica com duas batidas graves.",
+        "Sou uma das maiores plataformas de streaming por assinatura do mundo, famosa por séries lançadas com temporadas inteiras."
+      ]
+    },
+    {
+      "id": "nestle",
+      "resposta": "NESTLÉ",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma das maiores corporações de alimentos e bebidas do planeta, com sede na Suíça.",
+        "Fui fundada no século dezenove pelo químico Henri Nestlé ao criar uma farinha láctea infantil.",
+        "Possuo marcas consagradas de chocolates, cafés instantâneos, biscoitos e produtos lácteos.",
+        "No Brasil, tornei célebres marcas como Leite Moça, Ninho, Nescau e o biscoito Passatempo.",
+        "Meu logotipo corporativo tradicional retrata um ninho de pássaros com filhotes sendo alimentados."
+      ]
+    },
+    {
+      "id": "sony",
+      "resposta": "SONY",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma corporação multinacional japonesa de tecnologia e entretenimento fundada em Tóquio em 1946.",
+        "Revolucionei a forma como o mundo ouvia música nos anos oitenta com a criação do toca-fitas portátil Walkman.",
+        "Atuo com destaque na fabricação de televisores, sensores de imagem para câmeras profissionais e fones de ouvido.",
+        "Possuo divisões consagradas na indústria fonográfica e na produção de filmes para o cinema em Hollywood.",
+        "Sou a criadora da famosa linha de consoles de videogame domésticos que leva o nome PlayStation."
+      ]
+    },
+    {
+      "id": "volkswagen",
+      "resposta": "VOLKSWAGEN",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma das maiores fabricantes de automóveis do mundo, fundada na Alemanha na década de trinta.",
+        "Meu nome em alemão tem a tradução literal e histórica de carro do povo.",
+        "Fabriquei um dos veículos mais populares e duradouros da história automotiva com motor traseiro refrigerado a ar.",
+        "Marquei a cultura brasileira com modelos clássicos de grande vendagem como a Kombi e o Gol.",
+        "Meu logotipo é formado pelas letras V e W sobrepostas dentro de um círculo azul e prateado."
+      ]
+    },
+    {
+      "id": "lego",
+      "resposta": "LEGO",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma famosa empresa de brinquedos educativos e entretenimento fundada na Dinamarca em 1932.",
+        "Comecei fabricando brinquedos simples de madeira antes de adotar o plástico moldado por injeção.",
+        "Meu nome deriva da expressão dinamarquesa leg godt, que significa brincar bem.",
+        "Meus produtos ganharam parques temáticos próprios e franquias de filmes de animação e jogos eletrônicos.",
+        "Sou mundialmente conhecida pelos blocos coloridos de plástico de encaixe perfeito que permitem infinitas construções."
+      ]
+    },
+    {
+      "id": "amazon",
+      "resposta": "AMAZON",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma gigante norte-americana de tecnologia e comércio eletrônico fundada em 1994 por Jeff Bezos.",
+        "Iniciei minhas operações comerciais na garagem de uma casa funcionando como uma livraria virtual.",
+        "Lidero o mercado de infraestrutura de computação em nuvem com a minha divisão de serviços web.",
+        "Criei o popular leitor de livros digitais Kindle e a assistente virtual por comandos de voz Alexa.",
+        "Meu logotipo exibe uma seta curva amarela que vai da letra A até a letra Z, formando um sorriso."
+      ]
+    },
+    {
+      "id": "honda",
+      "resposta": "HONDA",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma grande multinacional japonesa fabricante de automóveis, motocicletas e equipamentos de força.",
+        "Fui fundada pelo engenheiro mecânico e empresário Soichiro Honda após a Segunda Guerra Mundial.",
+        "Tornei-me a maior fabricante de motocicletas do mundo, com presença maciça em frotas urbanas brasileiras.",
+        "Criei robôs humanoides famosos como o Asimo para pesquisas avançadas de mobilidade e equilíbrio.",
+        "Na linha de carros de passeio, sou reconhecida pelos sedãs e utilitários dos modelos Civic, City e HR-V."
+      ]
+    },
+    {
+      "id": "disney",
+      "resposta": "DISNEY",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um conglomerado multinacional de mídia e entretenimento fundado em 1923 por dois irmãos na Califórnia.",
+        "Revolucionei a história da animação cinematográfica ao produzir o primeiro longa-metragem animado em cores e som.",
+        "Administro famosos resorts de férias e complexos de parques temáticos na Flórida, na Califórnia e em outros continentes.",
+        "Possuo marcas e estúdios consagrados como Pixar, Marvel Studios e a franquia Star Wars.",
+        "Minha marca histórica tem como símbolo e embaixador oficial o camundongo Mickey Mouse."
+      ]
+    },
+    {
+      "id": "porsche",
+      "resposta": "PORSCHE",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma fabricante alemã de automóveis de luxo de alto padrão esportivo com sede na cidade de Stuttgart.",
+        "Fui fundada pelo engenheiro Ferdinand Porsche, responsável pelo projeto original do Fusca na década de trinta.",
+        "Sou famosa por manter motores com cilindros contrapostos chamados boxer na parte traseira de meus cupês.",
+        "Meu brasão clássico homenageia o estado de Baden-Württemberg e ostenta um cavalo negro no centro.",
+        "Produzo um dos modelos esportivos mais icônicos e longevos da história do automobilismo, o lendário 911."
+      ]
+    },
+    {
+      "id": "pepsi",
+      "resposta": "PEPSI",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca norte-americana de bebidas gaseificadas e refrescos criada no final do século dezenove.",
+        "Fui inventada na Carolina do Norte pelo farmacêutico Caleb Bradham para auxiliar na digestão.",
+        "Protagonizei disputas históricas de publicidade conhecidas no mercado como a guerra das colas.",
+        "Minha corporação é dona de grandes marcas de salgadinhos e batatas fritas como Lay's e Doritos.",
+        "Meu logotipo é um círculo dividido por uma onda branca entre as cores azul e vermelha."
+      ]
+    },
+    {
+      "id": "starbucks",
+      "resposta": "STARBUCKS",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma empresa norte-americana de cafeterias e torrefação fundada em 1971 na cidade de Seattle.",
+        "Meu nome foi inspirado em um personagem marinheiro do romance clássico Moby Dick de Herman Melville.",
+        "Popularizei o conceito de cafeteria como um terceiro lugar acolhedor entre a casa e o trabalho.",
+        "Ficou famosa a prática de meus baristas escreverem o nome dos clientes com caneta piloto nos copos descartáveis.",
+        "Meu logotipo circular verde destaca a figura mítica de uma sereia de duas caudas."
+      ]
+    },
+    {
+      "id": "nivea",
+      "resposta": "NIVEA",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma tradicional marca alemã de cosméticos e produtos para cuidados com a pele pertencente ao grupo Beiersdorf.",
+        "Fui lançada no início do século vinte após a descoberta pioneira de um emulsificante de água em óleo.",
+        "Meu nome deriva da palavra em latim que significa branca como a neve, devido à pureza da fórmula.",
+        "Meu produto mais emblemático é vendido em uma clássica lata redonda de metal azul escura.",
+        "Sou amplamente conhecida pelo creme hidratante denso e multiúso que protege a pele contra o ressecamento."
+      ]
+    },
+    {
+      "id": "lamborghini",
+      "resposta": "LAMBORGHINI",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma fabricante italiana de supercarros esportivos exóticos fundada em 1963 na região da Emília-Romanha.",
+        "Meu fundador Ferruccio começou fabricando tratores agrícolas com peças reaproveitadas do pós-guerra.",
+        "Decidi criar meus próprios carros esportivos após uma discussão com Enzo Ferrari sobre problemas de embreagem.",
+        "Tradicionalmente batizo quase todos os meus modelos com nomes de touros de lide famosos da tourada espanhola.",
+        "Meu logotipo dourado sobre fundo preto exibe um imponente touro em posição de combate."
+      ]
+    },
+    {
+      "id": "rolex",
+      "resposta": "ROLEX",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma luxuosa e prestigiosa fabricante de relógios de pulso de precisão fundada em 1905 na Europa.",
+        "Criei nos anos vinte o primeiro relógio de pulso à prova de água e poeira do mundo com caixa hermética Oyster.",
+        "Meus modelos clássicos incluem peças cobiçadas por mergulhadores e aviadores como o Submariner e o Daytona.",
+        "Meus instrumentos de medição acompanharam expedições históricas pioneiras ao topo do Monte Everest e à fossa das Marianas.",
+        "Meu logotipo é formado por uma elegante coroa dourada de cinco pontas impressa no mostrador."
+      ]
+    },
+    {
+      "id": "heineken",
+      "resposta": "HEINEKEN",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma cervejaria multinacional fundada em 1864 na cidade de Amsterdã, nos Países Baixos.",
+        "Minha receita clássica utiliza uma levedura exclusiva de fermentação desenvolvida por um aluno de Louis Pasteur.",
+        "Utilizo apenas três ingredientes naturais na composição da minha cerveja pilsen: água, malte de cevada e lúpulo.",
+        "Sou uma das principais patrocinadoras de longa data da prestigiada Liga dos Campeões da Europa.",
+        "Minha garrafa verde com rótulo oval destaca uma estrela vermelha de cinco pontas com uma letra E sutilmente inclinada em sorriso."
+      ]
+    },
+    {
+      "id": "gucci",
+      "resposta": "GUCCI",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma célebre casa de moda de luxo de alta costura e artigos de couro fundada em 1921 em Florença, na Itália.",
+        "Meu criador Guccio inspirou-se na elegância das bagagens dos hóspedes nobres enquanto trabalhava como carregador em Londres.",
+        "Introduzi elementos do universo equestre em bolsas finas, como o detalhe metálico de freio de cavalo e tecidos de lona.",
+        "Minhas faixas listradas características combinam três faixas com duas listras verdes nas bordas e uma vermelha no centro.",
+        "Meu monograma mundialmente cobiçado é formado pela união de duas letras G maiúsculas espelhadas e entrelaçadas."
+      ]
+    },
+    {
+      "id": "hasbro",
+      "resposta": "HASBRO",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma grande corporação multinacional de brinquedos e jogos de tabuleiro fundada em 1923 em Rhode Island.",
+        "Comecei comercializando sobras têxteis e artigos escolares antes de entrar no mercado de entretenimento infantil.",
+        "Sou proprietária de franquias de grande sucesso no cinema e televisão como Transformers, Power Rangers e My Little Pony.",
+        "Produzo a famosa massa de modelar infantil colorida Play-Doh e os brinquedos de dardos de espuma da linha Nerf.",
+        "Fabrico jogos clássicos de tabuleiro disputados por gerações como Monopoly, Banco Imobiliário, Jogo da Vida e Batalha Naval."
+      ]
+    }
+  ]
+}
