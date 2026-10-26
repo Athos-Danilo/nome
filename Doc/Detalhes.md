@@ -860,3 +860,9 @@ O arquivo [AGENTS.md](../AGENTS.md), na raiz, aponta para [Agents/Regras.md](../
 Todo código controlado pelo projeto deverá usar português, incluindo banco, API, interface, testes e documentação, respeitando palavras reservadas e contratos externos. O guia detalha convenções de nomes, arquitetura, integridade dos dados, segurança, acessibilidade, dependências, testes e colaboração.
 
 O planejamento de pastas foi ajustado para essas convenções. Ferramentas que não carreguem `AGENTS.md` automaticamente deverão receber a orientação de ler os arquivos; a presença do arquivo não garante, por si só, que qualquer ferramenta externa siga as instruções.
+
+## 26. Roteiro da primeira entrega
+
+O roteiro de acompanhamento da primeira entrega é mantido apenas localmente, fora do versionamento. Ele detalha 49 fases, com dependências, tarefas, critérios de conclusão e momentos para decisões do responsável pelo projeto. Inclui os dois modos e intercala vinte lotes de 25 respostas durante o desenvolvimento.
+
+O calendário de sete dias é uma referência ajustável de organização, não um novo prazo de entrega aprovado. A fase final de validação depende de completar e revisar as 500 respostas e suas 2.500 dicas. O andamento real dos lotes será registrado em [Controle-do-catalogo.md](Controle-do-catalogo.md).

@@ -109,6 +109,8 @@ Novas temáticas devem ser combinadas antes de gerar o lote, evitando categorias
 
 Vinte lotes de 25 respostas atingem 500 respostas únicas. A distribuição aprovada é de 100 respostas por temática: **40 fáceis, 35 médias e 25 difíceis**. No total, serão 200 fáceis, 175 médias, 125 difíceis e 2.500 dicas.
 
+A ordem intercalada de produção, as fases correspondentes e os totais reais estão em [Controle-do-catalogo.md](../Doc/Controle-do-catalogo.md). O roteiro detalhado de acompanhamento é mantido apenas localmente e reserva momentos para produzir cada lote antes da validação final.
+
 Para cada temática, uma proposta de divisão em quatro lotes é:
 
 | Lote | Fácil | Médio | Difícil | Total |

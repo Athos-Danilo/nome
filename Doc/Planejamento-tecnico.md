@@ -179,6 +179,8 @@ Os provedores de interface e API ainda não foram escolhidos. Comparar planos gr
 
 O conceito visual e os componentes podem ser preparados enquanto os contratos são desenhados. A modelagem e a lista de operações da API serão os próximos artefatos técnicos; não estão substituídas por este plano de bibliotecas.
 
+O detalhamento operacional dessa sequência é mantido em um roteiro de acompanhamento apenas local, incluindo revisão visual antecipada, decisões pendentes e geração intercalada do catálogo. Os vinte lotes são acompanhados em [Controle-do-catalogo.md](Controle-do-catalogo.md). A divisão em sete dias de referência pode ser ampliada sem mudar o escopo aprovado.
+
 ## 12. Referências oficiais
 
 - [Vite](https://vite.dev/guide/), [React Router](https://reactrouter.com/start/declarative/installation) e [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite).
