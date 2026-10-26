@@ -4,7 +4,9 @@ Documento de requisitos e regras de negócio do jogo de adivinhação de palavra
 
 **Última atualização:** 26 de outubro de 2026.
 
-**Nome do projeto:** a definir.
+**Nome do projeto:** Decifra.
+
+**Mascote:** Aurélio, o dicionário apresentador.
 
 **Prazo estimado informado:** aproximadamente um mês até a entrega.
 
@@ -162,7 +164,7 @@ Não haverá área administrativa no site nesta versão. O conteúdo será prepa
 
 O formato JSON do guia local `Agents/Geracao-de-conteudo.md` foi aprovado: cada lote terá versão de formato, identificador e lista de respostas; cada resposta terá identificador estável, texto correto, temáticas, dificuldade e cinco dicas ordenadas. Os lotes terão 25 respostas. Os dados não deverão ser importados sem validação estrutural, verificação de duplicatas e revisão do conteúdo gerado.
 
-A pasta `Agents/` é ignorada pelo Git atualmente; portanto, esse guia será apenas local enquanto essa configuração for mantida. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, proposta como `data/palavras/`.
+A pasta `Agents/` é ignorada pelo Git, mas o guia `Agents/Geracao-de-conteudo.md` será incluído explicitamente no versionamento para preservar as instruções aprovadas. Os demais arquivos da pasta continuam sujeitos ao `.gitignore`. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, proposta como `data/palavras/`.
 
 Sugestões de conteúdo por jogadores poderão ser discutidas em uma atualização futura. Denúncias de dicas ou respostas não fazem parte da versão atual.
 
@@ -208,6 +210,8 @@ Antes de iniciar, o sistema deverá verificar se há conteúdo suficiente para a
 
 O sistema deverá priorizar respostas que o jogador ainda não jogou. Quando as opções inéditas acabarem, respostas anteriores poderão ser repetidas, com a mesma pontuação normal.
 
+Uma resposta será considerada vista assim que sua rodada individual ou sua sessão com a galera for apresentada. Respostas reservadas para etapas não iniciadas continuam inéditas.
+
 Uma resposta não poderá aparecer duas vezes dentro da mesma partida. O sistema reutilizará respostas de partidas anteriores quando necessário e somente oferecerá as alternativas abaixo se, mesmo assim, não houver respostas distintas suficientes para atender à configuração.
 
 Se faltar conteúdo para atender à configuração, o sistema deverá avisar e oferecer estas alternativas:
@@ -220,7 +224,6 @@ A mudança de temática dependerá da escolha do jogador e não deverá ocorrer 
 
 Ainda precisam ser definidos:
 
-- O que torna uma resposta “já jogada”: ter sido exibida, ter sido concluída ou outro critério.
 - Como lidar com falta de respostas da dificuldade escolhida, mesmo buscando outras temáticas.
 - Se a partida reduzida poderá ter qualquer quantidade disponível, inclusive menos de três respostas.
 
@@ -258,7 +261,7 @@ Espaços de expressões aparecerão separados. As letras das respostas e dos pal
 
 Na montagem de uma resposta completa, o jogador colocará a letra e poderá aplicar o acento depois, em vez de depender de um botão separado para cada vogal acentuada. A interface também deverá aceitar entrada acentuada pelo teclado físico. A aplicação de acento manterá a letra em caixa alta.
 
-A exigência de acentos vale para palpites completos. No modo com a galera, a escolha isolada de uma letra segue a equivalência entre vogais definida na seção 15.3. **C e Ç são caracteres distintos nos dois modos** e terão opções próprias no teclado virtual. O bloqueio de variantes acentuadas no modo individual e a apresentação de hífens ainda precisam ser definidos.
+A exigência de acentos vale para palpites completos. No modo com a galera, a escolha isolada de uma letra segue a equivalência entre vogais definida na seção 15.3. **C e Ç são caracteres distintos nos dois modos** e terão opções próprias no teclado virtual. A apresentação de hífens ainda precisa ser definida.
 
 ### 9.3. Disponibilidade das letras
 
@@ -275,6 +278,8 @@ Exemplo para **ARARA**:
 | W | 0 | Continua disponível |
 
 O bloqueio considera a quantidade de letras utilizadas, independentemente de estarem nas posições corretas. Remover uma ocorrência deverá liberar novamente a letra quando ela estiver abaixo do limite.
+
+No modo individual, vogais base e suas variantes acentuadas serão contadas juntas para esse limite. Em **MAÇÃ**, o botão A permitirá dois usos, correspondentes ao A e ao Ã; o jogador aplicará o til na posição adequada. Aplicar ou remover o acento não cria um novo uso da vogal. Essa contagem não elimina a exigência de acentuação correta ao confirmar o palpite. C e Ç continuam separados.
 
 Essa regra oferece uma pista indireta sobre a quantidade de ocorrências de uma letra e faz parte do comportamento desejado.
 
@@ -310,7 +315,7 @@ Na quinta dica, o jogador poderá tentar quantas vezes quiser. Os erros não red
 
 Não foi definida uma penalidade adicional por palpite errado além da mudança de faixa de pontuação ao avançar a dica.
 
-Ainda será decidido se as letras montadas permanecem nos quadradinhos ou são limpas depois de um erro.
+No modo individual, as letras montadas serão **limpas após cada palpite incorreto**, inclusive na quinta dica, preservando o estágio das dicas. Essa limpeza não se aplica ao modo com a galera, em que posições corretas são fixadas.
 
 ### 10.3. Acerto e desistência
 
@@ -444,7 +449,7 @@ Haverá comparação pessoal pelo histórico e **três rankings públicos gerais
 
 Os dados públicos previstos são nome de usuário e indicadores usados na classificação. A inclusão de datas ainda será avaliada.
 
-Os critérios de desempate dos rankings ainda serão escolhidos. A demonstração vinculada à conta contará normalmente, sem publicação duplicada.
+Jogadores com o mesmo resultado ocuparão a mesma posição no respectivo ranking, sem desempate por outra métrica. A sequência numérica após empates ainda poderá ser padronizada na apresentação. A demonstração vinculada à conta contará normalmente, sem publicação duplicada.
 
 Resultados serão publicados nos rankings somente quando a partida individual for concluída ou abandonada definitivamente. Partidas em andamento ou pausadas não terão seus pontos, acertos ou penalidades contabilizados nos rankings até o encerramento. A publicação deverá ocorrer uma única vez por partida, sem duplicação por reenvio ou consulta do resultado.
 
@@ -540,7 +545,7 @@ A sessão extra terá apenas os participantes empatados em primeiro lugar, uma r
 
 ### 15.7. Pontos ainda em aberto
 
-Repetição de conteúdo entre sessões, tratamento de perda de conexão e normalização dos nomes dos participantes ainda precisam ser definidos. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
+Não haverá repetição de respostas entre sessões da mesma partida com a galera. Temáticas poderão se repetir. Tratamento de perda de conexão e normalização dos nomes dos participantes ainda precisam ser definidos. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
 
 As regras do modo individual, incluindo penalidade de pausa e pontuação por dica, não deverão ser aplicadas automaticamente a esse modo.
 
@@ -556,7 +561,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-06 | Configurar temática, dificuldade e partidas de três, cinco ou sete respostas | Definido |
 | RF-07 | Permitir combinar quantidades e ordem das dificuldades | Definido |
 | RF-08 | Oferecer distribuição aleatória de dificuldades | Definido; sorteio pendente |
-| RF-09 | Priorizar conteúdo inédito e permitir repetição ao esgotá-lo | Definido; critérios pendentes |
+| RF-09 | Priorizar conteúdo inédito e considerar visto ao apresentar a etapa, permitindo repetição de partidas anteriores ao esgotar inéditas | Definido; falta por dificuldade pendente |
 | RF-10 | Oferecer alternativas quando faltar conteúdo mesmo após permitir respostas de partidas anteriores | Definido |
 | RF-11 | Exibir quadradinhos e permitir arrastar, clicar ou digitar letras | Definido |
 | RF-12 | Aplicar o bloqueio de letras pela quantidade de ocorrências | Definido |
@@ -570,7 +575,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-20 | Salvar e retomar uma única partida individual em andamento por jogador | Definido |
 | RF-21 | Descontar 100 pontos por pausa, sem duplicar a mesma interrupção ou penalizar atualização da página | Definido; detecção técnica pendente |
 | RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
-| RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, excluindo o modo com a galera | Definido; desempates pendentes |
+| RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Definido |
 | RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Primeira entrega confirmada; regras em detalhamento |
 | RF-25 | Permitir abandono definitivo sem desconto adicional, preservando pontos e acertos e liberando nova partida | Definido |
 | RF-26 | Permitir de um a três participantes e de uma a cinco sessões regulares no modo com a galera | Definido |
@@ -586,12 +591,16 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-36 | Publicar resultados individuais nos rankings apenas na conclusão ou no abandono definitivo, sem duplicação | Definido |
 | RF-37 | Permitir uma partida com a galera sem descartar uma partida individual pausada | Definido |
 | RF-38 | Exigir nomes distintos entre todos os participantes da mesma partida com a galera | Definido; normalização pendente |
-| RF-39 | Converter letras e palpites para caixa alta preservando acentos, permitir aplicar acento após colocar a letra e exigir acentuação correta em palpites completos | Definido; detalhes de interface e bloqueio individual pendentes |
+| RF-39 | Converter letras e palpites para caixa alta preservando acentos, permitir aplicar acento após colocar a letra e exigir acentuação correta em palpites completos | Definido; detalhes de interface pendentes |
 | RF-40 | Incluir a demonstração vinculada nas estatísticas e rankings individuais, sem duplicar a contabilização | Definido |
 | RF-41 | No modo com a galera, escolher uma vogal base revela todas as ocorrências ainda ocultas dela e de suas variantes acentuadas | Definido |
 | RF-42 | Tratar C e Ç como caracteres distintos nos dois modos, com opções próprias de entrada | Definido |
 | RF-43 | Avisar sobre letra bloqueada sem pontuar ou passar a vez no modo com a galera | Definido |
 | RF-44 | Impedir envio de palpites completos com posições vazias nos dois modos, sem contar erro ou aplicar efeitos de palpite incorreto | Definido |
+| RF-45 | Limpar letras após palpite incorreto no modo individual, inclusive na quinta dica | Definido |
+| RF-46 | Não repetir respostas entre sessões da mesma partida com a galera | Definido |
+| RF-47 | Persistir preferências de tema, áudio e movimentos na conta de usuários autenticados e no navegador de visitantes | Definido |
+| RF-48 | No individual, contar cada vogal base junto das variantes acentuadas para bloquear excesso de usos, preservando a validação exata dos acentos | Definido |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -732,14 +741,14 @@ Antes de fechar a modelagem e implementar as regras, as principais decisões sã
 
 1. **Detecção de interrupções:** como distinguir fechamento, perda de conexão e atualização, garantindo um desconto por pausa.
 2. **Estatísticas privadas:** momento de atualização e cálculo de indicadores por temática; rankings já têm publicação definida no encerramento.
-3. **Ranking:** critérios de desempate; demonstração vinculada já tem contabilização aprovada.
-4. **Seleção de conteúdo:** quando considerar uma resposta já jogada, falta por dificuldade e tamanho mínimo de partida reduzida.
+3. **Ranking:** apresentação da numeração após posições compartilhadas; empates já aprovados sem critério adicional.
+4. **Seleção de conteúdo:** falta por dificuldade, tamanho mínimo de partida reduzida e compartilhamento do histórico de conteúdo visto entre modos.
 5. **Configuração:** critério do sorteio de distribuição entre as dificuldades selecionadas.
 6. **Demonstração:** persistência do identificador por navegador, prazo de transferência e entrada com Google durante a partida.
-7. **Entrada de respostas:** detalhes de aplicação dos acentos, bloqueio de variantes no individual e manutenção das letras após erro ou retomada.
+7. **Entrada de respostas:** detalhes visuais de aplicação dos acentos e conservação das letras parcialmente preenchidas ao retomar.
 8. **Contas:** formato e tratamento de acentos nos nomes, preservando a comparação sem distinção de maiúsculas; eventual exclusão de conta e seus dados.
 9. **Dados e infraestrutura:** escolher hospedagem gratuita da API e da interface, implementar o importador no contrato aprovado e configurar o login Google.
-10. **Modo com a galera:** concluir repetição de conteúdo, tratamento de perda de conexão e normalização dos nomes; verificar também exigências adicionais das disciplinas.
+10. **Modo com a galera:** concluir tratamento de perda de conexão e normalização dos nomes; verificar também exigências adicionais das disciplinas.
 
 O núcleo do modo individual está definido. Os pontos acima devem ser resolvidos sem transformar sugestões ou interpretações em regras definitivas.
 
@@ -751,7 +760,7 @@ A interface deverá transmitir a experiência de um **jogo moderno e descontraí
 
 A paleta ainda será criada. A intenção é usar uma combinação marcante, diferenciada e coerente entre os modos claro e escuro, em vez de adotar uma aparência genérica. O **modo claro será o padrão**; o usuário poderá alternar para o modo escuro.
 
-O nome, a marca, a tipografia, o estilo das ilustrações e os valores finais das cores ainda serão definidos. O estilo de programa de auditório não foi escolhido como direção principal.
+O nome escolhido para o jogo é **Decifra**. A marca visual, a tipografia, o estilo das ilustrações e os valores finais das cores ainda serão definidos. O estilo de programa de auditório não foi escolhido como direção principal.
 
 ### 23.2. Menu para visitantes
 
@@ -792,13 +801,15 @@ A experiência terá muitos efeitos sonoros, incluindo botões, teclado e retorn
 
 Haverá música de fundo durante a partida, com uma seleção de aproximadamente cinco faixas para o usuário escolher ou desativar. A seleção final de músicas e a existência de música também no menu ainda serão definidas.
 
+Os estilos musicais escolhidos são **lo-fi e arcade**. A seleção poderá contemplar os dois estilos, sem definir neste momento a quantidade de faixas de cada um.
+
 O usuário poderá desabilitar todos os sons ou apenas determinados grupos de efeitos. Os controles serão separados em **música**, **interface e teclado** e **eventos da partida**, com volume independente por grupo e uma opção geral para silenciar.
 
 A origem das faixas e a permissão de uso e distribuição dos áudios precisarão ser verificadas ao preparar os recursos do projeto. Nenhuma música específica foi escolhida.
 
 Animações e sons deverão acompanhar o retorno visual: informações necessárias para jogar não deverão depender exclusivamente da audição. A experiência também deverá funcionar com sons desativados e movimentos reduzidos.
 
-A persistência das preferências entre visitas e dispositivos ainda será definida.
+As preferências de tema, música, volumes e redução de movimentos serão lembradas entre acessos. Para usuários autenticados, serão salvas na conta, permitindo recuperação em outros dispositivos. Para visitantes, serão salvas no navegador. A conciliação das preferências locais no primeiro login ainda será detalhada.
 
 ### 23.6. Dispositivos e adaptação
 
@@ -818,16 +829,26 @@ No modo com a galera, os participantes aparecerão com avatar e placar no alto, 
 
 O jogo terá um mascote próprio como parte de sua identidade. A intenção é criar um personagem marcante, com muitas interações, movimentos e reações aos acontecimentos, e não apenas uma imagem estática.
 
-A espécie ou forma do personagem, aparência, personalidade, nome e técnica de animação ainda serão definidos. Sua presença no menu e nas telas de partida também será planejada.
+A direção discutida é um **dicionário com braços, pernas e rosto**, atuando como apresentador do jogo. Um apresentador humano também foi cogitado, mas o dicionário é a proposta em desenvolvimento; o desenho final ainda será aprovado.
 
-Possíveis reações para o estudo de animação incluem espera, recepção, comemoração de acerto, reação ao erro, mudança de turno e resultado final. Essa lista é uma proposta de repertório, não um conjunto de animações já produzido ou aprovado individualmente.
+O mascote se chamará **Aurélio**. A escolha tem uma referência afetiva: o responsável pelo projeto se lembra do dicionário Aurélio que utilizava na infância. Essa inspiração no nome não define a reprodução da capa, do logotipo ou da identidade visual daquela publicação; o personagem terá desenho próprio.
+
+O personagem será **2D**, expressivo, brincalhão, curioso, competitivo e um pouco atrapalhado. Ele participará do menu e das partidas, reagindo aos acontecimentos. Sua aparência final e técnica de animação ainda serão definidas.
+
+O repertório de animações deverá contemplar espera, recepção, comemoração de acerto, reação ao erro, mudança de turno e resultado final. A intenção é ter muitas interações e movimentos. O desenho detalhado desses estados e a produção dos recursos ainda serão feitos.
 
 O mascote seguirá a preferência de movimentos reduzidos e deverá ter presença compatível com o espaço disponível em celulares e tablets, preservando a leitura das dicas e o uso do teclado.
+
+Ideias visuais para avaliação: abrir e fechar a capa como gesto, movimentar páginas, usar sobrancelhas expressivas, comemorar com pequenos saltos e apresentar os sorteios. Essas ideias não representam recursos já produzidos.
 
 ### 23.8. Próximas decisões de interface
 
 1. Hierarquia e acabamento do menu com cartões e botões.
 2. Detalhes de adaptação das telas de jogo e aplicação de acentos.
 3. Estilo dos avatares e identidade do mascote animado.
-4. Seleção das músicas e persistência das preferências de áudio e tema.
+4. Seleção das músicas e conciliação das preferências locais no primeiro login.
 5. Paleta, tipografia, ilustrações e linguagem das animações.
+
+## 24. Planejamento técnico
+
+As bibliotecas, a arquitetura inicial e a sequência de implementação estão em [Planejamento-tecnico.md](Planejamento-tecnico.md). O planejamento foi aprovado pelo responsável pelo projeto. Sua aprovação não representa bibliotecas instaladas ou funcionalidades implementadas; versões e compatibilidade ainda serão verificadas na preparação do ambiente.
