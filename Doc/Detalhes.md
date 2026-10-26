@@ -152,7 +152,7 @@ Antes de começar, o jogador poderá escolher:
 - A dificuldade.
 - A quantidade de respostas da partida.
 
-As quantidades inicialmente consideradas são **três, cinco e possivelmente sete respostas**. A opção de sete ainda deve ser confirmada.
+As quantidades disponíveis serão **três, cinco ou sete respostas**.
 
 No modo de temáticas aleatórias, as respostas poderão pertencer a categorias diferentes, respeitando a dificuldade ou a distribuição de dificuldades escolhida.
 
@@ -166,9 +166,9 @@ Exemplo: em uma partida com sete respostas, escolher três fáceis e quatro méd
 
 Também poderá definir a ordem das dificuldades. Por exemplo: fácil, médio, fácil, médio, médio, fácil e médio.
 
-Haverá ainda a possibilidade de deixar o sistema sortear a quantidade de respostas de cada dificuldade. O critério desse sorteio e a possibilidade de restringi-lo a níveis selecionados ainda precisam ser definidos.
+Haverá ainda a possibilidade de deixar o sistema sortear a quantidade de respostas de cada dificuldade entre os níveis selecionados pelo jogador. O critério de distribuição desse sorteio ainda precisa ser definido.
 
-Foi sugerida uma experiência de dificuldade crescente. A existência de uma opção específica que ordene automaticamente as dificuldades ainda precisa ser confirmada; a ordenação manual já faz parte da proposta.
+A combinação personalizada também oferecerá uma opção de ordem crescente de dificuldade, além da ordenação manual.
 
 ### 7.3. Validações da configuração
 
@@ -179,6 +179,8 @@ Antes de iniciar, o sistema deverá verificar se há conteúdo suficiente para a
 ## 8. Seleção e repetição de respostas
 
 O sistema deverá priorizar respostas que o jogador ainda não jogou. Quando as opções inéditas acabarem, respostas anteriores poderão ser repetidas, com a mesma pontuação normal.
+
+Uma resposta não poderá aparecer duas vezes dentro da mesma partida. O sistema reutilizará respostas de partidas anteriores quando necessário e somente oferecerá as alternativas abaixo se, mesmo assim, não houver respostas distintas suficientes para atender à configuração.
 
 Se faltar conteúdo para atender à configuração, o sistema deverá avisar e oferecer estas alternativas:
 
@@ -191,8 +193,6 @@ A mudança de temática dependerá da escolha do jogador e não deverá ocorrer 
 Ainda precisam ser definidos:
 
 - O que torna uma resposta “já jogada”: ter sido exibida, ter sido concluída ou outro critério.
-- Se uma resposta poderá aparecer duas vezes dentro da mesma partida.
-- A prioridade entre repetir respostas já jogadas e oferecer as alternativas por falta de conteúdo.
 - Como lidar com falta de respostas da dificuldade escolhida, mesmo buscando outras temáticas.
 - Se a partida reduzida poderá ter qualquer quantidade disponível, inclusive menos de três respostas.
 
@@ -209,7 +209,8 @@ A tela deverá apresentar:
 - A ação de confirmar o palpite.
 - A ação de pedir a próxima dica, enquanto houver uma disponível.
 - A ação de desistir da palavra.
-- A ação de sair da partida, cujo nome e efeito final ainda serão definidos.
+- A ação de pausar e sair, com confirmação do desconto de 100 pontos.
+- A ação de abandonar definitivamente a partida.
 
 A pontuação disponível deverá ficar clara, especialmente quando diminuir após a revelação de uma nova dica.
 
@@ -308,11 +309,15 @@ Exemplos:
 - Errar na primeira dica e acertar na segunda: 80 pontos.
 - Pedir dicas até a quarta e acertar: 40 pontos.
 - Errar várias vezes na quinta e depois acertar: 20 pontos.
-- Sair na terceira dica, retomar e acertar sem revelar outra: 60 pontos, antes de eventual penalidade por saída.
+- Sair na terceira dica, retomar e acertar sem revelar outra: 60 pontos pela rodada, com desconto separado de 100 pontos pela pausa.
 
 Não foram definidos bônus por sequência de acertos, velocidade ou dificuldade.
 
-O jogador manifestou interesse em descontar pontos ao sair de uma partida não concluída. **O valor, a incidência e os limites dessa penalidade ainda não estão definidos.** Portanto, os exemplos acima descrevem a pontuação base e não fixam o cálculo final após saídas.
+Cada pausa descontará **100 pontos da partida**, refletindo também no total acumulado do jogador e no ranking de pontos. A pontuação poderá ficar negativa.
+
+**Pontuação da partida = soma dos pontos das rodadas − 100 × quantidade de pausas penalizadas.**
+
+Abandonar definitivamente não gera um desconto adicional. Penalidades de pausas anteriores permanecem no saldo da partida abandonada.
 
 ## 12. Salvamento e retomada
 
@@ -322,7 +327,7 @@ Cada jogador poderá ter **apenas uma partida não finalizada por vez**. Ela pod
 
 O sistema deverá permitir visualizar essa partida e continuar de onde o jogador parou.
 
-Ao sair, a pontuação conquistada será preservada. A saída não deverá ser tratada automaticamente como encerramento definitivo, pois o jogador poderá continuar depois.
+Ao pausar, o progresso será preservado e a pontuação receberá o desconto previsto. A pausa não encerra definitivamente a partida, pois o jogador poderá continuar depois. Abandonar definitivamente encerra a partida e libera a criação de outra.
 
 ### 12.2. Estado a preservar
 
@@ -341,18 +346,21 @@ A conservação das letras parcialmente preenchidas e dos palpites anteriores ai
 
 ### 12.3. Saída, pausa e abandono
 
-É necessário distinguir os seguintes comportamentos antes da implementação:
+Os comportamentos serão distintos:
 
 | Situação | Definição atual |
 | --- | --- |
 | Desistir de uma palavra | Revela a resposta, registra zero e permite seguir |
-| Sair de uma partida | Preserva o progresso e permite retomar |
-| Desconto por saída | Desejado, com regra a definir |
-| Abandonar definitivamente uma partida | Comportamento a definir |
+| Pausar pelo botão | Avisar sobre o desconto, solicitar confirmação e descontar 100 pontos se confirmado |
+| Fechar a aba ou janela, ou perder a conexão | Preservar o progresso; ao retomar, avisar sobre o desconto de 100 pontos pela interrupção |
+| Atualizar a página | Recuperar o progresso sem desconto |
+| Abandonar definitivamente uma partida | Encerrar sem desconto adicional, manter pontos e acertos e liberar uma nova partida |
 
-O nome “Encerrar partida” poderá gerar confusão se a ação permitir retomada. A nomenclatura final deverá refletir a regra escolhida.
+Na retomada após interrupção, o aviso será informativo: o jogador não poderá recusar a penalidade. Uma mesma interrupção deverá gerar **um único desconto**, mesmo se o aviso for recarregado. Uma nova penalidade somente poderá ocorrer depois de o jogo ser efetivamente retomado e interrompido novamente.
 
-Também falta definir se fechar a aba, perder a conexão e sair por um botão terão o mesmo efeito sobre a penalidade.
+O mecanismo técnico para distinguir atualização de página, fechamento e perda de conexão será definido no backend e na integração com a interface. A regra exige essa distinção e não autoriza penalizar uma simples atualização.
+
+Uma partida abandonada contará nas estatísticas de abandono, mas não no ranking de partidas concluídas. Pontos e acertos já registrados continuarão nas estatísticas e nos rankings correspondentes.
 
 ## 13. Resultados, histórico e estatísticas
 
@@ -388,26 +396,25 @@ O perfil deverá reunir:
 - Desempenho por dificuldade.
 - Quantidade de tentativas erradas.
 
-As fórmulas ainda deverão esclarecer, por exemplo, se partidas em andamento entram no total de pontos, como identificar abandono e como contabilizar respostas pertencentes a várias temáticas.
+As fórmulas ainda deverão esclarecer, por exemplo, quando resultados de partidas em andamento entram no total e como contabilizar respostas pertencentes a várias temáticas. Abandono definitivo será registrado pela ação de abandonar, sem confundi-lo com pausa.
 
 ## 14. Ranking público
 
-Haverá comparação pessoal pelo histórico e uma classificação entre jogadores da plataforma.
+Haverá comparação pessoal pelo histórico e **três rankings públicos gerais**, sem divisão semanal ou mensal:
 
-O ranking deverá destacar desempenho e participação, considerando a intenção de classificar quem mais acertou e mais jogou.
+1. Mais palavras acertadas.
+2. Mais partidas concluídas.
+3. Mais pontos acumulados.
 
 Os dados públicos previstos são nome de usuário e indicadores usados na classificação. A inclusão de datas ainda será avaliada.
 
 Ainda não foram escolhidos:
 
-- A métrica principal e sua ordem de prioridade.
-- A existência de rankings separados por acertos, partidas ou pontos.
-- O período considerado: geral, semanal, mensal ou outro.
 - Os critérios de desempate.
-- O tratamento de partidas incompletas e demonstrações transferidas.
-- A comparação entre partidas com quantidades e dificuldades diferentes.
+- O momento de contabilização dos resultados de partidas em andamento.
+- O tratamento de demonstrações transferidas.
 
-Partidas maiores permitem somar mais pontos, e tentativas ilimitadas na quinta dica permitem concluir uma palavra após muitos erros. Esses comportamentos deverão ser considerados ao escolher o que o ranking pretende medir.
+Os rankings serão acumulativos, incluindo partidas de diferentes tamanhos e dificuldades. Partidas abandonadas manterão seus pontos e acertos, mas não contarão como concluídas. Os descontos por pausa afetarão o ranking de pontos, inclusive quando produzirem saldo negativo.
 
 ## 15. Modo com a galera
 
@@ -434,11 +441,11 @@ As regras do modo individual não deverão ser aplicadas automaticamente a esse 
 | RF-03 | Transferir a demonstração ao histórico após entrada em seguida | Definido; prazo pendente |
 | RF-04 | Garantir unicidade de e-mail e nome de usuário | Definido |
 | RF-05 | Permitir alterar nome de usuário e avatar da coleção | Definido |
-| RF-06 | Configurar temática, dificuldade e quantidade de respostas | Definido; sete respostas a confirmar |
+| RF-06 | Configurar temática, dificuldade e partidas de três, cinco ou sete respostas | Definido |
 | RF-07 | Permitir combinar quantidades e ordem das dificuldades | Definido |
 | RF-08 | Oferecer distribuição aleatória de dificuldades | Definido; sorteio pendente |
 | RF-09 | Priorizar conteúdo inédito e permitir repetição ao esgotá-lo | Definido; critérios pendentes |
-| RF-10 | Oferecer alternativas quando faltar conteúdo | Definido; prioridade pendente |
+| RF-10 | Oferecer alternativas quando faltar conteúdo mesmo após permitir respostas de partidas anteriores | Definido |
 | RF-11 | Exibir quadradinhos e permitir arrastar, clicar ou digitar letras | Definido |
 | RF-12 | Aplicar o bloqueio de letras pela quantidade de ocorrências | Definido |
 | RF-13 | Conferir o palpite somente após confirmação | Definido |
@@ -449,10 +456,11 @@ As regras do modo individual não deverão ser aplicadas automaticamente a esse 
 | RF-18 | Calcular a pontuação conforme a dica atual | Definido |
 | RF-19 | Permitir desistir da palavra, revelar a resposta e registrar zero | Definido |
 | RF-20 | Salvar e retomar uma única partida em andamento por jogador | Definido |
-| RF-21 | Aplicar desconto por saída de partida | Regra pendente |
+| RF-21 | Descontar 100 pontos por pausa, sem duplicar a mesma interrupção ou penalizar atualização da página | Definido; detecção técnica pendente |
 | RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
-| RF-23 | Apresentar ranking público com dados limitados | Definido; classificação pendente |
+| RF-23 | Apresentar rankings gerais de acertos, partidas concluídas e pontos | Definido; desempates pendentes |
 | RF-24 | Disponibilizar modo com a galera | Detalhamento e entrega pendentes |
+| RF-25 | Permitir abandono definitivo sem desconto adicional, preservando pontos e acertos e liberando nova partida | Definido |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -516,7 +524,8 @@ Também deverão ser verificadas eventuais exigências adicionais dos professore
 1. O jogador acessa sua partida não finalizada.
 2. O sistema recupera o progresso e a dica atual.
 3. O jogador pode consultar as dicas anteriores e continuar.
-4. Um acerto recebe os pontos da dica atual, considerando a futura regra de penalidade por saída, quando definida.
+4. Se houve fechamento ou perda de conexão, o sistema apresenta o aviso e registra o desconto de 100 pontos uma única vez pela interrupção. Uma pausa já confirmada e descontada pelo botão não gera novo desconto na retomada.
+5. Um acerto recebe os pontos da dica atual; a penalidade é contabilizada separadamente na pontuação da partida.
 
 ## 20. Exemplos para validação das regras
 
@@ -534,6 +543,10 @@ Também deverão ser verificadas eventuais exigências adicionais dos professore
 | Retomar na terceira dica e acertar | Registrar 60 pontos base para a rodada |
 | Jogar novamente uma resposta após esgotar inéditas | Usar a tabela normal de pontos |
 | Faltar conteúdo da temática | Pedir escolha antes de misturar temáticas ou reduzir a partida |
+| Pausar pelo botão e confirmar com saldo de 60 pontos | Saldo passa a −40 pontos; progresso permanece salvo |
+| Retomar a mesma interrupção e recarregar o aviso | Aplicar apenas um desconto pela interrupção |
+| Atualizar a página durante a partida | Recuperar progresso sem desconto |
+| Abandonar com saldo de −40 pontos | Encerrar com −40, preservar acertos e liberar nova partida |
 
 ## 21. Limites atuais e versões futuras
 
@@ -556,11 +569,11 @@ Sugestões de conteúdo por jogadores poderão ser discutidas em atualização f
 
 Antes de fechar a modelagem e implementar as regras, as principais decisões são:
 
-1. **Saída e penalidade:** valor do desconto, quando ocorre, se pode repetir e se a pontuação pode ficar negativa.
-2. **Abandono definitivo:** como liberar a criação de outra partida quando já existe uma em andamento.
-3. **Ranking:** métricas, períodos, desempates e tratamento de partidas de tamanhos diferentes.
-4. **Seleção de conteúdo:** relação entre repetição e insuficiência de palavras; repetição dentro da mesma partida.
-5. **Configuração:** confirmação de sete respostas, sorteio de dificuldades e opção automática de dificuldade crescente.
+1. **Detecção de interrupções:** como distinguir fechamento, perda de conexão e atualização, garantindo um desconto por pausa.
+2. **Resultados em andamento:** em qual momento pontos e acertos de uma partida ativa serão refletidos nas estatísticas e rankings.
+3. **Ranking:** critérios de desempate e tratamento da demonstração transferida.
+4. **Seleção de conteúdo:** quando considerar uma resposta já jogada, falta por dificuldade e tamanho mínimo de partida reduzida.
+5. **Configuração:** critério do sorteio de distribuição entre as dificuldades selecionadas.
 6. **Demonstração:** dificuldade, repetição, prazo de transferência e efeito no ranking.
 7. **Entrada de respostas:** normalização de caracteres, envio incompleto e manutenção das letras após erro ou retomada.
 8. **Contas:** escolha inicial e validação do nome de usuário; eventual exclusão de conta e seus dados.
