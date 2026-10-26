@@ -796,20 +796,24 @@ O menu inicial do visitante deverá conter:
 
 Após consumir a demonstração, o menu deverá refletir o bloqueio de novas demonstrações e direcionar para o login. A apresentação exata desse estado ainda será desenhada.
 
-### 23.3. Menu do jogador autenticado
+### 23.3. Menu do jogador autenticado e arquitetura de rotas
 
-Depois do login, o menu oferecerá acesso a:
+Depois do login, o menu oferece acesso em cartões destacados aos dois modos de jogo e atalhos rápidos para perfil, rankings e configurações. Se houver uma partida individual pausada, um cartão de destaque "Continuar Partida" é exibido com o progresso salvo. O botão de demonstração não é exibido após a autenticação.
 
-- Modo individual.
-- Modo com a galera.
-- Configurações.
-- Alternância entre tema claro e escuro.
-- Perfil e personalização.
-- Rankings individuais.
+Na fase 06, foram aprovados o mapa de navegação e as rotas oficiais:
 
-Histórico, estatísticas e retomada da partida individual também precisarão de acesso na navegação; sua posição final ainda será definida. O botão de demonstração não será exibido após a autenticação.
-
-A composição combinará cartões grandes para destacar as opções principais com botões de menu para os demais acessos. A hierarquia e o posicionamento exatos serão definidos no desenho das telas.
+| Rota | Tela e Função |
+| :--- | :--- |
+| `/` | **Menu Inicial:** cartões de modos, demonstração (visitante) ou continuação de partida salva |
+| `/primeiro-acesso` | **Boas-vindas:** escolha de nome de usuário único disponível e avatar da coleção oficial |
+| `/jogar/demonstracao` | **Partida de Demonstração:** 3 palavras fáceis com temáticas sorteadas (1 vez por navegador) |
+| `/jogar/individual/novo` | **Configuração Individual:** temáticas, 3/5/7 respostas e distribuição de dificuldades |
+| `/jogar/individual` | **Rodada Individual:** cartão de dica, histórico, quadradinhos de letras e teclado virtual |
+| `/jogar/galera/novo` | **Configuração da Galera:** 1 a 3 participantes, 1 a 5 sessões e escolha de temáticas |
+| `/jogar/galera` | **Painel da Galera:** avatares com destaque da vez, 1 a 3 respostas e teclado compartilhado |
+| `/rankings` | **Classificações Públicas:** abas de Palavras Acertadas, Partidas Concluídas e Pontos |
+| `/perfil` | **Painel Pessoal:** histórico dos dois modos, estatísticas privadas e exclusão de conta |
+| `/configuracoes` | **Preferências:** alternância de tema, 3 volumes de som, silenciar e redução de movimentos |
 
 ### 23.4. Animações e transições
 
