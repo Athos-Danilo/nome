@@ -170,7 +170,7 @@ Os provedores de interface e API ainda não foram escolhidos. Comparar planos gr
 1. Validar o comportamento de atualização e fechamento.
 2. Preparar estrutura, dependências e conexões locais.
 3. Modelar os dados e importar um pequeno lote revisado.
-4. Implementar login, primeiro acesso e demonstração.
+4. Implementar login, primeiro acesso, perfil, exclusão de conta e demonstração. Antes de modelar a exclusão, aprovar seus efeitos sobre dados relacionados, sessões de acesso, rankings e novo login; cobrir autorização, cancelamento, falhas e conclusão nos testes.
 5. Integrar a partida individual com pontuação e retomada.
 6. Integrar o painel com a galera, turnos, sessões e resultado.
 7. Completar histórico, rankings e preferências.

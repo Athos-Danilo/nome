@@ -8,7 +8,7 @@ Documento de requisitos e regras de negócio do jogo de adivinhação de palavra
 
 **Mascote:** Aurélio, o dicionário apresentador.
 
-**Prazo estimado informado:** aproximadamente um mês até a entrega.
+**Prazo estimado informado:** até aproximadamente um mês; data exata ainda não confirmada. A apresentação será conjunta para Web II e Banco de Dados II.
 
 Este documento reúne as decisões tomadas na concepção do projeto. Quando uma regra ainda não foi fechada, ela aparece como **a definir**. Recomendações de implementação estão identificadas como propostas e não substituem decisões de negócio.
 
@@ -113,6 +113,12 @@ A personalização prevista é selecionar uma imagem da coleção da plataforma.
 O perfil, o histórico e as estatísticas pessoais serão privados. Haverá uma classificação pública com informações limitadas, como nome de usuário e indicadores de desempenho.
 
 A exposição de datas no ranking foi sugerida, mas ainda não foi confirmada. E-mail e histórico detalhado não integram a proposta de informações públicas.
+
+### 5.4. Exclusão de conta
+
+A exclusão da própria conta e de seus dados faz parte da primeira entrega, conforme decisão do responsável na consolidação do escopo.
+
+Antes da implementação, definir a confirmação exigida e os efeitos sobre partidas, histórico, estatísticas, rankings, preferências e referências aos participantes da galera. Também será definido o comportamento de um novo acesso pela mesma conta Google após a exclusão. A inclusão do recurso está aprovada; regras de retenção, remoção ou anonimização ainda não foram escolhidas.
 
 ## 6. Conteúdo do jogo
 
@@ -601,6 +607,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-46 | Não repetir respostas entre sessões da mesma partida com a galera | Definido |
 | RF-47 | Persistir preferências de tema, áudio e movimentos na conta de usuários autenticados e no navegador de visitantes | Definido |
 | RF-48 | No individual, contar cada vogal base junto das variantes acentuadas para bloquear excesso de usos, preservando a validação exata dos acentos | Definido |
+| RF-49 | Permitir ao usuário excluir sua própria conta e seus dados na primeira entrega | Escopo aprovado; confirmação e efeitos sobre os dados pendentes |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -652,7 +659,7 @@ Ainda será necessário estabelecer como iniciar uma partida com conteúdo váli
 
 Referências dos serviços de destino: [Neon — plataforma PostgreSQL](https://github.com/neondatabase/neon) e [MongoDB — início com implantação local ou Atlas](https://www.mongodb.com/docs/get-started/).
 
-Também deverão ser verificadas eventuais exigências adicionais dos professores sobre o uso dos bancos e as entregas acadêmicas.
+O responsável confirmou que não há exigências adicionais dos professores além das já registradas nesta documentação. A apresentação será conjunta para Web II e Banco de Dados II. Eventuais novas orientações deverão ser incorporadas quando comunicadas.
 
 ## 19. Fluxos principais
 
@@ -746,7 +753,7 @@ Antes de fechar a modelagem e implementar as regras, as principais decisões sã
 5. **Configuração:** critério do sorteio de distribuição entre as dificuldades selecionadas.
 6. **Demonstração:** persistência do identificador por navegador, prazo de transferência e entrada com Google durante a partida.
 7. **Entrada de respostas:** detalhes visuais de aplicação dos acentos e conservação das letras parcialmente preenchidas ao retomar.
-8. **Contas:** formato e tratamento de acentos nos nomes, preservando a comparação sem distinção de maiúsculas; eventual exclusão de conta e seus dados.
+8. **Contas:** formato e tratamento de acentos nos nomes, preservando a comparação sem distinção de maiúsculas; confirmação e efeitos da exclusão de conta sobre os dados e um futuro acesso com o mesmo Google. A exclusão já integra a primeira entrega.
 9. **Dados e infraestrutura:** escolher hospedagem gratuita da API e da interface, implementar o importador no contrato aprovado e configurar o login Google.
 10. **Modo com a galera:** concluir tratamento de perda de conexão e normalização dos nomes; verificar também exigências adicionais das disciplinas.
 

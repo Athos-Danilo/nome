@@ -119,7 +119,10 @@ Não altere a sintaxe de ferramentas nem crie wrappers de tradução sem utilida
 - Atualize a documentação quando uma decisão aprovada alterar contratos, configuração, arquitetura ou comportamento.
 - Documente motivos e decisões relevantes; comentários não devem apenas narrar o código.
 - Antes de um commit, confira os arquivos e o diff, inclusive segredos e arquivos gerados. Não inclua dependências instaladas, caches ou dados locais por acidente.
-- Faça commit e push quando solicitados ou autorizados no contexto; não interprete um pedido anterior de push como autorização permanente para publicar alterações futuras.
+- Ao concluir cada fase do desenvolvimento, revisar as alterações, executar as verificações pertinentes e fazer commit e push para o GitHub. O responsável autorizou expressamente esse procedimento recorrente; não pedir nova confirmação a cada fase. Fora desse fluxo, fazer commit e push somente quando solicitados ou autorizados no contexto.
+- A mensagem do commit deve informar o número da fase e sua responsabilidade, no formato `Fase NN: objetivo da fase`. No corpo da mensagem, resumir as entregas e verificações relevantes. Não declarar uma fase concluída enquanto seus critérios não forem atendidos.
+- Incluir somente arquivos pertinentes à fase e às decisões aprovadas. Manter `Doc/Roteiro-primeira-entrega.md` apenas local, respeitando o `.gitignore`; nunca forçar sua inclusão. Se a fase alterar apenas arquivos ignorados, informar que não há alterações versionáveis, sem criar commit vazio.
+- Confirmar o resultado do push antes de informar que a fase foi publicada. Se houver falha, registrar a pendência e preservar o trabalho; não forçar o push nem sobrescrever alterações remotas.
 - Ao concluir, resuma o que mudou, como verificou e quais limitações concretas restam.
 
 ## 11. Critério de conclusão
