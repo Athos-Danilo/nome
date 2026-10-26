@@ -104,9 +104,19 @@ Cada conta terá e-mail e nome de usuário únicos. No primeiro acesso com o Goo
 
 ### 5.2. Avatares
 
-O sistema disponibilizará um pacote de imagens temáticas para escolha do avatar, em uma experiência semelhante à seleção de perfis da Netflix.
+O sistema disponibilizará um pacote de imagens temáticas para escolha do avatar, em uma experiência semelhante à seleção de perfis da Netflix. A personalização prevista é selecionar uma imagem da coleção oficial da plataforma; envio de fotos pessoais não integra a primeira entrega.
 
-A personalização prevista é selecionar uma imagem da coleção da plataforma. Envio de imagens próprias não faz parte do escopo definido.
+Na fase 04, foi aprovada a coleção inicial de **20 avatares** com identificadores estáveis em vetor circular e fundo nas cores da paleta:
+
+| Grupo | Identificadores estáveis |
+| :--- | :--- |
+| **O Mascote Aurélio** | `aurelio_apresentador`, `aurelio_oculos`, `aurelio_detetive`, `aurelio_comemorando` |
+| **Fauna & Natureza** | `coruja_sabia`, `onca_pintada`, `capivara_zen`, `tucano_tropical` |
+| **Enigmas & Conhecimento** | `lampada_ideia`, `lupa_misterio`, `livro_encantado`, `pena_tinteiro` |
+| **Entretenimento & Cultura** | `claquete_cinema`, `pipoca_divertida`, `trofeu_campeao`, `cartola_magica` |
+| **Jogos & Universo Retrô** | `controle_arcade`, `fita_cassete`, `disco_vinil`, `dado_da_sorte` |
+
+Esses avatares serão utilizados no perfil do usuário autenticado e na escolha rápida dos convidados do modo com a galera.
 
 ### 5.3. Privacidade
 
@@ -767,7 +777,14 @@ A interface deverá transmitir a experiência de um **jogo moderno e descontraí
 
 A paleta aprovada para iniciar o frontend combina oliva, bege, amarelo e verde-lima: **#444439, #8B8669, #DECD9C, #E5E37D e #D4FE62**, com tons de apoio para leitura. O **modo claro será o padrão**; o usuário poderá alternar para o modo escuro. Os papéis de cada cor estão no [Guia visual](Guia-visual.md).
 
-O nome escolhido para o jogo é **Decifra**. A tipografia escolhida usa **Bricolage Grotesque** nos títulos e **DM Sans** nos textos, controles e letras, com variações de tamanho, peso e itálico conforme o guia. A direção poderá ser ajustada após a avaliação das primeiras páginas reais. A marca visual e as ilustrações ainda serão desenvolvidas; o estilo de programa de auditório não foi escolhido como direção principal.
+O nome escolhido para o jogo é **Decifra**. A tipografia escolhida usa **Bricolage Grotesque** nos títulos e **DM Sans** nos textos, controles e letras, com variações de tamanho, peso e itálico conforme o guia.
+
+A marca visual aprovada na fase 04 segue o conceito **"O Bloco Decifrado"**:
+- **Símbolo:** Um bloco quadrado de cantos arredondados contendo a letra `D`, com fundo verde-lima `#D4FE62` e contorno/letra oliva `#444439`, remetendo aos quadradinhos do jogo.
+- **Tipografia do nome:** `ECIFRA` em caixa alta com Bricolage Grotesque (peso 800).
+- **Versão Principal (Menu):** Símbolo `[ D ]` + `ECIFRA` com o subtítulo em DM Sans: *"O jogo de palavras e dicas"*.
+- **Versão Compacta (Cabeçalho):** Ícone e texto em disposição horizontal com altura reduzida (32–36 px) para telas internas.
+- **Favicon / Ícone de App:** O bloco `[ D ]` isolado, garantindo nitidez e contraste em pequenas dimensões.
 
 ### 23.2. Menu para visitantes
 
@@ -840,9 +857,12 @@ A direção discutida é um **dicionário com braços, pernas e rosto**, atuando
 
 O mascote se chamará **Aurélio**. A escolha tem uma referência afetiva: o responsável pelo projeto se lembra do dicionário Aurélio que utilizava na infância. Essa inspiração no nome não define a reprodução da capa, do logotipo ou da identidade visual daquela publicação; o personagem terá desenho próprio.
 
-O personagem será **2D**, expressivo, brincalhão, curioso, competitivo e um pouco atrapalhado. Ele participará do menu e das partidas, reagindo aos acontecimentos. Sua aparência final e técnica de animação ainda serão definidas.
+O personagem será **2D**, expressivo, brincalhão, curioso, competitivo e um pouco atrapalhado. Ele participará do menu e das partidas, reagindo aos acontecimentos.
 
-O repertório de animações deverá contemplar espera, recepção, comemoração de acerto, reação ao erro, mudança de turno e resultado final. A intenção é ter muitas interações e movimentos. O desenho detalhado desses estados e a produção dos recursos ainda serão feitos.
+Na fase 04, foi aprovado o estilo **"O Apresentador Showman"**:
+- **Design do personagem:** Dicionário clássico e carismático vestindo uma **gravata-borboleta verde-lima** (`#D4FE62`) com nozinho oliva, braços e pernas flexíveis estilo cartoon retrô-moderno, luvas e sapatos arredondados.
+- **Estrutura SVG em camadas para animação:** Preparado em partes separadas (`corpo_capa`, `corpo_miolo`, `acessorio_gravata`, `rosto`, `membros`) para receber movimentos com Motion na fase 36.
+- **Repertório de expressões base:** Espera/neutro no menu, apresentação de dica com ar de mistério, comemoração de acerto com pulinho de vitória, reação ao erro com ombros encolhidos, e passagem de vez/sorteio de participante na galera.
 
 O mascote seguirá a preferência de movimentos reduzidos e deverá ter presença compatível com o espaço disponível em celulares e tablets, preservando a leitura das dicas e o uso do teclado.
 
