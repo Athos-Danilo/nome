@@ -16,7 +16,7 @@ Cada resposta conta uma vez na meta global. Associações adicionais a temática
 
 ## 2. Fila de lotes intercalados
 
-Cada linha representa um arquivo futuro em `dados/palavras/`. O número acumulado é uma **meta após aprovação**, não um registro de conteúdo já produzido.
+Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado é uma **meta após aprovação**, não um registro de conteúdo já produzido.
 
 | Fase | Dia de referência | Arquivo | Fácil | Média | Difícil | Total | Meta acumulada | Estado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ Pendências:
 ```text
 Lote: animais-001
 Fase: 03
-Arquivo: dados/palavras/animais-001.json
+Arquivo: Data/palavras/animais-001.json
 Estado: Aguardando validação automática
 Data da revisão: 2026-10-26
 Responsável pela revisão: Antigravity (IA) com aprovação do responsável

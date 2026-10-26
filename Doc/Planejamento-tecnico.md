@@ -126,7 +126,7 @@ backend/
   migracoes/
   comandos/
   testes/
-dados/
+Data/
   palavras/
 Doc/
 ```

@@ -170,7 +170,7 @@ Não haverá área administrativa no site nesta versão. O conteúdo será prepa
 
 O formato JSON do guia local `Agents/Geracao-de-conteudo.md` foi aprovado: cada lote terá versão de formato, identificador e lista de respostas; cada resposta terá identificador estável, texto correto, temáticas, dificuldade e cinco dicas ordenadas. Os lotes terão 25 respostas. Os dados não deverão ser importados sem validação estrutural, verificação de duplicatas e revisão do conteúdo gerado.
 
-A pasta `Agents/` tem duas exceções explícitas no `.gitignore`: `Regras.md` e `Geracao-de-conteudo.md` serão versionados. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, proposta como `dados/palavras/`.
+A pasta `Agents/` tem duas exceções explícitas no `.gitignore`: `Regras.md` e `Geracao-de-conteudo.md` serão versionados. Os lotes de conteúdo deverão ficar em uma pasta versionada separada, definida como `Data/palavras/`.
 
 Sugestões de conteúdo por jogadores poderão ser discutidas em uma atualização futura. Denúncias de dicas ou respostas não fazem parte da versão atual.
 
