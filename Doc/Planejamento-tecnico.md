@@ -38,6 +38,10 @@ Como o modo com a galera usa o mesmo dispositivo, suas ações podem ser enviada
 | TanStack Query | Comunicação e sincronização com a API | Consultas, alterações, cache, carregamento e atualização dos dados |
 | Radix Primitives, conforme necessário | Diálogos, seletores e menus | Base de foco e navegação por teclado para componentes com aparência própria |
 
+### Temas e tipografia
+
+Aplicar a direção aprovada em [Guia-visual.md](Guia-visual.md): paleta oliva/bege/verde-lima, Bricolage Grotesque e DM Sans. Centralizar cores em variáveis semânticas por tema; usar pesos reais e itálico de DM Sans, preservando leitura e acentuação. Preparar fontes locais e licenças na implementação do frontend. A aprovação visual não significa que os componentes já estejam implementados.
+
 ### Separação do estado
 
 - Componentes React: seleção e montagem temporária das letras.

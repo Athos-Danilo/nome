@@ -765,9 +765,9 @@ O núcleo do modo individual está definido. Os pontos acima devem ser resolvido
 
 A interface deverá transmitir a experiência de um **jogo moderno e descontraído**, com cartões, ilustrações e uso intenso de animações. O menu inicial deverá ter acabamento visual de alto nível e funcionar como um menu de jogo.
 
-A paleta ainda será criada. A intenção é usar uma combinação marcante, diferenciada e coerente entre os modos claro e escuro, em vez de adotar uma aparência genérica. O **modo claro será o padrão**; o usuário poderá alternar para o modo escuro.
+A paleta aprovada para iniciar o frontend combina oliva, bege, amarelo e verde-lima: **#444439, #8B8669, #DECD9C, #E5E37D e #D4FE62**, com tons de apoio para leitura. O **modo claro será o padrão**; o usuário poderá alternar para o modo escuro. Os papéis de cada cor estão no [Guia visual](Guia-visual.md).
 
-O nome escolhido para o jogo é **Decifra**. A marca visual, a tipografia, o estilo das ilustrações e os valores finais das cores ainda serão definidos. O estilo de programa de auditório não foi escolhido como direção principal.
+O nome escolhido para o jogo é **Decifra**. A tipografia escolhida usa **Bricolage Grotesque** nos títulos e **DM Sans** nos textos, controles e letras, com variações de tamanho, peso e itálico conforme o guia. A direção poderá ser ajustada após a avaliação das primeiras páginas reais. A marca visual e as ilustrações ainda serão desenvolvidas; o estilo de programa de auditório não foi escolhido como direção principal.
 
 ### 23.2. Menu para visitantes
 
@@ -854,7 +854,7 @@ Ideias visuais para avaliação: abrir e fechar a capa como gesto, movimentar p�
 2. Detalhes de adaptação das telas de jogo e aplicação de acentos.
 3. Estilo dos avatares e identidade do mascote animado.
 4. Seleção das músicas e conciliação das preferências locais no primeiro login.
-5. Paleta, tipografia, ilustrações e linguagem das animações.
+5. Ilustrações e linguagem das animações; aplicar a paleta e a tipografia aprovadas no guia visual, ajustando-as se necessário após avaliação das páginas reais.
 
 ## 24. Planejamento técnico
 
