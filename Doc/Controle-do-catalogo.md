@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** quatro lotes produzidos, totalizando 100 respostas e 500 dicas. Os três primeiros registram aprovação editorial anterior; o lote de países está revisado pela IA e aguarda avaliação humana. A validação pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
+**Situação atual:** cinco lotes produzidos, totalizando 125 respostas e 625 dicas. Os três primeiros registram aprovação editorial anterior; países e objetos estão revisados pela IA e aguardam avaliação humana. Todos os lotes passaram na validação básica do modelo de conteúdo da fase 10; a validação completa pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -24,7 +24,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Aguardando validação automática |
 | 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Aguardando validação automática |
 | 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
-| 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Não iniciado |
+| 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Em revisão (avaliação humana pendente) |
 | 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Não iniciado |
 | 16 | 3 | `filmes-e-series-002.json` | 10 | 10 | 5 | 25 | 175 | Não iniciado |
 | 18 | 3 | `marcas-002.json` | 10 | 10 | 5 | 25 | 200 | Não iniciado |
@@ -157,6 +157,26 @@ Conferência no Atlas: Pendente
 Pendências: Avaliação humana e validação pelo importador
 ```
 
+#### Lote objetos-001 (Fase 11)
+
+```text
+Lote: objetos-001
+Fase: 11
+Arquivo: Data/palavras/objetos-001.json
+Estado: Em revisão (avaliação humana pendente)
+Data da revisão: 2026-10-27
+Responsável pela revisão: Codex (revisão editorial por IA)
+Quantidade gerada: 25
+Quantidade aprovada: 0 (sem presumir aprovação humana)
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: JSON, modelo Pydantic, Unicode, campos e 125 dicas conferidos; cinco testes de conteúdo aprovados
+Duplicatas e substituições: Nenhuma entre as 125 respostas do catálogo
+Fatos e grafias conferidos: Revisão, ambiguidades e fontes em Doc/Revisoes/objetos-001.md
+Importação local: Pendente (fase 12)
+Conferência no Atlas: Pendente
+Pendências: Avaliação humana e validação completa pelo importador
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -180,8 +200,8 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | Filmes e séries | 100 | 25 | 25 | 0 | 0 |
 | Marcas | 100 | 25 | 25 | 0 | 0 |
 | Países | 100 | 25 | 0 | 0 | 0 |
-| Objetos | 100 | 0 | 0 | 0 | 0 |
-| **Total** | **500** | **100** | **75** | **0** | **0** |
+| Objetos | 100 | 25 | 0 | 0 | 0 |
+| **Total** | **500** | **125** | **75** | **0** | **0** |
 
 ## 6. Fechamento global
 

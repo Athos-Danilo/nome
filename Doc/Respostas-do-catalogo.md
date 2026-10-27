@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos quatro lotes existentes: 100 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos cinco lotes existentes: 125 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -104,3 +104,28 @@ Gerada a partir dos quatro lotes existentes: 100 respostas. Fornecer esta lista 
 | paises-001 | `mongolia` | MONGÓLIA | dificil |
 | paises-001 | `islandia` | ISLÂNDIA | dificil |
 | paises-001 | `madagascar` | MADAGASCAR | dificil |
+| objetos-001 | `cadeira` | CADEIRA | facil |
+| objetos-001 | `tesoura` | TESOURA | facil |
+| objetos-001 | `relogio` | RELÓGIO | facil |
+| objetos-001 | `espelho` | ESPELHO | facil |
+| objetos-001 | `lapis` | LÁPIS | facil |
+| objetos-001 | `mochila` | MOCHILA | facil |
+| objetos-001 | `travesseiro` | TRAVESSEIRO | facil |
+| objetos-001 | `garfo` | GARFO | facil |
+| objetos-001 | `chave` | CHAVE | facil |
+| objetos-001 | `vassoura` | VASSOURA | facil |
+| objetos-001 | `bussola` | BÚSSOLA | medio |
+| objetos-001 | `termometro` | TERMÔMETRO | medio |
+| objetos-001 | `grampeador` | GRAMPEADOR | medio |
+| objetos-001 | `ampulheta` | AMPULHETA | medio |
+| objetos-001 | `peneira` | PENEIRA | medio |
+| objetos-001 | `funil` | FUNIL | medio |
+| objetos-001 | `alicate` | ALICATE | medio |
+| objetos-001 | `tripe` | TRIPÉ | medio |
+| objetos-001 | `extintor` | EXTINTOR | medio |
+| objetos-001 | `serrote` | SERROTE | medio |
+| objetos-001 | `astrolabio` | ASTROLÁBIO | dificil |
+| objetos-001 | `sextante` | SEXTANTE | dificil |
+| objetos-001 | `bigorna` | BIGORNA | dificil |
+| objetos-001 | `metronomo` | METRÔNOMO | dificil |
+| objetos-001 | `paquimetro` | PAQUÍMETRO | dificil |

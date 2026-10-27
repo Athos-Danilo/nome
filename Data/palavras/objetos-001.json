@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "objetos-001",
+  "palavras": [
+    {
+      "id": "cadeira",
+      "resposta": "CADEIRA",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte do mobiliário de muitos ambientes.",
+        "Sou usada em casas, escolas e escritórios.",
+        "Meu assento costuma ficar elevado do chão por pernas ou uma base.",
+        "Diferentemente de um banco simples, tenho um encosto para as costas.",
+        "Acomodo uma pessoa sentada; meu nome tem sete letras e começa com C."
+      ]
+    },
+    {
+      "id": "tesoura",
+      "resposta": "TESOURA",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Ajudo a modificar o formato de diferentes materiais.",
+        "Sou comum em atividades escolares e trabalhos de costura.",
+        "Tenho duas partes que se movimentam em torno de uma articulação.",
+        "Meus cabos costumam ter aberturas para encaixar os dedos.",
+        "Minhas duas lâminas se cruzam para cortar papel, tecido ou cabelo."
+      ]
+    },
+    {
+      "id": "relogio",
+      "resposta": "RELÓGIO",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Ajudo as pessoas a organizar a rotina.",
+        "Posso funcionar por mecanismos mecânicos ou eletrônicos.",
+        "Existem versões para a parede e para o pulso.",
+        "Minha informação pode aparecer em números digitais ou por meio de ponteiros.",
+        "Mostro as horas e os minutos para você saber se está atrasado."
+      ]
+    },
+    {
+      "id": "espelho",
+      "resposta": "ESPELHO",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou encontrado tanto na decoração quanto em objetos de uso pessoal.",
+        "Minha utilidade depende da maneira como interajo com a luz.",
+        "Costumo ficar perto de pias e penteadeiras.",
+        "Minha superfície reflete a imagem de quem está à minha frente.",
+        "Você olha para mim para ver o próprio rosto ao se pentear."
+      ]
+    },
+    {
+      "id": "lapis",
+      "resposta": "LÁPIS",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Ajudo a registrar ideias sobre uma superfície.",
+        "Sou muito usado em desenhos e atividades escolares.",
+        "Minha versão mais tradicional possui um corpo de madeira.",
+        "Minha ponta pode ser renovada com um apontador.",
+        "Na versão de grafite, faço traços que normalmente podem ser removidos com borracha."
+      ]
+    },
+    {
+      "id": "mochila",
+      "resposta": "MOCHILA",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Facilito o transporte de pertences pessoais.",
+        "Posso acompanhar estudantes, viajantes e pessoas em trilhas.",
+        "Meu espaço interno costuma ser dividido em compartimentos e bolsos.",
+        "Minhas duas alças principais passam pelos ombros.",
+        "Sou uma bolsa feita para ser carregada nas costas."
+      ]
+    },
+    {
+      "id": "travesseiro",
+      "resposta": "TRAVESSEIRO",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Meu uso está associado ao descanso.",
+        "Posso ter enchimento de espuma, fibras ou penas.",
+        "Costumo ficar sobre a cama, perto da cabeceira.",
+        "Uma fronha pode servir de revestimento para mim.",
+        "Apoio a cabeça de quem se deita para dormir."
+      ]
+    },
+    {
+      "id": "garfo",
+      "resposta": "GARFO",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte de muitos momentos de alimentação.",
+        "Posso ser feito de metal, plástico ou madeira.",
+        "Tenho um cabo e várias pontas na outra extremidade.",
+        "Ajudo a prender alimentos enquanto outro utensílio faz o corte.",
+        "Sou o talher com dentes que costuma acompanhar a faca nas refeições."
+      ]
+    },
+    {
+      "id": "chave",
+      "resposta": "CHAVE",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Posso controlar o acesso a um lugar ou compartimento.",
+        "Minha versão tradicional é pequena e costuma ser metálica.",
+        "Posso ter dentes ou recortes que combinam com um mecanismo específico.",
+        "Sou introduzida e girada em uma fechadura.",
+        "Você pode me usar para trancar a porta de casa ou abrir um cadeado."
+      ]
+    },
+    {
+      "id": "vassoura",
+      "resposta": "VASSOURA",
+      "tematicas": ["objetos"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte dos utensílios usados na limpeza.",
+        "Minha versão manual funciona sem eletricidade.",
+        "Tenho um cabo longo preso a uma base com fibras ou cerdas.",
+        "Sou movimentada sobre o chão para reunir poeira e pequenos resíduos.",
+        "Trabalho junto de uma pá na faxina e apareço como transporte de bruxas nas histórias."
+      ]
+    },
+    {
+      "id": "bussola",
+      "resposta": "BÚSSOLA",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ajudo pessoas a se orientarem durante deslocamentos.",
+        "Minha versão tradicional pode funcionar sem bateria.",
+        "Costumo apresentar os pontos cardeais ao redor de um mostrador.",
+        "Minha agulha imantada se alinha ao campo magnético terrestre.",
+        "Indico a direção do norte magnético, que pode diferir do norte geográfico."
+      ]
+    },
+    {
+      "id": "termometro",
+      "resposta": "TERMÔMETRO",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Transformo uma característica física em uma informação de medida.",
+        "Tenho aplicações em casas, laboratórios e estações meteorológicas.",
+        "Existem modelos digitais e outros que usam a expansão de um líquido.",
+        "Minhas leituras podem ser expressas em graus Celsius.",
+        "Meço a temperatura e, na versão clínica, ajudo a verificar se alguém está com febre."
+      ]
+    },
+    {
+      "id": "grampeador",
+      "resposta": "GRAMPEADOR",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ajudo a manter materiais unidos.",
+        "Minha versão de mesa é comum em escritórios e escolas.",
+        "Recebo uma carga de pequenas peças metálicas alinhadas.",
+        "Ao ser pressionado, atravesso folhas e dobro as pontas da peça sob elas.",
+        "Prendo papéis usando pequenas peças de metal em U, sem cola nem clipes."
+      ]
+    },
+    {
+      "id": "ampulheta",
+      "resposta": "AMPULHETA",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ajudo a acompanhar a passagem de um intervalo.",
+        "Meu funcionamento tradicional não depende de ponteiros nem eletricidade.",
+        "Tenho dois compartimentos transparentes unidos por uma passagem estreita.",
+        "Grãos descem de um compartimento para o outro pela ação da gravidade.",
+        "Você me vira para reiniciar uma contagem de tempo feita com areia."
+      ]
+    },
+    {
+      "id": "peneira",
+      "resposta": "PENEIRA",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ajudo a separar materiais conforme suas características.",
+        "Existem versões usadas na cozinha e na construção.",
+        "Minha parte principal contém uma malha com muitas aberturas.",
+        "Deixo passar partículas menores e retenho as maiores.",
+        "Na cozinha, posso desfazer grumos da farinha antes de ela entrar na massa."
+      ]
+    },
+    {
+      "id": "funil",
+      "resposta": "FUNIL",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ajudo a transferir materiais entre recipientes.",
+        "Sou encontrado em cozinhas, oficinas e laboratórios.",
+        "Minha abertura superior é bem mais larga que a saída inferior.",
+        "Meu corpo costuma ter formato de cone terminado em um tubo.",
+        "Encaixo meu bico no gargalo de uma garrafa para facilitar seu enchimento."
+      ]
+    },
+    {
+      "id": "alicate",
+      "resposta": "ALICATE",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Faço parte de muitas caixas de ferramentas.",
+        "Minha estrutura permite ampliar a força aplicada pela mão.",
+        "Tenho dois cabos ligados por uma articulação.",
+        "Minhas mandíbulas se aproximam quando os cabos são apertados.",
+        "Na versão universal, posso segurar peças, dobrar arames e cortar fios."
+      ]
+    },
+    {
+      "id": "tripe",
+      "resposta": "TRIPÉ",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Ofereço apoio a outros equipamentos.",
+        "Posso ser usado em fotografia, filmagem ou medição de terrenos.",
+        "Minha estrutura ajuda a manter um aparelho estável sem segurá-lo o tempo todo.",
+        "Muitos modelos permitem ajustar a altura e recolher seus apoios para transporte.",
+        "Sustento uma câmera sobre três pernas abertas."
+      ]
+    },
+    {
+      "id": "extintor",
+      "resposta": "EXTINTOR",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Faço parte dos equipamentos de segurança de muitos edifícios.",
+        "Costumo ficar em locais sinalizados e de acesso desimpedido.",
+        "Minha versão portátil armazena um agente dentro de um recipiente pressurizado.",
+        "Uma alavanca permite liberar meu conteúdo por um bocal ou mangueira.",
+        "Sou destinado ao combate de princípios de incêndio, conforme meu tipo e identificação."
+      ]
+    },
+    {
+      "id": "serrote",
+      "resposta": "SERROTE",
+      "tematicas": ["objetos"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ferramenta manual usada para dividir materiais.",
+        "Sou bastante associado ao trabalho com madeira.",
+        "Tenho uma lâmina com uma fileira de dentes.",
+        "No modelo tradicional, minha lâmina larga fica presa a um único cabo, sem arco ao redor.",
+        "O carpinteiro me movimenta para frente e para trás ao cortar uma tábua."
+      ]
+    },
+    {
+      "id": "astrolabio",
+      "resposta": "ASTROLÁBIO",
+      "tematicas": ["objetos"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento histórico relacionado à observação do céu.",
+        "Uma de minhas versões foi usada na navegação antes dos aparelhos eletrônicos.",
+        "Na versão náutica, a altura angular de um astro ajudava no cálculo da latitude.",
+        "Essa versão costuma ter um corpo circular graduado e uma peça giratória para apontar.",
+        "Meu modelo náutico podia ser suspenso por uma argola e usava uma alidade para mirar o astro."
+      ]
+    },
+    {
+      "id": "sextante",
+      "resposta": "SEXTANTE",
+      "tematicas": ["objetos"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento de medição utilizado na navegação.",
+        "Permito observar a altura angular de um astro em relação ao horizonte.",
+        "Meu funcionamento combina uma pequena luneta com espelhos.",
+        "O observador ajusta um braço móvel até sobrepor a imagem refletida do astro à do horizonte.",
+        "Minha armação tem um arco de aproximadamente sessenta graus, um sexto de uma circunferência."
+      ]
+    },
+    {
+      "id": "bigorna",
+      "resposta": "BIGORNA",
+      "tematicas": ["objetos"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um objeto robusto encontrado em certas oficinas.",
+        "Recebo impactos durante o trabalho de moldar outros materiais.",
+        "Minha superfície resistente serve de apoio para trabalhar metais.",
+        "No modelo tradicional, tenho uma face plana e uma extremidade alongada semelhante a um chifre.",
+        "O ferreiro apoia sobre mim o metal que vai modelar com golpes de martelo."
+      ]
+    },
+    {
+      "id": "metronomo",
+      "resposta": "METRÔNOMO",
+      "tematicas": ["objetos"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um aparelho usado durante atividades musicais.",
+        "Ajudo quem pratica a manter uma velocidade regular.",
+        "Posso produzir sinais sonoros ou visuais em intervalos ajustáveis.",
+        "Minha regulagem costuma indicar uma quantidade de batidas por minuto.",
+        "Na versão mecânica tradicional, um pêndulo oscila de um lado para o outro marcando o andamento."
+      ]
+    },
+    {
+      "id": "paquimetro",
+      "resposta": "PAQUÍMETRO",
+      "tematicas": ["objetos"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado para conferir dimensões de peças.",
+        "Sou comum em oficinas mecânicas e atividades de metrologia.",
+        "Tenho uma parte que desliza sobre uma régua e posso apresentar leitura digital.",
+        "Modelos universais permitem medir dimensões externas, internas e profundidades.",
+        "Meus bicos abraçam a peça ou entram em uma abertura; na versão analógica, a leitura usa um nônio."
+      ]
+    }
+  ]
+}
