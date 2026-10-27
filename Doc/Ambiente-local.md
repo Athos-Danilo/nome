@@ -38,9 +38,33 @@ Abrir `http://127.0.0.1:5173`. O Vite encaminha `/api` para `127.0.0.1:8000`, ma
 
 ## Variáveis e bancos de teste
 
-`Backend/.env.example` e `.env.teste.example` contêm apenas exemplos fictícios. Copiar para `.env` ou `.env.teste` ao configurar os bancos, substituir dados localmente e manter fora do Git. A API lê `.env` do backend; a configuração de testes pode passar valores explícitos. Os testes atuais não carregam o arquivo local nem acessam bancos.
+`Backend/.env.example` e `.env.teste.example` contêm apenas exemplos fictícios. Copiar para `.env` ou `.env.teste` ao configurar os bancos, substituir dados localmente e manter fora do Git. A configuração lê `.env` do backend; `.env.teste` não é carregado automaticamente. Testes de persistência exigem a variável de processo `DECIFRA_POSTGRESQL_TESTE_URL`, para evitar usar uma conexão de desenvolvimento por engano.
 
-Reservados `decifra` para desenvolvimento e `decifra_teste` para testes, no PostgreSQL e MongoDB. Não executar testes destrutivos em desenvolvimento. Nesta fase ainda não foram criados usuários, bancos, tabelas ou coleções. Variáveis de conexão são modelos para a fase 10; os drivers serão adicionados quando usados. Nenhum segredo precisa estar no frontend.
+Reservados `decifra` para desenvolvimento e `decifra_teste` para testes, no PostgreSQL e MongoDB. Na fase 10 foi criada uma instância PostgreSQL isolada em `Backend/.postgres-teste`, porta 55432, com base/usuário `decifra_teste`. Essa pasta é ignorada pelo Git; o servidor foi encerrado após a verificação. O PostgreSQL existente na porta 5432 e o MongoDB não foram alterados. O banco de desenvolvimento e suas credenciais ainda precisam ser configurados. Nenhum segredo deve ir para o frontend.
+
+## Migrações relacionais
+
+Dentro de `Backend`, com `DECIFRA_POSTGRESQL_URL` configurada em `.env` ou no ambiente, usando conta autorizada a criar tabelas na base escolhida:
+
+```powershell
+.venv/Scripts/python.exe -m alembic upgrade head
+.venv/Scripts/python.exe -m alembic current
+.venv/Scripts/python.exe -m alembic check
+```
+
+Aceita `postgresql://` e `postgresql+psycopg://`, usando Psycopg 3. Para Neon, preservar parâmetros de conexão segura fornecidos pelo provedor. Não gravar a URL privada em `alembic.ini`. A inicialização da API não cria tabelas nem executa migrações automaticamente.
+
+Para revisar o SQL sem conexão ou credenciais:
+
+```powershell
+.venv/Scripts/python.exe -m alembic upgrade head --sql
+```
+
+Uma alteração futura cria outra revisão: `python -m alembic revision --autogenerate -m "descrição em português"`, seguida de revisão manual e testes. `upgrade`/`downgrade`, `env.py` e campos oficiais do Alembic mantêm os nomes exigidos pela ferramenta. Não usar reversão em dados reais como procedimento de teste.
+
+Para executar os testes de persistência, primeiro iniciar um PostgreSQL de teste e criar uma base exclusiva. Exportar a conexão em `DECIFRA_POSTGRESQL_TESTE_URL` na sessão do terminal e executar pytest. São aceitos apenas `localhost`/`127.0.0.1` e nome de base terminado em `_teste`. O teste aplica a migração nessa base e reverte seus registros ao fim de cada caso. Sem a variável explícita, os testes de banco aparecem como ignorados; os demais continuam. O GitHub Actions fornece PostgreSQL 18 temporário para executá-los.
+
+Na instância isolada preparada localmente, iniciar com `pg_ctl` usando o diretório `Backend/.postgres-teste`, porta 55432 e endereço 127.0.0.1. Ela usa autenticação de confiança apenas para testes locais; não serve como configuração de desenvolvimento ou publicação. Seu log fica nessa mesma pasta. Ao terminar, parar somente essa instância. O diretório é descartável e nunca deve armazenar dados reais.
 
 ## Verificar
 

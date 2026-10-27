@@ -12,6 +12,8 @@ A base de execução está preparada; as funcionalidades do jogo serão implemen
 - [Revisar o protótipo aprovado](Doc/Prototipos/LEIA-ME.md).
 - [Requisitos e regras do jogo](Doc/Detalhes.md).
 - [Arquitetura e bibliotecas](Doc/Planejamento-tecnico.md).
+- [Modelagem e política de anonimização](Doc/Modelagem-dados.md).
+- [Contratos previstos da API](Doc/Contratos-api.md).
 - [Direção visual](Doc/Guia-visual.md).
 - [Viabilidade da publicação gratuita](Doc/Publicacao-gratuita.md).
 

@@ -9,6 +9,20 @@ jobs:
   api:
     name: Backend — Python
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: decifra_teste
+          POSTGRES_PASSWORD: senha_apenas_teste
+          POSTGRES_DB: decifra_teste
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U decifra_teste -d decifra_teste"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DECIFRA_POSTGRESQL_TESTE_URL: postgresql+psycopg://decifra_teste:senha_apenas_teste@127.0.0.1:5432/decifra_teste
     defaults:
       run:
         working-directory: Backend

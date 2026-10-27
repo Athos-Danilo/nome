@@ -100,7 +100,7 @@ Cada conta terá e-mail e nome de usuário únicos. No primeiro acesso com o Goo
 - O nome de usuário será único e poderá ser alterado.
 - Não haverá cadastro, alteração ou recuperação de senha própria.
 - A comparação de nomes para unicidade ignorará diferenças entre maiúsculas e minúsculas: “Athos” e “athos” serão o mesmo nome.
-- O formato permitido para nomes e o tratamento de acentos nessa comparação ainda serão definidos. Essa regra é independente da exigência de acentos nas respostas do jogo.
+- Nomes terão de 3 a 20 caracteres: letras, incluindo acentos, números e sublinhado, sem espaços. A comparação de unicidade também ignora acentos: “José” e “JOSE” são o mesmo nome. Preservar a grafia escolhida para exibição. A regra vale também para convidados e não altera a exigência de acentos nos palpites do jogo.
 
 ### 5.2. Avatares
 
@@ -128,7 +128,9 @@ A exposição de datas no ranking foi sugerida, mas ainda não foi confirmada. E
 
 A exclusão da própria conta e de seus dados faz parte da primeira entrega, conforme decisão do responsável na consolidação do escopo.
 
-Antes da implementação, definir a confirmação exigida e os efeitos sobre partidas, histórico, estatísticas, rankings, preferências e referências aos participantes da galera. Também será definido o comportamento de um novo acesso pela mesma conta Google após a exclusão. A inclusão do recurso está aprovada; regras de retenção, remoção ou anonimização ainda não foram escolhidas.
+A exclusão exige aviso dos efeitos e digitar **EXCLUIR**. Remover a identidade Google, e-mail, nome, avatar, preferências e acessos; eliminar também os nomes dos convidados das partidas criadas pela conta. Conservar resultados anônimos, sem permitir recuperar a identidade ou o histórico pelo login anterior. Os resultados e pontos antigos continuam nos rankings com o nome **Jogador excluído**, separados de qualquer conta nova.
+
+Entrar novamente com o mesmo Google cria uma conta nova, do zero, sem recuperar histórico, estatísticas pessoais ou pontos. A execução da exclusão, inclusive cancelamento e falhas, será implementada na fase própria; a política já está aprovada.
 
 ## 6. Conteúdo do jogo
 
@@ -227,6 +229,8 @@ Antes de iniciar, o sistema deverá verificar se há conteúdo suficiente para a
 O sistema deverá priorizar respostas que o jogador ainda não jogou. Quando as opções inéditas acabarem, respostas anteriores poderão ser repetidas, com a mesma pontuação normal.
 
 Uma resposta será considerada vista assim que sua rodada individual ou sua sessão com a galera for apresentada. Respostas reservadas para etapas não iniciadas continuam inéditas.
+
+O histórico de conteúdo visto é compartilhado entre os dois modos para a conta do anfitrião. Uma resposta apresentada na galera também deixa de ser inédita no individual e vice-versa. Convidados não possuem histórico permanente.
 
 Uma resposta não poderá aparecer duas vezes dentro da mesma partida. O sistema reutilizará respostas de partidas anteriores quando necessário e somente oferecerá as alternativas abaixo se, mesmo assim, não houver respostas distintas suficientes para atender à configuração.
 
@@ -485,7 +489,7 @@ Os rankings serão acumulativos, incluindo partidas de diferentes tamanhos e dif
 - O sistema sorteará a ordem de todos os participantes no início de cada sessão, incluindo quem começa.
 - A dificuldade será única para toda a partida, escolhida na configuração inicial.
 - As temáticas de todas as sessões serão configuradas antes do início, manualmente ou pelo modo aleatório descrito abaixo.
-- Os nomes dos convidados deverão ser diferentes entre si e do nome do usuário autenticado naquela partida. Não precisam ser únicos fora da partida. A comparação ignorará diferenças entre maiúsculas e minúsculas; o tratamento de acentos nos nomes ainda será definido.
+- Os nomes dos convidados deverão ser diferentes entre si e do nome do usuário autenticado naquela partida. Não precisam ser únicos fora da partida. Aplicar o formato de 3 a 20 caracteres e a comparação sem distinção de maiúsculas e acentos definidos na seção 5.1.
 
 #### Configuração das temáticas
 
@@ -606,7 +610,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-35 | Exigir escolha de nome de usuário disponível e avatar no primeiro acesso com Google | Definido |
 | RF-36 | Publicar resultados individuais nos rankings apenas na conclusão ou no abandono definitivo, sem duplicação | Definido |
 | RF-37 | Permitir uma partida com a galera sem descartar uma partida individual pausada | Definido |
-| RF-38 | Exigir nomes distintos entre todos os participantes da mesma partida com a galera | Definido; normalização pendente |
+| RF-38 | Exigir nomes distintos entre todos os participantes da mesma partida com a galera | Definido; mesma normalização das contas |
 | RF-39 | Converter letras e palpites para caixa alta preservando acentos, permitir aplicar acento após colocar a letra e exigir acentuação correta em palpites completos | Definido; detalhes de interface pendentes |
 | RF-40 | Incluir a demonstração vinculada nas estatísticas e rankings individuais, sem duplicar a contabilização | Definido |
 | RF-41 | No modo com a galera, escolher uma vogal base revela todas as ocorrências ainda ocultas dela e de suas variantes acentuadas | Definido |
@@ -617,7 +621,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-46 | Não repetir respostas entre sessões da mesma partida com a galera | Definido |
 | RF-47 | Persistir preferências de tema, áudio e movimentos na conta de usuários autenticados e no navegador de visitantes | Definido |
 | RF-48 | No individual, contar cada vogal base junto das variantes acentuadas para bloquear excesso de usos, preservando a validação exata dos acentos | Definido |
-| RF-49 | Permitir ao usuário excluir sua própria conta e seus dados na primeira entrega | Escopo aprovado; confirmação e efeitos sobre os dados pendentes |
+| RF-49 | Excluir identidade após aviso e EXCLUIR, conservar resultados anônimos no ranking e permitir recadastro do zero | Definido; implementação pendente |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -759,13 +763,13 @@ Antes de fechar a modelagem e implementar as regras, as principais decisões sã
 1. **Detecção de interrupções:** como distinguir fechamento, perda de conexão e atualização, garantindo um desconto por pausa.
 2. **Estatísticas privadas:** momento de atualização e cálculo de indicadores por temática; rankings já têm publicação definida no encerramento.
 3. **Ranking:** apresentação da numeração após posições compartilhadas; empates já aprovados sem critério adicional.
-4. **Seleção de conteúdo:** falta por dificuldade, tamanho mínimo de partida reduzida e compartilhamento do histórico de conteúdo visto entre modos.
+4. **Seleção de conteúdo:** falta por dificuldade e tamanho mínimo de partida reduzida. Histórico visto já é compartilhado entre os modos para o anfitrião.
 5. **Configuração:** critério do sorteio de distribuição entre as dificuldades selecionadas.
 6. **Demonstração:** persistência do identificador por navegador, prazo de transferência e entrada com Google durante a partida.
 7. **Entrada de respostas:** detalhes visuais de aplicação dos acentos e conservação das letras parcialmente preenchidas ao retomar.
-8. **Contas:** formato e tratamento de acentos nos nomes, preservando a comparação sem distinção de maiúsculas; confirmação e efeitos da exclusão de conta sobre os dados e um futuro acesso com o mesmo Google. A exclusão já integra a primeira entrega.
+8. **Contas:** decisões de nomes e exclusão resolvidas na fase 10, conforme seção 5. Implementar a exclusão com resultados anônimos e recadastro independente nas fases previstas.
 9. **Dados e infraestrutura:** escolher hospedagem gratuita da API e da interface, implementar o importador no contrato aprovado e configurar o login Google.
-10. **Modo com a galera:** concluir tratamento de perda de conexão e normalização dos nomes; verificar também exigências adicionais das disciplinas.
+10. **Modo com a galera:** concluir tratamento de perda de conexão e configuração do desempate; normalização dos nomes já aprovada. Rever exigências acadêmicas se surgirem novas orientações.
 
 O núcleo do modo individual está definido. Os pontos acima devem ser resolvidos sem transformar sugestões ou interpretações em regras definitivas.
 

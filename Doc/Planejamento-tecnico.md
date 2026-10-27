@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Situação:** fase 08 concluída: base React/FastAPI instalada, lockfiles, verificações e execução local preparados. Regras de negócio, modelos persistidos, autenticação e integração dos bancos ainda serão implementados nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md).
+**Situação:** fase 10 com modelos SQLAlchemy, migração inicial das 18 tabelas, documento de conteúdo MongoDB e contratos documentados. Autenticação, operações do jogo e integração operacional dos bancos serão implementadas nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md) e [Contratos da API](Contratos-api.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -137,7 +137,7 @@ Essa estrutura foi iniciada na fase 08, com módulos de configuração, entrada 
 
 MongoDB será o catálogo oficial. PostgreSQL manterá progresso e resultados. Cada resposta terá identificador estável referenciado pelas rodadas. Não haverá suposição de uma transação única abrangendo os dois bancos.
 
-Pontos e mudança de turno da mesma ação serão registrados juntos no banco relacional. O resultado individual será publicado uma única vez no encerramento. A forma de preservar o conteúdo utilizado em cada partida será fechada na modelagem.
+Pontos e mudança de turno da mesma ação serão registrados juntos no banco relacional. O resultado individual será publicado uma única vez no encerramento. Rodadas referenciam identificador e revisão imutável do conteúdo no MongoDB, preservando a resposta e dicas reservadas para a partida salva.
 
 O importador será um comando Python separado da interface pública, reutilizando Pydantic e PyMongo. Deverá ler os lotes UTF-8, validar os campos, identificar duplicatas, oferecer conferência sem gravar e importar sem sobrescrita silenciosa.
 
@@ -174,14 +174,14 @@ Os provedores de interface e API ainda não foram escolhidos. O [diagnóstico da
 1. Validar o comportamento de atualização e fechamento.
 2. Preparar estrutura, dependências e conexões locais.
 3. Modelar os dados e importar um pequeno lote revisado.
-4. Implementar login, primeiro acesso, perfil, exclusão de conta e demonstração. Antes de modelar a exclusão, aprovar seus efeitos sobre dados relacionados, sessões de acesso, rankings e novo login; cobrir autorização, cancelamento, falhas e conclusão nos testes.
+4. Implementar login, primeiro acesso, perfil, exclusão de conta e demonstração. Efeitos da exclusão aprovados na fase 10: aviso e EXCLUIR, identidade removida, resultados anônimos mantidos nos rankings e novo login começando do zero. Cobrir autorização, cancelamento, falhas e conclusão nos testes da implementação.
 5. Integrar a partida individual com pontuação e retomada.
 6. Integrar o painel com a galera, turnos, sessões e resultado.
 7. Completar histórico, rankings e preferências.
 8. Finalizar identidade visual, repertório do Aurélio e áudio sobre os fluxos funcionais.
 9. Verificar acessibilidade, tamanhos de tela e os dois modos; publicar e validar.
 
-O conceito visual e os componentes podem ser preparados enquanto os contratos são desenhados. A modelagem e a lista de operações da API serão os próximos artefatos técnicos; não estão substituídas por este plano de bibliotecas.
+O conceito visual e os componentes podem ser preparados em paralelo ao backend. A modelagem e a lista de operações da API estão documentadas na fase 10; contratos documentados não significam rotas de negócio já disponíveis.
 
 O detalhamento operacional dessa sequência é mantido em um roteiro de acompanhamento apenas local, incluindo revisão visual antecipada, decisões pendentes e geração intercalada do catálogo. Os vinte lotes são acompanhados em [Controle-do-catalogo.md](Controle-do-catalogo.md). A divisão em sete dias de referência pode ser ampliada sem mudar o escopo aprovado.
 
