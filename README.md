@@ -14,6 +14,7 @@ A base de execução está preparada; as funcionalidades do jogo serão implemen
 - [Arquitetura e bibliotecas](Doc/Planejamento-tecnico.md).
 - [Modelagem e política de anonimização](Doc/Modelagem-dados.md).
 - [Contratos previstos da API](Doc/Contratos-api.md).
+- [Validar e importar o catálogo](Doc/Importacao-catalogo.md).
 - [Direção visual](Doc/Guia-visual.md).
 - [Viabilidade da publicação gratuita](Doc/Publicacao-gratuita.md).
 

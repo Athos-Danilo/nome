@@ -4,7 +4,7 @@
 
 Preparar um catálogo em português com pelo menos 500 respostas para o jogo descrito em `Doc/Detalhes.md`. Cada resposta terá exatamente cinco dicas e será armazenada no MongoDB.
 
-O contrato JSON e os lotes de 25 respostas deste guia foram aprovados pelo responsável pelo projeto. O importador ainda será implementado. Recomendações editoriais e de implementação são identificadas separadamente e não adicionam novas regras ao jogo.
+O contrato JSON e os lotes de 25 respostas deste guia foram aprovados pelo responsável pelo projeto. O importador foi implementado na fase 12; comandos e limites estão em [Importacao-catalogo.md](../Doc/Importacao-catalogo.md). Recomendações editoriais e de implementação são identificadas separadamente e não adicionam novas regras ao jogo.
 
 A pasta `Agents/` tem exceções no `.gitignore` para versionar este guia e `Regras.md`. A pasta adotada para os arquivos de conteúdo é `Data/palavras/`.
 
@@ -125,7 +125,7 @@ Cada resposta contará para uma temática principal de planejamento. Associaçõ
 
 ## Validação antes da importação
 
-O futuro processo de importação deverá verificar:
+O processo de importação verifica:
 
 1. JSON válido e versão de formato reconhecida.
 2. Campos obrigatórios e tipos corretos.
@@ -138,7 +138,7 @@ O futuro processo de importação deverá verificar:
 
 A revisão humana deverá verificar a correção dos fatos, a clareza, a progressão das dicas e a adequação da dificuldade. Validação automática sozinha não comprova esses critérios.
 
-Proposta de segurança da importação: oferecer conferência sem gravar, recusar conflitos e não sobrescrever silenciosamente respostas existentes. A política final de carga ainda será definida na implementação.
+Política implementada: validação completa antes de gravar, conferência com o banco sem escrita, recusa de conflitos e carga explícita. Reexecução preserva itens idênticos e recupera publicações interrompidas. Não há edição automática de registros existentes. A detecção conservadora de duplicatas do catálogo não altera a comparação de palpites. Revisão humana continua necessária antes da carga.
 
 ## Pedido reutilizável para uma IA
 

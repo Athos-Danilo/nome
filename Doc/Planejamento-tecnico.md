@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Situação:** fase 10 com modelos SQLAlchemy, migração inicial das 18 tabelas, documento de conteúdo MongoDB e contratos documentados. Autenticação, operações do jogo e integração operacional dos bancos serão implementadas nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md) e [Contratos da API](Contratos-api.md).
+**Situação:** fase 12 com catálogo MongoDB, validação completa e importador recuperável implementados. 75 respostas aprovadas importadas localmente; as 125 respostas produzidas passaram na validação dos arquivos. Modelos SQLAlchemy, migração das 18 tabelas e contratos da fase 10 preservados. Autenticação e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md) e [Importação do catálogo](Importacao-catalogo.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -139,7 +139,7 @@ MongoDB será o catálogo oficial. PostgreSQL manterá progresso e resultados. C
 
 Pontos e mudança de turno da mesma ação serão registrados juntos no banco relacional. O resultado individual será publicado uma única vez no encerramento. Rodadas referenciam identificador e revisão imutável do conteúdo no MongoDB, preservando a resposta e dicas reservadas para a partida salva.
 
-O importador será um comando Python separado da interface pública, reutilizando Pydantic e PyMongo. Deverá ler os lotes UTF-8, validar os campos, identificar duplicatas, oferecer conferência sem gravar e importar sem sobrescrita silenciosa.
+O importador é um comando Python separado da interface pública, reutilizando Pydantic e PyMongo. Lê os lotes UTF-8, valida os campos, identifica duplicatas, oferece conferência sem gravar e importa sem sobrescrita silenciosa. A publicação inicial e a recuperação de falhas estão descritas em [Importacao-catalogo.md](Importacao-catalogo.md).
 
 Conferir a meta de 500 respostas e 2.500 dicas, com 100 respostas por temática: 40 fáceis, 35 médias e 25 difíceis. Reexecutar a importação não poderá criar cópias. Correções de conteúdo existente serão explícitas.
 

@@ -1,6 +1,6 @@
 # Modelagem de dados — fase 10
 
-**Estado:** modelagem inicial e migração da fase 10 implementadas. Esquema com 18 tabelas verificado em PostgreSQL isolado de testes. Os bancos de desenvolvimento e o MongoDB não receberam carga; operações de negócio ainda serão implementadas.
+**Estado:** modelagem inicial e migração da fase 10 implementadas. Esquema com 18 tabelas verificado em PostgreSQL isolado de testes. Na fase 12, o catálogo MongoDB recebeu 75 respostas aprovadas em desenvolvimento. O PostgreSQL de desenvolvimento ainda precisa de configuração; operações do jogo permanecem nas fases próprias.
 
 ## 1. Divisão dos dados
 
@@ -95,7 +95,7 @@ O contrato JSON dos lotes permanece versão 1. Na persistência, `palavras` mant
 
 `versoes_palavras` mantém uma cópia imutável por `(id, revisao)`; `id` é o identificador estável de conteúdo, distinto de `_id`. A revisão de conteúdo é distinta de `versao_formato` do lote. Uma partida guarda essa referência antes de começar. Correção futura do catálogo cria outra revisão; uma partida salva continua lendo a revisão reservada, sem alterar palavra, acentos ou dicas no meio da partida.
 
-O importador deverá validar antes de publicar a revisão atual, sem sobrescrever revisões antigas. Não remover uma revisão referenciada por partida. A política de limpeza de revisões será tratada quando necessária, sem criar interface administrativa nesta entrega. O importador e os índices serão implementados na fase 12.
+O importador valida antes de publicar a revisão atual, sem sobrescrever revisões antigas. Não remover uma revisão referenciada por partida. A política de limpeza de revisões será tratada quando necessária, sem criar interface administrativa nesta entrega. Importador e índices implementados na fase 12, conforme a seção 9.
 
 ## 7. Transações, concorrência e publicação
 
@@ -121,7 +121,7 @@ Consultas autenticadas exigem conta ativa ou cadastro pendente autorizado. Ranki
 
 ## 9. Contrato persistido do MongoDB
 
-`ConteudoPalavra` valida o conteúdo dos lotes; `DocumentoPalavra` acrescenta `revisao` positiva, `lote_origem` e `atualizado_em` com fuso. Não altera o JSON de autoria nem exige que a IA produza campos de persistência. Campos internos `_id` do driver são removidos na leitura antes da validação estrita.
+`ConteudoPalavra` valida o conteúdo dos lotes; `DocumentoPalavra` acrescenta `revisao` positiva, `lote_origem`, `atualizado_em` com fuso e a chave derivada `resposta_chave` para detectar duplicatas. Não altera o JSON de autoria nem exige que a IA produza campos de persistência. Campos internos `_id` do driver são removidos na leitura antes da validação estrita.
 
 | Campo | Tipo / limite |
 | --- | --- |
@@ -133,8 +133,9 @@ Consultas autenticadas exigem conta ativa ou cadastro pendente autorizado. Ranki
 | `revisao` | Inteiro positivo; começa em 1 |
 | `lote_origem` | Identificador do lote de autoria |
 | `atualizado_em` | Instante com fuso; persistir em UTC |
+| `resposta_chave` | Texto derivado no servidor para detectar duplicatas; não serve para validar palpites |
 
-Coleção atual `palavras`: índice único `id`; índice composto `tematicas, dificuldade`. Coleção imutável `versoes_palavras`: índice único `id, revisao`. A revisão não é incrementada em uma importação idêntica. A fase 12 implementará validação completa dos lotes, índices, driver e publicação recuperável das duas coleções; ainda não há conexão MongoDB nesta fase.
+Coleção atual `palavras`: índices únicos `id` e `resposta_chave`; índice composto `tematicas, dificuldade`. Coleção imutável `versoes_palavras`: índice único `id, revisao` e unicidade da resposta na revisão inicial, reservando a identidade mesmo em uma publicação interrompida. A revisão não é incrementada em importação idêntica. Driver assíncrono, validação, índices e publicação recuperável foram implementados na fase 12; detalhes e limites em [Importacao-catalogo.md](Importacao-catalogo.md).
 
 ## 10. Implementação, limites e evolução
 

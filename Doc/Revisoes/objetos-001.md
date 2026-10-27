@@ -57,3 +57,7 @@ As frases do lote foram escritas para o Decifra, sem copiar definições ou manu
 - Lista consolidada de exclusão atualizada. Avaliação humana, importador completo, carga local e Atlas continuam pendentes.
 
 Os links e observações editoriais ficam nesta ficha, fora do JSON de conteúdo. A conclusão da fase registra a produção revisada por IA, sem presumir aprovação humana.
+
+## Atualização da fase 12 — 2026-10-27
+
+O lote passou na validação completa do importador, junto aos cinco arquivos existentes: contrato, campos, temáticas, dificuldades, Unicode e duplicatas conferidos. Esta atualização substitui somente a pendência de validação automática registrada na revisão original. A avaliação humana permanece pendente, e o lote não foi importado no MongoDB nem enviado ao Atlas.

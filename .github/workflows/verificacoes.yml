@@ -10,6 +10,13 @@ jobs:
     name: Backend — Python
     runs-on: ubuntu-latest
     services:
+      mongo:
+        image: mongo:8.2
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand({ping:1})'"
+          --health-interval 5s --health-timeout 5s --health-retries 10
       postgres:
         image: postgres:18
         env:
@@ -22,6 +29,7 @@ jobs:
           --health-cmd "pg_isready -U decifra_teste -d decifra_teste"
           --health-interval 5s --health-timeout 5s --health-retries 10
     env:
+      DECIFRA_MONGODB_TESTE_URL: mongodb://127.0.0.1:27017
       DECIFRA_POSTGRESQL_TESTE_URL: postgresql+psycopg://decifra_teste:senha_apenas_teste@127.0.0.1:5432/decifra_teste
     defaults:
       run:

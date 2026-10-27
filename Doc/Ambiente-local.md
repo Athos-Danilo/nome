@@ -68,6 +68,10 @@ Na instância isolada preparada localmente, iniciar com `pg_ctl` usando o diret�
 
 ## Verificar
 
+Na fase 12 foi implementado o catálogo MongoDB assíncrono. A conexão local padrão é `mongodb://127.0.0.1:27017`, banco `decifra`; `.env` pode substituir ambos. Foram importadas 75 respostas aprovadas, sem carregar países/objetos ainda em revisão. Comandos de validação, conferência sem escrita, carga e quantidades estão em [Importacao-catalogo.md](Importacao-catalogo.md). A API não abre essa conexão nem importa conteúdo ao iniciar.
+
+Os testes de catálogo exigem `DECIFRA_MONGODB_TESTE_URL` explícita. Criam bases locais únicas terminadas em `_teste` e as removem após cada caso. A instância isolada da fase 12 usou a pasta ignorada `Backend/.mongo-teste` e a porta 27018; foi encerrada ao final, preservando o MongoDB de desenvolvimento. O GitHub Actions fornece MongoDB temporário para esses testes. Docker continua dispensável no ambiente local.
+
 ```powershell
 cd Backend
 .venv/Scripts/python.exe -m ruff check .
@@ -86,7 +90,7 @@ Ruff formata e verifica Python; Prettier formata o frontend e TypeScript verific
 
 Versões verificadas nesta etapa: React 19.3.1, Vite 8.3.5, TypeScript 7.0.2, Vitest 5.0.5, FastAPI 0.162.0 e Uvicorn 0.54.0. Os arquivos de lock registram as demais versões. Dependências de regras de negócio e interação avançada serão instaladas somente nas fases em que forem utilizadas.
 
-Verificações locais concluídas: três testes HTTP do backend, três testes do cliente da interface, Ruff, Prettier, tipos, compilação Vite, consistência de dependências Python e resolução dos hashes ignorando pacotes já instalados. Em teste integrado temporário, um navegador executou a interface React e exibiu “API disponível” após consultar FastAPI pelo proxy do Vite. Os processos de teste foram encerrados. PostgreSQL e MongoDB não foram alterados por esses testes.
+Verificações da fase 08: três testes HTTP do backend, três testes do cliente da interface, Ruff, Prettier, tipos, compilação Vite, consistência de dependências Python e resolução dos hashes ignorando pacotes já instalados. Em teste integrado temporário, um navegador executou a interface React e exibiu “API disponível” após consultar FastAPI pelo proxy do Vite. Na fase 12, o backend passou em 58 testes, incluindo bancos isolados; o MongoDB de desenvolvimento recebeu a carga aprovada descrita acima. Não houve mudança de interface nesta etapa.
 
 Frontend: versões diretas exatas em `package.json` e resolução completa em `package-lock.json`; reinstalar com `npm ci`. Backend: entradas em `requirements.in`/`requirements-dev.in`, resolvidas e fixadas com hashes nos respectivos `.txt`; instalar os `.txt`, sem atualizar versões indiscriminadamente.
 

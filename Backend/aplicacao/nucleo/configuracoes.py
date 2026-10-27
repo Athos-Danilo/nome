@@ -17,4 +17,6 @@ class Configuracoes(BaseSettings):
     )
     ambiente: Literal["desenvolvimento", "teste", "producao"] = "desenvolvimento"
     postgresql_url: SecretStr | None = None
+    mongodb_url: SecretStr = SecretStr("mongodb://127.0.0.1:27017")
+    mongodb_banco: str = "decifra"
     origens_permitidas: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]

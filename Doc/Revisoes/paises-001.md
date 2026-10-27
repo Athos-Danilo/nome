@@ -63,3 +63,7 @@ Conferências complementares de pistas culturais e casos específicos:
 - Conteúdo e progressão revisados pela IA; avaliação humana ainda necessária. Validação pelo importador, importação local e Atlas não executados.
 
 Os metadados e links desta revisão ficam fora do JSON para preservar o contrato aprovado. A lista consolidada para exclusão dos próximos lotes está em [Respostas do catálogo](../Respostas-do-catalogo.md).
+
+## Atualização da fase 12 — 2026-10-27
+
+O lote passou na validação completa do importador, junto aos cinco arquivos existentes: contrato, campos, temáticas, dificuldades, Unicode e duplicatas conferidos. Esta atualização substitui somente a pendência de validação automática registrada na revisão original. A avaliação humana permanece pendente, e o lote não foi importado no MongoDB nem enviado ao Atlas.

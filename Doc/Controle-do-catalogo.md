@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** cinco lotes produzidos, totalizando 125 respostas e 625 dicas. Os três primeiros registram aprovação editorial anterior; países e objetos estão revisados pela IA e aguardam avaliação humana. Todos os lotes passaram na validação básica do modelo de conteúdo da fase 10; a validação completa pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
+**Situação atual:** cinco lotes produzidos: 125 respostas e 625 dicas, todos aprovados na validação automática completa da fase 12. Os três primeiros, com aprovação editorial anterior, foram importados localmente: 75 respostas e 375 dicas. Países e objetos permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -20,9 +20,9 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 
 | Fase | Dia de referência | Arquivo | Fácil | Média | Difícil | Total | Meta acumulada | Estado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 03 | 1 | `animais-001.json` | 10 | 10 | 5 | 25 | 25 | Aguardando validação automática |
-| 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Aguardando validação automática |
-| 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Aguardando validação automática |
+| 03 | 1 | `animais-001.json` | 10 | 10 | 5 | 25 | 25 | Importado localmente |
+| 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Importado localmente |
+| 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Importado localmente |
 | 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
 | 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Em revisão (avaliação humana pendente) |
 | 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Não iniciado |
@@ -85,7 +85,7 @@ Pendências:
 Lote: animais-001
 Fase: 03
 Arquivo: Data/palavras/animais-001.json
-Estado: Aguardando validação automática
+Estado: Importado localmente
 Data da revisão: 2026-10-26
 Responsável pela revisão: Antigravity (IA) com aprovação do responsável
 Quantidade gerada: 25
@@ -94,17 +94,19 @@ Fáceis / médias / difíceis: 10 / 10 / 5
 Resultado da conferência sem gravar: Estrutura JSON válida; 125 dicas conferidas
 Duplicatas e substituições: Nenhuma (primeiro lote do catálogo)
 Fatos e grafias conferidos: Sim (todas em caixa alta, acentos preservados, fatos biológicos verificados)
-Importação local: Pendente (importador será desenvolvido na fase 12)
+Importação local: Concluída em 2026-10-27 no MongoDB decifra; 25 respostas e 125 dicas; reexecução idêntica sem duplicação
 Conferência no Atlas: Pendente
-Pendências: Nenhuma
+Pendências: Conferência no Atlas na fase de publicação
 ```
+
+Validação completa da fase 12: aprovada por Codex em 2026-10-27; campos, versão, dicas, Unicode, temáticas e duplicatas locais/no banco conferidos. A aprovação editorial anterior foi preservada.
 
 #### Lote filmes-e-series-001 (Fase 05)
 ```text
 Lote: filmes-e-series-001
 Fase: 05
 Arquivo: Data/palavras/filmes-e-series-001.json
-Estado: Aguardando validação automática
+Estado: Importado localmente
 Data da revisão: 2026-10-26
 Responsável pela revisão: Antigravity (IA) com aprovação do responsável
 Quantidade gerada: 25
@@ -113,17 +115,19 @@ Fáceis / médias / difíceis: 10 / 10 / 5
 Resultado da conferência sem gravar: Estrutura JSON válida; 125 dicas conferidas
 Duplicatas e substituições: Nenhuma (conferido contra lote anterior)
 Fatos e grafias conferidos: Sim (todas em caixa alta, acentuação e grafias oficiais mantidas, sem pontuações ambíguas)
-Importação local: Pendente (importador será desenvolvido na fase 12)
+Importação local: Concluída em 2026-10-27 no MongoDB decifra; 25 respostas e 125 dicas; reexecução idêntica sem duplicação
 Conferência no Atlas: Pendente
-Pendências: Nenhuma
+Pendências: Conferência no Atlas na fase de publicação
 ```
+
+Validação completa da fase 12: aprovada por Codex em 2026-10-27; campos, versão, dicas, Unicode, temáticas e duplicatas locais/no banco conferidos. A aprovação editorial anterior foi preservada.
 
 #### Lote marcas-001 (Fase 07)
 ```text
 Lote: marcas-001
 Fase: 07
 Arquivo: Data/palavras/marcas-001.json
-Estado: Aguardando validação automática
+Estado: Importado localmente
 Data da revisão: 2026-10-26
 Responsável pela revisão: Antigravity (IA) com aprovação do responsável
 Quantidade gerada: 25
@@ -132,10 +136,12 @@ Fáceis / médias / difíceis: 10 / 10 / 5
 Resultado da conferência sem gravar: Estrutura JSON válida; 125 dicas conferidas
 Duplicatas e substituições: Nenhuma (conferido contra lotes anteriores de animais e filmes/séries)
 Fatos e grafias conferidos: Sim (todas em caixa alta, acentos preservados, sem slogans temporários ou pontuações ambíguas)
-Importação local: Pendente (importador será desenvolvido na fase 12)
+Importação local: Concluída em 2026-10-27 no MongoDB decifra; 25 respostas e 125 dicas; reexecução idêntica sem duplicação
 Conferência no Atlas: Pendente
-Pendências: Nenhuma
+Pendências: Conferência no Atlas na fase de publicação
 ```
+
+Validação completa da fase 12: aprovada por Codex em 2026-10-27; campos, versão, dicas, Unicode, temáticas e duplicatas locais/no banco conferidos. A aprovação editorial anterior foi preservada.
 
 #### Lote paises-001 (Fase 09)
 
@@ -152,9 +158,9 @@ Fáceis / médias / difíceis: 10 / 10 / 5
 Resultado da conferência sem gravar: JSON válido; campos, Unicode e 125 dicas conferidos
 Duplicatas e substituições: Nenhuma entre as 100 respostas do catálogo
 Fatos e grafias conferidos: Revisão e fontes em Doc/Revisoes/paises-001.md
-Importação local: Pendente (fase 12)
+Importação local: Não realizada; aguarda aprovação editorial humana
 Conferência no Atlas: Pendente
-Pendências: Avaliação humana e validação pelo importador
+Pendências: Avaliação humana; validação completa do importador aprovada na fase 12
 ```
 
 #### Lote objetos-001 (Fase 11)
@@ -172,9 +178,9 @@ Fáceis / médias / difíceis: 10 / 10 / 5
 Resultado da conferência sem gravar: JSON, modelo Pydantic, Unicode, campos e 125 dicas conferidos; cinco testes de conteúdo aprovados
 Duplicatas e substituições: Nenhuma entre as 125 respostas do catálogo
 Fatos e grafias conferidos: Revisão, ambiguidades e fontes em Doc/Revisoes/objetos-001.md
-Importação local: Pendente (fase 12)
+Importação local: Não realizada; aguarda aprovação editorial humana
 Conferência no Atlas: Pendente
-Pendências: Avaliação humana e validação completa pelo importador
+Pendências: Avaliação humana; validação completa do importador aprovada na fase 12
 ```
 
 Checklist de aprovação:
@@ -196,15 +202,19 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 
 | Temática | Meta de respostas | Geradas | Aprovadas | Importadas localmente | Conferidas no Atlas |
 | --- | --- | --- | --- | --- | --- |
-| Animais | 100 | 25 | 25 | 0 | 0 |
-| Filmes e séries | 100 | 25 | 25 | 0 | 0 |
-| Marcas | 100 | 25 | 25 | 0 | 0 |
+| Animais | 100 | 25 | 25 | 25 | 0 |
+| Filmes e séries | 100 | 25 | 25 | 25 | 0 |
+| Marcas | 100 | 25 | 25 | 25 | 0 |
 | Países | 100 | 25 | 0 | 0 | 0 |
 | Objetos | 100 | 25 | 0 | 0 | 0 |
-| **Total** | **500** | **125** | **75** | **0** | **0** |
+| **Total** | **500** | **125** | **75** | **75** | **0** |
 
 ## 6. Fechamento global
 
 A fase 47 do roteiro só termina com 500 respostas únicas aprovadas, 2.500 dicas e distribuição correta nos arquivos e no banco de destino. Validar duplicatas globalmente, não apenas dentro de cada temática.
 
 Se houver reprovação, substituir o conteúdo e repetir as conferências afetadas. Não mudar a distribuição, aceitar uma resposta repetida ou reduzir a meta sem decisão do responsável pelo projeto.
+
+## 7. Verificação da fase 12
+
+Em 2026-10-27, os cinco lotes passaram pelo importador completo na operação validar, sem correções estruturais necessárias. Os três primeiros foram conferidos e importados; a segunda importação reconheceu os 75 documentos como idênticos e publicou zero novos. Há 75 documentos atuais e 75 revisões iniciais. Países e objetos passaram na validação automática, mas ainda exigem avaliação humana para alcançar o estado Aprovado. Evidências e comandos em [Importacao-catalogo.md](Importacao-catalogo.md).
