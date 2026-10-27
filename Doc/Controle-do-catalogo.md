@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação inicial:** nenhum lote deste planejamento foi gerado, revisado ou importado.
+**Situação atual:** três lotes produzidos, totalizando 75 respostas e 375 dicas. As fichas registram aprovação editorial; a validação pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
