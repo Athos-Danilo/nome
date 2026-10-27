@@ -3,3 +3,21 @@
 !/Agents/Geracao-de-conteudo.md
 
 /Doc/Roteiro-primeira-entrega.md
+
+# Configuração privada e ambientes locais
+.env
+.env.*
+!.env.example
+!.env.teste.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store

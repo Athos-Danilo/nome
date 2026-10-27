@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Situação:** planejamento inicial aprovado; dependências ainda não instaladas e código ainda não preparado.
+**Situação:** fase 08 concluída: base React/FastAPI instalada, lockfiles, verificações e execução local preparados. Regras de negócio, modelos persistidos, autenticação e integração dos bancos ainda serão implementados nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -131,7 +131,7 @@ Data/
 Doc/
 ```
 
-Essa estrutura ainda não foi criada. Cada módulo do backend organizará rotas, validação, regras e acesso a dados. As regras de pontuação deverão ser testáveis sem abrir a interface.
+Essa estrutura foi iniciada na fase 08, com módulos de configuração, entrada da API e base React. Pastas de expansão ainda vazias não representam funcionalidades implementadas. Cada módulo do backend organizará rotas, validação, regras e acesso a dados. As regras de pontuação deverão ser testáveis sem abrir a interface.
 
 ## 7. Consistência e importação
 
@@ -153,7 +153,7 @@ Conferir a meta de 500 respostas e 2.500 dicas, com 100 respostas por temática:
 
 Priorizar pontuação por dica, pausa sem duplicação, posições fixas, acentos, distinção entre C e Ç, limpeza após erro, conteúdo visto, turnos, desempate e vinculação da demonstração. Testes deverão verificar comportamentos relevantes, não apenas repetir a estrutura dos componentes.
 
-Usar npm com arquivo de lock no frontend. No backend, preparar ambiente virtual e versões fixadas; o mecanismo de lock será escolhido na preparação do ambiente. Os bancos locais já estão instalados e Docker não será requisito.
+Usar npm com `package-lock.json` no frontend. No backend, ambiente virtual com Python 3.13 e dependências fixadas com hashes por pip-tools em `requirements.txt` e `requirements-dev.txt`. Ruff foi adotado para formatação e verificação Python; Prettier para formatação da interface. Os bancos locais já estão instalados e Docker não será requisito.
 
 ## 9. Prova técnica prioritária: interrupções
 
@@ -167,7 +167,7 @@ As regras de produto continuam em Detalhes.md. Se os testes exigirem uma janela 
 
 Neon e MongoDB Atlas foram escolhidos para os bancos. A interface poderá ser publicada como arquivos estáticos; a API precisará de hospedagem Python compatível com o mecanismo de interrupção validado.
 
-Os provedores de interface e API ainda não foram escolhidos. Comparar planos gratuitos considerando suspensão por inatividade, conexões, resposta, limites de uso e organização dos domínios. Não há serviço pago previsto nesta recomendação.
+Os provedores de interface e API ainda não foram escolhidos. O [diagnóstico da fase 08](Publicacao-gratuita.md) compara candidatos e registra suspensão por inatividade, conexões, limites e riscos de cookies entre origens distintas. A decisão será concluída até a fase 15, após os testes necessários. Não há serviço pago previsto nesta recomendação.
 
 ## 11. Ordem sugerida de implementação
 

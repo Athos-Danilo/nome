@@ -1,0 +1,26 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #444439;
+  background: #decd9c;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 600px;
+  margin: 10vh auto;
+  padding: 30px;
+}
+.marca {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #d4fe62;
+  border: 2px solid #444439;
+  border-radius: 15px;
+  font-size: 40px;
+  font-weight: 800;
+}
+h1 {
+  font-size: 48px;
+  margin: 15px 0;
+}
