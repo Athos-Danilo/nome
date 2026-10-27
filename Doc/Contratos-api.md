@@ -102,3 +102,9 @@ A tela apresenta os efeitos antes de enviar DELETE com `{"confirmacao":"EXCLUIR"
 Resultados anônimos permanecem agregados por identidade interna antiga e exibem **Jogador excluído**, nunca e-mail, nome antigo ou identificador Google. Novo acesso com o mesmo Google cria outra identidade, sem restaurar resultados, vínculo da demonstração ou palavras vistas. Detalhes da limpeza estão na modelagem; a implementação ocorre na fase 17.
 
 Exposições dos dois modos pertencem ao proprietário da partida. A apresentação de um painel da galera registra todas as respostas exibidas para o anfitrião; não há endpoints de histórico permanente para convidados. Reservas futuras não entram nessa lista.
+
+## Interrupções — decisão da fase 13
+
+Identidade de aba/documento, navegação e sinais de atividade deverão ser reconciliados no servidor, com sessão autenticada e estado persistido. Recarga reconhecida não desconta nem encerra; ausência ou retorno ambíguo preserva a individual sem desconto e o painel da galera. Navegação para outra página, inclusive saída seguida de Voltar/Avançar, conta como pausa de −100 no individual e encerramento na galera, uma vez por ocorrência. Troca de aba isolada não é pausa. Falha de hospedagem não é saída confirmada.
+
+As operações persistidas de sinalização serão integradas nas fases 28 e 33. As rotas `/prova-api` da demonstração técnica são isoladas, locais e sem autenticação de conta; não fazem parte deste contrato público nem substituem controles de acesso. Método, evidências e limites em [Prova-interrupcoes.md](Prova-interrupcoes.md).

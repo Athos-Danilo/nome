@@ -382,7 +382,7 @@ Abandonar definitivamente não gera um desconto adicional. Penalidades de pausas
 
 ### 12.1. Partida em andamento
 
-No modo individual, cada jogador poderá ter **apenas uma partida não finalizada por vez**. Ela poderá ser retomada a qualquer momento, sem prazo de expiração. O jogador poderá iniciar uma partida com a galera mesmo tendo uma partida individual pausada, preservando integralmente o progresso salvo desta última. O modo com a galera não permite retomada.
+No modo individual, cada jogador poderá ter **apenas uma partida não finalizada por vez**. Ela poderá ser retomada a qualquer momento, sem prazo de expiração. O jogador poderá iniciar uma partida com a galera mesmo tendo uma partida individual pausada, preservando integralmente o progresso salvo desta última. O modo com a galera não permite pausa voluntária com retomada; recargas e interrupções ambíguas têm a recuperação técnica da seção 15.6.
 
 O sistema deverá permitir visualizar essa partida e continuar de onde o jogador parou.
 
@@ -411,13 +411,14 @@ Os comportamentos serão distintos:
 | --- | --- |
 | Desistir de uma palavra | Revela a resposta, registra zero e permite seguir |
 | Pausar pelo botão | Avisar sobre o desconto, solicitar confirmação e descontar 100 pontos se confirmado |
-| Fechar a aba ou janela, ou perder a conexão | Preservar o progresso; ao retomar, avisar sobre o desconto de 100 pontos pela interrupção |
+| Sair por ação confirmada ou navegar para outra página, inclusive Voltar/Avançar | Preservar o progresso como pausa e descontar 100 pontos uma única vez |
+| Fechamento, perda de conexão ou suspensão cuja causa permaneça ambígua | Preservar o progresso sem desconto; ausência de sinais não basta para penalizar |
 | Atualizar a página | Recuperar o progresso sem desconto |
 | Abandonar definitivamente uma partida | Encerrar sem desconto adicional, manter pontos e acertos e liberar uma nova partida |
 
-Na retomada após interrupção, o aviso será informativo: o jogador não poderá recusar a penalidade. Uma mesma interrupção deverá gerar **um único desconto**, mesmo se o aviso for recarregado. Uma nova penalidade somente poderá ocorrer depois de o jogo ser efetivamente retomado e interrompido novamente.
+Na retomada após uma pausa penalizável, o aviso será informativo: o jogador não poderá recusar uma penalidade já devida. Uma mesma interrupção deverá gerar **um único desconto**, mesmo se o aviso for recarregado. Uma nova penalidade somente poderá ocorrer depois de o jogo ser efetivamente retomado e interrompido novamente. Quando não for possível distinguir fechamento de falha, preservar a partida sem desconto, conforme decisão da fase 13.
 
-O mecanismo técnico para distinguir atualização de página, fechamento e perda de conexão será definido no backend e na integração com a interface. A regra exige essa distinção e não autoriza penalizar uma simples atualização.
+Na fase 13 foi aprovada a combinação de identidade de aba/documento, tipo de navegação, sinais do navegador e confirmação do servidor, com os limites registrados em Prova-interrupcoes.md. Uma recarga reconhecida não desconta pontos, mesmo quando lenta. Trocar de aba, ocultar ou minimizar a janela não conta como pausa. Voltar/Avançar após sair para outra página conta como saída; restaurar uma página pelo cache do navegador não elimina esse efeito. Ausências ambíguas não serão usadas para presumir saída ou penalizar falha da hospedagem.
 
 Uma partida abandonada contará nas estatísticas de abandono, mas não no ranking de partidas concluídas. Pontos e acertos já registrados continuarão nas estatísticas e nos rankings correspondentes.
 
@@ -554,18 +555,18 @@ A sessão extra terá apenas os participantes empatados em primeiro lugar, uma r
 
 - Haverá um botão de desistência que encerra a partida inteira, sem possibilidade de continuar depois.
 - Ao desistir, vence quem tiver a maior pontuação acumulada naquele momento. Se houver empate na liderança, o resultado será empate definitivo, sem oferecer sessão extra.
-- Esse modo não permitirá pausa com retomada e não terá ranking.
+- Esse modo não permitirá pausa voluntária com retomada e não terá ranking. A recuperação técnica de uma interrupção ambígua, aprovada na fase 13, é uma exceção para preservar o painel, não uma opção de pausar a partida.
 - O sistema deverá registrar a desistência, os resultados dos participantes e quais respostas foram exibidas ou não chegaram a ser exibidas.
 - Respostas destinadas a sessões não iniciadas não serão consideradas vistas. Elas poderão ser selecionadas aleatoriamente em outra partida, sem garantia de aparecer novamente.
 - É necessário distinguir uma resposta exibida em uma sessão, mas não resolvida, de uma resposta que nunca foi apresentada.
 - Ao desistir, as respostas pendentes da sessão atual serão reveladas sem pontuação adicional. As respostas de sessões não iniciadas permanecerão escondidas.
-- Fechar a aba ou a janela do jogo encerrará a partida. O sistema deverá registrar a interrupção e o resultado pelo saldo atual, seguindo a regra de encerramento antecipado, sem retomada posterior.
+- Saída confirmada ou navegação para outra página, inclusive saída seguida de Voltar/Avançar, encerrará a partida pelo saldo atual, seguindo a regra de encerramento antecipado, sem retomada posterior. Quando não for possível distinguir fechamento de falha de conexão ou suspensão, o painel será preservado, conforme decisão da fase 13; não encerrar somente por ausência de sinais.
 - Atualizar a página não encerrará a partida: o painel, a vez e as pontuações serão recuperados sem penalidade. Essa recuperação técnica não representa uma opção de pausa com retomada futura.
-- O mecanismo técnico de distinção entre atualização e fechamento ainda será definido. Perda de conexão e falha do navegador também precisam ter seu tratamento detalhado, sem serem equiparadas silenciosamente à atualização.
+- A distinção técnica usa os sinais e limites documentados em Prova-interrupcoes.md. Recarga reconhecida recupera o painel; retorno ambíguo preserva o estado sem presumir encerramento. Sair para outra página é uma saída, mesmo que a página seja restaurada pelo cache do navegador. Falha da hospedagem não equivale a desistência do jogador.
 
 ### 15.7. Pontos ainda em aberto
 
-Não haverá repetição de respostas entre sessões da mesma partida com a galera. Temáticas poderão se repetir. Tratamento de perda de conexão e normalização dos nomes dos participantes ainda precisam ser definidos. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
+Não haverá repetição de respostas entre sessões da mesma partida com a galera. Temáticas poderão se repetir. Normalização dos nomes e preservação em interrupções ambíguas já foram aprovadas; a integração técnica será realizada nas fases próprias. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
 
 As regras do modo individual, incluindo penalidade de pausa e pontuação por dica, não deverão ser aplicadas automaticamente a esse modo.
 
@@ -593,7 +594,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-18 | Calcular a pontuação conforme a dica atual | Definido |
 | RF-19 | Permitir desistir da palavra, revelar a resposta e registrar zero | Definido |
 | RF-20 | Salvar e retomar uma única partida individual em andamento por jogador | Definido |
-| RF-21 | Descontar 100 pontos por pausa, sem duplicar a mesma interrupção ou penalizar atualização da página | Definido; detecção técnica pendente |
+| RF-21 | Descontar 100 pontos por pausa/saída confirmada, sem duplicação; recarga e casos ambíguos não descontam | Política e prova técnica definidas; integração pendente |
 | RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
 | RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Definido |
 | RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Primeira entrega confirmada; regras em detalhamento |
@@ -602,9 +603,9 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-27 | Sortear a ordem a cada sessão e apresentar uma resposta por participante em painel compartilhado | Definido |
 | RF-28 | Pontuar 100 por posição recém-revelada, sem duplicar pontos, e controlar turnos e bloqueios compartilhados | Definido |
 | RF-29 | Oferecer empate ou uma única sessão extra apenas entre os líderes empatados, com concordância de todos | Definido |
-| RF-30 | Encerrar a partida com a galera ao desistir, registrar o resultado e distinguir respostas exibidas das não exibidas, sem retomada | Definido; detalhes de interrupções pendentes |
+| RF-30 | Encerrar a galera em saída confirmada, registrar resultado e distinguir respostas exibidas das não exibidas; preservar ambiguidades | Política definida; integração pendente |
 | RF-31 | Configurar dificuldade única e temáticas por sessão antes da partida com a galera, com opção de sorteio oculto e repetição de temática | Definido |
-| RF-32 | Encerrar o modo com a galera ao fechar a aba, mas recuperar a partida sem penalidade ao atualizar a página | Definido; distinção técnica pendente |
+| RF-32 | Encerrar a galera na saída confirmada; recuperar recarga e preservar painel em interrupções ambíguas | Política e prova técnica definidas; integração pendente |
 | RF-33 | Exibir resumo das partidas com a galera no histórico privado do usuário autenticado, separado do desempenho individual | Definido |
 | RF-34 | Importar conteúdo de arquivos JSON em lotes de 25, no contrato aprovado, com validação prévia | Definido; importador ainda não implementado |
 | RF-35 | Exigir escolha de nome de usuário disponível e avatar no primeiro acesso com Google | Definido |
@@ -701,7 +702,7 @@ O responsável confirmou que não há exigências adicionais dos professores al�
 1. O jogador acessa sua partida não finalizada.
 2. O sistema recupera o progresso e a dica atual.
 3. O jogador pode consultar as dicas anteriores e continuar.
-4. Se houve fechamento ou perda de conexão, o sistema apresenta o aviso e registra o desconto de 100 pontos uma única vez pela interrupção. Uma pausa já confirmada e descontada pelo botão não gera novo desconto na retomada.
+4. Se houve pausa ou saída confirmada, o sistema apresenta o aviso e registra o desconto de 100 pontos uma única vez. Uma pausa já descontada não gera novo desconto na retomada. Recarga reconhecida e interrupção cuja causa permaneça ambígua preservam o progresso sem desconto.
 5. Um acerto recebe os pontos da dica atual; a penalidade é contabilizada separadamente na pontuação da partida.
 
 ## 20. Exemplos para validação das regras
@@ -727,7 +728,8 @@ O responsável confirmou que não há exigências adicionais dos professores al�
 | Desistir no modo com a galera | Encerrar, revelar somente respostas pendentes da sessão atual e declarar o líder ou empate definitivo |
 | Sortear temáticas no modo com a galera | Ocultar sequência futura e permitir a mesma temática em sessões diferentes |
 | Atualizar a página no modo com a galera | Recuperar painel, turno e pontos sem penalidade |
-| Fechar a aba no modo com a galera | Encerrar a partida, sem permitir retomada |
+| Sair de forma confirmada no modo com a galera | Encerrar pelo saldo atual, sem permitir retomada |
+| Interrupção ambígua nos dois modos | Preservar individual sem desconto e painel da galera |
 | Tentar iniciar uma segunda demonstração como visitante | Bloquear a criação e solicitar login |
 | Vincular uma demonstração concluída ao perfil | Preservar o registro e contabilizar seus resultados uma única vez |
 | Enviar JAPAO quando a resposta é JAPÃO | Rejeitar o palpite por ausência de acento |
@@ -760,7 +762,7 @@ Sugestões de conteúdo por jogadores poderão ser discutidas em atualização f
 
 Antes de fechar a modelagem e implementar as regras, as principais decisões são:
 
-1. **Detecção de interrupções:** como distinguir fechamento, perda de conexão e atualização, garantindo um desconto por pausa.
+1. **Interrupções:** política e prova aprovadas na fase 13: preservação nas dúvidas, recarga sem desconto e navegação para outra página como saída. Integrar às partidas e verificar em aparelhos físicos e hospedagem.
 2. **Estatísticas privadas:** momento de atualização e cálculo de indicadores por temática; rankings já têm publicação definida no encerramento.
 3. **Ranking:** apresentação da numeração após posições compartilhadas; empates já aprovados sem critério adicional.
 4. **Seleção de conteúdo:** falta por dificuldade e tamanho mínimo de partida reduzida. Histórico visto já é compartilhado entre os modos para o anfitrião.
@@ -769,7 +771,7 @@ Antes de fechar a modelagem e implementar as regras, as principais decisões sã
 7. **Entrada de respostas:** detalhes visuais de aplicação dos acentos e conservação das letras parcialmente preenchidas ao retomar.
 8. **Contas:** decisões de nomes e exclusão resolvidas na fase 10, conforme seção 5. Implementar a exclusão com resultados anônimos e recadastro independente nas fases previstas.
 9. **Dados e infraestrutura:** escolher hospedagem gratuita da API e da interface, implementar o importador no contrato aprovado e configurar o login Google.
-10. **Modo com a galera:** concluir tratamento de perda de conexão e configuração do desempate; normalização dos nomes já aprovada. Rever exigências acadêmicas se surgirem novas orientações.
+10. **Modo com a galera:** concluir configuração do desempate e integrar interrupções conforme a fase 13; política de casos ambíguos e normalização dos nomes já aprovadas. Rever exigências acadêmicas se surgirem novas orientações.
 
 O núcleo do modo individual está definido. Os pontos acima devem ser resolvidos sem transformar sugestões ou interpretações em regras definitivas.
 

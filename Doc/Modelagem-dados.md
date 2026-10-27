@@ -27,7 +27,7 @@ Identificadores relacionais: UUID. Datas: instantes UTC com fuso (`timestamptz`)
 | `palpites` | Ação, rodada selecionada quando aplicável, participante, texto enviado, tipo letra/palavra, dica utilizada, resultado e pontos obtidos. |
 | `posicoes_reveladas` | Sessão/rodada, posição, ação e participante que pontuou. Unicidade por rodada e posição impede pontuar duas vezes a mesma letra. |
 | `letras_tentadas` | Família de letra tentada na sessão da galera, ação e acerto/erro. Vogais equivalentes; C e Ç distintos. Não bloqueia letras da montagem de um palpite completo por si só. |
-| `interrupcoes` | Partida, identificador de interrupção, origem observada, estado de apuração e instantes de aviso. A política de detecção aguarda a fase 13. |
+| `interrupcoes` | Partida, identificador único, origem observada, apuração e instantes de aviso. Política da fase 13: preservar ambiguidades e distinguir recarga de saída por navegação; integração persistida nas fases 28 e 33. |
 | `penalidades` | Interrupção reconhecida, partida e valor -100; registro único por interrupção. |
 | `exposicoes_conteudo` | Rodada e primeiro instante de apresentação; proprietário obtido pela partida. Compartilhado entre os dois modos para o anfitrião. Reserva não gera exposição. |
 | `acoes_processadas` | Partida, identificador de ação do cliente, tipo, resumo da entrada, resultado e versão aplicada. Evita reprocessamento de ações já aceitas. |
@@ -68,7 +68,7 @@ Diagrama conceitual; cardinalidades condicionadas ao modo serão complementadas 
 
 **Individual:** preparada → em andamento → pausada → em andamento; em andamento/pausada → abandonada; última rodada concluída → concluída. Estados finais não aceitam novos palpites. Pausar exige confirmação e penalidade quando a interrupção for classificada como pausa; recarga não é pausa.
 
-**Galera:** preparada → em andamento → concluída ou encerrada por desistência. Sessões regulares terminadas podem conduzir à decisão de empate e, mediante concordância dos líderes, a uma única sessão extra. Não existe estado de pausa retomável da galera; recarga recupera a sessão ainda ativa conforme validação técnica futura.
+**Galera:** preparada → em andamento → concluída ou encerrada por desistência/saída confirmada. Sessões regulares terminadas podem conduzir à decisão de empate e, mediante concordância dos líderes, a uma única sessão extra. Não existe pausa voluntária retomável; recarga e interrupção ambígua preservam a sessão ainda ativa, conforme decisão da fase 13. Ausência de sinais não altera sozinha o estado para abandonada.
 
 **Rodada:** reservada → apresentada → acertada ou desistida. Na galera, conclusão pode ocorrer pelo preenchimento de todas as posições, mesmo sem palpite completo. Só a apresentação marca a resposta como vista.
 

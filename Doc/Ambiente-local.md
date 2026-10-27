@@ -88,6 +88,8 @@ Ruff formata e verifica Python; Prettier formata o frontend e TypeScript verific
 
 ## Dependências e organização
 
+Na fase 13, Playwright foi instalado como dependência de desenvolvimento do frontend, com versão exata e lock. `npm run testar-interrupcoes` executa uma prova isolada e inicia seus servidores nas portas 5175 e 8770, encerrando-os ao terminar. No Windows utiliza o Edge instalado e o Python da `.venv`; para outros ambientes, configurar canal e executável conforme [Prova-interrupcoes.md](Prova-interrupcoes.md). Os dados de teste ficam em memória e não acessam bancos ou contas reais. Celular/tablet foram emulados; aparelhos físicos e hospedagem pública ainda precisam de conferência.
+
 Versões verificadas nesta etapa: React 19.3.1, Vite 8.3.5, TypeScript 7.0.2, Vitest 5.0.5, FastAPI 0.162.0 e Uvicorn 0.54.0. Os arquivos de lock registram as demais versões. Dependências de regras de negócio e interação avançada serão instaladas somente nas fases em que forem utilizadas.
 
 Verificações da fase 08: três testes HTTP do backend, três testes do cliente da interface, Ruff, Prettier, tipos, compilação Vite, consistência de dependências Python e resolução dos hashes ignorando pacotes já instalados. Em teste integrado temporário, um navegador executou a interface React e exibiu “API disponível” após consultar FastAPI pelo proxy do Vite. Na fase 12, o backend passou em 58 testes, incluindo bancos isolados; o MongoDB de desenvolvimento recebeu a carga aprovada descrita acima. Não houve mudança de interface nesta etapa.

@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Situação:** fase 12 com catálogo MongoDB, validação completa e importador recuperável implementados. 75 respostas aprovadas importadas localmente; as 125 respostas produzidas passaram na validação dos arquivos. Modelos SQLAlchemy, migração das 18 tabelas e contratos da fase 10 preservados. Autenticação e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md) e [Importação do catálogo](Importacao-catalogo.md).
+**Situação:** fase 13 com prova de interrupções e política aprovada: preservar casos ambíguos, recuperar recargas e tratar navegação para outra página como saída. Prova isolada verificada com 32 testes de navegador e 23 testes do backend. Catálogo com 75 respostas aprovadas importadas localmente, entre as 125 já produzidas e validadas. Autenticação e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md), [Importação do catálogo](Importacao-catalogo.md) e [Prova de interrupções](Prova-interrupcoes.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -161,7 +161,7 @@ O navegador não oferece uma notificação infalível para distinguir todo fecha
 
 Antes de depender dessa distinção para penalizar ou encerrar uma partida, testar identificação da aba, atividade, recarga e reconexão com confirmação do servidor. Conexões persistentes e notificações de saída podem ajudar, mas não eliminam toda ambiguidade.
 
-As regras de produto continuam em Detalhes.md. Se os testes exigirem uma janela de reconexão ou outra adaptação perceptível, apresentar a proposta para decisão. Não penalizar uma simples atualização como forma de contornar a dificuldade.
+Prova local da fase 13 em [Prova-interrupcoes.md](Prova-interrupcoes.md): HTTP com identidade de aba/documento, tipo de navegação e sinais do navegador. O responsável aprovou preservar a individual sem desconto e o painel da galera nos casos ambíguos. Navegação para outra página, inclusive Voltar/Avançar, conta como saída. Recarga reconhecida permanece sem desconto. Os 10 segundos da prova apenas sinalizam ausência, sem encerrar ou penalizar automaticamente. A integração persistida, a hospedagem pública e os aparelhos físicos ainda precisam ser verificados nas fases próprias.
 
 ## 10. Publicação
 

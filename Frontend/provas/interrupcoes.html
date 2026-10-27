@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decifra · Prova de interrupções</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="selo">DECIFRA / FASE 13</span>
+        <p>Laboratório local</p>
+      </header>
+      <h1>Uma pausa.<br />Vários sinais.</h1>
+      <p class="abertura">
+        Atualize, feche e volte. Esta tela registra o que o navegador e o
+        servidor conseguem observar.
+      </p>
+      <aside>
+        Experimento isolado: os pontos são fictícios. Nenhuma conta, partida ou
+        ranking é alterado.
+      </aside>
+      <div class="grade">
+        <section class="painel" aria-labelledby="titulo-controles">
+          <h2 id="titulo-controles">Prepare uma prova</h2>
+          <div class="botoes">
+            <button id="nova-individual">Nova individual</button
+            ><button id="nova-galera" class="secundario">Nova galera</button>
+          </div>
+          <p id="conexao" role="status" aria-live="polite">
+            Crie uma prova para começar.
+          </p>
+          <dl>
+            <div>
+              <dt>Pontos fictícios</dt>
+              <dd id="saldo">—</dd>
+            </div>
+            <div>
+              <dt>Pausas confirmadas</dt>
+              <dd id="pausas">0</dd>
+            </div>
+          </dl>
+          <p>Classificação observada</p>
+          <strong id="classificacao">aguardando</strong>
+          <div class="botoes acoes">
+            <button id="pausar" disabled>Simular pausa (−100)</button
+            ><button id="retomar" class="secundario" disabled>
+              Retomar simulação</button
+            ><button id="reenviar" class="secundario" disabled>
+              Reenviar última ação</button
+            ><button id="encerrar" class="secundario" disabled>
+              Encerrar simulação
+            </button>
+          </div>
+          <a href="/" id="sair">Ir para outra página (testar Voltar)</a>
+        </section>
+        <section class="painel" aria-labelledby="titulo-eventos">
+          <h2 id="titulo-eventos">O que chegou ao servidor</h2>
+          <p>
+            Atualizar não desconta pontos. Nas dúvidas, preservamos a simulação.
+            Sair para outra página conta como pausa ou encerramento, conforme o
+            modo.
+          </p>
+          <ol id="eventos" aria-label="Eventos registrados"></ol>
+          <details>
+            <summary>Estado técnico da prova</summary>
+            <pre id="estado">Nenhuma prova ativa.</pre>
+          </details>
+        </section>
+      </div>
+      <footer>
+        Sinais a cada 2 segundos · ausência observável após 10 segundos ·
+        valores experimentais
+      </footer>
+    </main>
+    <script type="module" src="/src/provas/interrupcoes/principal.ts"></script>
+  </body>
+</html>
