@@ -800,7 +800,7 @@ Após consumir a demonstração, o menu deverá refletir o bloqueio de novas dem
 
 Depois do login, o menu oferece acesso em cartões destacados aos dois modos de jogo e atalhos rápidos para perfil, rankings e configurações. Se houver uma partida individual pausada, um cartão de destaque "Continuar Partida" é exibido com o progresso salvo. O botão de demonstração não é exibido após a autenticação.
 
-Na fase 06, foram aprovados o mapa de navegação e as rotas oficiais:
+O mapa de navegação e as rotas abaixo foram definidos na fase 06. Os [protótipos navegáveis](Prototipos/LEIA-ME.md) foram produzidos e aprovados visualmente pelo responsável na revisão de 2026-10-27, após redesenho com aparência de jogo. A aprovação cobre a direção e os fluxos do protótipo; a implementação React, as integrações e as regras completas continuam nas fases próprias.
 
 | Rota | Tela e Função |
 | :--- | :--- |

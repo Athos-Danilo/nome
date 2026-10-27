@@ -9,6 +9,8 @@
 
 ## Orientação de geração do personagem
 
+`aurelio-apresentador.png` é a ilustração isolada com transparência, derivada do conceito aprovado pela ferramenta integrada de imagens. Foi solicitada a preservação do personagem principal da esquerda: capa oliva, olhos creme, gravata verde-lima, luvas e sapatos, pose de apresentação e corpo completo. Foram removidos o fundo da prancha, textos, poses secundárias e círculos de avatar. O arquivo é usado no menu e nas dicas do protótipo; continua sendo uma ilustração estática, sem camadas de animação.
+
 Prancha de apresentação do dicionário Aurélio para aprovação humana antes de preparar SVG animável. Personagem 2D cartoon retrô-moderno, expressivo, carismático, curioso e um pouco atrapalhado, voltado ao público geral adulto; capa oliva, páginas creme/bege, gravata-borboleta verde-lima com nó oliva, braços e pernas flexíveis, luvas e sapatos arredondados. Rosto na própria capa, sem cabeça humana. Pose grande de apresentador à esquerda, três expressões do mesmo personagem à direita e quatro exemplos circulares de avatar na base: Aurélio, coruja, capivara e lupa. Base cromática: #444439, #8B8669, #DECD9C, #E5E37D, #D4FE62, com creme #F5EFD9. Desenho original, sem reproduzir capa ou logotipo de editora. Textos pedidos: “AURÉLIO” e “Estudo de personagem • Decifra”.
 
 ## Próximas ações

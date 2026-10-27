@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decifra — protótipo da fase 06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="prototipo.css?v=2">
+<link rel="stylesheet" href="visual-jogo.css?v=2">
+<script src="prototipo.js" defer></script>
+</head>
+<body>
+<div class="revisao" aria-label="Controles de revisão do protótipo">
+<span><strong>ESTUDO NAVEGÁVEL / FASE 06</strong><small>Dados fictícios · sem login, áudio ou gravação reais</small></span>
+<label>Abrir cenário <select id="cenario" aria-label="Abrir cenário"></select></label>
+</div>
+<div id="aplicacao">
+<header class="cabecalho"><button class="marca" data-tela="menu" aria-label="Decifra, menu inicial"><span class="bloco">D</span><span>ECIFRA</span></button><div class="controles-topo"><span class="selo-jogo">✦ PALAVRAS &amp; DESCOBERTAS</span><button id="tema" aria-label="Alternar tema" aria-pressed="false">Tema escuro</button><button class="perfil-rapido" data-tela="perfil" aria-label="Abrir meu perfil"><span class="retrato-mini">A</span><span>Meu perfil</span></button></div></header>
+<main id="conteudo" tabindex="-1"></main>
+<nav class="dock" aria-label="Navegação principal"><button data-tela="menu"><span aria-hidden="true">⌂</span><small>Jogar</small></button><button data-tela="rankings"><span aria-hidden="true">♜</span><small>Ranking</small></button><button data-tela="perfil"><span aria-hidden="true">☺</span><small>Perfil</small></button><button data-tela="configuracoes"><span aria-hidden="true">⚙</span><small>Ajustes</small></button></nav>
+</div>
+<dialog id="dialogo" aria-labelledby="titulo-dialogo"><div id="corpo-dialogo"></div></dialog>
+<noscript>Ative JavaScript para percorrer este protótipo.</noscript>
+</body>
+</html>
