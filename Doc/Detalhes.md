@@ -865,7 +865,8 @@ O personagem será **2D**, expressivo, brincalhão, curioso, competitivo e um po
 
 Na fase 04, foi aprovado o estilo **"O Apresentador Showman"**:
 - **Design do personagem:** Dicionário clássico e carismático vestindo uma **gravata-borboleta verde-lima** (`#D4FE62`) com nozinho oliva, braços e pernas flexíveis estilo cartoon retrô-moderno, luvas e sapatos arredondados.
-- **Estrutura SVG em camadas para animação:** Preparado em partes separadas (`corpo_capa`, `corpo_miolo`, `acessorio_gravata`, `rosto`, `membros`) para receber movimentos com Motion na fase 36.
+- **Referência visual aprovada:** a prancha [Aurélio — conceito 01](Identidade-visual/aurelio-conceito-01.png) foi apresentada e aprovada em 2026-10-27, junto ao [estudo da marca](Identidade-visual/marca-estudo.svg) e ao estilo dos avatares. O espaço entre o bloco D e ECIFRA foi reduzido pela metade conforme solicitado.
+- **Estrutura SVG em camadas para animação:** Planejada em partes separadas (`corpo_capa`, `corpo_miolo`, `acessorio_gravata`, `rosto`, `membros`) para receber movimentos com Motion na fase 36. A prancha aprovada é uma imagem raster; as partes animáveis e os vinte arquivos individuais de avatar ainda serão produzidos nas fases próprias.
 - **Repertório de expressões base:** Espera/neutro no menu, apresentação de dica com ar de mistério, comemoração de acerto com pulinho de vitória, reação ao erro com ombros encolhidos, e passagem de vez/sorteio de participante na galera.
 
 O mascote seguirá a preferência de movimentos reduzidos e deverá ter presença compatível com o espaço disponível em celulares e tablets, preservando a leitura das dicas e o uso do teclado.

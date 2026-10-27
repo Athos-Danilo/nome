@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Decifra — estudo da marca O Bloco Decifrado</title>
+  <desc id="descricao">Proposta de marca em fundo claro e escuro, versão compacta e ícone com letra D. Tipografia deve usar Bricolage Grotesque e DM Sans quando disponíveis.</desc>
+  <style>
+    .titulo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-3px}
+    .texto{font-family:'DM Sans',sans-serif}
+  </style>
+  <rect width="1100" height="720" fill="#F5EFD9"/>
+  <text x="56" y="57" fill="#444439" class="texto" font-size="16" letter-spacing="3">DECIFRA / ESTUDO DA MARCA</text>
+  <g transform="translate(62 110)">
+    <rect width="108" height="108" rx="22" fill="#D4FE62" stroke="#444439" stroke-width="4"/>
+    <path d="M34 24H52C78 24 85 37 85 54S78 84 52 84H34ZM49 38V70H53C65 70 70 65 70 54S65 38 53 38Z" fill="#444439"/>
+    <text x="118" y="80" class="titulo" font-size="89" fill="#444439">ECIFRA</text>
+    <text x="121" y="116" class="texto" font-size="22" fill="#444439">O jogo de palavras e dicas</text>
+  </g>
+  <rect x="0" y="272" width="1100" height="254" fill="#292921"/>
+  <g transform="translate(62 324)">
+    <rect width="108" height="108" rx="22" fill="#D4FE62" stroke="#D4FE62" stroke-width="4"/>
+    <path d="M34 24H52C78 24 85 37 85 54S78 84 52 84H34ZM49 38V70H53C65 70 70 65 70 54S65 38 53 38Z" fill="#444439"/>
+    <text x="118" y="80" class="titulo" font-size="89" fill="#F5EFD9">ECIFRA</text>
+    <text x="121" y="116" class="texto" font-size="22" fill="#F5EFD9">O jogo de palavras e dicas</text>
+  </g>
+  <g transform="translate(62 566)">
+    <text y="0" fill="#444439" class="texto" font-size="14" letter-spacing="2">CABEÇALHO COMPACTO</text>
+    <rect y="24" width="44" height="44" rx="9" fill="#D4FE62" stroke="#444439" stroke-width="2"/>
+    <path transform="translate(0 24) scale(.4074)" d="M34 24H52C78 24 85 37 85 54S78 84 52 84H34ZM49 38V70H53C65 70 70 65 70 54S65 38 53 38Z" fill="#444439"/>
+    <text x="49" y="58" class="titulo" font-size="38" fill="#444439">ECIFRA</text>
+  </g>
+  <g transform="translate(640 566)">
+    <text y="0" fill="#444439" class="texto" font-size="14" letter-spacing="2">ÍCONE ISOLADO</text>
+    <rect y="24" width="64" height="64" rx="13" fill="#D4FE62" stroke="#444439" stroke-width="2"/>
+    <path transform="translate(0 24) scale(.5926)" d="M34 24H52C78 24 85 37 85 54S78 84 52 84H34ZM49 38V70H53C65 70 70 65 70 54S65 38 53 38Z" fill="#444439"/>
+  </g>
+  <text x="62" y="693" class="texto" font-size="13" fill="#444439">Proposta para avaliação • tipografia de sistema pode substituir as fontes se não estiverem disponíveis.</text>
+</svg>
