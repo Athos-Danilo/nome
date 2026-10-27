@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "animais-002",
+  "palavras": [
+    {
+      "id": "cachorro",
+      "resposta": "CACHORRO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero domesticado que convive com seres humanos.",
+        "Existem raças minhas com tamanhos e pelagens muito diferentes.",
+        "Meu olfato pode ser aproveitado na busca de pessoas e objetos.",
+        "Costumo expressar entusiasmo abanando a cauda.",
+        "Meu som característico é o latido; meu nome tem oito letras e começa com C."
+      ]
+    },
+    {
+      "id": "gato",
+      "resposta": "GATO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um pequeno mamífero frequentemente criado como companhia.",
+        "Tenho bigodes sensíveis e boa capacidade para saltar.",
+        "Costumo limpar minha pelagem usando a língua.",
+        "Posso emitir um ronronado enquanto descanso perto de alguém.",
+        "Sou o felino doméstico conhecido por miar."
+      ]
+    },
+    {
+      "id": "cavalo",
+      "resposta": "CAVALO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro domesticado há muitos séculos.",
+        "Minha força já foi muito usada no transporte e em trabalhos rurais.",
+        "Tenho cascos nas patas e pelos longos formando uma crina.",
+        "Posso andar a passo, trotar ou galopar com uma pessoa sobre uma sela.",
+        "Sou o animal de montaria que relincha e participa de provas de hipismo."
+      ]
+    },
+    {
+      "id": "vaca",
+      "resposta": "VACA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro comum em propriedades rurais.",
+        "Sou ruminante e posso passar parte do dia mastigando novamente o alimento.",
+        "Meu filhote recebe o nome de bezerro.",
+        "Minha criação está muito associada à produção de leite.",
+        "Sou a fêmea bovina adulta, companheira do touro; meu som característico é o mugido."
+      ]
+    },
+    {
+      "id": "coelho",
+      "resposta": "COELHO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro de pequeno porte.",
+        "Minhas patas traseiras ajudam a dar saltos.",
+        "Tenho orelhas compridas e uma cauda curta e felpuda.",
+        "Minha imagem aparece com frequência nas celebrações da Páscoa.",
+        "Lembro uma lebre, mas meu nome tem seis letras e começa com C."
+      ]
+    },
+    {
+      "id": "porco",
+      "resposta": "PORCO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero onívoro criado em muitas fazendas.",
+        "Tenho patas terminadas em cascos e um corpo geralmente robusto.",
+        "Meu focinho móvel ajuda a explorar o chão em busca de alimento.",
+        "Posso me cobrir de lama para ajudar a regular a temperatura do corpo.",
+        "Meu filhote é chamado de leitão e meu som é o grunhido."
+      ]
+    },
+    {
+      "id": "galinha",
+      "resposta": "GALINHA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ave doméstica presente em muitas propriedades rurais.",
+        "Costumo ciscar o chão em busca de alimento.",
+        "Tenho penas, bico e uma crista na cabeça.",
+        "Sou criada pela produção de ovos e posso chocar uma ninhada de pintinhos.",
+        "Sou a fêmea do galo e sou conhecida por cacarejar."
+      ]
+    },
+    {
+      "id": "pato",
+      "resposta": "PATO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ave com espécies encontradas perto de ambientes aquáticos.",
+        "Minhas patas têm membranas que ajudam na natação.",
+        "Meu bico costuma ser largo e achatado.",
+        "A versão doméstica aparece em histórias nadando em lagos de fazendas.",
+        "Sou a ave do personagem Donald, companheiro de Margarida nos desenhos."
+      ]
+    },
+    {
+      "id": "borboleta",
+      "resposta": "BORBOLETA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto que passa por uma grande transformação ao longo da vida.",
+        "Na fase adulta, tenho dois pares de asas cobertas por pequenas escamas.",
+        "Minha fase jovem é uma lagarta.",
+        "Entre a lagarta e o adulto existe uma fase de pupa, muitas vezes chamada de crisálida.",
+        "Sou o inseto de asas frequentemente coloridas que costuma ser visto visitando flores durante o dia."
+      ]
+    },
+    {
+      "id": "abelha",
+      "resposta": "ABELHA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um pequeno animal importante para a reprodução de muitas plantas.",
+        "Como outros insetos, tenho seis pernas e um par de antenas.",
+        "Visito flores para coletar recursos como néctar e pólen.",
+        "Algumas espécies formam colônias com rainha e operárias.",
+        "Nas espécies conhecidas pela produção de mel, o alimento é armazenado em favos de cera."
+      ]
+    },
+    {
+      "id": "polvo",
+      "resposta": "POLVO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um animal marinho de corpo mole.",
+        "Pertenço aos moluscos, mas não tenho uma concha externa protegendo o corpo.",
+        "Posso mudar a aparência da pele para me camuflar.",
+        "Meus braços possuem ventosas que ajudam a explorar e segurar objetos.",
+        "Sou o cefalópode conhecido por ter oito braços, diferentemente da lula."
+      ]
+    },
+    {
+      "id": "arraia",
+      "resposta": "ARRAIA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um peixe com espécies encontradas no mar e na água doce.",
+        "Meu esqueleto é formado principalmente por cartilagem.",
+        "Meu corpo achatado possui nadadeiras peitorais muito desenvolvidas.",
+        "Ao nadar, posso movimentar essas nadadeiras como se fossem asas.",
+        "Tenho corpo semelhante a um disco e cauda alongada; algumas espécies possuem um ferrão."
+      ]
+    },
+    {
+      "id": "tucano",
+      "resposta": "TUCANO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave encontrada em regiões tropicais das Américas.",
+        "Frutos fazem parte importante da alimentação de muitas espécies do meu grupo.",
+        "Costumo usar cavidades em árvores como local de ninho.",
+        "Meu bico é muito grande em relação à cabeça, mas possui uma estrutura relativamente leve.",
+        "Minha espécie chamada toco tem um enorme bico alaranjado com uma mancha escura perto da ponta."
+      ]
+    },
+    {
+      "id": "capivara",
+      "resposta": "CAPIVARA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero herbívoro nativo da América do Sul.",
+        "Costumo viver em grupos perto de rios, lagos e áreas alagadas.",
+        "Tenho corpo robusto, orelhas pequenas e pelos geralmente castanhos.",
+        "Nado bem e posso usar a água como refúgio.",
+        "Sou reconhecida como o maior roedor vivente, comum também em alguns parques urbanos."
+      ]
+    },
+    {
+      "id": "tamandua",
+      "resposta": "TAMANDUÁ",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero encontrado nas Américas.",
+        "Tenho garras que ajudam a abrir estruturas onde vivem pequenos insetos.",
+        "Meu focinho é alongado e minha boca não possui dentes.",
+        "Uso uma língua comprida e pegajosa para capturar alimento.",
+        "Sou conhecido por me alimentar principalmente de formigas e cupins."
+      ]
+    },
+    {
+      "id": "escorpiao",
+      "resposta": "ESCORPIÃO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado geralmente mais ativo durante a noite.",
+        "Pertenço aos aracnídeos e tenho quatro pares de pernas.",
+        "Possuo duas grandes pinças na parte da frente do corpo.",
+        "A parte final do meu corpo é alongada e pode se curvar sobre as costas.",
+        "Na ponta dessa estrutura fica um ferrão usado para inocular veneno."
+      ]
+    },
+    {
+      "id": "caranguejo",
+      "resposta": "CARANGUEJO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado com uma carapaça rígida.",
+        "Pertenço aos crustáceos, grupo que também inclui camarões e lagostas.",
+        "Tenho cinco pares de patas, sendo o primeiro geralmente equipado com pinças.",
+        "Muitas espécies do meu grupo se deslocam lateralmente.",
+        "Sou o crustáceo de corpo largo e pinças associado ao manguezal; meu nome tem dez letras."
+      ]
+    },
+    {
+      "id": "morcego",
+      "resposta": "MORCEGO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero com espécies que aproveitam alimentos muito diferentes.",
+        "Muitos representantes do meu grupo procuram alimento à noite.",
+        "Minhas asas são membranas sustentadas por dedos alongados.",
+        "Faço parte do único grupo de mamíferos capaz de voo ativo, em vez de apenas planar.",
+        "Sou associado ao personagem Batman e muitas espécies descansam penduradas de cabeça para baixo."
+      ]
+    },
+    {
+      "id": "tartaruga",
+      "resposta": "TARTARUGA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um réptil conhecido por uma proteção rígida no corpo.",
+        "Essa proteção faz parte do meu esqueleto e não é uma casa que posso abandonar.",
+        "O casco possui uma parte superior e outra que protege a região ventral.",
+        "Minhas espécies marinhas têm membros adaptados à natação.",
+        "Na forma marinha, volto à areia para colocar ovos e tenho membros parecidos com remos."
+      ]
+    },
+    {
+      "id": "flamingo",
+      "resposta": "FLAMINGO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave que costuma viver em grupos perto da água.",
+        "Tenho pernas longas e um pescoço comprido.",
+        "Meu bico possui estruturas que ajudam a filtrar alimento.",
+        "A coloração rosada ou avermelhada da minha plumagem está ligada a pigmentos da alimentação.",
+        "Sou a ave rosada de pernas finas frequentemente vista descansando sobre uma só perna."
+      ]
+    },
+    {
+      "id": "narval",
+      "resposta": "NARVAL",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero marinho adaptado a águas muito frias.",
+        "Vivo em regiões do Ártico, inclusive perto de áreas com gelo marinho.",
+        "Sou um cetáceo aparentado à beluga.",
+        "Na maioria dos machos, um dente cresce para fora da boca formando uma presa longa.",
+        "Essa presa em espiral lembra um chifre e me rendeu a associação com um unicórnio do mar."
+      ]
+    },
+    {
+      "id": "dugongo",
+      "resposta": "DUGONGO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero marinho herbívoro.",
+        "Vivo em águas costeiras de partes dos oceanos Índico e Pacífico.",
+        "Procuro alimento em pradarias de ervas marinhas.",
+        "Sou parente dos peixes-bois, mas minha cauda possui dois lobos, lembrando a de um golfinho.",
+        "Meu focinho voltado para baixo ajuda a pastar no fundo; sou o sirênio marinho de cauda bifurcada."
+      ]
+    },
+    {
+      "id": "casuar",
+      "resposta": "CASUAR",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma ave de grande porte que não voa.",
+        "Meu grupo é nativo de florestas tropicais da Nova Guiné e de áreas próximas, incluindo o nordeste da Austrália.",
+        "Tenho plumagem escura e pernas fortes, adaptadas à vida no chão.",
+        "Apresento uma estrutura rígida no alto da cabeça, semelhante a um capacete.",
+        "Na espécie do sul, o pescoço azulado e as duas carúnculas vermelhas ajudam a me reconhecer."
+      ]
+    },
+    {
+      "id": "nautilo",
+      "resposta": "NÁUTILO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um invertebrado marinho com parentes de corpo mole.",
+        "Pertenço aos cefalópodes, o mesmo grande grupo dos polvos e das lulas.",
+        "Ao contrário desses parentes, mantenho uma concha externa bem desenvolvida.",
+        "Minha concha enrolada em espiral possui várias câmaras internas.",
+        "Ocupo a câmara mais externa, enquanto as anteriores participam do controle da minha flutuação."
+      ]
+    },
+    {
+      "id": "tardigrado",
+      "resposta": "TARDÍGRADO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um animal minúsculo, geralmente observado com ampliação.",
+        "Posso ser encontrado em finas películas de água, inclusive entre musgos.",
+        "Tenho corpo curto e quatro pares de pequenas pernas.",
+        "Algumas espécies entram em estados de atividade extremamente reduzida para resistir à dessecação.",
+        "Meu aspecto de pequeno animal rechonchudo com oito pernas me rendeu o apelido de urso-d'água."
+      ]
+    }
+  ]
+}

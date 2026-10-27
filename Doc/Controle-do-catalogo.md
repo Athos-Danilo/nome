@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** cinco lotes produzidos: 125 respostas e 625 dicas, todos aprovados na validação automática completa da fase 12. Os três primeiros, com aprovação editorial anterior, foram importados localmente: 75 respostas e 375 dicas. Países e objetos permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** seis lotes produzidos: 150 respostas e 750 dicas, todos aprovados na validação automática completa. Os três primeiros, com aprovação editorial anterior, foram importados localmente: 75 respostas e 375 dicas. Países, objetos e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -25,7 +25,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Importado localmente |
 | 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
 | 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Em revisão (avaliação humana pendente) |
-| 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Não iniciado |
+| 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Em revisão (avaliação humana pendente) |
 | 16 | 3 | `filmes-e-series-002.json` | 10 | 10 | 5 | 25 | 175 | Não iniciado |
 | 18 | 3 | `marcas-002.json` | 10 | 10 | 5 | 25 | 200 | Não iniciado |
 | 21 | 3 | `paises-002.json` | 10 | 10 | 5 | 25 | 225 | Não iniciado |
@@ -183,6 +183,26 @@ Conferência no Atlas: Pendente
 Pendências: Avaliação humana; validação completa do importador aprovada na fase 12
 ```
 
+#### Lote animais-002 (Fase 14)
+
+```text
+Lote: animais-002
+Fase: 14
+Arquivo: Data/palavras/animais-002.json
+Estado: Em revisão (avaliação humana pendente)
+Data da revisão: 2026-10-27
+Responsável pela revisão: Codex (revisão editorial por IA)
+Quantidade gerada: 25
+Quantidade aprovada: 0 (sem presumir aprovação humana)
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: Validador completo aprovado; seis lotes conferidos com o banco sem conflitos ou escrita; 26 testes de conteúdo/validação aprovados
+Duplicatas e substituições: Nenhuma entre as 150 respostas; 50 animais distintos na distribuição 20/20/10
+Fatos e grafias conferidos: Revisão, fontes e cuidados editoriais em Doc/Revisoes/animais-002.md
+Importação local: Não realizada; aguarda aprovação editorial humana
+Conferência no Atlas: Pendente
+Pendências: Avaliação humana
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -202,12 +222,12 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 
 | Temática | Meta de respostas | Geradas | Aprovadas | Importadas localmente | Conferidas no Atlas |
 | --- | --- | --- | --- | --- | --- |
-| Animais | 100 | 25 | 25 | 25 | 0 |
+| Animais | 100 | 50 | 25 | 25 | 0 |
 | Filmes e séries | 100 | 25 | 25 | 25 | 0 |
 | Marcas | 100 | 25 | 25 | 25 | 0 |
 | Países | 100 | 25 | 0 | 0 | 0 |
 | Objetos | 100 | 25 | 0 | 0 | 0 |
-| **Total** | **500** | **125** | **75** | **75** | **0** |
+| **Total** | **500** | **150** | **75** | **75** | **0** |
 
 ## 6. Fechamento global
 

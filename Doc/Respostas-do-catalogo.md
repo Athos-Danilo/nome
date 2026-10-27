@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos cinco lotes existentes: 125 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos seis lotes existentes: 150 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -129,3 +129,28 @@ Gerada a partir dos cinco lotes existentes: 125 respostas. Fornecer esta lista a
 | objetos-001 | `bigorna` | BIGORNA | dificil |
 | objetos-001 | `metronomo` | METRÔNOMO | dificil |
 | objetos-001 | `paquimetro` | PAQUÍMETRO | dificil |
+| animais-002 | `cachorro` | CACHORRO | facil |
+| animais-002 | `gato` | GATO | facil |
+| animais-002 | `cavalo` | CAVALO | facil |
+| animais-002 | `vaca` | VACA | facil |
+| animais-002 | `coelho` | COELHO | facil |
+| animais-002 | `porco` | PORCO | facil |
+| animais-002 | `galinha` | GALINHA | facil |
+| animais-002 | `pato` | PATO | facil |
+| animais-002 | `borboleta` | BORBOLETA | facil |
+| animais-002 | `abelha` | ABELHA | facil |
+| animais-002 | `polvo` | POLVO | medio |
+| animais-002 | `arraia` | ARRAIA | medio |
+| animais-002 | `tucano` | TUCANO | medio |
+| animais-002 | `capivara` | CAPIVARA | medio |
+| animais-002 | `tamandua` | TAMANDUÁ | medio |
+| animais-002 | `escorpiao` | ESCORPIÃO | medio |
+| animais-002 | `caranguejo` | CARANGUEJO | medio |
+| animais-002 | `morcego` | MORCEGO | medio |
+| animais-002 | `tartaruga` | TARTARUGA | medio |
+| animais-002 | `flamingo` | FLAMINGO | medio |
+| animais-002 | `narval` | NARVAL | dificil |
+| animais-002 | `dugongo` | DUGONGO | dificil |
+| animais-002 | `casuar` | CASUAR | dificil |
+| animais-002 | `nautilo` | NÁUTILO | dificil |
+| animais-002 | `tardigrado` | TARDÍGRADO | dificil |
