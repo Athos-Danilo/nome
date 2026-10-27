@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** três lotes produzidos, totalizando 75 respostas e 375 dicas. As fichas registram aprovação editorial; a validação pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
+**Situação atual:** quatro lotes produzidos, totalizando 100 respostas e 500 dicas. Os três primeiros registram aprovação editorial anterior; o lote de países está revisado pela IA e aguarda avaliação humana. A validação pelo importador da fase 12 e a importação continuam pendentes. Nenhum lote foi importado localmente ou conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -23,7 +23,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 03 | 1 | `animais-001.json` | 10 | 10 | 5 | 25 | 25 | Aguardando validação automática |
 | 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Aguardando validação automática |
 | 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Aguardando validação automática |
-| 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Não iniciado |
+| 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
 | 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Não iniciado |
 | 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Não iniciado |
 | 16 | 3 | `filmes-e-series-002.json` | 10 | 10 | 5 | 25 | 175 | Não iniciado |
@@ -137,6 +137,26 @@ Conferência no Atlas: Pendente
 Pendências: Nenhuma
 ```
 
+#### Lote paises-001 (Fase 09)
+
+```text
+Lote: paises-001
+Fase: 09
+Arquivo: Data/palavras/paises-001.json
+Estado: Em revisão (avaliação humana pendente)
+Data da revisão: 2026-10-27
+Responsável pela revisão: Codex (revisão editorial por IA)
+Quantidade gerada: 25
+Quantidade aprovada: 0 (sem presumir aprovação humana)
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: JSON válido; campos, Unicode e 125 dicas conferidos
+Duplicatas e substituições: Nenhuma entre as 100 respostas do catálogo
+Fatos e grafias conferidos: Revisão e fontes em Doc/Revisoes/paises-001.md
+Importação local: Pendente (fase 12)
+Conferência no Atlas: Pendente
+Pendências: Avaliação humana e validação pelo importador
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -159,9 +179,9 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | Animais | 100 | 25 | 25 | 0 | 0 |
 | Filmes e séries | 100 | 25 | 25 | 0 | 0 |
 | Marcas | 100 | 25 | 25 | 0 | 0 |
-| Países | 100 | 0 | 0 | 0 | 0 |
+| Países | 100 | 25 | 0 | 0 | 0 |
 | Objetos | 100 | 0 | 0 | 0 | 0 |
-| **Total** | **500** | **75** | **75** | **0** | **0** |
+| **Total** | **500** | **100** | **75** | **0** | **0** |
 
 ## 6. Fechamento global
 

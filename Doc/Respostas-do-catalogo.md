@@ -1,0 +1,106 @@
+# Respostas já produzidas — lista de exclusão
+
+Gerada a partir dos quatro lotes existentes: 100 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+
+| Lote | Identificador | Resposta | Dificuldade |
+| --- | --- | --- | --- |
+| animais-001 | `girafa` | GIRAFA | facil |
+| animais-001 | `elefante` | ELEFANTE | facil |
+| animais-001 | `leao` | LEÃO | facil |
+| animais-001 | `golfinho` | GOLFINHO | facil |
+| animais-001 | `pinguim` | PINGUIM | facil |
+| animais-001 | `zebra` | ZEBRA | facil |
+| animais-001 | `tubarao` | TUBARÃO | facil |
+| animais-001 | `panda` | PANDA | facil |
+| animais-001 | `canguru` | CANGURU | facil |
+| animais-001 | `coruja` | CORUJA | facil |
+| animais-001 | `camelo` | CAMELO | medio |
+| animais-001 | `hipopotamo` | HIPOPÓTAMO | medio |
+| animais-001 | `coala` | COALA | medio |
+| animais-001 | `camaleao` | CAMALEÃO | medio |
+| animais-001 | `leopardo` | LEOPARDO | medio |
+| animais-001 | `suricato` | SURICATO | medio |
+| animais-001 | `jacare` | JACARÉ | medio |
+| animais-001 | `gorila` | GORILA | medio |
+| animais-001 | `avestruz` | AVESTRUZ | medio |
+| animais-001 | `rinoceronte` | RINOCERONTE | medio |
+| animais-001 | `ornitorrinco` | ORNITORRINCO | dificil |
+| animais-001 | `pangolim` | PANGOLIM | dificil |
+| animais-001 | `equidna` | EQUIDNA | dificil |
+| animais-001 | `axolote` | AXOLOTE | dificil |
+| animais-001 | `ocapi` | OCAPI | dificil |
+| filmes-e-series-001 | `titanic` | TITANIC | facil |
+| filmes-e-series-001 | `vingadores` | VINGADORES | facil |
+| filmes-e-series-001 | `chaves` | CHAVES | facil |
+| filmes-e-series-001 | `matrix` | MATRIX | facil |
+| filmes-e-series-001 | `shrek` | SHREK | facil |
+| filmes-e-series-001 | `stranger-things` | STRANGER THINGS | facil |
+| filmes-e-series-001 | `o-rei-leao` | O REI LEÃO | facil |
+| filmes-e-series-001 | `gladiador` | GLADIADOR | facil |
+| filmes-e-series-001 | `jurassic-park` | JURASSIC PARK | facil |
+| filmes-e-series-001 | `breaking-bad` | BREAKING BAD | facil |
+| filmes-e-series-001 | `o-poderoso-chefao` | O PODEROSO CHEFÃO | medio |
+| filmes-e-series-001 | `interestelar` | INTERESTELAR | medio |
+| filmes-e-series-001 | `coringa` | CORINGA | medio |
+| filmes-e-series-001 | `lost` | LOST | medio |
+| filmes-e-series-001 | `parasita` | PARASITA | medio |
+| filmes-e-series-001 | `clube-da-luta` | CLUBE DA LUTA | medio |
+| filmes-e-series-001 | `game-of-thrones` | GAME OF THRONES | medio |
+| filmes-e-series-001 | `pulp-fiction` | PULP FICTION | medio |
+| filmes-e-series-001 | `peaky-blinders` | PEAKY BLINDERS | medio |
+| filmes-e-series-001 | `a-origem` | A ORIGEM | medio |
+| filmes-e-series-001 | `casablanca` | CASABLANCA | dificil |
+| filmes-e-series-001 | `o-iluminado` | O ILUMINADO | dificil |
+| filmes-e-series-001 | `cidade-de-deus` | CIDADE DE DEUS | dificil |
+| filmes-e-series-001 | `psicose` | PSICOSE | dificil |
+| filmes-e-series-001 | `blade-runner` | BLADE RUNNER | dificil |
+| marcas-001 | `apple` | APPLE | facil |
+| marcas-001 | `google` | GOOGLE | facil |
+| marcas-001 | `microsoft` | MICROSOFT | facil |
+| marcas-001 | `samsung` | SAMSUNG | facil |
+| marcas-001 | `nike` | NIKE | facil |
+| marcas-001 | `adidas` | ADIDAS | facil |
+| marcas-001 | `ferrari` | FERRARI | facil |
+| marcas-001 | `toyota` | TOYOTA | facil |
+| marcas-001 | `netflix` | NETFLIX | facil |
+| marcas-001 | `nestle` | NESTLÉ | facil |
+| marcas-001 | `sony` | SONY | medio |
+| marcas-001 | `volkswagen` | VOLKSWAGEN | medio |
+| marcas-001 | `lego` | LEGO | medio |
+| marcas-001 | `amazon` | AMAZON | medio |
+| marcas-001 | `honda` | HONDA | medio |
+| marcas-001 | `disney` | DISNEY | medio |
+| marcas-001 | `porsche` | PORSCHE | medio |
+| marcas-001 | `pepsi` | PEPSI | medio |
+| marcas-001 | `starbucks` | STARBUCKS | medio |
+| marcas-001 | `nivea` | NIVEA | medio |
+| marcas-001 | `lamborghini` | LAMBORGHINI | dificil |
+| marcas-001 | `rolex` | ROLEX | dificil |
+| marcas-001 | `heineken` | HEINEKEN | dificil |
+| marcas-001 | `gucci` | GUCCI | dificil |
+| marcas-001 | `hasbro` | HASBRO | dificil |
+| paises-001 | `brasil` | BRASIL | facil |
+| paises-001 | `argentina` | ARGENTINA | facil |
+| paises-001 | `portugal` | PORTUGAL | facil |
+| paises-001 | `japao` | JAPÃO | facil |
+| paises-001 | `franca` | FRANÇA | facil |
+| paises-001 | `italia` | ITÁLIA | facil |
+| paises-001 | `egito` | EGITO | facil |
+| paises-001 | `mexico` | MÉXICO | facil |
+| paises-001 | `china` | CHINA | facil |
+| paises-001 | `australia` | AUSTRÁLIA | facil |
+| paises-001 | `chile` | CHILE | medio |
+| paises-001 | `peru` | PERU | medio |
+| paises-001 | `canada` | CANADÁ | medio |
+| paises-001 | `alemanha` | ALEMANHA | medio |
+| paises-001 | `grecia` | GRÉCIA | medio |
+| paises-001 | `india` | ÍNDIA | medio |
+| paises-001 | `marrocos` | MARROCOS | medio |
+| paises-001 | `noruega` | NORUEGA | medio |
+| paises-001 | `nova-zelandia` | NOVA ZELÂNDIA | medio |
+| paises-001 | `africa-do-sul` | ÁFRICA DO SUL | medio |
+| paises-001 | `butao` | BUTÃO | dificil |
+| paises-001 | `nepal` | NEPAL | dificil |
+| paises-001 | `mongolia` | MONGÓLIA | dificil |
+| paises-001 | `islandia` | ISLÂNDIA | dificil |
+| paises-001 | `madagascar` | MADAGASCAR | dificil |

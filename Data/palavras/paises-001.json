@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "paises-001",
+  "palavras": [
+    {
+      "id": "brasil",
+      "resposta": "BRASIL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Meu território fica na América do Sul e tem uma longa costa atlântica.",
+        "Abrigo grande parte da floresta Amazônica e também o Pantanal.",
+        "Minha bandeira reúne verde, amarelo e um círculo azul com estrelas.",
+        "O samba e o carnaval fazem parte de manifestações culturais muito conhecidas daqui.",
+        "Na cidade do Rio de Janeiro, o Cristo Redentor abre os braços sobre o Corcovado."
+      ]
+    },
+    {
+      "id": "argentina",
+      "resposta": "ARGENTINA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Sul e tenho litoral voltado para o Atlântico.",
+        "Parte da Patagônia está dentro das minhas fronteiras.",
+        "Meu território abriga o Parque Nacional Los Glaciares.",
+        "O tango é uma das expressões culturais mais associadas à minha capital.",
+        "Minha capital é Buenos Aires, e minha bandeira tem um sol entre faixas azuis e branca."
+      ]
+    },
+    {
+      "id": "portugal",
+      "resposta": "PORTUGAL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Minha parte continental fica no sudoeste da Europa e é banhada pelo Atlântico.",
+        "Tenho apenas um vizinho terrestre: a Espanha.",
+        "Os arquipélagos dos Açores e da Madeira fazem parte do meu território.",
+        "O fado e os azulejos são referências culturais muito conhecidas daqui.",
+        "Minha capital é Lisboa, onde o rio Tejo encontra o oceano."
+      ]
+    },
+    {
+      "id": "japao",
+      "resposta": "JAPÃO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país formado por ilhas no leste da Ásia.",
+        "Meu território faz parte de uma região com intensa atividade sísmica.",
+        "Quioto preserva templos e jardins ligados à minha história.",
+        "O monte Fuji é um dos meus símbolos naturais mais conhecidos.",
+        "Minha capital é Tóquio, e minha bandeira mostra um círculo vermelho sobre fundo branco."
+      ]
+    },
+    {
+      "id": "franca",
+      "resposta": "FRANÇA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Minha parte metropolitana fica na Europa Ocidental.",
+        "O rio Sena atravessa minha capital.",
+        "O palácio de Versalhes faz parte do meu patrimônio histórico.",
+        "Minha capital abriga o Museu do Louvre, onde está a Mona Lisa.",
+        "Paris é minha capital, e a Torre Eiffel é um de meus monumentos mais famosos."
+      ]
+    },
+    {
+      "id": "italia",
+      "resposta": "ITÁLIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no sul da Europa e avanço sobre o mar Mediterrâneo.",
+        "Sicília e Sardenha estão entre minhas ilhas.",
+        "Veneza é uma de minhas cidades conhecidas por canais e pontes.",
+        "O formato da minha península lembra uma bota.",
+        "Minha capital é Roma, onde fica o Coliseu."
+      ]
+    },
+    {
+      "id": "egito",
+      "resposta": "EGITO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Grande parte do meu território fica no nordeste da África.",
+        "O rio Nilo atravessa minhas terras antes de chegar ao Mediterrâneo.",
+        "Templos de Luxor e Abu Simbel ajudam a contar minha história antiga.",
+        "Minha civilização antiga é lembrada por faraós e hieróglifos.",
+        "Minha capital é o Cairo, e perto dela estão as pirâmides de Gizé e a Grande Esfinge."
+      ]
+    },
+    {
+      "id": "mexico",
+      "resposta": "MÉXICO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Norte e tenho costas no Pacífico e no mar do Caribe.",
+        "Minha fronteira ao norte é com os Estados Unidos.",
+        "Meu território abriga as antigas cidades de Teotihuacán e Chichén Itzá.",
+        "A celebração do Dia dos Mortos e os grupos de mariachis marcam minha cultura.",
+        "Minha bandeira tem uma águia sobre um cacto, e tacos são uma comida muito associada a mim."
+      ]
+    },
+    {
+      "id": "china",
+      "resposta": "CHINA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Tenho um vasto território no leste da Ásia.",
+        "O rio Yangtzé atravessa parte das minhas terras.",
+        "Em Xi'an, um exército de figuras de terracota guarda um antigo mausoléu.",
+        "Minha capital abriga o complexo de palácios conhecido como Cidade Proibida.",
+        "Minha capital é Pequim, e a Grande Muralha percorre parte do meu território."
+      ]
+    },
+    {
+      "id": "australia",
+      "resposta": "AUSTRÁLIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na Oceania e tenho extensas regiões áridas no interior.",
+        "A ilha da Tasmânia faz parte do meu território.",
+        "A Grande Barreira de Corais se estende ao largo da minha costa nordeste.",
+        "Cangurus e coalas são animais fortemente associados à minha fauna.",
+        "Minha capital é Camberra, e Sydney abriga uma casa de ópera com cobertura que lembra velas."
+      ]
+    },
+    {
+      "id": "chile",
+      "resposta": "CHILE",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na América do Sul e sou banhado pelo oceano Pacífico.",
+        "Meu território continental é estreito e se estende muito de norte a sul.",
+        "A cordilheira dos Andes acompanha grande parte da minha fronteira oriental.",
+        "Abrigo o deserto do Atacama e a ilha de Rapa Nui, famosa pelos moais.",
+        "Minha capital é Santiago, e Valparaíso é uma de minhas cidades portuárias."
+      ]
+    },
+    {
+      "id": "peru",
+      "resposta": "PERU",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Meu território sul-americano reúne litoral no Pacífico, montanhas e floresta Amazônica.",
+        "Nas planícies de Nazca, grandes desenhos antigos podem ser vistos do alto.",
+        "Cusco foi um centro político importante de uma civilização anterior à colonização europeia.",
+        "A cidade inca de Machu Picchu fica entre minhas montanhas.",
+        "Minha capital é Lima, conhecida também por sua proximidade com o oceano."
+      ]
+    },
+    {
+      "id": "canada",
+      "resposta": "CANADÁ",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Tenho território na América do Norte e extensas áreas próximas ao Ártico.",
+        "Inglês e francês são minhas duas línguas oficiais no âmbito federal.",
+        "O centro histórico da cidade de Québec preserva muralhas e construções antigas.",
+        "Minha bandeira traz uma folha de bordo vermelha no centro.",
+        "Minha capital é Ottawa; Toronto e Montreal também estão entre minhas cidades conhecidas."
+      ]
+    },
+    {
+      "id": "alemanha",
+      "resposta": "ALEMANHA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na Europa Central e tenho litoral no mar do Norte e no mar Báltico.",
+        "O rio Reno atravessa parte do meu território.",
+        "A cidade de Colônia abriga uma catedral gótica de grande destaque.",
+        "Minha capital foi dividida por um muro durante parte do século vinte.",
+        "Minha capital é Berlim, onde está o Portão de Brandemburgo."
+      ]
+    },
+    {
+      "id": "grecia",
+      "resposta": "GRÉCIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no sudeste da Europa e tenho muitas ilhas no Mediterrâneo.",
+        "Creta é uma das ilhas do meu território.",
+        "As ruínas de Olímpia remetem a competições esportivas da Antiguidade.",
+        "O Partenon se ergue na Acrópole da minha capital.",
+        "Minha capital é Atenas, e a antiga Esparta também faz parte da minha história."
+      ]
+    },
+    {
+      "id": "india",
+      "resposta": "ÍNDIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no sul da Ásia, com costas no mar Arábico e na baía de Bengala.",
+        "O rio Ganges tem grande importância cultural e religiosa em meu território.",
+        "As cavernas de Ajanta preservam pinturas e esculturas antigas.",
+        "Na cidade de Agra, o Taj Mahal é um dos meus monumentos mais conhecidos.",
+        "Minha capital é Nova Délhi, e Mumbai é um importante centro de cinema."
+      ]
+    },
+    {
+      "id": "marrocos",
+      "resposta": "MARROCOS",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no noroeste da África e tenho costas no Atlântico e no Mediterrâneo.",
+        "O estreito de Gibraltar me separa da Espanha.",
+        "Fès é conhecida por sua antiga medina, com ruas estreitas e atividades artesanais.",
+        "A praça Jemaa el-Fna é uma referência cultural da cidade de Marrakech.",
+        "Minha capital é Rabat; Casablanca também fica no meu território."
+      ]
+    },
+    {
+      "id": "noruega",
+      "resposta": "NORUEGA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no norte da Europa e parte do meu território passa do círculo polar Ártico.",
+        "Minha costa é recortada por fiordes, entradas de mar entre paredões.",
+        "Bergen preserva o antigo conjunto de construções de Bryggen.",
+        "Os fiordes de Geiranger e Nærøy estão entre minhas paisagens reconhecidas pela UNESCO.",
+        "Minha capital é Oslo, e faço fronteira terrestre com a Suécia."
+      ]
+    },
+    {
+      "id": "nova-zelandia",
+      "resposta": "NOVA ZELÂNDIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país insular do Pacífico Sul, na Oceania.",
+        "Duas de minhas ilhas principais são chamadas de Ilha Norte e Ilha Sul.",
+        "O Parque Nacional de Tongariro reúne vulcões e lugares de importância para o povo maori.",
+        "O kiwi, uma ave que não voa, é um dos meus símbolos.",
+        "Minha capital é Wellington, e o haka dos All Blacks é muito associado à minha seleção de rúgbi."
+      ]
+    },
+    {
+      "id": "africa-do-sul",
+      "resposta": "ÁFRICA DO SUL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na porção meridional do continente africano.",
+        "O Reino do Lesoto é inteiramente cercado pelo meu território.",
+        "A Cidade do Cabo fica junto à montanha conhecida como Table Mountain.",
+        "Robben Island, onde Nelson Mandela foi preso, faz parte da minha história.",
+        "Pretória, Cidade do Cabo e Bloemfontein são tradicionalmente associadas às minhas três capitais."
+      ]
+    },
+    {
+      "id": "butao",
+      "resposta": "BUTÃO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país asiático sem litoral, situado na região do Himalaia.",
+        "Meu território fica entre a Índia e a China.",
+        "Tenho fortalezas e mosteiros conhecidos como dzongs.",
+        "O mosteiro de Taktsang, chamado Ninho do Tigre, fica numa encosta próxima a Paro.",
+        "Minha capital é Thimphu, e meu país é conhecido pelo conceito de Felicidade Interna Bruta."
+      ]
+    },
+    {
+      "id": "nepal",
+      "resposta": "NEPAL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país asiático sem litoral, com grandes montanhas ao norte.",
+        "Meu território abriga Lumbini, local associado ao nascimento de Buda.",
+        "O Parque Nacional de Sagarmatha inclui o monte Everest e sua região ao redor.",
+        "Minha bandeira tem formato de dois triângulos sobrepostos, em vez de um retângulo.",
+        "Minha capital é Katmandu, e compartilho a região do Everest com a China."
+      ]
+    },
+    {
+      "id": "mongolia",
+      "resposta": "MONGÓLIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país asiático sem saída para o mar.",
+        "Tenho apenas dois vizinhos terrestres: Rússia e China.",
+        "O deserto de Gobi ocupa parte das minhas terras.",
+        "As paisagens do vale do Orkhon guardam marcas de povos pastores e de antigos impérios.",
+        "Minha capital é Ulan Bator, e Gêngis Khan é uma figura central da minha história."
+      ]
+    },
+    {
+      "id": "islandia",
+      "resposta": "ISLÂNDIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país insular situado no Atlântico Norte.",
+        "Geleiras e vulcões fazem parte das minhas paisagens.",
+        "A ilha de Surtsey surgiu de erupções vulcânicas no século vinte e pertence ao meu território.",
+        "Thingvellir reúne importância histórica e evidências do encontro entre placas tectônicas.",
+        "Minha capital é Reykjavík, e fontes de energia geotérmica ajudam a aquecer minhas construções."
+      ]
+    },
+    {
+      "id": "madagascar",
+      "resposta": "MADAGASCAR",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Meu território fica no oceano Índico, próximo à costa oriental da África.",
+        "Uma grande ilha forma a maior parte do meu território.",
+        "Minhas áreas protegidas incluem florestas úmidas e formações rochosas chamadas tsingy.",
+        "Lêmures e diversas espécies de baobás são referências marcantes da minha natureza.",
+        "Minha capital é Antananarivo, e o canal de Moçambique me separa do continente africano."
+      ]
+    }
+  ]
+}
