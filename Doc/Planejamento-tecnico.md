@@ -107,7 +107,7 @@ Domínios, encaminhamento de `/api`, CORS e atributos dos cookies serão definid
 ## 6. Organização proposta
 
 ```text
-frontend/
+Frontend/
   src/
     aplicacao/
     componentes/
@@ -117,7 +117,7 @@ frontend/
     audio/
     servicos/
     estilos/
-backend/
+Backend/
   aplicacao/
     nucleo/
     bancos/

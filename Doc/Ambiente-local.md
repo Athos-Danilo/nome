@@ -2,7 +2,7 @@
 
 ## Estado da fase 08
 
-Base independente de frontend/backend preparada. O frontend nesta fase é uma tela de diagnóstico, sem substituir o protótipo aprovado ou antecipar as funcionalidades. A API disponibiliza apenas `GET /api/saude` e documentação em `/docs`.
+Base independente da interface e da API preparada nas pastas `Frontend` e `Backend`. O frontend nesta fase é uma tela de diagnóstico, sem substituir o protótipo aprovado ou antecipar as funcionalidades. A API disponibiliza apenas `GET /api/saude` e documentação em `/docs`.
 
 Ambiente encontrado: Python 3.13.0, Node 22.13.0, npm 10.9.2, PostgreSQL instalado 18.0 e MongoDB 8.2.5. Serviços PostgreSQL/MongoDB ativos; `pg_isready` confirmou disponibilidade em 5432 e teste TCP confirmou 27017. Isso não comprova autenticação, existência dos bancos do projeto ou permissões de usuários. Essas configurações e a modelagem ainda serão feitas; nenhum dado existente foi alterado.
 
@@ -11,26 +11,26 @@ Ambiente encontrado: Python 3.13.0, Node 22.13.0, npm 10.9.2, PostgreSQL instala
 Executar na raiz do projeto, com Python 3.13 e Node 22.12 ou superior dentro da linha 22. Node encontrado é compatível com as exigências oficiais do Vite e Vitest escolhidos.
 
 ```powershell
-python -m venv backend/.venv
-backend/.venv/Scripts/python.exe -m pip install --require-hashes -r backend/requirements-dev.txt
-cd frontend
+python -m venv Backend/.venv
+Backend/.venv/Scripts/python.exe -m pip install --require-hashes -r Backend/requirements-dev.txt
+cd Frontend
 npm ci
 ```
 
-No Linux/macOS, usar `backend/.venv/bin/python` no lugar de `backend/.venv/Scripts/python.exe`. Não é necessário ativar o ambiente no PowerShell: os comandos usam seu executável diretamente.
+No Linux/macOS, usar `Backend/.venv/bin/python` no lugar de `Backend/.venv/Scripts/python.exe`. Não é necessário ativar o ambiente no PowerShell: os comandos usam seu executável diretamente.
 
 ## Executar
 
 Em um terminal na raiz:
 
 ```powershell
-backend/.venv/Scripts/python.exe -m uvicorn aplicacao.principal:aplicacao --app-dir backend --host 127.0.0.1 --port 8000 --reload
+Backend/.venv/Scripts/python.exe -m uvicorn aplicacao.principal:aplicacao --app-dir Backend --host 127.0.0.1 --port 8000 --reload
 ```
 
 Em outro terminal:
 
 ```powershell
-cd frontend
+cd Frontend
 npm run dev
 ```
 
@@ -38,18 +38,18 @@ Abrir `http://127.0.0.1:5173`. O Vite encaminha `/api` para `127.0.0.1:8000`, ma
 
 ## Variáveis e bancos de teste
 
-`backend/.env.example` e `.env.teste.example` contêm apenas exemplos fictícios. Copiar para `.env` ou `.env.teste` ao configurar os bancos, substituir dados localmente e manter fora do Git. A API lê `.env` do backend; a configuração de testes pode passar valores explícitos. Os testes atuais não carregam o arquivo local nem acessam bancos.
+`Backend/.env.example` e `.env.teste.example` contêm apenas exemplos fictícios. Copiar para `.env` ou `.env.teste` ao configurar os bancos, substituir dados localmente e manter fora do Git. A API lê `.env` do backend; a configuração de testes pode passar valores explícitos. Os testes atuais não carregam o arquivo local nem acessam bancos.
 
 Reservados `decifra` para desenvolvimento e `decifra_teste` para testes, no PostgreSQL e MongoDB. Não executar testes destrutivos em desenvolvimento. Nesta fase ainda não foram criados usuários, bancos, tabelas ou coleções. Variáveis de conexão são modelos para a fase 10; os drivers serão adicionados quando usados. Nenhum segredo precisa estar no frontend.
 
 ## Verificar
 
 ```powershell
-cd backend
+cd Backend
 .venv/Scripts/python.exe -m ruff check .
 .venv/Scripts/python.exe -m ruff format --check .
 .venv/Scripts/python.exe -m pytest
-cd ../frontend
+cd ../Frontend
 npm run verificar-formatacao
 npm run tipos
 npm test
@@ -69,7 +69,7 @@ Frontend: versões diretas exatas em `package.json` e resolução completa em `p
 Para atualização deliberada, usar o ambiente Python 3.13 e `pip-tools` fixado no lock de desenvolvimento:
 
 ```powershell
-cd backend
+cd Backend
 .venv/Scripts/python.exe -m piptools compile --generate-hashes --allow-unsafe --strip-extras --output-file requirements.txt requirements.in
 .venv/Scripts/python.exe -m piptools compile --generate-hashes --allow-unsafe --strip-extras --output-file requirements-dev.txt requirements-dev.in
 ```
