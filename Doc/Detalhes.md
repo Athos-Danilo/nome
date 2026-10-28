@@ -897,6 +897,8 @@ O arquivo [AGENTS.md](../AGENTS.md), na raiz, aponta para [Agents/Regras.md](../
 
 Todo código controlado pelo projeto deverá usar português, incluindo banco, API, interface, testes e documentação, respeitando palavras reservadas e contratos externos. O guia detalha convenções de nomes, arquitetura, integridade dos dados, segurança, acessibilidade, dependências, testes e colaboração.
 
+Por decisão aprovada em 2026-10-28, **a partir da fase 15 o desenvolvimento seguirá TDD e aplicação obrigatória de SOLID**. Comportamentos executáveis novos ou alterados serão desenvolvidos com teste primeiro, falha esperada, implementação e refatoração; o código será organizado por responsabilidades e contratos, conforme [Agents/Regras.md](../Agents/Regras.md). Essa decisão vale para as próximas fases e não declara que as fases anteriores seguiram TDD. Conteúdo editorial e recursos visuais mantêm suas revisões específicas, além dos testes do código que os manipula.
+
 O planejamento de pastas foi ajustado para essas convenções. Ferramentas que não carreguem `AGENTS.md` automaticamente deverão receber a orientação de ler os arquivos; a presença do arquivo não garante, por si só, que qualquer ferramenta externa siga as instruções.
 
 ## 26. Roteiro da primeira entrega

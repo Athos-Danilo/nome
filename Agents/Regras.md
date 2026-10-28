@@ -50,10 +50,20 @@ Não altere a sintaxe de ferramentas nem crie wrappers de tradução sem utilida
 - Use a arquitetura modular aprovada e separe interface, regras de negócio e persistência.
 - As rotas validam a entrada e encaminham a operação; os serviços aplicam regras; o acesso aos bancos fica em módulos próprios. Não concentre toda a implementação em um arquivo principal.
 - Organize funções e componentes por responsabilidade. Evite funções extensas que misturem consulta, pontuação, renderização e efeitos.
-- Prefira composição, nomes claros e fluxo explícito. Aplique SOLID e padrões de projeto quando resolverem uma necessidade concreta; não crie hierarquias, fábricas ou camadas vazias apenas para cumprir um padrão.
+- Prefira composição, nomes claros e fluxo explícito. A partir da fase 15, aplique SOLID obrigatoriamente ao criar ou alterar código, conforme as responsabilidades e os contratos envolvidos. Use padrões de projeto para necessidades concretas; não crie hierarquias, fábricas ou camadas vazias apenas para cumprir um padrão.
 - Evite duplicar regras e também evite abstrações prematuras. Extraia comportamento compartilhado quando houver uma equivalência real.
 - Mantenha diferenças entre individual e galera explícitas. Não reutilize uma regra de um modo no outro apenas porque os dois usam palavras.
 - Use os termos de domínio definidos no documento: partida, rodada, sessão, turno, dica, palpite e resposta.
+
+### Aplicação de SOLID nas próximas fases
+
+- **S — responsabilidade única:** separe motivos de mudança. Rotas, regras, persistência, apresentação e efeitos devem ter responsabilidades claras.
+- **O — aberto para extensão, fechado para modificação:** permita variar comportamentos pelos pontos de extensão necessários, preservando os contratos existentes. Não antecipe variações hipotéticas nem proíba mudanças legítimas de requisitos.
+- **L — substituição de Liskov:** implementações do mesmo contrato devem preservar suas garantias, inclusive erros e efeitos. Substituições usadas nos testes não podem esconder diferenças relevantes da integração real.
+- **I — segregação de interfaces:** defina contratos pequenos, voltados às operações de cada consumidor; não obrigue módulos a depender de métodos que não utilizam.
+- **D — inversão de dependência:** regras de negócio devem depender de contratos definidos por suas necessidades, recebendo dependências explicitamente. Isole detalhes de banco, Google, rede e áudio nos adaptadores apropriados. Use funções, composição ou protocolos quando suficientes, sem exigir uma classe para cada operação.
+
+Na revisão de cada fase, verifique esses princípios nas partes alteradas e registre decisões arquiteturais relevantes. A regra não declara conformidade retroativa das fases 01 a 14 nem exige reescrever código fora do escopo; ao alterar código existente, aplique-a à mudança e preserve os comportamentos anteriores com testes.
 
 ## 4. Contratos, tipos e validação
 
@@ -105,8 +115,28 @@ Não altere a sintaxe de ferramentas nem crie wrappers de tradução sem utilida
 
 ## 9. Testes e verificação
 
+### TDD obrigatório a partir da fase 15
+
+Todo desenvolvimento de comportamento executável nas próximas fases, no backend e no frontend, deve seguir TDD, incluindo funcionalidades, correções, integrações, comandos e mudanças em regras ou contratos de dados. A obrigação também vale para alterações em código existente, sem exigir reescrita retroativa das fases concluídas.
+
+Trabalhe em incrementos pequenos, seguindo o ciclo:
+
+1. **Vermelho:** escreva primeiro um teste automatizado do comportamento esperado e execute-o antes de implementar. Confirme que ele falha pela ausência ou incorreção desse comportamento, e não por erro de sintaxe, configuração ou indisponibilidade acidental.
+2. **Verde:** implemente o necessário para fazer o teste passar e execute as verificações pertinentes, mantendo os testes anteriores relevantes passando.
+3. **Refatoração:** melhore nomes, organização e aplicação de SOLID sem alterar o comportamento aprovado; execute novamente os testes afetados.
+
+Para correções, comece por um teste que reproduza o defeito. Para código existente sem cobertura, proteja primeiro o comportamento que deve ser preservado e depois acrescente o teste da mudança. Em refatorações sem mudança funcional, essa cobertura começa passando; não invente um requisito novo apenas para produzir uma falha.
+
+Escolha o nível de teste pelo comportamento: unitário para regras isoladas, integração para persistência e contratos externos e navegador para interação e fluxos. Use substitutos controlados nas fronteiras quando necessário, mantendo verificações de integração reais para os riscos que eles não demonstram. Não altere expectativas somente para acomodar uma implementação incorreta.
+
+Registre no resumo da fase os cenários cobertos, a falha inicial observada, o resultado após a implementação e as verificações após refatorar, quando houver. Não alegue TDD se o teste foi criado somente depois do código. Se não puder executar a etapa necessária, informe a limitação e mantenha o comportamento afetado pendente de verificação.
+
+Documentação, produção editorial de palavras e dicas, ilustrações e ajustes puramente visuais não possuem, por si só, um ciclo TDD; continuam sujeitos às validações e revisões próprias. Código que valida, importa, apresenta ou manipula esses recursos segue TDD quando criar ou alterar comportamento. Configurações e migrações que alterem comportamento executável devem ter o resultado esperado verificado por teste apropriado antes e depois da mudança. Revisão visual, acessibilidade e escuta prática continuam necessárias quando aplicáveis.
+
+### Verificações complementares
+
 - Teste regras e riscos reais: pontos, turnos, acentos, repetição, pausas, demonstração e publicação única no ranking.
-- Corrija bugs com verificação que demonstre a falha e a correção quando isso for viável e relevante.
+- Corrija bugs seguindo o ciclo TDD descrito acima, com teste de regressão que demonstre a falha e a correção.
 - Use bancos de teste separados. Não execute limpeza, migração destrutiva ou carga de testes em dados reais.
 - Para alterações de código, execute os verificadores e testes apropriados disponíveis, além da compilação ou verificação de tipos quando afetada.
 - Teste interação e layout em computador, celular e tablet para mudanças de interface. Efeitos sonoros precisam de verificação prática quando alterados.
@@ -127,6 +157,6 @@ Não altere a sintaxe de ferramentas nem crie wrappers de tradução sem utilida
 
 ## 11. Critério de conclusão
 
-Uma entrega está pronta quando atende ao pedido e às regras aprovadas, mantém os contratos coerentes, passa nas verificações pertinentes e tem documentação atualizada quando necessária. Demonstrações visuais, dados simulados e implementações parciais devem ser identificados como tais.
+Uma entrega está pronta quando atende ao pedido e às regras aprovadas, mantém os contratos coerentes, passa nas verificações pertinentes e tem documentação atualizada quando necessária. A partir da fase 15, as mudanças de comportamento executável devem seguir o ciclo TDD, e o código alterado deve ser revisado quanto a SOLID, conforme as seções 3 e 9. Demonstrações visuais, dados simulados e implementações parciais devem ser identificados como tais.
 
 Essas regras não exigem desenvolver tudo de uma vez: prefira etapas completas e verificáveis, sem inventar requisitos ou complexidade para funcionalidades futuras.

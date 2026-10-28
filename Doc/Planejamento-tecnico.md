@@ -12,6 +12,8 @@ Este plano atende aos dois modos na primeira entrega, com React, FastAPI, Postgr
 
 Uma interface React e uma API FastAPI organizada por módulos de negócio. A API será a autoridade para palpites, pontuação, turnos, penalidades e resultados.
 
+**Decisão aprovada em 2026-10-28, válida a partir da fase 15:** aplicar SOLID obrigatoriamente ao código novo e às partes alteradas, mantendo responsabilidades claras, contratos pequenos e dependências explícitas. Regras de negócio serão isoladas dos detalhes de persistência e de serviços externos. A aplicação prática de cada princípio está em [Regras de arquitetura](../Agents/Regras.md#3-arquitetura-e-padrões-de-projeto); não se exige criar abstrações sem necessidade nem reescrever retroativamente as fases concluídas.
+
 ```text
 React: menu, teclado, animações, Aurélio e áudio
                        |
@@ -144,6 +146,10 @@ O importador é um comando Python separado da interface pública, reutilizando P
 Conferir a meta de 500 respostas e 2.500 dicas, com 100 respostas por temática: 40 fáceis, 35 médias e 25 difíceis. Reexecutar a importação não poderá criar cópias. Correções de conteúdo existente serão explícitas.
 
 ## 8. Verificação e ferramentas
+
+**TDD será obrigatório a partir da fase 15** para todo comportamento executável novo ou alterado, tanto no backend quanto no frontend. Antes da implementação, escrever e executar um teste que falhe pelo comportamento esperado; implementar até passar; refatorar mantendo os testes passando. Correções começam por um teste de regressão. Refatorações preservam comportamentos cobertos, sem exigir uma falha artificial. As fases 01 a 14 possuem testes, mas não serão apresentadas retroativamente como desenvolvidas com TDD.
+
+O fluxo completo, o alcance sobre integrações, configurações e migrações, o registro das verificações e o tratamento de documentação, conteúdo e recursos visuais estão centralizados em [TDD e verificação](../Agents/Regras.md#9-testes-e-verificação). Cada próxima fase deve reservar trabalho para esse ciclo desde o início; testes não ficam somente para o encerramento. Validação visual, acessibilidade e áudio complementam os testes automatizados.
 
 | Ferramenta | Uso previsto |
 | --- | --- |
