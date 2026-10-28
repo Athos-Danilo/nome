@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos seis lotes existentes: 150 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos sete lotes existentes: 175 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -154,3 +154,28 @@ Gerada a partir dos seis lotes existentes: 150 respostas. Fornecer esta lista an
 | animais-002 | `casuar` | CASUAR | dificil |
 | animais-002 | `nautilo` | NÁUTILO | dificil |
 | animais-002 | `tardigrado` | TARDÍGRADO | dificil |
+| filmes-e-series-002 | `toy-story` | TOY STORY | facil |
+| filmes-e-series-002 | `procurando-nemo` | PROCURANDO NEMO | facil |
+| filmes-e-series-002 | `ratatouille` | RATATOUILLE | facil |
+| filmes-e-series-002 | `os-incriveis` | OS INCRÍVEIS | facil |
+| filmes-e-series-002 | `encanto` | ENCANTO | facil |
+| filmes-e-series-002 | `a-era-do-gelo` | A ERA DO GELO | facil |
+| filmes-e-series-002 | `barbie` | BARBIE | facil |
+| filmes-e-series-002 | `friends` | FRIENDS | facil |
+| filmes-e-series-002 | `wandinha` | WANDINHA | facil |
+| filmes-e-series-002 | `the-big-bang-theory` | THE BIG BANG THEORY | facil |
+| filmes-e-series-002 | `divertida-mente` | DIVERTIDA MENTE | medio |
+| filmes-e-series-002 | `aladdin` | ALADDIN | medio |
+| filmes-e-series-002 | `luca` | LUCA | medio |
+| filmes-e-series-002 | `valente` | VALENTE | medio |
+| filmes-e-series-002 | `o-sexto-sentido` | O SEXTO SENTIDO | medio |
+| filmes-e-series-002 | `o-diabo-veste-prada` | O DIABO VESTE PRADA | medio |
+| filmes-e-series-002 | `dark` | DARK | medio |
+| filmes-e-series-002 | `lupin` | LUPIN | medio |
+| filmes-e-series-002 | `sherlock` | SHERLOCK | medio |
+| filmes-e-series-002 | `the-good-place` | THE GOOD PLACE | medio |
+| filmes-e-series-002 | `o-fabuloso-destino-de-amelie-poulain` | O FABULOSO DESTINO DE AMÉLIE POULAIN | dificil |
+| filmes-e-series-002 | `a-vida-dos-outros` | A VIDA DOS OUTROS | dificil |
+| filmes-e-series-002 | `central-do-brasil` | CENTRAL DO BRASIL | dificil |
+| filmes-e-series-002 | `o-grande-hotel-budapeste` | O GRANDE HOTEL BUDAPESTE | dificil |
+| filmes-e-series-002 | `ruptura` | RUPTURA | dificil |

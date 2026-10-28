@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "filmes-e-series-002",
+  "palavras": [
+    {
+      "id": "toy-story",
+      "resposta": "TOY STORY",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação sobre companheiros que precisam superar uma rivalidade.",
+        "Meus protagonistas ganham vida quando os humanos não estão olhando.",
+        "A chegada de um presente de aniversário muda a rotina do quarto de Andy.",
+        "Um caubói teme perder seu lugar para um patrulheiro espacial de plástico.",
+        "Woody e Buzz Lightyear precisam cooperar para voltar ao seu dono."
+      ]
+    },
+    {
+      "id": "procurando-nemo",
+      "resposta": "PROCURANDO NEMO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação sobre a coragem de um pai longe de casa.",
+        "A maior parte da aventura acontece no oceano, perto da Austrália.",
+        "Uma companheira com dificuldade para guardar lembranças ajuda o protagonista.",
+        "O filho capturado acaba em um aquário no consultório de um dentista em Sydney.",
+        "Marlin é o peixe-palhaço que atravessa o mar com Dory para reencontrar seu filho."
+      ]
+    },
+    {
+      "id": "ratatouille",
+      "resposta": "RATATOUILLE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação em que um talento improvável desafia preconceitos.",
+        "A culinária francesa e um restaurante de Paris estão no centro da história.",
+        "Um jovem funcionário depende de um parceiro escondido para preparar pratos.",
+        "Esse parceiro controla seus movimentos puxando seus cabelos sob o chapéu de cozinheiro.",
+        "O rato Remy ajuda Linguini a cozinhar e enfrenta o julgamento do crítico Anton Ego."
+      ]
+    },
+    {
+      "id": "os-incriveis",
+      "resposta": "OS INCRÍVEIS",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação sobre uma família que tenta esconder suas habilidades.",
+        "Antigos heróis precisam levar uma vida comum depois de serem afastados da atividade.",
+        "O pai trabalha em uma seguradora, mas sente falta das missões de antigamente.",
+        "Força, elasticidade, velocidade e invisibilidade fazem parte dos poderes dessa família.",
+        "Bob e Helen Parr enfrentam Síndrome com os filhos, usando uniformes desenhados por Edna Moda."
+      ]
+    },
+    {
+      "id": "encanto",
+      "resposta": "ENCANTO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação musical sobre expectativas familiares e pertencimento.",
+        "Minha história se passa em uma comunidade nas montanhas da Colômbia.",
+        "Uma casa mágica abriga uma família cujos membros recebem dons especiais.",
+        "A jovem que não recebeu um poder tenta entender por que a magia está enfraquecendo.",
+        "Mirabel, da família Madrigal, procura respostas que também envolvem seu tio Bruno."
+      ]
+    },
+    {
+      "id": "a-era-do-gelo",
+      "resposta": "A ERA DO GELO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação em que companheiros muito diferentes precisam cuidar de uma criança.",
+        "A aventura acompanha mamíferos pré-históricos durante uma grande mudança no ambiente.",
+        "O grupo tenta devolver um bebê humano à sua família.",
+        "Um mamute, uma preguiça e um tigre-dentes-de-sabre formam o trio principal.",
+        "Manny, Sid e Diego vivem essa jornada, enquanto Scrat persegue sua bolota."
+      ]
+    },
+    {
+      "id": "barbie",
+      "resposta": "BARBIE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma comédia de 2023 que transforma um brinquedo famoso em protagonista.",
+        "Fui dirigida por Greta Gerwig e uso bastante a cor rosa na minha identidade visual.",
+        "Uma personagem deixa seu mundo aparentemente perfeito para conhecer a realidade humana.",
+        "Ken acompanha essa viagem e é interpretado por Ryan Gosling.",
+        "Margot Robbie interpreta a boneca da Mattel que dá nome ao filme."
+      ]
+    },
+    {
+      "id": "friends",
+      "resposta": "FRIENDS",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma comédia de televisão sobre a convivência de seis pessoas adultas.",
+        "O grupo divide romances, empregos e apartamentos em Nova York.",
+        "Uma cafeteria com um sofá alaranjado é um ponto de encontro recorrente.",
+        "Esse estabelecimento se chama Central Perk.",
+        "Rachel, Monica, Phoebe, Ross, Chandler e Joey formam meu grupo principal."
+      ]
+    },
+    {
+      "id": "wandinha",
+      "resposta": "WANDINHA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série que mistura mistério sobrenatural e vida estudantil.",
+        "Minha protagonista chega a um internato para jovens considerados diferentes.",
+        "O colégio Nunca Mais fica próximo da cidade de Jericó.",
+        "Uma adolescente da família Addams investiga acontecimentos estranhos com a ajuda de Mãozinha.",
+        "Jenna Ortega interpreta a filha de Mortícia e Gomez, que dá nome à série no Brasil."
+      ]
+    },
+    {
+      "id": "the-big-bang-theory",
+      "resposta": "THE BIG BANG THEORY",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma comédia de televisão que aproxima a rotina acadêmica da cultura geek.",
+        "Meus personagens se interessam por ciência, quadrinhos e jogos.",
+        "Dois físicos dividem um apartamento e passam a conviver com uma nova vizinha.",
+        "Penny entra no cotidiano de Leonard e de seu colega de hábitos muito rígidos.",
+        "Sheldon Cooper, interpretado por Jim Parsons, é um dos protagonistas desta sitcom."
+      ]
+    },
+    {
+      "id": "divertida-mente",
+      "resposta": "DIVERTIDA MENTE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação sobre mudanças na infância e a importância dos sentimentos.",
+        "Uma menina precisa se adaptar depois de mudar de cidade com os pais.",
+        "Boa parte da história acontece dentro da cabeça de Riley.",
+        "Suas lembranças são representadas por esferas, e cinco emoções operam um painel.",
+        "Na animação de 2015, Alegria e Tristeza ficam longe da sala de comando e precisam retornar."
+      ]
+    },
+    {
+      "id": "aladdin",
+      "resposta": "ALADDIN",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação da Disney sobre identidade, desejos e diferenças sociais.",
+        "Minha história inclui uma princesa que não quer ter seu futuro escolhido por outras pessoas.",
+        "Um jovem de Agrabah encontra uma lâmpada com poderes extraordinários.",
+        "Um gênio azul e um tapete voador ajudam o herói a enfrentar Jafar.",
+        "No filme de 1992, o rapaz tenta conquistar Jasmine assumindo a identidade de Príncipe Ali."
+      ]
+    },
+    {
+      "id": "luca",
+      "resposta": "LUCA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação sobre descobertas, convivência e o medo de ser rejeitado.",
+        "Minha aventura se passa durante o verão em uma vila do litoral italiano.",
+        "Dois garotos sonham em conseguir uma motoneta e participar de uma competição local.",
+        "Eles escondem que são criaturas marinhas, pois a água revela sua aparência original.",
+        "Alberto e Giulia acompanham o menino que dá nome a esta animação da Pixar de 2021."
+      ]
+    },
+    {
+      "id": "valente",
+      "resposta": "VALENTE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação em que um conflito entre mãe e filha ganha consequências mágicas.",
+        "Minha história se passa nas terras altas da Escócia.",
+        "A protagonista é uma princesa ruiva com grande habilidade no arco e flecha.",
+        "Uma tentativa de mudar sua mãe acaba transformando a rainha em uma ursa.",
+        "Merida precisa desfazer o feitiço que atingiu Elinor nesta animação da Pixar de 2012."
+      ]
+    },
+    {
+      "id": "o-sexto-sentido",
+      "resposta": "O SEXTO SENTIDO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um suspense de 1999 em que o relato de uma criança desafia a compreensão de um adulto.",
+        "Um psicólogo infantil tenta ajudar um garoto assustado por experiências incomuns.",
+        "Bruce Willis e Haley Joel Osment interpretam os dois personagens centrais.",
+        "O menino Cole conta ao doutor Malcolm que consegue perceber pessoas já falecidas.",
+        "Fui dirigido por M. Night Shyamalan e fiquei conhecido por uma revelação que muda a leitura da história."
+      ]
+    },
+    {
+      "id": "o-diabo-veste-prada",
+      "resposta": "O DIABO VESTE PRADA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma comédia dramática sobre ambição profissional e escolhas pessoais.",
+        "Uma jovem aceita um emprego em uma área que conhece pouco.",
+        "O trabalho é como assistente de uma poderosa editora de revista de moda em Nova York.",
+        "Anne Hathaway interpreta Andy Sachs, que precisa atender às exigências de Miranda Priestly.",
+        "No filme de 2006, Meryl Streep é a chefe da revista Runway que transforma a rotina de Andy."
+      ]
+    },
+    {
+      "id": "dark",
+      "resposta": "DARK",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série de mistério que conecta segredos familiares e ficção científica.",
+        "Minha história começa com desaparecimentos em uma pequena cidade alemã.",
+        "A cidade se chama Winden, e suas cavernas escondem uma ligação entre épocas.",
+        "A usina nuclear e as relações entre diferentes gerações ajudam a formar o quebra-cabeça.",
+        "Jonas Kahnwald e Martha Nielsen estão no centro desta série alemã de viagens no tempo."
+      ]
+    },
+    {
+      "id": "lupin",
+      "resposta": "LUPIN",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série francesa em que inteligência e disfarces são usados para enfrentar uma injustiça.",
+        "Meu protagonista se inspira em histórias de um famoso ladrão da literatura.",
+        "Um colar valioso liga os golpes do presente a uma acusação feita contra seu pai.",
+        "Assane Diop desafia a poderosa família Pellegrini e cruza o caminho da polícia de Paris.",
+        "Omar Sy interpreta o protagonista, cujo modelo literário foi criado por Maurice Leblanc."
+      ]
+    },
+    {
+      "id": "sherlock",
+      "resposta": "SHERLOCK",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série britânica que atualiza histórias policiais clássicas.",
+        "Minha dupla principal resolve crimes em uma Londres com celulares e recursos modernos.",
+        "As investigações se baseiam nos personagens criados por Arthur Conan Doyle.",
+        "John Watson divide aventuras com um detetive consultor ligado ao endereço 221B da Baker Street.",
+        "Benedict Cumberbatch interpreta o detetive e Martin Freeman vive Watson nesta adaptação da BBC."
+      ]
+    },
+    {
+      "id": "the-good-place",
+      "resposta": "THE GOOD PLACE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma comédia de televisão que transforma questões de ética em parte da aventura.",
+        "Meus personagens precisam lidar com consequências que continuam depois da morte.",
+        "Eleanor acredita ter recebido por engano uma recompensa que não merecia.",
+        "Ela pede ao professor Chidi ajuda para melhorar sua conduta e esconder o engano.",
+        "Kristen Bell e Ted Danson interpretam Eleanor e Michael, enquanto Janet atende aos moradores."
+      ]
+    },
+    {
+      "id": "o-fabuloso-destino-de-amelie-poulain",
+      "resposta": "O FABULOSO DESTINO DE AMÉLIE POULAIN",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme francês que acompanha pequenos gestos capazes de mudar o cotidiano.",
+        "Minha protagonista decide interferir discretamente na felicidade de outras pessoas.",
+        "Ela trabalha como garçonete em Montmartre, em uma Paris de cores marcantes.",
+        "Uma caixa com lembranças de infância e um álbum de fotografias ajudam a movimentar a história.",
+        "Audrey Tautou interpreta a jovem que se aproxima de Nino neste filme dirigido por Jean-Pierre Jeunet."
+      ]
+    },
+    {
+      "id": "a-vida-dos-outros",
+      "resposta": "A VIDA DOS OUTROS",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama alemão sobre vigilância política e transformação pessoal.",
+        "Minha história acompanha artistas sob observação na Alemanha Oriental.",
+        "Um agente da Stasi instala escutas para monitorar um dramaturgo e sua companheira.",
+        "Gerd Wiesler começa a mudar ao acompanhar a intimidade de Georg Dreyman.",
+        "Ulrich Mühe interpreta o agente neste longa de Florian Henckel von Donnersmarck."
+      ]
+    },
+    {
+      "id": "central-do-brasil",
+      "resposta": "CENTRAL DO BRASIL",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama brasileiro em que uma viagem aproxima duas pessoas muito diferentes.",
+        "Uma mulher que escreve cartas para outras pessoas acaba responsável por um menino.",
+        "Depois da morte da mãe do garoto, os dois seguem em busca do pai dele no Nordeste.",
+        "Dora e Josué são interpretados por Fernanda Montenegro e Vinícius de Oliveira.",
+        "Walter Salles dirigiu este filme de 1998, cujo título é o nome da estação carioca onde Dora trabalha."
+      ]
+    },
+    {
+      "id": "o-grande-hotel-budapeste",
+      "resposta": "O GRANDE HOTEL BUDAPESTE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma comédia dramática em que lembranças de um antigo funcionário revelam uma aventura.",
+        "A história inclui uma herança disputada, um assassinato e o roubo de uma pintura.",
+        "Parte da trama se passa na fictícia república europeia de Zubrowka, entre as guerras mundiais.",
+        "O concierge Gustave H. e o jovem Zero são os companheiros centrais da história.",
+        "Wes Anderson dirigiu este filme de 2014, marcado por um luxuoso edifício de fachada rosa."
+      ]
+    },
+    {
+      "id": "ruptura",
+      "resposta": "RUPTURA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma série de suspense sobre identidade e os limites da rotina profissional.",
+        "Funcionários de uma empresa passam por um procedimento que separa conjuntos de lembranças.",
+        "No escritório, eles não se lembram da vida pessoal; fora dele, não recordam o expediente.",
+        "A empresa se chama Lumon, e a chegada de Helly altera a rotina de uma equipe.",
+        "Adam Scott interpreta Mark, que trabalha com Helly, Irving e Dylan nesta produção da Apple."
+      ]
+    }
+  ]
+}
