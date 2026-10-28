@@ -1,6 +1,6 @@
 # Estudos visuais — Decifra
 
-**Fase 17:** coleção funcional de 20 SVG próprios em `Backend/recursos/avatares`, vinculada por identificadores estáveis. A imagem aprovada do Aurélio foi reutilizada em `Frontend/public/mascote`; os SVG e as primeiras telas podem receber refinamento visual. Fontes locais e respectivas licenças OFL ficam em `Frontend/public/fontes`. Consulte [Perfil e preferências](../Perfil-preferencias.md).
+**Fase 17, revisão visual:** coleção de 20 retratos ilustrados em `Frontend/public/avatares`, seguindo o conceito aprovado e preservando os identificadores. Os SVG anteriores permanecem somente por compatibilidade. Processo e prompts em [Coleção ilustrada](Avatares/LEIA-ME.md). A imagem aprovada do Aurélio foi reutilizada em `Frontend/public/mascote`; as imagens e as primeiras telas podem receber refinamento visual. Fontes locais e respectivas licenças OFL ficam em `Frontend/public/fontes`. Consulte [Perfil e preferências](../Perfil-preferencias.md).
 
 **Estado:** estudos de marca, aparência do Aurélio e estilo dos avatares aprovados pelo responsável em 2026-10-27. Foi solicitado somente reduzir pela metade o espaço entre o bloco D e ECIFRA: de 20 para 10 unidades nas versões principais e de 10 para 5 na compacta. O subtítulo acompanha o deslocamento. Os arquivos de produção e as animações ainda serão preparados nas fases próprias.
 

@@ -99,8 +99,7 @@ def teste_colecao_e_primeiro_acesso_privado(base_perfil):
             avatares = resposta.json()
             assert len(avatares) == 20
             assert len({a["id"] for a in avatares}) == 20
-            recurso = await cliente.get(avatares[0]["recurso"])
-            assert recurso.status_code == 200 and "<svg" in recurso.text
+            assert avatares[0]["recurso"] == "/avatares/aurelio_apresentador.webp"
             perfil = await cliente.get("/api/perfil")
             assert perfil.status_code == 200
             assert perfil.json()["estado"] == "cadastro_pendente"

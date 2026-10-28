@@ -1,4 +1,4 @@
-"""Identificadores oficiais estáveis; ilustrações próprias em recursos/avatares."""
+"""Identificadores oficiais estáveis; ilustrações em Frontend/public/avatares."""
 
 AVATARES = (
     ("aurelio_apresentador", "Aurélio apresentador"),
@@ -30,7 +30,7 @@ def listar_avatares() -> list[dict[str, str]]:
         {
             "id": identificador,
             "nome": nome,
-            "recurso": f"/api/avatares/recursos/{identificador}.svg",
+            "recurso": f"/avatares/{identificador}.webp",
         }
         for identificador, nome in AVATARES
     ]

@@ -32,7 +32,7 @@ O registro residual não conserva a identidade anterior. Entrar novamente com o 
 
 ## Recursos visuais e arquitetura
 
-A migração `0003_colecao_avatares` cadastra 20 identificadores estáveis, sem acrescentar tabelas às 19 existentes. Os desenhos SVG próprios ficam em `Backend/recursos/avatares`; a API lista identificador, nome e endereço. Não há upload pessoal. Os desenhos podem receber refinamento visual sem alterar seus identificadores.
+A migração `0003_colecao_avatares` cadastra 20 identificadores estáveis, sem acrescentar tabelas às 19 existentes. Após revisão visual solicitada pelo responsável, os retratos ilustrados ficam em `Frontend/public/avatares` como WebP de 512 × 512 pixels, derivados de gerações individuais com referência ao conceito aprovado. A API lista os mesmos identificadores e nomes, apontando para `/avatares/{id}.webp`; os SVG anteriores permanecem por compatibilidade. Consulte [coleção e prompts](Identidade-visual/Avatares/LEIA-ME.md). Não há upload pessoal. Os desenhos podem receber refinamento visual sem alterar seus identificadores.
 
 A aplicação utiliza a paleta aprovada, temas claro/escuro, foco visível e composição responsiva. Bricolage Grotesque e DM Sans são servidas localmente, com arquivos de licença OFL provenientes do repositório oficial [Google Fonts](https://github.com/google/fonts). DM Sans inclui itálico real. A imagem aprovada do Aurélio foi reutilizada; sua animação em partes continua em fase própria.
 
@@ -54,3 +54,5 @@ TDD aplicado: testes inicialmente falharam por rotas ausentes, primeiro acesso a
 Os seis testes de integração novos usam bancos PostgreSQL descartáveis e verificam autorização, unicidade, inicialização de preferências, anonimização, reversão de falha e concorrência. Os testes de navegador usam respostas controladas da API: não excluem a conta pessoal e não substituem o login Google real confirmado na fase 15. A revisão visual usa tamanhos de 1440, 820 e 390 pixels; não equivale a teste em aparelhos físicos. A integração contínua foi configurada para esses fluxos, sem afirmar execução remota aprovada nesta entrega. Permanece o aviso conhecido de compatibilidade HTTPX/Authlib documentado na autenticação.
 
 Para experimentar: executar o ambiente local e abrir [Decifra local](http://localhost:5173). Consulte também [contratos](Contratos-api.md), [modelagem](Modelagem-dados.md) e [autenticação](Autenticacao-google.md).
+
+**Revisão dos avatares em 2026-10-28:** vinte retratos ilustrados substituem os SVG na coleção exibida, conforme pedido do responsável para seguir o conceito do Aurélio. Mantidos os identificadores e as escolhas das contas. A revisão verificou 7 testes de backend, 27 unitários de frontend e 27 fluxos de navegador, além de compilação e formatação. Os números da tabela anterior registram a verificação inicial da fase; não representam nova execução integral do backend nesta revisão. [Recursos, prompts e resultados](Identidade-visual/Avatares/LEIA-ME.md).

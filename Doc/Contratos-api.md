@@ -53,7 +53,7 @@ O visitante só pode operar a própria demonstração nas rotas de jogo pertinen
 
 ## Perfil e preferências implementados na fase 17
 
-`GET /api/perfil` e `PATCH /api/perfil` retornam `jogador_id`, `email`, `estado`, `nome_usuario` e `avatar_id`. A alteração aceita somente `nome_usuario` e `avatar_id`, obrigatórios; salvar dados válidos conclui o cadastro pendente. E-mail e identidade Google não são editáveis. `GET /api/avatares` retorna uma lista de 20 objetos com `id`, `nome` e `recurso`; os recursos estão em `/api/avatares/recursos/{id}.svg`.
+`GET /api/perfil` e `PATCH /api/perfil` retornam `jogador_id`, `email`, `estado`, `nome_usuario` e `avatar_id`. A alteração aceita somente `nome_usuario` e `avatar_id`, obrigatórios; salvar dados válidos conclui o cadastro pendente. E-mail e identidade Google não são editáveis. `GET /api/avatares` retorna uma lista de 20 objetos com `id`, `nome` e `recurso`; os recursos atuais são arquivos do frontend em `/avatares/{id}.webp`. Os endereços SVG anteriores continuam disponíveis por compatibilidade, mas não são retornados na coleção atual.
 
 `GET /api/preferencias` retorna `tema`, `musica_id`, `volume_musica`, `volume_interface`, `volume_eventos`, `silenciado`, `movimentos_reduzidos` e `salvas`. A consulta sem registro retorna padrões e `salvas: false`, sem inserir uma linha. `PUT` aceita os sete campos de configuração e, opcionalmente, `somente_se_ausentes` (padrão falso). Com essa opção verdadeira, um registro já existente prevalece e é retornado sem alteração; assim, a conta nova herda o navegador sem sobrescrever preferências de outra sessão. `salvas` é exclusivo da resposta.
 

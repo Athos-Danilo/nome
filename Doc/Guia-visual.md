@@ -1,6 +1,6 @@
 # Guia visual do Decifra
 
-**Implementação da fase 17:** primeiro acesso, perfil e preferências utilizam a direção aprovada, fontes locais com pesos reais e itálico, 20 avatares SVG, temas claro/escuro e adaptação a computador, tablet e celular. As demais telas do jogo e a animação completa do Aurélio continuam nas fases próprias. Consulte [Perfil e preferências](Perfil-preferencias.md).
+**Implementação da fase 17:** primeiro acesso, perfil e preferências utilizam a direção aprovada, fontes locais com pesos reais e itálico, 20 avatares ilustrados seguindo `Identidade-visual/aurelio-conceito-01.png`, temas claro/escuro e adaptação a computador, tablet e celular. As demais telas do jogo e a animação completa do Aurélio continuam nas fases próprias. Consulte [Perfil e preferências](Perfil-preferencias.md).
 
 **Estado:** direção aprovada na fase 02 para iniciar o frontend. Poderá ser ajustada pelo responsável ao avaliar as primeiras páginas reais. A aprovação abrange paleta e tipografia, não a implementação do jogo nem a marca e o mascote finais.
 

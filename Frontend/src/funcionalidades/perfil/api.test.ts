@@ -1,8 +1,41 @@
 import { afterEach, expect, it, vi } from "vitest";
-import { salvarPreferencias } from "./api";
+import { consultarAvatares, salvarPreferencias } from "./api";
 import { lerPreferenciasLocais, PADRAO } from "./preferencias";
 
 afterEach(() => vi.unstubAllGlobals());
+
+it("aceita ilustrações de avatar servidas pelo frontend", async () => {
+  const colecao = [
+    {
+      id: "capivara_zen",
+      nome: "Capivara zen",
+      recurso: "/avatares/capivara_zen.webp",
+    },
+  ];
+  vi.stubGlobal(
+    "fetch",
+    vi.fn().mockResolvedValue(new Response(JSON.stringify(colecao))),
+  );
+  expect(await consultarAvatares()).toEqual(colecao);
+});
+
+it("rejeita endereço externo no recurso do avatar", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify([
+          {
+            id: "capivara_zen",
+            nome: "Capivara zen",
+            recurso: "https://outro.example/avatar.webp",
+          },
+        ]),
+      ),
+    ),
+  );
+  await expect(consultarAvatares()).rejects.toThrow();
+});
 
 it("não encaminha metadados da resposta ou campos extras ao salvar preferências", async () => {
   const buscar = vi.fn().mockResolvedValue(

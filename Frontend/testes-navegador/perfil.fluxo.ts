@@ -1,5 +1,4 @@
 import { expect, test, type Page } from "@playwright/test";
-import { readFile } from "node:fs/promises";
 
 const identificadores = [
   "aurelio_apresentador",
@@ -72,20 +71,12 @@ async function preparar(pagina: Page, ativo = false, salvo = false) {
   await pagina.route("**/api/**", async (rota) => {
     const requisicao = rota.request();
     const caminho = new URL(requisicao.url()).pathname;
-    if (caminho.includes("/avatares/recursos/")) {
-      const id = caminho.split("/").at(-1)!.replace(".svg", "");
-      if (!identificadores.includes(id)) return rota.fulfill({ status: 404 });
-      return rota.fulfill({
-        contentType: "image/svg+xml",
-        body: await readFile(`../Backend/recursos/avatares/${id}.svg`, "utf8"),
-      });
-    }
     if (caminho === "/api/avatares")
       return rota.fulfill({
         json: identificadores.map((id, i) => ({
           id,
           nome: nomes[i],
-          recurso: `/api/avatares/recursos/${id}.svg`,
+          recurso: `/avatares/${id}.webp`,
         })),
       });
     if (!estado.logado)
@@ -152,6 +143,36 @@ async function preparar(pagina: Page, ativo = false, salvo = false) {
   });
   return estado;
 }
+
+test("carrega as vinte ilustrações reais do frontend na seleção", async ({
+  page,
+}, informacoes) => {
+  await preparar(page);
+  await page.goto("/");
+  const imagens = page.locator(".avatar-opcao img");
+  await expect(imagens).toHaveCount(20);
+  for (let indice = 0; indice < 20; indice++) {
+    const imagem = imagens.nth(indice);
+    await imagem.scrollIntoViewIfNeeded();
+    await expect(imagem).toHaveAttribute(
+      "src",
+      `/avatares/${identificadores[indice]}.webp`,
+    );
+    await expect
+      .poll(() =>
+        imagem.evaluate(
+          (elemento: HTMLImageElement) =>
+            elemento.complete && elemento.naturalWidth > 0,
+        ),
+      )
+      .toBe(true);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({
+    path: `test-results/avatares-ilustrados-${informacoes.project.name}.png`,
+    fullPage: true,
+  });
+});
 
 test("primeiro acesso exige nome e avatar e conclui perfil", async ({
   page,

@@ -52,7 +52,7 @@ function avatarValido(valor: unknown): valor is Avatar {
     typeof valor.id === "string" &&
     /^[a-z_]+$/.test(valor.id) &&
     typeof valor.nome === "string" &&
-    valor.recurso === `/api/avatares/recursos/${valor.id}.svg`
+    valor.recurso === `/avatares/${valor.id}.webp`
   );
 }
 
