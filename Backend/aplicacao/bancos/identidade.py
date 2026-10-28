@@ -86,6 +86,16 @@ sessoes_autenticacao = Table(
     CheckConstraint("expira_em > criado_em", name="validade"),
 )
 
+tentativas_login = Table(
+    "tentativas_login",
+    metadados,
+    Column("estado_resumo", String(64), primary_key=True),
+    Column("navegador_resumo", String(64), nullable=False),
+    Column("nonce", String(128), nullable=False),
+    Column("verificador", String(128), nullable=False),
+    Column("expira_em", DateTime(timezone=True), nullable=False, index=True),
+)
+
 visitantes = Table(
     "visitantes",
     metadados,

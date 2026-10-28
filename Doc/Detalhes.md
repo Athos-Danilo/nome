@@ -44,7 +44,7 @@ Os dois bancos farão parte da solução. O catálogo de respostas, temáticas e
 
 O desenvolvimento utilizará PostgreSQL e MongoDB já instalados diretamente na máquina do responsável pelo projeto. Docker não será requisito para o ambiente local.
 
-O objetivo é publicar o jogo na web, utilizando Neon e MongoDB Atlas, com **custo zero de hospedagem**. Os serviços da interface e da API ainda serão escolhidos, verificando limites e condições dos planos gratuitos antes da publicação.
+O objetivo é publicar o jogo na web, utilizando Neon e MongoDB Atlas, com **custo zero de hospedagem**. Na fase 15, o responsável escolheu **Vercel para a interface e Render gratuito para a API**, com encaminhamento de `/api` pela Vercel. Os limites e o comportamento real da integração serão conferidos antes da publicação.
 
 Não haverá senha própria da plataforma. A autenticação e a recuperação de acesso serão realizadas pelo Google.
 

@@ -1,9 +1,24 @@
 """Entrada da API. Os módulos de negócio serão adicionados nas fases próprias."""
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from contextlib import asynccontextmanager
 
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
+from sqlalchemy.engine import make_url
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import create_async_engine
+
+from aplicacao.modulos.autenticacao.contratos import (
+    FalhaAutenticacao,
+    ProvedorGoogle,
+    RepositorioAutenticacao,
+)
+from aplicacao.modulos.autenticacao.google import GoogleOIDC
+from aplicacao.modulos.autenticacao.repositorio import AutenticacaoPostgresql
+from aplicacao.modulos.autenticacao.rotas import nome_cookie, rotas
+from aplicacao.modulos.autenticacao.servico import ServicoAutenticacao
 from aplicacao.nucleo.configuracoes import Configuracoes
 
 
@@ -14,15 +29,88 @@ class EstadoDaApi(BaseModel):
     situacao: str = "disponivel"
 
 
-def criar_aplicacao(configuracoes: Configuracoes | None = None) -> FastAPI:
+def criar_aplicacao(
+    configuracoes: Configuracoes | None = None,
+    *,
+    repositorio_autenticacao: RepositorioAutenticacao | None = None,
+    provedor_google: ProvedorGoogle | None = None,
+) -> FastAPI:
     configuracoes = configuracoes or Configuracoes()
-    api = FastAPI(title="Decifra", version="0.1.0")
+    if (
+        provedor_google is None
+        and configuracoes.google_cliente_id
+        and configuracoes.google_cliente_segredo
+    ):
+        provedor_google = GoogleOIDC(configuracoes)
+    motor = None
+    if repositorio_autenticacao is None and configuracoes.postgresql_url is not None:
+        endereco = make_url(configuracoes.postgresql_url.get_secret_value())
+        if endereco.drivername not in {"postgresql", "postgresql+psycopg"}:
+            raise ValueError("A autenticação exige PostgreSQL com Psycopg 3.")
+        motor = create_async_engine(
+            endereco.set(drivername="postgresql+psycopg"), pool_pre_ping=True, hide_parameters=True
+        )
+        repositorio_autenticacao = AutenticacaoPostgresql(motor)
+
+    @asynccontextmanager
+    async def ciclo_de_vida(api: FastAPI):
+        try:
+            yield
+        finally:
+            if motor is not None:
+                await motor.dispose()
+
+    api = FastAPI(title="Decifra", version="0.1.0", lifespan=ciclo_de_vida)
+    api.state.configuracoes = configuracoes
+    api.state.autenticacao = (
+        ServicoAutenticacao(repositorio_autenticacao, provedor_google, configuracoes.sessao_dias)
+        if repositorio_autenticacao is not None and provedor_google is not None
+        else None
+    )
+
+    @api.exception_handler(FalhaAutenticacao)
+    async def tratar_autenticacao(requisicao: Request, falha: FalhaAutenticacao):
+        resposta = JSONResponse(
+            {"erro": {"codigo": falha.codigo, "mensagem": falha.mensagem}},
+            status_code=falha.situacao,
+        )
+        if requisicao.url.path.endswith("/google/retorno"):
+            resposta.delete_cookie(
+                nome_cookie(requisicao, "login"),
+                path="/",
+                secure=configuracoes.cookie_seguro,
+                httponly=True,
+                samesite="lax",
+            )
+        return resposta
+
+    @api.exception_handler(SQLAlchemyError)
+    async def tratar_indisponibilidade(requisicao: Request, falha: SQLAlchemyError):
+        return JSONResponse(
+            {
+                "erro": {
+                    "codigo": "DADOS_INDISPONIVEIS",
+                    "mensagem": "Não foi possível acessar seus dados. Tente novamente.",
+                }
+            },
+            status_code=503,
+        )
+
+    @api.middleware("http")
+    async def proteger_respostas_autenticacao(requisicao: Request, proxima):
+        resposta = await proxima(requisicao)
+        if requisicao.url.path.startswith("/api/autenticacao"):
+            resposta.headers["Cache-Control"] = "no-store"
+            resposta.headers["Referrer-Policy"] = "no-referrer"
+        return resposta
+
+    api.include_router(rotas)
     api.add_middleware(
         CORSMiddleware,
         allow_origins=configuracoes.origens_permitidas,
         allow_credentials=True,
-        allow_methods=["GET"],
-        allow_headers=["Content-Type"],
+        allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE"],
+        allow_headers=["Content-Type", "X-Decifra-CSRF"],
     )
 
     @api.get("/api/saude", response_model=EstadoDaApi, tags=["Infraestrutura"])

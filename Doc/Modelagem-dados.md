@@ -1,6 +1,6 @@
 # Modelagem de dados — fase 10
 
-**Estado:** modelagem inicial e migração da fase 10 implementadas. Esquema com 18 tabelas verificado em PostgreSQL isolado de testes. Na fase 12, o catálogo MongoDB recebeu 75 respostas aprovadas em desenvolvimento. O PostgreSQL de desenvolvimento ainda precisa de configuração; operações do jogo permanecem nas fases próprias.
+**Estado:** modelagem inicial implementada na fase 10; a fase 15 acrescenta tentativas de login de uso único, totalizando 19 tabelas de aplicação e migrações 0001/0002. Estrutura e autenticação verificadas em PostgreSQL isolado de testes. Na fase 12, o catálogo MongoDB recebeu 75 respostas aprovadas em desenvolvimento. PostgreSQL de desenvolvimento configurado na fase 15, com usuário próprio e migrações aplicadas. Login Google real confirmado, com conta pendente e sessão persistidas; operações do jogo permanecem nas fases próprias.
 
 ## 1. Divisão dos dados
 
@@ -18,6 +18,7 @@ Identificadores relacionais: UUID. Datas: instantes UTC com fuso (`timestamptz`)
 | `avatares` | Identificador estável da coleção, nome e caminho do recurso oficial; não aceita upload pessoal. |
 | `preferencias` | Uma por jogador; tema, música escolhida, volumes dos três grupos, silêncio e movimentos reduzidos. |
 | `sessoes_autenticacao` | Jogador, resumo criptográfico do segredo opaco, criação, validade e revogação. O segredo bruto fica apenas no cookie. Não confundir com sessão da galera. |
+| `tentativas_login` | Resumos de estado OIDC e segredo do navegador, nonce, verificador PKCE e validade de dez minutos. Registro temporário sem vínculo de jogador, removido atomicamente ao validar o retorno. Expirados são limpos ao iniciar outro login. |
 | `visitantes` | Identificador opaco e segredo de navegador protegido; marca da demonstração única e dados de vínculo. Não representa identidade civil nem rastreamento entre navegadores. |
 | `partidas` | Proprietário jogador ou visitante, modo individual/galera, origem normal/demonstração, estado, configuração, versão de concorrência, criação e encerramento. |
 | `participantes` | Nome e avatar usados na galera, ordem de inscrição, identificação de anfitrião e pontuação. Convidados não são contas. |
@@ -36,6 +37,8 @@ Identificadores relacionais: UUID. Datas: instantes UTC com fuso (`timestamptz`)
 Preferências de visitantes ficam no navegador. Nomes usam NFC para exibição e chave sem acentos e sem distinção de caixa para unicidade. Formato: 3–20 letras, números ou sublinhado, sem espaços; a mesma função valida contas e convidados. O banco garante unicidade da chave; o serviço sempre a calcula a partir do nome, nunca aceita uma chave livre do cliente.
 
 `email_chave` será calculada no servidor removendo espaços nas extremidades e ignorando caixa. Não aplicar normalizações específicas de provedor, como apagar pontos ou sufixos do endereço. A identidade principal continua sendo o identificador Google validado, e não um e-mail enviado livremente pelo cliente.
+
+Na autenticação implementada na fase 15, a conta é localizada pelo `sub` validado do Google. Um e-mail verificado atualizado pelo provedor pode atualizar essa mesma identidade, preservando a unicidade; não existe edição de e-mail pela interface nem associação de contas por coincidência de endereço. Conflito com outra identidade é recusado. Criação/recuperação, rotação da sessão anterior e abertura da nova sessão são transacionais; um bloqueio transacional por sujeito Google protege primeiros logins concorrentes. O cookie contém um segredo aleatório; somente seu SHA-256 é persistido. Consultas recusam sessões expiradas, revogadas e jogadores anonimizados. Validade absoluta padrão: sete dias, configurável entre um e trinta; não há renovação por simples consulta.
 
 ## 3. Relações principais
 

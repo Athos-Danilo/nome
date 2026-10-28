@@ -16,6 +16,7 @@ A base de execução está preparada; as funcionalidades do jogo serão implemen
 - [Contratos previstos da API](Doc/Contratos-api.md).
 - [Validar e importar o catálogo](Doc/Importacao-catalogo.md).
 - [Prova e decisões sobre interrupções](Doc/Prova-interrupcoes.md).
+- [Configurar login Google e sessão](Doc/Autenticacao-google.md).
 - [Direção visual](Doc/Guia-visual.md).
 - [Viabilidade da publicação gratuita](Doc/Publicacao-gratuita.md).
 

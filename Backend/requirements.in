@@ -1,7 +1,9 @@
 fastapi
 uvicorn
 pydantic-settings
-sqlalchemy
+sqlalchemy[asyncio]
 psycopg[binary]
 alembic
 pymongo
+authlib==1.9.1
+httpx

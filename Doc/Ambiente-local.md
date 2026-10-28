@@ -2,7 +2,7 @@
 
 ## Estado da fase 08
 
-Base independente da interface e da API preparada nas pastas `Frontend` e `Backend`. O frontend nesta fase é uma tela de diagnóstico, sem substituir o protótipo aprovado ou antecipar as funcionalidades. A API disponibiliza apenas `GET /api/saude` e documentação em `/docs`.
+Base independente da interface e da API preparada nas pastas `Frontend` e `Backend`. O frontend continua como tela de diagnóstico, sem substituir o protótipo aprovado. Além de `GET /api/saude` e `/docs`, a fase 15 implementa início/retorno do login Google, consulta privada de sessão e saída. PostgreSQL de desenvolvimento configurado e entrada real confirmada pelo responsável; consulte [Autenticação Google](Autenticacao-google.md).
 
 Ambiente encontrado: Python 3.13.0, Node 22.13.0, npm 10.9.2, PostgreSQL instalado 18.0 e MongoDB 8.2.5. Serviços PostgreSQL/MongoDB ativos; `pg_isready` confirmou disponibilidade em 5432 e teste TCP confirmou 27017. Isso não comprova autenticação, existência dos bancos do projeto ou permissões de usuários. Essas configurações e a modelagem ainda serão feitas; nenhum dado existente foi alterado.
 
@@ -24,7 +24,7 @@ No Linux/macOS, usar `Backend/.venv/bin/python` no lugar de `Backend/.venv/Scrip
 Em um terminal na raiz:
 
 ```powershell
-Backend/.venv/Scripts/python.exe -m uvicorn aplicacao.principal:aplicacao --app-dir Backend --host 127.0.0.1 --port 8000 --reload
+Backend/.venv/Scripts/python.exe -m uvicorn aplicacao.principal:aplicacao --app-dir Backend --host 127.0.0.1 --port 8000 --reload --no-access-log
 ```
 
 Em outro terminal:
@@ -34,7 +34,9 @@ cd Frontend
 npm run dev
 ```
 
-Abrir `http://127.0.0.1:5173`. O Vite encaminha `/api` para `127.0.0.1:8000`, mantendo a interface na mesma origem durante o desenvolvimento. Uma porta ocupada gera erro, sem trocar silenciosamente a URL. O protótipo visual continua acessível pelo servidor documentado em `Doc/Prototipos/LEIA-ME.md`, separado da aplicação.
+Abrir `http://localhost:5173` para o login configurado nessa origem. O Vite encaminha `/api` para `127.0.0.1:8000`, mantendo a interface na mesma origem durante o desenvolvimento. Não alternar localhost/127.0.0.1 no meio do login. Uma porta ocupada gera erro, sem trocar silenciosamente a URL. O protótipo visual continua acessível pelo servidor documentado em `Doc/Prototipos/LEIA-ME.md`, separado da aplicação.
+
+O Psycopg assíncrono exige loop Selector no Windows. `--reload` seleciona esse loop na versão fixada do Uvicorn; sem recarga, acrescentar `--loop asyncio:SelectorEventLoop`. Os testes de integração assíncronos com PostgreSQL também usam Selector explicitamente. `--no-access-log` evita registrar URLs de retorno com códigos OAuth; revisar também logs de proxy ao publicar. Não habilitar logs de corpo, cookies ou parâmetros privados.
 
 ## Variáveis e bancos de teste
 
@@ -65,6 +67,8 @@ Uma alteração futura cria outra revisão: `python -m alembic revision --autoge
 Para executar os testes de persistência, primeiro iniciar um PostgreSQL de teste e criar uma base exclusiva. Exportar a conexão em `DECIFRA_POSTGRESQL_TESTE_URL` na sessão do terminal e executar pytest. São aceitos apenas `localhost`/`127.0.0.1` e nome de base terminado em `_teste`. O teste aplica a migração nessa base e reverte seus registros ao fim de cada caso. Sem a variável explícita, os testes de banco aparecem como ignorados; os demais continuam. O GitHub Actions fornece PostgreSQL 18 temporário para executá-los.
 
 Na instância isolada preparada localmente, iniciar com `pg_ctl` usando o diretório `Backend/.postgres-teste`, porta 55432 e endereço 127.0.0.1. Ela usa autenticação de confiança apenas para testes locais; não serve como configuração de desenvolvimento ou publicação. Seu log fica nessa mesma pasta. Ao terminar, parar somente essa instância. O diretório é descartável e nunca deve armazenar dados reais.
+
+Atualização da fase 15: na instalação existente da porta 5432 foram criados banco `decifra` e usuário `decifra`, após conferir que os nomes estavam livres. O usuário da aplicação tem login e propriedade da própria base, sem superusuário, criação de bancos ou criação de papéis. Sua senha exclusiva foi gerada e salva somente no `.env`; a aplicação não utiliza a credencial administrativa. Migrações 0001/0002 aplicadas, revisão atual 0002 e `alembic check` sem divergências. As bases existentes e os bancos isolados de testes foram preservados.
 
 ## Verificar
 

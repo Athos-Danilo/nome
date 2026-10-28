@@ -1,6 +1,6 @@
 # Contratos da API — fase 10
 
-**Estado:** contratos iniciais documentados na fase 10; apenas `/api/saude` está implementado. A lista abaixo não declara rotas de negócio disponíveis. Detalhes dependentes de decisões abertas estão sinalizados.
+**Estado:** contratos iniciais documentados na fase 10; `/api/saude` e as quatro rotas de autenticação indicadas abaixo estão implementados. Configuração local e login Google real confirmados na fase 15. As demais rotas permanecem previstas, sem declarar operações do jogo disponíveis. Detalhes dependentes de decisões abertas estão sinalizados.
 
 ## Convenções
 
@@ -15,9 +15,10 @@ Cada mutação de partida inclui `id_acao` e `versao_esperada`. Resposta confirm
 | Método e caminho | Acesso | Entrada / efeito esperado |
 | --- | --- | --- |
 | GET `/api/saude` | Público | Disponibilidade do processo HTTP, sem credenciais ou dados dos bancos. Implementado. |
-| GET `/api/autenticacao/google` | Público | Inicia fluxo OIDC no servidor, com proteção de estado. |
-| GET `/api/autenticacao/google/retorno` | Retorno do provedor | Valida código, estado e identidade; cria/recupera conta e sessão. |
-| POST `/api/autenticacao/sair` | Conta | Revoga sessão e remove cookie. |
+| GET `/api/autenticacao/google` | Público | Implementado: inicia OIDC com estado, nonce, PKCE e vínculo de navegador; retorna 303 ao Google. |
+| GET `/api/autenticacao/google/retorno` | Retorno do provedor | Implementado: consome tentativa única, valida identidade, cria/recupera conta e sessão; retorna 303 à raiz configurada com `?autenticacao=concluida`. |
+| GET `/api/autenticacao/sessao` | Conta ou cadastro pendente | Implementado: retorna somente a conta da própria sessão e o token de proteção das mutações. |
+| POST `/api/autenticacao/sair` | Conta ou cadastro pendente | Implementado: exige origem e token de proteção, revoga sessão e remove cookie; retorna 204. |
 | GET `/api/perfil` | Conta | Perfil privado e indicação de primeiro acesso incompleto. |
 | PATCH `/api/perfil` | Conta | Nome de 3–20 letras, números ou sublinhado, sem espaços; unicidade ignora caixa e acentos. Avatar oficial; e-mail e identidade Google não são editáveis. |
 | DELETE `/api/perfil` | Conta | Exige `confirmacao: "EXCLUIR"`; remove identidade e acessos, anonimiza resultados e nomes da galera, conserva pontos como Jogador excluído. Retorno 204 e remoção do cookie. |
@@ -94,6 +95,16 @@ Formato final será aplicado junto aos módulos, sem substituir silenciosamente 
 Uma resposta de palpite errado válido é retorno normal do jogo, não falha HTTP. A API informa erro/acerto, posições novas quando permitido, pontos da ação, próxima dica/vez e versão. Os detalhes restantes da demonstração serão decididos antes de sua implementação.
 
 ## Identidade, exclusão e conteúdo visto
+
+### Sessão implementada na fase 15
+
+`GET /api/autenticacao/sessao` devolve `jogador_id`, `email`, `estado`, `nome_usuario`, `avatar_id`, `expira_em` e `token_csrf`. Nome/avatar podem ser nulos no cadastro pendente. Não recebe identificador de conta para escolher o proprietário, nem expõe sujeito Google, tokens Google, resumo ou segredo de sessão. As respostas da autenticação usam `Cache-Control: no-store` e `Referrer-Policy: no-referrer`.
+
+Cookies sem Domain e com Path `/`, HttpOnly e SameSite=Lax. Na origem HTTPS são Secure e usam nomes `__Host-decifra_sessao` e `__Host-decifra_login`; localmente usam `decifra_sessao` e `decifra_login`. Login temporário válido por dez minutos; sessão padrão válida por sete dias. Estado, nonce, PKCE e segredo de navegador são distintos. Retorno sem vínculo, duplicado, expirado ou com parâmetros conflitantes não autentica. Uma nova entrada bem-sucedida substitui a sessão anterior desse navegador; não encerra automaticamente outros dispositivos.
+
+Mutações protegidas devem utilizar a dependência `exigir_conta` (ou `exigir_conta_ativa` para recursos de jogador com perfil concluído), enviar `Origin` exatamente igual a `DECIFRA_ORIGEM_PUBLICA` e o cabeçalho `X-Decifra-CSRF` obtido da consulta privada da sessão. O token é derivado do segredo aleatório e comparado de forma constante. Cadastro pendente pode consultar a sessão e sair, mas não libera operações do jogo. A autorização de cada recurso futuro ainda deve conferir seu proprietário; não basta apenas anexar a dependência de login.
+
+Erros implementados: 400 `RETORNO_INVALIDO`, `LOGIN_CANCELADO` e `IDENTIDADE_INVALIDA`; 401 `SESSAO_NECESSARIA`/`SESSAO_EXPIRADA`; 403 `ACAO_NAO_PERMITIDA`/`PERFIL_INCOMPLETO`; 409 `EMAIL_INDISPONIVEL`; 503 `AUTENTICACAO_INDISPONIVEL`, `PROVEDOR_INDISPONIVEL` e `DADOS_INDISPONIVEIS`. Mensagens externas do provedor e detalhes SQL não são devolvidos. A autenticação não vincula demonstração nem conclui perfil nesta fase.
 
 Primeiro acesso e edição aceitam `nome_usuario` e `avatar_id`; a normalização NFC preserva a exibição, enquanto a chave de unicidade remove acentos e ignora caixa. A mesma validação se aplica aos nomes locais da galera, com unicidade restrita à partida. Não utilizar essa comparação para palpites completos.
 

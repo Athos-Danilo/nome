@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Situação:** fase 13 com prova de interrupções e política aprovada: preservar casos ambíguos, recuperar recargas e tratar navegação para outra página como saída. Prova isolada verificada com 32 testes de navegador e 23 testes do backend. Catálogo com 75 respostas aprovadas importadas localmente, entre as 125 já produzidas e validadas. Autenticação e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md), [Importação do catálogo](Importacao-catalogo.md) e [Prova de interrupções](Prova-interrupcoes.md).
+**Situação:** fase 15 concluída, com autenticação implementada, configuração PostgreSQL local e login Google real confirmado pelo responsável. Verificação: 116 testes do backend aprovados, incluindo 38 novos de autenticação. Catálogo com 150 respostas produzidas e 75 aprovadas importadas. Política de interrupções aprovada na fase 13 preserva casos ambíguos, recupera recargas e trata navegação como saída. Perfil completo e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Autenticação Google](Autenticacao-google.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md), [Importação do catálogo](Importacao-catalogo.md) e [Prova de interrupções](Prova-interrupcoes.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -100,11 +100,11 @@ O catálogo pode usar validação Pydantic e acesso direto pelo PyMongo, sem adi
 
 A API iniciará o login Google e receberá o retorno autenticado. O identificador estável da conta Google será vinculado à conta local, mantendo a unicidade de e-mail exigida pelo produto.
 
-Recomendação: sessão da aplicação registrada no PostgreSQL, identificada por um valor opaco em cookie HttpOnly. No ambiente publicado, usar HTTPS, validar o retorno do provedor e proteger as ações autenticadas contra requisições forjadas.
+Implementação da fase 15: sessão da aplicação registrada no PostgreSQL, identificada por segredo aleatório em cookie HttpOnly, com resumo SHA-256 no banco. Tentativas de login persistidas por dez minutos, vinculadas ao navegador e consumidas atomicamente; Authlib valida assinatura, emissor, público, validade e nonce, com PKCE S256 na troca do código. Ações autenticadas exigem origem pública exata e token CSRF. No endereço HTTPS, cookies Secure e prefixo `__Host-`; localmente, HTTP somente em loopback. Sessão com validade absoluta padrão de sete dias e revogação na saída. Detalhes e pendências em [Autenticação Google](Autenticacao-google.md).
 
 Credenciais do Google ficarão no servidor. O primeiro login conduzirá à escolha de nome e avatar. A demonstração será vinculada uma única vez, sem duplicar histórico ou pontos.
 
-Domínios, encaminhamento de `/api`, CORS e atributos dos cookies serão definidos junto à hospedagem. Preferir uma organização de domínio que permita sessões confiáveis no navegador.
+Decisão aprovada na fase 15: frontend na Vercel e API no Render, com rewrite externo de `/api` na Vercel. A origem pública configurada será o endereço estável da interface; ela determina callback, origem autorizada para mutações e cookies. Não derivar callback de Host recebido nem chamar o domínio Render diretamente pelo navegador. Domínios reais, encaminhamento e cookies publicados serão verificados na fase 41.
 
 ## 6. Organização proposta
 
@@ -173,7 +173,7 @@ Prova local da fase 13 em [Prova-interrupcoes.md](Prova-interrupcoes.md): HTTP c
 
 Neon e MongoDB Atlas foram escolhidos para os bancos. A interface poderá ser publicada como arquivos estáticos; a API precisará de hospedagem Python compatível com o mecanismo de interrupção validado.
 
-Os provedores de interface e API ainda não foram escolhidos. O [diagnóstico da fase 08](Publicacao-gratuita.md) compara candidatos e registra suspensão por inatividade, conexões, limites e riscos de cookies entre origens distintas. A decisão será concluída até a fase 15, após os testes necessários. Não há serviço pago previsto nesta recomendação.
+O responsável escolheu Vercel para a interface e Render gratuito para a API na fase 15, mantendo Neon e Atlas. O [diagnóstico de publicação](Publicacao-gratuita.md) registra a decisão, suspensão por inatividade, limites e verificações pendentes do rewrite e dos cookies no ambiente público. Nenhum serviço foi provisionado nesta fase e não há recurso pago autorizado.
 
 ## 11. Ordem sugerida de implementação
 

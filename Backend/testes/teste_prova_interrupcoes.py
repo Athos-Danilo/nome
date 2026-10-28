@@ -125,7 +125,9 @@ def teste_galera_rejeita_pausa_e_encerramento_nao_desconta() -> None:
 
 
 def teste_rotas_experimentais_nao_estao_na_api_principal() -> None:
-    caminhos = {rota.path for rota in criar_aplicacao().routes}
+    caminhos = criar_aplicacao().openapi()["paths"]
+    assert "/api/saude" in caminhos
+    assert "/api/autenticacao/google" in caminhos
     assert not any(caminho.startswith("/prova-api") for caminho in caminhos)
 
 
