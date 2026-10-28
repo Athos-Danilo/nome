@@ -12,6 +12,7 @@
     "tipos": "tsc --noEmit",
     "test": "vitest run",
     "testar-interrupcoes": "playwright test",
+    "testar-menu": "playwright test --config playwright.menu.config.ts",
     "testar-perfil": "playwright test --config playwright.perfil.config.ts",
     "formatar": "prettier --write .",
     "verificar-formatacao": "prettier --check ."
@@ -19,7 +20,8 @@
   "dependencies": {
     "@tanstack/react-query": "5.105.0",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "react-router": "7.18.5"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",

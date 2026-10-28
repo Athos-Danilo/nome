@@ -81,6 +81,8 @@ async function preparar(pagina: Page, ativo = false, salvo = false) {
           token_csrf: "csrf-visitante",
         },
       });
+    if (caminho === "/api/partidas/em-aberto")
+      return rota.fulfill({ json: { individual: null } });
     if (caminho === "/api/avatares")
       return rota.fulfill({
         json: identificadores.map((id, i) => ({
@@ -198,6 +200,10 @@ test("primeiro acesso exige nome e avatar e conclui perfil", async ({
   await page.getByLabel("Nome de usuário").fill("José_42");
   await page.getByRole("button", { name: "Capivara zen", exact: true }).click();
   await page.getByRole("button", { name: "Vamos nessa" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeVisible();
+  await page.getByRole("link", { name: "Perfil", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Seu perfil" })).toBeVisible();
   expect(
     await page.evaluate(
@@ -231,22 +237,26 @@ test("preferências da conta prevalecem e alterações persistem", async ({
 }, informacoes) => {
   await preparar(page, true, true);
   await page.goto("/");
-  await page.getByRole("button", { name: "Preferências", exact: true }).click();
-  await expect(page.getByLabel("Tema")).toHaveValue("escuro");
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
+    "escuro",
+  );
   await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
   await page.screenshot({
     path: `test-results/preferencias-escuras-${informacoes.project.name}.png`,
     fullPage: true,
   });
-  await page.getByLabel("Tema").selectOption("claro");
+  await page.getByRole("combobox", { name: /^Tema/ }).selectOption("claro");
   await page.getByLabel("Silenciar tudo").check();
   await page.getByRole("button", { name: "Salvar preferências" }).click();
   await expect(
     page.getByRole("status").filter({ hasText: "Preferências salvas" }),
   ).toBeVisible();
   await page.reload();
-  await page.getByRole("button", { name: "Preferências", exact: true }).click();
-  await expect(page.getByLabel("Tema")).toHaveValue("claro");
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
+    "claro",
+  );
   await expect(page.getByLabel("Silenciar tudo")).toBeChecked();
 });
 
@@ -254,7 +264,7 @@ test("cancelar exclusão não envia pedido e falha permite tentar novamente", as
   page,
 }) => {
   const estado = await preparar(page, true, true);
-  await page.goto("/");
+  await page.goto("/perfil");
   await page.getByRole("button", { name: "Excluir minha conta" }).click();
   await expect(
     page.getByRole("button", { name: "Cancelar", exact: true }),
@@ -313,11 +323,13 @@ test("visitante guarda preferências somente no navegador", async ({ page }) => 
     )
       escritas++;
   });
-  await page.goto("/");
-  await page.getByLabel("Tema").selectOption("escuro");
+  await page.goto("/configuracoes");
+  await page.getByRole("combobox", { name: /^Tema/ }).selectOption("escuro");
   await page.getByRole("button", { name: "Salvar preferências" }).click();
   await page.reload();
-  await expect(page.getByLabel("Tema")).toHaveValue("escuro");
+  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
+    "escuro",
+  );
   expect(escritas).toBe(0);
 });
 
@@ -325,7 +337,7 @@ test("sessão expirada limpa a tela privada e oferece nova entrada", async ({
   page,
 }) => {
   const estado = await preparar(page, true, true);
-  await page.goto("/");
+  await page.goto("/perfil");
   await page.getByLabel("Nome de usuário").fill("OutroNome");
   estado.logado = false;
   await page.getByRole("button", { name: "Salvar perfil" }).click();

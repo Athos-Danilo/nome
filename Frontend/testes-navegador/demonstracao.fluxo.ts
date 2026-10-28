@@ -89,6 +89,8 @@ async function preparar(
           salvas: true,
         },
       });
+    if (caminho === "/api/partidas/em-aberto")
+      return rota.fulfill({ json: { individual: null } });
     if (caminho === "/api/avatares")
       return rota.fulfill({
         json: [
@@ -110,8 +112,8 @@ test("visitante recebe convite sem consumir demonstração ainda não jogável",
   const estado = await preparar(page);
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "Jogo rápido" }),
-  ).toBeDisabled();
+    page.getByRole("link", { name: "Jogo rápido", exact: true }),
+  ).toBeVisible();
   await expect(
     page.getByText("Três palavras fáceis, temas surpresa."),
   ).toBeVisible();
@@ -147,7 +149,9 @@ test("entrada vincula uma única vez e recarga não duplica transferência", asy
   ).toBeVisible();
   expect(estado.vinculos).toBe(1);
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Seu perfil" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeVisible();
   expect(estado.vinculos).toBe(1);
 });
 
@@ -159,7 +163,7 @@ test("conflito de partida informa o motivo sem repetir o vínculo automaticament
   await expect(
     page.getByText(/Conclua ou abandone a demonstração antes/),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Preferências", exact: true }).click();
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Do seu jeito" }),
   ).toBeVisible();

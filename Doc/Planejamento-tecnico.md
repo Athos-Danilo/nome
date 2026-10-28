@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 22 concluída:** menu React para visitante/conta, primeiro acesso protegido, navegação com React Router 7.18.5, configurações persistidas, resumo real de partida aberta e componentes comuns responsivos. Telas futuras têm páginas explícitas de preparação, sem dados fictícios. Implementação, TDD, verificações e limites em [Menu e navegação](Menu-navegacao.md).
+
 **Fase 20 concluída:** motor individual com configuração confirmável, dificuldades, seleção de inéditas, cinco dicas, pontuação e encerramento. 156 testes backend aprovados. Migração 0005 acrescenta planos individuais, totalizando 20 tabelas. Telas, demonstração jogável e pausa/retomada permanecem nas fases próprias. Contratos e evidências em [Motor individual](Motor-individual.md).
 
 **Fase 19 concluída:** identificação opaca de visitante, reserva única de três respostas fáceis, recuperação e vinculação integral em até sete dias. Conta existente com individual aberta é preservada; vínculo repetido não duplica resultados. 132 testes backend, 30 unitários frontend e 39 fluxos de navegador aprovados. A demonstração jogável continua na fase 26. Detalhes em [Visitante e demonstração](Demonstracao-visitante.md).

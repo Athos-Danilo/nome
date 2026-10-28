@@ -16,6 +16,7 @@
     "vite.config.ts",
     "playwright.config.ts",
     "playwright.perfil.config.ts",
+    "playwright.menu.config.ts",
     "testes-navegador"
   ]
 }

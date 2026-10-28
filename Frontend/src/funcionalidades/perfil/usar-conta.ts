@@ -169,6 +169,17 @@ export function useConta() {
   }
   const falhaCarregamento =
     sessao.error ?? perfil.error ?? preferencias.error ?? avatares.error;
+  useEffect(() => {
+    if (
+      conta &&
+      falhaCarregamento instanceof ErroDaApi &&
+      ["SESSAO_EXPIRADA", "SESSAO_NECESSARIA"].includes(
+        falhaCarregamento.codigo,
+      )
+    ) {
+      terminar("Sua sessão terminou. Entre novamente para continuar.");
+    }
+  }, [conta, falhaCarregamento]);
   const carregando =
     sessao.isPending ||
     (!!conta &&
@@ -177,6 +188,8 @@ export function useConta() {
     (item) => item.id === perfil.data?.avatar_id,
   );
   return {
+    efetivas,
+    falhar,
     cache,
     painel,
     mensagem,

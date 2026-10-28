@@ -1,10 +1,26 @@
+import { ConteudoConta } from "../funcionalidades/perfil/ConteudoConta";
+import { PaginaEmPreparacao } from "../componentes/PaginaEmPreparacao";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Link,
+  NavLink,
+  Navigate,
+  useLocation,
+} from "react-router";
 import { ExcluirConta } from "../funcionalidades/perfil/ExcluirConta";
-import { FormularioPerfil } from "../funcionalidades/perfil/FormularioPerfil";
-import { FormularioPreferencias } from "../funcionalidades/perfil/FormularioPreferencias";
 import { useConta } from "../funcionalidades/perfil/usar-conta";
 import { AvisoErro } from "../funcionalidades/perfil/AvisoErro";
-import { SituacaoDemonstracao } from "../funcionalidades/demonstracao/SituacaoDemonstracao";
+import { MenuInicial } from "../funcionalidades/menu/MenuInicial";
+import {
+  Botao,
+  Carregando,
+  Dialogo,
+  EstadoVazio,
+  VoltarAoMenu,
+} from "../componentes/Comuns";
+import "../estilos/menu.css";
 
 const consultas = new QueryClient({
   defaultOptions: {
@@ -15,215 +31,206 @@ const consultas = new QueryClient({
 export function Aplicacao() {
   return (
     <QueryClientProvider client={consultas}>
-      <Conta />
+      <BrowserRouter>
+        <Jogo />
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
-
-function Conta() {
-  const {
-    cache,
-    painel,
-    mensagem,
-    erro,
-    aberto,
-    erroExclusao,
-    locais,
-    conta,
-    perfil,
-    avatares,
-    preferencias,
-    ocupado,
-    carregando,
-    atual,
-    falhaCarregamento,
-    salvarDados,
-    salvarAjustes,
-    excluir,
-    sair,
-    definirMensagem,
-    definirErro,
-    definirAberto,
-    definirErroExclusao,
-    definirPrevia,
-    navegar,
-    salvarLocal,
-  } = useConta();
-  return (
-    <div className="universo-perfil">
-      <header className="cabecalho-jogo">
-        <a href="/" className="marca-jogo" aria-label="Decifra início">
-          <span>D</span>
-          <b>ecifra</b>
-          <i aria-hidden="true">✦</i>
+function Jogo() {
+  const dados = useConta();
+  const { pathname: caminho } = useLocation();
+  const [ajuda, definirAjuda] = useState(false);
+  const { conta, perfil, carregando, ocupado, efetivas } = dados;
+  const pendente = conta && perfil.data?.estado === "cadastro_pendente";
+  useEffect(() => {
+    dados.navegar(caminho === "/configuracoes" ? "preferencias" : "perfil");
+    window.scrollTo(0, 0);
+  }, [caminho]);
+  useEffect(() => {
+    if (!carregando) {
+      document
+        .querySelector<HTMLElement>("main h1")
+        ?.focus({ preventScroll: true });
+      document.title = `${document.querySelector("main h1")?.textContent ?? "Jogo de palavras"} — Decifra`;
+    }
+  }, [caminho, carregando, pendente]);
+  const privada =
+    caminho.startsWith("/perfil") ||
+    caminho.startsWith("/jogar/individual") ||
+    caminho.startsWith("/jogar/galera");
+  let conteudo;
+  if (carregando) conteudo = <Carregando />;
+  else if (dados.falhaCarregamento)
+    conteudo = (
+      <EstadoVazio titulo="Vamos tentar de novo?">
+        <p role="alert">{dados.falhaCarregamento.message}</p>
+        <Botao onClick={() => void dados.cache.invalidateQueries()}>
+          Tentar novamente
+        </Botao>
+      </EstadoVazio>
+    );
+  else if (pendente && caminho !== "/primeiro-acesso")
+    conteudo = <Navigate to="/primeiro-acesso" replace />;
+  else if (caminho === "/primeiro-acesso" && !pendente)
+    conteudo = <Navigate to="/" replace />;
+  else if (privada && !conta)
+    conteudo = (
+      <EstadoVazio titulo="Suas descobertas merecem uma conta">
+        <p>
+          Entre para escolher desafios, reunir a galera e guardar seu histórico.
+        </p>
+        <a className="acao" href="/api/autenticacao/google">
+          Entrar com Google ↗
         </a>
-        <span className="selo">DICAS. DESCOBERTAS. VOCÊ.</span>
-        {conta && (
-          <button onClick={() => sair.mutate()} disabled={ocupado}>
-            Sair
-          </button>
-        )}
-      </header>
-      <main className="central-perfil">
+      </EstadoVazio>
+    );
+  else if (caminho === "/")
+    conteudo = <MenuInicial conta={conta} aoExpirar={dados.falhar} />;
+  else if (["/perfil", "/primeiro-acesso", "/configuracoes"].includes(caminho))
+    conteudo = (
+      <div className="central-perfil">
         <aside className="companheiro">
-          <span className="etiqueta">BEM-VINDO AO SEU PRÓXIMO AHÁ!</span>
+          <span className="etiqueta">SEU CANTINHO NO DECIFRA</span>
           <h2>
             Uma boa descoberta
             <br />
             <em>começa com você.</em>
           </h2>
           <div className="palco-mascote">
-            <span className="letra-flutuante" aria-hidden="true">
-              Ç
-            </span>
-            <span className="estrela" aria-hidden="true">
-              ✦
-            </span>
             <img
               src="/mascote/aurelio.png"
-              alt="Aurélio, nosso dicionário apresentador"
               width="290"
               height="350"
+              alt="Aurélio, nosso dicionário apresentador"
             />
           </div>
-          {conta && atual && (
-            <div className="identidade-atual">
-              <img
-                src={atual.recurso}
-                alt={atual.nome}
-                width="64"
-                height="64"
-              />
-              <div>
-                <b>{perfil.data?.nome_usuario}</b>
-                <small>Curiosidade é seu superpoder.</small>
-              </div>
-            </div>
-          )}
-          <p className="bilhete">
-            “Seu próximo <strong>já sei!</strong> está logo ali.”
-            <br />
-            <small>— Aurélio</small>
-          </p>
         </aside>
-        <section className="painel-conta" aria-busy={carregando || ocupado}>
-          {mensagem && (
-            <p className="aviso-sucesso" role="status">
-              ✓ {mensagem}
-            </p>
-          )}
-          {erro && <AvisoErro mensagem={erro} />}
-          {carregando ? (
-            <p role="status">Preparando seu cantinho…</p>
-          ) : falhaCarregamento ? (
-            <div role="alert">
-              <h1>Vamos tentar de novo?</h1>
-              <p>{falhaCarregamento.message}</p>
-              <button
-                onClick={() => {
-                  void cache.invalidateQueries();
-                }}
-              >
-                Tentar novamente
-              </button>
-            </div>
-          ) : conta && perfil.data && preferencias.data && avatares.data ? (
-            <>
-              <SituacaoDemonstracao tokenConta={conta.token_csrf} />
-              {perfil.data.estado === "ativo" && (
-                <nav className="abas-conta" aria-label="Sua conta">
-                  <button
-                    aria-pressed={painel === "perfil"}
-                    onClick={() => navegar("perfil")}
-                    disabled={ocupado}
-                  >
-                    Perfil
-                  </button>
-                  <button
-                    aria-pressed={painel === "preferencias"}
-                    onClick={() => navegar("preferencias")}
-                    disabled={ocupado}
-                  >
-                    Preferências
-                  </button>
-                </nav>
-              )}
-              {painel === "perfil" ? (
-                <>
-                  <FormularioPerfil
-                    perfil={perfil.data}
-                    avatares={avatares.data}
-                    ocupado={ocupado}
-                    aoSalvar={(dados) => {
-                      definirMensagem("");
-                      definirErro("");
-                      salvarDados.mutate(dados);
-                    }}
-                  />
-                  <div className="despedida">
-                    <p>Quer se despedir do Decifra?</p>
-                    <button
-                      className="texto-perigo"
-                      onClick={() => {
-                        definirErroExclusao("");
-                        definirAberto(true);
-                      }}
-                      disabled={ocupado}
-                    >
-                      Excluir minha conta
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <FormularioPreferencias
-                  key={`${conta.jogador_id}-${preferencias.dataUpdatedAt}`}
-                  inicial={preferencias.data}
-                  ocupado={ocupado}
-                  aoPrever={definirPrevia}
-                  aoSalvar={(dados) => {
-                    definirMensagem("");
-                    definirErro("");
-                    salvarAjustes.mutate(dados);
-                  }}
-                />
-              )}
-            </>
-          ) : (
-            <>
-              <span className="etiqueta">CHEGOU MAIS UMA PESSOA CURIOSA</span>
-              <h1>Vamos nos conhecer?</h1>
-              <p>Entre para escolher seu avatar e guardar suas descobertas.</p>
-              <a className="acao botao-grande" href="/api/autenticacao/google">
-                Entrar com Google <span aria-hidden="true">↗</span>
-              </a>
-              <SituacaoDemonstracao />
-              <div className="divisor" />
-              <FormularioPreferencias
-                key="visitante"
-                inicial={locais}
-                ocupado={false}
-                aoSalvar={salvarLocal}
-                aoPrever={definirPrevia}
-                visitante
-              />
-            </>
-          )}
+        <section className="painel-conta" aria-busy={ocupado}>
+          <ConteudoConta
+            dados={dados}
+            configuracoes={caminho === "/configuracoes"}
+          />
         </section>
+      </div>
+    );
+  else conteudo = <PaginaEmPreparacao caminho={caminho} />;
+  function alternarTema() {
+    const novas = {
+      ...(dados.preferencias.data ?? dados.locais),
+      tema:
+        efetivas.tema === "claro" ? ("escuro" as const) : ("claro" as const),
+    };
+    if (conta) dados.salvarAjustes.mutate(novas);
+    else dados.salvarLocal(novas);
+  }
+  return (
+    <div className="universo-perfil moldura-jogo">
+      <a href="#conteudo-jogo" className="pular-conteudo">
+        Pular para o conteúdo
+      </a>
+      <header className="cabecalho-jogo">
+        <Link to="/" className="marca-jogo" aria-label="Decifra início">
+          <span>D</span>
+          <b>ECIFRA</b>
+          <i aria-hidden="true">✦</i>
+        </Link>
+        <span className="selo">DICAS. DESCOBERTAS. VOCÊ.</span>
+        <div className="controles-menu">
+          <Botao aria-label="Como jogar" onClick={() => definirAjuda(true)}>
+            ?
+          </Botao>
+          <Botao
+            aria-label={
+              efetivas.tema === "claro"
+                ? "Ativar tema escuro"
+                : "Ativar tema claro"
+            }
+            onClick={alternarTema}
+            disabled={ocupado || carregando}
+          >
+            {efetivas.tema === "claro" ? "☾" : "☀"}
+          </Botao>
+          {conta && dados.atual && (
+            <Link
+              className="perfil-topo"
+              to="/perfil"
+              aria-label="Abrir meu perfil"
+            >
+              <img src={dados.atual.recurso} width="40" height="40" alt="" />
+              <span>{perfil.data?.nome_usuario ?? "Seu perfil"}</span>
+            </Link>
+          )}
+          {conta && (
+            <Botao onClick={() => dados.sair.mutate()} disabled={ocupado}>
+              Sair
+            </Botao>
+          )}
+        </div>
+      </header>
+      {!pendente && (
+        <nav className="dock-jogo" aria-label="Navegação principal">
+          {[
+            ["/", "⌂", "Início"],
+            ...(conta
+              ? [
+                  ["/perfil", "☺", "Perfil"],
+                  ["/perfil/historico", "▤", "Histórico"],
+                ]
+              : []),
+            ["/rankings", "♜", "Rankings"],
+            ["/configuracoes", "⚙", "Configurações"],
+          ].map(([destino, icone, nome]) => (
+            <NavLink key={destino} to={destino} end aria-label={nome}>
+              <span aria-hidden="true">{icone}</span>
+              <small>{nome}</small>
+            </NavLink>
+          ))}
+        </nav>
+      )}
+      <main
+        id="conteudo-jogo"
+        tabIndex={-1}
+        className={`conteudo-jogo ${pendente ? "primeiro-acesso" : ""}`}
+      >
+        {caminho !== "/" && !carregando && !pendente && <VoltarAoMenu />}
+        {dados.mensagem && (
+          <p className="aviso-sucesso" role="status">
+            ✓ {dados.mensagem}
+          </p>
+        )}
+        {dados.erro && <AvisoErro mensagem={dados.erro} />}
+        {conteudo}
       </main>
       <footer className="rodape-jogo">
-        SEM PRESSA. COM CURIOSIDADE. <span aria-hidden="true">✦</span>
+        DÊ ASAS À SUA CURIOSIDADE <span aria-hidden="true">✦</span>
       </footer>
+      <Dialogo
+        aberto={ajuda}
+        titulo="Pequenas pistas, grandes descobertas."
+        aoFechar={() => definirAjuda(false)}
+      >
+        <p>
+          No Solo, descubra uma palavra com até cinco dicas. Quanto menos dicas
+          usar, mais pontos você ganha.
+        </p>
+        <p>
+          Na Galera, até três pessoas dividem o mesmo dispositivo e tentam
+          revelar as palavras. Acertou? Continua na vez!
+        </p>
+        <p>Você escolhe seu ritmo. Sem cronômetro, com muita curiosidade.</p>
+      </Dialogo>
       <ExcluirConta
-        aberto={aberto}
-        ocupado={excluir.isPending}
-        erro={erroExclusao}
+        aberto={dados.aberto}
+        ocupado={dados.excluir.isPending}
+        erro={dados.erroExclusao}
         aoCancelar={() => {
-          definirAberto(false);
-          definirErroExclusao("");
+          dados.definirAberto(false);
+          dados.definirErroExclusao("");
         }}
         aoConfirmar={() => {
-          definirErroExclusao("");
-          excluir.mutate();
+          dados.definirErroExclusao("");
+          dados.excluir.mutate();
         }}
       />
     </div>

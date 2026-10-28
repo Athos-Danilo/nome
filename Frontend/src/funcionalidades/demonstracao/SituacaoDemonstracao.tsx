@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -99,9 +100,9 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
         <>
           <h2>Uma amostra de curiosidade</h2>
           <p>Três palavras fáceis, temas surpresa.</p>
-          <button className="botao-grande" disabled>
+          <Link className="acao botao-grande" to="/jogar/demonstracao">
             Jogo rápido
-          </button>
+          </Link>
           <p className="nota">
             Essa experiência está em preparação. Enquanto isso, você já pode
             entrar com Google e personalizar seu perfil.
