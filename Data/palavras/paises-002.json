@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "paises-002",
+  "palavras": [
+    {
+      "id": "espanha",
+      "resposta": "ESPANHA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no sudoeste da Europa.",
+        "Compartilho a Península Ibérica com Portugal.",
+        "O flamenco faz parte do meu patrimônio cultural.",
+        "Barcelona abriga minha basílica da Sagrada Família, projetada por Gaudí.",
+        "Minha capital é Madri."
+      ]
+    },
+    {
+      "id": "estados-unidos",
+      "resposta": "ESTADOS UNIDOS",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Norte.",
+        "Tenho costas voltadas para os oceanos Atlântico e Pacífico.",
+        "Meu território inclui o Alasca e o arquipélago do Havaí.",
+        "A Estátua da Liberdade fica em Nova York, uma de minhas cidades.",
+        "Sou formado por cinquenta estados e minha capital é Washington, D.C."
+      ]
+    },
+    {
+      "id": "reino-unido",
+      "resposta": "REINO UNIDO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no noroeste da Europa.",
+        "Meu território ocupa a ilha da Grã-Bretanha e parte da ilha da Irlanda.",
+        "Inglaterra, Escócia, País de Gales e Irlanda do Norte são minhas partes constituintes.",
+        "Meu Parlamento se reúne no Palácio de Westminster.",
+        "Minha capital é Londres, onde fica a torre do relógio associada ao Big Ben."
+      ]
+    },
+    {
+      "id": "russia",
+      "resposta": "RÚSSIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Meu território se estende pela Europa e pela Ásia.",
+        "A Sibéria ocupa uma grande porção do meu território.",
+        "Abrigo o lago Baikal, conhecido por sua grande profundidade.",
+        "A Praça Vermelha fica ao lado do Kremlin de minha capital.",
+        "Minha capital é Moscou, onde fica a Catedral de São Basílio."
+      ]
+    },
+    {
+      "id": "uruguai",
+      "resposta": "URUGUAI",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Sul.",
+        "Faço fronteira com o Brasil e a Argentina.",
+        "Minha cidade de Colônia do Sacramento preserva um centro histórico de origem colonial.",
+        "Punta del Este é um de meus destinos de praia mais conhecidos.",
+        "Minha capital é Montevidéu."
+      ]
+    },
+    {
+      "id": "paraguai",
+      "resposta": "PARAGUAI",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Sul.",
+        "Não tenho litoral marítimo.",
+        "O espanhol e o guarani são meus idiomas oficiais.",
+        "Compartilho com o Brasil a usina hidrelétrica de Itaipu.",
+        "Minha capital é Assunção."
+      ]
+    },
+    {
+      "id": "bolivia",
+      "resposta": "BOLÍVIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na América do Sul e não tenho saída para o mar.",
+        "Meu território reúne paisagens dos Andes e de terras baixas.",
+        "Compartilho o lago Titicaca com o Peru.",
+        "Abrigo o Salar de Uyuni, uma imensa paisagem coberta de sal.",
+        "Minha capital constitucional é Sucre; La Paz é a sede do meu governo."
+      ]
+    },
+    {
+      "id": "colombia",
+      "resposta": "COLÔMBIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no norte da América do Sul.",
+        "Tenho litoral no mar do Caribe e no oceano Pacífico.",
+        "Uma de minhas paisagens culturais reconhecidas pela UNESCO está ligada ao cultivo de café.",
+        "Cartagena das Índias preserva muralhas e fortificações do período colonial.",
+        "Minha capital é Bogotá."
+      ]
+    },
+    {
+      "id": "cuba",
+      "resposta": "CUBA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país insular do Caribe.",
+        "Minha ilha principal fica ao sul da Flórida.",
+        "O vale de Viñales é conhecido por suas elevações calcárias e pelo cultivo de tabaco.",
+        "O centro antigo de minha capital e suas fortificações são patrimônio mundial.",
+        "Minha capital é Havana, conhecida também por carros antigos em suas ruas."
+      ]
+    },
+    {
+      "id": "suica",
+      "resposta": "SUÍÇA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país europeu sem litoral marítimo.",
+        "Os Alpes marcam parte de minhas paisagens.",
+        "Alemão, francês, italiano e romanche são minhas quatro línguas nacionais.",
+        "Minha bandeira tem uma cruz branca sobre fundo vermelho.",
+        "Zurique e Genebra ficam no meu território; Berna é minha cidade federal."
+      ]
+    },
+    {
+      "id": "suecia",
+      "resposta": "SUÉCIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no norte da Europa.",
+        "Ocupo parte da Península Escandinava e tenho litoral no mar Báltico.",
+        "O grupo musical ABBA surgiu no meu território.",
+        "Minha capital recebe as cerimônias dos prêmios Nobel de Física, Química, Medicina e Literatura.",
+        "Minha capital é Estocolmo."
+      ]
+    },
+    {
+      "id": "finlandia",
+      "resposta": "FINLÂNDIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do norte da Europa.",
+        "Florestas e muitos lagos fazem parte de minha paisagem.",
+        "A sauna tem uma presença marcante em minha cultura.",
+        "A fortaleza marítima de Suomenlinna fica em ilhas próximas de minha capital.",
+        "Minha capital é Helsinque."
+      ]
+    },
+    {
+      "id": "dinamarca",
+      "resposta": "DINAMARCA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país escandinavo.",
+        "Meu território europeu inclui a Península da Jutlândia e várias ilhas.",
+        "Hans Christian Andersen, autor de contos como A Pequena Sereia, nasceu aqui.",
+        "Meu castelo de Kronborg é associado ao cenário da peça Hamlet.",
+        "Minha capital é Copenhague, onde há uma famosa estátua da Pequena Sereia."
+      ]
+    },
+    {
+      "id": "belgica",
+      "resposta": "BÉLGICA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na Europa Ocidental.",
+        "Chocolates e waffles estão entre minhas tradições gastronômicas conhecidas.",
+        "Neerlandês, francês e alemão são meus idiomas oficiais.",
+        "Minha capital abriga o Atomium e instituições da União Europeia.",
+        "Minha capital é Bruxelas."
+      ]
+    },
+    {
+      "id": "paises-baixos",
+      "resposta": "PAÍSES BAIXOS",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na Europa Ocidental e tenho litoral no mar do Norte.",
+        "Parte de meu território fica abaixo do nível do mar.",
+        "Diques e pôlderes fazem parte da minha relação com a água.",
+        "Moinhos, campos de tulipas e cidades com canais são imagens associadas a mim.",
+        "Minha capital é Amsterdã, mas minha sede de governo fica em Haia."
+      ]
+    },
+    {
+      "id": "austria",
+      "resposta": "ÁUSTRIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da Europa Central sem litoral marítimo.",
+        "Os Alpes ocupam uma parte importante do meu território.",
+        "Mozart nasceu em minha cidade de Salzburgo.",
+        "O Palácio de Schönbrunn está ligado à história da dinastia dos Habsburgo.",
+        "Minha capital é Viena, conhecida por sua tradição de música clássica."
+      ]
+    },
+    {
+      "id": "turquia",
+      "resposta": "TURQUIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Meu território se divide entre a Europa e a Ásia.",
+        "Abrigo as ruínas da antiga cidade de Éfeso.",
+        "A Capadócia é conhecida por formações rochosas e passeios de balão.",
+        "Istambul se estende pelos dois lados do estreito de Bósforo.",
+        "Minha capital é Ancara, e não Istambul."
+      ]
+    },
+    {
+      "id": "coreia-do-sul",
+      "resposta": "COREIA DO SUL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no leste da Ásia.",
+        "Ocupo a porção meridional de uma península.",
+        "O kimchi e o taekwondo fazem parte de minha cultura.",
+        "Sou conhecido internacionalmente pelo K-pop e pela origem de empresas como Samsung e Hyundai.",
+        "Minha capital é Seul."
+      ]
+    },
+    {
+      "id": "tailandia",
+      "resposta": "TAILÂNDIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico no sudeste da Ásia.",
+        "Templos budistas e mercados flutuantes aparecem entre minhas atrações.",
+        "Abrigo as ruínas da antiga cidade de Ayutthaya.",
+        "Phuket e Koh Samui são ilhas conhecidas do meu território.",
+        "Minha capital é Bangkok, e meu nome histórico era Sião."
+      ]
+    },
+    {
+      "id": "jamaica",
+      "resposta": "JAMAICA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país insular do Caribe.",
+        "Minha ilha fica ao sul de Cuba.",
+        "As montanhas Blue e John Crow formam uma área de patrimônio natural e cultural do meu território.",
+        "Sou a terra natal de Bob Marley e tenho uma forte ligação com o reggae.",
+        "Minha capital é Kingston."
+      ]
+    },
+    {
+      "id": "namibia",
+      "resposta": "NAMÍBIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Fico no sudoeste da África.",
+        "Meu litoral é banhado pelo oceano Atlântico.",
+        "Dunas extensas e paisagens muito áridas marcam parte do meu território.",
+        "Sossusvlei e as árvores secas de Deadvlei estão entre minhas paisagens conhecidas.",
+        "Minha capital é Windhoek, e abrigo o parque de Etosha."
+      ]
+    },
+    {
+      "id": "botsuana",
+      "resposta": "BOTSUANA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país da África Austral.",
+        "Não tenho litoral marítimo.",
+        "Parte da região do Kalahari fica no meu território.",
+        "Abrigo o delta interior do Okavango, cujas águas se espalham sem chegar ao oceano.",
+        "Minha capital é Gaborone."
+      ]
+    },
+    {
+      "id": "georgia",
+      "resposta": "GEÓRGIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Fico na região do Cáucaso.",
+        "Tenho litoral no mar Negro.",
+        "Uma tradição de produção de vinho daqui usa grandes recipientes de barro chamados qvevri.",
+        "Mtskheta, uma de minhas cidades históricas, reúne monumentos reconhecidos pela UNESCO.",
+        "Sou um país cuja capital é Tbilisi, não um estado dos Estados Unidos."
+      ]
+    },
+    {
+      "id": "jordania",
+      "resposta": "JORDÂNIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Fico no Oriente Médio.",
+        "Parte de minha fronteira acompanha o mar Morto.",
+        "O deserto de Wadi Rum fica no meu território.",
+        "Abrigo Petra, antiga cidade dos nabateus conhecida por fachadas esculpidas na rocha.",
+        "Minha capital é Amã."
+      ]
+    },
+    {
+      "id": "croacia",
+      "resposta": "CROÁCIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país europeu.",
+        "Tenho uma costa recortada e numerosas ilhas no mar Adriático.",
+        "Os lagos de Plitvice fazem parte de meu patrimônio natural.",
+        "Minha cidade de Dubrovnik é conhecida pelo centro histórico cercado de muralhas.",
+        "Minha capital é Zagreb."
+      ]
+    }
+  ]
+}

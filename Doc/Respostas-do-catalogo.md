@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos oito lotes existentes: 200 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos nove lotes existentes: 225 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -204,3 +204,28 @@ Gerada a partir dos oito lotes existentes: 200 respostas. Fornecer esta lista an
 | marcas-002 | `montblanc` | MONTBLANC | dificil |
 | marcas-002 | `swarovski` | SWAROVSKI | dificil |
 | marcas-002 | `hermes` | HERMÈS | dificil |
+| paises-002 | `espanha` | ESPANHA | facil |
+| paises-002 | `estados-unidos` | ESTADOS UNIDOS | facil |
+| paises-002 | `reino-unido` | REINO UNIDO | facil |
+| paises-002 | `russia` | RÚSSIA | facil |
+| paises-002 | `uruguai` | URUGUAI | facil |
+| paises-002 | `paraguai` | PARAGUAI | facil |
+| paises-002 | `bolivia` | BOLÍVIA | facil |
+| paises-002 | `colombia` | COLÔMBIA | facil |
+| paises-002 | `cuba` | CUBA | facil |
+| paises-002 | `suica` | SUÍÇA | facil |
+| paises-002 | `suecia` | SUÉCIA | medio |
+| paises-002 | `finlandia` | FINLÂNDIA | medio |
+| paises-002 | `dinamarca` | DINAMARCA | medio |
+| paises-002 | `belgica` | BÉLGICA | medio |
+| paises-002 | `paises-baixos` | PAÍSES BAIXOS | medio |
+| paises-002 | `austria` | ÁUSTRIA | medio |
+| paises-002 | `turquia` | TURQUIA | medio |
+| paises-002 | `coreia-do-sul` | COREIA DO SUL | medio |
+| paises-002 | `tailandia` | TAILÂNDIA | medio |
+| paises-002 | `jamaica` | JAMAICA | medio |
+| paises-002 | `namibia` | NAMÍBIA | dificil |
+| paises-002 | `botsuana` | BOTSUANA | dificil |
+| paises-002 | `georgia` | GEÓRGIA | dificil |
+| paises-002 | `jordania` | JORDÂNIA | dificil |
+| paises-002 | `croacia` | CROÁCIA | dificil |
