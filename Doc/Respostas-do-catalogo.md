@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos sete lotes existentes: 175 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos oito lotes existentes: 200 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -179,3 +179,28 @@ Gerada a partir dos sete lotes existentes: 175 respostas. Fornecer esta lista an
 | filmes-e-series-002 | `central-do-brasil` | CENTRAL DO BRASIL | dificil |
 | filmes-e-series-002 | `o-grande-hotel-budapeste` | O GRANDE HOTEL BUDAPESTE | dificil |
 | filmes-e-series-002 | `ruptura` | RUPTURA | dificil |
+| marcas-002 | `youtube` | YOUTUBE | facil |
+| marcas-002 | `whatsapp` | WHATSAPP | facil |
+| marcas-002 | `spotify` | SPOTIFY | facil |
+| marcas-002 | `instagram` | INSTAGRAM | facil |
+| marcas-002 | `nintendo` | NINTENDO | facil |
+| marcas-002 | `havaianas` | HAVAIANAS | facil |
+| marcas-002 | `oreo` | OREO | facil |
+| marcas-002 | `fanta` | FANTA | facil |
+| marcas-002 | `fiat` | FIAT | facil |
+| marcas-002 | `ford` | FORD | facil |
+| marcas-002 | `natura` | NATURA | medio |
+| marcas-002 | `o-boticario` | O BOTICÁRIO | medio |
+| marcas-002 | `ipiranga` | IPIRANGA | medio |
+| marcas-002 | `petrobras` | PETROBRAS | medio |
+| marcas-002 | `lacoste` | LACOSTE | medio |
+| marcas-002 | `puma` | PUMA | medio |
+| marcas-002 | `red-bull` | RED BULL | medio |
+| marcas-002 | `vans` | VANS | medio |
+| marcas-002 | `tupperware` | TUPPERWARE | medio |
+| marcas-002 | `xerox` | XEROX | medio |
+| marcas-002 | `asics` | ASICS | dificil |
+| marcas-002 | `patagonia` | PATAGONIA | dificil |
+| marcas-002 | `montblanc` | MONTBLANC | dificil |
+| marcas-002 | `swarovski` | SWAROVSKI | dificil |
+| marcas-002 | `hermes` | HERMÈS | dificil |

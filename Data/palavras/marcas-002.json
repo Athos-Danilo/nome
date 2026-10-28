@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "marcas-002",
+  "palavras": [
+    {
+      "id": "youtube",
+      "resposta": "YOUTUBE",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma plataforma digital usada para compartilhar conteúdo com outras pessoas.",
+        "Permito publicar vídeos gravados e realizar transmissões ao vivo.",
+        "Meus criadores organizam canais e podem reunir seguidores por meio de inscrições.",
+        "O primeiro vídeo publicado em mim, em 2005, mostrava uma visita a um zoológico.",
+        "Meu símbolo é um botão de reprodução branco dentro de uma forma vermelha."
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "resposta": "WHATSAPP",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um aplicativo criado para facilitar a comunicação entre pessoas.",
+        "Permito trocar mensagens, enviar áudios e fazer chamadas pela internet.",
+        "Meus contatos são associados a números de telefone.",
+        "Fui criado por Jan Koum e Brian Acton, que haviam trabalhado no Yahoo.",
+        "Meu ícone mostra um telefone branco dentro de um balão de conversa verde."
+      ]
+    },
+    {
+      "id": "spotify",
+      "resposta": "SPOTIFY",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um serviço digital ligado ao entretenimento em áudio.",
+        "Reúno músicas e podcasts que podem ser ouvidos pela internet.",
+        "Permito organizar playlists e acompanhar artistas favoritos.",
+        "Nasci na Suécia e minha retrospectiva anual ficou conhecida como Wrapped.",
+        "Meu símbolo mais conhecido é um círculo verde com três linhas curvas escuras."
+      ]
+    },
+    {
+      "id": "instagram",
+      "resposta": "INSTAGRAM",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma rede social em que as pessoas acompanham perfis de amigos e criadores.",
+        "Fiquei conhecida pelo compartilhamento de fotografias e pelo uso de filtros.",
+        "Também tenho publicações temporárias que desaparecem após 24 horas.",
+        "Meus recursos incluem vídeos chamados Reels e conversas pelo Direct.",
+        "Meu ícone representa uma câmera com linhas brancas sobre um fundo colorido em degradê."
+      ]
+    },
+    {
+      "id": "nintendo",
+      "resposta": "NINTENDO",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma empresa japonesa ligada ao entretenimento.",
+        "Produzo jogos e aparelhos que permitem jogar em casa ou fora dela.",
+        "Minha história começou em 1889 com a fabricação de cartas tradicionais japonesas.",
+        "Game Boy e Switch estão entre os aparelhos que criei.",
+        "Sou a empresa por trás das aventuras de Mario e da série The Legend of Zelda."
+      ]
+    },
+    {
+      "id": "havaianas",
+      "resposta": "HAVAIANAS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca brasileira ligada a um produto usado nos pés.",
+        "Meus produtos são comuns em praias, piscinas e momentos de descanso.",
+        "Minha história começou em 1962, inspirada em um tipo de sandália japonesa.",
+        "A textura da sola dos meus chinelos faz referência a grãos de arroz.",
+        "Sou conhecida pelos chinelos de borracha com duas tiras, incluindo uma linha com a bandeirinha do Brasil."
+      ]
+    },
+    {
+      "id": "oreo",
+      "resposta": "OREO",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de alimento que costuma aparecer na hora do lanche.",
+        "Meu produto mais conhecido é um biscoito recheado.",
+        "Fui apresentada nos Estados Unidos em 1912.",
+        "Minha versão clássica combina duas partes escuras de chocolate com recheio claro.",
+        "Sou o biscoito de embalagem azul frequentemente associado a um copo de leite."
+      ]
+    },
+    {
+      "id": "fanta",
+      "resposta": "FANTA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca do setor de bebidas.",
+        "Meus produtos são refrigerantes de sabores frutados.",
+        "Minha história começou na Alemanha, em 1940.",
+        "Faço parte do conjunto de marcas da companhia que também produz a Coca-Cola.",
+        "No Brasil, sou especialmente conhecida pelas versões de laranja e de uva."
+      ]
+    },
+    {
+      "id": "fiat",
+      "resposta": "FIAT",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de automóveis de origem europeia.",
+        "Nasci na Itália, na cidade de Turim, em 1899.",
+        "Tenho forte presença na história dos carros populares brasileiros.",
+        "Um dos meus pequenos modelos urbanos é conhecido pelo número 500.",
+        "Uno, Palio e Strada estão entre os veículos que levam minha marca."
+      ]
+    },
+    {
+      "id": "ford",
+      "resposta": "FORD",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma fabricante de automóveis de origem norte-americana.",
+        "Minha trajetória tem ligação com a popularização do carro no século vinte.",
+        "Adotei uma linha de montagem móvel em 1913 para ampliar a produção.",
+        "Meu histórico Modelo T ajudou a tornar o automóvel acessível a mais pessoas.",
+        "O esportivo Mustang e o emblema oval azul estão associados à minha marca."
+      ]
+    },
+    {
+      "id": "natura",
+      "resposta": "NATURA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada a produtos de cuidado pessoal.",
+        "Nasci no Brasil e construí uma rede de consultoras e consultores.",
+        "Fui fundada por Luiz Seabra em São Paulo, em 1969.",
+        "Minha linha Ekos utiliza ingredientes associados à biodiversidade brasileira.",
+        "Kaiak, Tododia e Mamãe e Bebê são linhas de produtos da minha marca."
+      ]
+    },
+    {
+      "id": "o-boticario",
+      "resposta": "O BOTICÁRIO",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca brasileira de cosméticos e perfumaria.",
+        "Minha origem foi um pequeno estabelecimento de manipulação de fórmulas.",
+        "Minha primeira loja surgiu em Curitiba, em 1977, pelas mãos de Miguel Krigsner.",
+        "Um frasco em formato de ânfora tornou-se um símbolo da minha trajetória.",
+        "Malbec e Quasar são nomes de fragrâncias que ajudei a popularizar."
+      ]
+    },
+    {
+      "id": "ipiranga",
+      "resposta": "IPIRANGA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca brasileira ligada à energia e à mobilidade.",
+        "Minha história começou no Rio Grande do Sul, em 1937.",
+        "Minha presença é reconhecida em uma rede de postos de combustíveis.",
+        "As lojas de conveniência AmPm fazem parte da minha trajetória.",
+        "Meus postos usam amarelo e azul, e meu nome é o mesmo de um riacho ligado à Independência do Brasil."
+      ]
+    },
+    {
+      "id": "petrobras",
+      "resposta": "PETROBRAS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma empresa brasileira do setor de energia.",
+        "Atuo na exploração e produção de petróleo e gás.",
+        "Fui criada em 1953, durante o governo de Getúlio Vargas.",
+        "Desenvolvi tecnologias para operar em águas profundas e no pré-sal.",
+        "Meu símbolo reúne as letras BR em um bloco verde e amarelo."
+      ]
+    },
+    {
+      "id": "lacoste",
+      "resposta": "LACOSTE",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca francesa de roupas e acessórios.",
+        "Minha origem está ligada às quadras de tênis.",
+        "Um jogador chamado René participou da minha criação, em 1933.",
+        "Fiquei especialmente associada a camisas polo com um pequeno bordado no peito.",
+        "O animal que identifica minha marca é um crocodilo verde."
+      ]
+    },
+    {
+      "id": "puma",
+      "resposta": "PUMA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de artigos esportivos com origem europeia.",
+        "Produzo calçados e roupas para modalidades como futebol e corrida.",
+        "Fui criada na Alemanha por Rudolf Dassler, em 1948.",
+        "Meu fundador era irmão do criador da Adidas.",
+        "Meu símbolo mostra um grande felino em pleno salto."
+      ]
+    },
+    {
+      "id": "red-bull",
+      "resposta": "RED BULL",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de bebida associada a atividades esportivas e eventos.",
+        "Minha principal categoria de produto é a dos energéticos.",
+        "Minha bebida foi lançada na Áustria em 1987, a partir de uma inspiração asiática.",
+        "Minha lata clássica combina painéis azuis e prateados.",
+        "Patrocinei o salto de Felix Baumgartner da estratosfera, realizado em 2012."
+      ]
+    },
+    {
+      "id": "vans",
+      "resposta": "VANS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de calçados e roupas de origem norte-americana.",
+        "Minha trajetória se aproximou da cultura do skate.",
+        "Comecei em Anaheim, na Califórnia, em 1966.",
+        "Old Skool e Authentic são nomes de modelos ligados à minha história.",
+        "Meus tênis sem cadarço com estampa quadriculada preta e branca tornaram-se muito conhecidos."
+      ]
+    },
+    {
+      "id": "tupperware",
+      "resposta": "TUPPERWARE",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca associada à organização doméstica.",
+        "Meus produtos ajudam a guardar, servir e transportar alimentos.",
+        "Minha história está ligada a recipientes plásticos com tampas de boa vedação.",
+        "Demonstrações e reuniões realizadas em casas ajudaram a divulgar meus produtos.",
+        "Minha origem está nas invenções de Earl Tupper e em potes cuja vedação foi inspirada em latas de tinta."
+      ]
+    },
+    {
+      "id": "xerox",
+      "resposta": "XEROX",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada a equipamentos e serviços para documentos.",
+        "Minha trajetória tem forte relação com escritórios e reprodução de páginas.",
+        "Minhas copiadoras usam um processo eletrostático para formar a imagem da cópia.",
+        "Um equipamento de número 914 marcou minha história ao chegar ao mercado em 1959.",
+        "Meu nome ficou tão associado às fotocópias que muita gente o usa para pedir uma cópia em papel."
+      ]
+    },
+    {
+      "id": "asics",
+      "resposta": "ASICS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de artigos esportivos de origem asiática.",
+        "Meus tênis são conhecidos entre praticantes de corrida.",
+        "Minha origem remonta ao negócio iniciado por Kihachiro Onitsuka no Japão, em 1949.",
+        "Meu nome foi formado a partir das iniciais de uma expressão latina sobre a saúde da mente e do corpo.",
+        "GEL-KAYANO e GEL-NIMBUS estão entre as linhas de tênis que levam minha marca."
+      ]
+    },
+    {
+      "id": "patagonia",
+      "resposta": "PATAGONIA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de roupas e equipamentos para atividades ao ar livre.",
+        "Meus produtos têm ligação com escalada, montanhismo e outras práticas na natureza.",
+        "Minha história começou nos Estados Unidos e tem raízes na fabricação de equipamentos de escalada.",
+        "Meu programa Worn Wear incentiva o reparo e a reutilização de roupas.",
+        "Fui criada por Yvon Chouinard, e meu logotipo mostra a silhueta do maciço Fitz Roy."
+      ]
+    },
+    {
+      "id": "montblanc",
+      "resposta": "MONTBLANC",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de artigos de luxo de origem alemã.",
+        "Meu catálogo inclui acessórios, relógios e produtos de couro.",
+        "Instrumentos de escrita têm um papel central na minha identidade.",
+        "Minha coleção Meisterstück foi apresentada em 1924.",
+        "Uma figura branca de seis pontas arredondadas costuma aparecer no topo das minhas canetas."
+      ]
+    },
+    {
+      "id": "swarovski",
+      "resposta": "SWAROVSKI",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca associada a adornos e objetos decorativos.",
+        "Minhas peças exploram o brilho e o efeito da luz em superfícies facetadas.",
+        "Minha história empresarial começou na Áustria, em 1895.",
+        "Fiquei conhecida pela produção e lapidação de cristais usados em joias e acessórios.",
+        "Um cisne é o símbolo que identifica minha marca."
+      ]
+    },
+    {
+      "id": "hermes",
+      "resposta": "HERMÈS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca francesa ligada ao mercado de luxo.",
+        "Minha história começou em Paris, em 1837, com artigos para cavalos.",
+        "Trabalho com couro e também sou conhecida por lenços de seda.",
+        "Minhas embalagens laranja são uma característica muito reconhecida.",
+        "As bolsas Birkin e Kelly fazem parte da minha história."
+      ]
+    }
+  ]
+}
