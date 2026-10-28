@@ -1,5 +1,7 @@
 # Contratos da API — fase 10
 
+**Fase 20:** implementados POST `/api/partidas/individual/configuracao`, POST `/api/partidas/individual`, GET `/api/partidas/em-aberto` (individual), GET `/api/partidas/{partida_id}` (individual), POST `/{partida_id}/palpites`, `/dicas`, `/desistencia-palavra` e `/encerramento`, todos sob `/api/partidas`. Criação recebe `plano_id`, com seleção confirmada no servidor. Campos, respostas, idempotência e limites em [Motor individual](Motor-individual.md). Rotas da galera e pausa/retomada continuam previstas.
+
 **Fase 19:** POST `/api/visitantes`, POST `/api/demonstracoes`, GET `/api/demonstracoes/atual` e POST `/api/demonstracoes/vinculo` implementados. Contratos, campos, prazo de sete dias, cookie e erros em [Visitante e demonstração](Demonstracao-visitante.md). As rotas de palpites e a demonstração jogável continuam nas fases próprias.
 
 **Atualização da fase 17:** GET/PATCH/DELETE `/api/perfil`, GET `/api/avatares`, GET/PUT `/api/preferencias` e recursos SVG estão implementados. Acesso privado inclui cadastro pendente. Consulte [Perfil e preferências](Perfil-preferencias.md). O estado abaixo registra os contratos iniciais; as rotas de partidas continuam previstas.
@@ -34,7 +36,7 @@ Cada mutação de partida inclui `id_acao` e `versao_esperada`. Resposta confirm
 | POST `/api/demonstracoes` | Visitante | Inicia a única demonstração: três respostas fáceis, temas aleatórios. |
 | POST `/api/demonstracoes/vinculo` | Conta + visitante | Implementado: transfere o mesmo registro em até sete dias; mantém individual já aberta e exige encerrar a demonstração ativa antes do vínculo em caso de conflito. |
 | POST `/api/partidas/individual/configuracao` | Conta | Valida quantidade, temas, dificuldades e ordem; informa falta de conteúdo sem iniciar silenciosamente. |
-| POST `/api/partidas/individual` | Conta | Cria partida com configuração confirmada e conteúdo reservado, sem duplicar individual ativa. |
+| POST `/api/partidas/individual` | Conta | Implementado: recebe apenas `plano_id` da própria conta; inicia a seleção confirmada sem duplicar individual ativa. |
 | POST `/api/partidas/galera/configuracao` | Conta | Valida participantes, dificuldade e temáticas de cada sessão. |
 | POST `/api/partidas/galera` | Conta | Cria partida e sessão inicial com sorteio de ordem. |
 | GET `/api/partidas/em-aberto` | Conta | Resumo da individual salva e estado da galera ativa pertinente, sem descartar a individual. |

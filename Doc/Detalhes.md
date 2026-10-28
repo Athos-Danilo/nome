@@ -217,7 +217,7 @@ Exemplo: em uma partida com sete respostas, escolher três fáceis e quatro méd
 
 Também poderá definir a ordem das dificuldades. Por exemplo: fácil, médio, fácil, médio, médio, fácil e médio.
 
-Haverá ainda a possibilidade de deixar o sistema sortear a quantidade de respostas de cada dificuldade entre os níveis selecionados pelo jogador. O critério de distribuição desse sorteio ainda precisa ser definido.
+Haverá ainda a possibilidade de deixar o sistema sortear a quantidade de respostas de cada dificuldade entre os níveis selecionados pelo jogador. Decisão D11 aprovada na fase 20: cada palavra sorteia sua dificuldade com chances iguais entre os níveis selecionados, podendo não aparecer algum nível em partidas curtas.
 
 A combinação personalizada também oferecerá uma opção de ordem crescente de dificuldade, além da ordenação manual.
 
@@ -245,10 +245,7 @@ Se faltar conteúdo para atender à configuração, o sistema deverá avisar e o
 
 A mudança de temática dependerá da escolha do jogador e não deverá ocorrer silenciosamente.
 
-Ainda precisam ser definidos:
-
-- Como lidar com falta de respostas da dificuldade escolhida, mesmo buscando outras temáticas.
-- Se a partida reduzida poderá ter qualquer quantidade disponível, inclusive menos de três respostas.
+Decisão D11 aprovada na fase 20: preservar as dificuldades escolhidas, sem substituição automática. Se a ampliação de temáticas não resolver, oferecer redução ou cancelamento. A redução confirmada aceita qualquer quantidade disponível a partir de uma palavra, inclusive uma ou duas. Não iniciar partida vazia. A configuração é conferida antes do início, preservando a seleção confirmada, conforme [Motor individual](Motor-individual.md).
 
 ## 9. Tela da rodada e montagem da resposta
 
@@ -584,8 +581,8 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-05 | Permitir alterar nome de usuário e avatar da coleção | Definido |
 | RF-06 | Configurar temática, dificuldade e partidas de três, cinco ou sete respostas | Definido |
 | RF-07 | Permitir combinar quantidades e ordem das dificuldades | Definido |
-| RF-08 | Oferecer distribuição aleatória de dificuldades | Definido; sorteio pendente |
-| RF-09 | Priorizar conteúdo inédito e considerar visto ao apresentar a etapa, permitindo repetição de partidas anteriores ao esgotar inéditas | Definido; falta por dificuldade pendente |
+| RF-08 | Oferecer distribuição aleatória de dificuldades | Motor implementado na fase 20; interface em fase própria |
+| RF-09 | Priorizar conteúdo inédito e considerar visto ao apresentar a etapa, permitindo repetição de partidas anteriores ao esgotar inéditas | Motor e regra de falta por dificuldade implementados na fase 20 |
 | RF-10 | Oferecer alternativas quando faltar conteúdo mesmo após permitir respostas de partidas anteriores | Definido |
 | RF-11 | Exibir quadradinhos e permitir arrastar, clicar ou digitar letras | Definido |
 | RF-12 | Aplicar o bloqueio de letras pela quantidade de ocorrências | Definido |

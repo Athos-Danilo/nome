@@ -1,5 +1,7 @@
 # Modelagem de dados — fase 10
 
+**Atualização da fase 20:** migração `0005_planos_individuais` acrescenta a tabela de configuração confirmável, totalizando 20 tabelas. Planos pertencem ao jogador, guardam somente referências/revisões e expiram para início em dez minutos. Exclusão de conta remove os planos. O motor grava rodadas, exposições, ações, palpites e resultado numa transação; detalhes em [Motor individual](Motor-individual.md).
+
 **Atualização da fase 19:** migração `0004_demonstracao_vinculo` acrescenta `visitantes.demonstracao_id`, único e com chave estrangeira para a partida. Preserva a referência depois de trocar o proprietário visitante por jogador. Mantidas 19 tabelas; perfil, exclusão e catálogo anterior preservados. Prazo, concorrência e limites em [Visitante e demonstração](Demonstracao-visitante.md).
 
 **Atualização da fase 17:** migração `0003_colecao_avatares` popula 20 avatares oficiais, mantendo 19 tabelas. Perfil, preferências e rotina transacional de anonimização estão implementados e testados, conforme [Perfil e preferências](Perfil-preferencias.md). O catálogo de desenvolvimento chegou a 100 respostas aprovadas na fase 16. O estado abaixo preserva o registro das fases anteriores.

@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine
 
 from aplicacao.bancos.acoes import acoes_processadas, exposicoes_conteudo, palpites
 from aplicacao.bancos.identidade import jogadores, preferencias, sessoes_autenticacao, visitantes
-from aplicacao.bancos.partidas import participantes, partidas, rodadas
+from aplicacao.bancos.partidas import participantes, partidas, planos_individuais, rodadas
 from aplicacao.modulos.autenticacao.contratos import FalhaAutenticacao
 from aplicacao.modulos.jogadores.esquemas import (
     AlterarPerfil,
@@ -130,6 +130,9 @@ class JogadoresPostgresql:
         async with self.motor.begin() as conexao:
             await self.titular(conexao, jogador_id, bloquear=True)
             # Novos motores de jogo também devem bloquear o titular antes da partida.
+            await conexao.execute(
+                delete(planos_individuais).where(planos_individuais.c.jogador_id == jogador_id)
+            )
             ids = list(
                 (
                     await conexao.execute(

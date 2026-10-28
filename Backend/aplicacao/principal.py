@@ -25,6 +25,10 @@ from aplicacao.modulos.demonstracoes.catalogo import SorteioMongo
 from aplicacao.modulos.demonstracoes.repositorio import DemonstracoesPostgresql
 from aplicacao.modulos.demonstracoes.rotas import rotas as rotas_demonstracoes
 from aplicacao.modulos.demonstracoes.servico import ServicoDemonstracoes
+from aplicacao.modulos.individual.catalogo import CatalogoIndividualMongo
+from aplicacao.modulos.individual.repositorio import IndividualPostgresql
+from aplicacao.modulos.individual.rotas import rotas as rotas_individual
+from aplicacao.modulos.individual.servico import ServicoIndividual
 from aplicacao.modulos.jogadores.repositorio import JogadoresPostgresql
 from aplicacao.modulos.jogadores.rotas import rotas as rotas_jogadores
 from aplicacao.modulos.jogadores.servico import ServicoJogadores
@@ -84,6 +88,11 @@ def criar_aplicacao(
         if motor is not None
         else None
     )
+    api.state.individual = (
+        ServicoIndividual(IndividualPostgresql(motor), CatalogoIndividualMongo(configuracoes))
+        if motor is not None
+        else None
+    )
 
     @api.exception_handler(FalhaAutenticacao)
     async def tratar_autenticacao(requisicao: Request, falha: FalhaAutenticacao):
@@ -116,7 +125,9 @@ def criar_aplicacao(
     @api.middleware("http")
     async def proteger_respostas_autenticacao(requisicao: Request, proxima):
         resposta = await proxima(requisicao)
-        if requisicao.url.path.startswith("/api/autenticacao") or requisicao.url.path in {
+        if requisicao.url.path.startswith(
+            ("/api/autenticacao", "/api/partidas")
+        ) or requisicao.url.path in {
             "/api/perfil",
             "/api/preferencias",
             "/api/visitantes",
@@ -131,6 +142,7 @@ def criar_aplicacao(
     api.include_router(rotas)
     api.include_router(rotas_jogadores)
     api.include_router(rotas_demonstracoes)
+    api.include_router(rotas_individual)
     api.mount(
         "/api/avatares/recursos",
         StaticFiles(directory=PASTA_BACKEND / "recursos/avatares"),

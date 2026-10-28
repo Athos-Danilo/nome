@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 20 concluída:** motor individual com configuração confirmável, dificuldades, seleção de inéditas, cinco dicas, pontuação e encerramento. 156 testes backend aprovados. Migração 0005 acrescenta planos individuais, totalizando 20 tabelas. Telas, demonstração jogável e pausa/retomada permanecem nas fases próprias. Contratos e evidências em [Motor individual](Motor-individual.md).
+
 **Fase 19 concluída:** identificação opaca de visitante, reserva única de três respostas fáceis, recuperação e vinculação integral em até sete dias. Conta existente com individual aberta é preservada; vínculo repetido não duplica resultados. 132 testes backend, 30 unitários frontend e 39 fluxos de navegador aprovados. A demonstração jogável continua na fase 26. Detalhes em [Visitante e demonstração](Demonstracao-visitante.md).
 
 **Catálogo — fase 18 concluída:** oito lotes produzidos (200 respostas e 1.000 dicas); cinco revisados e aprovados pelo responsável, importados localmente (125 respostas e 625 dicas). Marcas-002 acrescentou 25 respostas sem sobrescrita. Evidências em [Revisão do lote](Revisoes/marcas-002.md).

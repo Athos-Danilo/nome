@@ -65,6 +65,19 @@ Index(
     ),
 )
 
+planos_individuais = Table(
+    "planos_individuais",
+    metadados,
+    identificador(),
+    Column("jogador_id", ForeignKey("jogadores.id"), nullable=False, index=True),
+    Column("configuracao", JSONB, nullable=False),
+    Column("reservas", JSONB, nullable=False),
+    criacao(),
+    Column("expira_em", DateTime(timezone=True), nullable=False),
+    Column("partida_id", ForeignKey("partidas.id"), unique=True),
+    CheckConstraint("expira_em > criado_em", name="validade"),
+)
+
 participantes = Table(
     "participantes",
     metadados,
