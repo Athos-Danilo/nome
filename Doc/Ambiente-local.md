@@ -1,5 +1,7 @@
 # Ambiente local — Decifra
 
+**Fase 19:** aplicar também `0004_demonstracao_vinculo` com o comando de atualização Alembic. A interface confere o visitante e informa o estado do teste, sem consumir uma partida ainda não jogável. Para vincular, é necessária uma sessão da conta e a identificação do navegador que criou a demonstração. O servidor precisa dos dois bancos para reservar conteúdo; o perfil continua independente do MongoDB. Consulte [Visitante e demonstração](Demonstracao-visitante.md).
+
 **Fase 17:** aplicar também a migração `0003_colecao_avatares` com `Backend/.venv/Scripts/python.exe -m alembic -c Backend/alembic.ini upgrade head` na raiz. No frontend, `npm run testar-perfil` executa os fluxos controlados em três tamanhos de tela (Edge local; variável `DECIFRA_CANAL_NAVEGADOR=chromium` na integração contínua). Os testes novos de perfil criam bancos PostgreSQL descartáveis: somente o usuário do banco isolado de testes precisa de permissão de criação de bancos, nunca o usuário da aplicação.
 
 ## Estado atual e registro da fase 08

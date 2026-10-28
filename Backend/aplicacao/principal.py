@@ -21,6 +21,10 @@ from aplicacao.modulos.autenticacao.google import GoogleOIDC
 from aplicacao.modulos.autenticacao.repositorio import AutenticacaoPostgresql
 from aplicacao.modulos.autenticacao.rotas import nome_cookie, rotas
 from aplicacao.modulos.autenticacao.servico import ServicoAutenticacao
+from aplicacao.modulos.demonstracoes.catalogo import SorteioMongo
+from aplicacao.modulos.demonstracoes.repositorio import DemonstracoesPostgresql
+from aplicacao.modulos.demonstracoes.rotas import rotas as rotas_demonstracoes
+from aplicacao.modulos.demonstracoes.servico import ServicoDemonstracoes
 from aplicacao.modulos.jogadores.repositorio import JogadoresPostgresql
 from aplicacao.modulos.jogadores.rotas import rotas as rotas_jogadores
 from aplicacao.modulos.jogadores.servico import ServicoJogadores
@@ -75,6 +79,11 @@ def criar_aplicacao(
         if repositorio_autenticacao is not None and provedor_google is not None
         else None
     )
+    api.state.demonstracoes = (
+        ServicoDemonstracoes(DemonstracoesPostgresql(motor), SorteioMongo(configuracoes).sortear)
+        if motor is not None
+        else None
+    )
 
     @api.exception_handler(FalhaAutenticacao)
     async def tratar_autenticacao(requisicao: Request, falha: FalhaAutenticacao):
@@ -110,6 +119,10 @@ def criar_aplicacao(
         if requisicao.url.path.startswith("/api/autenticacao") or requisicao.url.path in {
             "/api/perfil",
             "/api/preferencias",
+            "/api/visitantes",
+            "/api/demonstracoes",
+            "/api/demonstracoes/atual",
+            "/api/demonstracoes/vinculo",
         }:
             resposta.headers["Cache-Control"] = "no-store"
             resposta.headers["Referrer-Policy"] = "no-referrer"
@@ -117,6 +130,7 @@ def criar_aplicacao(
 
     api.include_router(rotas)
     api.include_router(rotas_jogadores)
+    api.include_router(rotas_demonstracoes)
     api.mount(
         "/api/avatares/recursos",
         StaticFiles(directory=PASTA_BACKEND / "recursos/avatares"),

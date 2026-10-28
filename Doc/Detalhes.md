@@ -72,7 +72,7 @@ O projeto e as configurações de autenticação no Google Cloud serão criados 
 
 O visitante poderá experimentar **uma única partida**, com **três respostas fáceis e temáticas aleatórias**. Não será permitido iniciar outra demonstração sem fazer login.
 
-A limitação será **por navegador**, com identificação persistida no navegador e controle correspondente no backend. Não será exigido rastreamento rigoroso da pessoa: limpar os dados ou usar outro navegador poderá permitir uma nova demonstração, limitação aceita pelo responsável pelo projeto. O mecanismo específico de persistência ainda será escolhido na implementação.
+A limitação será **por navegador**, com identificação persistida no navegador e controle correspondente no backend. Não será exigido rastreamento rigoroso da pessoa: limpar os dados ou usar outro navegador poderá permitir uma nova demonstração, limitação aceita pelo responsável pelo projeto. Na fase 19, foi adotado cookie opaco HttpOnly com resumo do segredo e marcador de uso no PostgreSQL.
 
 O sistema apresentará um convite para entrar com o Google, explicando que isso libera o controle completo das configurações e o acompanhamento do progresso. Esse convite poderá aparecer durante a experiência ou ao final; o momento exato ainda será definido.
 
@@ -80,10 +80,13 @@ Se o visitante entrar com o Google logo após a partida de demonstração, ela d
 
 A única partida de demonstração deverá ter seu registro completo associado ao perfil, sem descartar seu progresso e resultado na vinculação. Seus resultados contarão nas estatísticas individuais e nos rankings como uma partida normal, respeitando a publicação somente após conclusão ou abandono definitivo e sem duplicar resultados ao vincular a conta. Isso não altera o escopo de consulta do histórico: a tela detalhada de cada rodada continua prevista para uma versão futura.
 
-Ainda precisam ser definidos:
+Decisões D10 aprovadas na fase 19:
 
-- O prazo de conservação dos dados da demonstração para transferência à conta.
-- O comportamento se o visitante entrar com o Google antes de terminar a demonstração.
+- A demonstração pode ser vinculada até sete dias após começar; o vencimento não libera outro teste.
+- Entrar com Google no meio transfere o registro integral e permite continuar sem desconto pelo login.
+- Uma individual já aberta na conta é preservada. A demonstração ainda ativa deve ser concluída ou abandonada antes de vincular; se já estiver encerrada, entra diretamente no histórico.
+
+A infraestrutura está implementada conforme [Visitante e demonstração](Demonstracao-visitante.md). A demonstração jogável será integrada na fase 26, após o motor individual. O prazo de vinculação não implica apagar automaticamente o registro nem reiniciar a oportunidade por navegador.
 
 ### 4.2. Jogador autenticado
 
@@ -574,9 +577,9 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 
 | ID | Requisito | Situação |
 | --- | --- | --- |
-| RF-01 | Permitir uma única demonstração por navegador, com três respostas fáceis e temáticas aleatórias, exigindo login para novas partidas | Definido; persistência técnica a implementar |
+| RF-01 | Permitir uma única demonstração por navegador, com três respostas fáceis e temáticas aleatórias, exigindo login para novas partidas | Infraestrutura implementada na fase 19; fluxo jogável na fase 26 |
 | RF-02 | Autenticar pela conta Google | Definido |
-| RF-03 | Transferir a demonstração ao histórico após entrada em seguida | Definido; prazo pendente |
+| RF-03 | Transferir a demonstração ao histórico após entrada em seguida | Prazo de 7 dias e infraestrutura implementados na fase 19; fluxo jogável na fase 26 |
 | RF-04 | Garantir unicidade de e-mail e nome de usuário | Definido |
 | RF-05 | Permitir alterar nome de usuário e avatar da coleção | Definido |
 | RF-06 | Configurar temática, dificuldade e partidas de três, cinco ou sete respostas | Definido |

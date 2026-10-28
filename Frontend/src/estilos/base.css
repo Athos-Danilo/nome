@@ -361,6 +361,17 @@ legend {
   background: transparent;
   box-shadow: none;
 }
+.cartao-demonstracao {
+  margin: 24px 0;
+  padding: 20px;
+  border: 2px solid var(--tinta);
+  border-radius: 24px;
+}
+
+.cartao-demonstracao h2 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
 .avatar-opcao img {
   display: block;
   width: min(100%, 80px);

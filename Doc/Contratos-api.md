@@ -1,5 +1,7 @@
 # Contratos da API — fase 10
 
+**Fase 19:** POST `/api/visitantes`, POST `/api/demonstracoes`, GET `/api/demonstracoes/atual` e POST `/api/demonstracoes/vinculo` implementados. Contratos, campos, prazo de sete dias, cookie e erros em [Visitante e demonstração](Demonstracao-visitante.md). As rotas de palpites e a demonstração jogável continuam nas fases próprias.
+
 **Atualização da fase 17:** GET/PATCH/DELETE `/api/perfil`, GET `/api/avatares`, GET/PUT `/api/preferencias` e recursos SVG estão implementados. Acesso privado inclui cadastro pendente. Consulte [Perfil e preferências](Perfil-preferencias.md). O estado abaixo registra os contratos iniciais; as rotas de partidas continuam previstas.
 
 **Estado:** contratos iniciais documentados na fase 10; `/api/saude` e as quatro rotas de autenticação indicadas abaixo estão implementados. Configuração local e login Google real confirmados na fase 15. Além das operações implementadas na fase 17, as rotas restantes permanecem previstas, sem declarar operações do jogo disponíveis. Detalhes dependentes de decisões abertas estão sinalizados.
@@ -30,7 +32,7 @@ Cada mutação de partida inclui `id_acao` e `versao_esperada`. Resposta confirm
 | GET `/api/catalogo/tematicas` | Público | Identificadores e nomes das temáticas, sem soluções. |
 | POST `/api/visitantes` | Público | Recupera/cria identificação opaca do navegador, sem identificação civil. |
 | POST `/api/demonstracoes` | Visitante | Inicia a única demonstração: três respostas fáceis, temas aleatórios. |
-| POST `/api/demonstracoes/vinculo` | Conta + visitante | Transfere registro completo uma única vez; prazo e conflito com partida salva pendentes. |
+| POST `/api/demonstracoes/vinculo` | Conta + visitante | Implementado: transfere o mesmo registro em até sete dias; mantém individual já aberta e exige encerrar a demonstração ativa antes do vínculo em caso de conflito. |
 | POST `/api/partidas/individual/configuracao` | Conta | Valida quantidade, temas, dificuldades e ordem; informa falta de conteúdo sem iniciar silenciosamente. |
 | POST `/api/partidas/individual` | Conta | Cria partida com configuração confirmada e conteúdo reservado, sem duplicar individual ativa. |
 | POST `/api/partidas/galera/configuracao` | Conta | Valida participantes, dificuldade e temáticas de cada sessão. |
@@ -104,7 +106,7 @@ Formato final será aplicado junto aos módulos, sem substituir silenciosamente 
 | 422 | `CONFIGURACAO_INVALIDA`, `PALPITE_INCOMPLETO`, `LETRA_BLOQUEADA`, `ESTADO_INCOMPATIVEL`; não gerar pontos, penalidade ou perda de turno por letra bloqueada. |
 | 503 | `CONTEUDO_INDISPONIVEL`: não conceder pontos ou penalizar falha de infraestrutura. |
 
-Uma resposta de palpite errado válido é retorno normal do jogo, não falha HTTP. A API informa erro/acerto, posições novas quando permitido, pontos da ação, próxima dica/vez e versão. Os detalhes restantes da demonstração serão decididos antes de sua implementação.
+Uma resposta de palpite errado válido é retorno normal do jogo, não falha HTTP. A API informa erro/acerto, posições novas quando permitido, pontos da ação, próxima dica/vez e versão. Prazo e conflito da demonstração foram definidos na fase 19; o fluxo jogável completo será integrado na fase 26.
 
 ## Identidade, exclusão e conteúdo visto
 
@@ -116,7 +118,7 @@ Cookies sem Domain e com Path `/`, HttpOnly e SameSite=Lax. Na origem HTTPS são
 
 Mutações protegidas devem utilizar a dependência `exigir_conta` (ou `exigir_conta_ativa` para recursos de jogador com perfil concluído), enviar `Origin` exatamente igual a `DECIFRA_ORIGEM_PUBLICA` e o cabeçalho `X-Decifra-CSRF` obtido da consulta privada da sessão. O token é derivado do segredo aleatório e comparado de forma constante. Cadastro pendente pode consultar a sessão e sair, mas não libera operações do jogo. A autorização de cada recurso futuro ainda deve conferir seu proprietário; não basta apenas anexar a dependência de login.
 
-Erros implementados: 400 `RETORNO_INVALIDO`, `LOGIN_CANCELADO` e `IDENTIDADE_INVALIDA`; 401 `SESSAO_NECESSARIA`/`SESSAO_EXPIRADA`; 403 `ACAO_NAO_PERMITIDA`/`PERFIL_INCOMPLETO`; 409 `EMAIL_INDISPONIVEL`; 503 `AUTENTICACAO_INDISPONIVEL`, `PROVEDOR_INDISPONIVEL` e `DADOS_INDISPONIVEIS`. Mensagens externas do provedor e detalhes SQL não são devolvidos. A autenticação não vincula demonstração nem conclui perfil nesta fase.
+Erros implementados: 400 `RETORNO_INVALIDO`, `LOGIN_CANCELADO` e `IDENTIDADE_INVALIDA`; 401 `SESSAO_NECESSARIA`/`SESSAO_EXPIRADA`; 403 `ACAO_NAO_PERMITIDA`/`PERFIL_INCOMPLETO`; 409 `EMAIL_INDISPONIVEL`; 503 `AUTENTICACAO_INDISPONIVEL`, `PROVEDOR_INDISPONIVEL` e `DADOS_INDISPONIVEIS`. Mensagens externas do provedor e detalhes SQL não são devolvidos. O retorno OAuth cria a sessão; desde a fase 19, a interface solicita a vinculação pela rota própria após carregar a conta. Concluir o perfil continua sendo uma operação separada.
 
 Primeiro acesso e edição aceitam `nome_usuario` e `avatar_id`; a normalização NFC preserva a exibição, enquanto a chave de unicidade remove acentos e ignora caixa. A mesma validação se aplica aos nomes locais da galera, com unicidade restrita à partida. Não utilizar essa comparação para palpites completos.
 

@@ -4,6 +4,7 @@ import { FormularioPerfil } from "../funcionalidades/perfil/FormularioPerfil";
 import { FormularioPreferencias } from "../funcionalidades/perfil/FormularioPreferencias";
 import { useConta } from "../funcionalidades/perfil/usar-conta";
 import { AvisoErro } from "../funcionalidades/perfil/AvisoErro";
+import { SituacaoDemonstracao } from "../funcionalidades/demonstracao/SituacaoDemonstracao";
 
 const consultas = new QueryClient({
   defaultOptions: {
@@ -128,6 +129,7 @@ function Conta() {
             </div>
           ) : conta && perfil.data && preferencias.data && avatares.data ? (
             <>
+              <SituacaoDemonstracao tokenConta={conta.token_csrf} />
               {perfil.data.estado === "ativo" && (
                 <nav className="abas-conta" aria-label="Sua conta">
                   <button
@@ -194,6 +196,7 @@ function Conta() {
               <a className="acao botao-grande" href="/api/autenticacao/google">
                 Entrar com Google <span aria-hidden="true">↗</span>
               </a>
+              <SituacaoDemonstracao />
               <div className="divisor" />
               <FormularioPreferencias
                 key="visitante"

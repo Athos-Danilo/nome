@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 19 concluída:** identificação opaca de visitante, reserva única de três respostas fáceis, recuperação e vinculação integral em até sete dias. Conta existente com individual aberta é preservada; vínculo repetido não duplica resultados. 132 testes backend, 30 unitários frontend e 39 fluxos de navegador aprovados. A demonstração jogável continua na fase 26. Detalhes em [Visitante e demonstração](Demonstracao-visitante.md).
+
 **Catálogo — fase 18 concluída:** oito lotes produzidos (200 respostas e 1.000 dicas); cinco revisados e aprovados pelo responsável, importados localmente (125 respostas e 625 dicas). Marcas-002 acrescentou 25 respostas sem sobrescrita. Evidências em [Revisão do lote](Revisoes/marcas-002.md).
 
 **Atualização da fase 17:** primeiro acesso, perfil privado, 20 avatares ilustrados (WebP servido pelo frontend após revisão visual), preferências persistidas e exclusão com anonimização implementados. TanStack Query 5.105.0 instalado; fontes locais e temas aplicados às primeiras telas. Verificações: 122 testes backend, 25 unitários frontend e 24 fluxos de navegador aprovados. Detalhes e limites em [Perfil e preferências](Perfil-preferencias.md). Operações do jogo e áudio continuam nas fases próprias.

@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./testes-navegador",
-  testMatch: "perfil.fluxo.ts",
+  testMatch: ["perfil.fluxo.ts", "demonstracao.fluxo.ts"],
   workers: 1,
   timeout: 15000,
   expect: { timeout: 3000 },

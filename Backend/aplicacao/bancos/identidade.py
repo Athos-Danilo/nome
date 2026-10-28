@@ -103,6 +103,7 @@ visitantes = Table(
     Column("segredo_resumo", String(64), nullable=False, unique=True),
     criacao(),
     Column("demonstracao_utilizada", Boolean, nullable=False, server_default=text("false")),
+    Column("demonstracao_id", Uuid, ForeignKey("partidas.id", use_alter=True), unique=True),
     Column("jogador_vinculado_id", Uuid, ForeignKey("jogadores.id", ondelete="SET NULL")),
     Column("vinculado_em", DateTime(timezone=True)),
     CheckConstraint("jogador_vinculado_id IS NULL OR vinculado_em IS NOT NULL", name="vinculo"),

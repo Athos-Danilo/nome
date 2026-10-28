@@ -71,6 +71,16 @@ async function preparar(pagina: Page, ativo = false, salvo = false) {
   await pagina.route("**/api/**", async (rota) => {
     const requisicao = rota.request();
     const caminho = new URL(requisicao.url()).pathname;
+    if (caminho === "/api/visitantes")
+      return rota.fulfill({
+        json: {
+          demonstracao_utilizada: false,
+          pode_iniciar: true,
+          vinculada: false,
+          demonstracao: null,
+          token_csrf: "csrf-visitante",
+        },
+      });
     if (caminho === "/api/avatares")
       return rota.fulfill({
         json: identificadores.map((id, i) => ({

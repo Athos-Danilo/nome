@@ -1,5 +1,7 @@
 # Modelagem de dados — fase 10
 
+**Atualização da fase 19:** migração `0004_demonstracao_vinculo` acrescenta `visitantes.demonstracao_id`, único e com chave estrangeira para a partida. Preserva a referência depois de trocar o proprietário visitante por jogador. Mantidas 19 tabelas; perfil, exclusão e catálogo anterior preservados. Prazo, concorrência e limites em [Visitante e demonstração](Demonstracao-visitante.md).
+
 **Atualização da fase 17:** migração `0003_colecao_avatares` popula 20 avatares oficiais, mantendo 19 tabelas. Perfil, preferências e rotina transacional de anonimização estão implementados e testados, conforme [Perfil e preferências](Perfil-preferencias.md). O catálogo de desenvolvimento chegou a 100 respostas aprovadas na fase 16. O estado abaixo preserva o registro das fases anteriores.
 
 **Estado:** modelagem inicial implementada na fase 10; a fase 15 acrescenta tentativas de login de uso único, totalizando 19 tabelas de aplicação e migrações 0001/0002. Estrutura e autenticação verificadas em PostgreSQL isolado de testes. Na fase 12, o catálogo MongoDB recebeu 75 respostas aprovadas em desenvolvimento. PostgreSQL de desenvolvimento configurado na fase 15, com usuário próprio e migrações aplicadas. Login Google real confirmado, com conta pendente e sessão persistidas; operações do jogo permanecem nas fases próprias.
@@ -150,7 +152,7 @@ Fonte do esquema: `Backend/aplicacao/bancos/`, separada em identidade, partidas 
 
 O banco garante faixas e estados válidos, mas as transições, a classificação das interrupções, a soma oficial de pontos e a correspondência entre modo e suas linhas dependentes são responsabilidades dos serviços. Também cabem aos serviços a existência de um anfitrião, participação dos empatados, contagem de palavras por painel e publicação somente de partidas individuais encerradas. A migração não implementa essas operações.
 
-Pendências futuras preservadas: prazo/conflito da transferência da demonstração, conservação de rascunho, algoritmo de distribuição, falta de palavras por dificuldade e configuração do desempate. Ajustes necessários terão migrações posteriores, sem editar uma revisão já publicada.
+Pendências futuras preservadas: conservação de rascunho, algoritmo de distribuição, falta de palavras por dificuldade e configuração do desempate. Ajustes necessários terão migrações posteriores, sem editar uma revisão já publicada.
 
 Execução: ver [Ambiente-local.md](Ambiente-local.md). Testes usam exclusivamente uma instância PostgreSQL separada na porta 55432 e a base `decifra_teste`; o serviço existente na porta 5432 não foi alterado. Configurar o banco de desenvolvimento com credenciais privadas permanece necessário antes da integração da aplicação.
 

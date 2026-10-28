@@ -56,7 +56,7 @@ function avatarValido(valor: unknown): valor is Avatar {
   );
 }
 
-async function requisitar(
+export async function requisitar(
   caminho: string,
   metodo = "GET",
   dados?: unknown,
