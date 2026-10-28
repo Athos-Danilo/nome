@@ -1,6 +1,8 @@
 # Contratos da API — fase 10
 
-**Estado:** contratos iniciais documentados na fase 10; `/api/saude` e as quatro rotas de autenticação indicadas abaixo estão implementados. Configuração local e login Google real confirmados na fase 15. As demais rotas permanecem previstas, sem declarar operações do jogo disponíveis. Detalhes dependentes de decisões abertas estão sinalizados.
+**Atualização da fase 17:** GET/PATCH/DELETE `/api/perfil`, GET `/api/avatares`, GET/PUT `/api/preferencias` e recursos SVG estão implementados. Acesso privado inclui cadastro pendente. Consulte [Perfil e preferências](Perfil-preferencias.md). O estado abaixo registra os contratos iniciais; as rotas de partidas continuam previstas.
+
+**Estado:** contratos iniciais documentados na fase 10; `/api/saude` e as quatro rotas de autenticação indicadas abaixo estão implementados. Configuração local e login Google real confirmados na fase 15. Além das operações implementadas na fase 17, as rotas restantes permanecem previstas, sem declarar operações do jogo disponíveis. Detalhes dependentes de decisões abertas estão sinalizados.
 
 ## Convenções
 
@@ -48,6 +50,16 @@ Cada mutação de partida inclui `id_acao` e `versao_esperada`. Resposta confirm
 | GET `/api/rankings/{categoria}` | Público | `palavras-acertadas`, `partidas-concluidas` ou `pontos`; apenas nome e indicadores públicos aprovados. |
 
 O visitante só pode operar a própria demonstração nas rotas de jogo pertinentes; criar partida normal, galera, perfil ou preferências de conta exige autenticação Google. Convidados locais não possuem credenciais para chamar a API separadamente.
+
+## Perfil e preferências implementados na fase 17
+
+`GET /api/perfil` e `PATCH /api/perfil` retornam `jogador_id`, `email`, `estado`, `nome_usuario` e `avatar_id`. A alteração aceita somente `nome_usuario` e `avatar_id`, obrigatórios; salvar dados válidos conclui o cadastro pendente. E-mail e identidade Google não são editáveis. `GET /api/avatares` retorna uma lista de 20 objetos com `id`, `nome` e `recurso`; os recursos estão em `/api/avatares/recursos/{id}.svg`.
+
+`GET /api/preferencias` retorna `tema`, `musica_id`, `volume_musica`, `volume_interface`, `volume_eventos`, `silenciado`, `movimentos_reduzidos` e `salvas`. A consulta sem registro retorna padrões e `salvas: false`, sem inserir uma linha. `PUT` aceita os sete campos de configuração e, opcionalmente, `somente_se_ausentes` (padrão falso). Com essa opção verdadeira, um registro já existente prevalece e é retornado sem alteração; assim, a conta nova herda o navegador sem sobrescrever preferências de outra sessão. `salvas` é exclusivo da resposta.
+
+Temas permitidos: `claro` e `escuro`. Volumes são inteiros entre 0 e 100; opções de silêncio e movimentos são booleanas. Música aceita `null` ou os identificadores reservados `lofi_01`, `lofi_02`, `lofi_03`, `arcade_01`, `arcade_02`; esses identificadores ainda não representam arquivos de áudio entregues. Entradas extras ou tipos inválidos retornam 422 `DADOS_INVALIDOS`; avatar não oficial retorna 422 `AVATAR_INVALIDO`; nome em uso retorna 409 `NOME_INDISPONIVEL`. A exclusão exige corpo `{"confirmacao":"EXCLUIR"}` e confirmação inválida retorna 422 `CONFIRMACAO_INVALIDA`.
+
+As rotas privadas aceitam sessão de cadastro pendente ou ativo e usam `Cache-Control: no-store`. Mutações exigem origem e token de proteção válidos; o titular vem da sessão. Exclusão retorna 204 após a transação, revoga sessões e remove o cookie. Não publica resultados artificiais de partidas ativas. A apresentação dos resultados anônimos no ranking será implementada junto ao ranking. Consulte [efeitos e verificações](Perfil-preferencias.md).
 
 ## Formato de ação de jogo
 

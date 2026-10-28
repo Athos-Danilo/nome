@@ -1,5 +1,7 @@
 # Modelagem de dados — fase 10
 
+**Atualização da fase 17:** migração `0003_colecao_avatares` popula 20 avatares oficiais, mantendo 19 tabelas. Perfil, preferências e rotina transacional de anonimização estão implementados e testados, conforme [Perfil e preferências](Perfil-preferencias.md). O catálogo de desenvolvimento chegou a 100 respostas aprovadas na fase 16. O estado abaixo preserva o registro das fases anteriores.
+
 **Estado:** modelagem inicial implementada na fase 10; a fase 15 acrescenta tentativas de login de uso único, totalizando 19 tabelas de aplicação e migrações 0001/0002. Estrutura e autenticação verificadas em PostgreSQL isolado de testes. Na fase 12, o catálogo MongoDB recebeu 75 respostas aprovadas em desenvolvimento. PostgreSQL de desenvolvimento configurado na fase 15, com usuário próprio e migrações aplicadas. Login Google real confirmado, com conta pendente e sessão persistidas; operações do jogo permanecem nas fases próprias.
 
 ## 1. Divisão dos dados

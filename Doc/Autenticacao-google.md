@@ -47,7 +47,7 @@ Depois de instalar as dependências e aplicar `alembic upgrade head` no banco de
 
 Abra `http://localhost:5173/api/autenticacao/google`. O Vite encaminha `/api` à API local; o retorno registrado também passa por esse endereço. Não alterne entre localhost e 127.0.0.1 no mesmo fluxo, pois os cookies pertencem ao endereço utilizado.
 
-Após consentir, a API retorna à raiz do frontend com `?autenticacao=concluida`. A página React ainda é a base de desenvolvimento; menu, primeiro acesso e perfil pertencem às próximas fases. Consulte `GET /api/autenticacao/sessao` no mesmo navegador para verificar o cadastro pendente e a validade. O resultado é privado e também fornece o token de proteção das ações. Um cancelamento ou retorno inválido mostra um erro com código estável, sem criar sessão.
+Após consentir, a API retorna à raiz do frontend com `?autenticacao=concluida`. A página React oferece primeiro acesso, perfil e preferências desde a fase 17; o menu completo permanece na fase 22. Consulte [Perfil e preferências](Perfil-preferencias.md). Consulte `GET /api/autenticacao/sessao` no mesmo navegador para verificar o cadastro pendente e a validade. O resultado é privado e também fornece o token de proteção das ações. Um cancelamento ou retorno inválido mostra um erro com código estável, sem criar sessão.
 
 Para sair, use `POST /api/autenticacao/sair` com `Origin` da origem pública e `X-Decifra-CSRF` recebido da consulta de sessão. A futura interface fará isso pelo botão próprio. Sair do Decifra revoga sua sessão local, sem sair de toda a conta Google do navegador.
 

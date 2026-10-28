@@ -3,8 +3,10 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sqlalchemy.engine import make_url
 from sqlalchemy.exc import SQLAlchemyError
@@ -19,7 +21,10 @@ from aplicacao.modulos.autenticacao.google import GoogleOIDC
 from aplicacao.modulos.autenticacao.repositorio import AutenticacaoPostgresql
 from aplicacao.modulos.autenticacao.rotas import nome_cookie, rotas
 from aplicacao.modulos.autenticacao.servico import ServicoAutenticacao
-from aplicacao.nucleo.configuracoes import Configuracoes
+from aplicacao.modulos.jogadores.repositorio import JogadoresPostgresql
+from aplicacao.modulos.jogadores.rotas import rotas as rotas_jogadores
+from aplicacao.modulos.jogadores.servico import ServicoJogadores
+from aplicacao.nucleo.configuracoes import PASTA_BACKEND, Configuracoes
 
 
 class EstadoDaApi(BaseModel):
@@ -62,6 +67,9 @@ def criar_aplicacao(
 
     api = FastAPI(title="Decifra", version="0.1.0", lifespan=ciclo_de_vida)
     api.state.configuracoes = configuracoes
+    api.state.jogadores = (
+        ServicoJogadores(JogadoresPostgresql(motor)) if motor is not None else None
+    )
     api.state.autenticacao = (
         ServicoAutenticacao(repositorio_autenticacao, provedor_google, configuracoes.sessao_dias)
         if repositorio_autenticacao is not None and provedor_google is not None
@@ -99,12 +107,36 @@ def criar_aplicacao(
     @api.middleware("http")
     async def proteger_respostas_autenticacao(requisicao: Request, proxima):
         resposta = await proxima(requisicao)
-        if requisicao.url.path.startswith("/api/autenticacao"):
+        if requisicao.url.path.startswith("/api/autenticacao") or requisicao.url.path in {
+            "/api/perfil",
+            "/api/preferencias",
+        }:
             resposta.headers["Cache-Control"] = "no-store"
             resposta.headers["Referrer-Policy"] = "no-referrer"
         return resposta
 
     api.include_router(rotas)
+    api.include_router(rotas_jogadores)
+    api.mount(
+        "/api/avatares/recursos",
+        StaticFiles(directory=PASTA_BACKEND / "recursos/avatares"),
+        name="avatares",
+    )
+
+    @api.exception_handler(RequestValidationError)
+    async def tratar_entrada_invalida(requisicao: Request, falha: RequestValidationError):
+        codigo = (
+            "CONFIRMACAO_INVALIDA"
+            if requisicao.method == "DELETE" and requisicao.url.path == "/api/perfil"
+            else "DADOS_INVALIDOS"
+        )
+        mensagem = (
+            "Digite EXCLUIR para confirmar."
+            if codigo == "CONFIRMACAO_INVALIDA"
+            else "Confira os campos informados e tente novamente."
+        )
+        return JSONResponse({"erro": {"codigo": codigo, "mensagem": mensagem}}, status_code=422)
+
     api.add_middleware(
         CORSMiddleware,
         allow_origins=configuracoes.origens_permitidas,

@@ -43,6 +43,8 @@ Não traduza palavras reservadas, APIs de bibliotecas, nomes de pacotes, comando
 
 Preserve arquivos e campos obrigatórios do ecossistema, como `package.json`, `tsconfig.json`, `pyproject.toml`, configurações oficiais e `_id` do MongoDB. Nomes de campos externos devem ser mapeados na integração quando houver um correspondente interno em português.
 
+Hooks próprios do React preservam o prefixo `use` exigido por sua convenção e ferramentas, seguido de um nome em português, como `useConta`. O arquivo pode manter nome português, como `usar-conta.ts`. Essa exceção de compatibilidade não se estende às funções comuns. Referência: [nomes de Hooks no React](https://react.dev/learn/reusing-logic-with-custom-hooks#hook-names-always-start-with-use).
+
 Não altere a sintaxe de ferramentas nem crie wrappers de tradução sem utilidade apenas para eliminar palavras em inglês. A regra se aplica aos nomes que o projeto controla. Os diretórios estruturais `Frontend/`, `Backend/` e `src/`, já usados no planejamento, podem ser mantidos; os módulos próprios dentro deles devem seguir o português.
 
 ## 3. Arquitetura e padrões de projeto

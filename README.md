@@ -6,7 +6,7 @@ Jogo de palavras com dicas progressivas e modo com a galera no mesmo dispositivo
 
 ## Desenvolvimento
 
-A base de execução está preparada; as funcionalidades do jogo serão implementadas conforme as próximas fases. O protótipo visual aprovado é um estudo separado da aplicação.
+Login Google, primeiro acesso, perfil, 20 avatares, preferências e exclusão com resultados anônimos estão implementados. As funcionalidades das partidas serão implementadas conforme as próximas fases. O protótipo visual aprovado é um estudo separado da aplicação.
 
 - [Preparar e executar o ambiente local](Doc/Ambiente-local.md).
 - [Revisar o protótipo aprovado](Doc/Prototipos/LEIA-ME.md).
@@ -17,6 +17,7 @@ A base de execução está preparada; as funcionalidades do jogo serão implemen
 - [Validar e importar o catálogo](Doc/Importacao-catalogo.md).
 - [Prova e decisões sobre interrupções](Doc/Prova-interrupcoes.md).
 - [Configurar login Google e sessão](Doc/Autenticacao-google.md).
+- [Perfil, avatares, preferências e exclusão](Doc/Perfil-preferencias.md).
 - [Direção visual](Doc/Guia-visual.md).
 - [Viabilidade da publicação gratuita](Doc/Publicacao-gratuita.md).
 

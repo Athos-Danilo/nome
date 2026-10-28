@@ -47,6 +47,8 @@ jobs:
   interface:
     name: Frontend — React
     runs-on: ubuntu-latest
+    env:
+      DECIFRA_CANAL_NAVEGADOR: chromium
     defaults:
       run:
         working-directory: Frontend
@@ -61,6 +63,8 @@ jobs:
       - run: npm run verificar-formatacao
       - run: npm test
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run testar-perfil
 
   prova_interrupcoes:
     name: Prova — interrupções no navegador

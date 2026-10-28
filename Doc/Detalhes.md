@@ -130,7 +130,7 @@ A exclusão da própria conta e de seus dados faz parte da primeira entrega, con
 
 A exclusão exige aviso dos efeitos e digitar **EXCLUIR**. Remover a identidade Google, e-mail, nome, avatar, preferências e acessos; eliminar também os nomes dos convidados das partidas criadas pela conta. Conservar resultados anônimos, sem permitir recuperar a identidade ou o histórico pelo login anterior. Os resultados e pontos antigos continuam nos rankings com o nome **Jogador excluído**, separados de qualquer conta nova.
 
-Entrar novamente com o mesmo Google cria uma conta nova, do zero, sem recuperar histórico, estatísticas pessoais ou pontos. A execução da exclusão, inclusive cancelamento e falhas, será implementada na fase própria; a política já está aprovada.
+Entrar novamente com o mesmo Google cria uma conta nova, do zero, sem recuperar histórico, estatísticas pessoais ou pontos. A execução da exclusão, inclusive cancelamento e falhas, foi implementada na fase 17, conforme [Perfil e preferências](Perfil-preferencias.md). A interface de ranking continua em sua fase própria.
 
 ## 6. Conteúdo do jogo
 
@@ -622,7 +622,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-46 | Não repetir respostas entre sessões da mesma partida com a galera | Definido |
 | RF-47 | Persistir preferências de tema, áudio e movimentos na conta de usuários autenticados e no navegador de visitantes | Definido |
 | RF-48 | No individual, contar cada vogal base junto das variantes acentuadas para bloquear excesso de usos, preservando a validação exata dos acentos | Definido |
-| RF-49 | Excluir identidade após aviso e EXCLUIR, conservar resultados anônimos no ranking e permitir recadastro do zero | Definido; implementação pendente |
+| RF-49 | Excluir identidade após aviso e EXCLUIR, conservar resultados anônimos no ranking e permitir recadastro do zero | Implementado na fase 17; interface do ranking em fase própria |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -843,7 +843,7 @@ A origem das faixas e a permissão de uso e distribuição dos áudios precisar�
 
 Animações e sons deverão acompanhar o retorno visual: informações necessárias para jogar não deverão depender exclusivamente da audição. A experiência também deverá funcionar com sons desativados e movimentos reduzidos.
 
-As preferências de tema, música, volumes e redução de movimentos serão lembradas entre acessos. Para usuários autenticados, serão salvas na conta, permitindo recuperação em outros dispositivos. Para visitantes, serão salvas no navegador. A conciliação das preferências locais no primeiro login ainda será detalhada.
+As preferências de tema, música, volumes e redução de movimentos serão lembradas entre acessos. Para usuários autenticados, serão salvas na conta, permitindo recuperação em outros dispositivos. Para visitantes, serão salvas no navegador. Decisão D17 aprovada: conta nova herda as preferências do navegador; conta com preferências já salvas usa as da conta, inclusive em outro dispositivo. A inicialização não sobrescreve gravações concorrentes. Implementado na fase 17.
 
 ### 23.6. Dispositivos e adaptação
 
@@ -884,7 +884,7 @@ Ideias visuais para avaliação: abrir e fechar a capa como gesto, movimentar p�
 1. Hierarquia e acabamento do menu com cartões e botões.
 2. Detalhes de adaptação das telas de jogo e aplicação de acentos.
 3. Estilo dos avatares e identidade do mascote animado.
-4. Seleção das músicas e conciliação das preferências locais no primeiro login.
+4. Seleção final das músicas; conciliação de preferências definida e implementada na fase 17.
 5. Ilustrações e linguagem das animações; aplicar a paleta e a tipografia aprovadas no guia visual, ajustando-as se necessário após avaliação das páginas reais.
 
 ## 24. Planejamento técnico

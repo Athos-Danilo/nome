@@ -1,8 +1,10 @@
 # Ambiente local — Decifra
 
-## Estado da fase 08
+**Fase 17:** aplicar também a migração `0003_colecao_avatares` com `Backend/.venv/Scripts/python.exe -m alembic -c Backend/alembic.ini upgrade head` na raiz. No frontend, `npm run testar-perfil` executa os fluxos controlados em três tamanhos de tela (Edge local; variável `DECIFRA_CANAL_NAVEGADOR=chromium` na integração contínua). Os testes novos de perfil criam bancos PostgreSQL descartáveis: somente o usuário do banco isolado de testes precisa de permissão de criação de bancos, nunca o usuário da aplicação.
 
-Base independente da interface e da API preparada nas pastas `Frontend` e `Backend`. O frontend continua como tela de diagnóstico, sem substituir o protótipo aprovado. Além de `GET /api/saude` e `/docs`, a fase 15 implementa início/retorno do login Google, consulta privada de sessão e saída. PostgreSQL de desenvolvimento configurado e entrada real confirmada pelo responsável; consulte [Autenticação Google](Autenticacao-google.md).
+## Estado atual e registro da fase 08
+
+Base independente da interface e da API preparada nas pastas `Frontend` e `Backend`. A fase 17 substitui a tela de diagnóstico por primeiro acesso, perfil e preferências responsivos, com 20 avatares. O protótipo aprovado continua como referência para as telas futuras. Consulte [Perfil e preferências](Perfil-preferencias.md). Além de `GET /api/saude` e `/docs`, a fase 15 implementa início/retorno do login Google, consulta privada de sessão e saída. PostgreSQL de desenvolvimento configurado e entrada real confirmada pelo responsável; consulte [Autenticação Google](Autenticacao-google.md).
 
 Ambiente encontrado: Python 3.13.0, Node 22.13.0, npm 10.9.2, PostgreSQL instalado 18.0 e MongoDB 8.2.5. Serviços PostgreSQL/MongoDB ativos; `pg_isready` confirmou disponibilidade em 5432 e teste TCP confirmou 27017. Isso não comprova autenticação, existência dos bancos do projeto ou permissões de usuários. Essas configurações e a modelagem ainda serão feitas; nenhum dado existente foi alterado.
 

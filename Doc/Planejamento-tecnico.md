@@ -1,6 +1,8 @@
 # Planejamento técnico — Decifra
 
-**Situação:** fase 15 concluída, com autenticação implementada, configuração PostgreSQL local e login Google real confirmado pelo responsável. Verificação: 116 testes do backend aprovados, incluindo 38 novos de autenticação. Fase 16 concluída após revisão humana: catálogo com 175 respostas produzidas e 100 aprovadas importadas. Política de interrupções aprovada na fase 13 preserva casos ambíguos, recupera recargas e trata navegação como saída. Perfil completo e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Autenticação Google](Autenticacao-google.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md), [Importação do catálogo](Importacao-catalogo.md) e [Prova de interrupções](Prova-interrupcoes.md).
+**Atualização da fase 17:** primeiro acesso, perfil privado, 20 avatares SVG, preferências persistidas e exclusão com anonimização implementados. TanStack Query 5.105.0 instalado; fontes locais e temas aplicados às primeiras telas. Verificações: 122 testes backend, 25 unitários frontend e 24 fluxos de navegador aprovados. Detalhes e limites em [Perfil e preferências](Perfil-preferencias.md). Operações do jogo e áudio continuam nas fases próprias.
+
+**Registro das fases anteriores:** fase 15 concluída, com autenticação implementada, configuração PostgreSQL local e login Google real confirmado pelo responsável. Verificação: 116 testes do backend aprovados, incluindo 38 novos de autenticação. Fase 16 concluída após revisão humana: catálogo com 175 respostas produzidas e 100 aprovadas importadas. Política de interrupções aprovada na fase 13 preserva casos ambíguos, recupera recargas e trata navegação como saída. Perfil completo e operações do jogo permanecem nas fases próprias. Instruções em [Ambiente local](Ambiente-local.md), [Autenticação Google](Autenticacao-google.md), [Modelagem](Modelagem-dados.md), [Contratos da API](Contratos-api.md), [Importação do catálogo](Importacao-catalogo.md) e [Prova de interrupções](Prova-interrupcoes.md).
 
 **Requisitos de produto:** [Detalhes.md](Detalhes.md).
 
@@ -42,7 +44,7 @@ Como o modo com a galera usa o mesmo dispositivo, suas ações podem ser enviada
 
 ### Temas e tipografia
 
-Aplicar a direção aprovada em [Guia-visual.md](Guia-visual.md): paleta oliva/bege/verde-lima, Bricolage Grotesque e DM Sans. Centralizar cores em variáveis semânticas por tema; usar pesos reais e itálico de DM Sans, preservando leitura e acentuação. Preparar fontes locais e licenças na implementação do frontend. A aprovação visual não significa que os componentes já estejam implementados.
+Aplicar a direção aprovada em [Guia-visual.md](Guia-visual.md): paleta oliva/bege/verde-lima, Bricolage Grotesque e DM Sans. Centralizar cores em variáveis semânticas por tema; usar pesos reais e itálico de DM Sans, preservando leitura e acentuação. Fontes locais e licenças OFL incorporadas na fase 17; ampliar seu uso nas próximas telas. A aprovação visual não significa que os componentes já estejam implementados.
 
 ### Separação do estado
 
