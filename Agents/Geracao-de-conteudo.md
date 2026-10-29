@@ -79,6 +79,8 @@ Cada arquivo conterá um objeto com versão de formato, identificação do lote 
 
 Proposta para identificadores: letras minúsculas sem acentos, números quando necessários e hífen entre palavras, como `star-wars`. Não inventar outra grafia da mesma resposta para contornar uma duplicata. Em casos de homônimos, sinalizar a ambiguidade para revisão antes de definir identificadores diferentes.
 
+Decisão D08 aprovada em 2026-10-29: preservar espaços, hífens, apóstrofos e demais sinais da grafia correta; na interface eles serão fixos e já preenchidos. Letras e números serão preenchidos pelo jogador. Não remover sinais ou escrever números por extenso para contornar o contrato. O componente de entrada foi preparado na fase 24; a integração da API do motor individual ainda precisa ser ampliada na fase 26 antes de publicar respostas com sinais ou números em partidas reais. A aprovação desta política não aprova automaticamente títulos, variantes ou novos lotes.
+
 A normalização para detectar duplicatas na importação é uma decisão separada da comparação dos palpites. No jogo, os palpites serão convertidos para caixa alta, preservando acentos, e a acentuação correta será obrigatória: `JAPAO` não corresponde a `JAPÃO`. Não criar versões sem acentos da mesma resposta como itens adicionais.
 
 No modo com a galera, escolher uma vogal isolada revela também as variantes acentuadas dela. Isso não altera o conteúdo: armazenar e exibir sempre a grafia correta. A equivalência para escolha de letras não autoriza remover acentos dos palpites completos.

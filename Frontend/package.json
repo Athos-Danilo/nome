@@ -12,12 +12,15 @@
     "tipos": "tsc --noEmit",
     "test": "vitest run",
     "testar-interrupcoes": "playwright test",
+    "testar-entrada": "playwright test --config playwright.entrada.config.ts",
     "testar-menu": "playwright test --config playwright.menu.config.ts",
     "testar-perfil": "playwright test --config playwright.perfil.config.ts",
     "formatar": "prettier --write .",
     "verificar-formatacao": "prettier --check ."
   },
   "dependencies": {
+    "@dnd-kit/dom": "0.5.1",
+    "@dnd-kit/react": "0.5.1",
     "@tanstack/react-query": "5.105.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",

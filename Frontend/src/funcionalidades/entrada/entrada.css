@@ -1,0 +1,223 @@
+.editor-resposta {
+  min-width: 0;
+  padding: 12px 0;
+}
+.resposta-montada {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  margin: 18px 0 22px;
+}
+.palavra-montada {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+}
+.quadradinho {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 59px;
+  min-height: 59px;
+  padding: 0 0 9px;
+  border: 2px solid var(--texto);
+  border-radius: 12px;
+  background: var(--fundo);
+  font-size: 29px;
+  line-height: 1.25;
+  font-weight: 800;
+  box-shadow: 0 4px 0 var(--tinta);
+}
+.quadradinho small {
+  position: absolute;
+  bottom: 2px;
+  font-size: 8px;
+  opacity: 0.7;
+}
+.quadradinho[aria-pressed="true"] {
+  background: var(--lima);
+  color: #444439;
+  border-color: #444439;
+  box-shadow: 0 4px 0 #444439;
+}
+.quadradinho[data-fixa] {
+  opacity: 1;
+  background: var(--amarelo);
+  color: #444439;
+  border-style: dashed;
+}
+.quadradinho[data-alvo] {
+  outline: 3px solid var(--foco);
+  outline-offset: 4px;
+}
+.separador {
+  display: grid;
+  place-items: center;
+  min-height: 59px;
+  font-size: 27px;
+  font-weight: 800;
+}
+.instrucao-entrada {
+  text-align: center;
+  font-size: 13px;
+}
+.acentos-entrada,
+.acoes-montagem {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.acentos-entrada button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 23px;
+}
+.acentos-entrada button:last-child {
+  font-size: 12px;
+}
+.acoes-montagem button {
+  font-size: 12px;
+  min-height: 44px;
+  padding: 8px 14px;
+}
+.teclado-entrada {
+  padding: 20px 0 10px;
+  max-width: 700px;
+  margin: auto;
+}
+.linha-teclas {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 0 0 10px;
+}
+.tecla-letra {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  max-width: 54px;
+  min-width: 0;
+  min-height: 51px;
+  padding: 8px 0;
+  border-radius: 11px;
+  border: 1.5px solid var(--texto);
+  font-size: 20px;
+  font-weight: 800;
+  background: var(--painel);
+  box-shadow: 0 4px 0 var(--tinta);
+  touch-action: pan-y;
+  user-select: none;
+}
+.tecla-letra:disabled {
+  opacity: 0.45;
+  box-shadow: none;
+  text-decoration: line-through;
+}
+.tecla-letra[data-arrastando] {
+  opacity: 0.25;
+}
+.letra-arrastada {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 58px;
+  background: var(--lima);
+  color: #444439;
+  border: 2px solid #444439;
+  border-radius: 12px;
+  font-size: 30px;
+  font-weight: 800;
+  box-shadow: 0 6px 12px #0003;
+}
+.acesso-digitacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 18px auto 0;
+}
+.acesso-digitacao input:not([type="checkbox"]) {
+  width: 160px;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 12px;
+}
+.aviso-entrada {
+  min-height: 25px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.confirmar-palpite {
+  width: 100%;
+  max-width: 500px;
+  margin: 15px auto 0;
+  font-size: 16px;
+}
+.editor-resposta[aria-busy="true"] {
+  opacity: 0.7;
+}
+.editor-resposta:focus-visible {
+  outline: 2px dashed var(--foco);
+  outline-offset: 10px;
+  border-radius: 15px;
+}
+@media (max-width: 650px) {
+  .resposta-montada {
+    gap: 12px 16px;
+  }
+  .palavra-montada {
+    gap: 5px;
+  }
+  .quadradinho {
+    width: 34px;
+    height: 50px;
+    min-height: 50px;
+    font-size: 24px;
+    border-radius: 9px;
+  }
+  .separador {
+    min-height: 50px;
+    font-size: 23px;
+  }
+  .linha-teclas {
+    gap: 4px;
+    margin-bottom: 9px;
+  }
+  .tecla-letra {
+    font-size: 16px;
+    min-height: 45px;
+    border-radius: 8px;
+  }
+  .acentos-entrada {
+    gap: 6px;
+  }
+  .acentos-entrada button {
+    padding: 5px 10px;
+  }
+  .acesso-digitacao {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .instrucao-entrada {
+    font-size: 12px;
+  }
+  .editor-resposta {
+    padding: 5px 0;
+  }
+  .acoes-montagem {
+    gap: 6px;
+  }
+  .acoes-montagem button {
+    padding: 7px 11px;
+  }
+}

@@ -2,6 +2,8 @@
 
 Backend implementado em 2026-10-28: configuração, confirmação, seleção, apresentação de rodadas, palpites, dicas, acerto, desistência da palavra e abandono definitivo. **Esta fase entrega operações da API, sem acrescentar as telas finais de partida.** Teclado e montagem visual continuam nas fases próprias; a demonstração jogável será integrada na fase 26 e a pausa/retomada na fase 28.
 
+**Atualização da fase 24 — D08:** a interface de entrada já trata sinais fixos e números preenchíveis. O motor desta fase 20 continua restringindo conteúdo de partidas a letras e espaços; ampliar a máscara pública e a validação de palpites na fase 26 antes de publicar conteúdo com sinais/números. A decisão de interface não declara essa integração concluída.
+
 ## Decisões D11 aprovadas
 
 - Na distribuição aleatória, cada posição sorteia uma dificuldade com chances iguais entre os níveis selecionados. Não há garantia de que todos os níveis apareçam numa partida curta. Depois aplica-se a ordem sorteada ou crescente escolhida.

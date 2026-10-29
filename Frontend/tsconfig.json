@@ -17,6 +17,7 @@
     "playwright.config.ts",
     "playwright.perfil.config.ts",
     "playwright.menu.config.ts",
+    "playwright.entrada.config.ts",
     "testes-navegador"
   ]
 }

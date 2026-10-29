@@ -2,7 +2,7 @@
 
 Documento de requisitos e regras de negócio do jogo de adivinhação de palavras desenvolvido para as disciplinas de **Web II e Banco de Dados II**.
 
-**Última atualização:** 26 de outubro de 2026.
+**Última atualização:** 29 de outubro de 2026.
 
 **Nome do projeto:** Decifra.
 
@@ -281,7 +281,7 @@ Espaços de expressões aparecerão separados. As letras das respostas e dos pal
 
 Na montagem de uma resposta completa, o jogador colocará a letra e poderá aplicar o acento depois, em vez de depender de um botão separado para cada vogal acentuada. A interface também deverá aceitar entrada acentuada pelo teclado físico. A aplicação de acento manterá a letra em caixa alta.
 
-A exigência de acentos vale para palpites completos. No modo com a galera, a escolha isolada de uma letra segue a equivalência entre vogais definida na seção 15.3. **C e Ç são caracteres distintos nos dois modos** e terão opções próprias no teclado virtual. A apresentação de hífens ainda precisa ser definida.
+A exigência de acentos vale para palpites completos. No modo com a galera, a escolha isolada de uma letra segue a equivalência entre vogais definida na seção 15.3. **C e Ç são caracteres distintos nos dois modos** e terão opções próprias no teclado virtual. Decisão D08 aprovada em 2026-10-29: espaços, hífens, apóstrofos e demais sinais serão apresentados já preenchidos e fixos. O jogador preencherá letras e números. Em WALL-E, o hífen aparece pronto; em TOY STORY 3, o algarismo 3 precisa ser preenchido. Sinais fixos não consomem uma tentativa de letra nem contam como posições vazias.
 
 ### 9.3. Disponibilidade das letras
 

@@ -1,0 +1,102 @@
+body {
+  background: var(--fundo);
+}
+.prova-entrada {
+  max-width: 1050px;
+  margin: auto;
+  padding: 28px;
+}
+.prova-entrada > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.prova-entrada > h1 {
+  font-size: clamp(35px, 5vw, 60px);
+  max-width: 700px;
+}
+.prova-entrada > p {
+  max-width: 750px;
+}
+.prova-entrada > label {
+  display: block;
+  max-width: 500px;
+  margin: 25px 0;
+  font-weight: 700;
+}
+.prova-entrada > .alternativa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.palco-entrada {
+  margin: 30px 0;
+  padding: 25px 40px 35px;
+  border: 2px solid var(--texto);
+  background: var(--painel);
+  border-radius: 30px;
+  box-shadow: 0 7px 0 var(--tinta);
+}
+.apresentacao-entrada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.apresentacao-entrada h2 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+.apresentacao-entrada img {
+  object-fit: contain;
+}
+.apresentacao-entrada .etiqueta {
+  font-size: 9px;
+}
+.resultado-prova {
+  padding: 20px;
+  border: 1px dashed var(--texto);
+  border-radius: 20px;
+  overflow-wrap: anywhere;
+}
+.resultado-prova p {
+  font-size: 13px;
+}
+.resultado-prova output {
+  font-weight: 800;
+}
+.resultado-prova small {
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .prova-entrada {
+    padding: 20px 15px;
+  }
+  .prova-entrada > header {
+    margin-bottom: 30px;
+  }
+  .prova-entrada > header button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .palco-entrada {
+    padding: 20px 13px 26px;
+    border-radius: 23px;
+  }
+  .apresentacao-entrada {
+    gap: 10px;
+  }
+  .apresentacao-entrada h2 {
+    font-size: 23px;
+  }
+  .apresentacao-entrada img {
+    width: 48px;
+    height: 68px;
+  }
+  .apresentacao-entrada .etiqueta {
+    font-size: 7px;
+  }
+}
