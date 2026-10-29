@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Catálogo — fase 25 concluída:** onze lotes produzidos (275 respostas e 1.375 dicas); oito aprovados pelo responsável e importados localmente (200 respostas e 1.000 dicas). Animais-003 acrescentou 25 respostas sem sobrescritas; animais-002 permanece pendente de revisão humana. Evidências em [Revisão do lote](Revisoes/animais-003.md).
+
 **Fase 24 concluída:** entrada reutilizável de palpites e escolha de letra, com clique/toque, digitação, arraste via dnd kit 0.5.1, acentos, números e sinais fixos conforme D08. Prévia técnica separada das partidas reais; integração ao motor na fase 26. Contrato, TDD e verificações em [Entrada de respostas](Entrada-respostas.md).
 
 **Fase 22 concluída:** menu React para visitante/conta, primeiro acesso protegido, navegação com React Router 7.18.5, configurações persistidas, resumo real de partida aberta e componentes comuns responsivos. Telas futuras têm páginas explícitas de preparação, sem dados fictícios. Implementação, TDD, verificações e limites em [Menu e navegação](Menu-navegacao.md).

@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "animais-003",
+  "palavras": [
+    {
+      "id": "tigre",
+      "resposta": "TIGRE",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero selvagem que se alimenta de outros animais.",
+        "Minhas populações naturais são originárias da Ásia.",
+        "Costumo caçar sozinho e pertenço à família dos felinos.",
+        "Minha pelagem mais conhecida combina fundo alaranjado e áreas brancas.",
+        "Tenho listras pretas verticais pelo corpo, diferentes das manchas de um leopardo."
+      ]
+    },
+    {
+      "id": "urso-polar",
+      "resposta": "URSO POLAR",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero adaptado a ambientes muito frios.",
+        "Vivo na região do Ártico, no hemisfério norte.",
+        "Dependo do gelo marinho para alcançar muitas das minhas presas.",
+        "Focas são uma parte importante da minha alimentação.",
+        "Sou o grande parente do panda de pelagem esbranquiçada que caminha pelo gelo do Ártico."
+      ]
+    },
+    {
+      "id": "lobo",
+      "resposta": "LOBO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero carnívoro que pode viver em grupo.",
+        "Pertenço à mesma família dos cachorros, mas sou um animal selvagem.",
+        "Em muitas populações, os grupos familiares cooperam para caçar.",
+        "Meu chamado prolongado ajuda a manter contato com outros membros da alcateia.",
+        "Sou o canídeo que uiva e aparece como vilão na história de Chapeuzinho Vermelho."
+      ]
+    },
+    {
+      "id": "raposa",
+      "resposta": "RAPOSA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero selvagem encontrado em diferentes ambientes.",
+        "Pertenço à família dos cachorros e tenho focinho estreito.",
+        "Minhas orelhas pontudas e minha cauda volumosa chamam atenção.",
+        "Uma espécie muito conhecida tem pelagem avermelhada e ponta da cauda branca.",
+        "Nas fábulas, sou o animal de cauda felpuda que desiste das uvas e diz que estão verdes."
+      ]
+    },
+    {
+      "id": "ovelha",
+      "resposta": "OVELHA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro criado por seres humanos.",
+        "Costumo viver em rebanhos e me alimento de pastagens.",
+        "Muitas raças minhas fornecem lã utilizada em roupas.",
+        "Meu filhote é chamado de cordeiro.",
+        "Sou a fêmea adulta do carneiro."
+      ]
+    },
+    {
+      "id": "cabra",
+      "resposta": "CABRA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro domesticado.",
+        "Posso fornecer leite usado na produção de queijos.",
+        "Tenho cascos e consigo me equilibrar em terrenos rochosos.",
+        "Algumas de nós têm chifres e uma pequena barba sob o queixo.",
+        "Sou a fêmea adulta do bode."
+      ]
+    },
+    {
+      "id": "rato",
+      "resposta": "RATO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero que pode encontrar alimento perto de habitações humanas.",
+        "Pertenço ao grupo dos roedores e tenho dentes incisivos de crescimento contínuo.",
+        "Minhas espécies mais conhecidas têm focinho pontudo e cauda longa com poucos pelos.",
+        "Nos desenhos, costumo ser perseguido por gatos e associado ao queijo.",
+        "Sou o roedor da cantiga infantil em que uma moça atira um pau; meu nome tem quatro letras."
+      ]
+    },
+    {
+      "id": "sapo",
+      "resposta": "SAPO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um vertebrado cuja vida pode incluir fases na água e em terra.",
+        "Pertenço aos anfíbios e passo por metamorfose.",
+        "Em meu ciclo mais conhecido, começo como girino e depois desenvolvo pernas.",
+        "Na forma adulta, não tenho cauda e posso me deslocar por saltos.",
+        "Na distinção popular entre mim, a rã e a perereca, sou associado à pele mais rugosa e à vida no chão."
+      ]
+    },
+    {
+      "id": "formiga",
+      "resposta": "FORMIGA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um pequeno animal que pode viver em sociedades organizadas.",
+        "Sou um inseto: tenho seis pernas e duas antenas.",
+        "Minhas colônias podem reunir rainhas e muitas operárias.",
+        "Em várias espécies, seguimos trilhas químicas ao procurar alimento.",
+        "Sou o inseto trabalhador da fábula que faz reservas enquanto a cigarra canta."
+      ]
+    },
+    {
+      "id": "joaninha",
+      "resposta": "JOANINHA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um pequeno animal que pode ser encontrado em jardins.",
+        "Sou um inseto do grupo dos besouros.",
+        "Muitas espécies minhas comem pulgões que se alimentam de plantas.",
+        "Minhas asas de voo ficam protegidas sob duas coberturas rígidas.",
+        "Minha aparência mais famosa é a de um besourinho vermelho com pintas pretas."
+      ]
+    },
+    {
+      "id": "aranha",
+      "resposta": "ARANHA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado encontrado em muitos ambientes terrestres.",
+        "Meu corpo tem duas regiões principais, e não tenho antenas.",
+        "Tenho oito pernas, por isso não sou um inseto.",
+        "Produzo seda, que pode servir para proteger ovos e construir abrigos.",
+        "Algumas de nós capturam presas em teias; meu nome tem seis letras."
+      ]
+    },
+    {
+      "id": "foca",
+      "resposta": "FOCA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero que passa boa parte da vida na água.",
+        "Respiro ar e saio da água para descansar e criar filhotes.",
+        "Meus membros têm forma de nadadeiras.",
+        "Ao contrário dos leões-marinhos, não tenho orelhas externas salientes.",
+        "Em terra, avanço com movimentos do corpo apoiado na barriga; meu nome tem quatro letras."
+      ]
+    },
+    {
+      "id": "lontra",
+      "resposta": "LONTRA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero carnívoro adaptado à vida perto da água.",
+        "Muitas espécies do meu grupo vivem em rios e lagos.",
+        "Peixes e invertebrados aquáticos podem fazer parte da minha dieta.",
+        "Tenho corpo alongado, pelagem densa e sou parente das doninhas.",
+        "Sou a nadadora de cauda longa frequentemente confundida com a ariranha, que é uma parente maior."
+      ]
+    },
+    {
+      "id": "pavao",
+      "resposta": "PAVÃO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave que costuma chamar atenção pela aparência.",
+        "Meu nome popular designa o macho; a fêmea tem outro nome.",
+        "Na espécie indiana, o macho tem pescoço azul e um enorme conjunto de penas ornamentais.",
+        "Essas penas longas ficam acima da cauda verdadeira e possuem desenhos semelhantes a olhos.",
+        "Na exibição de cortejo, abro minha plumagem ornamental como um grande leque."
+      ]
+    },
+    {
+      "id": "papagaio",
+      "resposta": "PAPAGAIO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave encontrada em regiões tropicais.",
+        "Tenho bico forte e curvado, útil para manipular alimentos.",
+        "Em cada pé, dois dedos apontam para a frente e dois para trás.",
+        "Alguns indivíduos do meu grupo aprendem a imitar palavras humanas.",
+        "Sou a ave de bico curvo, frequentemente representada com penas verdes, famosa por repetir a fala das pessoas."
+      ]
+    },
+    {
+      "id": "hiena",
+      "resposta": "HÍENA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero carnívoro encontrado na África e em partes da Ásia.",
+        "Minha aparência lembra um cachorro, mas não pertenço à família dos cães.",
+        "A espécie malhada é uma caçadora eficiente e tem mandíbulas capazes de quebrar ossos.",
+        "Nos clãs dessa espécie, as fêmeas costumam dominar as relações sociais.",
+        "A espécie malhada emite uma vocalização que lembra uma risada, embora isso não signifique alegria."
+      ]
+    },
+    {
+      "id": "iguana",
+      "resposta": "IGUANA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um réptil do grupo dos lagartos.",
+        "Uma espécie muito conhecida do meu grupo vive naturalmente nas Américas.",
+        "Nessa espécie, os adultos se alimentam principalmente de folhas e outros vegetais.",
+        "Essa representante costuma ter uma cauda comprida e uma dobra de pele sob a garganta.",
+        "Na minha espécie mais conhecida como verde, uma crista de espinhos percorre o dorso."
+      ]
+    },
+    {
+      "id": "lesma",
+      "resposta": "LESMA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado de corpo mole.",
+        "Pertenço aos moluscos e costumo aparecer em lugares úmidos.",
+        "Deslizo usando um pé muscular e produzo muco.",
+        "Na cabeça, as espécies terrestres mais conhecidas têm tentáculos retráteis.",
+        "Pareço um caracol, mas não carrego uma grande concha externa enrolada nas costas."
+      ]
+    },
+    {
+      "id": "crocodilo",
+      "resposta": "CROCODILO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um réptil que caça perto da água ou dentro dela.",
+        "Tenho pele com placas resistentes e uma cauda forte para nadar.",
+        "Sou parecido com um jacaré, mas pertenço a outra família.",
+        "Uma característica que ajuda a distinguir meu grupo é o quarto dente inferior visível com a boca fechada.",
+        "Entre minhas espécies estão a do Nilo e a de água salgada, encontrada na Austrália."
+      ]
+    },
+    {
+      "id": "minhoca",
+      "resposta": "MINHOCA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado que pode viver no solo.",
+        "Meu corpo alongado é dividido em muitos segmentos.",
+        "Não tenho pernas e respiro pela pele, que precisa se manter úmida.",
+        "Escavo galerias e ingiro solo com matéria orgânica em decomposição.",
+        "Quando adulta, posso ter um anel mais espesso chamado clitelo; sou o animal frequentemente usado como isca de pesca."
+      ]
+    },
+    {
+      "id": "fossa",
+      "resposta": "FOSSA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero carnívoro nativo de uma grande ilha africana.",
+        "Meu habitat natural fica em Madagascar, onde posso caçar primatas.",
+        "Pareço um felino, mas meu parentesco é mais próximo ao dos mangustos.",
+        "Tenho pelagem curta e amarronzada, e uma longa cauda ajuda no equilíbrio entre as árvores.",
+        "Meu nome científico é Cryptoprocta ferox; entre minhas presas estão os lêmures."
+      ]
+    },
+    {
+      "id": "saiga",
+      "resposta": "SAIGA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero herbívoro de paisagens abertas.",
+        "Sou um antílope associado às estepes da Ásia Central.",
+        "Os machos adultos têm chifres anelados, enquanto as fêmeas não possuem chifres.",
+        "Meu focinho volumoso pode ajudar a filtrar poeira e aquecer o ar inspirado.",
+        "Minha característica mais marcante é um nariz arredondado que pende sobre a boca como uma pequena tromba."
+      ]
+    },
+    {
+      "id": "musaranho",
+      "resposta": "MUSARANHO",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno mamífero que busca alimento entre folhas e no solo.",
+        "Insetos e outros invertebrados fazem parte da alimentação de muitas espécies do meu grupo.",
+        "Posso lembrar um rato à primeira vista, mas não sou um roedor.",
+        "Tenho olhos muito pequenos e um focinho alongado e móvel que passa à frente da boca.",
+        "Pertenço à família Soricidae, conhecida pelos pequenos mamíferos de focinho pontudo parentes das toupeiras."
+      ]
+    },
+    {
+      "id": "tuatara",
+      "resposta": "TUATARA",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um réptil nativo da Nova Zelândia.",
+        "Embora pareça um lagarto, pertenço a uma ordem diferente.",
+        "Meu grupo é o único representante vivo da ordem Rhynchocephalia.",
+        "Tenho uma crista de espinhos ao longo do dorso.",
+        "Quando jovem, tenho um órgão sensível à luz no alto da cabeça, chamado olho parietal, que depois fica coberto pela pele."
+      ]
+    },
+    {
+      "id": "lemure",
+      "resposta": "LÊMURE",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero do grupo dos primatas.",
+        "Meu grupo é característico de Madagascar, e a comunicação por cheiros é importante para nós.",
+        "Uma espécie muito conhecida passa bastante tempo no chão, apesar de também subir em árvores.",
+        "Nessa espécie, a cauda longa é erguida durante deslocamentos do grupo.",
+        "Na espécie de cauda anelada, essa cauda tem faixas alternadas pretas e brancas."
+      ]
+    }
+  ]
+}

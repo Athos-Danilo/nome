@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** dez lotes produzidos: 250 respostas e 1.250 dicas, todos aprovados na validação automática completa. Sete lotes aprovados pelo responsável e importados localmente: 175 respostas e 875 dicas, incluindo objetos-002 na fase 23. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** onze lotes produzidos: 275 respostas e 1.375 dicas, todos aprovados na validação automática completa. Oito lotes aprovados pelo responsável e importados localmente: 200 respostas e 1.000 dicas, incluindo animais-003 na fase 25. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -30,7 +30,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 18 | 3 | `marcas-002.json` | 10 | 10 | 5 | 25 | 200 | Importado localmente |
 | 21 | 3 | `paises-002.json` | 10 | 10 | 5 | 25 | 225 | Importado localmente |
 | 23 | 4 | `objetos-002.json` | 10 | 10 | 5 | 25 | 250 | Importado localmente |
-| 25 | 4 | `animais-003.json` | 10 | 10 | 5 | 25 | 275 | Não iniciado |
+| 25 | 4 | `animais-003.json` | 10 | 10 | 5 | 25 | 275 | Importado localmente |
 | 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Não iniciado |
 | 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Não iniciado |
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Não iniciado |
@@ -283,6 +283,25 @@ Conferência no Atlas: Pendente
 Pendências: Conferência no Atlas na publicação; objetos-001 continua pendente de aprovação separada
 ```
 
+#### Lote animais-003 (Fase 25)
+```text
+Lote: animais-003
+Fase: 25
+Arquivo: Data/palavras/animais-003.json
+Estado: Importado localmente
+Data da revisão: 2026-10-29
+Responsável pela revisão: Codex (revisão editorial por IA), com revisão e aprovação expressa do responsável pelo projeto
+Quantidade gerada: 25 respostas e 125 dicas
+Quantidade aprovada: 25
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: catálogo completo válido, 275 respostas e 1.375 dicas; 100 novos, 175 idênticos, zero recuperáveis
+Duplicatas e substituições: nenhuma duplicata; lista consolidada atualizada
+Fatos e grafias conferidos: fontes e ressalvas em Doc/Revisoes/animais-003.md
+Importação local: concluída em 2026-10-29 após aprovação humana; 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco com 200 respostas, 1.000 dicas e 200 versões
+Conferência no Atlas: não realizada
+Pendências: conferência no Atlas na publicação; animais-002 continua pendente separadamente
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -302,12 +321,12 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 
 | Temática | Meta de respostas | Geradas | Aprovadas | Importadas localmente | Conferidas no Atlas |
 | --- | --- | --- | --- | --- | --- |
-| Animais | 100 | 50 | 25 | 25 | 0 |
+| Animais | 100 | 75 | 50 | 50 | 0 |
 | Filmes e séries | 100 | 50 | 50 | 50 | 0 |
 | Marcas | 100 | 50 | 50 | 50 | 0 |
 | Países | 100 | 50 | 25 | 25 | 0 |
 | Objetos | 100 | 50 | 25 | 25 | 0 |
-| **Total** | **500** | **250** | **175** | **175** | **0** |
+| **Total** | **500** | **275** | **200** | **200** | **0** |
 
 ## 6. Fechamento global
 

@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos dez lotes existentes: 250 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos onze lotes existentes: 275 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -254,3 +254,28 @@ Gerada a partir dos dez lotes existentes: 250 respostas. Fornecer esta lista ant
 | objetos-002 | `barometro` | BARÔMETRO | dificil |
 | objetos-002 | `micrometro` | MICRÔMETRO | dificil |
 | objetos-002 | `caleidoscopio` | CALEIDOSCÓPIO | dificil |
+| animais-003 | `tigre` | TIGRE | facil |
+| animais-003 | `urso-polar` | URSO POLAR | facil |
+| animais-003 | `lobo` | LOBO | facil |
+| animais-003 | `raposa` | RAPOSA | facil |
+| animais-003 | `ovelha` | OVELHA | facil |
+| animais-003 | `cabra` | CABRA | facil |
+| animais-003 | `rato` | RATO | facil |
+| animais-003 | `sapo` | SAPO | facil |
+| animais-003 | `formiga` | FORMIGA | facil |
+| animais-003 | `joaninha` | JOANINHA | facil |
+| animais-003 | `aranha` | ARANHA | medio |
+| animais-003 | `foca` | FOCA | medio |
+| animais-003 | `lontra` | LONTRA | medio |
+| animais-003 | `pavao` | PAVÃO | medio |
+| animais-003 | `papagaio` | PAPAGAIO | medio |
+| animais-003 | `hiena` | HÍENA | medio |
+| animais-003 | `iguana` | IGUANA | medio |
+| animais-003 | `lesma` | LESMA | medio |
+| animais-003 | `crocodilo` | CROCODILO | medio |
+| animais-003 | `minhoca` | MINHOCA | medio |
+| animais-003 | `fossa` | FOSSA | dificil |
+| animais-003 | `saiga` | SAIGA | dificil |
+| animais-003 | `musaranho` | MUSARANHO | dificil |
+| animais-003 | `tuatara` | TUATARA | dificil |
+| animais-003 | `lemure` | LÊMURE | dificil |
