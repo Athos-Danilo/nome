@@ -8,6 +8,7 @@ from aplicacao.modulos.individual.esquemas import (
     ConectarIndividual,
     ConfiguracaoIndividual,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
 
@@ -45,7 +46,7 @@ class ServicoIndividual:
         jogador_id: UUID,
         partida_id: UUID,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
     ) -> dict:
         return await self.repositorio.continuidade(
             jogador_id, partida_id, operacao, dados, self.catalogo
@@ -55,7 +56,7 @@ class ServicoIndividual:
         self,
         resumo: str,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
     ) -> dict:
         return await self.repositorio.continuidade_demonstracao(
             resumo, operacao, dados, self.catalogo

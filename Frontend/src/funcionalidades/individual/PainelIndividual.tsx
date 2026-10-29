@@ -1,3 +1,5 @@
+import { Cronometro } from "./Cronometro";
+import { useCronometro } from "./usar-cronometro";
 import { PausaIndividual } from "./PausaIndividual";
 import { useEffect, useRef, useState } from "react";
 import { useBlocker } from "react-router";
@@ -74,6 +76,17 @@ export function PainelIndividual({
   const jogo = usePartida(base, token);
   const conexao = useConexaoIndividual(base, token, jogo.consulta.data);
   const estado = jogo.consulta.data;
+  const cronometro = useCronometro(
+    base,
+    token,
+    estado,
+    estado?.estado === "em_andamento" &&
+      conexao.pronta &&
+      !conexao.semRede &&
+      !jogo.ocupado &&
+      !jogo.pendente &&
+      !jogo.retorno,
+  );
   const preparar = useRef<() => Promise<boolean>>(async () => true);
   const [externa, definirExterna] = useState<(() => void) | null>(null);
   const travaSaida = useRef(false);
@@ -92,14 +105,19 @@ export function PainelIndividual({
     preparar.current = salvar;
   };
   async function agir(tipo: TipoAcao, palpite?: string) {
-    if (!(await preparar.current())) {
-      definirErroPreparacao(
-        "Não foi possível confirmar as letras. Feche este aviso e confira a montagem antes de sair.",
-      );
-      return false;
+    cronometro.suspender();
+    try {
+      if (!(await cronometro.confirmar()) || !(await preparar.current())) {
+        definirErroPreparacao(
+          "Não foi possível confirmar o progresso. Confira o aviso da montagem ou do cronômetro e tente novamente.",
+        );
+        return false;
+      }
+      definirErroPreparacao("");
+      return await jogo.agir(tipo, palpite);
+    } finally {
+      cronometro.liberar();
     }
-    definirErroPreparacao("");
-    return jogo.agir(tipo, palpite);
   }
   function liberar() {
     if (bloqueio.state === "blocked") bloqueio.proceed();
@@ -132,6 +150,7 @@ export function PainelIndividual({
         conexao={conexao}
         agir={agir}
         registrar={registrar}
+        cronometro={cronometro}
       />
       <Dialogo
         aberto={bloqueio.state === "blocked" || !!externa}
@@ -177,6 +196,7 @@ function ConteudoIndividual({
   conexao,
   agir,
   registrar,
+  cronometro,
 }: {
   base: string;
   token: string;
@@ -185,6 +205,7 @@ function ConteudoIndividual({
   conexao: ReturnType<typeof useConexaoIndividual>;
   agir: (tipo: TipoAcao, palpite?: string) => Promise<boolean>;
   registrar: (salvar: () => Promise<boolean>) => void;
+  cronometro: ReturnType<typeof useCronometro>;
 }) {
   const [anteriores, definirAnteriores] = useState(false);
   const [confirmacao, definirConfirmacao] = useState<
@@ -282,6 +303,11 @@ function ConteudoIndividual({
           </strong>
         </div>
       </header>
+      <Cronometro
+        tempo={cronometro.tempo}
+        ativo={cronometro.ativo}
+        aviso={cronometro.aviso}
+      />
       <div
         className="trilha-solo"
         aria-label={`${estado.rodadas_concluidas} palavras concluídas`}

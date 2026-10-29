@@ -19,8 +19,12 @@ async function preparar(pagina: Page, demo = false) {
     rodadas_concluidas: 0,
     acertos: 0,
     quantidade_pausas: 0,
+    relogio_servidor_ms: Date.now(),
+    tempo_total_ms: 0,
+    tempo_completo: true,
     resumo_rodadas: [] as object[],
     rodada_atual: {
+      tempo_ativo_ms: 0,
       rodada_id: "rodada-1",
       ordem: 1,
       dificuldade: "facil",
@@ -164,6 +168,25 @@ async function preparar(pagina: Page, demo = false) {
         estado.versao++;
         documentos.clear();
       }
+      return r.fulfill({ json: estado });
+    }
+    if (p.endsWith("/tempo")) {
+      if (r.request().method() === "GET")
+        return r.fulfill({
+          json: { ...estado, relogio_servidor_ms: Date.now() },
+        });
+      if (!estado.rodada_atual)
+        return r.fulfill({
+          status: 409,
+          json: {
+            erro: { codigo: "RODADA_INVALIDA", mensagem: "Rodada encerrada" },
+          },
+        });
+      estado.rodada_atual.tempo_ativo_ms += Math.max(
+        0,
+        body.fim_ms - body.inicio_ms,
+      );
+      estado.tempo_total_ms = estado.rodada_atual.tempo_ativo_ms;
       return r.fulfill({ json: estado });
     }
     if (p.endsWith("/rascunho")) {
@@ -501,7 +524,7 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
   await page.route("**/api/partidas/partida", (r) =>
     r.fulfill({ json: estado() }),
   );
-  for (const caminho of ["conexoes", "sinais"])
+  for (const caminho of ["conexoes", "sinais", "tempo"])
     await page.route(`**/api/partidas/partida/${caminho}`, (r) =>
       r.fulfill({ json: estado() }),
     );
@@ -683,4 +706,53 @@ test("histórico após saída por documento preserva um único desconto", async 
   expect(c.estado.pontuacao).toBe(-100);
   await page.reload();
   expect(c.estado.quantidade_pausas).toBe(1);
+});
+
+test("cronômetro cresce, suspende oculto e mostra tempos no resultado", async ({
+  page,
+}, info) => {
+  await preparar(page);
+  await comecar(page);
+  await expect(page.getByLabel("Tempo de jogo nesta palavra")).toBeVisible();
+  await expect
+    .poll(async () => page.getByTestId("tempo-palavra").innerText())
+    .not.toBe("00:00");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "visibilityState", {
+      configurable: true,
+      get: () => "hidden",
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(
+    page.getByText("CONTAGEM SUSPENSA", { exact: true }),
+  ).toBeVisible();
+  const parado = await page.getByTestId("tempo-palavra").innerText();
+  await expect(async () => {
+    await new Promise((r) => setTimeout(r, 1100));
+    expect(await page.getByTestId("tempo-palavra").innerText()).toBe(parado);
+  }).toPass({ timeout: 2000 });
+  await page.evaluate(() => {
+    Object.defineProperty(document, "visibilityState", {
+      configurable: true,
+      get: () => "visible",
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(page.getByText("EM JOGO", { exact: true })).toBeVisible();
+  await page.screenshot({
+    path: `test-results/cronometro-${info.project.name}.png`,
+    fullPage: true,
+    animations: "disabled",
+  });
+  await page
+    .getByRole("textbox", { name: "Digitação pelo teclado" })
+    .fill("GATO");
+  await page.getByRole("button", { name: "Enviar palpite" }).click();
+  await page.getByRole("button", { name: "Próxima palavra" }).click();
+  await page
+    .getByRole("button", { name: "Encerrar partida", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Encerrar definitivamente" }).click();
+  await expect(page.getByText("Tempo jogado até o encerramento")).toBeVisible();
 });

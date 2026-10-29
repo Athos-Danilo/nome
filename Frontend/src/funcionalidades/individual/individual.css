@@ -784,3 +784,145 @@ html[data-movimentos="reduzidos"] .reacao-solo {
   min-height: 20px;
   margin: 4px 0;
 }
+
+/* Instrumento de ritmo: movimento decorativo, sem prazo ou alarme. */
+.cronometro {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 24px auto;
+  padding: 14px 28px 14px 14px;
+  border: 2px solid var(--texto);
+  border-radius: 28px;
+  background: var(--painel);
+  box-shadow: 5px 5px 0 var(--texto);
+  overflow: hidden;
+}
+.orbita-tempo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: var(--lima);
+  color: #444439;
+}
+.orbita-tempo::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 2px dashed currentColor;
+  border-radius: 50%;
+}
+.contando .orbita-tempo::before {
+  animation: orbitar-tempo 16s linear infinite;
+}
+.orbita-tempo span {
+  font-size: 40px;
+}
+.leitura-tempo {
+  display: grid;
+  gap: 2px;
+}
+.rotulo-tempo {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+.leitura-tempo strong {
+  font-size: 38px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+.estado-tempo {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.estado-tempo i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #668328;
+}
+.contando .estado-tempo i {
+  animation: pulsar-tempo 2s ease-in-out infinite;
+}
+.suspenso .orbita-tempo {
+  opacity: 0.6;
+}
+.tempo-acessivel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.aviso-tempo {
+  max-width: 210px;
+  font-size: 12px;
+}
+.resumo-tempo {
+  display: grid;
+  gap: 8px;
+  margin: 24px auto;
+  text-align: center;
+}
+.resumo-tempo strong {
+  font-size: 32px;
+  font-variant-numeric: tabular-nums;
+}
+.tempo-resultado {
+  display: grid;
+  gap: 5px;
+  text-align: right;
+}
+.tempo-resultado span {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes orbitar-tempo {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulsar-tempo {
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (max-width: 600px) {
+  .cronometro {
+    gap: 12px;
+    padding-right: 18px;
+    flex-wrap: wrap;
+  }
+  .orbita-tempo {
+    width: 58px;
+    height: 58px;
+  }
+  .rotulo-tempo {
+    font-size: 8px;
+  }
+  .leitura-tempo strong {
+    font-size: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cronometro *,
+  .cronometro *::before {
+    animation: none !important;
+  }
+}
+[data-movimentos="reduzidos"] .cronometro *,
+[data-movimentos="reduzidos"] .cronometro *::before {
+  animation: none !important;
+}

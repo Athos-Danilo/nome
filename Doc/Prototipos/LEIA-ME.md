@@ -12,7 +12,7 @@ O seletor **Abrir cenário**, acima da interface, permite revisar 21 telas e est
 
 ## Segunda rodada de design — linguagem de jogo
 
-A pedido do responsável, quatro referências móveis orientaram a composição: personagem como protagonista, cartões ilustrados, volume nos botões e peças, navegação compacta, superfícies arredondadas e contraste entre área de jogo e controles. O projeto preserva a paleta e as fontes aprovadas. Elementos das referências não adicionam regras como cronômetro, moedas, vidas ou compras.
+A pedido do responsável, quatro referências móveis orientaram a composição: personagem como protagonista, cartões ilustrados, volume nos botões e peças, navegação compacta, superfícies arredondadas e contraste entre área de jogo e controles. O projeto preserva a paleta e as fontes aprovadas. As referências, por si só, não adicionam moedas, vidas, compras ou regras de tempo. Posteriormente, em 2026-10-29, o responsável aprovou um cronômetro exclusivamente informativo, detalhado em [Cronometro.md](../Cronometro.md); a implementação React é posterior e não está representada pelos protótipos originais.
 
 O menu tornou-se uma sala de jogo com Aurélio, cartões Solo/Galera e retomada em destaque. A partida usa tabuleiro, placar, pista apresentada pelo mascote, peças com profundidade e teclado agrupado. Perfil, ranking, configurações, resultados, estados vazios, avisos e diálogos compartilham a nova linguagem. A navegação fica lateral em computador/tablet e inferior no celular. Tablet reorganiza o menu em duas faixas; celular aproxima personagem e convite antes dos modos.
 

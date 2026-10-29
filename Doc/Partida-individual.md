@@ -82,3 +82,8 @@ Pausa, penalidade por saída e protocolo persistido de interrupções pertencem 
 
 
 **Atualização da fase 28:** continuidade persistida integrada ao individual e à demonstração. Pausa, retomada, montagem e tratamento conservador das interrupções estão em [Pausa e retomada](Pausa-retomada-individual.md). Os registros anteriores deste documento descrevem as verificações das fases originais; a integração da galera continua na fase 33.
+
+
+## Complemento: medição de tempo
+
+[Cronômetro informativo](Cronometro.md) implementado no individual e na demonstração: intervalos ativos por rodada e total, sem alterar pontos ou rankings. Migração aditiva 0007 (`rodadas.intervalos_tempo` JSONB anulável), com 21 tabelas preservadas e tempos antigos não inventados. GET/POST nos caminhos `/api/partidas/{partida_id}/tempo` e `/api/demonstracoes/jogo/tempo`; proteção de propriedade/visitante e CSRF mantida. Campos, sincronização, testes e limites estão na especificação. A galera continua dependendo de decisão do responsável antes de preparar esse modo.

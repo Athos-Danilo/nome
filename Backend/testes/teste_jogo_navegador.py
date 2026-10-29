@@ -85,11 +85,17 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
                 timeout=60,
             )
             assert resultado.returncode == 0, resultado.stdout + resultado.stderr
+            from aplicacao.bancos.partidas import rodadas
+            from aplicacao.modulos.individual.tempo import duracao
+
             with base_perfil.connect() as conexao:
                 assert list(conexao.execute(select(resultados_individuais.c.pontos)).scalars()) == [
                     200,
                     200,
                 ]
+                tempos = list(conexao.scalars(select(rodadas.c.intervalos_tempo)))
+                assert len(tempos) == 6
+                assert all(duracao(t) is not None and duracao(t) > 0 for t in tempos)
         finally:
             servidor.should_exit = True
             processo.join(timeout=10)

@@ -166,6 +166,7 @@ rodadas = Table(
     Column("estado", String(12), nullable=False, server_default="reservada"),
     Column("dica_atual", Integer),
     Column("rascunho", JSONB),
+    Column("intervalos_tempo", JSONB),
     Column("apresentada_em", DateTime(timezone=True)),
     Column("pontuacao", Integer, nullable=False, server_default="0"),
     UniqueConstraint("partida_id", "id"),

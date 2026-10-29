@@ -102,3 +102,9 @@ class SinalIndividual(Entrada):
     versao_esperada: int = Field(ge=0, strict=True)
     tipo: Literal["atividade", "pagehide", "pageshow", "offline", "online", "oculta", "visivel"]
     persistido: bool = Field(default=False, strict=True)
+
+
+class SalvarTempo(Entrada):
+    rodada_id: UUID
+    inicio_ms: int = Field(ge=0, strict=True)
+    fim_ms: int = Field(ge=0, strict=True)

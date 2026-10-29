@@ -9,6 +9,7 @@ from aplicacao.modulos.individual.esquemas import (
     ConectarIndividual,
     ConfiguracaoIndividual,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
 
@@ -50,13 +51,13 @@ class RepositorioIndividual(Protocol):
         jogador_id: UUID,
         partida_id: UUID,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict: ...
     async def continuidade_demonstracao(
         self,
         resumo: str,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict: ...

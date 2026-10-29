@@ -16,8 +16,10 @@ from aplicacao.modulos.individual.esquemas import (
     AcaoIndividual,
     ConectarIndividual,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
+from aplicacao.modulos.individual.tempo import unir_intervalos
 
 
 class PortaContinuidade(Protocol):
@@ -43,10 +45,12 @@ class ContinuidadeIndividual:
         conexao: AsyncConnection,
         registro,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict:
-        if operacao == "rascunho" and isinstance(dados, SalvarRascunho):
+        if operacao == "tempo" and isinstance(dados, SalvarTempo):
+            await self.salvar_tempo(conexao, registro, dados)
+        elif operacao == "rascunho" and isinstance(dados, SalvarRascunho):
             await self.salvar_rascunho(conexao, registro, dados, catalogo)
         elif operacao == "conexoes" and isinstance(dados, ConectarIndividual):
             return await self.conectar(conexao, registro, dados, catalogo)
@@ -234,3 +238,33 @@ class ContinuidadeIndividual:
             .values(**campos)
         )
         return await self.motor.estado(conexao, registro, catalogo)
+
+    async def salvar_tempo(self, conexao, registro, dados):
+        if registro["estado"] != "em_andamento":
+            raise FalhaAutenticacao("PARTIDA_INATIVA", "O relógio está suspenso.", 409)
+        rodada = (
+            (
+                await conexao.execute(
+                    select(rodadas).where(
+                        rodadas.c.id == dados.rodada_id,
+                        rodadas.c.partida_id == registro["id"],
+                        rodadas.c.estado == "apresentada",
+                    )
+                )
+            )
+            .mappings()
+            .one_or_none()
+        )
+        if rodada is None:
+            raise FalhaAutenticacao(
+                "RODADA_INVALIDA", "Esse relógio não pertence à palavra atual.", 409
+            )
+        intervalos = unir_intervalos(
+            rodada["intervalos_tempo"],
+            dados.inicio_ms,
+            dados.fim_ms,
+            int(datetime.now(UTC).timestamp() * 1000),
+        )
+        await conexao.execute(
+            update(rodadas).where(rodadas.c.id == rodada["id"]).values(intervalos_tempo=intervalos)
+        )

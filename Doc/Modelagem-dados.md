@@ -171,3 +171,8 @@ Execução: ver [Ambiente-local.md](Ambiente-local.md). Testes usam exclusivamen
 A migração `0006_pausas_e_rascunhos`, posterior à 0005, acrescenta `rodadas.rascunho` (JSONB anulável) e a tabela `conexoes_individuais`, totalizando 21 tabelas. Chave primária composta por `partida_id` e `aba_id`; campos `documento_id`, `ultimo_sinal`, `evento_pendente_id` e `persistido`. A montagem inclui letras, seleção e revisão; não contém a resposta oficial.
 
 A partida é bloqueada durante a transação para serializar montagem, pausas e ações. O rascunho possui revisão própria; versões antigas não sobrescrevem uma montagem mais recente. Pausa, interrupção, penalidade e resposta idempotente são persistidas juntas. Retomar invalida conexões anteriores; sinais atrasados não aplicam nova penalidade. Encerrar remove conexões e rascunhos. A anonimização da conta também elimina esses dados transitórios. Ver [Pausa e retomada](Pausa-retomada-individual.md).
+
+
+## Complemento: medição de tempo
+
+[Cronômetro informativo](Cronometro.md) implementado no individual e na demonstração: intervalos ativos por rodada e total, sem alterar pontos ou rankings. Migração aditiva 0007 (`rodadas.intervalos_tempo` JSONB anulável), com 21 tabelas preservadas e tempos antigos não inventados. GET/POST nos caminhos `/api/partidas/{partida_id}/tempo` e `/api/demonstracoes/jogo/tempo`; proteção de propriedade/visitante e CSRF mantida. Campos, sincronização, testes e limites estão na especificação. A galera continua dependendo de decisão do responsável antes de preparar esse modo.

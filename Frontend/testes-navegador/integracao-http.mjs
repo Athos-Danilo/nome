@@ -107,6 +107,24 @@ try {
     expect(estadoFinal.acertos).toBe(3);
     expect(estadoFinal.quantidade_pausas).toBe(1);
     expect(estadoFinal.estado).toBe("concluida");
+    expect(estadoFinal.tempo_total_ms).toBeGreaterThan(0);
+    expect(estadoFinal.tempo_completo).toBe(true);
+    expect(
+      estadoFinal.resumo_rodadas.reduce((s, r) => s + r.tempo_ativo_ms, 0),
+    ).toBe(estadoFinal.tempo_total_ms);
+    const formatar = (ms) => {
+      const s = Math.floor(ms / 1000);
+      return [Math.floor(s / 60), s % 60]
+        .map((n) => String(n).padStart(2, "0"))
+        .join(":");
+    };
+    await expect(pagina.getByTestId("tempo-total")).toHaveText(
+      formatar(estadoFinal.tempo_total_ms),
+    );
+    await pagina.screenshot({
+      path: `test-results/tempo-integrado-${demo ? "demo" : "conta"}.png`,
+      fullPage: true,
+    });
     await contexto.close();
   }
 } finally {

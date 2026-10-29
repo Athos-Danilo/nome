@@ -1,6 +1,7 @@
 """Cookies opacos e autorização do titular em cada transferência."""
 
 import hmac
+from datetime import UTC, datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request
@@ -18,6 +19,7 @@ from aplicacao.modulos.individual.esquemas import (
     ConectarIndividual,
     EnviarPalpite,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
 from aplicacao.modulos.individual.rotas import servico as motor_individual
@@ -172,3 +174,14 @@ async def conexoes_do_teste(
 @rotas.post("/demonstracoes/jogo/sinais")
 async def sinais_do_teste(dados: SinalIndividual, requisicao: Request, resumo: VisitanteDoJogo):
     return await motor_individual(requisicao).continuidade_demonstracao(resumo, "sinais", dados)
+
+
+@rotas.post("/demonstracoes/jogo/tempo")
+async def tempo_do_teste(dados: SalvarTempo, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).continuidade_demonstracao(resumo, "tempo", dados)
+
+
+@rotas.get("/demonstracoes/jogo/tempo")
+async def sincronizar_tempo_teste(requisicao: Request, resumo: VisitanteDoJogo):
+    estado = await motor_individual(requisicao).jogo_demonstracao(resumo)
+    return {**estado, "relogio_servidor_ms": int(datetime.now(UTC).timestamp() * 1000)}

@@ -37,10 +37,12 @@ export type Rodada = {
   pontos_disponiveis: number;
   limites?: Record<string, number>;
   rascunho?: Rascunho | null;
+  tempo_ativo_ms?: number | null;
 };
 export type ResumoRodada = {
   ordem: number;
-  estado: "acertada" | "desistida";
+  estado: "acertada" | "desistida" | "interrompida";
+  tempo_ativo_ms?: number | null;
   resposta: string;
   pontos: number;
   dicas_utilizadas: number;
@@ -55,6 +57,9 @@ export type Partida = {
   rodadas_concluidas: number;
   acertos: number;
   quantidade_pausas?: number;
+  relogio_servidor_ms?: number;
+  tempo_total_ms?: number | null;
+  tempo_completo?: boolean;
   rodada_atual: Rodada | null;
   resumo_rodadas: ResumoRodada[];
   acao?: {
@@ -85,6 +90,9 @@ function objeto(v: unknown): v is Record<string, unknown> {
 function inteiro(v: unknown): v is number {
   return typeof v === "number" && Number.isInteger(v);
 }
+function tempoValido(v: unknown) {
+  return v == null || (inteiro(v) && v >= 0);
+}
 function dificuldade(v: unknown): v is Dificuldade {
   return ["facil", "medio", "dificil"].includes(String(v));
 }
@@ -114,6 +122,7 @@ function rascunhoValido(r: unknown, posicoes: unknown): boolean {
 function rodadaValida(v: unknown): v is Rodada {
   return (
     objeto(v) &&
+    tempoValido(v.tempo_ativo_ms) &&
     typeof v.rodada_id === "string" &&
     inteiro(v.ordem) &&
     dificuldade(v.dificuldade) &&
@@ -144,6 +153,10 @@ function rodadaValida(v: unknown): v is Rodada {
 export function validarPartida(v: unknown): Partida {
   if (
     !objeto(v) ||
+    !tempoValido(v.tempo_total_ms) ||
+    (v.relogio_servidor_ms !== undefined &&
+      (!inteiro(v.relogio_servidor_ms) || v.relogio_servidor_ms < 0)) ||
+    (v.tempo_completo !== undefined && typeof v.tempo_completo !== "boolean") ||
     typeof v.partida_id !== "string" ||
     ![
       "preparada",
@@ -166,8 +179,9 @@ export function validarPartida(v: unknown): Partida {
     !v.resumo_rodadas.every(
       (x) =>
         objeto(x) &&
+        tempoValido(x.tempo_ativo_ms) &&
         inteiro(x.ordem) &&
-        ["acertada", "desistida"].includes(String(x.estado)) &&
+        ["acertada", "desistida", "interrompida"].includes(String(x.estado)) &&
         typeof x.resposta === "string" &&
         inteiro(x.pontos) &&
         inteiro(x.dicas_utilizadas),
@@ -294,5 +308,28 @@ export async function salvarMontagem(
 ): Promise<Partida> {
   return validarPartida(
     await requisitar(`${base}/rascunho`, "POST", dados, token, manterViva),
+  );
+}
+
+export async function confirmarTempo(
+  base: string,
+  token: string,
+  rodada: string,
+  inicio: number,
+  fim: number,
+  manterViva = false,
+): Promise<Partida> {
+  return validarPartida(
+    await requisitar(
+      `${base}/tempo`,
+      "POST",
+      {
+        rodada_id: rodada,
+        inicio_ms: Math.round(inicio),
+        fim_ms: Math.round(fim),
+      },
+      token,
+      manterViva,
+    ),
   );
 }

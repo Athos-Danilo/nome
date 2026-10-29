@@ -99,3 +99,26 @@ it("recusa quantidade negativa de pausas", async () => {
   p.quantidade_pausas = -1;
   expect(() => validarPartida(p)).toThrow();
 });
+
+it("recusa duração negativa recebida do servidor", async () => {
+  const partida = {
+    partida_id: "p",
+    estado: "abandonada",
+    origem: "normal",
+    versao: 1,
+    pontuacao: 0,
+    quantidade_palavras: 3,
+    rodadas_concluidas: 0,
+    acertos: 0,
+    rodada_atual: null,
+    resumo_rodadas: [],
+    tempo_total_ms: -1,
+  };
+  vi.stubGlobal(
+    "fetch",
+    vi.fn().mockResolvedValue(new Response(JSON.stringify(partida))),
+  );
+  await expect(lerPartida("/api/partidas/p")).rejects.toMatchObject({
+    codigo: "RESPOSTA_INVALIDA",
+  });
+});

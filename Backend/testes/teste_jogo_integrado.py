@@ -29,9 +29,11 @@ def teste_resultado_recuperavel_sem_revelar_reservas(base_perfil):  # noqa: F811
             assert resumo[0]["resposta"] and resumo[0]["pontos"] == 0
             estado = (await agir(cliente, estado, "encerramento")).json()
             recuperada = (await cliente.get(f"/api/partidas/{estado['partida_id']}")).json()
-            assert recuperada["resumo_rodadas"] == resumo
+            assert recuperada["resumo_rodadas"][:-1] == resumo
+            assert recuperada["resumo_rodadas"][-1]["estado"] == "interrompida"
+            assert len(recuperada["resumo_rodadas"]) == 2
             assert recuperada["acertos"] == 0 and recuperada["pontuacao"] == 0
-            assert len(recuperada["resumo_rodadas"]) == 1
+            assert len(recuperada["resumo_rodadas"]) == 2
 
     executar(verificar())
 

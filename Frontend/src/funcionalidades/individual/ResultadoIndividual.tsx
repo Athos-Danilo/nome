@@ -1,3 +1,4 @@
+import { formatarTempo } from "./usar-cronometro";
 import { Link } from "react-router";
 import type { Partida } from "./api";
 export function ResultadoIndividual({
@@ -31,6 +32,19 @@ export function ResultadoIndividual({
           {partida.quantidade_palavras} palavras
         </span>
       </div>
+      <div className="resumo-tempo">
+        <span>
+          {partida.estado === "abandonada"
+            ? "Tempo jogado até o encerramento"
+            : "Tempo total de jogo"}
+        </span>
+        <strong data-testid="tempo-total">
+          {formatarTempo(partida.tempo_total_ms)}
+        </strong>
+        {partida.tempo_completo === false && partida.tempo_total_ms != null && (
+          <small>Medição parcial: há palavras sem tempo registrado.</small>
+        )}
+      </div>
       <div className="respostas-resultado">
         {partida.resumo_rodadas.map((r) => (
           <article key={r.ordem}>
@@ -40,12 +54,19 @@ export function ResultadoIndividual({
             <div>
               <h2>{r.resposta}</h2>
               <p>
-                {r.estado === "acertada" ? "Decifrada" : "Palavra revelada"} ·{" "}
-                {r.dicas_utilizadas}{" "}
+                {r.estado === "acertada"
+                  ? "Decifrada"
+                  : r.estado === "interrompida"
+                    ? "Interrompida"
+                    : "Palavra revelada"}{" "}
+                · {r.dicas_utilizadas}{" "}
                 {r.dicas_utilizadas === 1 ? "dica" : "dicas"}
               </p>
             </div>
-            <strong>+{r.pontos}</strong>
+            <div className="tempo-resultado">
+              <strong>+{r.pontos}</strong>
+              <span>{formatarTempo(r.tempo_ativo_ms)}</span>
+            </div>
           </article>
         ))}
       </div>

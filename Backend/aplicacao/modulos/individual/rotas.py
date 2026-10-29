@@ -1,5 +1,6 @@
 """Operações individuais autorizadas pela conta ativa da sessão."""
 
+from datetime import UTC, datetime
 from typing import Annotated
 from uuid import UUID
 
@@ -15,6 +16,7 @@ from aplicacao.modulos.individual.esquemas import (
     EnviarPalpite,
     IniciarIndividual,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
 from aplicacao.modulos.individual.servico import ServicoIndividual
@@ -118,3 +120,16 @@ async def sinais_individual(
     partida_id: UUID, dados: SinalIndividual, requisicao: Request, conta: Titular
 ):
     return await servico(requisicao).continuidade(conta.jogador_id, partida_id, "sinais", dados)
+
+
+@rotas.post("/{partida_id}/tempo")
+async def tempo_individual(
+    partida_id: UUID, dados: SalvarTempo, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).continuidade(conta.jogador_id, partida_id, "tempo", dados)
+
+
+@rotas.get("/{partida_id}/tempo")
+async def sincronizar_tempo(partida_id: UUID, requisicao: Request, conta: Titular):
+    estado = await servico(requisicao).consultar(conta.jogador_id, partida_id)
+    return {**estado, "relogio_servidor_ms": int(datetime.now(UTC).timestamp() * 1000)}

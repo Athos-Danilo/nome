@@ -221,3 +221,8 @@ O detalhamento operacional dessa sequência é mantido em um roteiro de acompanh
 - [MongoDB — PyMongo Async](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/reference/migration/).
 - [Vitest](https://vitest.dev/guide/) e [Playwright](https://playwright.dev/docs/intro).
 - [MDN — limitações de beforeunload](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).
+
+
+## Complemento: medição de tempo
+
+[Cronômetro informativo](Cronometro.md) implementado no individual e na demonstração: intervalos ativos por rodada e total, sem alterar pontos ou rankings. Migração aditiva 0007 (`rodadas.intervalos_tempo` JSONB anulável), com 21 tabelas preservadas e tempos antigos não inventados. GET/POST nos caminhos `/api/partidas/{partida_id}/tempo` e `/api/demonstracoes/jogo/tempo`; proteção de propriedade/visitante e CSRF mantida. Campos, sincronização, testes e limites estão na especificação. A galera continua dependendo de decisão do responsável antes de preparar esse modo.

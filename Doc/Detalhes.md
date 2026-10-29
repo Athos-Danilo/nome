@@ -347,7 +347,7 @@ Ao desistir da palavra:
 - A rodada vale zero ponto.
 - A partida pode seguir para a próxima resposta.
 
-Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas.
+Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas. Em 2026-10-29 foi aprovado um cronômetro crescente exclusivamente informativo, contando apenas tempo de jogo no individual e na demonstração. Ele guarda o tempo de cada palavra e o total, sem mudar pontuação ou rankings. Pausa e ausência suspendem a medição; atualizar preserva o acumulado. Regras detalhadas e critérios de implementação em [Cronômetro informativo](Cronometro.md). A forma de medição da galera será decidida com o responsável antes de preparar esse modo.
 
 ## 11. Pontuação
 
@@ -432,6 +432,7 @@ Ao concluir a partida, o sistema deverá apresentar:
 - Quantidade de respostas acertadas.
 - Quantidade de dicas utilizadas.
 - Respostas das palavras das quais o jogador desistiu.
+- Tempo de jogo por palavra apresentada e tempo total acumulado, conforme [Cronometro.md](Cronometro.md); implementado no individual e na demonstração; galera a definir.
 
 O detalhamento de como resumir as dicas utilizadas será definido juntamente com as estatísticas.
 
@@ -439,7 +440,7 @@ O detalhamento de como resumir as dicas utilizadas será definido juntamente com
 
 O jogador terá uma tabela com suas partidas e seus resultados, permitindo comparar o próprio desempenho.
 
-Abrir uma partida antiga para consultar cada palavra, todos os palpites e as dicas utilizadas **fica para uma versão futura**.
+Abrir uma partida antiga para consultar cada palavra, todos os palpites e as dicas utilizadas **fica para uma versão futura**. A nova lista de tempos na tela de resultado não cria essa página histórica detalhada.
 
 Os campos finais da tabela, os filtros e a ordenação ainda serão definidos.
 

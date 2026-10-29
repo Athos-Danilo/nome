@@ -31,9 +31,11 @@ from aplicacao.modulos.individual.esquemas import (
     ConfiguracaoIndividual,
     EnviarPalpite,
     SalvarRascunho,
+    SalvarTempo,
     SinalIndividual,
 )
 from aplicacao.modulos.individual.regras import avaliar_jogada, limites_do_teclado, pontos_da_dica
+from aplicacao.modulos.individual.tempo import duracao
 
 ABERTAS = ("preparada", "em_andamento", "pausada")
 
@@ -279,19 +281,25 @@ class IndividualPostgresql:
                 "posicoes": [None if c.isalnum() else c for c in palavra.resposta],
                 "limites": limites_do_teclado(palavra.resposta),
                 "rascunho": atual["rascunho"],
+                "tempo_ativo_ms": duracao(atual["intervalos_tempo"]),
                 "dica_atual": atual["dica_atual"],
                 "dicas_reveladas": palavra.dicas[: atual["dica_atual"]],
                 "pontos_disponiveis": pontos_da_dica(atual["dica_atual"]),
             }
         resumo = []
         for etapa in etapas:
-            if etapa["estado"] not in {"acertada", "desistida"}:
+            if etapa["estado"] not in {"acertada", "desistida"} and not (
+                registro["estado"] == "abandonada" and etapa["estado"] == "apresentada"
+            ):
                 continue
             conteudo = await catalogo.buscar(etapa["palavra_id"], etapa["revisao"])
             resumo.append(
                 {
                     "ordem": etapa["ordem"],
-                    "estado": etapa["estado"],
+                    "estado": "interrompida"
+                    if etapa["estado"] == "apresentada"
+                    else etapa["estado"],
+                    "tempo_ativo_ms": duracao(etapa["intervalos_tempo"]),
                     "resposta": conteudo.resposta,
                     "pontos": etapa["pontuacao"],
                     "dicas_utilizadas": etapa["dica_atual"],
@@ -307,6 +315,12 @@ class IndividualPostgresql:
             "rodadas_concluidas": sum(r["estado"] in {"acertada", "desistida"} for r in etapas),
             "rodada_atual": publica,
             "resumo_rodadas": resumo,
+            "tempo_total_ms": sum(duracao(r["intervalos_tempo"]) or 0 for r in etapas)
+            if any(r["intervalos_tempo"] is not None for r in etapas)
+            else None,
+            "tempo_completo": all(
+                r["intervalos_tempo"] is not None for r in etapas if r["apresentada_em"] is not None
+            ),
             "acertos": sum(r["estado"] == "acertada" for r in etapas),
             "quantidade_pausas": await conexao.scalar(
                 select(func.count())
@@ -730,7 +744,7 @@ class IndividualPostgresql:
         jogador_id: UUID,
         partida_id: UUID,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict:
         async with self.motor.begin() as conexao:
@@ -744,7 +758,7 @@ class IndividualPostgresql:
         self,
         resumo: str,
         operacao: str,
-        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        dados: SalvarRascunho | SalvarTempo | ConectarIndividual | SinalIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict:
         async with self.motor.begin() as conexao:
