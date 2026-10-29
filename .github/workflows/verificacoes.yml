@@ -64,7 +64,8 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
-      - run: npm run testar-perfil
+      - run: npm run testar-perfil -- --reporter=line,github
+      - run: npm run testar-menu -- --reporter=line,github
 
   prova_interrupcoes:
     name: Prova — interrupções no navegador
