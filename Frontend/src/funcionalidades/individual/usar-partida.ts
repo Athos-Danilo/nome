@@ -31,14 +31,14 @@ export function usePartida(base: string, token: string) {
       montado.current = false;
     };
   }, []);
-  async function executar(tipo: TipoAcao, dados: Acao) {
-    if (trava.current) return;
+  async function executar(tipo: TipoAcao, dados: Acao): Promise<boolean> {
+    if (trava.current) return false;
     trava.current = true;
     definirOcupado(true);
     definirErro("");
     try {
       const nova = await enviarAcao(base, tipo, dados, token);
-      if (!montado.current) return;
+      if (!montado.current) return false;
       cache.setQueryData<Partida>(chave, (anterior) =>
         !anterior || nova.versao >= anterior.versao ? nova : anterior,
       );
@@ -54,8 +54,9 @@ export function usePartida(base: string, token: string) {
           "Ainda não! A montagem foi limpa. Veja a pista e tente novamente.",
         );
       void cache.invalidateQueries({ queryKey: ["partida-em-aberto"] });
+      return true;
     } catch (e) {
-      if (!montado.current) return;
+      if (!montado.current) return false;
       const falha = e as Error;
       definirErro(falha.message);
       if (
@@ -77,6 +78,7 @@ export function usePartida(base: string, token: string) {
           definirLimpeza((v) => v + 1);
         }
       }
+      return false;
     } finally {
       trava.current = false;
       if (montado.current) definirOcupado(false);
@@ -84,16 +86,16 @@ export function usePartida(base: string, token: string) {
   }
   function agir(tipo: TipoAcao, palpite?: string) {
     const estado = consulta.data;
-    if (!estado || pendente || trava.current) return;
+    if (!estado || pendente || trava.current) return Promise.resolve(false);
     const dados: Acao = {
       id_acao: crypto.randomUUID(),
       versao_esperada: estado.versao,
-      ...(tipo !== "encerramento"
+      ...(!["encerramento", "pausa", "retomada", "saida"].includes(tipo)
         ? { rodada_id: estado.rodada_atual?.rodada_id }
         : {}),
       ...(palpite ? { palpite } : {}),
     };
-    void executar(tipo, dados);
+    return executar(tipo, dados);
   }
   return {
     consulta,
@@ -104,7 +106,9 @@ export function usePartida(base: string, token: string) {
     limpeza,
     agir,
     reenviar: () => {
-      if (pendente) void executar(pendente.tipo, pendente.dados);
+      return pendente
+        ? executar(pendente.tipo, pendente.dados)
+        : Promise.resolve(false);
     },
     continuar: () => {
       definirRetorno(undefined);

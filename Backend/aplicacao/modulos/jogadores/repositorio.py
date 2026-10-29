@@ -10,7 +10,13 @@ from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine
 
 from aplicacao.bancos.acoes import acoes_processadas, exposicoes_conteudo, palpites
 from aplicacao.bancos.identidade import jogadores, preferencias, sessoes_autenticacao, visitantes
-from aplicacao.bancos.partidas import participantes, partidas, planos_individuais, rodadas
+from aplicacao.bancos.partidas import (
+    conexoes_individuais,
+    participantes,
+    partidas,
+    planos_individuais,
+    rodadas,
+)
 from aplicacao.modulos.autenticacao.contratos import FalhaAutenticacao
 from aplicacao.modulos.jogadores.esquemas import (
     AlterarPerfil,
@@ -144,6 +150,12 @@ class JogadoresPostgresql:
                 ).scalars()
             )
             if ids:
+                await conexao.execute(
+                    delete(conexoes_individuais).where(conexoes_individuais.c.partida_id.in_(ids))
+                )
+                await conexao.execute(
+                    update(rodadas).where(rodadas.c.partida_id.in_(ids)).values(rascunho=None)
+                )
                 rodadas_da_conta = select(rodadas.c.id).where(rodadas.c.partida_id.in_(ids))
                 await conexao.execute(
                     delete(exposicoes_conteudo).where(

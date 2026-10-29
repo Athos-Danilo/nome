@@ -7,25 +7,31 @@ from collections import Counter
 from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
-from sqlalchemy import func, insert, select, update
+from sqlalchemy import delete, func, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine
 
 from aplicacao.bancos.acoes import (
     acoes_processadas,
     exposicoes_conteudo,
+    interrupcoes,
     palpites,
+    penalidades,
     resultados_individuais,
 )
 from aplicacao.bancos.identidade import jogadores, visitantes
-from aplicacao.bancos.partidas import partidas, planos_individuais, rodadas
+from aplicacao.bancos.partidas import conexoes_individuais, partidas, planos_individuais, rodadas
 from aplicacao.modulos.autenticacao.contratos import FalhaAutenticacao
 from aplicacao.modulos.individual.configuracao import selecionar_palavras, sequencia_dificuldades
+from aplicacao.modulos.individual.continuidade import ContinuidadeIndividual
 from aplicacao.modulos.individual.contratos import CatalogoIndividual
 from aplicacao.modulos.individual.esquemas import (
     AcaoIndividual,
     AcaoRodada,
+    ConectarIndividual,
     ConfiguracaoIndividual,
     EnviarPalpite,
+    SalvarRascunho,
+    SinalIndividual,
 )
 from aplicacao.modulos.individual.regras import avaliar_jogada, limites_do_teclado, pontos_da_dica
 
@@ -272,6 +278,7 @@ class IndividualPostgresql:
                 "tematicas": palavra.tematicas,
                 "posicoes": [None if c.isalnum() else c for c in palavra.resposta],
                 "limites": limites_do_teclado(palavra.resposta),
+                "rascunho": atual["rascunho"],
                 "dica_atual": atual["dica_atual"],
                 "dicas_reveladas": palavra.dicas[: atual["dica_atual"]],
                 "pontos_disponiveis": pontos_da_dica(atual["dica_atual"]),
@@ -301,6 +308,11 @@ class IndividualPostgresql:
             "rodada_atual": publica,
             "resumo_rodadas": resumo,
             "acertos": sum(r["estado"] == "acertada" for r in etapas),
+            "quantidade_pausas": await conexao.scalar(
+                select(func.count())
+                .select_from(penalidades)
+                .where(penalidades.c.partida_id == registro["id"])
+            ),
         }
 
     async def consultar(
@@ -338,7 +350,7 @@ class IndividualPostgresql:
         await conexao.execute(
             update(rodadas)
             .where(rodadas.c.id == rodada["id"])
-            .values(estado="acertada" if acerto else "desistida", pontuacao=pontos)
+            .values(estado="acertada" if acerto else "desistida", pontuacao=pontos, rascunho=None)
         )
         proxima = await conexao.scalar(
             select(rodadas.c.id)
@@ -420,7 +432,11 @@ class IndividualPostgresql:
             raise FalhaAutenticacao(
                 "VERSAO_DESATUALIZADA", "Atualize a partida antes de tentar novamente.", 409
             )
-        if registro["estado"] != "em_andamento":
+        if tipo in {"pausa", "saida", "retomada"}:
+            return await self.transicao_pausa(conexao, registro, tipo, dados, catalogo, entrada)
+        if registro["estado"] != "em_andamento" and not (
+            tipo == "encerramento" and registro["estado"] == "pausada"
+        ):
             raise FalhaAutenticacao("PARTIDA_INATIVA", "Esta partida não está em andamento.", 409)
         pontos = 0
         terminou = tipo == "encerramento"
@@ -470,12 +486,23 @@ class IndividualPostgresql:
                 await conexao.execute(
                     update(rodadas)
                     .where(rodadas.c.id == rodada["id"])
-                    .values(dica_atual=decisao.dica_destino)
+                    .values(
+                        **{
+                            "dica_atual": decisao.dica_destino,
+                            **({"rascunho": None} if decisao.limpar_montagem else {}),
+                        }
+                    )
                 )
         total = registro["pontuacao"] + pontos
         acao["pontos"] = pontos
         campos = {"pontuacao": total, "versao": registro["versao"] + 1}
         if terminou:
+            await conexao.execute(
+                delete(conexoes_individuais).where(conexoes_individuais.c.partida_id == partida_id)
+            )
+            await conexao.execute(
+                update(rodadas).where(rodadas.c.partida_id == partida_id).values(rascunho=None)
+            )
             campos.update(
                 estado="abandonada" if tipo == "encerramento" else "concluida",
                 encerrada_em=datetime.now(UTC),
@@ -601,3 +628,127 @@ class IndividualPostgresql:
         async with self.motor.begin() as conexao:
             registro = await self.demonstracao(conexao, resumo)
             return await self.agir_na_transacao(conexao, registro, tipo, dados, catalogo)
+
+    async def transicao_pausa(
+        self,
+        conexao: AsyncConnection,
+        registro,
+        tipo: str,
+        dados: AcaoIndividual,
+        catalogo: CatalogoIndividual,
+        entrada: str,
+    ) -> dict:
+        destino = "em_andamento" if tipo == "retomada" else "pausada"
+        esperado = "pausada" if tipo == "retomada" else "em_andamento"
+        if registro["estado"] != esperado:
+            raise FalhaAutenticacao(
+                "PARTIDA_INATIVA", "Atualize a partida antes de continuar.", 409
+            )
+        pontos = 0 if tipo == "retomada" else -100
+        if pontos:
+            interrupcao_id = await conexao.scalar(
+                select(interrupcoes.c.id).where(
+                    interrupcoes.c.partida_id == registro["id"],
+                    interrupcoes.c.evento_id == dados.id_acao,
+                )
+            )
+            if interrupcao_id:
+                await conexao.execute(
+                    update(interrupcoes)
+                    .where(interrupcoes.c.id == interrupcao_id)
+                    .values(classificacao="pausa")
+                )
+            else:
+                interrupcao_id = await conexao.scalar(
+                    insert(interrupcoes)
+                    .values(
+                        partida_id=registro["id"],
+                        evento_id=dados.id_acao,
+                        origem="botao_pausa" if tipo == "pausa" else "navegacao",
+                        classificacao="pausa",
+                    )
+                    .returning(interrupcoes.c.id)
+                )
+            await conexao.execute(
+                insert(penalidades).values(
+                    partida_id=registro["id"], interrupcao_id=interrupcao_id, pontos=-100
+                )
+            )
+        else:
+            await conexao.execute(
+                update(interrupcoes)
+                .where(
+                    interrupcoes.c.partida_id == registro["id"],
+                    interrupcoes.c.classificacao == "pausa",
+                    interrupcoes.c.avisada_em.is_(None),
+                )
+                .values(avisada_em=datetime.now(UTC))
+            )
+        # Documentos e avisos do ciclo anterior não podem cobrar outra pausa ao retomar.
+        await conexao.execute(
+            delete(conexoes_individuais).where(conexoes_individuais.c.partida_id == registro["id"])
+        )
+        atualizado = (
+            (
+                await conexao.execute(
+                    update(partidas)
+                    .where(partidas.c.id == registro["id"])
+                    .values(
+                        estado=destino,
+                        pontuacao=registro["pontuacao"] + pontos,
+                        versao=registro["versao"] + 1,
+                    )
+                    .returning(partidas)
+                )
+            )
+            .mappings()
+            .one()
+        )
+        resultado = {
+            **await self.estado(conexao, atualizado, catalogo),
+            "acao": {
+                "tipo": tipo,
+                "resultado": "retomada" if tipo == "retomada" else "pausada",
+                "pontos": pontos,
+                "limpar_montagem": False,
+            },
+        }
+        await conexao.execute(
+            insert(acoes_processadas).values(
+                partida_id=registro["id"],
+                id_acao=dados.id_acao,
+                tipo=tipo,
+                entrada_resumo=entrada,
+                resultado=resultado,
+                versao_aplicada=atualizado["versao"],
+            )
+        )
+        return resultado
+
+    async def continuidade(
+        self,
+        jogador_id: UUID,
+        partida_id: UUID,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        catalogo: CatalogoIndividual,
+    ) -> dict:
+        async with self.motor.begin() as conexao:
+            await self.titular(conexao, jogador_id)
+            registro = await self.partida(conexao, jogador_id, partida_id)
+            return await ContinuidadeIndividual(self).aplicar(
+                conexao, registro, operacao, dados, catalogo
+            )
+
+    async def continuidade_demonstracao(
+        self,
+        resumo: str,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        catalogo: CatalogoIndividual,
+    ) -> dict:
+        async with self.motor.begin() as conexao:
+            registro = await self.demonstracao(conexao, resumo)
+            return await ContinuidadeIndividual(self).aplicar(
+                conexao, registro, operacao, dados, catalogo
+            )

@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 28:** pausa confirmada, retomada, rascunho persistido e reconciliação das interrupções do individual e da demonstração implementados. Migração 0006: rascunho JSONB em rodadas e conexões por aba/documento, totalizando 21 tabelas. React Router usa o roteador de dados para bloquear saídas internas até a confirmação. Contratos, verificações e limites em [Pausa e retomada](Pausa-retomada-individual.md).
+
 **Catálogo — fase 27 concluída:** doze lotes produzidos (300 respostas e 1.500 dicas); nove aprovados e importados localmente (225 respostas e 1.125 dicas). Filmes-e-series-003 acrescentou 25 títulos sem sobrescritas, completando 75 nesta temática. Correção com TDD para títulos somente numéricos e 36 montagens de expressões reais verificadas em três tamanhos de tela. Evidências em [Revisão do lote](Revisoes/filmes-e-series-003.md).
 
 **Fase 26 concluída:** Solo e demonstração jogáveis em React, com configuração, dicas, teclado, resultado recuperável e pontos persistidos pelo mesmo motor. API ampliada para sinais fixos/números; autorização própria do visitante. Prova integrada de tela, HTTP e banco aprovada. Contratos, TDD e limites em [Partida individual](Partida-individual.md).
@@ -185,7 +187,7 @@ O navegador não oferece uma notificação infalível para distinguir todo fecha
 
 Antes de depender dessa distinção para penalizar ou encerrar uma partida, testar identificação da aba, atividade, recarga e reconexão com confirmação do servidor. Conexões persistentes e notificações de saída podem ajudar, mas não eliminam toda ambiguidade.
 
-Prova local da fase 13 em [Prova-interrupcoes.md](Prova-interrupcoes.md): HTTP com identidade de aba/documento, tipo de navegação e sinais do navegador. O responsável aprovou preservar a individual sem desconto e o painel da galera nos casos ambíguos. Navegação para outra página, inclusive Voltar/Avançar, conta como saída. Recarga reconhecida permanece sem desconto. Os 10 segundos da prova apenas sinalizam ausência, sem encerrar ou penalizar automaticamente. A integração persistida, a hospedagem pública e os aparelhos físicos ainda precisam ser verificados nas fases próprias.
+Prova local da fase 13 em [Prova-interrupcoes.md](Prova-interrupcoes.md): HTTP com identidade de aba/documento, tipo de navegação e sinais do navegador. O responsável aprovou preservar a individual sem desconto e o painel da galera nos casos ambíguos. Navegação para outra página, inclusive Voltar/Avançar, conta como saída. Recarga reconhecida permanece sem desconto. Os 10 segundos da prova apenas sinalizam ausência, sem encerrar ou penalizar automaticamente. A integração persistida do individual foi realizada na fase 28; a galera, a hospedagem pública e os aparelhos físicos continuam nas fases próprias.
 
 ## 10. Publicação
 

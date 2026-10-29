@@ -12,7 +12,14 @@ from aplicacao.modulos.autenticacao.rotas import exigir_conta, gravar_cookie, no
 from aplicacao.modulos.autenticacao.servico import segredo_valido, token_csrf
 from aplicacao.modulos.demonstracoes.contratos import EntradaVazia
 from aplicacao.modulos.demonstracoes.servico import ServicoDemonstracoes
-from aplicacao.modulos.individual.esquemas import AcaoIndividual, AcaoRodada, EnviarPalpite
+from aplicacao.modulos.individual.esquemas import (
+    AcaoIndividual,
+    AcaoRodada,
+    ConectarIndividual,
+    EnviarPalpite,
+    SalvarRascunho,
+    SinalIndividual,
+)
 from aplicacao.modulos.individual.rotas import servico as motor_individual
 
 rotas = APIRouter(prefix="/api", tags=["Visitante e demonstração"])
@@ -133,3 +140,35 @@ async def desistir_no_teste(dados: AcaoRodada, requisicao: Request, resumo: Visi
 @rotas.post("/demonstracoes/jogo/encerramento")
 async def encerrar_teste(dados: AcaoIndividual, requisicao: Request, resumo: VisitanteDoJogo):
     return await motor_individual(requisicao).agir_demonstracao(resumo, "encerramento", dados)
+
+
+@rotas.post("/demonstracoes/jogo/pausa")
+async def pausa_do_teste(dados: AcaoIndividual, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "pausa", dados)
+
+
+@rotas.post("/demonstracoes/jogo/retomada")
+async def retomada_do_teste(dados: AcaoIndividual, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "retomada", dados)
+
+
+@rotas.post("/demonstracoes/jogo/saida")
+async def saida_do_teste(dados: AcaoIndividual, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "saida", dados)
+
+
+@rotas.post("/demonstracoes/jogo/rascunho")
+async def rascunho_do_teste(dados: SalvarRascunho, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).continuidade_demonstracao(resumo, "rascunho", dados)
+
+
+@rotas.post("/demonstracoes/jogo/conexoes")
+async def conexoes_do_teste(
+    dados: ConectarIndividual, requisicao: Request, resumo: VisitanteDoJogo
+):
+    return await motor_individual(requisicao).continuidade_demonstracao(resumo, "conexoes", dados)
+
+
+@rotas.post("/demonstracoes/jogo/sinais")
+async def sinais_do_teste(dados: SinalIndividual, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).continuidade_demonstracao(resumo, "sinais", dados)

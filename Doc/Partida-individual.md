@@ -79,3 +79,6 @@ O comando `npm run testar-individual` executa a interface com respostas HTTP con
 ## Limites desta fase
 
 Pausa, penalidade por saída e protocolo persistido de interrupções pertencem à fase 28. Nesta fase, consultar ou recarregar não desconta pontos; não foi acrescentada detecção de fechamento. Áudio final e repertório completo de movimentos do mascote permanecem nas fases próprias. O catálogo de desenvolvimento não foi alterado e nenhuma partida foi criada na conta pessoal para os testes. Hospedagem pública, cookies via Vercel/Render e aparelhos físicos continuam aguardando suas verificações planejadas.
+
+
+**Atualização da fase 28:** continuidade persistida integrada ao individual e à demonstração. Pausa, retomada, montagem e tratamento conservador das interrupções estão em [Pausa e retomada](Pausa-retomada-individual.md). Os registros anteriores deste documento descrevem as verificações das fases originais; a integração da galera continua na fase 33.

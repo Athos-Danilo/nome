@@ -154,7 +154,7 @@ Fonte do esquema: `Backend/aplicacao/bancos/`, separada em identidade, partidas 
 
 O banco garante faixas e estados válidos, mas as transições, a classificação das interrupções, a soma oficial de pontos e a correspondência entre modo e suas linhas dependentes são responsabilidades dos serviços. Também cabem aos serviços a existência de um anfitrião, participação dos empatados, contagem de palavras por painel e publicação somente de partidas individuais encerradas. A migração não implementa essas operações.
 
-Pendências futuras preservadas: conservação de rascunho, algoritmo de distribuição, falta de palavras por dificuldade e configuração do desempate. Ajustes necessários terão migrações posteriores, sem editar uma revisão já publicada.
+Rascunho foi aprovado e implementado na fase 28; distribuição e falta de palavras por dificuldade foram tratadas na fase 20. A configuração do desempate permanece na implementação da galera. Ajustes necessários terão migrações posteriores, sem editar uma revisão já publicada.
 
 Execução: ver [Ambiente-local.md](Ambiente-local.md). Testes usam exclusivamente uma instância PostgreSQL separada na porta 55432 e a base `decifra_teste`; o serviço existente na porta 5432 não foi alterado. Configurar o banco de desenvolvimento com credenciais privadas permanece necessário antes da integração da aplicação.
 
@@ -164,3 +164,10 @@ Execução: ver [Ambiente-local.md](Ambiente-local.md). Testes usam exclusivamen
 - [SQLAlchemy — definição de tabelas](https://docs.sqlalchemy.org/en/21/core/metadata.html).
 - [Alembic — migrações](https://alembic.sqlalchemy.org/en/latest/tutorial.html).
 - [MongoDB — API assíncrona do PyMongo](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/reference/migration/).
+
+
+## Evolução 0006 — continuidade individual
+
+A migração `0006_pausas_e_rascunhos`, posterior à 0005, acrescenta `rodadas.rascunho` (JSONB anulável) e a tabela `conexoes_individuais`, totalizando 21 tabelas. Chave primária composta por `partida_id` e `aba_id`; campos `documento_id`, `ultimo_sinal`, `evento_pendente_id` e `persistido`. A montagem inclui letras, seleção e revisão; não contém a resposta oficial.
+
+A partida é bloqueada durante a transação para serializar montagem, pausas e ações. O rascunho possui revisão própria; versões antigas não sobrescrevem uma montagem mais recente. Pausa, interrupção, penalidade e resposta idempotente são persistidas juntas. Retomar invalida conexões anteriores; sinais atrasados não aplicam nova penalidade. Encerrar remove conexões e rascunhos. A anonimização da conta também elimina esses dados transitórios. Ver [Pausa e retomada](Pausa-retomada-individual.md).

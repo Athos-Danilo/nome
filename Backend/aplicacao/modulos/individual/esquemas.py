@@ -79,3 +79,26 @@ class AcaoRodada(AcaoIndividual):
 
 class EnviarPalpite(AcaoRodada):
     palpite: str = Field(min_length=1, max_length=300, strict=True)
+
+
+class SalvarRascunho(Entrada):
+    versao_esperada: int = Field(ge=0, strict=True)
+    rodada_id: UUID
+    revisao_esperada: int = Field(ge=0, strict=True)
+    letras: list[str] = Field(min_length=1, max_length=300)
+    selecionada: int = Field(ge=-1, lt=300, strict=True)
+
+
+class ConectarIndividual(Entrada):
+    aba_id: UUID
+    documento_id: UUID
+    navegacao: Literal["navigate", "reload", "back_forward", "desconhecida"]
+
+
+class SinalIndividual(Entrada):
+    aba_id: UUID
+    documento_id: UUID
+    evento_id: UUID
+    versao_esperada: int = Field(ge=0, strict=True)
+    tipo: Literal["atividade", "pagehide", "pageshow", "offline", "online", "oculta", "visivel"]
+    persistido: bool = Field(default=False, strict=True)

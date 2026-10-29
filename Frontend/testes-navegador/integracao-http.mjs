@@ -52,9 +52,38 @@ try {
       const resposta = ["JAPÃO", "MAÇÃ", "CASA", "ÁGUA", "CÉU", "ARARA", "PÃO"][
         indice
       ];
+      if (i === 0) {
+        await pagina
+          .getByRole("textbox", { name: "Digitação pelo teclado" })
+          .fill(resposta.slice(0, 2));
+        await expect(
+          pagina.getByText("Montagem salva", { exact: true }),
+        ).toBeVisible();
+        await pagina
+          .getByRole("button", { name: "Pausar partida", exact: true })
+          .click();
+        await pagina
+          .getByRole("button", { name: "Confirmar pausa de 100 pontos" })
+          .click();
+        await expect(
+          pagina.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+        ).toBeVisible();
+        await pagina.reload();
+        if (demo)
+          await pagina
+            .getByRole("button", { name: "Continuar demonstração" })
+            .click();
+        await pagina.getByRole("button", { name: "Retomar partida" }).click();
+        await expect(
+          pagina.getByRole("button", {
+            name: `Posição 1: ${resposta[0]}`,
+            exact: true,
+          }),
+        ).toBeVisible();
+      }
       await pagina
         .getByRole("textbox", { name: "Digitação pelo teclado" })
-        .fill(resposta);
+        .fill(i === 0 ? resposta.slice(2) : resposta);
       await pagina.getByRole("button", { name: "Enviar palpite" }).click();
       await expect(
         pagina.getByRole("heading", { name: "Boa descoberta!" }),
@@ -65,7 +94,7 @@ try {
         })
         .click();
     }
-    await expect(pagina.getByTestId("pontos-resultado")).toHaveText("300");
+    await expect(pagina.getByTestId("pontos-resultado")).toHaveText("200");
     const estadoFinal = await (
       await contexto.request.get(
         origem +
@@ -74,8 +103,9 @@ try {
             : "/api/partidas/" + pagina.url().split("/").at(-1)),
       )
     ).json();
-    expect(estadoFinal.pontuacao).toBe(300);
+    expect(estadoFinal.pontuacao).toBe(200);
     expect(estadoFinal.acertos).toBe(3);
+    expect(estadoFinal.quantidade_pausas).toBe(1);
     expect(estadoFinal.estado).toBe("concluida");
     await contexto.close();
   }

@@ -3,7 +3,13 @@
 from uuid import UUID
 
 from aplicacao.modulos.individual.contratos import CatalogoIndividual, RepositorioIndividual
-from aplicacao.modulos.individual.esquemas import AcaoIndividual, ConfiguracaoIndividual
+from aplicacao.modulos.individual.esquemas import (
+    AcaoIndividual,
+    ConectarIndividual,
+    ConfiguracaoIndividual,
+    SalvarRascunho,
+    SinalIndividual,
+)
 
 
 class ServicoIndividual:
@@ -33,3 +39,24 @@ class ServicoIndividual:
 
     async def agir_demonstracao(self, resumo: str, tipo: str, dados: AcaoIndividual) -> dict:
         return await self.repositorio.agir_demonstracao(resumo, tipo, dados, self.catalogo)
+
+    async def continuidade(
+        self,
+        jogador_id: UUID,
+        partida_id: UUID,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+    ) -> dict:
+        return await self.repositorio.continuidade(
+            jogador_id, partida_id, operacao, dados, self.catalogo
+        )
+
+    async def continuidade_demonstracao(
+        self,
+        resumo: str,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+    ) -> dict:
+        return await self.repositorio.continuidade_demonstracao(
+            resumo, operacao, dados, self.catalogo
+        )

@@ -5,6 +5,10 @@ async function preparar(pagina: Page, demo = false) {
   let envio = 0;
   let falhar = false;
   let tema = "claro";
+  const documentos = new Map<
+    string,
+    { documento: string; persistido: boolean }
+  >();
   const estado = {
     partida_id: "partida",
     estado: "em_andamento",
@@ -14,6 +18,7 @@ async function preparar(pagina: Page, demo = false) {
     quantidade_palavras: 3,
     rodadas_concluidas: 0,
     acertos: 0,
+    quantidade_pausas: 0,
     resumo_rodadas: [] as object[],
     rodada_atual: {
       rodada_id: "rodada-1",
@@ -24,6 +29,11 @@ async function preparar(pagina: Page, demo = false) {
       dica_atual: 1,
       dicas_reveladas: ["Primeira pista: animal doméstico."],
       pontos_disponiveis: 100,
+      rascunho: null as {
+        letras: string[];
+        selecionada: number;
+        revisao: number;
+      } | null,
     },
     acao: undefined as object | undefined,
   };
@@ -34,7 +44,7 @@ async function preparar(pagina: Page, demo = false) {
     email: "athos@example.test",
     avatar_id: "capivara_zen",
   };
-  await pagina.route("**/api/**", async (r) => {
+  await pagina.context().route("**/api/**", async (r) => {
     const p = new URL(r.request().url()).pathname;
     const body = r.request().postDataJSON();
     if (p === "/api/autenticacao/sessao")
@@ -117,6 +127,74 @@ async function preparar(pagina: Page, demo = false) {
     }
     if (p === "/api/partidas/partida" || p === "/api/demonstracoes/jogo")
       return r.fulfill({ json: estado });
+    if (p.endsWith("/conexoes")) {
+      const anterior = documentos.get(body.aba_id);
+      if (
+        estado.estado === "em_andamento" &&
+        anterior &&
+        ((body.navegacao === "back_forward" &&
+          anterior.documento !== body.documento_id) ||
+          anterior.persistido)
+      ) {
+        estado.estado = "pausada";
+        estado.pontuacao -= 100;
+        estado.quantidade_pausas++;
+        estado.versao++;
+        documentos.clear();
+      } else
+        documentos.set(body.aba_id, {
+          documento: body.documento_id,
+          persistido: false,
+        });
+      return r.fulfill({ json: estado });
+    }
+    if (p.endsWith("/sinais")) {
+      const d = documentos.get(body.aba_id);
+      if (d && d.documento === body.documento_id && body.tipo === "pagehide")
+        d.persistido = body.persistido;
+      if (
+        d &&
+        body.tipo === "pageshow" &&
+        d.persistido &&
+        estado.estado === "em_andamento"
+      ) {
+        estado.estado = "pausada";
+        estado.pontuacao -= 100;
+        estado.quantidade_pausas++;
+        estado.versao++;
+        documentos.clear();
+      }
+      return r.fulfill({ json: estado });
+    }
+    if (p.endsWith("/rascunho")) {
+      estado.rodada_atual.rascunho = {
+        letras: body.letras,
+        selecionada: body.selecionada,
+        revisao: (estado.rodada_atual.rascunho?.revisao ?? 0) + 1,
+      };
+      return r.fulfill({ json: estado });
+    }
+    if (
+      p.endsWith("/pausa") ||
+      p.endsWith("/saida") ||
+      p.endsWith("/retomada")
+    ) {
+      const retomada = p.endsWith("/retomada");
+      if (retomada) estado.estado = "em_andamento";
+      else if (estado.estado === "em_andamento") {
+        estado.estado = "pausada";
+        estado.pontuacao -= 100;
+        estado.quantidade_pausas++;
+      }
+      documentos.clear();
+      estado.versao++;
+      estado.acao = {
+        resultado: retomada ? "retomada" : "pausada",
+        pontos: retomada ? 0 : -100,
+        limpar_montagem: false,
+      };
+      return r.fulfill({ json: estado });
+    }
     if (
       p.endsWith("/palpites") ||
       p.endsWith("/dicas") ||
@@ -153,6 +231,7 @@ async function preparar(pagina: Page, demo = false) {
         );
         estado.rodada_atual.pontos_disponiveis =
           120 - estado.rodada_atual.dica_atual * 20;
+        if (p.endsWith("/palpites")) estado.rodada_atual.rascunho = null;
         estado.acao = {
           resultado: p.endsWith("/dicas") ? "dica_revelada" : "erro",
           pontos: 0,
@@ -183,6 +262,7 @@ async function preparar(pagina: Page, demo = false) {
         } else
           estado.rodada_atual = {
             ...estado.rodada_atual,
+            rascunho: null,
             rodada_id: `rodada-${estado.rodadas_concluidas + 1}`,
             ordem: estado.rodadas_concluidas + 1,
             dica_atual: 1,
@@ -372,7 +452,12 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
 }, info) => {
   test.setTimeout(90000);
   const catalogo: {
-    palavras: { id: string; resposta: string; dicas: string[] }[];
+    palavras: {
+      id: string;
+      resposta: string;
+      dicas: string[];
+      dificuldade: string;
+    }[];
   } = JSON.parse(
     readFileSync(
       new URL("../../Data/palavras/filmes-e-series-003.json", import.meta.url),
@@ -416,6 +501,27 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
   await page.route("**/api/partidas/partida", (r) =>
     r.fulfill({ json: estado() }),
   );
+  for (const caminho of ["conexoes", "sinais"])
+    await page.route(`**/api/partidas/partida/${caminho}`, (r) =>
+      r.fulfill({ json: estado() }),
+    );
+  await page.route("**/api/partidas/partida/rascunho", (r) => {
+    const dados = r.request().postDataJSON();
+    const e = estado();
+    return r.fulfill({
+      json: {
+        ...e,
+        rodada_atual: {
+          ...e.rodada_atual,
+          rascunho: {
+            letras: dados.letras,
+            selecionada: dados.selecionada,
+            revisao: dados.revisao_esperada + 1,
+          },
+        },
+      },
+    });
+  });
   await page.route("**/api/partidas/partida/palpites", (r) => {
     enviado = r.request().postDataJSON().palpite;
     return r.fulfill({ json: estado() });
@@ -445,4 +551,136 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
         animations: "disabled",
       });
   }
+});
+
+test("pausa confirmada preserva letras, dica e desconto único mesmo com recarga", async ({
+  page,
+}, info) => {
+  const c = await preparar(page);
+  await comecar(page);
+  await page
+    .getByRole("textbox", { name: "Digitação pelo teclado" })
+    .fill("GA");
+  await expect(page.getByText("Montagem salva", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Pedir outra dica" }).click();
+  await page
+    .getByRole("button", { name: "Pausar partida", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Fazer uma pausa?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Entendi", exact: true }).click();
+  expect(c.estado.pontuacao).toBe(0);
+  await page
+    .getByRole("button", { name: "Pausar partida", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Confirmar pausa de 100 pontos" })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  expect(c.estado.pontuacao).toBe(-100);
+  await page.screenshot({
+    path: `test-results/pausa-solo-${info.project.name}.png`,
+    fullPage: true,
+    animations: "disabled",
+  });
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  expect(c.estado.quantidade_pausas).toBe(1);
+  await page.getByRole("button", { name: "Retomar partida" }).click();
+  await expect(page.getByText("Dica 2 de 5", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Posição 1: G", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Posição 2: A", exact: true }),
+  ).toBeVisible();
+});
+test("sair pelo menu confirma pausa e voltar não desconta outra vez", async ({
+  page,
+}) => {
+  const c = await preparar(page);
+  await comecar(page);
+  await page.getByRole("link", { name: "Voltar ao menu" }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Sair e guardar suas pistas?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Pausar e sair" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeVisible();
+  expect(c.estado.pontuacao).toBe(-100);
+  await page.getByRole("link", { name: "Continuar partida" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  expect(c.estado.quantidade_pausas).toBe(1);
+});
+test("recarregar, ocultar e reconectar preserva saldo e letras", async ({
+  page,
+}) => {
+  const c = await preparar(page);
+  await comecar(page);
+  await page
+    .getByRole("textbox", { name: "Digitação pelo teclado" })
+    .fill("GA");
+  await expect(page.getByText("Montagem salva", { exact: true })).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("button", { name: "Posição 1: G", exact: true }),
+  ).toBeVisible();
+  await page.evaluate(() =>
+    document.dispatchEvent(new Event("visibilitychange")),
+  );
+  await page.context().setOffline(true);
+  await page.evaluate(() => window.dispatchEvent(new Event("offline")));
+  await expect(
+    page.getByText(/Sem conexão. Seu último progresso confirmado está salvo/),
+  ).toBeVisible();
+  await page.context().setOffline(false);
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+  await expect(page.getByText("Dica 1 de 5", { exact: true })).toBeVisible();
+  expect(c.estado.pontuacao).toBe(0);
+});
+test("duas abas mostram a mesma pausa sem desconto duplicado", async ({
+  page,
+}) => {
+  const c = await preparar(page);
+  await comecar(page);
+  const outra = await page.context().newPage();
+  await outra.goto(page.url());
+  await expect(outra.getByText("Dica 1 de 5", { exact: true })).toBeVisible();
+  await page
+    .getByRole("button", { name: "Pausar partida", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Confirmar pausa de 100 pontos" })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  await outra.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect(
+    outra.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  expect(c.estado.quantidade_pausas).toBe(1);
+  await outra.close();
+});
+test("histórico após saída por documento preserva um único desconto", async ({
+  page,
+}) => {
+  const c = await preparar(page);
+  await comecar(page);
+  await page.goto("/");
+  await page.goBack();
+  await expect(
+    page.getByRole("heading", { name: "Suas pistas estão guardadas" }),
+  ).toBeVisible();
+  expect(c.estado.pontuacao).toBe(-100);
+  await page.reload();
+  expect(c.estado.quantidade_pausas).toBe(1);
 });

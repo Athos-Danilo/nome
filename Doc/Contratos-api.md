@@ -134,4 +134,20 @@ Exposições dos dois modos pertencem ao proprietário da partida. A apresentaç
 
 Identidade de aba/documento, navegação e sinais de atividade deverão ser reconciliados no servidor, com sessão autenticada e estado persistido. Recarga reconhecida não desconta nem encerra; ausência ou retorno ambíguo preserva a individual sem desconto e o painel da galera. Navegação para outra página, inclusive saída seguida de Voltar/Avançar, conta como pausa de −100 no individual e encerramento na galera, uma vez por ocorrência. Troca de aba isolada não é pausa. Falha de hospedagem não é saída confirmada.
 
-As operações persistidas de sinalização serão integradas nas fases 28 e 33. As rotas `/prova-api` da demonstração técnica são isoladas, locais e sem autenticação de conta; não fazem parte deste contrato público nem substituem controles de acesso. Método, evidências e limites em [Prova-interrupcoes.md](Prova-interrupcoes.md).
+As operações persistidas do individual e da demonstração foram integradas na fase 28; as da galera permanecem na fase 33. As rotas `/prova-api` da demonstração técnica são isoladas, locais e sem autenticação de conta; não fazem parte deste contrato público nem substituem controles de acesso. Método, evidências e limites em [Prova-interrupcoes.md](Prova-interrupcoes.md).
+
+
+## Continuidade individual — fase 28
+
+Todas as operações abaixo são POST. Para a conta: `/api/partidas/{partida_id}`; para a demonstração: `/api/demonstracoes/jogo`. São mantidas a autorização do proprietário/visitante e a proteção de origem e CSRF.
+
+| Sufixo | Entrada | Efeito |
+| --- | --- | --- |
+| `/pausa` | `id_acao`, `versao_esperada` | Pausa confirmada, menos 100 pontos |
+| `/saida` | Mesmos campos | Saída confirmada com a mesma regra de pausa |
+| `/retomada` | Mesmos campos | Retoma sem novo desconto |
+| `/rascunho` | `versao_esperada`, `rodada_id`, `revisao_esperada`, `letras`, `selecionada` | Persiste montagem validada com revisão própria |
+| `/conexoes` | `aba_id`, `documento_id`, `navegacao` | Reconcilia recarga, histórico e retorno ambíguo |
+| `/sinais` | `aba_id`, `documento_id`, `evento_id`, `versao_esperada`, `tipo`, `persistido` | Registra evidências; ausência não cobra penalidade |
+
+As respostas devolvem o estado público da partida, agora com `quantidade_pausas` e `rodada_atual.rascunho` (nulo ou objeto com `letras`, `selecionada`, `revisao`). Não revelam respostas ou dicas futuras. Salvar rascunho não incrementa a versão oficial da partida. Conflitos retornam 409 (`RASCUNHO_DESATUALIZADO`, `VERSAO_DESATUALIZADA` ou `RODADA_INVALIDA`); montagem inválida retorna 422 `RASCUNHO_INVALIDO`. Campos adicionais são recusados. Reenvios da mesma ação preservam a resposta original. Detalhes em [Pausa e retomada](Pausa-retomada-individual.md).

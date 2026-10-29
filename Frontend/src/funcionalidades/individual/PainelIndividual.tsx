@@ -1,4 +1,9 @@
-import { useState } from "react";
+import { PausaIndividual } from "./PausaIndividual";
+import { useEffect, useRef, useState } from "react";
+import { useBlocker } from "react-router";
+import { useSaidaPartida } from "./saida-partida";
+import { useConexaoIndividual } from "./usar-conexao";
+import { useRascunho } from "./usar-rascunho";
 import { usePartida } from "./usar-partida";
 import {
   Botao,
@@ -7,29 +12,54 @@ import {
   EstadoVazio,
 } from "../../componentes/Comuns";
 import { EditorResposta } from "../entrada/EditorResposta";
-import { criarEntrada } from "../entrada/modelo";
 import { ResultadoIndividual } from "./ResultadoIndividual";
 import { NIVEIS, TEMAS } from "./apresentacao";
-import type { Rodada } from "./api";
+import type { Rodada, TipoAcao } from "./api";
 function Montagem({
   rodada,
   ocupado,
   aoEnviar,
+  base,
+  token,
+  versao,
+  aoPreparar,
+  aoRecarregar,
 }: {
   rodada: Rodada;
   ocupado: boolean;
   aoEnviar: (palpite: string) => void;
+  base: string;
+  token: string;
+  versao: number;
+  aoPreparar: (salvar: () => Promise<boolean>) => void;
+  aoRecarregar: () => void;
 }) {
-  const [entrada, definirEntrada] = useState(() =>
-    criarEntrada({ posicoes: rodada.posicoes, limites: rodada.limites }),
-  );
+  const rascunho = useRascunho(base, token, rodada, versao);
+  useEffect(() => {
+    aoPreparar(rascunho.salvar);
+    return () => aoPreparar(async () => true);
+  }, [aoPreparar, rascunho.salvar]);
   return (
-    <EditorResposta
-      estado={entrada}
-      aoAlterar={definirEntrada}
-      aoEnviar={aoEnviar}
-      ocupado={ocupado}
-    />
+    <>
+      <EditorResposta
+        estado={rascunho.entrada}
+        aoAlterar={rascunho.alterar}
+        aoEnviar={aoEnviar}
+        ocupado={ocupado}
+      />
+      <p className="situacao-rascunho" role="status">
+        {rascunho.aviso}
+      </p>
+      {rascunho.erro && (
+        <div className="aviso-erro" role="alert">
+          <p>{rascunho.erro}</p>
+          <Botao onClick={() => void rascunho.salvar()}>
+            Tentar salvar montagem
+          </Botao>
+          <Botao onClick={aoRecarregar}>Recarregar montagem salva</Botao>
+        </div>
+      )}
+    </>
   );
 }
 export function PainelIndividual({
@@ -42,9 +72,123 @@ export function PainelIndividual({
   demo?: boolean;
 }) {
   const jogo = usePartida(base, token);
+  const conexao = useConexaoIndividual(base, token, jogo.consulta.data);
+  const estado = jogo.consulta.data;
+  const preparar = useRef<() => Promise<boolean>>(async () => true);
+  const [externa, definirExterna] = useState<(() => void) | null>(null);
+  const travaSaida = useRef(false);
+  const [erroPreparacao, definirErroPreparacao] = useState("");
+  const protecao = useSaidaPartida();
+  const ativa = estado?.estado === "em_andamento";
+  const bloqueio = useBlocker(
+    ({ currentLocation, nextLocation }) =>
+      !!ativa && currentLocation.pathname !== nextLocation.pathname,
+  );
+  useEffect(() => {
+    protecao.registrar(ativa ? (acao) => definirExterna(() => acao) : null);
+    return () => protecao.registrar(null);
+  }, [ativa, protecao]);
+  const registrar = (salvar: () => Promise<boolean>) => {
+    preparar.current = salvar;
+  };
+  async function agir(tipo: TipoAcao, palpite?: string) {
+    if (!(await preparar.current())) {
+      definirErroPreparacao(
+        "Não foi possível confirmar as letras. Feche este aviso e confira a montagem antes de sair.",
+      );
+      return false;
+    }
+    definirErroPreparacao("");
+    return jogo.agir(tipo, palpite);
+  }
+  function liberar() {
+    if (bloqueio.state === "blocked") bloqueio.proceed();
+    else {
+      externa?.();
+      definirExterna(null);
+    }
+  }
+  async function sair() {
+    if (travaSaida.current) return;
+    travaSaida.current = true;
+    try {
+      if (estado?.estado === "em_andamento" && !(await agir("saida"))) return;
+      liberar();
+    } finally {
+      travaSaida.current = false;
+    }
+  }
+  function cancelar() {
+    if (bloqueio.state === "blocked") bloqueio.reset();
+    definirExterna(null);
+  }
+  return (
+    <>
+      <ConteudoIndividual
+        base={base}
+        token={token}
+        demo={demo}
+        jogo={jogo}
+        conexao={conexao}
+        agir={agir}
+        registrar={registrar}
+      />
+      <Dialogo
+        aberto={bloqueio.state === "blocked" || !!externa}
+        titulo="Sair e guardar suas pistas?"
+        aoFechar={cancelar}
+      >
+        <p>
+          Sua partida será pausada com desconto de 100 pontos. As letras, dicas
+          e descobertas confirmadas ficam guardadas.
+        </p>
+        {(jogo.erro || erroPreparacao) && (
+          <p role="alert">{jogo.erro || erroPreparacao}</p>
+        )}
+        {jogo.pendente ? (
+          <Botao
+            disabled={jogo.ocupado}
+            onClick={() =>
+              void jogo.reenviar().then((ok) => {
+                if (ok) liberar();
+              })
+            }
+          >
+            Reenviar mesma ação
+          </Botao>
+        ) : (
+          <Botao
+            className="acao"
+            disabled={jogo.ocupado || conexao.semRede}
+            onClick={() => void sair()}
+          >
+            Pausar e sair
+          </Botao>
+        )}
+      </Dialogo>
+    </>
+  );
+}
+function ConteudoIndividual({
+  base,
+  token,
+  demo,
+  jogo,
+  conexao,
+  agir,
+  registrar,
+}: {
+  base: string;
+  token: string;
+  demo: boolean;
+  jogo: ReturnType<typeof usePartida>;
+  conexao: ReturnType<typeof useConexaoIndividual>;
+  agir: (tipo: TipoAcao, palpite?: string) => Promise<boolean>;
+  registrar: (salvar: () => Promise<boolean>) => void;
+}) {
   const [anteriores, definirAnteriores] = useState(false);
   const [confirmacao, definirConfirmacao] = useState<
-    "palavra" | "partida" | null
+    "palavra" | "partida" | "pausa" | null
   >(null);
   const estado = jogo.consulta.data;
   if (jogo.consulta.isPending) return <Carregando />;
@@ -56,6 +200,18 @@ export function PainelIndividual({
           Tentar novamente
         </Botao>
       </EstadoVazio>
+    );
+  if (estado.estado === "pausada")
+    return (
+      <PausaIndividual
+        partida={estado}
+        ocupado={jogo.ocupado || conexao.semRede}
+        pendente={!!jogo.pendente}
+        erro={jogo.erro}
+        aoRetomar={() => void agir("retomada")}
+        aoEncerrar={() => void agir("encerramento")}
+        aoReenviar={() => void jogo.reenviar()}
+      />
     );
   if (jogo.retorno)
     return (
@@ -103,7 +259,8 @@ export function PainelIndividual({
         </Botao>
       </EstadoVazio>
     );
-  const bloqueado = jogo.ocupado || !!jogo.pendente;
+  const bloqueado =
+    jogo.ocupado || !!jogo.pendente || !conexao.pronta || conexao.semRede;
   return (
     <section className="partida-solo" aria-busy={jogo.ocupado}>
       <header className="hud-solo">
@@ -182,7 +339,7 @@ export function PainelIndividual({
           <div className="acoes-dica">
             <Botao
               disabled={bloqueado || rodada.dica_atual === 5}
-              onClick={() => jogo.agir("dicas")}
+              onClick={() => void agir("dicas")}
             >
               Pedir outra dica
             </Botao>
@@ -203,13 +360,40 @@ export function PainelIndividual({
               Reenviar mesma ação
             </Botao>
           )}
+          {conexao.semRede && (
+            <p className="aviso-erro" role="status">
+              Sem conexão. Seu último progresso confirmado está salvo. Vamos
+              reconectar sem desconto.
+            </p>
+          )}
+          {conexao.erro && (
+            <div className="aviso-erro" role="alert">
+              <p>{conexao.erro}</p>
+              <Botao onClick={() => void jogo.consulta.refetch()}>
+                Conferir partida
+              </Botao>
+            </div>
+          )}
           <Montagem
             key={`${rodada.rodada_id}-${jogo.limpeza}`}
+            base={base}
+            token={token}
+            versao={estado.versao}
+            aoPreparar={registrar}
+            aoRecarregar={() => {
+              void jogo.consulta.refetch().then(() => window.location.reload());
+            }}
             rodada={rodada}
             ocupado={bloqueado}
-            aoEnviar={(p) => jogo.agir("palpites", p)}
+            aoEnviar={(p) => void agir("palpites", p)}
           />
           <div className="desistencias-solo">
+            <Botao
+              disabled={bloqueado}
+              onClick={() => definirConfirmacao("pausa")}
+            >
+              Pausar partida
+            </Botao>
             <Botao
               disabled={bloqueado}
               onClick={() => definirConfirmacao("palavra")}
@@ -247,30 +431,38 @@ export function PainelIndividual({
         titulo={
           confirmacao === "palavra"
             ? "Revelar esta palavra?"
-            : "Encerrar por aqui?"
+            : confirmacao === "pausa"
+              ? "Fazer uma pausa?"
+              : "Encerrar por aqui?"
         }
         aoFechar={() => definirConfirmacao(null)}
       >
         <p>
-          {confirmacao === "palavra"
-            ? "Mostramos a resposta e seguimos para a próxima. Esta palavra vale zero pontos."
-            : "Você mantém os pontos conquistados. Esta partida será encerrada definitivamente e não poderá ser retomada."}
+          {confirmacao === "pausa"
+            ? "Sua partida fica guardada. Confirmar a pausa desconta 100 pontos, mesmo que seu saldo fique negativo."
+            : confirmacao === "palavra"
+              ? "Mostramos a resposta e seguimos para a próxima. Esta palavra vale zero pontos."
+              : "Você mantém os pontos conquistados. Esta partida será encerrada definitivamente e não poderá ser retomada."}
         </p>
         <Botao
           className="acao"
           disabled={bloqueado}
           onClick={() => {
-            jogo.agir(
-              confirmacao === "palavra"
-                ? "desistencia-palavra"
-                : "encerramento",
+            void agir(
+              confirmacao === "pausa"
+                ? "pausa"
+                : confirmacao === "palavra"
+                  ? "desistencia-palavra"
+                  : "encerramento",
             );
             definirConfirmacao(null);
           }}
         >
-          {confirmacao === "palavra"
-            ? "Revelar e seguir"
-            : "Encerrar definitivamente"}
+          {confirmacao === "pausa"
+            ? "Confirmar pausa de 100 pontos"
+            : confirmacao === "palavra"
+              ? "Revelar e seguir"
+              : "Encerrar definitivamente"}
         </Botao>
       </Dialogo>
     </section>

@@ -10,9 +10,12 @@ from aplicacao.modulos.autenticacao.rotas import exigir_conta_ativa
 from aplicacao.modulos.individual.esquemas import (
     AcaoIndividual,
     AcaoRodada,
+    ConectarIndividual,
     ConfiguracaoIndividual,
     EnviarPalpite,
     IniciarIndividual,
+    SalvarRascunho,
+    SinalIndividual,
 )
 from aplicacao.modulos.individual.servico import ServicoIndividual
 
@@ -73,3 +76,45 @@ async def desistir_palavra(
 @rotas.post("/{partida_id}/encerramento")
 async def encerrar(partida_id: UUID, dados: AcaoIndividual, requisicao: Request, conta: Titular):
     return await servico(requisicao).agir(conta.jogador_id, partida_id, "encerramento", dados)
+
+
+@rotas.post("/{partida_id}/pausa")
+async def pausa_individual(
+    partida_id: UUID, dados: AcaoIndividual, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).agir(conta.jogador_id, partida_id, "pausa", dados)
+
+
+@rotas.post("/{partida_id}/retomada")
+async def retomada_individual(
+    partida_id: UUID, dados: AcaoIndividual, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).agir(conta.jogador_id, partida_id, "retomada", dados)
+
+
+@rotas.post("/{partida_id}/saida")
+async def saida_individual(
+    partida_id: UUID, dados: AcaoIndividual, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).agir(conta.jogador_id, partida_id, "saida", dados)
+
+
+@rotas.post("/{partida_id}/rascunho")
+async def rascunho_individual(
+    partida_id: UUID, dados: SalvarRascunho, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).continuidade(conta.jogador_id, partida_id, "rascunho", dados)
+
+
+@rotas.post("/{partida_id}/conexoes")
+async def conexoes_individual(
+    partida_id: UUID, dados: ConectarIndividual, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).continuidade(conta.jogador_id, partida_id, "conexoes", dados)
+
+
+@rotas.post("/{partida_id}/sinais")
+async def sinais_individual(
+    partida_id: UUID, dados: SinalIndividual, requisicao: Request, conta: Titular
+):
+    return await servico(requisicao).continuidade(conta.jogador_id, partida_id, "sinais", dados)

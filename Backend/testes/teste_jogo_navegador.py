@@ -87,8 +87,8 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
             assert resultado.returncode == 0, resultado.stdout + resultado.stderr
             with base_perfil.connect() as conexao:
                 assert list(conexao.execute(select(resultados_individuais.c.pontos)).scalars()) == [
-                    300,
-                    300,
+                    200,
+                    200,
                 ]
         finally:
             servidor.should_exit = True

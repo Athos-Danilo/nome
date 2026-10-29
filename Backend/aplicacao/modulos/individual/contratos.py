@@ -4,7 +4,13 @@ from typing import Protocol
 from uuid import UUID
 
 from aplicacao.bancos.conteudo import DocumentoPalavra
-from aplicacao.modulos.individual.esquemas import AcaoIndividual, ConfiguracaoIndividual
+from aplicacao.modulos.individual.esquemas import (
+    AcaoIndividual,
+    ConectarIndividual,
+    ConfiguracaoIndividual,
+    SalvarRascunho,
+    SinalIndividual,
+)
 
 
 class CatalogoIndividual(Protocol):
@@ -37,4 +43,20 @@ class RepositorioIndividual(Protocol):
     ) -> dict: ...
     async def agir_demonstracao(
         self, resumo: str, tipo: str, dados: AcaoIndividual, catalogo: CatalogoIndividual
+    ) -> dict: ...
+
+    async def continuidade(
+        self,
+        jogador_id: UUID,
+        partida_id: UUID,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        catalogo: CatalogoIndividual,
+    ) -> dict: ...
+    async def continuidade_demonstracao(
+        self,
+        resumo: str,
+        operacao: str,
+        dados: SalvarRascunho | ConectarIndividual | SinalIndividual,
+        catalogo: CatalogoIndividual,
     ) -> dict: ...

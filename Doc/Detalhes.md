@@ -401,7 +401,7 @@ O salvamento deverá preservar, no mínimo:
 
 Ao retomar, a pontuação possível da rodada continuará vinculada à dica em que o jogador estava. O sistema não deverá reiniciar a rodada na primeira dica.
 
-A conservação das letras parcialmente preenchidas e dos palpites anteriores ainda não foi confirmada.
+Decisão D13 aprovada em 2026-10-29: preservar também as letras em edição e a posição selecionada, incluindo acentos, números e sinais fixos. A interface confirma quando a montagem foi salva; alterações ainda não confirmadas podem não sobreviver a um fechamento abrupto ou à perda de conexão. Palpites já enviados continuam registrados no servidor; não foi aprovada uma lista visual de todas as tentativas anteriores. Implementação e limites em [Pausa e retomada](Pausa-retomada-individual.md).
 
 ### 12.3. Saída, pausa e abandono
 
@@ -594,7 +594,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-18 | Calcular a pontuação conforme a dica atual | Definido |
 | RF-19 | Permitir desistir da palavra, revelar a resposta e registrar zero | Definido |
 | RF-20 | Salvar e retomar uma única partida individual em andamento por jogador | Definido |
-| RF-21 | Descontar 100 pontos por pausa/saída confirmada, sem duplicação; recarga e casos ambíguos não descontam | Política e prova técnica definidas; integração pendente |
+| RF-21 | Descontar 100 pontos por pausa/saída confirmada, sem duplicação; recarga e casos ambíguos não descontam | Implementado no individual na fase 28; limites de navegador documentados |
 | RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
 | RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Definido |
 | RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Primeira entrega confirmada; regras em detalhamento |

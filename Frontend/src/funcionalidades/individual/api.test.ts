@@ -55,3 +55,47 @@ it("reenvia exatamente a mesma ação após falha de conexão", async () => {
   ).rejects.toBeDefined();
   expect(chamada.mock.calls[0][1].body).toBe(chamada.mock.calls[1][1].body);
 });
+
+function partidaComRascunho() {
+  return {
+    partida_id: "uma",
+    estado: "em_andamento",
+    origem: "normal",
+    versao: 1,
+    pontuacao: 0,
+    quantidade_palavras: 3,
+    rodadas_concluidas: 0,
+    acertos: 0,
+    quantidade_pausas: 0,
+    resumo_rodadas: [],
+    rodada_atual: {
+      rodada_id: "rodada",
+      ordem: 1,
+      dificuldade: "facil",
+      tematicas: ["animais"],
+      posicoes: [null, null, null, null],
+      dica_atual: 1,
+      dicas_reveladas: ["Uma pista"],
+      pontos_disponiveis: 100,
+      rascunho: { letras: ["G", "A", "", ""], selecionada: 2, revisao: 1 },
+    },
+  };
+}
+it("recusa rascunho com comprimento incompatível com a máscara", async () => {
+  const { validarPartida } = await import("./api");
+  const p = partidaComRascunho();
+  p.rodada_atual.rascunho.letras = ["G"];
+  expect(() => validarPartida(p)).toThrow();
+});
+it("recusa rascunho com mais de um caractere por posição", async () => {
+  const { validarPartida } = await import("./api");
+  const p = partidaComRascunho();
+  p.rodada_atual.rascunho.letras = ["GA", "A", "", ""];
+  expect(() => validarPartida(p)).toThrow();
+});
+it("recusa quantidade negativa de pausas", async () => {
+  const { validarPartida } = await import("./api");
+  const p = partidaComRascunho();
+  p.quantidade_pausas = -1;
+  expect(() => validarPartida(p)).toThrow();
+});

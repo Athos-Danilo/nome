@@ -21,6 +21,11 @@ export type Plano = {
   alternativas: string[];
   configuracao?: Configuracao & { sequencia_efetiva: Dificuldade[] };
 };
+export type Rascunho = {
+  letras: string[];
+  selecionada: number;
+  revisao: number;
+};
 export type Rodada = {
   rodada_id: string;
   ordem: number;
@@ -31,6 +36,7 @@ export type Rodada = {
   dicas_reveladas: string[];
   pontos_disponiveis: number;
   limites?: Record<string, number>;
+  rascunho?: Rascunho | null;
 };
 export type ResumoRodada = {
   ordem: number;
@@ -48,6 +54,7 @@ export type Partida = {
   quantidade_palavras: number;
   rodadas_concluidas: number;
   acertos: number;
+  quantidade_pausas?: number;
   rodada_atual: Rodada | null;
   resumo_rodadas: ResumoRodada[];
   acao?: {
@@ -64,7 +71,13 @@ export type Acao = {
   palpite?: string;
 };
 export type TipoAcao =
-  "palpites" | "dicas" | "desistencia-palavra" | "encerramento";
+  | "palpites"
+  | "dicas"
+  | "desistencia-palavra"
+  | "encerramento"
+  | "pausa"
+  | "retomada"
+  | "saida";
 
 function objeto(v: unknown): v is Record<string, unknown> {
   return !!v && typeof v === "object";
@@ -75,12 +88,36 @@ function inteiro(v: unknown): v is number {
 function dificuldade(v: unknown): v is Dificuldade {
   return ["facil", "medio", "dificil"].includes(String(v));
 }
+function rascunhoValido(r: unknown, posicoes: unknown): boolean {
+  if (r === undefined || r === null) return true;
+  if (
+    !objeto(r) ||
+    !Array.isArray(posicoes) ||
+    !Array.isArray(r.letras) ||
+    r.letras.length !== posicoes.length ||
+    !inteiro(r.revisao) ||
+    r.revisao < 1 ||
+    !inteiro(r.selecionada) ||
+    r.selecionada < -1 ||
+    r.selecionada >= posicoes.length
+  )
+    return false;
+  return r.letras.every(
+    (c, i) =>
+      typeof c === "string" &&
+      c === c.normalize("NFC").toUpperCase() &&
+      (posicoes[i] === null
+        ? c === "" || /^[\p{L}0-9]$/u.test(c)
+        : c === posicoes[i]),
+  );
+}
 function rodadaValida(v: unknown): v is Rodada {
   return (
     objeto(v) &&
     typeof v.rodada_id === "string" &&
     inteiro(v.ordem) &&
     dificuldade(v.dificuldade) &&
+    rascunhoValido(v.rascunho, v.posicoes) &&
     Array.isArray(v.tematicas) &&
     v.tematicas.every((x) => typeof x === "string") &&
     Array.isArray(v.posicoes) &&
@@ -122,6 +159,8 @@ export function validarPartida(v: unknown): Partida {
     v.quantidade_palavras < 1 ||
     !inteiro(v.rodadas_concluidas) ||
     !inteiro(v.acertos) ||
+    (v.quantidade_pausas !== undefined &&
+      (!inteiro(v.quantidade_pausas) || v.quantidade_pausas < 0)) ||
     !(v.rodada_atual === null || rodadaValida(v.rodada_atual)) ||
     !Array.isArray(v.resumo_rodadas) ||
     !v.resumo_rodadas.every(
@@ -208,5 +247,52 @@ export async function enviarAcao(
 ): Promise<Partida> {
   return validarPartida(
     await requisitar(`${base}/${tipo}`, "POST", dados, token),
+  );
+}
+
+export type IdentidadeDocumento = { aba_id: string; documento_id: string };
+export async function conectarPartida(
+  base: string,
+  identidade: IdentidadeDocumento,
+  navegacao: string,
+  token: string,
+): Promise<Partida> {
+  return validarPartida(
+    await requisitar(
+      `${base}/conexoes`,
+      "POST",
+      { ...identidade, navegacao },
+      token,
+    ),
+  );
+}
+export async function sinalizarPartida(
+  base: string,
+  dados: IdentidadeDocumento & {
+    evento_id: string;
+    versao_esperada: number;
+    tipo: string;
+    persistido: boolean;
+  },
+  token: string,
+): Promise<Partida> {
+  return validarPartida(
+    await requisitar(`${base}/sinais`, "POST", dados, token, true),
+  );
+}
+export async function salvarMontagem(
+  base: string,
+  dados: {
+    versao_esperada: number;
+    rodada_id: string;
+    revisao_esperada: number;
+    letras: string[];
+    selecionada: number;
+  },
+  token: string,
+  manterViva = false,
+): Promise<Partida> {
+  return validarPartida(
+    await requisitar(`${base}/rascunho`, "POST", dados, token, manterViva),
   );
 }

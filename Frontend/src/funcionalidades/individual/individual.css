@@ -768,3 +768,19 @@ html[data-movimentos="reduzidos"] .reacao-solo {
     flex-basis: 100%;
   }
 }
+
+.pausa-solo {
+  max-width: 800px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 10px 0 35px;
+}
+.pausa-solo h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+.situacao-rascunho {
+  font-size: 0.75rem;
+  text-align: center;
+  min-height: 20px;
+  margin: 4px 0;
+}

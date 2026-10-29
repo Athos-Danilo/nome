@@ -165,6 +165,7 @@ rodadas = Table(
     Column("dificuldade", String(10), nullable=False),
     Column("estado", String(12), nullable=False, server_default="reservada"),
     Column("dica_atual", Integer),
+    Column("rascunho", JSONB),
     Column("apresentada_em", DateTime(timezone=True)),
     Column("pontuacao", Integer, nullable=False, server_default="0"),
     UniqueConstraint("partida_id", "id"),
@@ -200,4 +201,16 @@ Index(
     rodadas.c.ordem,
     unique=True,
     postgresql_where=text("sessao_id IS NOT NULL"),
+)
+
+
+conexoes_individuais = Table(
+    "conexoes_individuais",
+    metadados,
+    Column("partida_id", ForeignKey("partidas.id"), primary_key=True),
+    Column("aba_id", Uuid, primary_key=True),
+    Column("documento_id", Uuid, nullable=False),
+    Column("ultimo_sinal", DateTime(timezone=True), nullable=False, server_default=text("now()")),
+    Column("evento_pendente_id", Uuid),
+    Column("persistido", Boolean, nullable=False, server_default=text("false")),
 )

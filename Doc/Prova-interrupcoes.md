@@ -115,3 +115,6 @@ Suspensão e reinício do provedor gratuito não podem ser tratados como saída 
 - [MDN — sessionStorage e restauração](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage).
 - [MDN — sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon).
 - [Playwright — servidores de teste](https://playwright.dev/docs/test-webserver) e [relógio controlado](https://playwright.dev/docs/clock).
+
+
+**Atualização da fase 28:** continuidade persistida integrada ao individual e à demonstração. Pausa, retomada, montagem e tratamento conservador das interrupções estão em [Pausa e retomada](Pausa-retomada-individual.md). Os registros anteriores deste documento descrevem as verificações das fases originais; a integração da galera continua na fase 33.

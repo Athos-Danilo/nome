@@ -61,11 +61,13 @@ export async function requisitar(
   metodo = "GET",
   dados?: unknown,
   token?: string,
+  manterViva = false,
 ): Promise<unknown> {
   let resposta: Response;
   try {
     resposta = await fetch(caminho, {
       method: metodo,
+      keepalive: manterViva,
       credentials: "same-origin",
       cache: "no-store",
       headers: {

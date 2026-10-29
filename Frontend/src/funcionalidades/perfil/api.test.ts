@@ -60,3 +60,18 @@ it("descarta campos extras no armazenamento local antes de vincular preferência
     lerPreferenciasLocais({ getItem: () => JSON.stringify(recebido) }),
   ).toEqual(PADRAO);
 });
+
+it("mantém o aviso de saída autenticado mesmo quando o documento é descarregado", async () => {
+  const { requisitar } = await import("./api");
+  const chamada = vi.fn().mockResolvedValue(new Response("{}"));
+  vi.stubGlobal("fetch", chamada);
+  await requisitar(
+    "/api/partidas/uma/sinais",
+    "POST",
+    { tipo: "pagehide" },
+    "csrf",
+    true,
+  );
+  expect(chamada.mock.calls[0][1].keepalive).toBe(true);
+  expect(chamada.mock.calls[0][1].headers["X-Decifra-CSRF"]).toBe("csrf");
+});

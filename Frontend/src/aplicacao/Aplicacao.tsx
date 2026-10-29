@@ -1,10 +1,15 @@
+import {
+  ProtecaoNavegacao,
+  useSaidaPartida,
+} from "../funcionalidades/individual/saida-partida";
 import { RotaIndividual } from "../funcionalidades/individual/RotaIndividual";
 import { ConteudoConta } from "../funcionalidades/perfil/ConteudoConta";
 import { PaginaEmPreparacao } from "../componentes/PaginaEmPreparacao";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import {
-  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
   Link,
   NavLink,
   Navigate,
@@ -29,17 +34,19 @@ const consultas = new QueryClient({
     mutations: { retry: false },
   },
 });
+const roteador = createBrowserRouter([{ path: "*", element: <Jogo /> }]);
 export function Aplicacao() {
   return (
     <QueryClientProvider client={consultas}>
-      <BrowserRouter>
-        <Jogo />
-      </BrowserRouter>
+      <ProtecaoNavegacao>
+        <RouterProvider router={roteador} />
+      </ProtecaoNavegacao>
     </QueryClientProvider>
   );
 }
 function Jogo() {
   const dados = useConta();
+  const saidaPartida = useSaidaPartida();
   const { pathname: caminho } = useLocation();
   const [ajuda, definirAjuda] = useState(false);
   const { conta, perfil, carregando, ocupado, efetivas } = dados;
@@ -168,7 +175,10 @@ function Jogo() {
             </Link>
           )}
           {conta && (
-            <Botao onClick={() => dados.sair.mutate()} disabled={ocupado}>
+            <Botao
+              onClick={() => saidaPartida.solicitar(() => dados.sair.mutate())}
+              disabled={ocupado}
+            >
               Sair
             </Botao>
           )}
