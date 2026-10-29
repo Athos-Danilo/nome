@@ -56,3 +56,8 @@ Os seis testes de integração novos usam bancos PostgreSQL descartáveis e veri
 Para experimentar: executar o ambiente local e abrir [Decifra local](http://localhost:5173). Consulte também [contratos](Contratos-api.md), [modelagem](Modelagem-dados.md) e [autenticação](Autenticacao-google.md).
 
 **Revisão dos avatares em 2026-10-28:** vinte retratos ilustrados substituem os SVG na coleção exibida, conforme pedido do responsável para seguir o conceito do Aurélio. Mantidos os identificadores e as escolhas das contas. A revisão verificou 7 testes de backend, 27 unitários de frontend e 27 fluxos de navegador, além de compilação e formatação. Os números da tabela anterior registram a verificação inicial da fase; não representam nova execução integral do backend nesta revisão. [Recursos, prompts e resultados](Identidade-visual/Avatares/LEIA-ME.md).
+
+
+## Complemento: paletas de aparência
+
+Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada uma em claro/escuro e todas com destaque #D4FE62. Paleta é escolhida nas configurações e confirmada ao salvar; tema é alternado exclusivamente pelo botão lua/sol. Escolhas são independentes e persistem nas preferências locais/da conta, preservando a precedência já aprovada. Dados anteriores usam Original sem perder os demais ajustes. Especificação e valores no [Guia visual](Guia-visual.md#8-paletas-adicionais--decisão-de-2026-10-29). Implementado com campo `paleta` nas preferências, migração aditiva 0008, normalização de registros antigos e opções de rádio com prévia no formulário. Contratos e evidências no guia visual.

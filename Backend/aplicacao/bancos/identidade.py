@@ -60,6 +60,8 @@ preferencias = Table(
     metadados,
     Column("jogador_id", ForeignKey("jogadores.id"), primary_key=True),
     Column("tema", String(10), nullable=False, server_default="claro"),
+    Column("paleta", String(10), nullable=False, server_default="original"),
+    CheckConstraint("paleta IN ('original', 'azul', 'roxa', 'grafite')", name="paleta"),
     Column("musica_id", String(60)),
     Column("volume_musica", Integer, nullable=False, server_default="70"),
     Column("volume_interface", Integer, nullable=False, server_default="70"),

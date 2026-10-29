@@ -116,7 +116,7 @@ test("visitante navega pelo menu e volta das configurações sem consumir demons
   ).toBeVisible();
   await page.getByRole("link", { name: "Configurações", exact: true }).click();
   await expect(page).toHaveURL(/\/configuracoes$/);
-  await page.getByRole("combobox", { name: /^Tema/ }).selectOption("escuro");
+  await page.getByRole("button", { name: "Ativar tema escuro" }).click();
   await page.getByRole("button", { name: "Salvar preferências" }).click();
   await page.getByRole("link", { name: "Voltar ao menu" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
@@ -258,9 +258,7 @@ test("atalho de tema não grava ajustes de áudio ainda não confirmados", async
   await page.getByRole("slider", { name: /interface e teclado/i }).fill("15");
   await page.getByRole("button", { name: "Ativar tema escuro" }).click();
   await page.reload();
-  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
-    "escuro",
-  );
+  await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
   await expect(
     page.getByRole("slider", { name: /interface e teclado/i }),
   ).toHaveValue("70");

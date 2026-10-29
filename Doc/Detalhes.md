@@ -907,3 +907,8 @@ O planejamento de pastas foi ajustado para essas convenções. Ferramentas que n
 O roteiro de acompanhamento da primeira entrega é mantido apenas localmente, fora do versionamento. Ele detalha 49 fases, com dependências, tarefas, critérios de conclusão e momentos para decisões do responsável pelo projeto. Inclui os dois modos e intercala vinte lotes de 25 respostas durante o desenvolvimento.
 
 O calendário de sete dias é uma referência ajustável de organização, não um novo prazo de entrega aprovado. A fase final de validação depende de completar e revisar as 500 respostas e suas 2.500 dicas. O andamento real dos lotes será registrado em [Controle-do-catalogo.md](Controle-do-catalogo.md).
+
+
+## Complemento: paletas de aparência
+
+Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada uma em claro/escuro e todas com destaque #D4FE62. Paleta é escolhida nas configurações e confirmada ao salvar; tema é alternado exclusivamente pelo botão lua/sol. Escolhas são independentes e persistem nas preferências locais/da conta, preservando a precedência já aprovada. Dados anteriores usam Original sem perder os demais ajustes. Especificação e valores no [Guia visual](Guia-visual.md#8-paletas-adicionais--decisão-de-2026-10-29). Implementado com campo `paleta` nas preferências, migração aditiva 0008, normalização de registros antigos e opções de rádio com prévia no formulário. Contratos e evidências no guia visual.

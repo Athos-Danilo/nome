@@ -57,6 +57,7 @@ export function useConta() {
   const efetivas = previa ?? preferencias.data ?? locais;
   useEffect(() => {
     document.documentElement.dataset.tema = efetivas.tema;
+    document.documentElement.dataset.paleta = efetivas.paleta;
     document.documentElement.dataset.movimentos = efetivas.movimentos_reduzidos
       ? "reduzidos"
       : "completos";

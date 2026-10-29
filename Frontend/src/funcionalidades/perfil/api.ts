@@ -163,7 +163,7 @@ function lerPreferencias(dados: unknown): PreferenciasSalvas {
       "RESPOSTA_INVALIDA",
       "Não foi possível recuperar suas preferências.",
     );
-  return { ...dados, salvas: dados.salvas };
+  return { ...somentePreferencias(dados), salvas: dados.salvas };
 }
 export async function consultarPreferencias(): Promise<PreferenciasSalvas> {
   return lerPreferencias(await requisitar("/api/preferencias"));

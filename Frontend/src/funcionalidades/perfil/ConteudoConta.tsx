@@ -13,7 +13,7 @@ export function ConteudoConta({
   if (configuracoes)
     return (
       <FormularioPreferencias
-        key={`${conta?.jogador_id ?? "visitante"}-${preferencias.dataUpdatedAt}`}
+        key={conta?.jogador_id ?? "visitante"}
         inicial={preferencias.data ?? dados.locais}
         ocupado={ocupado}
         visitante={!conta}

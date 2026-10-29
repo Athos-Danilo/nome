@@ -85,3 +85,37 @@ A verificação cobre o protótipo em navegador, não dispositivos físicos nem 
 ## 7. Limites da aprovação
 
 A fase 02 define uma base visual consistente e alterável. Marca e Aurélio serão desenvolvidos na fase 04; navegação completa, na fase 06. Se o responsável solicitar outra paleta ao avaliar o frontend, atualizar este guia e as variáveis de tema, repetindo as verificações afetadas.
+
+
+## 8. Paletas adicionais — decisão de 2026-10-29
+
+O jogador poderá escolher **Original, Azul, Roxa ou Grafite** nas configurações, com prévia e confirmação pelo botão de salvar preferências. Original permanece como padrão. Cada paleta possui claro/escuro independentes: o **botão de lua/sol** continua sendo o controle de alternância; remover o seletor de tema de dentro do formulário. Trocar paleta não muda o modo, e trocar modo não muda a paleta ou salva outros ajustes ainda não confirmados.
+
+Verde-lima **#D4FE62** permanece em todas, com texto escuro sobre botões e destaques verdes. Marca, avatares, ilustrações, fontes, regras, som e movimentos não são recoloridos automaticamente. Sombras, decoração e cores de apoio do cenário acompanham a paleta; estados e foco continuam legíveis. Paletas não criam modos de jogo.
+
+| Paleta / modo | Fundo | Painéis | Texto | Detalhes |
+| --- | --- | --- | --- | --- |
+| Original claro/escuro | Conforme seção 1 | Conforme seção 1 | Conforme seção 1 | Conforme seção 1 |
+| Azul claro | #DCE8F5 | #F5F9FF | #20334D | #536B89 |
+| Azul escuro | #101C2D | #1D3048 | #EDF5FF | #A4B8D3 |
+| Roxa claro | #E8DFF5 | #FAF6FF | #39264D | #745C8C |
+| Roxa escuro | #21162E | #352343 | #F6EDFF | #C3ACD9 |
+| Grafite claro | #F0F0EA | #FAFAF5 | #292D25 | #666D5E |
+| Grafite escuro | #111310 | #20231D | #F3F4EC | #AFB7A3 |
+
+A escolha persiste no navegador para visitantes e no PostgreSQL para contas. Conta nova herda preferências locais; conta existente mantém as salvas, inclusive em outro dispositivo. Registros anteriores recebem Original sem perder tema/áudio. Valores desconhecidos são recusados pela API. Paleta fica em campo separado de tema; a migração será aditiva.
+
+Verificar as oito combinações em computador, tablet e celular: seleção, prévia, salvar, recarga, lua/sol, teclado, foco, ausência de rolagem horizontal e contraste de textos/controles. Aplicar TDD a persistência, validação e interação. A revisão visual por IA não substitui a avaliação estética do responsável.
+
+
+### Implementação e verificação das paletas
+
+Migração **0008** adiciona `preferencias.paleta`, não nulo, padrão `original`, limitado por CHECK a `original`, `azul`, `roxa` e `grafite`. A API GET/PUT `/api/preferencias` lê/grava esse campo com a mesma autorização, origem e CSRF existentes. Preferências antigas no armazenamento local e respostas sem esse campo são normalizadas para Original; dados com paleta desconhecida não são aceitos como preferências válidas.
+
+O seletor usa quatro opções de rádio com amostras de claro, escuro e verde-lima. Permite teclado, toque e prévia imediata; salvar confirma a escolha. O seletor claro/escuro foi retirado do formulário. A lua/sol grava somente a mudança de modo sobre as preferências já confirmadas, mantendo a prévia e os ajustes em edição até seu salvamento explícito. Assim, salvar o formulário depois de alternar o modo não restaura o tema antigo.
+
+Variáveis CSS controlam cenário, painéis, texto, detalhes, apoio e exterior da moldura. A cor comum `--lima` permanece #D4FE62. Marca e ilustrações mantêm suas cores. A interface usa atributos independentes `data-paleta` e `data-tema`.
+
+Contrastes calculados de texto principal sobre fundo/painel: Azul claro 10,29/12,10; Azul escuro 15,58/12,18; Roxa claro 10,46/12,64; Roxa escuro 15,16/12,54; Grafite claro 12,27/13,40; Grafite escuro 16,86/14,37. São relações entre essas cores específicas, não certificação integral de acessibilidade das telas.
+
+TDD: os testes novos falharam inicialmente pela falta de paleta na API, ausência da migração das preferências locais e aceitação de valor inexistente. O navegador falhou pela ausência das opções de paleta. Durante a integração, os testes de visitante reproduziram o formulário restaurando o modo antigo após lua/sol; a correção preserva os rascunhos e sincroniza o modo no formulário. Verificações aprovadas: 183 testes backend incluindo a prova React/HTTP/PostgreSQL; 55 testes unitários frontend; 111 cenários de navegador (42 de perfil/demonstração, 24 de menu e 45 do individual). O cenário das quatro paletas exercitou as oito combinações em três tamanhos de tela (24 combinações), incluindo prévia, salvar, recarga, verde comum e independência de tema. Contraste calculado e capturas revisadas por IA; avaliação estética do responsável não foi presumida. Ruff, Prettier, tipos e compilação aprovados; migração 0008 aplicada localmente e API reiniciada. O aviso anterior do pacote JavaScript acima de 500 kB permanece para a revisão de desempenho.

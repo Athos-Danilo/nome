@@ -1,5 +1,8 @@
+export const PALETAS = ["original", "azul", "roxa", "grafite"] as const;
+export type Paleta = (typeof PALETAS)[number];
 export type Preferencias = {
   tema: "claro" | "escuro";
+  paleta: Paleta;
   musica_id: string | null;
   volume_musica: number;
   volume_interface: number;
@@ -11,6 +14,7 @@ export type PreferenciasSalvas = Preferencias & { salvas: boolean };
 export const CHAVE_PREFERENCIAS = "decifra_preferencias";
 export const PADRAO: Preferencias = {
   tema: "claro",
+  paleta: "original",
   musica_id: null,
   volume_musica: 70,
   volume_interface: 70,
@@ -21,6 +25,7 @@ export const PADRAO: Preferencias = {
 export function somentePreferencias(dados: Preferencias): Preferencias {
   return {
     tema: dados.tema,
+    paleta: dados.paleta ?? "original",
     musica_id: dados.musica_id,
     volume_musica: dados.volume_musica,
     volume_interface: dados.volume_interface,
@@ -38,6 +43,7 @@ export function preferenciasValidas(valor: unknown): valor is Preferencias {
     dados.volume_eventos,
   ];
   return (
+    (dados.paleta === undefined || PALETAS.some((p) => p === dados.paleta)) &&
     (dados.tema === "claro" || dados.tema === "escuro") &&
     (dados.musica_id === null ||
       ["lofi_01", "lofi_02", "lofi_03", "arcade_01", "arcade_02"].includes(

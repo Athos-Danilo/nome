@@ -57,3 +57,21 @@ describe("preferências e nomes do perfil", () => {
     (valor) => expect(nomeValido(valor)).toBe(false),
   );
 });
+
+it("migra preferências antigas sem perder o modo escuro", () => {
+  const antigas = {
+    tema: "escuro",
+    musica_id: null,
+    volume_musica: 20,
+    volume_interface: 30,
+    volume_eventos: 40,
+    silenciado: false,
+    movimentos_reduzidos: true,
+  };
+  expect(
+    lerPreferenciasLocais({ getItem: () => JSON.stringify(antigas) }),
+  ).toMatchObject({ paleta: "original", tema: "escuro", volume_musica: 20 });
+});
+it("recusa paleta inexistente", () => {
+  expect(preferenciasValidas({ ...PADRAO, paleta: "coral" })).toBe(false);
+});

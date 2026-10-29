@@ -1,5 +1,5 @@
-import { useState, type SubmitEvent } from "react";
-import type { Preferencias } from "./preferencias";
+import { useEffect, useState, type SubmitEvent } from "react";
+import { PALETAS, type Preferencias } from "./preferencias";
 
 export function FormularioPreferencias({
   inicial,
@@ -15,6 +15,9 @@ export function FormularioPreferencias({
   visitante?: boolean;
 }) {
   const [dados, definirDados] = useState<Preferencias>({ ...inicial });
+  useEffect(() => {
+    definirDados((anteriores) => ({ ...anteriores, tema: inicial.tema }));
+  }, [inicial.tema]);
   function alterar<C extends keyof Preferencias>(
     campo: C,
     valor: Preferencias[C],
@@ -40,21 +43,40 @@ export function FormularioPreferencias({
         <legend className="somente-leitor">
           Preferências de aparência e áudio
         </legend>
-        <label>
-          Tema
-          <select
-            value={dados.tema}
-            onChange={(evento) =>
-              alterar(
-                "tema",
-                evento.target.value === "escuro" ? "escuro" : "claro",
-              )
-            }
-          >
-            <option value="claro">Claro</option>
-            <option value="escuro">Escuro</option>
-          </select>
-        </label>
+        <fieldset className="escolha-paletas">
+          <legend>Paleta de cores</legend>
+          <p>
+            Escolha o cenário. Use o botão de lua/sol para alternar entre claro
+            e escuro.
+          </p>
+          <div className="opcoes-paletas">
+            {PALETAS.map((paleta) => (
+              <label key={paleta} className={`opcao-paleta amostra-${paleta}`}>
+                <input
+                  type="radio"
+                  name="paleta"
+                  value={paleta}
+                  checked={dados.paleta === paleta}
+                  onChange={() => alterar("paleta", paleta)}
+                />
+                <span className="cores-paleta" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <strong>
+                  {paleta === "original"
+                    ? "Original"
+                    : paleta === "azul"
+                      ? "Azul"
+                      : paleta === "roxa"
+                        ? "Roxa"
+                        : "Grafite"}
+                </strong>
+              </label>
+            ))}
+          </div>
+        </fieldset>
         <label className="alternativa">
           <input
             type="checkbox"

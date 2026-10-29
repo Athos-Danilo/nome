@@ -165,6 +165,7 @@ def teste_preferencias_primeiro_login_nao_sobrescreve_conta_e_volta_em_outro_dis
             assert resposta.status_code == 200 and resposta.json()["salvas"] is False
             dados = {
                 "tema": "escuro",
+                "paleta": "azul",
                 "musica_id": None,
                 "volume_musica": 20,
                 "volume_interface": 35,
@@ -186,6 +187,7 @@ def teste_preferencias_primeiro_login_nao_sobrescreve_conta_e_volta_em_outro_dis
             ) as dispositivo:
                 await entrar(dispositivo)
                 assert (await dispositivo.get("/api/preferencias")).json()["volume_musica"] == 20
+                assert (await dispositivo.get("/api/preferencias")).json()["paleta"] == "azul"
             for invalido in [
                 dict(dados, volume_musica=101),
                 dict(dados, volume_musica=True),
@@ -420,5 +422,22 @@ def teste_exclusao_concorrente_nao_recria_preferencias_nem_publica_partida_ativa
                 assert not conexao.execute(select(resultados_individuais)).all()
                 assert conexao.execute(select(partidas.c.estado)).scalar_one() == "preparada"
                 assert conexao.execute(select(partidas.c.configuracao)).scalar_one() == {}
+
+    executar(verificar())
+
+
+def teste_paletas_persistem_sem_alterar_tema_e_rejeitam_valor_invalido(base_perfil):
+    async def verificar():
+        async with contexto(base_perfil) as (cliente, api, google, sessao):
+            assert (await cliente.get("/api/preferencias")).json()["paleta"] == "original"
+            for paleta in ["original", "azul", "roxa", "grafite"]:
+                dados = {"paleta": paleta, "tema": "escuro"}
+                resposta = await cliente.put("/api/preferencias", json=dados)
+                assert resposta.status_code == 200, resposta.text
+                assert resposta.json()["paleta"] == paleta
+                assert (await cliente.get("/api/preferencias")).json()["tema"] == "escuro"
+            assert (
+                await cliente.put("/api/preferencias", json={"paleta": "coral"})
+            ).status_code == 422
 
     executar(verificar())

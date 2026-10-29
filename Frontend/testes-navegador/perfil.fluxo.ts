@@ -238,15 +238,13 @@ test("preferências da conta prevalecem e alterações persistem", async ({
   await preparar(page, true, true);
   await page.goto("/");
   await page.getByRole("link", { name: "Configurações", exact: true }).click();
-  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
-    "escuro",
-  );
+  await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
   await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
   await page.screenshot({
     path: `test-results/preferencias-escuras-${informacoes.project.name}.png`,
     fullPage: true,
   });
-  await page.getByRole("combobox", { name: /^Tema/ }).selectOption("claro");
+  await page.getByRole("button", { name: "Ativar tema claro" }).click();
   await page.getByLabel("Silenciar tudo").check();
   await page.getByRole("button", { name: "Salvar preferências" }).click();
   await expect(
@@ -254,9 +252,7 @@ test("preferências da conta prevalecem e alterações persistem", async ({
   ).toBeVisible();
   await page.reload();
   await page.getByRole("link", { name: "Configurações", exact: true }).click();
-  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
-    "claro",
-  );
+  await expect(page.locator("html")).toHaveAttribute("data-tema", "claro");
   await expect(page.getByLabel("Silenciar tudo")).toBeChecked();
 });
 
@@ -324,12 +320,12 @@ test("visitante guarda preferências somente no navegador", async ({ page }) => 
       escritas++;
   });
   await page.goto("/configuracoes");
-  await page.getByRole("combobox", { name: /^Tema/ }).selectOption("escuro");
+  await page.getByRole("radio", { name: "Grafite", exact: true }).check();
+  await page.getByRole("button", { name: "Ativar tema escuro" }).click();
   await page.getByRole("button", { name: "Salvar preferências" }).click();
   await page.reload();
-  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveValue(
-    "escuro",
-  );
+  await expect(page.locator("html")).toHaveAttribute("data-tema", "escuro");
+  await expect(page.locator("html")).toHaveAttribute("data-paleta", "grafite");
   expect(escritas).toBe(0);
 });
 
@@ -366,4 +362,53 @@ test("cadastro pendente pode excluir sem escolher nome e avatar", async ({
   await expect(
     page.getByRole("status").filter({ hasText: "Conta excluída" }),
   ).toBeVisible();
+});
+
+test("quatro paletas mantêm verde e tema independente, com recarga", async ({
+  page,
+}, info) => {
+  test.setTimeout(60000);
+  await preparar(page, true, true);
+  await page.goto("/configuracoes");
+  await expect(page.getByRole("combobox", { name: /^Tema/ })).toHaveCount(0);
+  for (const paleta of ["Original", "Azul", "Roxa", "Grafite"]) {
+    await page.getByRole("radio", { name: paleta, exact: true }).check();
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-paleta",
+      paleta.toLowerCase(),
+    );
+    for (const tema of ["escuro", "claro"]) {
+      const atual = await page.locator("html").getAttribute("data-tema");
+      if (atual !== tema) {
+        await page.getByRole("button", { name: `Ativar tema ${tema}` }).click();
+        await page.getByRole("radio", { name: paleta, exact: true }).check();
+      }
+      await page.getByRole("button", { name: "Salvar preferências" }).click();
+      await expect(page.locator("html")).toHaveAttribute("data-tema", tema);
+      await expect(page.locator("html")).toHaveAttribute(
+        "data-paleta",
+        paleta.toLowerCase(),
+      );
+      expect(
+        await page.evaluate(() =>
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--lima")
+            .trim(),
+        ),
+      ).toBe("#d4fe62");
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBeTruthy();
+      await page.screenshot({
+        path: `test-results/paleta-${paleta.toLowerCase()}-${tema}-${info.project.name}.png`,
+        fullPage: true,
+        animations: "disabled",
+      });
+    }
+  }
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-paleta", "grafite");
+  await expect(page.locator("html")).toHaveAttribute("data-tema", "claro");
 });

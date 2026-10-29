@@ -134,8 +134,13 @@ function Jogo() {
       tema:
         efetivas.tema === "claro" ? ("escuro" as const) : ("claro" as const),
     };
-    if (conta) dados.salvarAjustes.mutate(novas);
-    else dados.salvarLocal(novas);
+    const manterPrevia = () =>
+      dados.definirPrevia({ ...efetivas, tema: novas.tema });
+    if (conta) dados.salvarAjustes.mutate(novas, { onSuccess: manterPrevia });
+    else {
+      dados.salvarLocal(novas);
+      manterPrevia();
+    }
   }
   return (
     <div className="universo-perfil moldura-jogo">
