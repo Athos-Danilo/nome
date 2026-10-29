@@ -357,6 +357,12 @@ test("cadastro pendente pode excluir sem escolher nome e avatar", async ({
   await page.getByRole("button", { name: "Excluir minha conta" }).click();
   await page.getByLabel("Digite EXCLUIR").fill("EXCLUIR");
   await page.getByRole("button", { name: "Excluir definitivamente" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await page.getByRole("button", { name: "Entendi" }).click();
   await expect(
     page.getByRole("status").filter({ hasText: "Conta excluída" }),
   ).toBeVisible();

@@ -149,7 +149,7 @@ export function useConta() {
   function navegar(destino: typeof painel) {
     definirPainel(destino);
     definirErro("");
-    definirMensagem("");
+    // A navegação automática não deve apagar a confirmação da ação concluída.
     definirPrevia(null);
   }
   function salvarLocal(dados: Preferencias) {

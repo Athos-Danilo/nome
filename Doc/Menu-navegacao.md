@@ -80,3 +80,19 @@ Os testes de navegador usam respostas controladas da API para reproduzir estados
 - Servidores locais existentes preservados: frontend em `http://localhost:5173/` e API na porta 8000. Menu aberto no painel do Codex para avaliação do responsável.
 
 O roteiro local foi atualizado, sem inclusão no Git. Próxima fase do planejamento: **23 — objetos, lote 002**; os demais itens do dia 4 permanecem nas fases seguintes.
+
+## Correção das verificações do GitHub — 2026-10-29
+
+A execução `40864032007` confirmou 37 cenários de perfil aprovados e dois reprovados: exclusão de cadastro pendente em computador e celular. O erro era a ausência da confirmação “Conta excluída”, não uma falha de instalação, compilação ou testes unitários. Os registros originais exigiam acesso autenticado; o workflow foi ajustado para publicar detalhes como anotações do GitHub pelo reporter oficial do Playwright. Os 24 cenários do menu também passaram a integrar a verificação contínua.
+
+A navegação da aplicação apagava a mensagem de sucesso ao mudar de rota. Ao excluir um cadastro pendente, o retorno automático de `/primeiro-acesso` para `/` podia remover o aviso antes da leitura. O teste local anterior às vezes observava o aviso transitório antes dessa navegação; por isso, passar localmente não descartava o defeito.
+
+**Regressão antes da correção:** o cenário passou a aguardar o menu, abrir e fechar a ajuda e só então conferir a confirmação da exclusão. Com o código anterior, reproduziu localmente a mesma ausência do aviso. Não foram adicionadas esperas fixas ou tentativas extras para encobrir a falha.
+
+**Correção:** a navegação limpa erros e prévias, preservando a confirmação da ação concluída. A mensagem continua transitória em memória, sem persistência após recarregar a página. As ações já responsáveis por substituir ou limpar notificações continuam fazendo isso. Não houve mudança nas regras de exclusão, anonimização ou autenticação.
+
+O cenário de regressão passou nos três tamanhos com o Chromium distribuído pelo Playwright. O navegador de teste foi atualizado para a revisão compatível com o Playwright instalado; o Chrome pessoal do responsável não foi alterado. A investigação final foi feita sem controle do navegador pessoal, após a ferramenta de controle encerrar esse caminho por não conseguir identificar a página.
+
+As execuções históricas continuam registrando seus resultados originais; a correção é avaliada em um novo commit, sem reescrever o histórico nem desabilitar verificações.
+
+Verificação local após a correção: **39 cenários de perfil/demonstração, 24 cenários de menu e 30 testes unitários aprovados**, além de TypeScript, build de produção e formatação. A confirmação remota é acompanhada na execução automática gerada pelo push da correção.
