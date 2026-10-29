@@ -150,7 +150,7 @@ test("conta ativa encontra modos, perfil, histórico, ranking e menu claro", asy
     fullPage: true,
   });
   for (const [nome, caminho, titulo] of [
-    ["Solo", "/jogar/individual/novo", "Seu próximo desafio"],
+    ["Solo", "/jogar/individual/novo", "Um mundo de descobertas."],
     ["Galera", "/jogar/galera/novo", "Chame sua galera"],
     ["Histórico", "/perfil/historico", "Suas descobertas"],
     ["Rankings", "/rankings", "Cada descoberta conta"],

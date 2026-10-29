@@ -13,7 +13,7 @@ def pontos_da_dica(dica: int) -> int:
 def conferir_palpite(palpite: str, resposta: str) -> tuple[str, bool]:
     texto = unicodedata.normalize("NFC", palpite).upper()
     if len(texto) != len(resposta) or any(
-        (oficial == " " and letra != " ") or (oficial != " " and not letra.isalpha())
+        (not oficial.isalnum() and letra != oficial) or (oficial.isalnum() and not letra.isalnum())
         for letra, oficial in zip(texto, resposta, strict=True)
     ):
         raise FalhaAutenticacao(
@@ -50,3 +50,17 @@ def avaliar_jogada(tipo: str, dica: int, resposta: str, palpite: str | None) -> 
     if tipo == "desistencia-palavra":
         return DecisaoJogada("desistencia", encerra_rodada=True, resposta_revelada=resposta)
     raise FalhaAutenticacao("ACAO_INVALIDA", "Ação inválida.", 422)
+
+
+def limites_do_teclado(resposta: str) -> dict[str, int]:
+    """Limitar repetições sem publicar uma lista de letras ausentes."""
+    from collections import Counter
+
+    def familia(letra: str) -> str:
+        base = unicodedata.normalize("NFD", letra)[0]
+        return base if base in "AEIOU" else letra
+
+    quantidades = Counter(familia(c) for c in resposta if c.isalnum())
+    total = sum(quantidades.values())
+    # Para letras ausentes, um limite acima de toda a montagem nunca impede seu uso.
+    return {c: quantidades.get(c, total + 1) for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZÇ0123456789"}

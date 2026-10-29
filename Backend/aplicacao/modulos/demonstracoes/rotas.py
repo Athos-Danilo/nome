@@ -12,6 +12,8 @@ from aplicacao.modulos.autenticacao.rotas import exigir_conta, gravar_cookie, no
 from aplicacao.modulos.autenticacao.servico import segredo_valido, token_csrf
 from aplicacao.modulos.demonstracoes.contratos import EntradaVazia
 from aplicacao.modulos.demonstracoes.servico import ServicoDemonstracoes
+from aplicacao.modulos.individual.esquemas import AcaoIndividual, AcaoRodada, EnviarPalpite
+from aplicacao.modulos.individual.rotas import servico as motor_individual
 
 rotas = APIRouter(prefix="/api", tags=["Visitante e demonstração"])
 
@@ -82,3 +84,52 @@ async def vincular_demonstracao(
     dados: EntradaVazia | None = None,
 ):
     return await servico(requisicao).vincular(segredo_visitante(requisicao), conta.jogador_id)
+
+
+# A mesma proteção de visitante cobre ativação e ações do motor individual.
+def exigir_visitante(requisicao: Request) -> str:
+    segredo = segredo_visitante(requisicao)
+    resumo = servico(requisicao).resumo(segredo)
+    if requisicao.method != "GET":
+        origem_valida(requisicao)
+        recebido = requisicao.headers.get("x-decifra-csrf", "")
+        if not hmac.compare_digest(recebido.encode(), token_csrf(segredo).encode()):
+            raise FalhaAutenticacao(
+                "ACAO_NAO_PERMITIDA", "Atualize a página e tente novamente.", 403
+            )
+    return resumo
+
+
+VisitanteDoJogo = Annotated[str, Depends(exigir_visitante)]
+
+
+@rotas.get("/demonstracoes/jogo")
+async def jogo_atual(requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).jogo_demonstracao(resumo)
+
+
+@rotas.post("/demonstracoes/jogo")
+async def ativar_jogo(requisicao: Request, resumo: VisitanteDoJogo, dados: EntradaVazia):
+    return await motor_individual(requisicao).jogo_demonstracao(resumo, ativar=True)
+
+
+@rotas.post("/demonstracoes/jogo/palpites")
+async def palpite_do_teste(dados: EnviarPalpite, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "palpites", dados)
+
+
+@rotas.post("/demonstracoes/jogo/dicas")
+async def dica_do_teste(dados: AcaoRodada, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "dicas", dados)
+
+
+@rotas.post("/demonstracoes/jogo/desistencia-palavra")
+async def desistir_no_teste(dados: AcaoRodada, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(
+        resumo, "desistencia-palavra", dados
+    )
+
+
+@rotas.post("/demonstracoes/jogo/encerramento")
+async def encerrar_teste(dados: AcaoIndividual, requisicao: Request, resumo: VisitanteDoJogo):
+    return await motor_individual(requisicao).agir_demonstracao(resumo, "encerramento", dados)

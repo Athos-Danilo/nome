@@ -1,6 +1,6 @@
 # Visitante e vinculação da demonstração — fase 19
 
-Infraestrutura implementada em 2026-10-28. Inclui identificação do navegador, reserva única de três respostas fáceis, recuperação do registro e transferência integral à conta. **A partida de demonstração jogável será integrada na fase 26, após o motor individual da fase 20.** A tela atual informa a preparação e não consome a oportunidade do visitante ao clicar em um jogo ainda indisponível.
+Infraestrutura implementada em 2026-10-28. Inclui identificação do navegador, reserva única de três respostas fáceis, recuperação do registro e transferência integral à conta. **Atualização da fase 26:** demonstração jogável integrada ao mesmo motor do Solo. Visitar a página não consome a oportunidade; o início é explícito. Contratos, validação e evidências em [Partida individual](Partida-individual.md).
 
 ## Decisões aprovadas — D10
 

@@ -16,7 +16,7 @@ from aplicacao.bancos.acoes import (
     palpites,
     resultados_individuais,
 )
-from aplicacao.bancos.identidade import jogadores
+from aplicacao.bancos.identidade import jogadores, visitantes
 from aplicacao.bancos.partidas import partidas, planos_individuais, rodadas
 from aplicacao.modulos.autenticacao.contratos import FalhaAutenticacao
 from aplicacao.modulos.individual.configuracao import selecionar_palavras, sequencia_dificuldades
@@ -27,7 +27,7 @@ from aplicacao.modulos.individual.esquemas import (
     ConfiguracaoIndividual,
     EnviarPalpite,
 )
-from aplicacao.modulos.individual.regras import avaliar_jogada, pontos_da_dica
+from aplicacao.modulos.individual.regras import avaliar_jogada, limites_do_teclado, pontos_da_dica
 
 ABERTAS = ("preparada", "em_andamento", "pausada")
 
@@ -265,22 +265,31 @@ class IndividualPostgresql:
         publica = None
         if atual:
             palavra = await catalogo.buscar(atual["palavra_id"], atual["revisao"])
-            if not all(c.isalpha() or c == " " for c in palavra.resposta):
-                raise FalhaAutenticacao(
-                    "CONTEUDO_NAO_SUPORTADO",
-                    "Esta resposta depende de uma configuração de teclado ainda indisponível.",
-                    503,
-                )
             publica = {
                 "rodada_id": str(atual["id"]),
                 "ordem": atual["ordem"],
                 "dificuldade": atual["dificuldade"],
                 "tematicas": palavra.tematicas,
-                "posicoes": [None if c.isalpha() else c for c in palavra.resposta],
+                "posicoes": [None if c.isalnum() else c for c in palavra.resposta],
+                "limites": limites_do_teclado(palavra.resposta),
                 "dica_atual": atual["dica_atual"],
                 "dicas_reveladas": palavra.dicas[: atual["dica_atual"]],
                 "pontos_disponiveis": pontos_da_dica(atual["dica_atual"]),
             }
+        resumo = []
+        for etapa in etapas:
+            if etapa["estado"] not in {"acertada", "desistida"}:
+                continue
+            conteudo = await catalogo.buscar(etapa["palavra_id"], etapa["revisao"])
+            resumo.append(
+                {
+                    "ordem": etapa["ordem"],
+                    "estado": etapa["estado"],
+                    "resposta": conteudo.resposta,
+                    "pontos": etapa["pontuacao"],
+                    "dicas_utilizadas": etapa["dica_atual"],
+                }
+            )
         return {
             "partida_id": str(registro["id"]),
             "estado": registro["estado"],
@@ -290,6 +299,8 @@ class IndividualPostgresql:
             "quantidade_palavras": len(etapas),
             "rodadas_concluidas": sum(r["estado"] in {"acertada", "desistida"} for r in etapas),
             "rodada_atual": publica,
+            "resumo_rodadas": resumo,
+            "acertos": sum(r["estado"] == "acertada" for r in etapas),
         }
 
     async def consultar(
@@ -366,6 +377,20 @@ class IndividualPostgresql:
         dados: AcaoIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict:
+        async with self.motor.begin() as conexao:
+            await self.titular(conexao, jogador_id)
+            registro = await self.partida(conexao, jogador_id, partida_id)
+            return await self.agir_na_transacao(conexao, registro, tipo, dados, catalogo)
+
+    async def agir_na_transacao(
+        self,
+        conexao: AsyncConnection,
+        registro,
+        tipo: str,
+        dados: AcaoIndividual,
+        catalogo: CatalogoIndividual,
+    ) -> dict:
+        partida_id = registro["id"]
         entrada = hashlib.sha256(
             json.dumps(
                 {"tipo": tipo, "dados": dados.model_dump(mode="json")},
@@ -373,135 +398,206 @@ class IndividualPostgresql:
                 ensure_ascii=False,
             ).encode()
         ).hexdigest()
-        async with self.motor.begin() as conexao:
-            await self.titular(conexao, jogador_id)
-            registro = await self.partida(conexao, jogador_id, partida_id)
-            anterior = (
+        anterior = (
+            (
+                await conexao.execute(
+                    select(acoes_processadas).where(
+                        acoes_processadas.c.partida_id == partida_id,
+                        acoes_processadas.c.id_acao == dados.id_acao,
+                    )
+                )
+            )
+            .mappings()
+            .one_or_none()
+        )
+        if anterior:
+            if anterior["entrada_resumo"] != entrada:
+                raise FalhaAutenticacao(
+                    "ACAO_CONFLITANTE", "Este identificador já foi usado para outra ação.", 409
+                )
+            return anterior["resultado"]
+        if registro["versao"] != dados.versao_esperada:
+            raise FalhaAutenticacao(
+                "VERSAO_DESATUALIZADA", "Atualize a partida antes de tentar novamente.", 409
+            )
+        if registro["estado"] != "em_andamento":
+            raise FalhaAutenticacao("PARTIDA_INATIVA", "Esta partida não está em andamento.", 409)
+        pontos = 0
+        terminou = tipo == "encerramento"
+        acao = {
+            "tipo": tipo,
+            "resultado": "abandonada" if terminou else None,
+            "pontos": 0,
+            "limpar_montagem": False,
+        }
+        palpite = None
+        rodada = None
+        if not terminou:
+            rodada = (
                 (
                     await conexao.execute(
-                        select(acoes_processadas).where(
-                            acoes_processadas.c.partida_id == partida_id,
-                            acoes_processadas.c.id_acao == dados.id_acao,
+                        select(rodadas).where(
+                            rodadas.c.partida_id == partida_id,
+                            rodadas.c.estado == "apresentada",
                         )
                     )
                 )
                 .mappings()
                 .one_or_none()
             )
-            if anterior:
-                if anterior["entrada_resumo"] != entrada:
-                    raise FalhaAutenticacao(
-                        "ACAO_CONFLITANTE", "Este identificador já foi usado para outra ação.", 409
+            if (
+                not isinstance(dados, AcaoRodada)
+                or rodada is None
+                or dados.rodada_id != rodada["id"]
+            ):
+                raise FalhaAutenticacao("RODADA_INVALIDA", "A rodada informada não é a atual.", 409)
+            palavra = await catalogo.buscar(rodada["palavra_id"], rodada["revisao"])
+            decisao = avaliar_jogada(
+                tipo,
+                rodada["dica_atual"],
+                palavra.resposta,
+                dados.palpite if isinstance(dados, EnviarPalpite) else None,
+            )
+            pontos, palpite = decisao.pontos, decisao.palpite
+            acao.update(resultado=decisao.resultado, limpar_montagem=decisao.limpar_montagem)
+            if decisao.resposta_revelada is not None:
+                acao["resposta_revelada"] = decisao.resposta_revelada
+            if decisao.encerra_rodada:
+                terminou = await self.finalizar_rodada(
+                    conexao, registro, rodada, pontos, decisao.resultado == "acerto"
+                )
+            elif decisao.dica_destino is not None:
+                await conexao.execute(
+                    update(rodadas)
+                    .where(rodadas.c.id == rodada["id"])
+                    .values(dica_atual=decisao.dica_destino)
+                )
+        total = registro["pontuacao"] + pontos
+        acao["pontos"] = pontos
+        campos = {"pontuacao": total, "versao": registro["versao"] + 1}
+        if terminou:
+            campos.update(
+                estado="abandonada" if tipo == "encerramento" else "concluida",
+                encerrada_em=datetime.now(UTC),
+                motivo_encerramento="abandono_voluntario"
+                if tipo == "encerramento"
+                else "rodadas_finalizadas",
+            )
+            await self.publicar(conexao, partida_id, total, tipo != "encerramento")
+        atualizado = (
+            (
+                await conexao.execute(
+                    update(partidas)
+                    .where(partidas.c.id == partida_id)
+                    .values(**campos)
+                    .returning(partidas)
+                )
+            )
+            .mappings()
+            .one()
+        )
+        resultado = {**await self.estado(conexao, atualizado, catalogo), "acao": acao}
+        acao_id = await conexao.scalar(
+            insert(acoes_processadas)
+            .values(
+                partida_id=partida_id,
+                id_acao=dados.id_acao,
+                tipo=tipo,
+                entrada_resumo=entrada,
+                resultado=resultado,
+                versao_aplicada=atualizado["versao"],
+            )
+            .returning(acoes_processadas.c.id)
+        )
+        if palpite is not None:
+            await conexao.execute(
+                insert(palpites).values(
+                    partida_id=partida_id,
+                    acao_id=acao_id,
+                    rodada_id=rodada["id"],
+                    tipo="palavra",
+                    texto=palpite,
+                    dica_utilizada=rodada["dica_atual"],
+                    resultado=acao["resultado"],
+                    pontos=pontos,
+                )
+            )
+        return resultado
+
+    async def demonstracao(self, conexao: AsyncConnection, resumo: str):
+        visitante = (
+            (
+                await conexao.execute(
+                    select(visitantes)
+                    .where(visitantes.c.segredo_resumo == resumo)
+                    .with_for_update()
+                )
+            )
+            .mappings()
+            .one_or_none()
+        )
+        if visitante is None:
+            raise FalhaAutenticacao(
+                "VISITANTE_NECESSARIO", "Atualize a página para continuar.", 401
+            )
+        if visitante["vinculado_em"] is not None:
+            raise FalhaAutenticacao(
+                "DEMONSTRACAO_VINCULADA", "Esta demonstração já pertence a uma conta.", 403
+            )
+        registro = (
+            (
+                await conexao.execute(
+                    select(partidas)
+                    .where(
+                        partidas.c.id == visitante["demonstracao_id"],
+                        partidas.c.visitante_id == visitante["id"],
+                        partidas.c.jogador_id.is_(None),
+                        partidas.c.origem == "demonstracao",
                     )
-                return anterior["resultado"]
-            if registro["versao"] != dados.versao_esperada:
-                raise FalhaAutenticacao(
-                    "VERSAO_DESATUALIZADA", "Atualize a partida antes de tentar novamente.", 409
+                    .with_for_update()
                 )
-            if registro["estado"] != "em_andamento":
-                raise FalhaAutenticacao(
-                    "PARTIDA_INATIVA", "Esta partida não está em andamento.", 409
+            )
+            .mappings()
+            .one_or_none()
+        )
+        if registro is None:
+            raise FalhaAutenticacao("DEMONSTRACAO_AUSENTE", "Você ainda não iniciou o teste.", 404)
+        return registro
+
+    async def jogo_demonstracao(
+        self, resumo: str, catalogo: CatalogoIndividual, ativar=False
+    ) -> dict:
+        async with self.motor.begin() as conexao:
+            registro = await self.demonstracao(conexao, resumo)
+            if ativar and registro["estado"] == "preparada":
+                primeira = await conexao.scalar(
+                    select(rodadas.c.id).where(
+                        rodadas.c.partida_id == registro["id"], rodadas.c.ordem == 1
+                    )
                 )
-            pontos = 0
-            terminou = tipo == "encerramento"
-            acao = {
-                "tipo": tipo,
-                "resultado": "abandonada" if terminou else None,
-                "pontos": 0,
-                "limpar_montagem": False,
-            }
-            palpite = None
-            rodada = None
-            if not terminou:
-                rodada = (
+                await conexao.execute(
+                    update(rodadas)
+                    .where(rodadas.c.id == primeira)
+                    .values(estado="apresentada", apresentada_em=datetime.now(UTC))
+                )
+                await conexao.execute(insert(exposicoes_conteudo).values(rodada_id=primeira))
+                registro = (
                     (
                         await conexao.execute(
-                            select(rodadas).where(
-                                rodadas.c.partida_id == partida_id,
-                                rodadas.c.estado == "apresentada",
-                            )
+                            update(partidas)
+                            .where(partidas.c.id == registro["id"])
+                            .values(estado="em_andamento", versao=1)
+                            .returning(partidas)
                         )
                     )
                     .mappings()
-                    .one_or_none()
+                    .one()
                 )
-                if (
-                    not isinstance(dados, AcaoRodada)
-                    or rodada is None
-                    or dados.rodada_id != rodada["id"]
-                ):
-                    raise FalhaAutenticacao(
-                        "RODADA_INVALIDA", "A rodada informada não é a atual.", 409
-                    )
-                palavra = await catalogo.buscar(rodada["palavra_id"], rodada["revisao"])
-                decisao = avaliar_jogada(
-                    tipo,
-                    rodada["dica_atual"],
-                    palavra.resposta,
-                    dados.palpite if isinstance(dados, EnviarPalpite) else None,
-                )
-                pontos, palpite = decisao.pontos, decisao.palpite
-                acao.update(resultado=decisao.resultado, limpar_montagem=decisao.limpar_montagem)
-                if decisao.resposta_revelada is not None:
-                    acao["resposta_revelada"] = decisao.resposta_revelada
-                if decisao.encerra_rodada:
-                    terminou = await self.finalizar_rodada(
-                        conexao, registro, rodada, pontos, decisao.resultado == "acerto"
-                    )
-                elif decisao.dica_destino is not None:
-                    await conexao.execute(
-                        update(rodadas)
-                        .where(rodadas.c.id == rodada["id"])
-                        .values(dica_atual=decisao.dica_destino)
-                    )
-            total = registro["pontuacao"] + pontos
-            acao["pontos"] = pontos
-            campos = {"pontuacao": total, "versao": registro["versao"] + 1}
-            if terminou:
-                campos.update(
-                    estado="abandonada" if tipo == "encerramento" else "concluida",
-                    encerrada_em=datetime.now(UTC),
-                    motivo_encerramento="abandono_voluntario"
-                    if tipo == "encerramento"
-                    else "rodadas_finalizadas",
-                )
-                await self.publicar(conexao, partida_id, total, tipo != "encerramento")
-            atualizado = (
-                (
-                    await conexao.execute(
-                        update(partidas)
-                        .where(partidas.c.id == partida_id)
-                        .values(**campos)
-                        .returning(partidas)
-                    )
-                )
-                .mappings()
-                .one()
-            )
-            resultado = {**await self.estado(conexao, atualizado, catalogo), "acao": acao}
-            acao_id = await conexao.scalar(
-                insert(acoes_processadas)
-                .values(
-                    partida_id=partida_id,
-                    id_acao=dados.id_acao,
-                    tipo=tipo,
-                    entrada_resumo=entrada,
-                    resultado=resultado,
-                    versao_aplicada=atualizado["versao"],
-                )
-                .returning(acoes_processadas.c.id)
-            )
-            if palpite is not None:
-                await conexao.execute(
-                    insert(palpites).values(
-                        partida_id=partida_id,
-                        acao_id=acao_id,
-                        rodada_id=rodada["id"],
-                        tipo="palavra",
-                        texto=palpite,
-                        dica_utilizada=rodada["dica_atual"],
-                        resultado=acao["resultado"],
-                        pontos=pontos,
-                    )
-                )
-            return resultado
+            return await self.estado(conexao, registro, catalogo)
+
+    async def agir_demonstracao(
+        self, resumo: str, tipo: str, dados: AcaoIndividual, catalogo: CatalogoIndividual
+    ) -> dict:
+        async with self.motor.begin() as conexao:
+            registro = await self.demonstracao(conexao, resumo)
+            return await self.agir_na_transacao(conexao, registro, tipo, dados, catalogo)

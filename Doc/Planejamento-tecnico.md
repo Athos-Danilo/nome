@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 26 concluída:** Solo e demonstração jogáveis em React, com configuração, dicas, teclado, resultado recuperável e pontos persistidos pelo mesmo motor. API ampliada para sinais fixos/números; autorização própria do visitante. Prova integrada de tela, HTTP e banco aprovada. Contratos, TDD e limites em [Partida individual](Partida-individual.md).
+
 **Catálogo — fase 25 concluída:** onze lotes produzidos (275 respostas e 1.375 dicas); oito aprovados pelo responsável e importados localmente (200 respostas e 1.000 dicas). Animais-003 acrescentou 25 respostas sem sobrescritas; animais-002 permanece pendente de revisão humana. Evidências em [Revisão do lote](Revisoes/animais-003.md).
 
 **Fase 24 concluída:** entrada reutilizável de palpites e escolha de letra, com clique/toque, digitação, arraste via dnd kit 0.5.1, acentos, números e sinais fixos conforme D08. Prévia técnica separada das partidas reais; integração ao motor na fase 26. Contrato, TDD e verificações em [Entrada de respostas](Entrada-respostas.md).

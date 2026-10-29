@@ -2,7 +2,7 @@
 
 Backend implementado em 2026-10-28: configuração, confirmação, seleção, apresentação de rodadas, palpites, dicas, acerto, desistência da palavra e abandono definitivo. **Esta fase entrega operações da API, sem acrescentar as telas finais de partida.** Teclado e montagem visual continuam nas fases próprias; a demonstração jogável será integrada na fase 26 e a pausa/retomada na fase 28.
 
-**Atualização da fase 24 — D08:** a interface de entrada já trata sinais fixos e números preenchíveis. O motor desta fase 20 continua restringindo conteúdo de partidas a letras e espaços; ampliar a máscara pública e a validação de palpites na fase 26 antes de publicar conteúdo com sinais/números. A decisão de interface não declara essa integração concluída.
+**Atualização da fase 26:** telas do Solo e da demonstração integradas ao motor; máscara e validação aceitam sinais fixos e letras/números preenchíveis conforme D08. Estado público acrescenta limites do teclado, acertos e resumo de rodadas encerradas. Contratos, verificação e limites em [Partida individual](Partida-individual.md).
 
 ## Decisões D11 aprovadas
 
@@ -50,7 +50,7 @@ São selecionadas respostas distintas dentro da partida, respeitando os níveis 
 
 O histórico consulta exposições dos dois modos para o titular. Reservas de planos e rodadas ainda não apresentadas não contam como vistas. A primeira rodada é apresentada ao iniciar a partida; cada rodada seguinte é apresentada após acerto ou desistência da anterior. Abandonar não apresenta as reservas restantes.
 
-PostgreSQL guarda identificadores e revisões do conteúdo. Respostas e dicas oficiais continuam no MongoDB; a partida usa a revisão imutável reservada. A prévia e o estado público não entregam identificadores de palavras, soluções futuras ou dicas ainda não reveladas. A API atual trabalha com as grafias de letras e espaços do catálogo aprovado; respostas com sinais cuja política de teclado ainda não foi definida não recebem tratamento silencioso.
+PostgreSQL guarda identificadores e revisões do conteúdo. Respostas e dicas oficiais continuam no MongoDB; a partida usa a revisão imutável reservada. A prévia e o estado público não entregam identificadores de palavras, soluções futuras ou dicas ainda não reveladas. Desde a fase 26, a máscara mantém sinais e espaços fixos e oculta letras e números, conforme D08.
 
 ## Rodadas e pontuação
 

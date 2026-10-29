@@ -27,3 +27,9 @@ class ServicoIndividual:
         self, jogador_id: UUID, partida_id: UUID, tipo: str, dados: AcaoIndividual
     ) -> dict:
         return await self.repositorio.agir(jogador_id, partida_id, tipo, dados, self.catalogo)
+
+    async def jogo_demonstracao(self, resumo: str, ativar: bool = False) -> dict:
+        return await self.repositorio.jogo_demonstracao(resumo, self.catalogo, ativar)
+
+    async def agir_demonstracao(self, resumo: str, tipo: str, dados: AcaoIndividual) -> dict:
+        return await self.repositorio.agir_demonstracao(resumo, tipo, dados, self.catalogo)

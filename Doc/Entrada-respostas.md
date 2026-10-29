@@ -6,7 +6,7 @@ Implementação em 2026-10-29. Esta fase entrega componentes reutilizáveis de m
 
 O responsável aprovou **sinais fixos e letras/números preenchíveis**. Espaços, hífens, apóstrofos e demais sinais aparecem prontos e não contam como posições faltantes. Em `WALL-E`, o hífen é fixo; em `TOY STORY 3`, o jogador precisa preencher também o 3. A resposta oficial mantém a grafia do catálogo, sem eliminar sinais ou substituir números por extenso.
 
-Esta decisão foi registrada em `Detalhes.md`, no guia de geração e no roteiro local. Não autoriza automaticamente novos lotes ou grafias alternativas. A API do motor ainda aceita conteúdo de partida composto por letras e espaços; sua máscara e validação serão ampliadas na fase 26 antes de utilizar respostas com sinais/números em partidas reais.
+Esta decisão foi registrada em `Detalhes.md`, no guia de geração e no roteiro local. Não autoriza automaticamente novos lotes ou grafias alternativas. Na fase 26, a máscara e a validação da API foram ampliadas e o editor foi integrado ao Solo e à demonstração. Contratos e limites estão em [Partida individual](Partida-individual.md).
 
 ## Controles disponíveis
 

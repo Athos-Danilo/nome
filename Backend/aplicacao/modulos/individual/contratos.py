@@ -31,3 +31,10 @@ class RepositorioIndividual(Protocol):
         dados: AcaoIndividual,
         catalogo: CatalogoIndividual,
     ) -> dict: ...
+
+    async def jogo_demonstracao(
+        self, resumo: str, catalogo: CatalogoIndividual, ativar: bool = False
+    ) -> dict: ...
+    async def agir_demonstracao(
+        self, resumo: str, tipo: str, dados: AcaoIndividual, catalogo: CatalogoIndividual
+    ) -> dict: ...

@@ -1,3 +1,4 @@
+import { RotaIndividual } from "../funcionalidades/individual/RotaIndividual";
 import { ConteudoConta } from "../funcionalidades/perfil/ConteudoConta";
 import { PaginaEmPreparacao } from "../componentes/PaginaEmPreparacao";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -114,6 +115,11 @@ function Jogo() {
         </section>
       </div>
     );
+  else if (
+    caminho.startsWith("/jogar/individual") ||
+    caminho === "/jogar/demonstracao"
+  )
+    conteudo = <RotaIndividual conta={conta} />;
   else conteudo = <PaginaEmPreparacao caminho={caminho} />;
   function alternarTema() {
     const novas = {

@@ -54,6 +54,9 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
       return (
         <div className="cartao-demonstracao" role="status">
           <p>{vinculo.error.message}</p>
+          <Link className="acao" to="/jogar/demonstracao">
+            Resolver demonstração
+          </Link>
           <button onClick={() => vinculo.mutate()}>
             Tentar vincular novamente
           </button>
@@ -90,10 +93,15 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
             descobertas.
           </p>
           {dados.demonstracao && !dados.vinculada && (
-            <p className="nota">
-              O prazo para vincular seu teste à conta é de sete dias após o
-              início.
-            </p>
+            <>
+              <Link className="acao" to="/jogar/demonstracao">
+                Ver minha demonstração
+              </Link>
+              <p className="nota">
+                O prazo para vincular seu teste à conta é de sete dias após o
+                início.
+              </p>
+            </>
           )}
         </>
       ) : (
@@ -104,8 +112,8 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
             Jogo rápido
           </Link>
           <p className="nota">
-            Essa experiência está em preparação. Enquanto isso, você já pode
-            entrar com Google e personalizar seu perfil.
+            Uma demonstração por navegador. Entre com Google para escolher seus
+            desafios e guardar seu histórico.
           </p>
         </>
       )}

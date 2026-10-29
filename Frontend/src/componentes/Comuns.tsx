@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useId,
   useRef,
   type ReactNode,
   type ButtonHTMLAttributes,
@@ -57,6 +58,7 @@ export function Dialogo({
   children: ReactNode;
   aoFechar: () => void;
 }) {
+  const tituloId = useId();
   const elemento = useRef<HTMLDialogElement>(null);
   const fechar = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -74,14 +76,14 @@ export function Dialogo({
   return (
     <dialog
       ref={elemento}
-      aria-labelledby="titulo-ajuda"
+      aria-labelledby={tituloId}
       onCancel={(evento) => {
         evento.preventDefault();
         aoFechar();
       }}
     >
       <span className="etiqueta">UMA DICA ANTES DAS DICAS</span>
-      <h2 id="titulo-ajuda">{titulo}</h2>
+      <h2 id={tituloId}>{titulo}</h2>
       {children}
       <div className="acoes-dialogo">
         <button className="acao" ref={fechar} onClick={aoFechar}>
