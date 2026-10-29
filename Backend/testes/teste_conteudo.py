@@ -34,3 +34,31 @@ def teste_rejeita_documento_invalido(alteracao: dict) -> None:
     )
     with pytest.raises(ValidationError):
         ConteudoPalavra.model_validate(conteudo | alteracao)
+
+
+@pytest.mark.parametrize("resposta", ["1917", "WALL-E", "MONSTROS S.A.", "ADEUS, LÊNIN!"])
+def teste_catalogo_preserva_algarismos_e_sinais_da_grafia_oficial(resposta: str) -> None:
+    palavra = ConteudoPalavra.model_validate(
+        dict(
+            id="titulo-teste",
+            resposta=resposta,
+            tematicas=["filmes-e-series"],
+            dificuldade="medio",
+            dicas=[f"Pista {n}" for n in range(5)],
+        )
+    )
+    assert palavra.resposta == resposta
+
+
+@pytest.mark.parametrize("resposta", ["---", "?!", "..."])
+def teste_catalogo_exige_pelo_menos_uma_posicao_para_jogar(resposta: str) -> None:
+    with pytest.raises(ValidationError):
+        ConteudoPalavra.model_validate(
+            dict(
+                id="titulo-teste",
+                resposta=resposta,
+                tematicas=["filmes-e-series"],
+                dificuldade="medio",
+                dicas=[f"Pista {n}" for n in range(5)],
+            )
+        )

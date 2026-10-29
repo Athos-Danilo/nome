@@ -81,6 +81,8 @@ Proposta para identificadores: letras minúsculas sem acentos, números quando n
 
 Decisão D08 aprovada em 2026-10-29: preservar espaços, hífens, apóstrofos e demais sinais da grafia correta; na interface eles serão fixos e já preenchidos. Letras e números serão preenchidos pelo jogador. Não remover sinais ou escrever números por extenso para contornar o contrato. O componente de entrada foi preparado na fase 24 e integrado à API do motor individual na fase 26, com máscara pública e validação de sinais fixos e letras/números preenchíveis. A aprovação desta política não aprova automaticamente títulos, variantes ou novos lotes.
 
+O catálogo aceita respostas somente numéricas, como `1917`, desde a correção da fase 27. É necessário haver pelo menos uma letra ou algarismo de 0 a 9; uma resposta composta apenas por sinais continua inválida. Preservar a grafia oficial, sem escrever algarismos por extenso.
+
 A normalização para detectar duplicatas na importação é uma decisão separada da comparação dos palpites. No jogo, os palpites serão convertidos para caixa alta, preservando acentos, e a acentuação correta será obrigatória: `JAPAO` não corresponde a `JAPÃO`. Não criar versões sem acentos da mesma resposta como itens adicionais.
 
 No modo com a galera, escolher uma vogal isolada revela também as variantes acentuadas dela. Isso não altera o conteúdo: armazenar e exibir sempre a grafia correta. A equivalência para escolha de letras não autoriza remover acentos dos palpites completos.

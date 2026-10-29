@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** onze lotes produzidos: 275 respostas e 1.375 dicas, todos aprovados na validação automática completa. Oito lotes aprovados pelo responsável e importados localmente: 200 respostas e 1.000 dicas, incluindo animais-003 na fase 25. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** doze lotes produzidos: 300 respostas e 1.500 dicas, todos aprovados na validação automática completa. Nove lotes aprovados pelo responsável e importados localmente: 225 respostas e 1.125 dicas, incluindo filmes-e-series-003 na fase 27. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -31,7 +31,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 21 | 3 | `paises-002.json` | 10 | 10 | 5 | 25 | 225 | Importado localmente |
 | 23 | 4 | `objetos-002.json` | 10 | 10 | 5 | 25 | 250 | Importado localmente |
 | 25 | 4 | `animais-003.json` | 10 | 10 | 5 | 25 | 275 | Importado localmente |
-| 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Não iniciado |
+| 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Importado localmente |
 | 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Não iniciado |
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Não iniciado |
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Não iniciado |
@@ -302,6 +302,26 @@ Conferência no Atlas: não realizada
 Pendências: conferência no Atlas na publicação; animais-002 continua pendente separadamente
 ```
 
+#### Lote filmes-e-series-003 (Fase 27)
+
+```text
+Lote: filmes-e-series-003
+Fase: 27
+Arquivo: Data/palavras/filmes-e-series-003.json
+Estado: Importado localmente
+Data da revisão: 2026-10-29
+Responsável pela revisão: Codex (produção e revisão editorial por IA), com revisão e aprovação expressa do responsável pelo projeto
+Quantidade gerada: 25 respostas e 125 dicas
+Quantidade aprovada: 25
+Fáceis / médias / difíceis: 10 / 10 / 5
+Resultado da conferência sem gravar: doze lotes válidos, 300 respostas e 1.500 dicas; 100 novos, 200 idênticos, zero recuperáveis
+Duplicatas e substituições: nenhuma duplicata entre os doze lotes; MADAGASCAR não foi usado como filme porque já existe como país
+Fatos e grafias conferidos: fontes, subtítulos e distinção de versões em Doc/Revisoes/filmes-e-series-003.md
+Importação local: concluída em 2026-10-29 após aprovação humana; 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco com 225 respostas, 1.125 dicas e 225 versões
+Conferência no Atlas: não realizada
+Pendências: conferência no Atlas na publicação; países-001, objetos-001 e animais-002 continuam pendentes separadamente
+```
+
 Checklist de aprovação:
 
 - [ ] Exatamente 25 respostas inéditas em relação ao restante do catálogo.
@@ -322,11 +342,11 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | Temática | Meta de respostas | Geradas | Aprovadas | Importadas localmente | Conferidas no Atlas |
 | --- | --- | --- | --- | --- | --- |
 | Animais | 100 | 75 | 50 | 50 | 0 |
-| Filmes e séries | 100 | 50 | 50 | 50 | 0 |
+| Filmes e séries | 100 | 75 | 75 | 75 | 0 |
 | Marcas | 100 | 50 | 50 | 50 | 0 |
 | Países | 100 | 50 | 25 | 25 | 0 |
 | Objetos | 100 | 50 | 25 | 25 | 0 |
-| **Total** | **500** | **275** | **200** | **200** | **0** |
+| **Total** | **500** | **300** | **225** | **225** | **0** |
 
 ## 6. Fechamento global
 

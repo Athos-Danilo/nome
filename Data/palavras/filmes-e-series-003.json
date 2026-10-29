@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "filmes-e-series-003",
+  "palavras": [
+    {
+      "id": "homem-aranha",
+      "resposta": "HOMEM-ARANHA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um filme de super-herói lançado em 2002.",
+        "Meu protagonista é um estudante de Nova York criado pelos tios.",
+        "Uma picada durante uma visita científica muda as habilidades do rapaz.",
+        "Na direção de Sam Raimi, Tobey Maguire enfrenta um vilão interpretado por Willem Dafoe.",
+        "Peter Parker aprende sobre responsabilidade após perder o tio Ben e enfrenta o Duende Verde."
+      ]
+    },
+    {
+      "id": "wall-e",
+      "resposta": "WALL-E",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Pixar lançada em 2008.",
+        "Minha história começa numa Terra que os seres humanos abandonaram.",
+        "Um pequeno robô continua trabalhando entre montanhas de lixo.",
+        "A chegada de uma robô chamada EVA transforma a rotina do protagonista.",
+        "Meu herói compacta resíduos em cubos e segue EVA até uma nave onde vive a humanidade."
+      ]
+    },
+    {
+      "id": "monstros-s-a",
+      "resposta": "MONSTROS S.A.",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Pixar lançada em 2001.",
+        "Apresento uma sociedade cuja energia vem de uma fonte bastante incomum.",
+        "Portas de armários conectam uma fábrica aos quartos de crianças humanas.",
+        "A entrada de uma menina nesse outro mundo deixa dois funcionários desesperados.",
+        "Sulley e Mike tentam devolver a pequena Boo para casa sem deixá-la nas mãos de Randall."
+      ]
+    },
+    {
+      "id": "carros",
+      "resposta": "CARROS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Pixar lançada em 2006.",
+        "Meu universo é habitado por veículos que falam e têm personalidades.",
+        "Um competidor arrogante acaba longe da corrida mais importante de sua carreira.",
+        "Na cidade de Radiador Springs, ele aprende com novos amigos, incluindo um guincho.",
+        "Relâmpago McQueen e Mate são os personagens centrais desta aventura sobre amizade e velocidade."
+      ]
+    },
+    {
+      "id": "minions",
+      "resposta": "MINIONS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação lançada em 2015.",
+        "Conto a busca de pequenas criaturas por alguém a quem servir.",
+        "A história acompanha um trio que procura um novo chefe entre grandes vilões.",
+        "Kevin, Stuart e Bob se envolvem com Scarlet Overkill e as joias da coroa britânica.",
+        "Meus protagonistas são os ajudantes amarelos associados a Gru, numa aventura anterior à parceria com ele."
+      ]
+    },
+    {
+      "id": "os-simpsons",
+      "resposta": "OS SIMPSONS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série de animação que satiriza a vida cotidiana.",
+        "Minha família principal vive na cidade de Springfield.",
+        "O pai trabalha numa usina nuclear e a mãe tem um penteado azul muito alto.",
+        "Bart apronta na escola, Lisa toca saxofone e a bebê Maggie usa chupeta.",
+        "Homer e Marge são os pais da família amarela criada por Matt Groening."
+      ]
+    },
+    {
+      "id": "bob-esponja-calca-quadrada",
+      "resposta": "BOB ESPONJA, CALÇA QUADRADA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série de animação ambientada no fundo do oceano.",
+        "Meus personagens vivem na Fenda do Bikini.",
+        "Meu protagonista trabalha preparando hambúrgueres no Siri Cascudo.",
+        "Ele mora em um abacaxi e é amigo de Patrick e vizinho de Lula Molusco.",
+        "Meu personagem principal é uma esponja amarela; o título completo também descreve o formato de sua roupa."
+      ]
+    },
+    {
+      "id": "todo-mundo-odeia-o-chris",
+      "resposta": "TODO MUNDO ODEIA O CHRIS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série de comédia sobre os desafios de crescer.",
+        "Minhas histórias acompanham um adolescente negro no Brooklyn dos anos 1980.",
+        "Um comediante narra situações inspiradas em sua própria infância.",
+        "O pai Julius é muito econômico, enquanto a mãe Rochelle impõe regras em casa.",
+        "Tyler James Williams interpreta o filho mais velho de Julius e Rochelle, ao lado dos irmãos Drew e Tonya."
+      ]
+    },
+    {
+      "id": "a-pequena-sereia",
+      "resposta": "A PEQUENA SEREIA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação musical da Disney lançada em 1989.",
+        "Minha protagonista deseja conhecer uma vida diferente daquela permitida pelo pai.",
+        "Objetos encontrados em navios despertam sua curiosidade pelo mundo dos humanos.",
+        "Um acordo com Úrsula troca sua voz pela possibilidade de andar em terra firme.",
+        "Ariel procura viver ao lado do príncipe Eric, com a ajuda de Linguado e Sebastião."
+      ]
+    },
+    {
+      "id": "moana-um-mar-de-aventuras",
+      "resposta": "MOANA: UM MAR DE AVENTURAS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Disney lançada em 2016.",
+        "Minha protagonista pertence a uma comunidade de uma ilha da Polinésia.",
+        "Quando sua ilha enfrenta problemas, ela navega além dos recifes para ajudar seu povo.",
+        "O semideus Maui a acompanha numa missão ligada ao coração de Te Fiti.",
+        "A jovem navegadora de Motunui, acompanhada pelo galo Heihei, precisa devolver a pedra que restaura o equilíbrio da natureza."
+      ]
+    },
+    {
+      "id": "1917",
+      "resposta": "1917",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de guerra dirigido por Sam Mendes.",
+        "A história acompanha militares britânicos durante a Primeira Guerra Mundial.",
+        "Dois jovens soldados precisam atravessar território inimigo levando uma mensagem.",
+        "O aviso pode impedir um ataque que colocaria em risco centenas de combatentes, incluindo o irmão de um dos mensageiros.",
+        "Schofield e Blake são os soldados dessa missão; meu título é escrito apenas com quatro algarismos."
+      ]
+    },
+    {
+      "id": "o-show-de-truman-o-show-da-vida",
+      "resposta": "O SHOW DE TRUMAN - O SHOW DA VIDA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de 1998 que questiona os limites entre realidade e espetáculo.",
+        "Meu protagonista considera normal a cidade onde mora e conhece seus vizinhos.",
+        "Pequenas falhas no cotidiano fazem esse homem suspeitar de uma encenação.",
+        "Sem saber, ele é acompanhado desde o nascimento por câmeras de um programa de televisão.",
+        "Jim Carrey interpreta o morador de Seahaven que tenta escapar do mundo comandado pelo produtor Christof."
+      ]
+    },
+    {
+      "id": "o-auto-da-compadecida",
+      "resposta": "O AUTO DA COMPADECIDA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme brasileiro lançado em 2000.",
+        "Misturo humor, religiosidade e situações de sobrevivência no sertão nordestino.",
+        "Minha história adapta uma peça de Ariano Suassuna.",
+        "Entre minhas confusões está a tentativa de conseguir um enterro religioso para uma cachorra.",
+        "Matheus Nachtergaele e Selton Mello vivem João Grilo e Chicó nesta adaptação dirigida por Guel Arraes."
+      ]
+    },
+    {
+      "id": "que-horas-ela-volta",
+      "resposta": "QUE HORAS ELA VOLTA?",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um drama brasileiro dirigido por Anna Muylaert.",
+        "Minha história discute relações de classe dentro de uma casa de família.",
+        "Uma trabalhadora nordestina criou o filho dos patrões em São Paulo, longe da própria filha.",
+        "A chegada de Jéssica para prestar vestibular desafia as regras que a mãe aceitava naquele lar.",
+        "Regina Casé interpreta Val, a empregada doméstica que revê sua relação com os patrões após a visita da filha."
+      ]
+    },
+    {
+      "id": "o-menino-do-pijama-listrado",
+      "resposta": "O MENINO DO PIJAMA LISTRADO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um drama ambientado durante a Segunda Guerra Mundial.",
+        "Minha história mostra uma amizade infantil atravessada pela perseguição nazista.",
+        "O filho de um comandante se muda com a família para perto de um campo de concentração.",
+        "Uma cerca separa o garoto alemão de um prisioneiro judeu de idade semelhante.",
+        "Bruno e Shmuel são as duas crianças desta adaptação do romance de John Boyne."
+      ]
+    },
+    {
+      "id": "uma-noite-no-museu",
+      "resposta": "UMA NOITE NO MUSEU",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma comédia de fantasia lançada em 2006.",
+        "Meu protagonista aceita um emprego para melhorar sua relação com o filho.",
+        "O novo trabalho é de segurança em uma instituição de história natural em Nova York.",
+        "Quando o sol se põe, as peças das exposições começam a ganhar vida.",
+        "Ben Stiller interpreta o vigia Larry Daley, que encontra um esqueleto de tiranossauro e uma figura de Theodore Roosevelt animados."
+      ]
+    },
+    {
+      "id": "de-volta-para-o-futuro",
+      "resposta": "DE VOLTA PARA O FUTURO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma aventura de ficção científica lançada em 1985.",
+        "Meu protagonista é um adolescente envolvido num experimento de um cientista excêntrico.",
+        "Uma viagem temporal o leva até a juventude de seus próprios pais.",
+        "Um automóvel DeLorean é a máquina que o transporta para 1955.",
+        "Marty McFly precisa da ajuda de Doc Brown para retornar à sua época sem impedir o romance entre seus pais."
+      ]
+    },
+    {
+      "id": "gilmore-girls-tal-mae-tal-filha",
+      "resposta": "GILMORE GIRLS: TAL MÃE, TAL FILHA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série centrada em relações familiares e diálogos rápidos.",
+        "Meu cenário principal é a pequena cidade de Stars Hollow, em Connecticut.",
+        "Uma mulher que teve uma filha ainda adolescente cria a jovem com bastante independência.",
+        "Relações com avós ricos e planos de estudo fazem parte da rotina dessa dupla.",
+        "Lorelai e Rory são a mãe e a filha protagonistas desta série, com conversas frequentemente acompanhadas de café."
+      ]
+    },
+    {
+      "id": "the-office",
+      "resposta": "THE OFFICE",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série de comédia apresentada como se fosse um documentário.",
+        "Nesta versão estadunidense, iniciada em 2005, as câmeras acompanham relações no ambiente de trabalho.",
+        "A empresa vende papel e possui uma filial na cidade de Scranton.",
+        "O gerente Michael Scott tenta ser querido pelos funcionários e costuma criar situações constrangedoras.",
+        "A filial da Dunder Mifflin reúne Jim, Pam e Dwight, com Steve Carell no papel do chefe."
+      ]
+    },
+    {
+      "id": "brooklyn-nine-nine",
+      "resposta": "BROOKLYN NINE-NINE",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série de comédia sobre colegas de profissão em Nova York.",
+        "Minha equipe trabalha numa delegacia de polícia.",
+        "Um detetive talentoso e brincalhão precisa se adaptar a um novo comandante rigoroso.",
+        "Jake Peralta e o capitão Raymond Holt estão no centro das histórias.",
+        "A delegacia de número 99 reúne também Amy, Rosa, Terry e Boyle; Andy Samberg interpreta o protagonista."
+      ]
+    },
+    {
+      "id": "brilho-eterno-de-uma-mente-sem-lembrancas",
+      "resposta": "BRILHO ETERNO DE UMA MENTE SEM LEMBRANÇAS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme que mistura romance e ficção científica.",
+        "Uma separação leva meus protagonistas a considerar um procedimento incomum.",
+        "Uma empresa promete apagar da memória as experiências ligadas a uma pessoa.",
+        "Ao passar pelo procedimento, um homem tenta preservar a mulher dentro das recordações que estão desaparecendo.",
+        "Jim Carrey e Kate Winslet interpretam Joel e Clementine, clientes da empresa Lacuna, sob a direção de Michel Gondry."
+      ]
+    },
+    {
+      "id": "o-labirinto-do-fauno",
+      "resposta": "O LABIRINTO DO FAUNO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme de fantasia sombria dirigido por Guillermo del Toro.",
+        "Minha narrativa combina um mundo fantástico com a violência da Espanha de 1944.",
+        "Uma menina passa a viver perto de uma instalação militar comandada pelo cruel capitão Vidal.",
+        "A protagonista recebe três tarefas ligadas à promessa de pertencer a um reino subterrâneo.",
+        "Ofélia encontra uma criatura de chifres que a guia nas provas e um ser pálido que tem olhos nas mãos."
+      ]
+    },
+    {
+      "id": "adeus-lenin",
+      "resposta": "ADEUS, LÊNIN!",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme alemão dirigido por Wolfgang Becker.",
+        "Minha história acompanha uma família durante uma grande transformação política.",
+        "Uma mulher passa meses em coma enquanto o país onde vivia muda radicalmente.",
+        "Ao vê-la acordar, seu filho tenta esconder que o Muro de Berlim caiu.",
+        "Alex recria dentro do apartamento uma Alemanha Oriental que já não existe para poupar a mãe Christiane de um choque."
+      ]
+    },
+    {
+      "id": "o-setimo-selo",
+      "resposta": "O SÉTIMO SELO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme sueco em preto e branco.",
+        "Fui dirigido por Ingmar Bergman e lançado em 1957.",
+        "Minha história acompanha um cavaleiro que retorna das Cruzadas a uma terra atingida pela peste.",
+        "O protagonista confronta dúvidas sobre a fé e a existência diante de uma figura encapuzada.",
+        "O cavaleiro Antonius Block disputa uma partida de xadrez com a personificação da Morte."
+      ]
+    },
+    {
+      "id": "coerencia",
+      "resposta": "COERÊNCIA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme independente que mistura ficção científica e suspense.",
+        "Minha história começa com um jantar entre amigos durante a passagem de um cometa.",
+        "Uma queda de energia leva parte do grupo a investigar outra casa da vizinhança.",
+        "Os convidados encontram indícios de versões alternativas das mesmas pessoas e da mesma reunião.",
+        "Dirigido por James Ward Byrkit, acompanho oito amigos numa noite em que casas aparentemente iguais levam a realidades diferentes."
+      ]
+    }
+  ]
+}

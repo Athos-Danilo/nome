@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos onze lotes existentes: 275 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos doze lotes existentes: 300 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -279,3 +279,28 @@ Gerada a partir dos onze lotes existentes: 275 respostas. Fornecer esta lista an
 | animais-003 | `musaranho` | MUSARANHO | dificil |
 | animais-003 | `tuatara` | TUATARA | dificil |
 | animais-003 | `lemure` | LÊMURE | dificil |
+| filmes-e-series-003 | `homem-aranha` | HOMEM-ARANHA | facil |
+| filmes-e-series-003 | `wall-e` | WALL-E | facil |
+| filmes-e-series-003 | `monstros-s-a` | MONSTROS S.A. | facil |
+| filmes-e-series-003 | `carros` | CARROS | facil |
+| filmes-e-series-003 | `minions` | MINIONS | facil |
+| filmes-e-series-003 | `os-simpsons` | OS SIMPSONS | facil |
+| filmes-e-series-003 | `bob-esponja-calca-quadrada` | BOB ESPONJA, CALÇA QUADRADA | facil |
+| filmes-e-series-003 | `todo-mundo-odeia-o-chris` | TODO MUNDO ODEIA O CHRIS | facil |
+| filmes-e-series-003 | `a-pequena-sereia` | A PEQUENA SEREIA | facil |
+| filmes-e-series-003 | `moana-um-mar-de-aventuras` | MOANA: UM MAR DE AVENTURAS | facil |
+| filmes-e-series-003 | `1917` | 1917 | medio |
+| filmes-e-series-003 | `o-show-de-truman-o-show-da-vida` | O SHOW DE TRUMAN - O SHOW DA VIDA | medio |
+| filmes-e-series-003 | `o-auto-da-compadecida` | O AUTO DA COMPADECIDA | medio |
+| filmes-e-series-003 | `que-horas-ela-volta` | QUE HORAS ELA VOLTA? | medio |
+| filmes-e-series-003 | `o-menino-do-pijama-listrado` | O MENINO DO PIJAMA LISTRADO | medio |
+| filmes-e-series-003 | `uma-noite-no-museu` | UMA NOITE NO MUSEU | medio |
+| filmes-e-series-003 | `de-volta-para-o-futuro` | DE VOLTA PARA O FUTURO | medio |
+| filmes-e-series-003 | `gilmore-girls-tal-mae-tal-filha` | GILMORE GIRLS: TAL MÃE, TAL FILHA | medio |
+| filmes-e-series-003 | `the-office` | THE OFFICE | medio |
+| filmes-e-series-003 | `brooklyn-nine-nine` | BROOKLYN NINE-NINE | medio |
+| filmes-e-series-003 | `brilho-eterno-de-uma-mente-sem-lembrancas` | BRILHO ETERNO DE UMA MENTE SEM LEMBRANÇAS | dificil |
+| filmes-e-series-003 | `o-labirinto-do-fauno` | O LABIRINTO DO FAUNO | dificil |
+| filmes-e-series-003 | `adeus-lenin` | ADEUS, LÊNIN! | dificil |
+| filmes-e-series-003 | `o-setimo-selo` | O SÉTIMO SELO | dificil |
+| filmes-e-series-003 | `coerencia` | COERÊNCIA | dificil |

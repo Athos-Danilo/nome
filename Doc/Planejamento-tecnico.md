@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Catálogo — fase 27 concluída:** doze lotes produzidos (300 respostas e 1.500 dicas); nove aprovados e importados localmente (225 respostas e 1.125 dicas). Filmes-e-series-003 acrescentou 25 títulos sem sobrescritas, completando 75 nesta temática. Correção com TDD para títulos somente numéricos e 36 montagens de expressões reais verificadas em três tamanhos de tela. Evidências em [Revisão do lote](Revisoes/filmes-e-series-003.md).
+
 **Fase 26 concluída:** Solo e demonstração jogáveis em React, com configuração, dicas, teclado, resultado recuperável e pontos persistidos pelo mesmo motor. API ampliada para sinais fixos/números; autorização própria do visitante. Prova integrada de tela, HTTP e banco aprovada. Contratos, TDD e limites em [Partida individual](Partida-individual.md).
 
 **Catálogo — fase 25 concluída:** onze lotes produzidos (275 respostas e 1.375 dicas); oito aprovados pelo responsável e importados localmente (200 respostas e 1.000 dicas). Animais-003 acrescentou 25 respostas sem sobrescritas; animais-002 permanece pendente de revisão humana. Evidências em [Revisão do lote](Revisoes/animais-003.md).

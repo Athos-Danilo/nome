@@ -30,8 +30,8 @@ class ConteudoPalavra(BaseModel):
     def validar_resposta(cls, resposta: str) -> str:
         if resposta != resposta.strip() or resposta != resposta.upper():
             raise ValueError("A resposta deve estar em maiúsculas e sem espaços nas extremidades.")
-        if not any(caractere.isalpha() for caractere in resposta):
-            raise ValueError("A resposta precisa conter letras.")
+        if not any(caractere.isalpha() or caractere in "0123456789" for caractere in resposta):
+            raise ValueError("A resposta precisa conter letras ou algarismos de 0 a 9.")
         if resposta != unicodedata.normalize("NFC", resposta):
             raise ValueError("A resposta deve utilizar Unicode NFC, preservando os acentos.")
         return resposta

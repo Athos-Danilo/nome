@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { test, expect, type Page } from "@playwright/test";
 async function preparar(pagina: Page, demo = false) {
   let ativa = false;
@@ -364,4 +365,84 @@ test("captura visual da arena e da configuração", async ({ page }, info) => {
     fullPage: true,
     animations: "disabled",
   });
+});
+
+test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos", async ({
+  page,
+}, info) => {
+  test.setTimeout(90000);
+  const catalogo: {
+    palavras: { id: string; resposta: string; dicas: string[] }[];
+  } = JSON.parse(
+    readFileSync(
+      new URL("../../Data/palavras/filmes-e-series-003.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  const exemplos = catalogo.palavras.filter((p) =>
+    [
+      "1917",
+      "homem-aranha",
+      "wall-e",
+      "monstros-s-a",
+      "bob-esponja-calca-quadrada",
+      "moana-um-mar-de-aventuras",
+      "o-show-de-truman-o-show-da-vida",
+      "que-horas-ela-volta",
+      "gilmore-girls-tal-mae-tal-filha",
+      "brooklyn-nine-nine",
+      "brilho-eterno-de-uma-mente-sem-lembrancas",
+      "adeus-lenin",
+    ].includes(p.id),
+  );
+  expect(exemplos).toHaveLength(12);
+  const controle = await preparar(page);
+  let palavra = exemplos[0];
+  let enviado = "";
+  function estado() {
+    return {
+      ...controle.estado,
+      rodada_atual: {
+        ...controle.estado.rodada_atual,
+        tematicas: ["filmes-e-series"],
+        dificuldade: palavra.dificuldade,
+        posicoes: Array.from(palavra.resposta, (c) =>
+          /[\p{L}0-9]/u.test(c) ? null : c,
+        ),
+        dicas_reveladas: [palavra.dicas[0]],
+      },
+    };
+  }
+  await page.route("**/api/partidas/partida", (r) =>
+    r.fulfill({ json: estado() }),
+  );
+  await page.route("**/api/partidas/partida/palpites", (r) => {
+    enviado = r.request().postDataJSON().palpite;
+    return r.fulfill({ json: estado() });
+  });
+  for (palavra of exemplos) {
+    enviado = "";
+    await page.goto("/jogar/individual/partida");
+    await expect(page.locator(".cartao-dica > p")).toHaveText(palavra.dicas[0]);
+    const letras = Array.from(palavra.resposta).filter((c) =>
+      /[\p{L}0-9]/u.test(c),
+    );
+    await expect(page.locator(".quadradinho")).toHaveCount(letras.length);
+    await page
+      .getByRole("textbox", { name: "Digitação pelo teclado" })
+      .fill(palavra.resposta);
+    await page.getByRole("button", { name: "Enviar palpite" }).click();
+    await expect.poll(() => enviado).toBe(palavra.resposta);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBeTruthy();
+    if (palavra.id === "brilho-eterno-de-uma-mente-sem-lembrancas")
+      await page.screenshot({
+        path: `test-results/catalogo-expressao-longa-${info.project.name}.png`,
+        fullPage: true,
+        animations: "disabled",
+      });
+  }
 });
