@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos nove lotes existentes: 225 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos dez lotes existentes: 250 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -229,3 +229,28 @@ Gerada a partir dos nove lotes existentes: 225 respostas. Fornecer esta lista an
 | paises-002 | `georgia` | GEÓRGIA | dificil |
 | paises-002 | `jordania` | JORDÂNIA | dificil |
 | paises-002 | `croacia` | CROÁCIA | dificil |
+| objetos-002 | `bola` | BOLA | facil |
+| objetos-002 | `bicicleta` | BICICLETA | facil |
+| objetos-002 | `colher` | COLHER | facil |
+| objetos-002 | `caderno` | CADERNO | facil |
+| objetos-002 | `caneta` | CANETA | facil |
+| objetos-002 | `martelo` | MARTELO | facil |
+| objetos-002 | `escada` | ESCADA | facil |
+| objetos-002 | `vela` | VELA | facil |
+| objetos-002 | `oculos` | ÓCULOS | facil |
+| objetos-002 | `toalha` | TOALHA | facil |
+| objetos-002 | `lanterna` | LANTERNA | medio |
+| objetos-002 | `binoculo` | BINÓCULO | medio |
+| objetos-002 | `microscopio` | MICROSCÓPIO | medio |
+| objetos-002 | `abridor-de-latas` | ABRIDOR DE LATAS | medio |
+| objetos-002 | `espatula` | ESPÁTULA | medio |
+| objetos-002 | `ralador` | RALADOR | medio |
+| objetos-002 | `sino` | SINO | medio |
+| objetos-002 | `violino` | VIOLINO | medio |
+| objetos-002 | `agulha` | AGULHA | medio |
+| objetos-002 | `ferro-de-passar` | FERRO DE PASSAR | medio |
+| objetos-002 | `diapasao` | DIAPASÃO | dificil |
+| objetos-002 | `teodolito` | TEODOLITO | dificil |
+| objetos-002 | `barometro` | BARÔMETRO | dificil |
+| objetos-002 | `micrometro` | MICRÔMETRO | dificil |
+| objetos-002 | `caleidoscopio` | CALEIDOSCÓPIO | dificil |

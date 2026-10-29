@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "objetos-002",
+  "palavras": [
+    {
+      "id": "bola",
+      "resposta": "BOLA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte de muitas brincadeiras e atividades esportivas.",
+        "Posso ser feita de borracha, couro ou materiais sintéticos.",
+        "Conforme a modalidade, sou lançada, chutada ou rebatida.",
+        "Minhas versões de futebol e basquete têm formato esférico.",
+        "Sou o objeto que os jogadores tentam colocar no gol ou na cesta."
+      ]
+    },
+    {
+      "id": "bicicleta",
+      "resposta": "BICICLETA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Posso ser usada para lazer, esporte ou deslocamento.",
+        "Meu modelo tradicional se move com a força de quem me conduz.",
+        "Tenho guidão, selim e um par de pedais.",
+        "Uma corrente costuma transmitir o movimento dos pedais para a roda traseira.",
+        "Sou um veículo de duas rodas no qual você se equilibra enquanto pedala."
+      ]
+    },
+    {
+      "id": "colher",
+      "resposta": "COLHER",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um utensílio comum nas refeições.",
+        "Existem versões pequenas para sobremesas e maiores para servir.",
+        "Minha extremidade útil é côncava, em vez de ter dentes ou lâmina.",
+        "Consigo levar pequenas porções de caldo até a boca.",
+        "Sou o talher usado para tomar sopa ou comer um mingau."
+      ]
+    },
+    {
+      "id": "caderno",
+      "resposta": "CADERNO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Ajudo a guardar ideias e registros do dia a dia.",
+        "Sou muito comum na mochila de estudantes.",
+        "Reúno folhas que podem ter linhas, quadrículos ou espaços em branco.",
+        "Minhas folhas ficam unidas por costura, cola ou uma espiral.",
+        "Sou o material de capa e páginas em que você costuma copiar a matéria das aulas."
+      ]
+    },
+    {
+      "id": "caneta",
+      "resposta": "CANETA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um instrumento para registrar palavras e desenhos.",
+        "Costumo aparecer sobre mesas de estudo e em estojos.",
+        "Guardo tinta em meu interior para produzir os traços.",
+        "Na versão esferográfica, uma pequena esfera na ponta distribui essa tinta.",
+        "Sirvo para assinar documentos e escrever com tinta, em vez de grafite."
+      ]
+    },
+    {
+      "id": "martelo",
+      "resposta": "MARTELO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ferramenta usada em muitos reparos.",
+        "Funciono pela aplicação de impactos sobre uma superfície.",
+        "Tenho uma cabeça presa a um cabo que você segura com a mão.",
+        "Minha versão de unha tem uma ponta bifurcada para retirar pregos.",
+        "Sou a ferramenta usada para bater na cabeça de um prego e fazê-lo entrar na madeira."
+      ]
+    },
+    {
+      "id": "escada",
+      "resposta": "ESCADA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Ajudo a alcançar lugares em alturas diferentes.",
+        "Posso fazer parte de uma construção ou ser transportada até o local de uso.",
+        "Minha estrutura oferece uma sequência de apoios para os pés.",
+        "Na versão portátil, esses apoios ficam entre duas peças laterais.",
+        "Você sobe e desce por meus degraus, um após o outro."
+      ]
+    },
+    {
+      "id": "vela",
+      "resposta": "VELA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto que pode produzir luz sem eletricidade.",
+        "Posso aparecer em celebrações, na decoração ou durante uma falta de energia.",
+        "Meu corpo costuma ser feito de cera ou parafina.",
+        "Uma pequena chama se mantém em meu pavio enquanto meu material é consumido.",
+        "Em bolos de aniversário, posso representar a idade e ser apagada com um sopro."
+      ]
+    },
+    {
+      "id": "oculos",
+      "resposta": "ÓCULOS",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um acessório usado junto ao rosto.",
+        "Existem versões destinadas à correção da visão e outras à proteção contra o sol.",
+        "Minha armação sustenta duas lentes.",
+        "Costumo me apoiar no nariz e nas orelhas por meio de hastes laterais.",
+        "Fico diante dos dois olhos; não sou uma lente de contato."
+      ]
+    },
+    {
+      "id": "toalha",
+      "resposta": "TOALHA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma peça de tecido presente em muitas casas.",
+        "Minhas versões destinadas à higiene precisam absorver água.",
+        "Posso ter tamanho pequeno para as mãos ou maior para o corpo.",
+        "Costumo ficar pendurada perto da pia ou do chuveiro.",
+        "Depois do banho, você me usa para enxugar a pele."
+      ]
+    },
+    {
+      "id": "lanterna",
+      "resposta": "LANTERNA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou útil em atividades noturnas e em lugares sem iluminação.",
+        "Minha versão de mão pode acompanhar trilhas e acampamentos.",
+        "Costumo funcionar com pilhas ou bateria.",
+        "Minha lâmpada ou LED projeta luz para a direção em que sou apontada.",
+        "Sou uma fonte portátil de luz que você segura para iluminar o caminho no escuro."
+      ]
+    },
+    {
+      "id": "binoculo",
+      "resposta": "BINÓCULO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento usado para observar o que está longe.",
+        "Posso acompanhar passeios de observação de aves e visitas a estádios.",
+        "Meu sistema óptico faz objetos distantes parecerem maiores.",
+        "Tenho dois conjuntos de lentes alinhados, um para cada olho.",
+        "Você me segura diante dos dois olhos para observar à distância, ao contrário de uma luneta de um só tubo."
+      ]
+    },
+    {
+      "id": "microscopio",
+      "resposta": "MICROSCÓPIO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento importante em muitos laboratórios.",
+        "Ajudo a estudar detalhes pequenos demais para serem distinguidos a olho nu.",
+        "Em meu modelo óptico composto, lentes ampliam a imagem de uma amostra.",
+        "Uma lâmina pode ficar sobre minha platina, abaixo das lentes objetivas.",
+        "Com minhas lentes ocular e objetiva, você pode observar células em uma amostra preparada."
+      ]
+    },
+    {
+      "id": "abridor-de-latas",
+      "resposta": "ABRIDOR DE LATAS",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio usado no preparo de alimentos.",
+        "Minha função não é cozinhar nem servir a comida.",
+        "Trabalho sobre a tampa ou a borda de uma embalagem metálica fechada.",
+        "Minha versão manual pode ter uma roda cortante acionada por uma manivela.",
+        "Recorto o fechamento metálico de uma conserva de milho, em vez de tirar a rolha de uma garrafa."
+      ]
+    },
+    {
+      "id": "espatula",
+      "resposta": "ESPÁTULA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Tenho versões usadas na cozinha e em outros trabalhos manuais.",
+        "Minha parte útil costuma ser mais larga e achatada que o cabo.",
+        "Conforme o modelo, posso raspar, espalhar ou levantar materiais.",
+        "Na confeitaria, minha lâmina ajuda a alisar uma cobertura.",
+        "Minha versão de chapa desliza por baixo de um hambúrguer para virá-lo sem espetar."
+      ]
+    },
+    {
+      "id": "ralador",
+      "resposta": "RALADOR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio de preparo de alimentos.",
+        "Minha versão manual funciona sem motor e sem lâminas giratórias.",
+        "Tenho uma superfície com aberturas de bordas cortantes.",
+        "O alimento é esfregado contra essa superfície para formar tiras ou partículas pequenas.",
+        "Posso transformar um pedaço de queijo em fios e uma cenoura em tirinhas finas."
+      ]
+    },
+    {
+      "id": "sino",
+      "resposta": "SINO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Produzo som para chamar a atenção ou marcar acontecimentos.",
+        "Minha versão tradicional tem um corpo metálico oco.",
+        "Posso soar quando uma peça bate em minha parede.",
+        "O badalo pode ficar pendurado dentro de mim.",
+        "Em muitas igrejas, fico no alto da torre e anuncio as horas ou celebrações."
+      ]
+    },
+    {
+      "id": "violino",
+      "resposta": "VIOLINO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento musical presente em orquestras.",
+        "Na versão acústica tradicional, tenho corpo de madeira e cordas.",
+        "Costumo ser apoiado entre o ombro e o queixo de quem toca.",
+        "Meu som pode ser produzido pela fricção de um arco sobre as cordas.",
+        "Tenho quatro cordas geralmente afinadas, da mais grave à mais aguda, em sol, ré, lá e mi."
+      ]
+    },
+    {
+      "id": "agulha",
+      "resposta": "AGULHA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Minha versão de costura manual costuma ficar em caixas de pequenos reparos.",
+        "Sou uma peça fina, geralmente metálica.",
+        "Tenho uma ponta capaz de atravessar tecido.",
+        "Perto da extremidade oposta à ponta, há um pequeno orifício por onde passa a linha.",
+        "Conduzo a linha através do pano para formar pontos ao pregar um botão à mão."
+      ]
+    },
+    {
+      "id": "ferro-de-passar",
+      "resposta": "FERRO DE PASSAR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um objeto ligado aos cuidados com as roupas.",
+        "Minha versão elétrica transforma energia em calor.",
+        "Tenho uma base lisa que entra em contato com o tecido.",
+        "Alguns modelos também liberam vapor durante o uso.",
+        "Minha base aquecida desliza sobre a roupa para reduzir amassados e vincos indesejados."
+      ]
+    },
+    {
+      "id": "diapasao",
+      "resposta": "DIAPASÃO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Posso ajudar músicos a estabelecer uma referência sonora.",
+        "Meu modelo tradicional funciona sem bateria nem tela.",
+        "Tenho duas hastes metálicas ligadas em uma extremidade, formando um U.",
+        "Ao receber um pequeno impacto, minhas hastes vibram e produzem um som de frequência definida.",
+        "Um modelo muito comum fornece a nota lá de 440 hertz para servir de referência na afinação."
+      ]
+    },
+    {
+      "id": "teodolito",
+      "resposta": "TEODOLITO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento de medição usado em trabalhos de campo.",
+        "Faço parte de levantamentos topográficos e de atividades de agrimensura.",
+        "Costumo ser instalado e nivelado sobre um tripé.",
+        "Tenho uma luneta que pode girar nos planos horizontal e vertical.",
+        "Minha função característica é medir ângulos horizontais e verticais entre direções observadas no terreno."
+      ]
+    },
+    {
+      "id": "barometro",
+      "resposta": "BARÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento encontrado em estações meteorológicas.",
+        "Acompanho uma característica do ar que pode variar ao longo do tempo.",
+        "Minhas leituras podem ser expressas em hectopascais.",
+        "Tenho versões históricas que usam uma coluna de mercúrio e outras sem esse líquido.",
+        "Meço a pressão atmosférica, e não a temperatura ou a umidade do ar."
+      ]
+    },
+    {
+      "id": "micrometro",
+      "resposta": "MICRÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado para conferir pequenas dimensões com precisão.",
+        "Minha versão externa aparece em oficinas de usinagem e laboratórios de medição.",
+        "Nesse modelo, uma peça fica entre duas faces de contato em uma estrutura semelhante à letra C.",
+        "Um parafuso de passo fino movimenta o fuso; no modelo analógico, a leitura usa a bainha e o tambor.",
+        "Meço, por exemplo, a espessura de uma chapa pelo avanço desse fuso, sem os bicos deslizantes de um paquímetro."
+      ]
+    },
+    {
+      "id": "caleidoscopio",
+      "resposta": "CALEIDOSCÓPIO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um objeto que transforma a observação em uma brincadeira visual.",
+        "Meu funcionamento explora a reflexão da luz.",
+        "Em minha versão de tubo, você olha por uma abertura em uma das extremidades.",
+        "Espelhos inclinados no meu interior repetem imagens e criam padrões simétricos.",
+        "Ao girar o tubo, pequenas peças coloridas mudam de posição e formam novos desenhos geométricos nos espelhos."
+      ]
+    }
+  ]
+}
