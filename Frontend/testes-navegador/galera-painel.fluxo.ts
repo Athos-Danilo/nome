@@ -160,12 +160,18 @@ test("joga no painel, recupera recarga e confirma desistência", async ({
   await mockarGalera(page);
   await page.goto("/jogar/galera/partida");
   await page.getByRole("button", { name: "Iniciar desafio" }).click();
+  await expect(
+    page.getByRole("dialog").locator(".aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "sorteio");
   await page.getByRole("button", { name: "Liberar painel" }).click();
   await expect(
     page.getByRole("heading", { name: "É a vez de Ana" }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Tecla A", exact: true }).click();
   await expect(page.getByTestId("placar-p1")).toContainText("400");
+  await expect(
+    page.locator(".anfitriao-galera .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "comemoracao");
   await page.reload();
   await expect(page.getByTestId("placar-p1")).toContainText("400");
   await expect(
@@ -188,6 +194,10 @@ test("joga no painel, recupera recarga e confirma desistência", async ({
   await expect(
     page.getByRole("heading", { name: "Resultado da galera" }),
   ).toBeVisible();
+  await expect(page.locator(".final-galera .aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "resultado",
+  );
   await expect(
     page.getByRole("paragraph").filter({ hasText: /^MADEIRA$/ }),
   ).toBeVisible();

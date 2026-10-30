@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 36 em revisão visual:** Aurélio em SVG por partes, Motion 14.9.0, controle de prioridade/deduplicação, preferências de movimento e integração ao menu, Solo/demonstração e galera. Galeria em `/laboratorio/aurelio`. A conclusão depende da avaliação visual do responsável; detalhes em [Aurélio animado](Aurelio-animado.md).
+
 **Fase 34:** histórico privado, estatísticas e três rankings públicos em módulo próprio, sem migração ou duplicação de resultados. PostgreSQL agrega individuais encerradas publicadas; MongoDB fornece temáticas da revisão histórica. React usa consultas validadas, cache por titular, filtros, paginação e telas responsivas. Fórmulas D14/D15 e contratos em [Histórico, estatísticas e rankings](Historico-estatisticas-rankings.md).
 
 **Fase 29 concluída:** configuração autenticada da galera, convidados/avatares, sessões e temáticas, plano privado, reservas sem repetição e primeira ordem persistida. Migração 0009 (22 tabelas). Contratos, decisões, testes e limites em [Configuração da galera](Configuracao-galera.md). O painel jogável permanece nas fases 31/33.

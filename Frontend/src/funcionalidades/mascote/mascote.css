@@ -1,0 +1,228 @@
+.aurelio-animado {
+  display: inline-block;
+  width: 220px;
+  max-width: 100%;
+  aspect-ratio: 420 / 500;
+  pointer-events: none;
+  vertical-align: middle;
+  contain: layout;
+}
+.aurelio-pequeno {
+  width: 128px;
+}
+.aurelio-grande {
+  width: 315px;
+}
+.desenho-aurelio {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.palco-menu > .aurelio-animado {
+  position: relative;
+  z-index: 1;
+}
+.aurelio-partida .aurelio-animado {
+  width: 230px;
+}
+.reacao-solo .aurelio-animado,
+.resultado-solo .aurelio-animado {
+  width: 165px;
+}
+.final-galera > .aurelio-animado {
+  width: 180px;
+}
+.anfitriao-galera {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0;
+}
+.anfitriao-galera > p {
+  max-width: 300px;
+  font-style: italic;
+}
+.apresentacao-sorteio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.apresentacao-sorteio .aurelio-animado {
+  width: 80px;
+  flex-shrink: 0;
+}
+dialog .sorteio-galera {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+dialog .sorteio-galera li {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 12px;
+}
+dialog .sorteio-galera img {
+  width: 42px;
+  height: 42px;
+  margin: 10px auto;
+}
+.galeria-aurelio {
+  max-width: 1080px;
+  margin: auto;
+  padding-bottom: 36px;
+}
+.galeria-aurelio > h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  margin: 18px 0;
+}
+.estudio-aurelio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 28px;
+}
+.palco-aurelio {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 480px;
+  padding: 32px;
+  background: var(--painel);
+  border: 2px solid var(--texto);
+  border-radius: 40px;
+  box-shadow: 0 7px 0 var(--texto);
+  isolation: isolate;
+}
+.palco-aurelio::before {
+  content: "";
+  position: absolute;
+  width: 82%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--amarelo);
+  opacity: 0.65;
+  z-index: -1;
+}
+.palco-aurelio > .etiqueta {
+  margin-bottom: 10px;
+}
+.botoes-reacoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.botoes-reacoes button {
+  min-height: 58px;
+  text-align: left;
+}
+.botoes-reacoes [aria-pressed="true"] {
+  background: #d4fe62;
+  color: #303126;
+}
+.controles-aurelio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin: 24px 0;
+}
+.nota-aurelio {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.referencia-aurelio {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.referencia-aurelio img {
+  width: 115px;
+  height: 135px;
+  object-fit: contain;
+}
+.referencia-aurelio p {
+  font-size: 13px;
+  max-width: 500px;
+}
+@media (max-width: 800px) {
+  .estudio-aurelio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .palco-aurelio {
+    min-height: 380px;
+  }
+  .palco-aurelio .aurelio-grande {
+    width: 265px;
+  }
+}
+@media (max-width: 700px) {
+  .anfitriao-galera > .aurelio-animado {
+    width: 85px;
+    flex-shrink: 0;
+  }
+  .anfitriao-galera p {
+    font-size: 12px;
+  }
+  .palco-menu > .aurelio-animado {
+    width: 180px;
+  }
+  .botoes-reacoes {
+    gap: 8px;
+  }
+  .palco-aurelio {
+    min-height: 340px;
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .estudio-aurelio {
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  .palco-aurelio {
+    position: sticky;
+    top: 8px;
+    min-height: 0;
+    padding: 10px 6px;
+    row-gap: 6px;
+  }
+  .palco-aurelio .aurelio-grande {
+    width: 110px;
+  }
+  .palco-aurelio p {
+    font-size: 11px;
+    margin: 0;
+  }
+  .palco-aurelio > .etiqueta {
+    margin: 0;
+    font-size: 9px;
+    text-align: center;
+  }
+  .estudio-aurelio > div:last-child > h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  .estudio-aurelio > div:last-child > p,
+  .estudio-aurelio label {
+    font-size: 12px;
+  }
+  .botoes-reacoes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .botoes-reacoes button {
+    min-height: 48px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .controles-aurelio button {
+    width: 100%;
+    font-size: 12px;
+    padding: 10px;
+  }
+}

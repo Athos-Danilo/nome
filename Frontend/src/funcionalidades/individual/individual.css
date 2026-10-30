@@ -693,6 +693,22 @@ html[data-movimentos="reduzidos"] .reacao-solo {
     grid-template-columns: minmax(0, 1fr);
   }
   .partida-solo .aurelio-partida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    gap: 12px;
+  }
+  .partida-solo .aurelio-partida .aurelio-animado {
+    width: 85px;
+    flex-shrink: 0;
+  }
+  .partida-solo .aurelio-partida p {
+    max-width: 240px;
+    text-align: left;
+    font-size: 12px;
+  }
+  .partida-solo .aurelio-partida .estrela-solo {
     display: none;
   }
 }

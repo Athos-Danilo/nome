@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useBlocker } from "react-router";
 import {
   Botao,
@@ -13,6 +13,12 @@ import { useSaidaPartida } from "../individual/saida-partida";
 import { TEMAS } from "../individual/apresentacao";
 import { usePainelGalera } from "./usar-painel";
 import type { Painel } from "./painel-api";
+import { Aurelio } from "../mascote/Aurelio";
+import {
+  reacaoGalera,
+  type EventoReacao,
+  type ResumoGalera,
+} from "../mascote/reacoes";
 
 function EntradaGalera({
   painel,
@@ -54,6 +60,23 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
   const jogo = usePainelGalera(id, token, !liberada);
   const e = jogo.consulta.data;
   const p = e?.painel;
+  const anteriorMascote = useRef<ResumoGalera | null>(null);
+  const [reacaoMascote, definirReacaoMascote] = useState<EventoReacao>();
+  useEffect(() => {
+    if (!e || !p) return;
+    const atual = {
+      versao: e.versao,
+      sessao: p.sessao,
+      participante: p.participante_atual,
+      pontos: e.participantes.reduce((s, a) => s + a.pontuacao, 0),
+      estado: e.estado,
+    };
+    const tipo = anteriorMascote.current
+      ? reacaoGalera(anteriorMascote.current, atual)
+      : null;
+    anteriorMascote.current = atual;
+    if (tipo) definirReacaoMascote({ id: `${id}:${e.versao}`, tipo });
+  }, [id, e?.versao]);
   const [palavra, definirPalavra] = useState(0);
   const [modo, definirModo] = useState<"letra" | "palpite">("letra");
   const [encerrar, definirEncerrar] = useState(false);
@@ -199,7 +222,10 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
       )}
       {final ? (
         <div className="final-galera">
-          <img src="/mascote/aurelio.png" alt="Aurélio celebrando a partida" />
+          <Aurelio
+            evento={{ id: `resultado-${id}`, tipo: "resultado" }}
+            tamanho="pequeno"
+          />
           <div>
             <span className="etiqueta">
               {e.estado === "abandonada"
@@ -230,6 +256,16 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
           </div>
         </div>
       ) : null}
+      {!final && (
+        <aside className="anfitriao-galera">
+          <Aurelio evento={reacaoMascote} tamanho="pequeno" />
+          <p>
+            {p.estado === "aguardando_desempate"
+              ? "Mais uma descoberta para decidir?"
+              : "Acertou? Continua na vez. O palco é de vocês!"}
+          </p>
+        </aside>
+      )}
       <div className="tabuleiro-galera">
         <div className="titulo-tabuleiro">
           <span className="etiqueta">
@@ -419,7 +455,13 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
         textoFechar="Liberar painel"
         aoFechar={liberar}
       >
-        <p>A sequência oficial desta sessão é:</p>
+        <div className="apresentacao-sorteio">
+          <p>A sequência oficial desta sessão é:</p>
+          <Aurelio
+            evento={{ id: `sorteio-${chave}`, tipo: "sorteio" }}
+            tamanho="pequeno"
+          />
+        </div>
         <ol className="ordem-galera sorteio-galera">
           {p.ordem.map((id, i) => {
             const a = e.participantes.find((a) => a.participante_id === id)!;

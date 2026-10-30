@@ -17,6 +17,7 @@ import { EditorResposta } from "../entrada/EditorResposta";
 import { ResultadoIndividual } from "./ResultadoIndividual";
 import { NIVEIS, TEMAS } from "./apresentacao";
 import type { Rodada, TipoAcao } from "./api";
+import { Aurelio } from "../mascote/Aurelio";
 function Montagem({
   rodada,
   ocupado,
@@ -252,10 +253,15 @@ function ConteudoIndividual({
         </h1>
         <p className="palavra-revelada">{jogo.retorno.resposta_revelada}</p>
         <strong className="pontos-acerto">+{jogo.retorno.pontos} pontos</strong>
-        <img
-          src="/mascote/aurelio.png"
-          width="180"
-          alt="Aurélio celebrando sua descoberta"
+        <Aurelio
+          evento={{
+            id: `retorno-${estado.versao}`,
+            tipo:
+              jogo.retorno.resultado === "acerto"
+                ? "comemoracao"
+                : "pensamento",
+          }}
+          tamanho="pequeno"
         />
         <Botao className="acao botao-grande" onClick={jogo.continuar}>
           {estado.estado === "concluida" ? "Ver resultado" : "Próxima palavra"}{" "}
@@ -327,7 +333,7 @@ function ConteudoIndividual({
       </div>
       <div className="arena-solo">
         <aside className="aurelio-partida">
-          <img src="/mascote/aurelio.png" alt="Aurélio apresentando a dica" />
+          <Aurelio evento={jogo.reacaoMascote} />
           <p>
             Uma pista de cada vez.
             <br />

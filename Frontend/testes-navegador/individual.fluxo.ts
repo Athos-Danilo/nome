@@ -325,11 +325,16 @@ test("configura, acerta três palavras e mostra os pontos confirmados", async ({
 }) => {
   const c = await preparar(page);
   await comecar(page);
+  await expect(page.locator(".aurelio-partida .aurelio-animado")).toBeVisible();
   for (let i = 0; i < 3; i++) {
     await digitar(page, "GATO");
     await expect(
       page.getByRole("heading", { name: "Boa descoberta!" }),
     ).toBeVisible();
+    await expect(page.locator(".reacao-solo .aurelio-animado")).toHaveAttribute(
+      "data-reacao",
+      "comemoracao",
+    );
     await page
       .getByRole("button", {
         name: i === 2 ? "Ver resultado" : "Próxima palavra",
@@ -368,6 +373,25 @@ test("erro limpa montagem e quinta dica mantém tentativas", async ({
   await expect(
     page.getByRole("button", { name: "Posição 1: vazia", exact: true }),
   ).toBeVisible();
+});
+
+test("Aurélio não repete erro antigo após recarga e reage à próxima dica", async ({
+  page,
+}) => {
+  await preparar(page);
+  await comecar(page);
+  await digitar(page, "PATO");
+  await expect(
+    page.locator(".aurelio-partida .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "erro");
+  await page.reload();
+  await expect(
+    page.locator(".aurelio-partida .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "apresentacao");
+  await page.getByRole("button", { name: "Pedir outra dica" }).click();
+  await expect(
+    page.locator(".aurelio-partida .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "apresentacao");
 });
 test("desistir da palavra revela solução e encerrar pede confirmação", async ({
   page,

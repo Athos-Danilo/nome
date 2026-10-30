@@ -2,6 +2,7 @@ import { RotaGalera } from "../funcionalidades/galera/RotaGalera";
 import { Historico } from "../funcionalidades/acompanhamento/Historico";
 import { Estatisticas } from "../funcionalidades/acompanhamento/Estatisticas";
 import { Rankings } from "../funcionalidades/acompanhamento/Rankings";
+import { GaleriaAurelio } from "../funcionalidades/mascote/GaleriaAurelio";
 import {
   ProtecaoNavegacao,
   useSaidaPartida,
@@ -97,6 +98,7 @@ function Jogo() {
         </a>
       </EstadoVazio>
     );
+  else if (caminho === "/laboratorio/aurelio") conteudo = <GaleriaAurelio />;
   else if (caminho === "/rankings") conteudo = <Rankings />;
   else if (caminho === "/perfil/historico" && conta)
     conteudo = <Historico jogadorId={conta.jogador_id} />;

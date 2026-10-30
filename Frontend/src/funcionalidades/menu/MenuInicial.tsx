@@ -5,6 +5,7 @@ import { CartaoModo } from "../../componentes/CartaoModo";
 import { SituacaoDemonstracao } from "../demonstracao/SituacaoDemonstracao";
 import { consultarPartidaEmAberto } from "./api";
 import { ErroDaApi, type Sessao } from "../perfil/api";
+import { Aurelio } from "../mascote/Aurelio";
 export function MenuInicial({
   conta,
   aoExpirar,
@@ -38,11 +39,9 @@ export function MenuInicial({
           <span className="brilho-menu" aria-hidden="true">
             ✦
           </span>
-          <img
-            src="/mascote/aurelio.png"
-            width="300"
-            height="365"
-            alt="Aurélio, nosso dicionário apresentador"
+          <Aurelio
+            evento={{ id: "entrada-menu", tipo: "saudacao" }}
+            tamanho="grande"
           />
           <span className="balao-menu">
             Uma dica?

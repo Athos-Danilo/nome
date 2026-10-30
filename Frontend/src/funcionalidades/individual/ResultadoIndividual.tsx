@@ -1,6 +1,7 @@
 import { formatarTempo } from "./usar-cronometro";
 import { Link } from "react-router";
 import type { Partida } from "./api";
+import { Aurelio } from "../mascote/Aurelio";
 export function ResultadoIndividual({
   partida,
   demo,
@@ -24,6 +25,10 @@ export function ResultadoIndividual({
           : "Até a próxima descoberta"}
       </h1>
       <p>Cada tentativa conta uma história. Essa foi a sua.</p>
+      <Aurelio
+        evento={{ id: `resultado-${partida.partida_id}`, tipo: "resultado" }}
+        tamanho="pequeno"
+      />
       <div className="placar-final">
         <span>SEUS PONTOS</span>
         <strong data-testid="pontos-resultado">{partida.pontuacao}</strong>

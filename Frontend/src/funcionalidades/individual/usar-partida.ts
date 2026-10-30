@@ -8,6 +8,7 @@ import {
   type TipoAcao,
 } from "./api";
 import { ErroDaApi } from "../perfil/api";
+import { reacaoIndividual, type EventoReacao } from "../mascote/reacoes";
 export function usePartida(base: string, token: string) {
   const cache = useQueryClient();
   const chave = ["individual", base];
@@ -25,6 +26,15 @@ export function usePartida(base: string, token: string) {
   } | null>(null);
   const [retorno, definirRetorno] = useState<Partida["acao"]>();
   const [limpeza, definirLimpeza] = useState(0);
+  const [reacaoMascote, definirReacaoMascote] = useState<EventoReacao>();
+  useEffect(() => {
+    const rodada = consulta.data?.rodada_atual;
+    if (rodada)
+      definirReacaoMascote({
+        id: `apresentacao-${rodada.rodada_id}`,
+        tipo: "apresentacao",
+      });
+  }, [consulta.data?.rodada_atual?.rodada_id]);
   useEffect(() => {
     montado.current = true;
     return () => {
@@ -43,6 +53,7 @@ export function usePartida(base: string, token: string) {
         !anterior || nova.versao >= anterior.versao ? nova : anterior,
       );
       definirPendente(null);
+      definirReacaoMascote(reacaoIndividual(nova));
       if (nova.acao?.limpar_montagem) definirLimpeza((v) => v + 1);
       if (
         nova.acao?.resultado === "acerto" ||
@@ -104,6 +115,7 @@ export function usePartida(base: string, token: string) {
     pendente,
     retorno,
     limpeza,
+    reacaoMascote,
     agir,
     reenviar: () => {
       return pendente
