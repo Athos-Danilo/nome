@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "marcas-003",
+  "palavras": [
+    {
+      "id": "coca-cola",
+      "resposta": "COCA-COLA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de bebidas criada nos Estados Unidos.",
+        "Minha origem está em uma receita preparada por um farmacêutico em Atlanta.",
+        "Meu refrigerante mais conhecido é escuro e gaseificado.",
+        "Uma garrafa de vidro com contorno curvo se tornou um dos meus símbolos.",
+        "Minha identidade clássica combina fundo vermelho e um nome escrito em branco com letras cursivas."
+      ]
+    },
+    {
+      "id": "mcdonalds",
+      "resposta": "MCDONALD'S",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma rede de alimentação com origem nos Estados Unidos.",
+        "Hambúrgueres, batatas fritas e atendimento rápido fazem parte da minha história.",
+        "Meu primeiro restaurante foi aberto por dois irmãos em San Bernardino, na Califórnia.",
+        "O Big Mac é um dos sanduíches mais associados à minha marca.",
+        "Dois arcos dourados formam o M que identifica meus restaurantes."
+      ]
+    },
+    {
+      "id": "burger-king",
+      "resposta": "BURGER KING",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma rede de restaurantes de serviço rápido.",
+        "Meu cardápio é especialmente associado a hambúrgueres.",
+        "O Whopper faz parte da minha história desde 1957.",
+        "Meu logotipo coloca o nome da marca entre duas formas que lembram as metades de um pão.",
+        "Uma coroa de papel é um dos acessórios mais conhecidos dos meus restaurantes."
+      ]
+    },
+    {
+      "id": "uber",
+      "resposta": "UBER",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de tecnologia ligada à mobilidade.",
+        "Meu serviço conecta passageiros e motoristas por um aplicativo.",
+        "Minha trajetória de viagens começou em São Francisco, em 2010.",
+        "Garrett Camp e Travis Kalanick estão ligados à criação do meu serviço de viagens.",
+        "Em meu aplicativo de nome curto, o passageiro pede um carro e acompanha no mapa a chegada do motorista."
+      ]
+    },
+    {
+      "id": "ifood",
+      "resposta": "IFOOD",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca brasileira ligada a serviços digitais.",
+        "Minha história começou em 2011, com um serviço chamado Disk Cook.",
+        "Meu aplicativo reúne restaurantes para quem quer pedir refeições.",
+        "Bolsas vermelhas usadas por entregadores ficaram associadas à minha identidade.",
+        "Meu símbolo inclui um traço branco curvo, parecido com um sorriso, sobre fundo vermelho."
+      ]
+    },
+    {
+      "id": "doritos",
+      "resposta": "DORITOS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de alimentos para beliscar.",
+        "Meus salgadinhos são feitos à base de milho.",
+        "Minha história está ligada à Frito-Lay e ao lançamento nacional nos Estados Unidos em 1966.",
+        "Meu produto mais conhecido tem formato triangular e textura crocante.",
+        "O sabor Nacho, associado a queijo, e um triângulo no logotipo ajudam a me reconhecer."
+      ]
+    },
+    {
+      "id": "colgate",
+      "resposta": "COLGATE",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de produtos de higiene.",
+        "Meu nome aparece em itens usados para cuidar da boca.",
+        "Em 1873, meu creme dental era vendido em potes.",
+        "Escovas de dentes e a linha de cremes dentais Total fazem parte do meu universo.",
+        "Meus tubos e caixas de pasta de dentes são muito associados ao nome branco sobre fundo vermelho."
+      ]
+    },
+    {
+      "id": "mercedes-benz",
+      "resposta": "MERCEDES-BENZ",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca ligada à fabricação de veículos.",
+        "Tenho origem alemã e uma longa associação com automóveis de luxo.",
+        "Minha marca nasceu em 1926, após a união de duas fabricantes.",
+        "As letras AMG identificam uma parte esportiva da minha família de veículos.",
+        "Meu emblema mais conhecido é uma estrela de três pontas dentro de um círculo."
+      ]
+    },
+    {
+      "id": "playstation",
+      "resposta": "PLAYSTATION",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca ligada ao entretenimento eletrônico.",
+        "Minha história começou com um console lançado no Japão em 1994.",
+        "Meu primeiro console doméstico usava CDs e tinha um modelo cinza bastante conhecido.",
+        "Sou a família de consoles criada pela Sony.",
+        "Triângulo, círculo, cruz e quadrado identificam os quatro botões mais famosos dos meus controles."
+      ]
+    },
+    {
+      "id": "chevrolet",
+      "resposta": "CHEVROLET",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de veículos com origem nos Estados Unidos.",
+        "Minha história começou em Detroit, em 1911.",
+        "Faço parte da trajetória da General Motors.",
+        "Camaro e Corvette são dois automóveis muito associados ao meu nome.",
+        "Meu símbolo tradicional lembra uma gravata-borboleta e costuma aparecer em dourado."
+      ]
+    },
+    {
+      "id": "chanel",
+      "resposta": "CHANEL",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca francesa ligada à moda e à perfumaria.",
+        "Minha história passou por uma loja de chapéus em Paris.",
+        "A bolsa 2.55, com textura acolchoada e alça de corrente, é uma das minhas criações.",
+        "Minha fundadora era Gabrielle, também conhecida pelo apelido Coco.",
+        "O perfume Nº 5 e o símbolo com dois C entrelaçados ajudam a me identificar."
+      ]
+    },
+    {
+      "id": "canon",
+      "resposta": "CANON",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de tecnologia ligada à produção de imagens.",
+        "Tenho origem japonesa e fabrico câmeras e impressoras.",
+        "Minha origem está em um laboratório de instrumentos ópticos aberto em Tóquio, em 1933.",
+        "Meu sistema de câmeras EOS foi apresentado em 1987.",
+        "Nas câmeras EOS, meu nome costuma aparecer em branco; no logotipo corporativo, ele é escrito em vermelho."
+      ]
+    },
+    {
+      "id": "jbl",
+      "resposta": "JBL",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada à reprodução de som.",
+        "Minha trajetória inclui alto-falantes para estúdios e apresentações musicais.",
+        "Também sou conhecida por caixas de som portáteis e fones de ouvido.",
+        "A linha Quantum leva minha marca ao áudio para jogos.",
+        "Meu logotipo reúne três letras brancas em um bloco laranja."
+      ]
+    },
+    {
+      "id": "kodak",
+      "resposta": "KODAK",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada à história da fotografia.",
+        "Filmes fotográficos e câmeras populares fazem parte da minha trajetória.",
+        "George Eastman lançou a primeira câmera com meu nome em 1888.",
+        "Esse modelo vinha com filme para cem fotos, e a câmera inteira podia ser enviada para revelação e recarga.",
+        "Caixas de filme amarelas, com identidade visual vermelha, ficaram muito associadas à minha marca."
+      ]
+    },
+    {
+      "id": "skol",
+      "resposta": "SKOL",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca do setor de bebidas.",
+        "Sou especialmente conhecida no Brasil por uma cerveja do tipo Pilsen.",
+        "Minha marca faz parte do portfólio da Ambev.",
+        "O amarelo é uma cor muito associada às minhas embalagens clássicas.",
+        "Uma seta vermelha que faz uma volta quase completa é um dos meus símbolos mais reconhecidos."
+      ]
+    },
+    {
+      "id": "sadia",
+      "resposta": "SADIA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca brasileira de alimentos.",
+        "Frios, congelados e aves fazem parte da minha trajetória.",
+        "Minha história começou em Concórdia, Santa Catarina, em 1944.",
+        "Attilio Fontana está ligado à minha fundação.",
+        "Tenho um mascote chamado Lek Trek, um frango conhecido por usar capacete."
+      ]
+    },
+    {
+      "id": "magazine-luiza",
+      "resposta": "MAGAZINE LUIZA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca brasileira do varejo.",
+        "Minha trajetória reúne lojas físicas e comércio eletrônico, com destaque para produtos para a casa.",
+        "Minha primeira loja foi aberta em Franca, no interior paulista, em 1957.",
+        "A Liquidação Fantástica se tornou uma campanha muito associada à minha rede.",
+        "A Lu, uma influenciadora virtual, apresenta produtos e representa minha marca."
+      ]
+    },
+    {
+      "id": "faber-castell",
+      "resposta": "FABER-CASTELL",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada à escrita e ao desenho.",
+        "Minha origem remonta a 1761, na cidade alemã de Stein.",
+        "Lápis de grafite e caixas de lápis de cor estão entre meus produtos mais conhecidos.",
+        "Uma tradicional linha de lápis verdes faz parte da minha identidade.",
+        "Dois cavaleiros que usam lápis no lugar de lanças aparecem em um dos meus símbolos históricos."
+      ]
+    },
+    {
+      "id": "electrolux",
+      "resposta": "ELECTROLUX",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de equipamentos para a casa.",
+        "Tenho origem sueca e uma história ligada à cidade de Estocolmo.",
+        "Aspiradores de pó e refrigeradores estão entre os produtos importantes da minha trajetória.",
+        "O aspirador Modelo V, lançado em 1921, tinha apoios que ajudavam a deslizá-lo pelo chão.",
+        "Ergorapido é uma das minhas linhas de aspiradores verticais sem fio."
+      ]
+    },
+    {
+      "id": "tramontina",
+      "resposta": "TRAMONTINA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca brasileira de produtos para o cotidiano.",
+        "Meu catálogo reúne itens para cozinhar, trabalhar e cuidar da casa.",
+        "Minha história começou em Carlos Barbosa, no Rio Grande do Sul, em 1911.",
+        "Facas, talheres e panelas estão entre os produtos mais associados ao meu nome.",
+        "A linha de facas profissionais Master e um logotipo retangular azul ajudam a me reconhecer."
+      ]
+    },
+    {
+      "id": "haagen-dazs",
+      "resposta": "HÄAGEN-DAZS",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de sobremesas geladas.",
+        "Minha origem está em Nova York, apesar de meu nome lembrar uma língua europeia.",
+        "Minha história começou em 1960, no Bronx.",
+        "Baunilha, chocolate e café foram meus três sabores iniciais de sorvete.",
+        "Fui criada pelo casal Reuben e Rose Mattus; meu nome tem duas partes separadas por hífen e um A com trema."
+      ]
+    },
+    {
+      "id": "bang-olufsen",
+      "resposta": "BANG & OLUFSEN",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca que combina eletrônica e design.",
+        "Tenho origem dinamarquesa e uma história iniciada em 1925.",
+        "De rádios a equipamentos de áudio e televisores, o som acompanha minha trajetória.",
+        "Beoplay é o nome de uma das minhas famílias de fones de ouvido.",
+        "Também sou reconhecida pelas iniciais B&O, presentes na identidade dos meus equipamentos de áudio."
+      ]
+    },
+    {
+      "id": "victorinox",
+      "resposta": "VICTORINOX",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de origem suíça.",
+        "Minha trajetória também inclui facas de cozinha, relógios e malas.",
+        "Karl Elsener abriu a oficina que deu origem ao meu negócio em Ibach, em 1884.",
+        "Minha história tem uma forte ligação com canivetes fornecidos ao exército suíço.",
+        "Sou muito associada a canivetes vermelhos com várias ferramentas e um escudo com cruz branca."
+      ]
+    },
+    {
+      "id": "husqvarna",
+      "resposta": "HUSQVARNA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca sueca com uma longa história industrial.",
+        "Minha origem está em uma fábrica de armas criada em 1689.",
+        "Máquinas de costura e motocicletas também fizeram parte da minha trajetória.",
+        "Motosserras e equipamentos para cuidar de jardins estão muito ligados ao meu nome.",
+        "Automower é minha família de robôs cortadores de grama."
+      ]
+    },
+    {
+      "id": "rimowa",
+      "resposta": "RIMOWA",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca ligada ao universo das viagens.",
+        "Minha história começou em Colônia, na Alemanha, em 1898.",
+        "Malas de alumínio se tornaram uma parte importante da minha identidade.",
+        "Meu monograma faz referência às duas torres da catedral de Colônia.",
+        "As malas metálicas com ranhuras paralelas inspiradas na aviação são minha imagem mais conhecida."
+      ]
+    }
+  ]
+}

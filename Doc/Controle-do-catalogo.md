@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** doze lotes produzidos: 300 respostas e 1.500 dicas, todos aprovados na validação automática completa. Nove lotes aprovados pelo responsável e importados localmente: 225 respostas e 1.125 dicas, incluindo filmes-e-series-003 na fase 27. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** treze lotes produzidos: 325 respostas e 1.625 dicas, todos aprovados na validação automática completa. Dez lotes aprovados pelo responsável e importados localmente: 250 respostas e 1.250 dicas, incluindo marcas-003 na fase 30. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -32,7 +32,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 23 | 4 | `objetos-002.json` | 10 | 10 | 5 | 25 | 250 | Importado localmente |
 | 25 | 4 | `animais-003.json` | 10 | 10 | 5 | 25 | 275 | Importado localmente |
 | 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Importado localmente |
-| 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Não iniciado |
+| 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Importado localmente |
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Não iniciado |
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Não iniciado |
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Não iniciado |
@@ -343,10 +343,10 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | --- | --- | --- | --- | --- | --- |
 | Animais | 100 | 75 | 50 | 50 | 0 |
 | Filmes e séries | 100 | 75 | 75 | 75 | 0 |
-| Marcas | 100 | 50 | 50 | 50 | 0 |
+| Marcas | 100 | 75 | 75 | 75 | 0 |
 | Países | 100 | 50 | 25 | 25 | 0 |
 | Objetos | 100 | 50 | 25 | 25 | 0 |
-| **Total** | **500** | **300** | **225** | **225** | **0** |
+| **Total** | **500** | **325** | **250** | **250** | **0** |
 
 ## 6. Fechamento global
 
@@ -357,3 +357,7 @@ Se houver reprovação, substituir o conteúdo e repetir as conferências afetad
 ## 7. Verificação da fase 12
 
 Em 2026-10-27, os cinco lotes passaram pelo importador completo na operação validar, sem correções estruturais necessárias. Os três primeiros foram conferidos e importados; a segunda importação reconheceu os 75 documentos como idênticos e publicou zero novos. Há 75 documentos atuais e 75 revisões iniciais. Países e objetos passaram na validação automática, mas ainda exigem avaliação humana para alcançar o estado Aprovado. Evidências e comandos em [Importacao-catalogo.md](Importacao-catalogo.md).
+
+## 8. Conclusão da fase 30
+
+Lote [marcas-003](../Data/palavras/marcas-003.json): 25 respostas novas e 125 dicas, distribuição 10/10/5. Validação completa de treze lotes: 325 respostas e 1.625 dicas; conferência sem escrita do novo lote: 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 225 respostas, 1.125 dicas e 225 revisões. A lista de exclusão contém também estes itens em revisão. Fontes, grafias e critérios editoriais em [Revisoes/marcas-003.md](Revisoes/marcas-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente marcas-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 250 respostas, 1.250 dicas e 250 revisões; marcas tem 75 respostas, distribuição 30/30/15. Os outros três lotes pendentes continuam sem carga; Atlas não acessado.

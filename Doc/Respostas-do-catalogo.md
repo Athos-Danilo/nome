@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos doze lotes existentes: 300 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos treze lotes existentes: 325 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -304,3 +304,28 @@ Gerada a partir dos doze lotes existentes: 300 respostas. Fornecer esta lista an
 | filmes-e-series-003 | `adeus-lenin` | ADEUS, LÊNIN! | dificil |
 | filmes-e-series-003 | `o-setimo-selo` | O SÉTIMO SELO | dificil |
 | filmes-e-series-003 | `coerencia` | COERÊNCIA | dificil |
+| marcas-003 | `coca-cola` | COCA-COLA | facil |
+| marcas-003 | `mcdonalds` | MCDONALD'S | facil |
+| marcas-003 | `burger-king` | BURGER KING | facil |
+| marcas-003 | `uber` | UBER | facil |
+| marcas-003 | `ifood` | IFOOD | facil |
+| marcas-003 | `doritos` | DORITOS | facil |
+| marcas-003 | `colgate` | COLGATE | facil |
+| marcas-003 | `mercedes-benz` | MERCEDES-BENZ | facil |
+| marcas-003 | `playstation` | PLAYSTATION | facil |
+| marcas-003 | `chevrolet` | CHEVROLET | facil |
+| marcas-003 | `chanel` | CHANEL | medio |
+| marcas-003 | `canon` | CANON | medio |
+| marcas-003 | `jbl` | JBL | medio |
+| marcas-003 | `kodak` | KODAK | medio |
+| marcas-003 | `skol` | SKOL | medio |
+| marcas-003 | `sadia` | SADIA | medio |
+| marcas-003 | `magazine-luiza` | MAGAZINE LUIZA | medio |
+| marcas-003 | `faber-castell` | FABER-CASTELL | medio |
+| marcas-003 | `electrolux` | ELECTROLUX | medio |
+| marcas-003 | `tramontina` | TRAMONTINA | medio |
+| marcas-003 | `haagen-dazs` | HÄAGEN-DAZS | dificil |
+| marcas-003 | `bang-olufsen` | BANG & OLUFSEN | dificil |
+| marcas-003 | `victorinox` | VICTORINOX | dificil |
+| marcas-003 | `husqvarna` | HUSQVARNA | dificil |
+| marcas-003 | `rimowa` | RIMOWA | dificil |
