@@ -125,6 +125,37 @@ try {
       path: `test-results/tempo-integrado-${demo ? "demo" : "conta"}.png`,
       fullPage: true,
     });
+    if (!demo) {
+      await pagina.goto(origem + "/jogar/galera/novo");
+      await pagina
+        .getByRole("button", { name: "Adicionar participante" })
+        .click();
+      await pagina.getByLabel("Nome do convidado 1").fill("Amigo");
+      await pagina.getByLabel("Quantidade de sessões").selectOption("1");
+      await pagina.getByLabel("Temáticas").selectOption("manual");
+      await pagina.getByLabel("Temática da sessão 1").selectOption("paises");
+      await pagina
+        .getByRole("button", { name: "Conferir minha galera" })
+        .click();
+      await pagina.getByRole("button", { name: "Preparar partida" }).click();
+      await expect(
+        pagina.getByRole("heading", { name: "Sua galera está reunida!" }),
+      ).toBeVisible();
+      await pagina.reload();
+      await expect(
+        pagina.getByRole("heading", { name: "Sua galera está reunida!" }),
+      ).toBeVisible();
+      const preparada = await (
+        await contexto.request.get(
+          origem + "/api/partidas/galera/" + pagina.url().split("/").at(-1),
+        )
+      ).json();
+      expect(preparada.estado).toBe("preparada");
+      expect(preparada.participantes).toHaveLength(2);
+      expect(preparada.ordem_primeira_sessao).toHaveLength(2);
+      expect(preparada).not.toHaveProperty("reservas");
+      expect(preparada).not.toHaveProperty("respostas");
+    }
     await contexto.close();
   }
 } finally {

@@ -347,7 +347,7 @@ Ao desistir da palavra:
 - A rodada vale zero ponto.
 - A partida pode seguir para a próxima resposta.
 
-Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas. Em 2026-10-29 foi aprovado um cronômetro crescente exclusivamente informativo, contando apenas tempo de jogo no individual e na demonstração. Ele guarda o tempo de cada palavra e o total, sem mudar pontuação ou rankings. Pausa e ausência suspendem a medição; atualizar preserva o acumulado. Regras detalhadas e critérios de implementação em [Cronômetro informativo](Cronometro.md). A forma de medição da galera será decidida com o responsável antes de preparar esse modo.
+Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas. Em 2026-10-29 foi aprovado um cronômetro crescente exclusivamente informativo, contando apenas tempo de jogo no individual e na demonstração. Ele guarda o tempo de cada palavra e o total, sem mudar pontuação ou rankings. Pausa e ausência suspendem a medição; atualizar preserva o acumulado. Regras detalhadas e critérios de implementação em [Cronômetro informativo](Cronometro.md). Na fase 29 foi aprovada a medição da galera por sessão e total da partida, sem alterar pontos, turnos ou desempate; implementação junto ao painel na fase 33.
 
 ## 11. Pontuação
 
@@ -912,3 +912,10 @@ O calendário de sete dias é uma referência ajustável de organização, não 
 ## Complemento: paletas de aparência
 
 Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada uma em claro/escuro e todas com destaque #D4FE62. Paleta é escolhida nas configurações e confirmada ao salvar; tema é alternado exclusivamente pelo botão lua/sol. Escolhas são independentes e persistem nas preferências locais/da conta, preservando a precedência já aprovada. Dados anteriores usam Original sem perder os demais ajustes. Especificação e valores no [Guia visual](Guia-visual.md#8-paletas-adicionais--decisão-de-2026-10-29). Implementado com campo `paleta` nas preferências, migração aditiva 0008, normalização de registros antigos e opções de rádio com prévia no formulário. Contratos e evidências no guia visual.
+
+
+## Decisões da galera — fase 29, 2026-10-30
+
+O responsável definiu cronômetro informativo **por sessão e total da partida**, contando apenas tempo ativo, sem alterar pontos, turnos ou desempate. Não haverá atribuição de tempo por palavra ou participante. A persistência e a interface da contagem serão integradas ao painel na fase 33.
+
+Se faltar conteúdo, manter dificuldade e temáticas solicitadas e apresentar a insuficiência para ajuste antes de criar a partida. Não reduzir sessões nem substituir temáticas automaticamente. O sorteio aleatório deve considerar configurações viáveis, preservando a sequência oculta e permitindo repetir temáticas, sem repetir palavras na partida.

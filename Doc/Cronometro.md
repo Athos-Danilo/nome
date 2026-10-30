@@ -2,7 +2,7 @@
 
 **Decisões aprovadas em 2026-10-29:** medir apenas o tempo de jogo; apresentar tempo por palavra e total; não impor prazo nem alterar pontuação ou rankings. Individual e demonstração serão implementados primeiro. O formato da galera será decidido pelo responsável antes de preparar esse modo.
 
-**Situação:** implementação do individual e da demonstração concluída no código; verificações e revisão visual por IA concluídas conforme registros abaixo; a avaliação estética do responsável pode ocorrer na interface atualizada. A medição da galera permanece pendente de decisão. Este complemento não reabre nem renumera as fases concluídas.
+**Situação:** implementação do individual e da demonstração concluída no código; verificações e revisão visual por IA concluídas conforme registros abaixo; a avaliação estética do responsável pode ocorrer na interface atualizada. A galera terá medição por sessão e total, aprovada na fase 29; implementação na fase 33. Este complemento não reabre nem renumera as fases concluídas.
 
 ## 1. Finalidade e alcance
 
@@ -71,9 +71,9 @@ Começar por testes falhando pelo comportamento ausente. Cobrir relógio control
 
 Verificar persistência em banco isolado, contratos e integração com o motor existente. Testar a interface nos três tamanhos e nos dois temas, incluindo movimento reduzido. Confirmar que pontos, penalidades e rankings anteriores permanecem iguais. Uma prova integrada deve comparar durações na tela, API e banco com tolerância documentada.
 
-## 8. Pendência obrigatória da galera
+## 8. Decisão da galera — fase 29
 
-Antes de preparar as fases 29 a 33, perguntar ao responsável como medir e exibir tempo quando várias palavras ficam disponíveis ao mesmo tempo. Ainda não foram escolhidos tempo por sessão, palavra, turno ou participante, nem a forma de atribuir tempo a palavras tentadas por pessoas diferentes. Não transportar automaticamente a regra individual para a galera. Registrar a decisão e ajustar configuração, motor, painel e resultados antes de implementar sua medição.
+Em 2026-10-30, o responsável escolheu medição informativa por sessão e total da partida, somente tempo ativo. Não haverá tempo atribuído a palavra, turno ou participante; pontos e desempate permanecem independentes. A integração da medição ocorrerá com o painel na fase 33, conforme [Configuração da galera](Configuracao-galera.md).
 
 
 ## 9. Implementação e precisão prática
@@ -93,3 +93,10 @@ O valor persistido é o último intervalo confirmado. Em fechamento abrupto sob 
 TDD: teste da API inicialmente falhou pela ausência de `tempo_ativo_ms`; teste de navegador falhou pela ausência do mostrador; teste de contrato recusando duração negativa falhou antes da validação correspondente. Cobertura posterior complementou união pura, ausência e formatação, sem alegação de que esses testes adicionais precederam o código.
 
 A suíte backend e a prova opcional integrada com React compilado, HTTP e PostgreSQL descartável passaram com 182 testes. A prova percorre conta e demonstração, pausa/recarga, confirma tempo positivo nas seis rodadas e verifica soma de durações e total exibido. Google e catálogo são controlados nessa prova; não usa a conta pessoal. Frontend: 53 testes unitários, 45 cenários do individual, 24 de menu e 39 de perfil/demonstração aprovados. Tipos, compilação, Prettier e Ruff aprovados. Mostrador revisado por IA em computador, tablet e celular, com estados dos dois temas e movimento reduzido cobertos pelos testes. Migração 0007 aplicada ao banco local e API reiniciada. A avaliação estética do responsável permanece disponível na interface; não se presume aprovação visual por ele. Aparelhos físicos e hospedagem pública permanecem nas fases próprias. A compilação mantém o aviso anterior de pacote JavaScript acima de 500 kB, tratado como pendência da revisão de desempenho.
+
+
+## Decisões da galera — fase 29, 2026-10-30
+
+O responsável definiu cronômetro informativo **por sessão e total da partida**, contando apenas tempo ativo, sem alterar pontos, turnos ou desempate. Não haverá atribuição de tempo por palavra ou participante. A persistência e a interface da contagem serão integradas ao painel na fase 33.
+
+Se faltar conteúdo, manter dificuldade e temáticas solicitadas e apresentar a insuficiência para ajuste antes de criar a partida. Não reduzir sessões nem substituir temáticas automaticamente. O sorteio aleatório deve considerar configurações viáveis, preservando a sequência oculta e permitindo repetir temáticas, sem repetir palavras na partida.

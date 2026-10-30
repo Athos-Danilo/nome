@@ -14,6 +14,7 @@ from aplicacao.bancos.partidas import (
     conexoes_individuais,
     participantes,
     partidas,
+    planos_galera,
     planos_individuais,
     rodadas,
 )
@@ -180,6 +181,9 @@ class JogadoresPostgresql:
                 )
             await conexao.execute(
                 delete(sessoes_autenticacao).where(sessoes_autenticacao.c.jogador_id == jogador_id)
+            )
+            await conexao.execute(
+                delete(planos_galera).where(planos_galera.c.jogador_id == jogador_id)
             )
             await conexao.execute(
                 delete(preferencias).where(preferencias.c.jogador_id == jogador_id)

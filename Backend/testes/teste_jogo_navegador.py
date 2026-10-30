@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 import uvicorn
 from fastapi.responses import FileResponse
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from aplicacao.bancos.acoes import resultados_individuais
 from aplicacao.nucleo.configuracoes import Configuracoes
@@ -46,6 +46,7 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
         )
         catalogo = CatalogoControlado()
         api.state.individual.catalogo = catalogo
+        api.state.galera.catalogo = catalogo
 
         async def sortear():
             return [
@@ -85,7 +86,7 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
                 timeout=60,
             )
             assert resultado.returncode == 0, resultado.stdout + resultado.stderr
-            from aplicacao.bancos.partidas import rodadas
+            from aplicacao.bancos.partidas import participantes, rodadas, sessoes_galera
             from aplicacao.modulos.individual.tempo import duracao
 
             with base_perfil.connect() as conexao:
@@ -93,7 +94,21 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
                     200,
                     200,
                 ]
-                tempos = list(conexao.scalars(select(rodadas.c.intervalos_tempo)))
+                tempos = list(
+                    conexao.scalars(
+                        select(rodadas.c.intervalos_tempo).where(rodadas.c.sessao_id.is_(None))
+                    )
+                )
+                assert conexao.scalar(select(func.count()).select_from(participantes)) == 2
+                assert conexao.scalar(select(func.count()).select_from(sessoes_galera)) == 1
+                assert (
+                    conexao.scalar(
+                        select(func.count())
+                        .select_from(rodadas)
+                        .where(rodadas.c.sessao_id.is_not(None), rodadas.c.estado == "reservada")
+                    )
+                    == 2
+                )
                 assert len(tempos) == 6
                 assert all(duracao(t) is not None and duracao(t) > 0 for t in tempos)
         finally:

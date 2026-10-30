@@ -25,6 +25,9 @@ from aplicacao.modulos.demonstracoes.catalogo import SorteioMongo
 from aplicacao.modulos.demonstracoes.repositorio import DemonstracoesPostgresql
 from aplicacao.modulos.demonstracoes.rotas import rotas as rotas_demonstracoes
 from aplicacao.modulos.demonstracoes.servico import ServicoDemonstracoes
+from aplicacao.modulos.galera.repositorio import GaleraPostgresql
+from aplicacao.modulos.galera.rotas import rotas as rotas_galera
+from aplicacao.modulos.galera.servico import ServicoGalera
 from aplicacao.modulos.individual.catalogo import CatalogoIndividualMongo
 from aplicacao.modulos.individual.repositorio import IndividualPostgresql
 from aplicacao.modulos.individual.rotas import rotas as rotas_individual
@@ -94,6 +97,12 @@ def criar_aplicacao(
         else None
     )
 
+    api.state.galera = (
+        ServicoGalera(GaleraPostgresql(motor), api.state.individual.catalogo)
+        if motor is not None
+        else None
+    )
+
     @api.exception_handler(FalhaAutenticacao)
     async def tratar_autenticacao(requisicao: Request, falha: FalhaAutenticacao):
         resposta = JSONResponse(
@@ -142,6 +151,7 @@ def criar_aplicacao(
     api.include_router(rotas)
     api.include_router(rotas_jogadores)
     api.include_router(rotas_demonstracoes)
+    api.include_router(rotas_galera)
     api.include_router(rotas_individual)
     api.mount(
         "/api/avatares/recursos",

@@ -215,3 +215,17 @@ conexoes_individuais = Table(
     Column("evento_pendente_id", Uuid),
     Column("persistido", Boolean, nullable=False, server_default=text("false")),
 )
+
+
+planos_galera = Table(
+    "planos_galera",
+    metadados,
+    identificador(),
+    Column("jogador_id", ForeignKey("jogadores.id"), nullable=False, index=True),
+    Column("configuracao", JSONB, nullable=False),
+    Column("reservas", JSONB, nullable=False),
+    criacao(),
+    Column("expira_em", DateTime(timezone=True), nullable=False),
+    Column("partida_id", ForeignKey("partidas.id"), unique=True),
+    CheckConstraint("expira_em > criado_em", name="validade"),
+)

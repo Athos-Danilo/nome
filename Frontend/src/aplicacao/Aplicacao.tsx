@@ -1,3 +1,4 @@
+import { RotaGalera } from "../funcionalidades/galera/RotaGalera";
 import {
   ProtecaoNavegacao,
   useSaidaPartida,
@@ -127,6 +128,10 @@ function Jogo() {
     caminho === "/jogar/demonstracao"
   )
     conteudo = <RotaIndividual conta={conta} />;
+  else if (caminho.startsWith("/jogar/galera/") && conta)
+    conteudo = (
+      <RotaGalera conta={conta} avatares={dados.avatares.data ?? []} />
+    );
   else conteudo = <PaginaEmPreparacao caminho={caminho} />;
   function alternarTema() {
     const novas = {

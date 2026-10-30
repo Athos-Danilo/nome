@@ -155,9 +155,14 @@ As respostas devolvem o estado público da partida, agora com `quantidade_pausas
 
 ## Complemento: medição de tempo
 
-[Cronômetro informativo](Cronometro.md) implementado no individual e na demonstração: intervalos ativos por rodada e total, sem alterar pontos ou rankings. Migração aditiva 0007 (`rodadas.intervalos_tempo` JSONB anulável), com 21 tabelas preservadas e tempos antigos não inventados. GET/POST nos caminhos `/api/partidas/{partida_id}/tempo` e `/api/demonstracoes/jogo/tempo`; proteção de propriedade/visitante e CSRF mantida. Campos, sincronização, testes e limites estão na especificação. A galera continua dependendo de decisão do responsável antes de preparar esse modo.
+[Cronômetro informativo](Cronometro.md) implementado no individual e na demonstração: intervalos ativos por rodada e total, sem alterar pontos ou rankings. Migração aditiva 0007 (`rodadas.intervalos_tempo` JSONB anulável), com 21 tabelas preservadas e tempos antigos não inventados. GET/POST nos caminhos `/api/partidas/{partida_id}/tempo` e `/api/demonstracoes/jogo/tempo`; proteção de propriedade/visitante e CSRF mantida. Campos, sincronização, testes e limites estão na especificação. Na fase 29, o responsável definiu tempo por sessão e total para a galera, sem influência na pontuação; integração na fase 33.
 
 
 ## Complemento: paletas de aparência
 
 Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada uma em claro/escuro e todas com destaque #D4FE62. Paleta é escolhida nas configurações e confirmada ao salvar; tema é alternado exclusivamente pelo botão lua/sol. Escolhas são independentes e persistem nas preferências locais/da conta, preservando a precedência já aprovada. Dados anteriores usam Original sem perder os demais ajustes. Especificação e valores no [Guia visual](Guia-visual.md#8-paletas-adicionais--decisão-de-2026-10-29). Implementado com campo `paleta` nas preferências, migração aditiva 0008, normalização de registros antigos e opções de rádio com prévia no formulário. Contratos e evidências no guia visual.
+
+
+## Fase 29 — configuração da galera
+
+Criação autenticada de participantes e sessões, temáticas manuais/aleatórias, reservas privadas e primeira ordem sorteada. Migração 0009 cria planos_galera (22 tabelas); reenvios não duplicam a partida. A preparação não revela palavras nem registra exposições. Contratos, decisões do cronômetro/falta de conteúdo e verificações em [Configuração da galera](Configuracao-galera.md). Motor, painel e medição por sessão continuam nas fases 31/33.
