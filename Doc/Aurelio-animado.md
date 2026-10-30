@@ -1,6 +1,6 @@
-# Aurélio — fase 36 em revisão
+# Aurélio — fase 36 concluída
 
-**Estado em 2026-10-30:** a primeira saudação por recortes, após a correção dos encaixes e olhos, foi **aprovada e considerada concluída pelo responsável**. Em seguida, o responsável autorizou produzir todas as demais animações. As oito novas atuações estão implementadas e disponíveis na galeria para avaliação visual; a fase 36 completa permanece aberta até essa avaliação. A primeira interpretação vetorial e suas nove atuações continuam reprovadas por diferença na aparência, rigidez e repetição.
+**Estado em 2026-10-30:** a primeira saudação por recortes, após a correção dos encaixes e olhos, foi **aprovada e considerada concluída pelo responsável**. Em seguida, o responsável autorizou produzir todas as demais animações. As oito novas atuações receberam aprovação visual do responsável, concluindo a fase 36. A versão aprovada do repertório é a do commit `8684d54`. A primeira interpretação vetorial e suas nove atuações continuam reprovadas por diferença na aparência, rigidez e repetição.
 
 ## Direção da revisão 02
 
@@ -14,7 +14,7 @@ Arquivo e prompt da capa auxiliar, origem da arte e decisões estão no [registr
 - `AurelioRecortado.tsx`: corpo/capa, miolo/páginas, pernas, braço esquerdo/luva, ombro/antebraço/punho direitos, sobrancelhas, olhos, pupilas, boca e gravata. Reutiliza a imagem original, sem gerar uma nova aparência para cada parte.
 - Capa de fundo sem rosto/membros: reconstrução das áreas antes encobertas, máscara da silhueta do livro e remoção de fragmentos indevidos dos recortes.
 - Os encaixes das pernas são completados atrás do livro para permitir a transferência de peso sem abrir lacunas. As pupilas usam recortes originais sobre a reconstrução das áreas claras dos olhos. Pálpebras fechadas usam um traço curvo auxiliar.
-- Na pose neutra, os olhos, a boca e a gravata usam os recortes aprovados. As novas atuações alternam o sorriso original com boca fechada ou surpresa, desenhadas em SVG; as sobrancelhas também podem girar separadamente. Essas expressões novas estão sujeitas à avaliação visual. Não há fala, sincronização labial ou novos sons nesta etapa.
+- Na pose neutra, os olhos, a boca e a gravata usam os recortes aprovados. As novas atuações alternam o sorriso original com boca fechada ou surpresa, desenhadas em SVG; as sobrancelhas também podem girar separadamente. Essas expressões foram aprovadas com o repertório em 2026-10-30. Não há fala, sincronização labial ou novos sons nesta etapa.
 
 É uma composição SVG **com partes raster**, e não uma vetorização integral. O raster aprovado permanece a fonte da textura e do traço. Ainda são necessários cuidados com os limites e encaixes quando ampliados ou em poses extremas; o repertório atual não cobre todas as deformações possíveis.
 
@@ -83,7 +83,7 @@ A referência aprovada é a saudação na versão do commit `defa315`, aceita pe
 
 `/laboratorio/aurelio` apresenta as nove atuações selecionáveis: montagem ao lado do original, reproduzir/pausar, voltar à pose inicial, controle de tempo adaptado à duração e visualização dos recortes/articulações. Trocar a atuação para a reprodução e volta ao início; reproduzir após pausar continua do instante atual. Na galeria cada atuação toca uma vez, inclusive a espera, para facilitar a revisão. O controle manual permite examinar poses mesmo com movimentos reduzidos; reprodução automática respeita essa preferência.
 
-`AurelioDesenho.tsx` seleciona a atuação correspondente à reação, reutilizando os eventos já integrados: saudação no menu; dicas e erros no painel individual/demonstração; comemoração ao acertar e pensamento ao revelar uma palavra; troca de vez, pontos e sorteio na galera; resultado nos dois modos. Após a reação, a espera se repete enquanto permitida. As durações da política e do relógio usam a mesma fonte em `reacoes.ts`. Os eventos, prioridades, deduplicação e transações dos jogos continuam independentes da animação. As novas atuações estão implementadas, mas não devem ser apresentadas como visualmente aprovadas antes da revisão do responsável.
+`AurelioDesenho.tsx` seleciona a atuação correspondente à reação, reutilizando os eventos já integrados: saudação no menu; dicas e erros no painel individual/demonstração; comemoração ao acertar e pensamento ao revelar uma palavra; troca de vez, pontos e sorteio na galera; resultado nos dois modos. Após a reação, a espera se repete enquanto permitida. As durações da política e do relógio usam a mesma fonte em `reacoes.ts`. Os eventos, prioridades, deduplicação e transações dos jogos continuam independentes da animação. As nove atuações estão implementadas e visualmente aprovadas pelo responsável em 2026-10-30.
 
 Redução de movimentos salva e do aparelho, visibilidade da página e do personagem continuam observadas. Uma reação não bloqueia controles nem concede pontos. Nenhum contrato HTTP ou banco foi alterado.
 
@@ -109,7 +109,7 @@ TDD: o teste da linha de tempo falhou pela ausência do módulo; o teste da gale
 
 Comparação visual automatizada: capturas da montagem parada e do PNG com as mesmas dimensões/fundo; com a referência na mesma posição física, pixels com diferença superior a 40 em algum canal, mesmo procurando correspondência a até um pixel de distância para acomodar a suavização de bordas, devem ocupar menos de 2% da imagem. Esse limite detecta alterações de aparência importantes, mas não afirma igualdade pixel a pixel. Há inspeção dos recortes e das poses durante o aceno, além dos testes funcionais.
 
-As verificações finais e os números constam do roteiro local. A primeira saudação teve aparência e movimento aprovados pelo responsável; manter a fase 36 aberta pelas demais atuações ainda pendentes. Dispositivos físicos e otimização das imagens entram nas revisões posteriores. O aviso preexistente de tamanho do pacote Vite permanece registrado.
+As verificações finais e os números constam do roteiro local. A saudação e as oito atuações restantes tiveram aparência e movimento aprovados pelo responsável; a fase 36 está concluída. Dispositivos físicos e otimização das imagens entram nas revisões posteriores. O aviso preexistente de tamanho do pacote Vite permanece registrado.
 
 ### Verificação do repertório restante
 
@@ -117,4 +117,4 @@ TDD: o teste das novas poses falhou inicialmente pela ausência de `atuacoes.ts`
 
 Foram aprovados 77 testes unitários do frontend e 129 cenários de navegador: 45 do mascote, 48 do individual/demonstração, 12 da galera e 24 do menu, em computador, tablet e celular. Depois do ajuste de espaçamento dos botões, o cenário da galeria foi repetido nos três tamanhos. As verificações incluem poses finitas, números válidos e limites das expressões, preservação das poses da saudação, repetição apenas da espera no jogo, preferência por movimentos reduzidos, seleção/pausa e encaixes em 31 instantes distribuídos entre as nove atuações. Tipos, compilação e formatação também verificados.
 
-Os fluxos de navegador usam respostas HTTP controladas para verificar a interface; não representam nova prova dos bancos ou do login Google. Nenhum backend, migração, contrato HTTP ou dependência foi alterado. As capturas foram inspecionadas, mas a avaliação artística das oito atuações cabe ao responsável. A presença dos efeitos não substitui essa aprovação.
+Os fluxos de navegador usam respostas HTTP controladas para verificar a interface; não representam nova prova dos bancos ou do login Google. Nenhum backend, migração, contrato HTTP ou dependência foi alterado. As capturas foram inspecionadas e o responsável aprovou visualmente as oito atuações restantes em 2026-10-30. A presença dos efeitos não substitui essa aprovação.
