@@ -1,12 +1,12 @@
 # Aurélio — fase 36 em revisão
 
-**Estado em 2026-10-30:** primeira interpretação vetorial e suas nove atuações **reprovadas pelo responsável** por diferença na aparência, rigidez e repetição. O novo escopo aprovado é acertar a arte e uma única saudação antes de produzir novamente o repertório. A fase permanece aberta.
+**Estado em 2026-10-30:** a primeira saudação por recortes, após a correção dos encaixes e olhos, foi **aprovada e considerada concluída pelo responsável**. Essa aprovação abrange a aparência e o movimento desta saudação. As demais atuações serão trabalhadas mais tarde, por solicitação do responsável; a fase 36 completa permanece aberta. A primeira interpretação vetorial e suas nove atuações continuam reprovadas por diferença na aparência, rigidez e repetição.
 
 ## Direção da revisão 02
 
 A aparência vem do PNG aprovado, `Frontend/public/mascote/aurelio.png`, preservado sem alteração. Em vez de redesenhar seus braços, livro ou pernas, a montagem usa recortes da própria imagem em SVG. Uma capa limpa auxiliar preenche o que ficava escondido por rosto, gravata e membros; não substitui o desenho original como referência.
 
-Arquivo e prompt da capa auxiliar, origem da arte e decisões estão no [registro da saudação 02](Identidade-visual/Aurelio-saudacao-02.md). O resultado da montagem ainda precisa da avaliação visual do responsável. O teste de fidelidade não constitui aprovação artística.
+Arquivo e prompt da capa auxiliar, origem da arte e decisões estão no [registro da saudação 02](Identidade-visual/Aurelio-saudacao-02.md). A montagem e a primeira saudação receberam aprovação visual explícita após a correção dos recortes. O teste de fidelidade complementa essa avaliação, sem substituí-la.
 
 ## Separação das partes
 
@@ -27,6 +27,37 @@ Duração finita de **5,4 segundos**, sem repetição automática:
 3. Acomodação: braço e corpo desaceleram; gravata e páginas terminam com movimentos secundários atrasados. A pose final retorna à inicial.
 
 `saudacao.ts` define as poses, os tempos e a interpolação suave; `usar-relogio-saudacao.ts` fornece um único relógio por instância, com cancelamento de quadros ao pausar/desmontar. As partes usam a mesma linha de tempo e pivôs explícitos. Não são loops independentes aplicados igualmente a todos os membros.
+
+## Guia para as próximas atuações
+
+A referência aprovada é a saudação na versão do commit `defa315`, aceita pelo responsável em 2026-10-30. Consultar este guia e os arquivos citados antes de alterar a montagem. Esta aprovação não autoriza redesenhar o personagem ou considerar outras atuações concluídas.
+
+### O que preservar na arte e nos encaixes
+
+- Partir do PNG aprovado, mantendo livro, textura, espessura dos traços, braços, luvas, pernas, sapatos e proporções. O redesenho vetorial aproximado foi o principal motivo de reprovação da primeira tentativa.
+- Manter as partes no mesmo espaço de coordenadas de 1158 × 1359. A capa auxiliar reconstrói somente áreas encobertas e precisa continuar alinhada ao original.
+- Separar movimentos por responsabilidade: corpo, páginas, ombro, antebraço, punho, pernas, sobrancelhas, olhos/pupilas, boca e gravata. Usar a hierarquia das articulações para que a mão acompanhe o braço; não mover tudo como uma peça única.
+- Posicionar pivôs nas articulações reais. No braço direito, os pivôs atuais são ombro `(858, 635)`, cotovelo `(925, 622)` e punho `(951, 600)`, em coordenadas da arte. Girar o punho no centro da palma gerava encaixes inadequados.
+- Preservar margens e sobreposições nos recortes. Não aparar punhos, tornozelos, dedos ou bordas dos sapatos para esconder fragmentos da capa: excluir a capa pela máscara apropriada. As ligações auxiliares ficam sob as partes originais e sob o livro.
+- Usar os contornos reais de `contornos-olhos.ts` para limitar o creme e as pupilas. A máscara externa permanece fixa em relação ao olho enquanto a pupila se desloca. Elipses aproximadas deixavam um halo claro visível fora do olho.
+- Novas poses amplas podem revelar áreas ausentes na imagem original. Preparar e revisar esses recursos antes de aumentar amplitudes; os recortes atuais não garantem qualquer rotação ou expressão possível.
+
+### O que funcionou no movimento
+
+- Construir uma atuação com intenção: atenção, antecipação, gesto principal e acomodação. A saudação dura 5,4 segundos e termina na pose inicial, sem repetição automática.
+- Coordenar as partes por uma única linha de tempo. Em `saudacao.ts`, os quadros principais ficam em 0, 350, 750, 1050, 1350, 1700, 2070, 2500, 2950, 3400, 3900, 4550 e 5400 ms, interpolados com a curva suave `t² × (3 − 2t)`.
+- Variar os intervalos e reduzir as amplitudes do aceno. Ombro, cotovelo e punho têm movimentos distintos; evitar oscilações iguais e repetitivas em todos os membros.
+- Dar apoio ao gesto com transferência discreta de peso, olhar, sobrancelhas e sorriso. Na saudação, o corpo varia aproximadamente de −17 a +10 pixels na vertical e de −1,3° a +1,6°; são referências de sutileza desta atuação, não limites universais.
+- Usar movimento secundário: gravata e páginas terminam depois do gesto principal. As piscadas da saudação se concentram em 520 e 3480 ms, com fechamento breve. Não copiar obrigatoriamente esses tempos para outros acontecimentos.
+- Manter início e fim estáveis; respeitar pausa, desmontagem, visibilidade e movimentos reduzidos. A animação continua separada do estado oficial do jogo e não bloqueia ações.
+
+### Como evoluir sem perder o resultado aprovado
+
+1. Escolher uma única próxima atuação e definir sua intenção, poses e duração. Não retomar de uma vez o repertório anteriormente reprovado.
+2. Proteger os comportamentos existentes com testes e seguir TDD para novos comportamentos executáveis. Para nova arte, fazer revisão visual própria.
+3. Comparar a aparência neutra ao PNG e examinar antecipação, extremos, transições, piscadas e retorno no controle de tempo da galeria. Verificar em ampliação e no tamanho real do jogo, em computador, tablet e celular.
+4. Preservar as regressões de fidelidade e de frestas/halos; incluir poses extremas novas quando elas não estiverem cobertas. Não afrouxar tolerâncias para acomodar recortes defeituosos.
+5. Apresentar a atuação ao responsável e registrar sua aprovação individual. Os testes demonstram propriedades específicas; naturalidade, personalidade e qualidade visual exigem essa avaliação.
 
 ## Galeria e integração
 
@@ -58,4 +89,4 @@ TDD: o teste da linha de tempo falhou pela ausência do módulo; o teste da gale
 
 Comparação visual automatizada: capturas da montagem parada e do PNG com as mesmas dimensões/fundo; com a referência na mesma posição física, pixels com diferença superior a 40 em algum canal, mesmo procurando correspondência a até um pixel de distância para acomodar a suavização de bordas, devem ocupar menos de 2% da imagem. Esse limite detecta alterações de aparência importantes, mas não afirma igualdade pixel a pixel. Há inspeção dos recortes e das poses durante o aceno, além dos testes funcionais.
 
-As verificações finais e os números constam do roteiro local. Manter a fase 36 aberta até o responsável avaliar aparência, naturalidade e ritmo. Outras atuações, dispositivos físicos e otimização das imagens ainda entram nas revisões posteriores. O aviso preexistente de tamanho do pacote Vite permanece registrado.
+As verificações finais e os números constam do roteiro local. A primeira saudação teve aparência e movimento aprovados pelo responsável; manter a fase 36 aberta pelas demais atuações ainda pendentes. Dispositivos físicos e otimização das imagens entram nas revisões posteriores. O aviso preexistente de tamanho do pacote Vite permanece registrado.

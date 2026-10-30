@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Fase 36 — revisão 02:** primeira interpretação reprovada pelo responsável. Novo ensaio concentra aparência fiel ao PNG e uma saudação por partes raster em SVG, com linha de tempo coordenada e capa auxiliar reconstruída. Demais atuações ficam na pose original até aprovação. Motion permanece na integração/visibilidade; nenhum novo runtime instalado. Galeria em `/laboratorio/aurelio`; [decisões e ferramentas](Aurelio-animado.md).
+**Fase 36 — revisão 02:** primeira saudação por partes raster em SVG aprovada e concluída em 2026-10-30, após corrigir encaixes e contornos dos olhos. Preserva o PNG aprovado, com linha de tempo coordenada e capa auxiliar reconstruída. A primeira interpretação vetorial continua reprovada; demais atuações ficam na pose original e serão trabalhadas mais tarde. Motion permanece na integração/visibilidade; nenhum novo runtime instalado. Galeria em `/laboratorio/aurelio`; [decisões, guia de continuidade e ferramentas](Aurelio-animado.md).
 
 **Fase 34:** histórico privado, estatísticas e três rankings públicos em módulo próprio, sem migração ou duplicação de resultados. PostgreSQL agrega individuais encerradas publicadas; MongoDB fornece temáticas da revisão histórica. React usa consultas validadas, cache por titular, filtros, paginação e telas responsivas. Fórmulas D14/D15 e contratos em [Histórico, estatísticas e rankings](Historico-estatisticas-rankings.md).
 
