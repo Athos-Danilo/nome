@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** quatorze lotes produzidos: 350 respostas e 1.750 dicas, todos aprovados na validação automática completa. Onze lotes aprovados pelo responsável e importados localmente: 275 respostas e 1.375 dicas, incluindo países-003 na fase 32. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** quinze lotes produzidos: 375 respostas e 1.875 dicas, todos aprovados na validação automática completa. Doze lotes aprovados pelo responsável e importados localmente: 300 respostas e 1.500 dicas, incluindo objetos-003 na fase 35. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -34,7 +34,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Importado localmente |
 | 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Importado localmente |
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Importado localmente |
-| 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Não iniciado |
+| 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Importado localmente |
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Não iniciado |
 | 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Não iniciado |
 | 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Não iniciado |
@@ -345,8 +345,8 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | Filmes e séries | 100 | 75 | 75 | 75 | 0 |
 | Marcas | 100 | 75 | 75 | 75 | 0 |
 | Países | 100 | 75 | 50 | 50 | 0 |
-| Objetos | 100 | 50 | 25 | 25 | 0 |
-| **Total** | **500** | **350** | **275** | **275** | **0** |
+| Objetos | 100 | 75 | 50 | 50 | 0 |
+| **Total** | **500** | **375** | **300** | **300** | **0** |
 
 ## 6. Fechamento global
 
@@ -365,3 +365,7 @@ Lote [marcas-003](../Data/palavras/marcas-003.json): 25 respostas novas e 125 di
 ## 9. Conclusão da fase 32
 
 Lote [paises-003](../Data/palavras/paises-003.json): 25 países novos e 125 dicas, distribuição 10/10/5. Quatorze lotes passaram na validação automática: 350 respostas e 1.750 dicas. A conferência sem escrita do novo lote reconheceu 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 250 respostas, 1.250 dicas e 250 revisões. Fontes, cuidados de grafia, critérios editoriais e 25 candidatos para o último lote de países em [Revisoes/paises-003.md](Revisoes/paises-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente países-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 275 respostas, 1.375 dicas e 275 revisões. Países possui 50 respostas importadas, distribuição 20/20/10; o lote 001 continua pendente de revisão. Os candidatos futuros não contam como conteúdo produzido. Atlas não acessado.
+
+## 10. Conclusão da fase 35
+
+Lote [objetos-003](../Data/palavras/objetos-003.json): 25 respostas novas, 125 dicas, distribuição 10/10/5. Validação global: quinze lotes, 375 respostas e 1.875 dicas. Conferência sem escrita: 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 275 respostas, 1.375 dicas e 275 revisões. Fontes, grafias e cuidados editoriais em [Revisoes/objetos-003.md](Revisoes/objetos-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente objetos-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 300 respostas, 1.500 dicas e 300 revisões; objetos possui 50 respostas importadas, distribuição 20/20/10. Os outros três lotes pendentes continuam sem carga. A fase 35 foi adiantada por decisão do responsável; a fase 34 permanece pendente. Atlas não acessado.

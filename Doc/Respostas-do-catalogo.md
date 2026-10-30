@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos quatorze lotes existentes: 350 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos quinze lotes existentes: 375 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -354,3 +354,28 @@ Gerada a partir dos quatorze lotes existentes: 350 respostas. Fornecer esta list
 | paises-003 | `uzbequistao` | UZBEQUISTÃO | dificil |
 | paises-003 | `quirguistao` | QUIRGUISTÃO | dificil |
 | paises-003 | `brunei` | BRUNEI | dificil |
+| objetos-003 | `guarda-chuva` | GUARDA-CHUVA | facil |
+| objetos-003 | `pente` | PENTE | facil |
+| objetos-003 | `escova-de-dentes` | ESCOVA DE DENTES | facil |
+| objetos-003 | `panela` | PANELA | facil |
+| objetos-003 | `copo` | COPO | facil |
+| objetos-003 | `prato` | PRATO | facil |
+| objetos-003 | `sofa` | SOFÁ | facil |
+| objetos-003 | `cama` | CAMA | facil |
+| objetos-003 | `garrafa` | GARRAFA | facil |
+| objetos-003 | `sapato` | SAPATO | facil |
+| objetos-003 | `escorredor-de-macarrao` | ESCORREDOR DE MACARRÃO | medio |
+| objetos-003 | `saca-rolhas` | SACA-ROLHAS | medio |
+| objetos-003 | `regador` | REGADOR | medio |
+| objetos-003 | `rolo-de-massa` | ROLO DE MASSA | medio |
+| objetos-003 | `chave-de-fenda` | CHAVE DE FENDA | medio |
+| objetos-003 | `cadeado` | CADEADO | medio |
+| objetos-003 | `carimbo` | CARIMBO | medio |
+| objetos-003 | `gramofone` | GRAMOFONE | medio |
+| objetos-003 | `estetoscopio` | ESTETOSCÓPIO | medio |
+| objetos-003 | `telescopio` | TELESCÓPIO | medio |
+| objetos-003 | `higrometro` | HIGRÔMETRO | dificil |
+| objetos-003 | `anemometro` | ANEMÔMETRO | dificil |
+| objetos-003 | `esfigmomanometro` | ESFIGMOMANÔMETRO | dificil |
+| objetos-003 | `pluviometro` | PLUVIÔMETRO | dificil |
+| objetos-003 | `dinamometro` | DINAMÔMETRO | dificil |

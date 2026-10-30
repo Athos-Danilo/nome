@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "objetos-003",
+  "palavras": [
+    {
+      "id": "guarda-chuva",
+      "resposta": "GUARDA-CHUVA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto portátil usado ao sair de casa.",
+        "Posso ser carregado fechado e aberto quando necessário.",
+        "Tenho uma haste e uma armação que sustenta uma cobertura.",
+        "Quando aberto, costumo ser segurado acima da cabeça.",
+        "Minha cobertura ajuda a proteger a pessoa da água que cai do céu."
+      ]
+    },
+    {
+      "id": "pente",
+      "resposta": "PENTE",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto de cuidado pessoal.",
+        "Costumo ser segurado com uma só mão.",
+        "Posso ter partes finas e paralelas dispostas em uma fileira.",
+        "Essas partes são chamadas de dentes, mas não servem para mastigar.",
+        "Meus dentes passam entre os fios para desembaraçar e arrumar o cabelo."
+      ]
+    },
+    {
+      "id": "escova-de-dentes",
+      "resposta": "ESCOVA DE DENTES",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto usado na higiene diária.",
+        "Meu formato comum tem um cabo e uma pequena cabeça.",
+        "Na minha cabeça, ficam cerdas que ajudam na limpeza.",
+        "Costumo ser usada junto de creme dental.",
+        "Sou levada à boca para limpar as superfícies da dentição."
+      ]
+    },
+    {
+      "id": "panela",
+      "resposta": "PANELA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto comum na cozinha.",
+        "Posso ter tampa e alças ou cabo.",
+        "Sou feita de materiais que permitem meu uso no preparo de alimentos com calor.",
+        "Arroz e feijão podem ser preparados dentro de mim.",
+        "Sou um recipiente de cozinhar que costuma ficar sobre a chama ou outra fonte de aquecimento do fogão."
+      ]
+    },
+    {
+      "id": "copo",
+      "resposta": "COPO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um recipiente usado no dia a dia.",
+        "Posso ser feito de vidro, plástico ou outros materiais.",
+        "Meu formato comum tem uma base fechada e uma abertura na parte de cima.",
+        "Costumo ficar sobre a mesa durante as refeições.",
+        "Sou levado à boca para beber água, suco e outras bebidas."
+      ]
+    },
+    {
+      "id": "prato",
+      "resposta": "PRATO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto encontrado em muitas mesas.",
+        "Posso ser feito de cerâmica, vidro ou outros materiais.",
+        "Meu formato comum é redondo e relativamente raso.",
+        "Garfo e faca costumam trabalhar perto de mim durante uma refeição.",
+        "Recebo a porção de comida que uma pessoa vai comer à mesa."
+      ]
+    },
+    {
+      "id": "sofa",
+      "resposta": "SOFÁ",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma peça de mobiliário.",
+        "Costumo ser encontrado na sala de estar.",
+        "Tenho assento e encosto, geralmente com estofamento.",
+        "Muitos modelos acomodam duas ou mais pessoas lado a lado.",
+        "Sou um móvel usado para sentar e relaxar, muitas vezes diante da televisão."
+      ]
+    },
+    {
+      "id": "cama",
+      "resposta": "CAMA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma peça de mobiliário doméstico.",
+        "Meu lugar mais comum é o quarto.",
+        "Costumo servir de apoio para um colchão.",
+        "Lençóis, cobertas e travesseiros são colocados sobre mim.",
+        "É sobre mim que as pessoas normalmente se deitam para dormir."
+      ]
+    },
+    {
+      "id": "garrafa",
+      "resposta": "GARRAFA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um recipiente para guardar conteúdo.",
+        "Posso ser feita de vidro, plástico ou metal.",
+        "Meu corpo costuma terminar em uma parte mais estreita chamada gargalo.",
+        "Minha abertura pode ser fechada com tampa ou rolha.",
+        "Sou muito usada para armazenar e transportar água e outras bebidas."
+      ]
+    },
+    {
+      "id": "sapato",
+      "resposta": "SAPATO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um objeto usado no vestuário.",
+        "Costumo ser comprado em um par.",
+        "Possuo uma sola que fica em contato com o chão.",
+        "Meu tamanho deve combinar com o tamanho dos pés.",
+        "Sou um tipo de calçado que cobre o pé e pode fazer parte de um traje social."
+      ]
+    },
+    {
+      "id": "escorredor-de-macarrao",
+      "resposta": "ESCORREDOR DE MACARRÃO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio de cozinha.",
+        "Meu corpo tem muitas aberturas.",
+        "Costumo ser usado perto da pia depois do cozimento.",
+        "Deixo a água passar pelos furos enquanto retenho o alimento.",
+        "Sou o recipiente perfurado usado para retirar a água do espaguete depois de cozido."
+      ]
+    },
+    {
+      "id": "saca-rolhas",
+      "resposta": "SACA-ROLHAS",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio pequeno que pode ficar na cozinha.",
+        "Sou usado antes de servir certas bebidas.",
+        "Muitos modelos possuem uma ponta metálica em espiral.",
+        "Essa espiral entra na peça que veda o gargalo de uma garrafa.",
+        "Ajudo a retirar o fechamento de cortiça de uma garrafa de vinho."
+      ]
+    },
+    {
+      "id": "regador",
+      "resposta": "REGADOR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um objeto usado no cuidado de plantas.",
+        "Meu corpo funciona como um pequeno reservatório.",
+        "Costumo ter uma alça para ser carregado.",
+        "Um bico comprido permite direcionar o líquido para perto da planta.",
+        "Sou carregado com água para molhar vasos e canteiros; meu bico pode ter uma peça com vários furinhos."
+      ]
+    },
+    {
+      "id": "rolo-de-massa",
+      "resposta": "ROLO DE MASSA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio usado no preparo de alimentos.",
+        "Meu corpo tem formato cilíndrico.",
+        "Posso ser feito de madeira e ter cabos nas extremidades.",
+        "Sou movimentado sobre uma mistura apoiada em uma bancada.",
+        "Ajudo a abrir e afinar o preparo de pizzas, biscoitos e tortas antes de assar."
+      ]
+    },
+    {
+      "id": "chave-de-fenda",
+      "resposta": "CHAVE DE FENDA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ferramenta manual.",
+        "Tenho um cabo para segurar e uma haste rígida.",
+        "Meu modelo tradicional tem uma ponta metálica achatada.",
+        "Essa ponta se encaixa em um sulco reto na cabeça de um parafuso.",
+        "Sou girada para apertar ou soltar parafusos com esse encaixe simples."
+      ]
+    },
+    {
+      "id": "cadeado",
+      "resposta": "CADEADO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um objeto relacionado à proteção de pertences.",
+        "Posso ser colocado em portões, correntes ou armários.",
+        "Meu corpo costuma ter uma parte móvel em forma de arco.",
+        "Esse arco é fechado depois de passar por uma argola ou outro ponto de fixação.",
+        "Sou uma fechadura portátil que pode ser aberta com chave ou combinação."
+      ]
+    },
+    {
+      "id": "carimbo",
+      "resposta": "CARIMBO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um objeto usado para deixar uma marca.",
+        "Posso aparecer em escritórios e atividades escolares.",
+        "Tenho uma superfície com letras, números ou desenhos preparados.",
+        "Muitos modelos precisam receber tinta antes de tocar o papel.",
+        "Quando pressionado, reproduzo a mesma impressão, como uma data ou uma identificação."
+      ]
+    },
+    {
+      "id": "gramofone",
+      "resposta": "GRAMOFONE",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um aparelho ligado à história da reprodução de som.",
+        "Modelos antigos podem funcionar com um mecanismo acionado manualmente.",
+        "Reproduzo gravações em discos que giram.",
+        "Uma agulha acompanha os sulcos do disco durante a reprodução.",
+        "Minha imagem clássica combina um disco, uma manivela e uma grande corneta para emitir o som."
+      ]
+    },
+    {
+      "id": "estetoscopio",
+      "resposta": "ESTETOSCÓPIO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento usado por profissionais de saúde.",
+        "Em um modelo comum, tenho tubos ligados a duas peças que vão aos ouvidos.",
+        "Outra parte é encostada no corpo da pessoa examinada.",
+        "Permito ouvir sons internos, como os produzidos pela respiração.",
+        "Sou muito associado ao profissional que escuta os batimentos do coração durante uma consulta."
+      ]
+    },
+    {
+      "id": "telescopio",
+      "resposta": "TELESCÓPIO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento de observação.",
+        "Coleto luz para formar imagens de objetos distantes.",
+        "Conforme o tipo, utilizo lentes ou espelhos em meu sistema óptico.",
+        "Posso ficar em observatórios ou ser levado ao espaço.",
+        "Sou muito usado para observar a Lua, os planetas e outros astros."
+      ]
+    },
+    {
+      "id": "higrometro",
+      "resposta": "HIGRÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado para observar condições do ambiente.",
+        "Posso fazer parte dos equipamentos de uma estação meteorológica.",
+        "Existem versões históricas que utilizam cabelo como elemento sensível.",
+        "Quando a grandeza que acompanho é relativa, sua leitura é expressa em porcentagem.",
+        "Sou usado para medir a umidade do ar."
+      ]
+    },
+    {
+      "id": "anemometro",
+      "resposta": "ANEMÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento utilizado em observações meteorológicas.",
+        "Existem modelos com pequenas conchas presas a uma parte que gira.",
+        "Essas conchas se movimentam com a passagem do ar.",
+        "A rapidez do giro permite estimar a grandeza medida.",
+        "Meço a velocidade do vento, que pode ser expressa em metros por segundo."
+      ]
+    },
+    {
+      "id": "esfigmomanometro",
+      "resposta": "ESFIGMOMANÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado em avaliações de saúde.",
+        "Um dos meus componentes envolve o braço da pessoa examinada.",
+        "Esse componente é um manguito que pode ser inflado.",
+        "Nos modelos manuais, uma pera de borracha e um manômetro fazem parte do conjunto.",
+        "Sou o aparelho usado para medir a pressão arterial."
+      ]
+    },
+    {
+      "id": "pluviometro",
+      "resposta": "PLUVIÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento de observação meteorológica.",
+        "Meu funcionamento envolve recolher água que vem do céu.",
+        "Em modelos manuais, a água coletada pode ser transferida para uma proveta.",
+        "Meu resultado costuma ser expresso em milímetros.",
+        "Sou usado para medir a quantidade de chuva que caiu em um local."
+      ]
+    },
+    {
+      "id": "dinamometro",
+      "resposta": "DINAMÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado em medições físicas.",
+        "Um modelo escolar comum possui uma mola e uma escala graduada.",
+        "Esse modelo também pode ter um gancho para aplicar a ação a ser medida.",
+        "O alongamento da mola ajuda a indicar a intensidade dessa ação.",
+        "Meço forças, cuja unidade no Sistema Internacional é o newton."
+      ]
+    }
+  ]
+}
