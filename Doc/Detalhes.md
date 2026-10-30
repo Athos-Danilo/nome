@@ -23,9 +23,9 @@ A experiência deve ter um visual bonito, dinâmico e animado. Na tela da rodada
 O projeto contempla duas ideias de jogo:
 
 - **Individual:** adivinhar respostas com até cinco dicas, escolhendo a configuração da partida.
-- **Com a galera:** inspirado no Roda a Roda, sem a roda, com até três participantes. As regras completas desse modo serão discutidas posteriormente.
+- **Com a galera:** inspirado no Roda a Roda, sem a roda, com até três participantes. As regras aprovadas estão na seção 15.
 
-Os modos individual e com a galera deverão estar presentes na primeira entrega. As regras do modo com a galera estão em detalhamento.
+Os modos individual e com a galera deverão estar presentes na primeira entrega. As regras do modo com a galera estão na seção 15; o painel foi integrado na fase 33.
 
 ## 2. Base técnica e restrições
 
@@ -347,7 +347,7 @@ Ao desistir da palavra:
 - A rodada vale zero ponto.
 - A partida pode seguir para a próxima resposta.
 
-Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas. Em 2026-10-29 foi aprovado um cronômetro crescente exclusivamente informativo, contando apenas tempo de jogo no individual e na demonstração. Ele guarda o tempo de cada palavra e o total, sem mudar pontuação ou rankings. Pausa e ausência suspendem a medição; atualizar preserva o acumulado. Regras detalhadas e critérios de implementação em [Cronômetro informativo](Cronometro.md). Na fase 29 foi aprovada a medição da galera por sessão e total da partida, sem alterar pontos, turnos ou desempate; implementação junto ao painel na fase 33.
+Não haverá limite de tempo por rodada ou partida, nem ajudas extras além das dicas previstas. Em 2026-10-29 foi aprovado um cronômetro crescente exclusivamente informativo, contando apenas tempo de jogo no individual e na demonstração. Ele guarda o tempo de cada palavra e o total, sem mudar pontuação ou rankings. Pausa e ausência suspendem a medição; atualizar preserva o acumulado. Regras detalhadas e critérios de implementação em [Cronômetro informativo](Cronometro.md). Na fase 29 foi aprovada a medição da galera por sessão e total da partida, sem alterar pontos, turnos ou desempate; integrada ao painel na fase 33.
 
 ## 11. Pontuação
 
@@ -432,7 +432,7 @@ Ao concluir a partida, o sistema deverá apresentar:
 - Quantidade de respostas acertadas.
 - Quantidade de dicas utilizadas.
 - Respostas das palavras das quais o jogador desistiu.
-- Tempo de jogo por palavra apresentada e tempo total acumulado, conforme [Cronometro.md](Cronometro.md); implementado no individual e na demonstração; galera a definir.
+- Tempo de jogo por palavra apresentada e tempo total acumulado, conforme [Cronometro.md](Cronometro.md); implementado no individual e na demonstração; na galera, tempo por sessão e total, integrado na fase 33.
 
 O detalhamento de como resumir as dicas utilizadas será definido juntamente com as estatísticas.
 
@@ -567,9 +567,9 @@ Decisões D21 e D22 aprovadas em 2026-10-30: a extra mantém a dificuldade da pa
 - Atualizar a página não encerrará a partida: o painel, a vez e as pontuações serão recuperados sem penalidade. Essa recuperação técnica não representa uma opção de pausa com retomada futura.
 - A distinção técnica usa os sinais e limites documentados em Prova-interrupcoes.md. Recarga reconhecida recupera o painel; retorno ambíguo preserva o estado sem presumir encerramento. Sair para outra página é uma saída, mesmo que a página seja restaurada pelo cache do navegador. Falha da hospedagem não equivale a desistência do jogador.
 
-### 15.7. Pontos ainda em aberto
+### 15.7. Histórico e separação dos modos
 
-Não haverá repetição de respostas entre sessões da mesma partida com a galera. Temáticas poderão se repetir. Normalização dos nomes e preservação em interrupções ambíguas já foram aprovadas; a integração técnica será realizada nas fases próprias. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
+Não haverá repetição de respostas entre sessões da mesma partida com a galera. Temáticas poderão se repetir. Normalização dos nomes e preservação em interrupções ambíguas foram integradas nas fases 29 e 33. O histórico resumido desse modo foi aprovado conforme a seção 13.2.
 
 As regras do modo individual, incluindo penalidade de pausa e pontuação por dica, não deverão ser aplicadas automaticamente a esse modo.
 
@@ -600,15 +600,15 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-21 | Descontar 100 pontos por pausa/saída confirmada, sem duplicação; recarga e casos ambíguos não descontam | Implementado no individual na fase 28; limites de navegador documentados |
 | RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
 | RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Definido |
-| RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Primeira entrega confirmada; regras em detalhamento |
+| RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Integrado na fase 33 |
 | RF-25 | Permitir abandono definitivo sem desconto adicional, preservando pontos e acertos e liberando nova partida | Definido |
 | RF-26 | Permitir de um a três participantes e de uma a cinco sessões regulares no modo com a galera | Definido |
 | RF-27 | Sortear a ordem a cada sessão e apresentar uma resposta por participante em painel compartilhado | Definido |
 | RF-28 | Pontuar 100 por posição recém-revelada, sem duplicar pontos, e controlar turnos e bloqueios compartilhados | Definido |
 | RF-29 | Oferecer empate ou uma única sessão extra apenas entre os líderes empatados, com concordância de todos | Definido |
-| RF-30 | Encerrar a galera em saída confirmada, registrar resultado e distinguir respostas exibidas das não exibidas; preservar ambiguidades | Política definida; integração pendente |
+| RF-30 | Encerrar a galera em saída confirmada, registrar resultado e distinguir respostas exibidas das não exibidas; preservar ambiguidades | Integrado na fase 33 |
 | RF-31 | Configurar dificuldade única e temáticas por sessão antes da partida com a galera, com opção de sorteio oculto e repetição de temática | Definido |
-| RF-32 | Encerrar a galera na saída confirmada; recuperar recarga e preservar painel em interrupções ambíguas | Política e prova técnica definidas; integração pendente |
+| RF-32 | Encerrar a galera na saída confirmada; recuperar recarga e preservar painel em interrupções ambíguas | Integrado na fase 33 |
 | RF-33 | Exibir resumo das partidas com a galera no histórico privado do usuário autenticado, separado do desempenho individual | Definido |
 | RF-34 | Importar conteúdo de arquivos JSON em lotes de 25, no contrato aprovado, com validação prévia | Definido; importador ainda não implementado |
 | RF-35 | Exigir escolha de nome de usuário disponível e avatar no primeiro acesso com Google | Definido |
@@ -759,7 +759,7 @@ Ficam fora da versão atualmente definida:
 - Denúncias de conteúdo.
 - Consulta detalhada de cada rodada de partidas antigas.
 
-Sugestões de conteúdo por jogadores poderão ser discutidas em atualização futura. O modo com a galera está confirmado para a primeira entrega, com regras ainda em detalhamento. Participantes jogando em dispositivos separados não fazem parte da primeira entrega.
+Sugestões de conteúdo por jogadores poderão ser discutidas em atualização futura. O modo com a galera está confirmado para a primeira entrega e foi integrado na fase 33. Participantes jogando em dispositivos separados não fazem parte da primeira entrega.
 
 ## 22. Decisões prioritárias em aberto
 
@@ -921,3 +921,7 @@ Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada um
 O responsável definiu cronômetro informativo **por sessão e total da partida**, contando apenas tempo ativo, sem alterar pontos, turnos ou desempate. Não haverá atribuição de tempo por palavra ou participante. A persistência e a interface da contagem serão integradas ao painel na fase 33.
 
 Se faltar conteúdo, manter dificuldade e temáticas solicitadas e apresentar a insuficiência para ajuste antes de criar a partida. Não reduzir sessões nem substituir temáticas automaticamente. O sorteio aleatório deve considerar configurações viáveis, preservando a sequência oculta e permitindo repetir temáticas, sem repetir palavras na partida.
+
+## Integração da galera — fase 33, 2026-10-30
+
+O painel compartilhado, turnos, sorteios, pontos, sessão extra, cronômetro por sessão/total, resultado e encerramento foram conectados à persistência. Recarregar preserva progresso; saída confirmada encerra; casos ambíguos seguem a decisão conservadora da fase 13. A galera continua fora dos rankings individuais. Contratos, registros de palavras vistas e não vistas, limites técnicos e testes em [Painel-galera.md](Painel-galera.md).

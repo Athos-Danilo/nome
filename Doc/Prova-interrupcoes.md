@@ -118,3 +118,5 @@ Suspensão e reinício do provedor gratuito não podem ser tratados como saída 
 
 
 **Atualização da fase 28:** continuidade persistida integrada ao individual e à demonstração. Pausa, retomada, montagem e tratamento conservador das interrupções estão em [Pausa e retomada](Pausa-retomada-individual.md). Os registros anteriores deste documento descrevem as verificações das fases originais; a integração da galera continua na fase 33.
+
+**Atualização da fase 33:** continuidade integrada à galera com evidências por aba/documento. Saída confirmada pelo menu/roteador encerra; recarga e retorno ambíguo preservam; histórico reconhecido encerra pelo saldo atual. Não foi criado timeout para inferir fechamento. Contratos, estado persistido e limitações em [Painel-galera.md](Painel-galera.md).

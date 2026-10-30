@@ -166,3 +166,7 @@ Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada um
 ## Fase 29 — configuração da galera
 
 Criação autenticada de participantes e sessões, temáticas manuais/aleatórias, reservas privadas e primeira ordem sorteada. Migração 0009 cria planos_galera (22 tabelas); reenvios não duplicam a partida. A preparação não revela palavras nem registra exposições. Contratos, decisões do cronômetro/falta de conteúdo e verificações em [Configuração da galera](Configuracao-galera.md). Motor, painel e medição por sessão continuam nas fases 31/33.
+
+## Painel da galera — fase 33
+
+GET `/api/partidas/galera/{id}/painel`, POST `/{id}/acoes`, GET/POST `/{id}/tempo` e POST `/{id}/conexoes` integram o motor ao progresso relacional. Os caminhos abreviados usam o mesmo prefixo `/api/partidas/galera`. Conta ativa, propriedade, Origin e CSRF seguem os contratos existentes. Comandos versionados e recibos persistidos evitam duplicação; máscaras, tempos por sessão, consentimentos e resultado têm projeção pública explícita, sem conteúdo futuro. Payloads, códigos, garantias de concorrência e limites de navegação em [Painel-galera.md](Painel-galera.md). A consulta anterior da preparação permanece compatível.

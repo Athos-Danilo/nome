@@ -105,7 +105,7 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
                     conexao.scalar(
                         select(func.count())
                         .select_from(rodadas)
-                        .where(rodadas.c.sessao_id.is_not(None), rodadas.c.estado == "reservada")
+                        .where(rodadas.c.sessao_id.is_not(None), rodadas.c.estado == "desistida")
                     )
                     == 2
                 )

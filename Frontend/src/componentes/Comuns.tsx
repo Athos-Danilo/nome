@@ -52,11 +52,15 @@ export function Dialogo({
   titulo,
   children,
   aoFechar,
+  textoFechar = "Entendi",
+  etiqueta = "UMA DICA ANTES DAS DICAS",
 }: {
   aberto: boolean;
   titulo: string;
   children: ReactNode;
   aoFechar: () => void;
+  textoFechar?: string;
+  etiqueta?: string;
 }) {
   const tituloId = useId();
   const elemento = useRef<HTMLDialogElement>(null);
@@ -82,12 +86,12 @@ export function Dialogo({
         aoFechar();
       }}
     >
-      <span className="etiqueta">UMA DICA ANTES DAS DICAS</span>
+      <span className="etiqueta">{etiqueta}</span>
       <h2 id={tituloId}>{titulo}</h2>
       {children}
       <div className="acoes-dialogo">
         <button className="acao" ref={fechar} onClick={aoFechar}>
-          Entendi
+          {textoFechar}
         </button>
       </div>
     </dialog>

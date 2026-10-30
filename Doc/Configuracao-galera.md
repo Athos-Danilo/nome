@@ -60,3 +60,7 @@ Verificações finais: 189 testes backend aprovados (incluindo a prova integrada
 ## Continuidade na fase 31
 
 O [motor da galera](Motor-galera.md) implementa transições testáveis de letras, palpites, pontos, turnos, sessões e desempate, com projeção pública sem conteúdo futuro. D21 e D22 foram resolvidas pelo responsável. As rotas desta configuração continuam entregando apenas a preparação: persistência das jogadas, painel, consentimentos na interface, cronômetro e encerramentos serão ligados na fase 33. A primeira ordem já gravada deve ser fornecida ao motor, sem novo sorteio ao iniciar o painel.
+
+## Continuidade na fase 33
+
+O botão Iniciar desafio agora liga a preparação ao [painel jogável](Painel-galera.md), mantendo a primeira ordem reservada. Motor, persistência, apresentação de sessões, tempo, resultado e encerramentos foram integrados. Os parágrafos anteriores registram os limites e as verificações da fase 29, não o estado final do modo.

@@ -41,12 +41,14 @@ export function EditorResposta({
   aoEnviar,
   aoEscolherLetra,
   ocupado = false,
+  exibirMontagem = true,
 }: {
   estado: EstadoEntrada;
   aoAlterar: Dispatch<SetStateAction<EstadoEntrada>>;
   aoEnviar: (palpite: string) => void;
   aoEscolherLetra?: (letra: string) => void;
   ocupado?: boolean;
+  exibirMontagem?: boolean;
 }) {
   const area = useRef<HTMLDivElement>(null);
   const houveArraste = useRef(false);
@@ -119,37 +121,42 @@ export function EditorResposta({
         }}
         onPaste={aoColar}
       >
-        <div className="resposta-montada" aria-label="Quadradinhos da resposta">
-          {grupos.map((grupo, i) => (
-            <div className="palavra-montada" key={i}>
-              {grupo.map((indice) =>
-                estado.posicoes[indice] !== null &&
-                !/^[\p{L}0-9]$/u.test(estado.posicoes[indice]!) ? (
-                  <span
-                    className="separador"
-                    aria-label={`Separador: ${estado.posicoes[indice]}`}
-                    key={indice}
-                  >
-                    {estado.posicoes[indice]}
-                  </span>
-                ) : (
-                  <Quadradinho
-                    key={indice}
-                    indice={indice}
-                    letra={estado.letras[indice]}
-                    fixo={estado.posicoes[indice] !== null}
-                    selecionado={estado.selecionada === indice}
-                    desabilitado={ocupado || estado.acao === "letra"}
-                    aoSelecionar={() => {
-                      aoAlterar((anterior) => selecionar(anterior, indice));
-                      focar();
-                    }}
-                  />
-                ),
-              )}
-            </div>
-          ))}
-        </div>
+        {exibirMontagem && (
+          <div
+            className="resposta-montada"
+            aria-label="Quadradinhos da resposta"
+          >
+            {grupos.map((grupo, i) => (
+              <div className="palavra-montada" key={i}>
+                {grupo.map((indice) =>
+                  estado.posicoes[indice] !== null &&
+                  !/^[\p{L}0-9]$/u.test(estado.posicoes[indice]!) ? (
+                    <span
+                      className="separador"
+                      aria-label={`Separador: ${estado.posicoes[indice]}`}
+                      key={indice}
+                    >
+                      {estado.posicoes[indice]}
+                    </span>
+                  ) : (
+                    <Quadradinho
+                      key={indice}
+                      indice={indice}
+                      letra={estado.letras[indice]}
+                      fixo={estado.posicoes[indice] !== null}
+                      selecionado={estado.selecionada === indice}
+                      desabilitado={ocupado || estado.acao === "letra"}
+                      aoSelecionar={() => {
+                        aoAlterar((anterior) => selecionar(anterior, indice));
+                        focar();
+                      }}
+                    />
+                  ),
+                )}
+              </div>
+            ))}
+          </div>
+        )}
         <p className="instrucao-entrada">
           {estado.acao === "letra"
             ? "Escolha uma letra para o painel. Vogais também representam suas versões acentuadas."

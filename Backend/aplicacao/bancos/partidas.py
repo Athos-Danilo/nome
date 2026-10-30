@@ -35,6 +35,7 @@ partidas = Table(
     Column("encerrada_em", DateTime(timezone=True)),
     Column("motivo_encerramento", String(30)),
     Column("resultado_galera", String(10)),
+    Column("progresso_galera", JSONB),
     CheckConstraint("(jogador_id IS NULL) <> (visitante_id IS NULL)", name="proprietario"),
     CheckConstraint("modo IN ('individual', 'galera')", name="modo"),
     CheckConstraint("origem IN ('normal', 'demonstracao')", name="origem"),
@@ -119,6 +120,7 @@ sessoes_galera = Table(
     Column("desempate", Boolean, nullable=False, server_default=text("false")),
     Column("estado", String(15), nullable=False, server_default="reservada"),
     Column("participante_atual_id", Uuid),
+    Column("intervalos_tempo", JSONB),
     UniqueConstraint("partida_id", "id"),
     UniqueConstraint("partida_id", "numero"),
     ForeignKeyConstraint(

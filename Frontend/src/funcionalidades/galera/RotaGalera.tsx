@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { PainelGalera } from "./PainelGalera";
+import { enviarJogada } from "./painel-api";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router";
 import { Botao, Carregando, EstadoVazio } from "../../componentes/Comuns";
@@ -13,6 +16,8 @@ export function RotaGalera({
   conta: Sessao;
   avatares: Avatar[];
 }) {
+  const [erroInicio, definirErroInicio] = useState("");
+  const [iniciando, definirIniciando] = useState(false);
   const { pathname } = useLocation();
   const novo = pathname === "/jogar/galera/novo";
   const id = pathname.slice("/jogar/galera/".length);
@@ -31,6 +36,30 @@ export function RotaGalera({
       </EstadoVazio>
     );
   const partida = consulta.data;
+  if (partida.estado !== "preparada")
+    return <PainelGalera id={id} token={conta.token_csrf} />;
+  async function iniciar() {
+    if (iniciando) return;
+    definirIniciando(true);
+    definirErroInicio("");
+    try {
+      await enviarJogada(
+        id,
+        {
+          tipo: "iniciar",
+          id_acao: crypto.randomUUID(),
+          versao_esperada: consulta.data!.versao,
+        },
+        conta.token_csrf,
+      );
+      await consulta.refetch();
+    } catch (e) {
+      definirErroInicio((e as Error).message);
+      await consulta.refetch();
+    } finally {
+      definirIniciando(false);
+    }
+  }
   return (
     <section className="galera-preparada">
       <span className="etiqueta">PARTIDA PREPARADA</span>
@@ -60,11 +89,15 @@ export function RotaGalera({
           ? "A sequência de temáticas continua em segredo."
           : `Temáticas: ${partida.configuracao.tematicas?.map((t) => TEMAS[t]).join(" → ")}`}
       </p>
+      {erroInicio && <p role="alert">{erroInicio}</p>}
+      <Botao disabled={iniciando} onClick={() => void iniciar()}>
+        Iniciar desafio
+      </Botao>
       <div className="resumo-disputa">
-        <h2>O próximo desafio está tomando forma</h2>
+        <h2>Seu próximo show de descobertas</h2>
         <p>
-          A configuração e a ordem estão salvas. Os controles do painel
-          compartilhado ainda estão em preparação.
+          A configuração e a ordem estão salvas. Preparem as ideias: cada nova
+          posição revelada vale 100 pontos!
         </p>
       </div>
     </section>

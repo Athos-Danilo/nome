@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "./testes-navegador",
-  testMatch: "galera.fluxo.ts",
+  testMatch: /galera.*\.fluxo\.ts/,
   workers: 1,
   timeout: 20000,
   expect: { timeout: 4000 },

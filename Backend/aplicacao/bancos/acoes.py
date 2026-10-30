@@ -98,7 +98,7 @@ letras_tentadas = Table(
     ForeignKeyConstraint(
         ["partida_id", "acao_id"], ["acoes_processadas.partida_id", "acoes_processadas.id"]
     ),
-    CheckConstraint("letra ~ '^[A-ZÇ]$'", name="familia"),
+    CheckConstraint("letra ~ '^[A-ZÇ0-9]$'", name="familia"),
 )
 
 interrupcoes = Table(

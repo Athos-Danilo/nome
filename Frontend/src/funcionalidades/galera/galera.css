@@ -3,6 +3,443 @@
   max-width: 1000px;
   margin: auto;
 }
+
+.painel-galera {
+  max-width: 1150px;
+  margin: 0 auto;
+  min-width: 0;
+}
+.palavra-painel .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.cabecalho-galera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 20px 0 28px;
+}
+.cabecalho-galera h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -2px;
+  margin: 8px 0;
+}
+.cabecalho-galera p {
+  font-weight: 650;
+  font-size: 18px;
+  margin: 0;
+}
+.cabecalho-galera p span {
+  color: var(--texto);
+  margin: 0 12px;
+}
+.relogio-galera {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 24px;
+  border: 2px solid var(--texto);
+  border-radius: 26px;
+  background: var(--painel);
+  box-shadow: 5px 6px 0 var(--sombra-suave);
+  min-width: 230px;
+}
+.relogio-galera > span {
+  display: grid;
+  place-items: center;
+  font-size: 48px;
+  width: 66px;
+  height: 66px;
+  border: 3px dashed var(--texto);
+  border-radius: 50%;
+  background: #d4fe62;
+  color: #282c20;
+}
+.relogio-galera.ativo > span {
+  animation: girar-relogio 18s linear infinite;
+}
+.relogio-galera strong {
+  display: block;
+  font:
+    800 38px Bricolage,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.relogio-galera small {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.placar-galera {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  gap: 18px;
+}
+.placar-galera li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  padding: 20px;
+  border: 2px solid var(--texto);
+  border-radius: 24px;
+  background: var(--painel);
+  box-shadow: 4px 5px 0 var(--sombra-suave);
+  min-width: 0;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.placar-galera li.na-vez {
+  background: #d4fe62;
+  color: #282c20;
+  transform: translateY(-5px);
+  box-shadow: 4px 8px 0 var(--texto);
+}
+.placar-galera li > img {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  flex-shrink: 0;
+}
+.placar-galera li > div {
+  min-width: 0;
+}
+.placar-galera li strong {
+  display: block;
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.placar-galera li span {
+  display: block;
+  font:
+    800 29px Bricolage,
+    sans-serif;
+}
+.placar-galera li small {
+  font:
+    800 10px "DM Sans",
+    sans-serif;
+}
+.placar-galera li > b {
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  background: var(--texto);
+  color: var(--painel);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.tabuleiro-galera {
+  padding: 28px;
+  border: 2px solid var(--texto);
+  border-radius: 32px;
+  background: var(--painel);
+  box-shadow: 6px 7px 0 var(--sombra-suave);
+  margin: 24px 0;
+}
+.titulo-tabuleiro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.titulo-tabuleiro h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  margin: 10px 0;
+}
+.palavras-galera {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.palavra-painel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 18px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--texto) 6%, transparent);
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+}
+.palavra-painel.selecionada {
+  border-color: var(--texto);
+  background: color-mix(in srgb, #d4fe62 20%, var(--painel));
+}
+.palavra-painel:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.numero-palavra {
+  font:
+    800 18px Bricolage,
+    sans-serif;
+  opacity: 0.6;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+.casas-galera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.casas-galera .casa {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 48px;
+  border: 2px solid var(--texto);
+  border-radius: 9px;
+  background: var(--painel);
+  box-shadow: 0 4px 0 var(--sombra-suave);
+  font:
+    800 26px Bricolage,
+    sans-serif;
+}
+.casas-galera .casa.revelada {
+  background: #d4fe62;
+  color: #282c20;
+  animation: revelar-casa 0.35s ease both;
+}
+.casas-galera .casa.espaco {
+  width: 14px;
+  box-shadow: none;
+  background: transparent;
+  border-color: transparent;
+}
+.comandos-galera {
+  max-width: 850px;
+  margin: 30px auto;
+}
+.alternar-jogada {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.alternar-jogada button {
+  font-size: 14px;
+  min-height: 48px;
+}
+.alternar-jogada button[aria-pressed="false"] {
+  background: var(--painel);
+}
+.comandos-galera > p {
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.painel-galera .botao-secundario {
+  background: var(--painel);
+  margin: 16px 0;
+}
+.desempate-galera {
+  padding: 28px;
+  border: 2px solid var(--texto);
+  border-radius: 28px;
+  background: var(--painel);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 720px;
+  margin: 30px auto;
+}
+.desempate-galera h2 {
+  font-size: 32px;
+  margin: 0;
+}
+.voto-galera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--decoracao);
+  padding: 12px 0;
+}
+.desempate-galera label {
+  display: grid;
+  gap: 10px;
+}
+.final-galera {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 32px;
+  background: var(--painel);
+  border: 2px solid var(--texto);
+  border-radius: 32px;
+  padding: 28px;
+  margin: 28px 0;
+}
+.final-galera > img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+}
+.final-galera h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  margin: 10px 0;
+}
+.final-galera ul {
+  padding: 0;
+  list-style: none;
+}
+.final-galera li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--decoracao);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+.respostas-finais {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-weight: 800;
+}
+.sorteio-galera li {
+  animation: entrar-sorteio 0.6s ease both;
+}
+@keyframes revelar-casa {
+  from {
+    transform: rotateX(85deg) scale(0.85);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes entrar-sorteio {
+  from {
+    transform: translateY(20px) rotate(-5deg);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes girar-relogio {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 700px) {
+  .cabecalho-galera {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .relogio-galera {
+    min-width: 0;
+    justify-content: center;
+    padding: 14px;
+  }
+  .relogio-galera > span {
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+  }
+  .relogio-galera strong {
+    font-size: 32px;
+  }
+  .placar-galera {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .placar-galera li {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 7px 12px;
+    gap: 8px;
+    border-radius: 18px;
+  }
+  .placar-galera li > img {
+    width: 44px;
+    height: 44px;
+  }
+  .placar-galera li strong {
+    font-size: 13px;
+  }
+  .placar-galera li span {
+    font-size: 23px;
+  }
+  .placar-galera li > b {
+    right: 4px;
+    font-size: 8px;
+    padding: 5px 7px;
+    letter-spacing: 0;
+  }
+  .tabuleiro-galera {
+    padding: 20px 10px;
+    border-radius: 24px;
+  }
+  .palavra-painel {
+    gap: 6px;
+    padding: 12px 5px;
+  }
+  .numero-palavra {
+    font-size: 12px;
+  }
+  .casas-galera {
+    gap: 4px;
+  }
+  .casas-galera .casa {
+    width: 27px;
+    height: 36px;
+    font-size: 21px;
+    border-radius: 7px;
+  }
+  .casas-galera .casa.espaco {
+    width: 9px;
+  }
+  .final-galera {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+    padding: 22px;
+  }
+  .final-galera > img {
+    height: 140px;
+  }
+  .voto-galera {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sorteio-galera li,
+  .casas-galera .casa.revelada,
+  .relogio-galera.ativo > span {
+    animation: none;
+  }
+  .placar-galera li {
+    transition: none;
+  }
+}
 .chamada-galera {
   display: flex;
   align-items: center;

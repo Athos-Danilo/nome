@@ -19,7 +19,12 @@ from aplicacao.bancos.partidas import (
 )
 from aplicacao.modulos.autenticacao.contratos import FalhaAutenticacao
 from aplicacao.modulos.galera.contratos import CatalogoGalera
-from aplicacao.modulos.galera.esquemas import ConfiguracaoGalera
+from aplicacao.modulos.galera.esquemas import (
+    AcaoGalera,
+    ConexaoGalera,
+    ConfiguracaoGalera,
+    TempoGalera,
+)
 from aplicacao.modulos.galera.selecao import selecionar
 from aplicacao.nucleo.nomes import chave_do_nome
 
@@ -305,3 +310,32 @@ class GaleraPostgresql:
         async with self.motor.begin() as c:
             await self.titular(c, jogador_id)
             return await self.estado(c, jogador_id, partida_id)
+
+    def painel_jogo(self):
+        from aplicacao.modulos.galera.painel import PainelPostgresql
+
+        return PainelPostgresql(self.motor, self.titular, self.estado)
+
+    async def consultar_painel(
+        self, jogador_id: UUID, partida_id: UUID, catalogo: CatalogoGalera
+    ) -> dict:
+        return await self.painel_jogo().consultar(jogador_id, partida_id, catalogo)
+
+    async def agir(
+        self, jogador_id: UUID, partida_id: UUID, dados: AcaoGalera, catalogo: CatalogoGalera
+    ) -> dict:
+        return await self.painel_jogo().agir(jogador_id, partida_id, dados, catalogo)
+
+    async def tempo(
+        self,
+        jogador_id: UUID,
+        partida_id: UUID,
+        dados: TempoGalera | None,
+        catalogo: CatalogoGalera,
+    ) -> dict:
+        return await self.painel_jogo().tempo(jogador_id, partida_id, dados, catalogo)
+
+    async def conexao(
+        self, jogador_id: UUID, partida_id: UUID, dados: ConexaoGalera, catalogo: CatalogoGalera
+    ) -> dict:
+        return await self.painel_jogo().conexao(jogador_id, partida_id, dados, catalogo)

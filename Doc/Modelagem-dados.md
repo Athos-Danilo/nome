@@ -186,3 +186,7 @@ Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada um
 ## Fase 29 — configuração da galera
 
 Criação autenticada de participantes e sessões, temáticas manuais/aleatórias, reservas privadas e primeira ordem sorteada. Migração 0009 cria planos_galera (22 tabelas); reenvios não duplicam a partida. A preparação não revela palavras nem registra exposições. Contratos, decisões do cronômetro/falta de conteúdo e verificações em [Configuração da galera](Configuracao-galera.md). Motor, painel e medição por sessão continuam nas fases 31/33.
+
+## Fase 33 — progresso e tempo da galera
+
+Migração aditiva 0010: JSONB anulável `partidas.progresso_galera` para estado do motor e evidências de conexão, sem respostas; JSONB anulável `sessoes_galera.intervalos_tempo` para tempo ativo por sessão. A restrição de `letras_tentadas.letra` admite A–Z, Ç e 0–9, preservando D08. Continuam 22 tabelas. Posições, palpites, ações, ordens e exposições usam as estruturas já existentes. Cada jogada é gravada sob bloqueio da partida e do anfitrião, numa transação com recibo e versão; galera não publica resultado individual nem penalidade. Detalhes e critérios de privacidade em [Painel-galera.md](Painel-galera.md).

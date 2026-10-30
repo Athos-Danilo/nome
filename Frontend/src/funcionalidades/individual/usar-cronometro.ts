@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { confirmarTempo, lerPartida, type Partida } from "./api";
+import { confirmarTempo, lerPartida } from "./api";
 
 export function formatarTempo(ms: number | null | undefined): string {
   if (ms == null) return "Tempo não registrado";
@@ -14,12 +14,32 @@ export function formatarTempo(ms: number | null | undefined): string {
     .join(":");
 }
 
+export type EstadoRelogio = {
+  rodada_atual?: { rodada_id: string; tempo_ativo_ms?: number | null } | null;
+  relogio_servidor_ms?: number;
+};
+export type TransporteRelogio = {
+  ler: (caminho: string) => Promise<EstadoRelogio>;
+  confirmar: (
+    base: string,
+    token: string,
+    id: string,
+    inicio: number,
+    fim: number,
+    manterViva: boolean,
+  ) => Promise<EstadoRelogio>;
+};
+const transporteIndividual: TransporteRelogio = {
+  ler: lerPartida,
+  confirmar: confirmarTempo,
+};
 type Intervalo = [number, number];
 export function useCronometro(
   base: string,
   token: string,
-  partida: Partida | undefined,
+  partida: EstadoRelogio | undefined,
   ativo: boolean,
+  transporte: TransporteRelogio = transporteIndividual,
 ) {
   const id = partida?.rodada_atual?.rodada_id;
   const [prontaId, definirProntaId] = useState("");
@@ -78,7 +98,7 @@ export function useCronometro(
         for (let i = 0; i < intervalos.length; i++) {
           const [a, b] = intervalos[i];
           try {
-            const resposta = await confirmarTempo(
+            const resposta = await transporte.confirmar(
               base,
               token,
               d.id,
@@ -126,7 +146,8 @@ export function useCronometro(
     definirProntaId("");
     const d = dados.current;
     let cancelado = false;
-    void lerPartida(`${base}/tempo`)
+    void transporte
+      .ler(`${base}/tempo`)
       .then((resposta) => {
         if (cancelado) return;
         d.origem = resposta.relogio_servidor_ms ?? Date.now();

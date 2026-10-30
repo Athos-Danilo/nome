@@ -78,3 +78,7 @@ O resultado final das verificações desta fase está registrado no fechamento a
 - Suíte backend completa com PostgreSQL isolado na porta 55432 e MongoDB de testes: **227 aprovados e um ignorado**. O único ignorado é a prova opcional de navegador integrado, que exige habilitação explícita. Nenhuma tela foi alterada nesta fase.
 - Ruff e verificação de formatação aprovados. Há um aviso de descontinuação interno da Authlib já existente; não foi alterada dependência de autenticação nesta fase.
 - A instância PostgreSQL de teste, inicialmente desligada, foi iniciada para a verificação e desligada ao final. O banco de desenvolvimento, o catálogo publicado e a migração local não foram alterados. O roteiro permanece somente local, conforme o `.gitignore`.
+
+## Integração posterior
+
+A fase 33 conectou o motor à persistência e ao painel. O agregado é reconstruído com revisões do catálogo e posições/ordens relacionais; recibos de comandos garantem reenvios na transação. Contratos e verificações em [Painel-galera.md](Painel-galera.md).

@@ -100,3 +100,7 @@ A suíte backend e a prova opcional integrada com React compilado, HTTP e Postgr
 O responsável definiu cronômetro informativo **por sessão e total da partida**, contando apenas tempo ativo, sem alterar pontos, turnos ou desempate. Não haverá atribuição de tempo por palavra ou participante. A persistência e a interface da contagem serão integradas ao painel na fase 33.
 
 Se faltar conteúdo, manter dificuldade e temáticas solicitadas e apresentar a insuficiência para ajuste antes de criar a partida. Não reduzir sessões nem substituir temáticas automaticamente. O sorteio aleatório deve considerar configurações viáveis, preservando a sequência oculta e permitindo repetir temáticas, sem repetir palavras na partida.
+
+## Integração da galera — fase 33
+
+Implementada a decisão de medir sessão e total da partida. `sessoes_galera.intervalos_tempo` guarda intervalos ativos; GET/POST `/api/partidas/galera/{id}/tempo` sincroniza e confirma a sessão apresentada. O transporte próprio converte a medição em milissegundos inteiros, preservando limites e união de sobreposições descritos acima. Sorteio, empate, ausência, rede indisponível e ações suspendem a contagem; recarga conserva o acumulado. Resultado exibe cada sessão apresentada e o total, sem atribuir tempo a palavras ou participantes. Critérios e prova integrada em [Painel-galera.md](Painel-galera.md).

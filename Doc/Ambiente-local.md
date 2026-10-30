@@ -115,3 +115,7 @@ cd Backend
 ```
 
 As pastas seguem o planejamento; módulos vazios são pontos de expansão, sem regras fictícias. Instalações, segredos, caches, cobertura e resultados de compilação são ignorados pelo Git. Consulte [Publicação gratuita](Publicacao-gratuita.md) para o diagnóstico de hospedagem e pendências até as fases 15 e 41.
+
+## Atualização da fase 33
+
+Migração local atual: **0010**, com progresso e tempo por sessão da galera, sem divergências no `alembic check`. A API local foi reiniciada com as rotas do painel; frontend permanece em `http://localhost:5173`. A configuração da galera fica em `/jogar/galera/novo`. Usar conta autenticada; o teste integrado utiliza outra base e não altera a partida pessoal.

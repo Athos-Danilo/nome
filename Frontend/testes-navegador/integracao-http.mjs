@@ -155,6 +155,57 @@ try {
       expect(preparada.ordem_primeira_sessao).toHaveLength(2);
       expect(preparada).not.toHaveProperty("reservas");
       expect(preparada).not.toHaveProperty("respostas");
+      await pagina.getByRole("button", { name: "Iniciar desafio" }).click();
+      await pagina.getByRole("button", { name: "Liberar painel" }).click();
+      await expect(
+        pagina.getByRole("heading", { name: /É a vez de/ }),
+      ).toBeVisible();
+      await expect(pagina.getByTestId("tempo-sessao")).not.toHaveText("00:00");
+      await pagina
+        .getByRole("button", { name: "Tecla A", exact: true })
+        .click();
+      const baseGalera =
+        origem + "/api/partidas/galera/" + preparada.partida_id;
+      await expect
+        .poll(async () => {
+          const jogo = await (
+            await contexto.request.get(baseGalera + "/painel")
+          ).json();
+          return jogo.participantes.reduce((s, p) => s + p.pontuacao, 0);
+        })
+        .toBeGreaterThan(0);
+      const jogando = await (
+        await contexto.request.get(baseGalera + "/painel")
+      ).json();
+      expect(jogando.tempo_total_ms).toBeGreaterThan(0);
+      await pagina.reload();
+      await expect(
+        pagina.getByRole("heading", { name: /É a vez de/ }),
+      ).toBeVisible();
+      const recuperada = await (
+        await contexto.request.get(baseGalera + "/painel")
+      ).json();
+      expect(recuperada.versao).toBe(jogando.versao);
+      expect(recuperada.participantes).toEqual(jogando.participantes);
+      await pagina
+        .getByRole("button", { name: "Encerrar partida", exact: true })
+        .click();
+      await pagina
+        .getByRole("button", { name: "Confirmar encerramento" })
+        .click();
+      await expect(
+        pagina.getByRole("heading", { name: "Resultado da galera" }),
+      ).toBeVisible();
+      const finalGalera = await (
+        await contexto.request.get(baseGalera + "/painel")
+      ).json();
+      expect(finalGalera.estado).toBe("abandonada");
+      expect(finalGalera.resumo_sessoes).toHaveLength(1);
+      expect(finalGalera.tempo_total_ms).toBeGreaterThan(0);
+      await pagina.screenshot({
+        path: "test-results/galera-http-integrada.png",
+        fullPage: true,
+      });
     }
     await contexto.close();
   }

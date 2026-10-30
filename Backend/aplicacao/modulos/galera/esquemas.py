@@ -46,3 +46,55 @@ class ConfiguracaoGalera(Entrada):
 
 class CriarGalera(Entrada):
     plano_id: UUID
+
+
+class AcaoGalera(Entrada):
+    id_acao: UUID
+    versao_esperada: int = Field(ge=0, strict=True)
+    tipo: Literal["iniciar", "letra", "palpite", "voto", "extra", "encerrar"]
+    participante_id: UUID | None = None
+    valor: str | None = Field(default=None, max_length=300, strict=True)
+    palavra: int | None = Field(default=None, ge=0, le=2, strict=True)
+    aceita: bool | None = Field(default=None, strict=True)
+    tematica: str | None = None
+
+    @model_validator(mode="after")
+    def conferir_acao(self) -> Self:
+        campos = self.model_fields_set - {"id_acao", "versao_esperada", "tipo"}
+        permitidos = {
+            "iniciar": set(),
+            "encerrar": set(),
+            "letra": {"participante_id", "valor"},
+            "palpite": {"participante_id", "valor", "palavra"},
+            "voto": {"participante_id", "aceita"},
+            "extra": {"tematica"},
+        }[self.tipo]
+        if not campos <= permitidos:
+            raise ValueError("Campos incompatíveis com essa ação.")
+        if self.tipo in {"letra", "palpite"} and (
+            self.participante_id is None or self.valor is None
+        ):
+            raise ValueError("Informe participante e tentativa.")
+        if self.tipo == "palpite" and self.palavra is None:
+            raise ValueError("Escolha a palavra.")
+        if self.tipo == "voto" and (self.participante_id is None or self.aceita is None):
+            raise ValueError("Informe o voto do participante.")
+        if self.tematica is not None and self.tematica not in TEMATICAS:
+            raise ValueError("Escolha uma temática válida.")
+        return self
+
+
+class TempoGalera(Entrada):
+    sessao_id: UUID
+    inicio_ms: int = Field(ge=0, strict=True)
+    fim_ms: int = Field(ge=0, strict=True)
+
+
+class ConexaoGalera(Entrada):
+    tipo: Literal["conectar", "pagehide", "pageshow"]
+    aba_id: UUID
+    documento_id: UUID
+    versao_esperada: int = Field(ge=0, strict=True)
+    navegacao: Literal["navigate", "reload", "back_forward", "desconhecida"] = "desconhecida"
+    evento_id: UUID | None = None
+    persistido: bool = Field(default=False, strict=True)

@@ -18,10 +18,11 @@ export function TeclaArrastavel({
   return (
     <button
       type="button"
-      ref={ref}
+      ref={arrastavel ? ref : undefined}
       className="tecla-letra"
       aria-label={`Tecla ${letra}`}
       disabled={desabilitada}
+      aria-disabled={desabilitada}
       data-arrastando={isDragging || undefined}
       onClick={aoEscolher}
     >
