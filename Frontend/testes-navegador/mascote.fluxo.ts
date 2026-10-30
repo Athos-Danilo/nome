@@ -174,3 +174,145 @@ test("movimentos reduzidos mantêm a arte original e o menu funciona", async ({
   await page.getByRole("button", { name: "Como jogar" }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
 });
+
+test("encaixes não perdem tecido e os olhos não vazam creme durante o aceno", async ({
+  page,
+}) => {
+  await visitante(page);
+  await page.goto("/laboratorio/aurelio");
+  const desenho = page.locator(".ensaio-montagem svg");
+  await desenho.evaluate((elemento) =>
+    Object.assign(elemento.style, {
+      position: "fixed",
+      left: "0",
+      top: "0",
+      zIndex: "1000",
+      pointerEvents: "none",
+      width: "1158px",
+      height: "1359px",
+      maxWidth: "none",
+      background: "#ff00ff",
+    }),
+  );
+  for (const tempo of [0, 350, 750, 1350, 2070, 3400, 5400]) {
+    await page.getByLabel("Instante da saudação").fill(String(tempo));
+    await expect(desenho).toHaveAttribute("data-tempo", String(tempo));
+    const png = (await desenho.screenshot()).toString("base64");
+    const defeitos = await desenho.evaluate(async (elemento, imagem) => {
+      const foto = new Image();
+      foto.src = "data:image/png;base64," + imagem;
+      await foto.decode();
+      const original = new Image();
+      original.src = "/mascote/aurelio.png";
+      await original.decode();
+      const quadro = document.createElement("canvas");
+      quadro.width = 1158;
+      quadro.height = 1359;
+      const contexto = quadro.getContext("2d")!;
+      contexto.drawImage(foto, 0, 0);
+      const atual = contexto.getImageData(0, 0, 1158, 1359).data;
+      contexto.clearRect(0, 0, 1158, 1359);
+      contexto.drawImage(original, 0, 0);
+      const fonte = contexto.getImageData(0, 0, 1158, 1359).data;
+      const claro = (x: number, y: number) => {
+        const i = (y * 1158 + x) * 4;
+        return (
+          fonte[i + 3] > 240 &&
+          fonte[i] > 180 &&
+          fonte[i + 1] > 165 &&
+          fonte[i + 2] > 110
+        );
+      };
+      const vazios: Record<string, number> = {};
+      for (const [nome, parte, area] of [
+        ["luva", "punho_direito", [905, 350, 253, 255]],
+        ["tornozelo_esquerdo", "perna_esquerda", [265, 1085, 140, 80]],
+        ["tornozelo_direito", "perna_direita", [520, 1060, 170, 90]],
+      ] as const) {
+        const grupo = elemento.querySelector<SVGGElement>(
+          `[data-parte='${parte}']`,
+        )!;
+        const matriz = grupo.getCTM()!;
+        let faltantes = 0;
+        for (let y = area[1]; y < area[1] + area[3]; y++)
+          for (let x = area[0]; x < area[0] + area[2]; x++) {
+            if (
+              !claro(x, y) ||
+              !claro(x - 2, y) ||
+              !claro(x + 2, y) ||
+              !claro(x, y - 2) ||
+              !claro(x, y + 2)
+            )
+              continue;
+            const ponto = new DOMPoint(x, y).matrixTransform(matriz);
+            let coberto = false;
+            for (let dy = -1; dy <= 1 && !coberto; dy++)
+              for (let dx = -1; dx <= 1; dx++) {
+                const j =
+                  ((Math.round(ponto.y) + dy) * 1158 +
+                    Math.round(ponto.x) +
+                    dx) *
+                  4;
+                if (
+                  j >= 0 &&
+                  j < atual.length &&
+                  !(atual[j] > 230 && atual[j + 1] < 40 && atual[j + 2] > 230)
+                ) {
+                  coberto = true;
+                  break;
+                }
+              }
+            if (!coberto) faltantes++;
+          }
+        vazios[nome] = faltantes;
+      }
+      const matriz = elemento
+        .querySelector<SVGGElement>("[data-parte='rosto']")!
+        .getCTM()!;
+      let ovalClaro = 0;
+      for (const [x0, y0, x1, y1] of [
+        [425, 380, 585, 500],
+        [590, 315, 740, 485],
+      ])
+        for (let y = y0; y < y1; y++) {
+          let esquerda = x1,
+            direita = x0;
+          for (let x = x0; x < x1; x++) {
+            const i = (y * 1158 + x) * 4;
+            if (
+              fonte[i + 3] > 150 &&
+              fonte[i] < 55 &&
+              fonte[i + 1] < 55 &&
+              fonte[i + 2] < 55
+            ) {
+              esquerda = Math.min(esquerda, x);
+              direita = Math.max(direita, x);
+            }
+          }
+          if (direita <= esquerda) continue;
+          for (let x = x0; x < x1; x++) {
+            if (x >= esquerda - 3 && x <= direita + 3) continue;
+            const i = (y * 1158 + x) * 4;
+            if (
+              fonte[i + 3] < 200 ||
+              fonte[i] < 65 ||
+              fonte[i] > 155 ||
+              fonte[i + 1] > 155
+            )
+              continue;
+            const ponto = new DOMPoint(x, y).matrixTransform(matriz),
+              j = (Math.round(ponto.y) * 1158 + Math.round(ponto.x)) * 4;
+            if (atual[j] > 210 && atual[j + 1] > 195 && atual[j + 2] > 145)
+              ovalClaro++;
+          }
+        }
+      return { vazios, ovalClaro };
+    }, png);
+    for (const [nome, quantidade] of Object.entries(defeitos.vazios))
+      expect(quantidade, `${nome} no instante ${tempo}`).toBeLessThanOrEqual(2);
+    expect(
+      defeitos.ovalClaro,
+      `oval claro no instante ${tempo}`,
+    ).toBeLessThanOrEqual(10);
+  }
+});

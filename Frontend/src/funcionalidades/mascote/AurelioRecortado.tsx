@@ -1,6 +1,7 @@
 import { useId } from "react";
 import { RECORTES, type ParteRecortada } from "./recortes";
 import { poseSaudacao } from "./saudacao";
+import { CONTORNOS_OLHOS } from "./contornos-olhos";
 
 export function AurelioRecortado({
   tempo = 0,
@@ -15,7 +16,15 @@ export function AurelioRecortado({
   const pose = poseSaudacao(tempo);
   const referencia = (nome: string) => `url(#${id}-${nome})`;
   const imagem = (parte: ParteRecortada) => (
-    <use href={`#${id}-original`} clipPath={referencia(parte)} />
+    <use
+      href={`#${id}-original`}
+      clipPath={referencia(parte)}
+      mask={
+        parte.startsWith("perna_") || parte === "braco_direito"
+          ? referencia("fora-livro")
+          : undefined
+      }
+    />
   );
   const girar = (graus: number, x: number, y: number) =>
     `rotate(${graus} ${x} ${y})`;
@@ -31,6 +40,36 @@ export function AurelioRecortado({
       data-tempo={Math.round(tempo)}
     >
       <defs>
+        <filter id={`${id}-alpha-preto`} colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
+          />
+          <feComponentTransfer>
+            <feFuncA type="discrete" tableValues="0 1 1 1" />
+          </feComponentTransfer>
+        </filter>
+        <mask
+          id={`${id}-fora-livro`}
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="1158"
+          height="1359"
+        >
+          <rect width="1158" height="1359" fill="white" />
+          <image
+            href="/mascote/aurelio-capa-limpa-02.png"
+            width="1158"
+            height="1359"
+            filter={referencia("alpha-preto")}
+          />
+        </mask>
+        {Object.entries(CONTORNOS_OLHOS).map(([lado, contorno]) => (
+          <clipPath key={lado} id={`${id}-contorno-${lado}`}>
+            <path d={contorno} />
+          </clipPath>
+        ))}
         <image
           id={`${id}-original`}
           href="/mascote/aurelio.png"
@@ -66,22 +105,21 @@ export function AurelioRecortado({
           height="1359"
         >
           <rect width="1158" height="1359" fill="white" />
-          {Object.entries(RECORTES).map(([nome, caminho]) => (
-            <path key={nome} d={caminho} fill="black" />
-          ))}
+          {Object.entries(RECORTES)
+            .filter(
+              ([nome]) =>
+                !nome.startsWith("perna_") &&
+                !nome.includes("braco_direito") &&
+                nome !== "luva_direita",
+            )
+            .map(([nome, caminho]) => (
+              <path key={nome} d={caminho} fill="black" />
+            ))}
         </mask>
         <linearGradient id={`${id}-creme`} x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="#fff7dc" />
           <stop offset="1" stopColor="#fff8e7" />
         </linearGradient>
-        <mask id={`${id}-sem-pupila-esquerda`} maskUnits="userSpaceOnUse">
-          <rect width="1158" height="1359" fill="white" />
-          <path d={RECORTES.pupila_esquerda} fill="black" />
-        </mask>
-        <mask id={`${id}-sem-pupila-direita`} maskUnits="userSpaceOnUse">
-          <rect width="1158" height="1359" fill="white" />
-          <path d={RECORTES.pupila_direita} fill="black" />
-        </mask>
       </defs>
       <g data-parte="encaixes_pernas" fill="none" strokeLinecap="round">
         <path
@@ -127,10 +165,21 @@ export function AurelioRecortado({
             data-parte="antebraco_direito"
             transform={girar(pose.cotovelo, 925, 622)}
           >
-            {imagem("antebraco_direito")}
+            <g data-parte="encaixe_punho" fill="none" strokeLinecap="round">
+              <path
+                d="M916 635Q935 617 951 600"
+                stroke="#231e18"
+                strokeWidth="34"
+              />
+              <path
+                d="M916 635Q935 617 951 600"
+                stroke="#343027"
+                strokeWidth="22"
+              />
+            </g>
             <g
               data-parte="punho_direito"
-              transform={girar(pose.punho, 977, 559)}
+              transform={girar(pose.punho, 951, 600)}
             >
               {imagem("luva_direita")}
             </g>
@@ -170,20 +219,19 @@ export function AurelioRecortado({
                     imagem(olho)
                   ) : (
                     <>
-                      <path d={RECORTES[olho]} fill={referencia("creme")} />
-                      <g
-                        mask={referencia(
-                          i ? "sem-pupila-direita" : "sem-pupila-esquerda",
-                        )}
-                      >
-                        {imagem(olho)}
-                      </g>
-                      <g
-                        data-parte={`pupila_${lado}`}
-                        transform={`translate(${pose.pupilaX} ${pose.pupilaY})`}
-                        clipPath={referencia(olho)}
-                      >
-                        {imagem(pupila)}
+                      <g clipPath={referencia(`contorno-${lado}`)}>
+                        <path
+                          d={CONTORNOS_OLHOS[lado]}
+                          fill={referencia("creme")}
+                          stroke="#211b16"
+                          strokeWidth="9"
+                        />
+                        <g
+                          data-parte={`pupila_${lado}`}
+                          transform={`translate(${pose.pupilaX} ${pose.pupilaY})`}
+                        >
+                          {imagem(pupila)}
+                        </g>
                       </g>
                     </>
                   )}
@@ -235,8 +283,8 @@ export function AurelioRecortado({
           <g fill="#d4fe62" stroke="#211b16">
             {[
               [858, 635],
-              [935, 603],
-              [977, 559],
+              [925, 622],
+              [951, 600],
               [612, 780],
               [427, 927],
               [606, 915],

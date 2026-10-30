@@ -46,6 +46,14 @@ O trabalho por partes, poses e ajustes de tempo é consistente com o fluxo de [c
 
 ## Verificação e limites
 
+### Correção de encaixes e olhos após a revisão 02
+
+O responsável identificou cortes nas luvas, tornozelos e sapatos, além de uma borda creme fora dos olhos durante o movimento. Os recortes dos membros foram ampliados para preservar os contornos originais; uma máscara baseada na transparência da capa auxiliar remove os fragmentos do livro que esses recortes maiores poderiam carregar. O punho direito gira na união com o braço, com uma ligação sobreposta por baixo da luva.
+
+`contornos-olhos.ts` registra os contornos extraídos das bordas escuras do PNG aprovado. O preenchimento creme e o deslocamento das pupilas ficam limitados a esses contornos, sem a antiga elipse aproximada. Nenhuma imagem original foi alterada nesta correção.
+
+Uma regressão visual examina sete instantes do aceno, em resolução nativa e isolada de outros elementos da página: procura perdas nas áreas claras das luvas e tornozelos e vazamento creme fora dos olhos. O teste reproduziu inicialmente 45 pixels ausentes no tornozelo esquerdo parado, antes da correção. Essa verificação complementa a comparação da pose neutra e a inspeção visual; não substitui a avaliação artística do responsável.
+
 TDD: o teste da linha de tempo falhou pela ausência do módulo; o teste da galeria falhou pelo título/fluxo antigo. Foram verificados início/fim na mesma pose, antecipação, articulações independentes, piscada, controles, encerramento sem loop e redução de movimentos. A galeria anterior e seus testes de nove reações foram substituídos pelo novo escopo aprovado.
 
 Comparação visual automatizada: capturas da montagem parada e do PNG com as mesmas dimensões/fundo; com a referência na mesma posição física, pixels com diferença superior a 40 em algum canal, mesmo procurando correspondência a até um pixel de distância para acomodar a suavização de bordas, devem ocupar menos de 2% da imagem. Esse limite detecta alterações de aparência importantes, mas não afirma igualdade pixel a pixel. Há inspeção dos recortes e das poses durante o aceno, além dos testes funcionais.
