@@ -238,3 +238,9 @@ Decisão de 2026-10-29: quatro paletas (Original, Azul, Roxa e Grafite), cada um
 ## Fase 29 — configuração da galera
 
 Criação autenticada de participantes e sessões, temáticas manuais/aleatórias, reservas privadas e primeira ordem sorteada. Migração 0009 cria planos_galera (22 tabelas); reenvios não duplicam a partida. A preparação não revela palavras nem registra exposições. Contratos, decisões do cronômetro/falta de conteúdo e verificações em [Configuração da galera](Configuracao-galera.md). Motor, painel e medição por sessão continuam nas fases 31/33.
+
+## Motor da galera — fase 31
+
+Transições imutáveis em `galera/motor.py`, consenso e seleção da extra em `galera/desempate.py`. O motor recebe comandos com identificador e versão, valida turnos e calcula pontos sem depender de HTTP ou bancos. Projeção pública explícita impede exposição dos painéis futuros. Sorteio injetável usa `SystemRandom` na execução normal. Dificuldade da partida é preservada na extra, com escolha de tema ou sorteio viável e sem repetir respostas.
+
+A fase 33 deve carregar o estado sob bloqueio, persistir cada transição e seu recibo atomicamente, integrar referências imutáveis do catálogo e exposições e ligar o painel e o cronômetro. A idempotência do agregado puro não substitui essa transação ou testes concorrentes de API. Decisões, contratos internos, limites e verificação em [Motor-galera.md](Motor-galera.md).

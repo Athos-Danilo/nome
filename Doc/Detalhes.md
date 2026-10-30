@@ -2,7 +2,7 @@
 
 Documento de requisitos e regras de negócio do jogo de adivinhação de palavras desenvolvido para as disciplinas de **Web II e Banco de Dados II**.
 
-**Última atualização:** 29 de outubro de 2026.
+**Última atualização:** 30 de outubro de 2026.
 
 **Nome do projeto:** Decifra.
 
@@ -552,6 +552,8 @@ Se a sessão extra for aceita e o empate persistir, o resultado final será empa
 
 A sessão extra terá apenas os participantes empatados em primeiro lugar, uma resposta por participante e novo sorteio da ordem. Ela somente ocorrerá com a concordância de todos os empatados.
 
+Decisões D21 e D22 aprovadas em 2026-10-30: a extra mantém a dificuldade da partida; o anfitrião escolhe uma temática ou solicita uma temática aleatória com conteúdo suficiente. Se não houver respostas ainda não usadas na própria partida, oferecer outra temática ou encerrar empatado, sem repetir respostas ou mudar dificuldade automaticamente. Com apenas um participante, encerrar mostrando sua pontuação e desempenho, sem oferecer desempate. Os pontos anteriores permanecem no placar. Detalhes do motor e da integração em [Motor-galera.md](Motor-galera.md).
+
 ### 15.6. Desistência, interrupção e registro
 
 - Haverá um botão de desistência que encerra a partida inteira, sem possibilidade de continuar depois.
@@ -772,7 +774,7 @@ Antes de fechar a modelagem e implementar as regras, as principais decisões sã
 7. **Entrada de respostas:** detalhes visuais de aplicação dos acentos e conservação das letras parcialmente preenchidas ao retomar.
 8. **Contas:** decisões de nomes e exclusão resolvidas na fase 10, conforme seção 5. Implementar a exclusão com resultados anônimos e recadastro independente nas fases previstas.
 9. **Dados e infraestrutura:** escolher hospedagem gratuita da API e da interface, implementar o importador no contrato aprovado e configurar o login Google.
-10. **Modo com a galera:** concluir configuração do desempate e integrar interrupções conforme a fase 13; política de casos ambíguos e normalização dos nomes já aprovadas. Rever exigências acadêmicas se surgirem novas orientações.
+10. **Modo com a galera:** configuração do desempate aprovada na fase 31; integrar painel, persistência e interrupções na fase 33, conforme a fase 13. Política de casos ambíguos e normalização dos nomes já aprovadas. Rever exigências acadêmicas se surgirem novas orientações.
 
 O núcleo do modo individual está definido. Os pontos acima devem ser resolvidos sem transformar sugestões ou interpretações em regras definitivas.
 
