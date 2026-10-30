@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** treze lotes produzidos: 325 respostas e 1.625 dicas, todos aprovados na validação automática completa. Dez lotes aprovados pelo responsável e importados localmente: 250 respostas e 1.250 dicas, incluindo marcas-003 na fase 30. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** quatorze lotes produzidos: 350 respostas e 1.750 dicas, todos aprovados na validação automática completa. Onze lotes aprovados pelo responsável e importados localmente: 275 respostas e 1.375 dicas, incluindo países-003 na fase 32. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -33,7 +33,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 25 | 4 | `animais-003.json` | 10 | 10 | 5 | 25 | 275 | Importado localmente |
 | 27 | 4 | `filmes-e-series-003.json` | 10 | 10 | 5 | 25 | 300 | Importado localmente |
 | 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Importado localmente |
-| 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Não iniciado |
+| 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Importado localmente |
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Não iniciado |
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Não iniciado |
 | 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Não iniciado |
@@ -344,9 +344,9 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 | Animais | 100 | 75 | 50 | 50 | 0 |
 | Filmes e séries | 100 | 75 | 75 | 75 | 0 |
 | Marcas | 100 | 75 | 75 | 75 | 0 |
-| Países | 100 | 50 | 25 | 25 | 0 |
+| Países | 100 | 75 | 50 | 50 | 0 |
 | Objetos | 100 | 50 | 25 | 25 | 0 |
-| **Total** | **500** | **325** | **250** | **250** | **0** |
+| **Total** | **500** | **350** | **275** | **275** | **0** |
 
 ## 6. Fechamento global
 
@@ -361,3 +361,7 @@ Em 2026-10-27, os cinco lotes passaram pelo importador completo na operação va
 ## 8. Conclusão da fase 30
 
 Lote [marcas-003](../Data/palavras/marcas-003.json): 25 respostas novas e 125 dicas, distribuição 10/10/5. Validação completa de treze lotes: 325 respostas e 1.625 dicas; conferência sem escrita do novo lote: 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 225 respostas, 1.125 dicas e 225 revisões. A lista de exclusão contém também estes itens em revisão. Fontes, grafias e critérios editoriais em [Revisoes/marcas-003.md](Revisoes/marcas-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente marcas-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 250 respostas, 1.250 dicas e 250 revisões; marcas tem 75 respostas, distribuição 30/30/15. Os outros três lotes pendentes continuam sem carga; Atlas não acessado.
+
+## 9. Conclusão da fase 32
+
+Lote [paises-003](../Data/palavras/paises-003.json): 25 países novos e 125 dicas, distribuição 10/10/5. Quatorze lotes passaram na validação automática: 350 respostas e 1.750 dicas. A conferência sem escrita do novo lote reconheceu 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 250 respostas, 1.250 dicas e 250 revisões. Fontes, cuidados de grafia, critérios editoriais e 25 candidatos para o último lote de países em [Revisoes/paises-003.md](Revisoes/paises-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente países-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 275 respostas, 1.375 dicas e 275 revisões. Países possui 50 respostas importadas, distribuição 20/20/10; o lote 001 continua pendente de revisão. Os candidatos futuros não contam como conteúdo produzido. Atlas não acessado.

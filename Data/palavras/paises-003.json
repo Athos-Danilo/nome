@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "paises-003",
+  "palavras": [
+    {
+      "id": "venezuela",
+      "resposta": "VENEZUELA",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país situado no norte da América do Sul.",
+        "O rio Orinoco atravessa parte importante do meu território.",
+        "O lago de Maracaibo é uma das minhas referências geográficas.",
+        "No Parque Nacional Canaima, fica a famosa queda-d'água Salto Ángel.",
+        "Minha capital é Caracas."
+      ]
+    },
+    {
+      "id": "equador",
+      "resposta": "EQUADOR",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país da América do Sul.",
+        "Minha paisagem inclui áreas da cordilheira dos Andes e ilhas no oceano Pacífico.",
+        "Tartarugas gigantes e iguanas marinhas fazem parte da fauna de um dos meus arquipélagos.",
+        "As ilhas Galápagos, visitadas por Charles Darwin em 1835, pertencem ao meu território.",
+        "Minha capital é Quito, uma cidade situada nos Andes."
+      ]
+    },
+    {
+      "id": "panama",
+      "resposta": "PANAMÁ",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país da América Central.",
+        "Meu território fica em uma estreita faixa de terra que conecta as Américas do Norte e do Sul.",
+        "Separei-me da Colômbia em 1903.",
+        "O Casco Antiguo é uma área histórica muito conhecida da minha capital.",
+        "Um canal que atravessa meu território permite a passagem de navios entre os oceanos Atlântico e Pacífico."
+      ]
+    },
+    {
+      "id": "costa-rica",
+      "resposta": "COSTA RICA",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país da América Central.",
+        "O espanhol é a minha língua oficial.",
+        "A abolição do meu exército, em 1948, é um marco da minha história.",
+        "O vulcão Arenal, próximo de La Fortuna, é uma das minhas paisagens conhecidas.",
+        "Minha capital é São José, também chamada de San José em espanhol."
+      ]
+    },
+    {
+      "id": "haiti",
+      "resposta": "HAITI",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do Caribe.",
+        "Ocupo a parte ocidental da ilha de Hispaniola.",
+        "Francês e uma língua crioula estão presentes na minha identidade linguística.",
+        "Minha independência foi proclamada em 1804, após uma revolução de pessoas escravizadas.",
+        "Minha capital é Porto Príncipe."
+      ]
+    },
+    {
+      "id": "arabia-saudita",
+      "resposta": "ARÁBIA SAUDITA",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país da Ásia ocidental.",
+        "A formação do meu Estado moderno ocorreu em 1932.",
+        "O sítio arqueológico de Hegra faz parte do meu patrimônio histórico.",
+        "Minha capital é Riade.",
+        "Meca e Medina, cidades de grande importância para o islamismo, ficam no meu território."
+      ]
+    },
+    {
+      "id": "israel",
+      "resposta": "ISRAEL",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do Oriente Médio.",
+        "Tenho cidades banhadas pelo mar Mediterrâneo.",
+        "A Cidade Branca de Tel Aviv é conhecida por sua arquitetura do Movimento Moderno.",
+        "O hebraico faz parte da minha identidade linguística.",
+        "Minha bandeira tem uma estrela de Davi azul entre duas faixas azuis sobre fundo branco."
+      ]
+    },
+    {
+      "id": "ira",
+      "resposta": "IRÃ",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do sudoeste da Ásia.",
+        "Meu território tem extensas áreas montanhosas e áridas.",
+        "As ruínas de Persépolis fazem parte do meu patrimônio histórico.",
+        "Minha principal língua é o persa, e minha história está ligada à antiga Pérsia.",
+        "Minha capital é Teerã."
+      ]
+    },
+    {
+      "id": "iraque",
+      "resposta": "IRAQUE",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do sudoeste da Ásia.",
+        "Parte importante do meu território corresponde à antiga Mesopotâmia.",
+        "As ruínas da antiga cidade da Babilônia ficam no meu território.",
+        "Árabe e curdo são línguas oficiais do meu país.",
+        "Minha capital é Bagdá."
+      ]
+    },
+    {
+      "id": "irlanda",
+      "resposta": "IRLANDA",
+      "tematicas": ["paises"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país europeu com território em uma ilha.",
+        "Meu litoral inclui as falésias de Moher, voltadas para o oceano Atlântico.",
+        "Duendes e potes de ouro aparecem em tradições do meu folclore.",
+        "São Patrício e o trevo de três folhas são referências culturais muito associadas a mim.",
+        "Minha capital é Dublim."
+      ]
+    },
+    {
+      "id": "polonia",
+      "resposta": "POLÔNIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da Europa.",
+        "Fui restabelecido como Estado independente em 1918, após um longo período de partilhas.",
+        "O centro histórico de Cracóvia é uma das minhas referências culturais.",
+        "As minas de sal de Wieliczka fazem parte do meu patrimônio reconhecido pela UNESCO.",
+        "Minha capital é Varsóvia."
+      ]
+    },
+    {
+      "id": "hungria",
+      "resposta": "HUNGRIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da Europa Central.",
+        "Não tenho saída para o mar.",
+        "Minha história está fortemente ligada à Bacia dos Cárpatos.",
+        "O rio Danúbio separa as áreas históricas de Buda e Pest na minha capital.",
+        "Minha capital é Budapeste."
+      ]
+    },
+    {
+      "id": "republica-tcheca",
+      "resposta": "REPÚBLICA TCHECA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da Europa Central.",
+        "Meu território inclui as regiões históricas da Boêmia e da Morávia.",
+        "A Catedral de São Vito é um dos monumentos conhecidos da minha capital.",
+        "A Ponte Carlos é outra referência famosa do centro histórico dessa cidade.",
+        "Minha capital é Praga."
+      ]
+    },
+    {
+      "id": "romenia",
+      "resposta": "ROMÊNIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do sudeste da Europa.",
+        "Os montes Cárpatos fazem parte da minha paisagem.",
+        "A Transilvânia é uma das minhas regiões históricas.",
+        "Parte do delta do Danúbio fica no meu território.",
+        "Minha capital é Bucareste."
+      ]
+    },
+    {
+      "id": "indonesia",
+      "resposta": "INDONÉSIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do Sudeste Asiático.",
+        "Meu território é um grande arquipélago entre os oceanos Índico e Pacífico.",
+        "O conjunto de templos de Borobudur faz parte do meu patrimônio cultural.",
+        "Bali é uma das minhas ilhas mais conhecidas.",
+        "Sou o país onde fica o Parque Nacional de Komodo, associado aos grandes lagartos chamados de dragões."
+      ]
+    },
+    {
+      "id": "filipinas",
+      "resposta": "FILIPINAS",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país insular da Ásia.",
+        "Minha história inclui mais de trezentos anos de domínio espanhol.",
+        "Luzon é uma das ilhas do meu arquipélago.",
+        "Os terraços de arroz cultivados pelo povo Ifugao são uma referência da minha paisagem cultural.",
+        "Minha capital é Manila."
+      ]
+    },
+    {
+      "id": "vietna",
+      "resposta": "VIETNÃ",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do Sudeste Asiático.",
+        "Uma guerra prolongada marcou meu território em meados do século XX.",
+        "A antiga Saigon passou a ser chamada de Cidade de Ho Chi Minh.",
+        "A baía de Ha Long é conhecida por suas numerosas ilhas e formações de calcário.",
+        "Minha capital é Hanói."
+      ]
+    },
+    {
+      "id": "quenia",
+      "resposta": "QUÊNIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da África Oriental.",
+        "Meu litoral é banhado pelo oceano Índico.",
+        "Na cidade de Mombaça, fica o histórico Forte Jesus.",
+        "Os parques nacionais do lago Turkana fazem parte do meu patrimônio natural.",
+        "Minha capital é Nairóbi."
+      ]
+    },
+    {
+      "id": "nigeria",
+      "resposta": "NIGÉRIA",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da África Ocidental.",
+        "Iorubá, hauçá e igbo estão entre as muitas línguas faladas no meu território.",
+        "O bosque sagrado de Osun-Osogbo é uma referência da minha herança cultural.",
+        "Lagos foi minha capital e continua sendo uma cidade muito conhecida.",
+        "Minha capital é Abuja."
+      ]
+    },
+    {
+      "id": "paquistao",
+      "resposta": "PAQUISTÃO",
+      "tematicas": ["paises"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do sul da Ásia.",
+        "Meu Estado foi criado na partilha da Índia Britânica, em 1947.",
+        "A cidade de Karachi fica no meu litoral do mar da Arábia.",
+        "As ruínas de Mohenjo-Daro são um importante vestígio da civilização do vale do Indo no meu território.",
+        "Minha capital é Islamabade."
+      ]
+    },
+    {
+      "id": "estonia",
+      "resposta": "ESTÔNIA",
+      "tematicas": ["paises"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país do norte da Europa.",
+        "Minha capital fica na costa do mar Báltico.",
+        "Grandes celebrações de canto coletivo fazem parte das minhas tradições culturais.",
+        "O centro histórico da minha capital preserva a herança de uma cidade comercial da Liga Hanseática.",
+        "Minha capital é Taline, também conhecida como Tallinn."
+      ]
+    },
+    {
+      "id": "eslovenia",
+      "resposta": "ESLOVÊNIA",
+      "tematicas": ["paises"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país europeu.",
+        "Minha paisagem inclui áreas dos Alpes Julianos.",
+        "As cavernas de Škocjan abrigam um grande sistema subterrâneo formado pelo rio Reka.",
+        "O lago de Bled, com um castelo em um penhasco, é uma das minhas paisagens conhecidas.",
+        "Minha capital é Liubliana."
+      ]
+    },
+    {
+      "id": "uzbequistao",
+      "resposta": "UZBEQUISTÃO",
+      "tematicas": ["paises"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país da Ásia Central.",
+        "Minha independência foi proclamada em 1991, com o fim da União Soviética.",
+        "O centro histórico de Bukhara e a cidade murada de Itchan Kala fazem parte do meu patrimônio.",
+        "Em Samarcanda, fica a famosa praça do Registan.",
+        "Minha capital é Tasquente, também conhecida como Tashkent."
+      ]
+    },
+    {
+      "id": "quirguistao",
+      "resposta": "QUIRGUISTÃO",
+      "tematicas": ["paises"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país da Ásia Central.",
+        "Montanhas marcam grande parte das minhas fronteiras, e faço divisa com a China.",
+        "O lago Issyk-Kul é uma das minhas referências naturais.",
+        "Perto da cidade de Osh, fica a montanha sagrada de Sulaiman-Too.",
+        "Minha capital é Bisqueque, também conhecida como Bishkek."
+      ]
+    },
+    {
+      "id": "brunei",
+      "resposta": "BRUNEI",
+      "tematicas": ["paises"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país do Sudeste Asiático.",
+        "Meu território fica na costa norte da ilha de Bornéu.",
+        "Sou um sultanato que se tornou independente do Reino Unido em 1984.",
+        "Kampong Ayer é um conjunto de povoações com casas sobre palafitas associado à minha capital.",
+        "Minha capital é Bandar Seri Begawan."
+      ]
+    }
+  ]
+}

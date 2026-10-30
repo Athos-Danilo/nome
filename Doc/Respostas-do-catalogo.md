@@ -1,6 +1,6 @@
 # Respostas já produzidas — lista de exclusão
 
-Gerada a partir dos treze lotes existentes: 325 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
+Gerada a partir dos quatorze lotes existentes: 350 respostas. Fornecer esta lista antes de criar novos lotes; itens em revisão também ficam reservados para evitar duplicação. A presença aqui não equivale a aprovação humana ou importação.
 
 | Lote | Identificador | Resposta | Dificuldade |
 | --- | --- | --- | --- |
@@ -329,3 +329,28 @@ Gerada a partir dos treze lotes existentes: 325 respostas. Fornecer esta lista a
 | marcas-003 | `victorinox` | VICTORINOX | dificil |
 | marcas-003 | `husqvarna` | HUSQVARNA | dificil |
 | marcas-003 | `rimowa` | RIMOWA | dificil |
+| paises-003 | `venezuela` | VENEZUELA | facil |
+| paises-003 | `equador` | EQUADOR | facil |
+| paises-003 | `panama` | PANAMÁ | facil |
+| paises-003 | `costa-rica` | COSTA RICA | facil |
+| paises-003 | `haiti` | HAITI | facil |
+| paises-003 | `arabia-saudita` | ARÁBIA SAUDITA | facil |
+| paises-003 | `israel` | ISRAEL | facil |
+| paises-003 | `ira` | IRÃ | facil |
+| paises-003 | `iraque` | IRAQUE | facil |
+| paises-003 | `irlanda` | IRLANDA | facil |
+| paises-003 | `polonia` | POLÔNIA | medio |
+| paises-003 | `hungria` | HUNGRIA | medio |
+| paises-003 | `republica-tcheca` | REPÚBLICA TCHECA | medio |
+| paises-003 | `romenia` | ROMÊNIA | medio |
+| paises-003 | `indonesia` | INDONÉSIA | medio |
+| paises-003 | `filipinas` | FILIPINAS | medio |
+| paises-003 | `vietna` | VIETNÃ | medio |
+| paises-003 | `quenia` | QUÊNIA | medio |
+| paises-003 | `nigeria` | NIGÉRIA | medio |
+| paises-003 | `paquistao` | PAQUISTÃO | medio |
+| paises-003 | `estonia` | ESTÔNIA | dificil |
+| paises-003 | `eslovenia` | ESLOVÊNIA | dificil |
+| paises-003 | `uzbequistao` | UZBEQUISTÃO | dificil |
+| paises-003 | `quirguistao` | QUIRGUISTÃO | dificil |
+| paises-003 | `brunei` | BRUNEI | dificil |
