@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { DURACOES, REACOES } from "../src/funcionalidades/mascote/reacoes";
 async function visitante(page: Page) {
   await page.route("**/api/**", async (r) => {
     const caminho = new URL(r.request().url()).pathname;
@@ -29,7 +30,7 @@ test("saudação preserva o PNG aprovado na montagem parada", async ({
   await visitante(page);
   await page.goto("/laboratorio/aurelio");
   await expect(
-    page.getByRole("heading", { name: "O mesmo Aurélio. Uma nova saudação." }),
+    page.getByRole("heading", { name: "Aurélio em cena." }),
   ).toBeVisible();
   await page.waitForLoadState("networkidle");
   const montagem = page.locator(".ensaio-montagem svg"),
@@ -114,6 +115,59 @@ test("saudação preserva o PNG aprovado na montagem parada", async ({
   });
 });
 
+test("repertório permite selecionar, examinar e pausar cada atuação sem perder a saudação", async ({
+  page,
+}, info) => {
+  await visitante(page);
+  await page.goto("/laboratorio/aurelio");
+  const desenho = page.locator(".ensaio-montagem svg");
+  for (const [nome, tipo] of [
+    ["Espera", "espera"],
+    ["Pensamento", "pensamento"],
+    ["Apresentação de dica", "apresentacao"],
+    ["Erro", "erro"],
+    ["Comemoração", "comemoracao"],
+    ["Passagem de vez", "turno"],
+    ["Sorteio", "sorteio"],
+    ["Resultado", "resultado"],
+  ]) {
+    await page.getByRole("button", { name: nome, exact: true }).click();
+    await expect(desenho).toHaveAttribute("data-atuacao", tipo);
+    const controle = page.getByRole("slider");
+    const duracao = Number(await controle.getAttribute("max"));
+    await controle.fill(String(Math.round((duracao * 0.4) / 10) * 10));
+    await expect(
+      desenho.locator("[data-parte='corpo_inteiro']"),
+    ).not.toHaveAttribute(
+      "transform",
+      "translate(0 0) rotate(0 554 940) translate(0 940) scale(1 1) translate(0 -940)",
+    );
+    await desenho.screenshot({
+      path: `test-results/aurelio-${tipo}-${info.project.name}.png`,
+    });
+  }
+  await page
+    .getByRole("button", { name: "Reproduzir resultado", exact: true })
+    .click();
+  await expect
+    .poll(async () => Number(await desenho.getAttribute("data-tempo")))
+    .toBeGreaterThan(100);
+  await page
+    .getByRole("button", { name: "Pausar resultado", exact: true })
+    .click();
+  const parado = await desenho.getAttribute("data-tempo");
+  await page.waitForTimeout(150);
+  await expect(desenho).toHaveAttribute("data-tempo", parado!);
+  await page.getByRole("button", { name: "Saudação", exact: true }).click();
+  await expect(desenho).toHaveAttribute("data-atuacao", "saudacao");
+  await expect(desenho).toHaveAttribute("data-tempo", "0");
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
 test("ensaio permite examinar pupilas, articulações e fim do aceno sem repetir", async ({
   page,
 }, info) => {
@@ -175,11 +229,13 @@ test("movimentos reduzidos mantêm a arte original e o menu funciona", async ({
   await expect(page.getByRole("dialog")).toBeVisible();
 });
 
-test("encaixes não perdem tecido e os olhos não vazam creme durante o aceno", async ({
+test("piscada da comemoração apaga o contorno dos olhos abertos", async ({
   page,
 }) => {
   await visitante(page);
   await page.goto("/laboratorio/aurelio");
+  await page.getByRole("button", { name: "Comemoração", exact: true }).click();
+  await page.getByRole("slider").fill("1400");
   const desenho = page.locator(".ensaio-montagem svg");
   await desenho.evaluate((elemento) =>
     Object.assign(elemento.style, {
@@ -194,125 +250,229 @@ test("encaixes não perdem tecido e os olhos não vazam creme durante o aceno", 
       background: "#ff00ff",
     }),
   );
-  for (const tempo of [0, 350, 750, 1350, 2070, 3400, 5400]) {
-    await page.getByLabel("Instante da saudação").fill(String(tempo));
-    await expect(desenho).toHaveAttribute("data-tempo", String(tempo));
-    const png = (await desenho.screenshot()).toString("base64");
-    const defeitos = await desenho.evaluate(async (elemento, imagem) => {
-      const foto = new Image();
-      foto.src = "data:image/png;base64," + imagem;
-      await foto.decode();
-      const original = new Image();
-      original.src = "/mascote/aurelio.png";
-      await original.decode();
-      const quadro = document.createElement("canvas");
-      quadro.width = 1158;
-      quadro.height = 1359;
-      const contexto = quadro.getContext("2d")!;
-      contexto.drawImage(foto, 0, 0);
-      const atual = contexto.getImageData(0, 0, 1158, 1359).data;
-      contexto.clearRect(0, 0, 1158, 1359);
-      contexto.drawImage(original, 0, 0);
-      const fonte = contexto.getImageData(0, 0, 1158, 1359).data;
-      const claro = (x: number, y: number) => {
-        const i = (y * 1158 + x) * 4;
-        return (
-          fonte[i + 3] > 240 &&
-          fonte[i] > 180 &&
-          fonte[i + 1] > 165 &&
-          fonte[i + 2] > 110
-        );
-      };
-      const vazios: Record<string, number> = {};
-      for (const [nome, parte, area] of [
-        ["luva", "punho_direito", [905, 350, 253, 255]],
-        ["tornozelo_esquerdo", "perna_esquerda", [265, 1085, 140, 80]],
-        ["tornozelo_direito", "perna_direita", [520, 1060, 170, 90]],
-      ] as const) {
-        const grupo = elemento.querySelector<SVGGElement>(
-          `[data-parte='${parte}']`,
-        )!;
-        const matriz = grupo.getCTM()!;
-        let faltantes = 0;
-        for (let y = area[1]; y < area[1] + area[3]; y++)
-          for (let x = area[0]; x < area[0] + area[2]; x++) {
-            if (
-              !claro(x, y) ||
-              !claro(x - 2, y) ||
-              !claro(x + 2, y) ||
-              !claro(x, y - 2) ||
-              !claro(x, y + 2)
-            )
-              continue;
-            const ponto = new DOMPoint(x, y).matrixTransform(matriz);
-            let coberto = false;
-            for (let dy = -1; dy <= 1 && !coberto; dy++)
-              for (let dx = -1; dx <= 1; dx++) {
-                const j =
-                  ((Math.round(ponto.y) + dy) * 1158 +
-                    Math.round(ponto.x) +
-                    dx) *
-                  4;
-                if (
-                  j >= 0 &&
-                  j < atual.length &&
-                  !(atual[j] > 230 && atual[j + 1] < 40 && atual[j + 2] > 230)
-                ) {
-                  coberto = true;
-                  break;
+  const captura = (await desenho.screenshot()).toString("base64");
+  const residuos = await desenho.evaluate(async (elemento, png) => {
+    const imagem = new Image();
+    imagem.src = "data:image/png;base64," + png;
+    await imagem.decode();
+    const tela = document.createElement("canvas");
+    tela.width = 1158;
+    tela.height = 1359;
+    const contexto = tela.getContext("2d")!;
+    contexto.drawImage(imagem, 0, 0);
+    const dados = contexto.getImageData(0, 0, 1158, 1359).data;
+    const matriz = elemento
+      .querySelector<SVGGElement>("[data-parte='rosto']")!
+      .getCTM()!;
+    let escuros = 0;
+    for (const [olho, x0, y0, x1, y1, centro] of [
+      ["esquerdo", 438, 350, 577, 553, 454],
+      ["direito", 602, 288, 727, 498, 394],
+    ] as const) {
+      const caminho = elemento
+        .querySelector(`clipPath[id$='contorno-${olho}'] path`)!
+        .getAttribute("d")!;
+      const contorno = new Path2D(caminho);
+      for (let y = y0; y < y1; y++)
+        for (let x = x0; x < x1; x++) {
+          if (
+            Math.abs(y - centro) < 18 ||
+            !contexto.isPointInPath(contorno, x, y)
+          )
+            continue;
+          const ponto = new DOMPoint(x, y).matrixTransform(matriz);
+          const i = (Math.round(ponto.y) * 1158 + Math.round(ponto.x)) * 4;
+          if (dados[i] < 55 && dados[i + 1] < 55 && dados[i + 2] < 55)
+            escuros++;
+        }
+    }
+    return escuros;
+  }, captura);
+  expect(residuos).toBeLessThan(10);
+});
+
+test("repouso se repete no jogo e a preferência interrompe o movimento", async ({
+  page,
+}) => {
+  await visitante(page);
+  await page.clock.install();
+  await page.goto("/");
+  const mascote = page.locator(".palco-menu .aurelio-animado");
+  await expect(mascote).toHaveAttribute("data-estatico", "false");
+  await page.clock.runFor(5500);
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await page.clock.runFor(100);
+  await page.clock.runFor(6500);
+  const tempo = Number(await mascote.locator("svg").getAttribute("data-tempo"));
+  expect(tempo).toBeGreaterThan(0);
+  expect(tempo).toBeLessThan(DURACOES.espera);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(mascote).toHaveAttribute("data-estatico", "true");
+  await expect(mascote.locator("svg")).toHaveAttribute("data-tempo", "0");
+});
+
+for (const atuacao of REACOES) {
+  test(`encaixes e olhos preservados nas poses de ${atuacao}`, async ({
+    page,
+  }) => {
+    await visitante(page);
+    await page.goto("/laboratorio/aurelio");
+    const nomes = {
+      espera: "Espera",
+      saudacao: "Saudação",
+      pensamento: "Pensamento",
+      apresentacao: "Apresentação de dica",
+      erro: "Erro",
+      comemoracao: "Comemoração",
+      turno: "Passagem de vez",
+      sorteio: "Sorteio",
+      resultado: "Resultado",
+    };
+    await page
+      .getByRole("button", { name: nomes[atuacao], exact: true })
+      .click();
+    const desenho = page.locator(".ensaio-montagem svg");
+    await desenho.evaluate((elemento) =>
+      Object.assign(elemento.style, {
+        position: "fixed",
+        left: "0",
+        top: "0",
+        zIndex: "1000",
+        pointerEvents: "none",
+        width: "1158px",
+        height: "1359px",
+        maxWidth: "none",
+        background: "#ff00ff",
+      }),
+    );
+    const instantes =
+      atuacao === "saudacao"
+        ? [0, 350, 750, 1350, 2070, 3400, 5400]
+        : [0.12, 0.4, 0.7].map(
+            (fracao) => Math.round((DURACOES[atuacao] * fracao) / 10) * 10,
+          );
+    for (const tempo of instantes) {
+      await page.getByRole("slider").fill(String(tempo));
+      await expect(desenho).toHaveAttribute("data-tempo", String(tempo));
+      const png = (await desenho.screenshot()).toString("base64");
+      const defeitos = await desenho.evaluate(async (elemento, imagem) => {
+        const foto = new Image();
+        foto.src = "data:image/png;base64," + imagem;
+        await foto.decode();
+        const original = new Image();
+        original.src = "/mascote/aurelio.png";
+        await original.decode();
+        const quadro = document.createElement("canvas");
+        quadro.width = 1158;
+        quadro.height = 1359;
+        const contexto = quadro.getContext("2d")!;
+        contexto.drawImage(foto, 0, 0);
+        const atual = contexto.getImageData(0, 0, 1158, 1359).data;
+        contexto.clearRect(0, 0, 1158, 1359);
+        contexto.drawImage(original, 0, 0);
+        const fonte = contexto.getImageData(0, 0, 1158, 1359).data;
+        const claro = (x: number, y: number) => {
+          const i = (y * 1158 + x) * 4;
+          return (
+            fonte[i + 3] > 240 &&
+            fonte[i] > 180 &&
+            fonte[i + 1] > 165 &&
+            fonte[i + 2] > 110
+          );
+        };
+        const vazios: Record<string, number> = {};
+        for (const [nome, parte, area] of [
+          ["luva", "punho_direito", [905, 350, 253, 255]],
+          ["tornozelo_esquerdo", "perna_esquerda", [265, 1085, 140, 80]],
+          ["tornozelo_direito", "perna_direita", [520, 1060, 170, 90]],
+        ] as const) {
+          const grupo = elemento.querySelector<SVGGElement>(
+            `[data-parte='${parte}']`,
+          )!;
+          const matriz = grupo.getCTM()!;
+          let faltantes = 0;
+          for (let y = area[1]; y < area[1] + area[3]; y++)
+            for (let x = area[0]; x < area[0] + area[2]; x++) {
+              if (
+                !claro(x, y) ||
+                !claro(x - 2, y) ||
+                !claro(x + 2, y) ||
+                !claro(x, y - 2) ||
+                !claro(x, y + 2)
+              )
+                continue;
+              const ponto = new DOMPoint(x, y).matrixTransform(matriz);
+              let coberto = false;
+              for (let dy = -1; dy <= 1 && !coberto; dy++)
+                for (let dx = -1; dx <= 1; dx++) {
+                  const j =
+                    ((Math.round(ponto.y) + dy) * 1158 +
+                      Math.round(ponto.x) +
+                      dx) *
+                    4;
+                  if (
+                    j >= 0 &&
+                    j < atual.length &&
+                    !(atual[j] > 230 && atual[j + 1] < 40 && atual[j + 2] > 230)
+                  ) {
+                    coberto = true;
+                    break;
+                  }
                 }
+              if (!coberto) faltantes++;
+            }
+          vazios[nome] = faltantes;
+        }
+        const matriz = elemento
+          .querySelector<SVGGElement>("[data-parte='rosto']")!
+          .getCTM()!;
+        let ovalClaro = 0;
+        for (const [x0, y0, x1, y1] of [
+          [425, 380, 585, 500],
+          [590, 315, 740, 485],
+        ])
+          for (let y = y0; y < y1; y++) {
+            let esquerda = x1,
+              direita = x0;
+            for (let x = x0; x < x1; x++) {
+              const i = (y * 1158 + x) * 4;
+              if (
+                fonte[i + 3] > 150 &&
+                fonte[i] < 55 &&
+                fonte[i + 1] < 55 &&
+                fonte[i + 2] < 55
+              ) {
+                esquerda = Math.min(esquerda, x);
+                direita = Math.max(direita, x);
               }
-            if (!coberto) faltantes++;
-          }
-        vazios[nome] = faltantes;
-      }
-      const matriz = elemento
-        .querySelector<SVGGElement>("[data-parte='rosto']")!
-        .getCTM()!;
-      let ovalClaro = 0;
-      for (const [x0, y0, x1, y1] of [
-        [425, 380, 585, 500],
-        [590, 315, 740, 485],
-      ])
-        for (let y = y0; y < y1; y++) {
-          let esquerda = x1,
-            direita = x0;
-          for (let x = x0; x < x1; x++) {
-            const i = (y * 1158 + x) * 4;
-            if (
-              fonte[i + 3] > 150 &&
-              fonte[i] < 55 &&
-              fonte[i + 1] < 55 &&
-              fonte[i + 2] < 55
-            ) {
-              esquerda = Math.min(esquerda, x);
-              direita = Math.max(direita, x);
+            }
+            if (direita <= esquerda) continue;
+            for (let x = x0; x < x1; x++) {
+              if (x >= esquerda - 3 && x <= direita + 3) continue;
+              const i = (y * 1158 + x) * 4;
+              if (
+                fonte[i + 3] < 200 ||
+                fonte[i] < 65 ||
+                fonte[i] > 155 ||
+                fonte[i + 1] > 155
+              )
+                continue;
+              const ponto = new DOMPoint(x, y).matrixTransform(matriz),
+                j = (Math.round(ponto.y) * 1158 + Math.round(ponto.x)) * 4;
+              if (atual[j] > 210 && atual[j + 1] > 195 && atual[j + 2] > 145)
+                ovalClaro++;
             }
           }
-          if (direita <= esquerda) continue;
-          for (let x = x0; x < x1; x++) {
-            if (x >= esquerda - 3 && x <= direita + 3) continue;
-            const i = (y * 1158 + x) * 4;
-            if (
-              fonte[i + 3] < 200 ||
-              fonte[i] < 65 ||
-              fonte[i] > 155 ||
-              fonte[i + 1] > 155
-            )
-              continue;
-            const ponto = new DOMPoint(x, y).matrixTransform(matriz),
-              j = (Math.round(ponto.y) * 1158 + Math.round(ponto.x)) * 4;
-            if (atual[j] > 210 && atual[j + 1] > 195 && atual[j + 2] > 145)
-              ovalClaro++;
-          }
-        }
-      return { vazios, ovalClaro };
-    }, png);
-    for (const [nome, quantidade] of Object.entries(defeitos.vazios))
-      expect(quantidade, `${nome} no instante ${tempo}`).toBeLessThanOrEqual(2);
-    expect(
-      defeitos.ovalClaro,
-      `oval claro no instante ${tempo}`,
-    ).toBeLessThanOrEqual(10);
-  }
-});
+        return { vazios, ovalClaro };
+      }, png);
+      for (const [nome, quantidade] of Object.entries(defeitos.vazios))
+        expect(quantidade, `${nome} no instante ${tempo}`).toBeLessThanOrEqual(
+          2,
+        );
+      expect(
+        defeitos.ovalClaro,
+        `oval claro no instante ${tempo}`,
+      ).toBeLessThanOrEqual(10);
+    }
+  });
+}

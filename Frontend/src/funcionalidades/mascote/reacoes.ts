@@ -1,3 +1,5 @@
+import { DURACAO_SAUDACAO } from "./saudacao";
+
 /** Reações são apresentação: nunca liberam ações nem calculam pontos. */
 export const REACOES = [
   "espera",
@@ -18,15 +20,15 @@ export type EstadoReacoes = {
   vistos: string[];
 };
 export const DURACOES: Record<Reacao, number> = {
-  espera: 2800,
-  saudacao: 5400,
-  pensamento: 2000,
-  apresentacao: 1600,
-  erro: 1500,
-  comemoracao: 2100,
-  turno: 1400,
-  sorteio: 2200,
-  resultado: 2600,
+  espera: 6400,
+  saudacao: DURACAO_SAUDACAO,
+  pensamento: 3800,
+  apresentacao: 3200,
+  erro: 2800,
+  comemoracao: 3500,
+  turno: 2600,
+  sorteio: 4200,
+  resultado: 4800,
 };
 const prioridades: Record<Reacao, number> = {
   espera: 0,

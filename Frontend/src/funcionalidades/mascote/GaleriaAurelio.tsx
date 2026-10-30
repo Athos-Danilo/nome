@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Botao } from "../../componentes/Comuns";
 import { AurelioRecortado } from "./AurelioRecortado";
-import { DURACAO_SAUDACAO } from "./saudacao";
-import { useRelogioSaudacao } from "./usar-relogio-saudacao";
+import { DURACOES, REACOES, type Reacao } from "./reacoes";
+import { REPERTORIO } from "./repertorio";
+import { useRelogioAtuacao } from "./usar-relogio-atuacao";
 import { useMovimentosReduzidos } from "./usar-movimentos-reduzidos";
 import "./mascote.css";
 
 export function GaleriaAurelio() {
+  const [atuacao, definirAtuacao] = useState<Reacao>("saudacao");
+  const roteiro = REPERTORIO[atuacao];
+  const duracao = DURACOES[atuacao];
   const [executando, definirExecutando] = useState(false),
     [origem, definirOrigem] = useState(0),
     [reinicio, definirReinicio] = useState(0);
@@ -14,31 +18,55 @@ export function GaleriaAurelio() {
     [reduzir, definirReduzir] = useState(false);
   const preferencia = useMovimentosReduzidos();
   const reduzidos = reduzir || preferencia;
-  const tempo = useRelogioSaudacao(
+  const tempo = useRelogioAtuacao(
     executando && !reduzidos,
+    duracao,
     origem,
     reinicio,
     () => definirExecutando(false),
   );
   function reproduzir() {
-    definirOrigem(0);
+    definirOrigem(tempo >= duracao ? 0 : tempo);
     definirReinicio((n) => n + 1);
     definirExecutando(!reduzidos);
   }
   const estado = reduzidos
     ? "Movimentos reduzidos: examine as poses pelo controle de tempo."
     : executando
-      ? "Saudação em reprodução"
-      : tempo >= DURACAO_SAUDACAO
-        ? "Saudação concluída"
+      ? `${roteiro.nome} em reprodução`
+      : tempo >= duracao
+        ? `${roteiro.nome} concluíd${atuacao === "pensamento" || atuacao === "erro" || atuacao === "sorteio" || atuacao === "resultado" ? "o" : "a"}`
         : "Examine o desenho e depois dê o play.";
   return (
     <section className="galeria-aurelio ensaio-saudacao">
-      <span className="etiqueta">ESTUDO DE PERSONAGEM · SAUDAÇÃO 02</span>
-      <h1 tabIndex={-1}>O mesmo Aurélio. Uma nova saudação.</h1>
+      <span className="etiqueta">ESTÚDIO DO APRESENTADOR · REPERTÓRIO</span>
+      <h1 tabIndex={-1}>Aurélio em cena.</h1>
       <p>
-        Primeiro, a aparência. Depois, o gesto. Compare com o desenho que você
-        aprovou e examine cada instante do aceno.
+        O mesmo personagem, nove momentos do jogo. Escolha uma atuação, dê o
+        play e examine cada gesto ao lado do desenho aprovado.
+      </p>
+      <div
+        className="botoes-reacoes repertorio-aurelio"
+        role="group"
+        aria-label="Atuações do Aurélio"
+      >
+        {REACOES.map((tipo) => (
+          <Botao
+            key={tipo}
+            aria-pressed={atuacao === tipo}
+            onClick={() => {
+              definirExecutando(false);
+              definirOrigem(0);
+              definirReinicio((n) => n + 1);
+              definirAtuacao(tipo);
+            }}
+          >
+            {REPERTORIO[tipo].nome}
+          </Botao>
+        ))}
+      </div>
+      <p className="descricao-atuacao">
+        <b>{roteiro.nome}.</b> {roteiro.gesto}
       </p>
       <div className="ensaio-comparacao">
         <article className="ensaio-montagem">
@@ -46,7 +74,12 @@ export function GaleriaAurelio() {
             <span className="etiqueta">MONTAGEM PARA ANIMAÇÃO</span>
             <h2>Nosso apresentador, por partes.</h2>
           </header>
-          <AurelioRecortado tempo={tempo} partes={partes} />
+          <AurelioRecortado
+            tempo={tempo}
+            atuacao={atuacao}
+            partes={partes}
+            descricao={`Aurélio: ${roteiro.controle}`}
+          />
         </article>
         <article className="ensaio-referencia">
           <header>
@@ -67,7 +100,9 @@ export function GaleriaAurelio() {
             className="acao"
             onClick={executando ? () => definirExecutando(false) : reproduzir}
           >
-            {executando ? "Pausar saudação" : "Reproduzir saudação"}
+            {executando
+              ? `Pausar ${roteiro.controle}`
+              : `Reproduzir ${roteiro.controle}`}
           </Botao>
           <Botao
             onClick={() => {
@@ -80,11 +115,11 @@ export function GaleriaAurelio() {
           </Botao>
         </div>
         <label className="ensaio-tempo">
-          Instante da saudação{" "}
+          Instante {atuacao === "saudacao" ? "da saudação" : "da atuação"}{" "}
           <input
             type="range"
             min="0"
-            max={DURACAO_SAUDACAO}
+            max={duracao}
             step="10"
             value={Math.round(tempo / 10) * 10}
             onChange={(e) => {
@@ -94,7 +129,8 @@ export function GaleriaAurelio() {
             }}
           />
           <output>
-            {(tempo / 1000).toFixed(2).replace(".", ",")} s / 5,40 s
+            {(tempo / 1000).toFixed(2).replace(".", ",")} s /{" "}
+            {(duracao / 1000).toFixed(2).replace(".", ",")} s
           </output>
         </label>
         <p role="status">{estado}</p>
@@ -119,22 +155,22 @@ export function GaleriaAurelio() {
       </div>
       <ol className="ensaio-etapas">
         <li>
-          <b>01 · Perceber</b>
-          <span>Olhar, sobrancelhas e preparação do corpo.</span>
+          <b>01 · Preparar</b>
+          <span>{roteiro.etapas[0]}</span>
         </li>
         <li>
-          <b>02 · Cumprimentar</b>
-          <span>Ombro, cotovelo e punho em ritmos diferentes.</span>
+          <b>02 · Atuar</b>
+          <span>{roteiro.etapas[1]}</span>
         </li>
         <li>
           <b>03 · Acomodar</b>
-          <span>O gesto desacelera; gravata e páginas chegam depois.</span>
+          <span>{roteiro.etapas[2]}</span>
         </li>
       </ol>
       <p className="nota-aurelio">
-        Só a saudação está sendo trabalhada nesta revisão. As outras atuações
-        serão refeitas depois da aprovação da aparência e do movimento. No jogo,
-        a arte original fica preservada.
+        A primeira saudação já foi aprovada. As oito novas atuações estão
+        prontas para sua avaliação visual. Aqui cada atuação toca uma vez; no
+        jogo, somente a espera se repete enquanto o personagem estiver visível.
       </p>
     </section>
   );

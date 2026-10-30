@@ -1,8 +1,8 @@
 import { AurelioRecortado } from "./AurelioRecortado";
-import { useRelogioSaudacao } from "./usar-relogio-saudacao";
-import type { Reacao } from "./reacoes";
+import { useRelogioAtuacao } from "./usar-relogio-atuacao";
+import { DURACOES, type Reacao } from "./reacoes";
 
-/** Saudação em revisão; demais atuações mantêm a arte aprovada em pose neutra. */
+/** A atuação é apresentação; todas reutilizam a montagem da saudação aprovada. */
 export function AurelioDesenho({
   reacao,
   estatico,
@@ -14,14 +14,18 @@ export function AurelioDesenho({
   descricao: string;
   chave: string;
 }) {
-  const tempo = useRelogioSaudacao(
-    reacao === "saudacao" && !estatico,
+  const tempo = useRelogioAtuacao(
+    !estatico,
+    DURACOES[reacao],
     0,
     chave,
+    undefined,
+    reacao === "espera",
   );
   return (
     <AurelioRecortado
-      tempo={reacao === "saudacao" && !estatico ? tempo : 0}
+      tempo={estatico ? 0 : tempo}
+      atuacao={reacao}
       descricao={descricao}
     />
   );

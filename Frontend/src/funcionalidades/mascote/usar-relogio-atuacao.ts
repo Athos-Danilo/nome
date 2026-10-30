@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { DURACAO_SAUDACAO } from "./saudacao";
 
-export function useRelogioSaudacao(
+/** Um relógio para todas as partes; só o repouso do jogo se repete. */
+export function useRelogioAtuacao(
   ativo: boolean,
+  duracao: number,
   origem = 0,
   reinicio: string | number = 0,
   aoConcluir?: () => void,
+  repetir = false,
 ) {
   const [tempo, definirTempo] = useState(origem);
   const atual = useRef(origem),
@@ -14,21 +16,24 @@ export function useRelogioSaudacao(
   useEffect(() => {
     atual.current = origem;
     definirTempo(origem);
-  }, [origem, reinicio]);
+  }, [origem, reinicio, duracao]);
   useEffect(() => {
     if (!ativo) return;
     const inicio = performance.now(),
       base = atual.current;
     let quadro = 0;
     function avancar(agora: number) {
-      atual.current = Math.min(DURACAO_SAUDACAO, base + agora - inicio);
+      const decorrido = base + agora - inicio;
+      atual.current = repetir
+        ? decorrido % duracao
+        : Math.min(duracao, decorrido);
       definirTempo(atual.current);
-      if (atual.current < DURACAO_SAUDACAO)
+      if (repetir || atual.current < duracao)
         quadro = requestAnimationFrame(avancar);
       else conclusao.current?.();
     }
     quadro = requestAnimationFrame(avancar);
     return () => cancelAnimationFrame(quadro);
-  }, [ativo, origem, reinicio]);
+  }, [ativo, origem, reinicio, duracao, repetir]);
   return tempo;
 }

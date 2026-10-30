@@ -226,6 +226,19 @@ dialog .sorteio-galera img {
   background: #d4fe62;
   color: #303126;
 }
+.botoes-reacoes.repertorio-aurelio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.descricao-atuacao {
+  max-width: 720px;
+  min-height: 3em;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .botoes-reacoes.repertorio-aurelio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .controles-aurelio {
   display: flex;
   flex-wrap: wrap;
