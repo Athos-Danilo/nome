@@ -1,6 +1,6 @@
 # Estudos visuais — Decifra
 
-**Fase 36 em revisão:** versão SVG em camadas e repertório de nove reações integrados aos fluxos. A galeria `/laboratorio/aurelio` compara a implementação com a referência aprovada; a nova interpretação ainda aguarda avaliação visual. Componentes, critérios e limites em [Aurélio animado](../Aurelio-animado.md).
+**Fase 36, revisão 02:** a primeira interpretação vetorial foi reprovada. O novo ensaio preserva o PNG aprovado, separa partes em SVG e concentra a saudação antes das outras atuações. Recurso auxiliar, prompt e origem em [Saudação 02](Aurelio-saudacao-02.md); [arquitetura e critérios](../Aurelio-animado.md).
 
 **Fase 17, revisão visual:** coleção de 20 retratos ilustrados em `Frontend/public/avatares`, seguindo o conceito aprovado e preservando os identificadores. Os SVG anteriores permanecem somente por compatibilidade. Processo e prompts em [Coleção ilustrada](Avatares/LEIA-ME.md). A imagem aprovada do Aurélio foi reutilizada em `Frontend/public/mascote`; as imagens e as primeiras telas podem receber refinamento visual. Fontes locais e respectivas licenças OFL ficam em `Frontend/public/fontes`. Consulte [Perfil e preferências](../Perfil-preferencias.md).
 

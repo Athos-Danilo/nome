@@ -2,10 +2,113 @@
   display: inline-block;
   width: 220px;
   max-width: 100%;
-  aspect-ratio: 420 / 500;
+  aspect-ratio: 1158 / 1359;
   pointer-events: none;
   vertical-align: middle;
   contain: layout;
+}
+.ensaio-comparacao {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 32px 0 24px;
+}
+.ensaio-comparacao article {
+  min-width: 0;
+  border: 2px solid var(--texto);
+  border-radius: 28px;
+  background: var(--painel);
+  padding: 24px;
+  box-shadow: 0 6px 0 var(--texto);
+}
+.ensaio-comparacao header {
+  min-height: 90px;
+}
+.ensaio-comparacao h2 {
+  font-size: 23px;
+  line-height: 1.15;
+  margin: 12px 0 20px;
+}
+.ensaio-comparacao svg,
+.ensaio-comparacao img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1158 / 1359;
+  object-fit: contain;
+}
+.ensaio-controles {
+  padding: 24px;
+  border: 2px solid var(--texto);
+  border-radius: 24px;
+  background: var(--painel);
+}
+.ensaio-controles .controles-aurelio {
+  margin: 0 0 24px;
+}
+.ensaio-tempo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  font-weight: 700;
+}
+.ensaio-tempo input {
+  grid-column: 1 / -1;
+  width: 100%;
+  accent-color: #668328;
+  min-height: 35px;
+}
+.ensaio-tempo output {
+  grid-column: 1 / -1;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+.ensaio-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+}
+.ensaio-etapas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  gap: 24px;
+  padding: 0;
+  margin: 30px 0;
+}
+.ensaio-etapas li {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 18px;
+  border-top: 2px solid var(--texto);
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .ensaio-comparacao {
+    gap: 10px;
+  }
+  .ensaio-comparacao article {
+    padding: 10px;
+    border-radius: 18px;
+  }
+  .ensaio-comparacao h2 {
+    font-size: 15px;
+  }
+  .ensaio-comparacao .etiqueta {
+    font-size: 8px;
+  }
+  .ensaio-comparacao header {
+    min-height: 88px;
+  }
+  .ensaio-controles {
+    padding: 18px;
+  }
+  .ensaio-etapas {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
 }
 .aurelio-pequeno {
   width: 128px;

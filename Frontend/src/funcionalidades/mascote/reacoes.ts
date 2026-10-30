@@ -19,7 +19,7 @@ export type EstadoReacoes = {
 };
 export const DURACOES: Record<Reacao, number> = {
   espera: 2800,
-  saudacao: 1800,
+  saudacao: 5400,
   pensamento: 2000,
   apresentacao: 1600,
   erro: 1500,

@@ -1,55 +1,53 @@
-# Aurélio animado — fase 36
+# Aurélio — fase 36 em revisão
 
-**Estado em 2026-10-30:** implementação preparada para revisão visual do responsável. A fase permanece aberta até essa avaliação, conforme seu critério de conclusão no roteiro local. A ilustração raster e os avatares já aprovados continuam preservados.
+**Estado em 2026-10-30:** primeira interpretação vetorial e suas nove atuações **reprovadas pelo responsável** por diferença na aparência, rigidez e repetição. O novo escopo aprovado é acertar a arte e uma única saudação antes de produzir novamente o repertório. A fase permanece aberta.
 
-## Desenho em camadas
+## Direção da revisão 02
 
-A referência é `Identidade-visual/aurelio-conceito-01.png`, com o personagem isolado em `Identidade-visual/aurelio-apresentador.png`. A versão animável é uma interpretação vetorial autoral no componente `Frontend/src/funcionalidades/mascote/AurelioDesenho.tsx`; não é uma imagem raster apenas deslocada de um lado para outro. Preserva capa oliva, páginas creme, ornamentos, olhos grandes, luvas, sapatos e gravata verde-lima. Sua fidelidade e acabamento precisam da revisão visual humana antes de serem declarados aprovados.
+A aparência vem do PNG aprovado, `Frontend/public/mascote/aurelio.png`, preservado sem alteração. Em vez de redesenhar seus braços, livro ou pernas, a montagem usa recortes da própria imagem em SVG. Uma capa limpa auxiliar preenche o que ficava escondido por rosto, gravata e membros; não substitui o desenho original como referência.
 
-O SVG possui `viewBox` 420 × 500 e grupos identificados por `data-parte`: corpo inteiro, miolo, capa, rosto, sobrancelhas, olhos, pupilas, boca, gravata, braço/perna de cada lado e acentos expressivos. Gradientes, recorte e textura suave são locais, com identificadores únicos por instância. Não depende de baixar imagens para formar as partes. A capa mantém sua própria cor nos quatro temas de aparência, como ilustração da identidade.
+Arquivo e prompt da capa auxiliar, origem da arte e decisões estão no [registro da saudação 02](Identidade-visual/Aurelio-saudacao-02.md). O resultado da montagem ainda precisa da avaliação visual do responsável. O teste de fidelidade não constitui aprovação artística.
 
-O pivô do corpo fica na base; pernas giram a partir da ligação ao corpo; braços usam a região dos ombros e gravata/olhos usam seus centros. Movimento geral, articulações e expressões são separados, permitindo refiná-los sem alterar as regras de jogo. As expressões faciais são poses vetoriais próprias; não há sincronização labial ou fala gravada nesta fase.
+## Separação das partes
 
-## Repertório
+- `recortes.ts`: contornos no espaço original de 1158 × 1359, compartilhados entre máscaras e camadas.
+- `AurelioRecortado.tsx`: corpo/capa, miolo/páginas, pernas, braço esquerdo/luva, ombro/antebraço/punho direitos, sobrancelhas, olhos, pupilas, boca e gravata. Reutiliza a imagem original, sem gerar uma nova aparência para cada parte.
+- Capa de fundo sem rosto/membros: reconstrução das áreas antes encobertas, máscara da silhueta do livro e remoção de fragmentos indevidos dos recortes.
+- Os encaixes das pernas são completados atrás do livro para permitir a transferência de peso sem abrir lacunas. As pupilas usam recortes originais sobre a reconstrução das áreas claras dos olhos. Pálpebras fechadas usam um traço curvo auxiliar.
+- Na pose neutra, os olhos usam o recorte integral aprovado. Boca e gravata preservam a arte original. Não há fala, sincronização labial ou novos sons nesta etapa.
 
-| Reação | Apresentação |
-| --- | --- |
-| Espera | Respiração suave e piscar espaçado |
-| Saudação | Aceno e pequenos acentos de boas-vindas |
-| Pensamento | Inclinação, olhar deslocado, boca pensativa e interrogação |
-| Apresentação | Gesto do apresentador e acentos junto à dica |
-| Erro | Balanço curto, sobrancelhas e boca preocupadas, rabisco expressivo |
-| Comemoração | Pequenos saltos, olhos sorridentes, movimentos das pernas/gravata e brilhos |
-| Turno | Aceno para apresentar a próxima pessoa |
-| Sorteio | Gesto de apresentação com aceno e brilhos, acompanhando a ordem oficial |
-| Resultado | Celebração do encerramento, sem conceder pontos ou determinar vencedor |
+É uma composição SVG **com partes raster**, e não uma vetorização integral. O raster aprovado permanece a fonte da textura e do traço. Ainda são necessários cuidados com os limites e encaixes quando ampliados ou em poses extremas; a revisão atual cobre a saudação, não todas as deformações possíveis.
 
-Reações de apresentação têm duração aproximada de 1,4 a 2,6 segundos. Espera repete um ciclo discreto de 2,8 segundos, com piscar em ciclo mais espaçado. A duração é exclusivamente visual e pode ser ajustada na revisão. Nenhum botão precisa esperar uma animação terminar; pontos, turnos, sorteio, cronômetro e navegação continuam seguindo o estado confirmado do jogo.
+## Atuação da saudação
 
-## Prioridades e ciclo de vida
+Duração finita de **5,4 segundos**, sem repetição automática:
 
-`reacoes.ts` concentra tipos, durações, política e tradução dos eventos. Prioridades: resultado > comemoração > erro > sorteio > turno > apresentação > saudação/pensamento > espera. Uma reação mais importante substitui a atual; uma menos importante ocupa no máximo um lugar pendente, substituindo a pendência anterior por informação mais recente. Resultado descarta pendências menores.
+1. Atenção e antecipação: olhar se ajusta, sobrancelhas sobem e o corpo prepara o gesto.
+2. Aceno: ombro, antebraço e punho têm movimentos diferentes, com amplitudes que diminuem. O sorriso acompanha o gesto e os olhos piscam em momentos definidos.
+3. Acomodação: braço e corpo desaceleram; gravata e páginas terminam com movimentos secundários atrasados. A pose final retorna à inicial.
 
-Cada evento possui identificador estável; as 32 referências recentes da instância evitam repetição na mesma montagem do componente. Conclusão com identificador antigo não encerra uma reação nova. Temporizadores são limpos na troca/desmontagem. Isso não constitui um registro persistido de animações nem altera a idempotência dos motores.
+`saudacao.ts` define as poses, os tempos e a interpolação suave; `usar-relogio-saudacao.ts` fornece um único relógio por instância, com cancelamento de quadros ao pausar/desmontar. As partes usam a mesma linha de tempo e pivôs explícitos. Não são loops independentes aplicados igualmente a todos os membros.
 
-No individual, o carregamento apresenta a palavra sem reencenar um erro armazenado. Novas reações de erro/dica vêm das ações confirmadas; acerto/desistência usam a tela de retorno e resultado usa a tela final. Na galera, a apresentação compara versões confirmadas, sessão, participante e soma de pontos; um carregamento/consulta de tempo não representa nova jogada. Quando ganho de pontos e troca de participante ocorrem juntos, comemoração tem precedência; a próxima vez continua indicada pelo placar e texto do painel.
+## Galeria e integração
 
-## Preferências, acessibilidade e adaptação
+`/laboratorio/aurelio` foi substituído pelo ensaio da saudação: montagem ao lado do original, reproduzir/pausar, voltar à pose inicial, controle de tempo e visualização dos recortes/articulações. O controle manual permite examinar poses mesmo com movimentos reduzidos; reprodução automática respeita essa preferência.
 
-`Aurelio.tsx` observa a preferência salva do jogo, `prefers-reduced-motion` do aparelho, visibilidade do documento e presença do personagem na área visível. Observadores e inscrições são removidos na desmontagem. Preferência de redução, aba oculta e personagem fora da área visível interrompem deslocamentos/repetições e mantêm uma pose. A mudança é aplicada imediatamente, inclusive durante uma reação. A expressão e os textos do jogo continuam explicando o ocorrido.
+No menu, a saudação usa a montagem nova. Nos demais acontecimentos, o personagem fica na pose original enquanto suas atuações aguardam a próxima revisão. Os eventos, prioridades, deduplicação e transações dos jogos continuam independentes da animação. Os nove estados anteriores não devem ser apresentados como repertório animado aprovado.
 
-Durante o teste, a mudança dinâmica da preferência do aparelho não atualizou o hook da biblioteca na execução verificada. A assinatura explícita de `matchMedia` com `useSyncExternalStore` cobre essa mudança, junto ao atributo de preferência do jogo. Transições para a pose estática usam duração zero.
+Redução de movimentos salva e do aparelho, visibilidade da página e do personagem continuam observadas. Uma reação não bloqueia controles nem concede pontos. Nenhum contrato HTTP ou banco foi alterado.
 
-O componente não intercepta cliques e não cria controles de jogo. O SVG possui descrição acessível. No Solo em celular/tablet, a regra antiga que escondia o mascote foi substituída por uma composição compacta de 85 px com texto breve; o tabuleiro e o teclado continuam no fluxo normal. Galera usa um anfitrião compacto, com instâncias próprias no sorteio e no resultado. Na galeria, pausar/reduzir são controles de prévia e não alteram preferências salvas.
+## Ferramentas avaliadas
 
-## Galeria de revisão
+A documentação já previa SVG em partes e Motion. A revisão mantém React/SVG e Motion para integração/visibilidade; a saudação usa uma linha de tempo explícita com `requestAnimationFrame`. O invólucro `LazyMotion` foi retirado porque a nova composição não usa seus elementos animados. Não foi necessário instalar outro runtime.
 
-Rota `/laboratorio/aurelio`, acessível no ambiente local: nove botões de reação, repetir, pausar/retomar, prévia reduzida e referência aprovada para comparação. É uma tela de revisão e não um novo item do menu principal. O responsável deve avaliar proporções, rosto, gestos, ritmo e presença nas partidas antes de marcar a fase como concluída.
+O trabalho por partes, poses e ajustes de tempo é consistente com o fluxo de [cut-out descrito pela Toon Boom](https://docs.toonboom.com/help/harmony-24/advanced/getting-started/cut-out.html). A qualidade depende da preparação da arte e da atuação, não de instalar uma biblioteca por si só.
 
-## Dependência e verificações
+[Rive](https://rive.app/use-cases/character-animation) é uma alternativa a avaliar para autoria com ossos, malhas e máquinas de estados; exigiria produzir e revisar um arquivo real de animação e verificar as condições de exportação/publicação antes de mudar a integração. [Spine](https://esotericsoftware.com/spine-runtimes-license) tem condições de licença ligadas ao editor; não foi adotado e não há contratação de ferramenta paga. Esta revisão não declara uma classificação objetiva da melhor ferramenta do mercado.
 
-Motion 14.9.0 instalado com versão exata e lock atualizado, usando sua API React/SVG e `LazyMotion`/`m` com o conjunto `domAnimation`. Compatibilidade com React 19 verificada nos metadados publicados. Não usar recursos pagos. Referências oficiais: [instalação](https://motion.dev/docs/react-installation), [SVG](https://motion.dev/docs/react-svg-animation) e [acessibilidade](https://motion.dev/docs/react-accessibility).
+## Verificação e limites
 
-TDD: testes da política de prioridade/deduplicação foram escritos e executados antes do módulo; falharam pela ausência da implementação. Testes de navegador reproduziram a preferência dinâmica do aparelho sem efeito, o mascote oculto no celular e a repetição do erro após recarga; as correções foram verificadas nos três tamanhos. Há conferência de movimento real pela variação da transformação, além da identificação da reação. Não confundir rótulo atualizado com animação executada.
+TDD: o teste da linha de tempo falhou pela ausência do módulo; o teste da galeria falhou pelo título/fluxo antigo. Foram verificados início/fim na mesma pose, antecipação, articulações independentes, piscada, controles, encerramento sem loop e redução de movimentos. A galeria anterior e seus testes de nove reações foram substituídos pelo novo escopo aprovado.
 
-Regressões cobrem acertos, dicas, erros, reenvio, pausa/retomada, demonstração, galera e navegação. Quantidades finais e comandos executados são registrados no roteiro local. Sem mudanças de backend, banco, contratos HTTP ou conteúdo editorial. O pacote de produção cresceu com Motion; o aviso de tamanho do Vite continua registrado para a revisão de desempenho da fase 40/45. Testes de tela são em navegador automatizado, com avaliação posterior em aparelhos físicos ainda prevista.
+Comparação visual automatizada: capturas da montagem parada e do PNG com as mesmas dimensões/fundo; com a referência na mesma posição física, pixels com diferença superior a 40 em algum canal, mesmo procurando correspondência a até um pixel de distância para acomodar a suavização de bordas, devem ocupar menos de 2% da imagem. Esse limite detecta alterações de aparência importantes, mas não afirma igualdade pixel a pixel. Há inspeção dos recortes e das poses durante o aceno, além dos testes funcionais.
+
+As verificações finais e os números constam do roteiro local. Manter a fase 36 aberta até o responsável avaliar aparência, naturalidade e ritmo. Outras atuações, dispositivos físicos e otimização das imagens ainda entram nas revisões posteriores. O aviso preexistente de tamanho do pacote Vite permanece registrado.

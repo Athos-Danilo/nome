@@ -1,87 +1,112 @@
 import { useState } from "react";
 import { Botao } from "../../componentes/Comuns";
-import { Aurelio } from "./Aurelio";
-import { REACOES, type Reacao } from "./reacoes";
+import { AurelioRecortado } from "./AurelioRecortado";
+import { DURACAO_SAUDACAO } from "./saudacao";
+import { useRelogioSaudacao } from "./usar-relogio-saudacao";
+import { useMovimentosReduzidos } from "./usar-movimentos-reduzidos";
+import "./mascote.css";
 
-const nomes: Record<Reacao, string> = {
-  espera: "Espera",
-  saudacao: "Saudação",
-  pensamento: "Pensamento",
-  apresentacao: "Apresentar dica",
-  erro: "Erro",
-  comemoracao: "Comemoração",
-  turno: "Mudança de turno",
-  sorteio: "Sorteio",
-  resultado: "Resultado",
-};
-const falas: Record<Reacao, string> = {
-  espera: "Seu próximo “já sei!” está logo ali.",
-  saudacao: "Que bom te ver. Bora decifrar?",
-  pensamento: "Hmm… deixa eu pensar nessa com você.",
-  apresentacao: "Uma pista de cada vez. Olha só essa!",
-  erro: "Ainda não! Respira, a próxima descoberta está perto.",
-  comemoracao: "Ahá! Eu sabia que você ia conseguir!",
-  turno: "Agora o palco é seu. Capricha!",
-  sorteio: "A ordem está lançada. Quem abre o jogo?",
-  resultado: "Boas descobertas merecem um grande final.",
-};
 export function GaleriaAurelio() {
-  const [reacao, definirReacao] = useState<Reacao>("saudacao");
-  const [rodada, definirRodada] = useState(0);
-  const [reduzir, definirReduzir] = useState(false);
-  const [pausado, definirPausado] = useState(false);
-  function escolher(tipo: Reacao) {
-    definirReacao(tipo);
-    definirRodada((n) => n + 1);
+  const [executando, definirExecutando] = useState(false),
+    [origem, definirOrigem] = useState(0),
+    [reinicio, definirReinicio] = useState(0);
+  const [partes, definirPartes] = useState(false),
+    [reduzir, definirReduzir] = useState(false);
+  const preferencia = useMovimentosReduzidos();
+  const reduzidos = reduzir || preferencia;
+  const tempo = useRelogioSaudacao(
+    executando && !reduzidos,
+    origem,
+    reinicio,
+    () => definirExecutando(false),
+  );
+  function reproduzir() {
+    definirOrigem(0);
+    definirReinicio((n) => n + 1);
+    definirExecutando(!reduzidos);
   }
+  const estado = reduzidos
+    ? "Movimentos reduzidos: examine as poses pelo controle de tempo."
+    : executando
+      ? "Saudação em reprodução"
+      : tempo >= DURACAO_SAUDACAO
+        ? "Saudação concluída"
+        : "Examine o desenho e depois dê o play.";
   return (
-    <section className="galeria-aurelio">
-      <span className="etiqueta">O APRESENTADOR ESTÁ NO PALCO</span>
-      <h1 tabIndex={-1}>O Aurélio ganhou vida.</h1>
+    <section className="galeria-aurelio ensaio-saudacao">
+      <span className="etiqueta">ESTUDO DE PERSONAGEM · SAUDAÇÃO 02</span>
+      <h1 tabIndex={-1}>O mesmo Aurélio. Uma nova saudação.</h1>
       <p>
-        Escolha uma reação e veja o nosso dicionário em ação. Este é o espaço de
-        revisão visual da fase 36.
+        Primeiro, a aparência. Depois, o gesto. Compare com o desenho que você
+        aprovou e examine cada instante do aceno.
       </p>
-      <div className="estudio-aurelio">
-        <div className="palco-aurelio">
-          <span className="etiqueta">{nomes[reacao]}</span>
-          <Aurelio
-            key={rodada}
-            evento={{ id: `previa-${rodada}`, tipo: reacao }}
-            repouso={reacao}
-            tamanho="grande"
-            reduzir={reduzir}
-            pausado={pausado}
-            descricao={`Aurélio: ${nomes[reacao]}`}
+      <div className="ensaio-comparacao">
+        <article className="ensaio-montagem">
+          <header>
+            <span className="etiqueta">MONTAGEM PARA ANIMAÇÃO</span>
+            <h2>Nosso apresentador, por partes.</h2>
+          </header>
+          <AurelioRecortado tempo={tempo} partes={partes} />
+        </article>
+        <article className="ensaio-referencia">
+          <header>
+            <span className="etiqueta">REFERÊNCIA APROVADA</span>
+            <h2>O Aurélio original.</h2>
+          </header>
+          <img
+            src="/mascote/aurelio.png"
+            width="1158"
+            height="1359"
+            alt="Aurélio original aprovado"
           />
-          <p>{falas[reacao]}</p>
+        </article>
+      </div>
+      <div className="ensaio-controles">
+        <div className="controles-aurelio">
+          <Botao
+            className="acao"
+            onClick={executando ? () => definirExecutando(false) : reproduzir}
+          >
+            {executando ? "Pausar saudação" : "Reproduzir saudação"}
+          </Botao>
+          <Botao
+            onClick={() => {
+              definirExecutando(false);
+              definirOrigem(0);
+              definirReinicio((n) => n + 1);
+            }}
+          >
+            Voltar à pose original
+          </Botao>
         </div>
-        <div>
-          <h2>Nove jeitos de apresentar o show.</h2>
-          <p>
-            Olhos, sobrancelhas, boca, braços, pernas e gravata têm movimentos
-            próprios.
-          </p>
-          <div className="botoes-reacoes">
-            {REACOES.map((tipo) => (
-              <Botao
-                key={tipo}
-                aria-pressed={tipo === reacao}
-                onClick={() => escolher(tipo)}
-              >
-                {nomes[tipo]}
-              </Botao>
-            ))}
-          </div>
-          <div className="controles-aurelio">
-            <Botao onClick={() => escolher(reacao)}>Repetir reação</Botao>
-            <Botao
-              aria-pressed={pausado}
-              onClick={() => definirPausado((v) => !v)}
-            >
-              {pausado ? "Retomar movimentos" : "Pausar movimentos"}
-            </Botao>
-          </div>
+        <label className="ensaio-tempo">
+          Instante da saudação{" "}
+          <input
+            type="range"
+            min="0"
+            max={DURACAO_SAUDACAO}
+            step="10"
+            value={Math.round(tempo / 10) * 10}
+            onChange={(e) => {
+              definirExecutando(false);
+              definirOrigem(Number(e.target.value));
+              definirReinicio((n) => n + 1);
+            }}
+          />
+          <output>
+            {(tempo / 1000).toFixed(2).replace(".", ",")} s / 5,40 s
+          </output>
+        </label>
+        <p role="status">{estado}</p>
+        <div className="ensaio-opcoes">
+          <label>
+            <input
+              type="checkbox"
+              checked={partes}
+              onChange={(e) => definirPartes(e.target.checked)}
+            />{" "}
+            Mostrar recortes e articulações
+          </label>
           <label>
             <input
               type="checkbox"
@@ -90,22 +115,27 @@ export function GaleriaAurelio() {
             />{" "}
             Prévia com movimentos reduzidos
           </label>
-          <p className="nota-aurelio">
-            A preferência do jogo e a redução de movimentos do aparelho também
-            são respeitadas. A prévia não altera suas configurações salvas.
-          </p>
         </div>
       </div>
-      <aside className="referencia-aurelio">
-        <img src="/mascote/aurelio.png" alt="Referência aprovada do Aurélio" />
-        <p>
-          <strong>A mesma inspiração, preparada para movimento.</strong>
-          <br />
-          Capa oliva, páginas creme, ornamentos, luvas, sapatos e gravata
-          verde-lima preservam o conceito aprovado. O desenho em camadas está em
-          revisão visual.
-        </p>
-      </aside>
+      <ol className="ensaio-etapas">
+        <li>
+          <b>01 · Perceber</b>
+          <span>Olhar, sobrancelhas e preparação do corpo.</span>
+        </li>
+        <li>
+          <b>02 · Cumprimentar</b>
+          <span>Ombro, cotovelo e punho em ritmos diferentes.</span>
+        </li>
+        <li>
+          <b>03 · Acomodar</b>
+          <span>O gesto desacelera; gravata e páginas chegam depois.</span>
+        </li>
+      </ol>
+      <p className="nota-aurelio">
+        Só a saudação está sendo trabalhada nesta revisão. As outras atuações
+        serão refeitas depois da aprovação da aparência e do movimento. No jogo,
+        a arte original fica preservada.
+      </p>
     </section>
   );
 }

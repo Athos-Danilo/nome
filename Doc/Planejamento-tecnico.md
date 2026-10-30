@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Fase 36 em revisão visual:** Aurélio em SVG por partes, Motion 14.9.0, controle de prioridade/deduplicação, preferências de movimento e integração ao menu, Solo/demonstração e galera. Galeria em `/laboratorio/aurelio`. A conclusão depende da avaliação visual do responsável; detalhes em [Aurélio animado](Aurelio-animado.md).
+**Fase 36 — revisão 02:** primeira interpretação reprovada pelo responsável. Novo ensaio concentra aparência fiel ao PNG e uma saudação por partes raster em SVG, com linha de tempo coordenada e capa auxiliar reconstruída. Demais atuações ficam na pose original até aprovação. Motion permanece na integração/visibilidade; nenhum novo runtime instalado. Galeria em `/laboratorio/aurelio`; [decisões e ferramentas](Aurelio-animado.md).
 
 **Fase 34:** histórico privado, estatísticas e três rankings públicos em módulo próprio, sem migração ou duplicação de resultados. PostgreSQL agrega individuais encerradas publicadas; MongoDB fornece temáticas da revisão histórica. React usa consultas validadas, cache por titular, filtros, paginação e telas responsivas. Fórmulas D14/D15 e contratos em [Histórico, estatísticas e rankings](Historico-estatisticas-rankings.md).
 
