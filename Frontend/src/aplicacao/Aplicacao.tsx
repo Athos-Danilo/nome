@@ -1,4 +1,7 @@
 import { RotaGalera } from "../funcionalidades/galera/RotaGalera";
+import { Historico } from "../funcionalidades/acompanhamento/Historico";
+import { Estatisticas } from "../funcionalidades/acompanhamento/Estatisticas";
+import { Rankings } from "../funcionalidades/acompanhamento/Rankings";
 import {
   ProtecaoNavegacao,
   useSaidaPartida,
@@ -94,6 +97,11 @@ function Jogo() {
         </a>
       </EstadoVazio>
     );
+  else if (caminho === "/rankings") conteudo = <Rankings />;
+  else if (caminho === "/perfil/historico" && conta)
+    conteudo = <Historico jogadorId={conta.jogador_id} />;
+  else if (caminho === "/perfil/estatisticas" && conta)
+    conteudo = <Estatisticas jogadorId={conta.jogador_id} />;
   else if (caminho === "/")
     conteudo = <MenuInicial conta={conta} aoExpirar={dados.falhar} />;
   else if (["/perfil", "/primeiro-acesso", "/configuracoes"].includes(caminho))

@@ -1,5 +1,7 @@
 # Contratos da API — fase 10
 
+**Fase 34:** `GET /api/historico` e `GET /api/estatisticas` privados, vinculados à conta ativa da sessão e sem cache; `GET /api/rankings/{categoria}` público. Histórico e rankings paginam dez itens com `pagina`; histórico aceita filtros opcionais `modo` e `estado`. Critérios, campos, fórmulas D14/D15, erros e limites em [Histórico, estatísticas e rankings](Historico-estatisticas-rankings.md).
+
 **Fase 20:** implementados POST `/api/partidas/individual/configuracao`, POST `/api/partidas/individual`, GET `/api/partidas/em-aberto` (individual), GET `/api/partidas/{partida_id}` (individual), POST `/{partida_id}/palpites`, `/dicas`, `/desistencia-palavra` e `/encerramento`, todos sob `/api/partidas`. Criação recebe `plano_id`, com seleção confirmada no servidor. Campos, respostas, idempotência e limites em [Motor individual](Motor-individual.md). Rotas da galera e pausa/retomada continuam previstas.
 
 **Fase 19:** POST `/api/visitantes`, POST `/api/demonstracoes`, GET `/api/demonstracoes/atual` e POST `/api/demonstracoes/vinculo` implementados. Contratos, campos, prazo de sete dias, cookie e erros em [Visitante e demonstração](Demonstracao-visitante.md). As rotas de palpites e a demonstração jogável continuam nas fases próprias.
@@ -50,7 +52,7 @@ Cada mutação de partida inclui `id_acao` e `versao_esperada`. Resposta confirm
 | POST `/api/partidas/{partida_id}/encerramento` | Proprietário | Abandono individual sem desconto extra ou desistência da galera com resultado e revelação somente da sessão atual. |
 | POST `/api/partidas/{partida_id}/desempate` | Anfitrião da galera | Aceita empate ou confirma concordância de todos os líderes para uma única sessão extra. Detalhes da configuração pendentes. |
 | GET `/api/historico` | Conta | Resumos privados dos dois modos, sem tela detalhada por rodada nesta entrega. |
-| GET `/api/estatisticas` | Conta | Indicadores privados; fórmulas detalhadas serão fechadas na fase 34. |
+| GET `/api/estatisticas` | Conta | Indicadores privados do Solo encerrado, progresso separado e fórmulas aprovadas na fase 34. |
 | GET `/api/rankings/{categoria}` | Público | `palavras-acertadas`, `partidas-concluidas` ou `pontos`; apenas nome e indicadores públicos aprovados. |
 
 O visitante só pode operar a própria demonstração nas rotas de jogo pertinentes; criar partida normal, galera, perfil ou preferências de conta exige autenticação Google. Convidados locais não possuem credenciais para chamar a API separadamente.

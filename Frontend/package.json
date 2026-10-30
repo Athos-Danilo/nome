@@ -18,7 +18,8 @@
     "formatar": "prettier --write .",
     "verificar-formatacao": "prettier --check .",
     "testar-individual": "playwright test --config playwright.individual.config.ts",
-    "testar-galera": "playwright test --config playwright.galera.config.ts"
+    "testar-galera": "playwright test --config playwright.galera.config.ts",
+    "testar-acompanhamento": "playwright test --config playwright.acompanhamento.config.ts"
   },
   "dependencies": {
     "@dnd-kit/dom": "0.5.1",

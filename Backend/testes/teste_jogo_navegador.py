@@ -47,6 +47,7 @@ def teste_react_http_e_banco_confirmam_mesmos_pontos(base_perfil):  # noqa: F811
         catalogo = CatalogoControlado()
         api.state.individual.catalogo = catalogo
         api.state.galera.catalogo = catalogo
+        api.state.acompanhamento.catalogo = catalogo
 
         async def sortear():
             return [

@@ -206,6 +206,34 @@ try {
         path: "test-results/galera-http-integrada.png",
         fullPage: true,
       });
+      const estatisticas = await (
+        await contexto.request.get(origem + "/api/estatisticas")
+      ).json();
+      expect(estatisticas.resumo.partidas_encerradas).toBe(1);
+      expect(estatisticas.resumo.pontos).toBe(200);
+      expect(estatisticas.resumo.palavras_acertadas).toBe(3);
+      expect(estatisticas.resumo.media_dicas).toBe(1);
+      const historico = await (
+        await contexto.request.get(origem + "/api/historico")
+      ).json();
+      expect(historico.total).toBe(2);
+      expect(historico.itens.filter((p) => p.modo === "galera")).toHaveLength(
+        1,
+      );
+      await pagina.goto(origem + "/perfil/estatisticas");
+      await expect(
+        pagina.getByRole("heading", { name: "Cada descoberta conta" }),
+      ).toBeVisible();
+      await expect(pagina.locator(".placar-pessoal > strong")).toHaveText(
+        "200 pontos",
+      );
+      await pagina.goto(origem + "/perfil/historico");
+      await expect(pagina.locator(".lembranca-partida")).toHaveCount(2);
+      await pagina.goto(origem + "/rankings");
+      await expect(
+        pagina.getByRole("rowheader", { name: "Jogador", exact: true }),
+      ).toBeVisible();
+      await expect(pagina.locator("tbody td").last()).toHaveText("200");
     }
     await contexto.close();
   }

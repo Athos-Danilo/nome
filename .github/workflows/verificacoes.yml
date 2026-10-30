@@ -69,6 +69,7 @@ jobs:
       - run: npm run testar-entrada -- --reporter=line,github
       - run: npm run testar-individual -- --reporter=line,github
       - run: npm run testar-galera -- --reporter=line,github
+      - run: npm run testar-acompanhamento -- --reporter=line,github
 
   prova_interrupcoes:
     name: Prova — interrupções no navegador

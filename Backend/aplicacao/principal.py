@@ -12,6 +12,9 @@ from sqlalchemy.engine import make_url
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import create_async_engine
 
+from aplicacao.modulos.acompanhamento.repositorio import AcompanhamentoPostgresql
+from aplicacao.modulos.acompanhamento.rotas import rotas as rotas_acompanhamento
+from aplicacao.modulos.acompanhamento.servico import ServicoEstatisticas
 from aplicacao.modulos.autenticacao.contratos import (
     FalhaAutenticacao,
     ProvedorGoogle,
@@ -102,6 +105,12 @@ def criar_aplicacao(
         if motor is not None
         else None
     )
+    api.state.consultas_acompanhamento = AcompanhamentoPostgresql(motor) if motor else None
+    api.state.acompanhamento = (
+        ServicoEstatisticas(api.state.consultas_acompanhamento, api.state.individual.catalogo)
+        if motor
+        else None
+    )
 
     @api.exception_handler(FalhaAutenticacao)
     async def tratar_autenticacao(requisicao: Request, falha: FalhaAutenticacao):
@@ -138,6 +147,8 @@ def criar_aplicacao(
             ("/api/autenticacao", "/api/partidas")
         ) or requisicao.url.path in {
             "/api/perfil",
+            "/api/historico",
+            "/api/estatisticas",
             "/api/preferencias",
             "/api/visitantes",
             "/api/demonstracoes",
@@ -153,6 +164,7 @@ def criar_aplicacao(
     api.include_router(rotas_demonstracoes)
     api.include_router(rotas_galera)
     api.include_router(rotas_individual)
+    api.include_router(rotas_acompanhamento)
     api.mount(
         "/api/avatares/recursos",
         StaticFiles(directory=PASTA_BACKEND / "recursos/avatares"),

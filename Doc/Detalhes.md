@@ -125,7 +125,7 @@ Esses avatares serão utilizados no perfil do usuário autenticado e na escolha 
 
 O perfil, o histórico e as estatísticas pessoais serão privados. Haverá uma classificação pública com informações limitadas, como nome de usuário e indicadores de desempenho.
 
-A exposição de datas no ranking foi sugerida, mas ainda não foi confirmada. E-mail e histórico detalhado não integram a proposta de informações públicas.
+Decisão da fase 34: somente posição, nome e valor da categoria são públicos. Não mostrar datas, avatar, e-mail, identificadores da conta ou histórico privado.
 
 ### 5.4. Exclusão de conta
 
@@ -133,7 +133,7 @@ A exclusão da própria conta e de seus dados faz parte da primeira entrega, con
 
 A exclusão exige aviso dos efeitos e digitar **EXCLUIR**. Remover a identidade Google, e-mail, nome, avatar, preferências e acessos; eliminar também os nomes dos convidados das partidas criadas pela conta. Conservar resultados anônimos, sem permitir recuperar a identidade ou o histórico pelo login anterior. Os resultados e pontos antigos continuam nos rankings com o nome **Jogador excluído**, separados de qualquer conta nova.
 
-Entrar novamente com o mesmo Google cria uma conta nova, do zero, sem recuperar histórico, estatísticas pessoais ou pontos. A execução da exclusão, inclusive cancelamento e falhas, foi implementada na fase 17, conforme [Perfil e preferências](Perfil-preferencias.md). A interface de ranking continua em sua fase própria.
+Entrar novamente com o mesmo Google cria uma conta nova, do zero, sem recuperar histórico, estatísticas pessoais ou pontos. A exclusão, inclusive cancelamento e falhas, foi implementada na fase 17, conforme [Perfil e preferências](Perfil-preferencias.md); a exibição dos resultados anônimos nos rankings foi integrada na fase 34.
 
 ## 6. Conteúdo do jogo
 
@@ -434,7 +434,7 @@ Ao concluir a partida, o sistema deverá apresentar:
 - Respostas das palavras das quais o jogador desistiu.
 - Tempo de jogo por palavra apresentada e tempo total acumulado, conforme [Cronometro.md](Cronometro.md); implementado no individual e na demonstração; na galera, tempo por sessão e total, integrado na fase 33.
 
-O detalhamento de como resumir as dicas utilizadas será definido juntamente com as estatísticas.
+A média consolidada considera somente a dica em que ocorreu cada acerto, conforme a seção 13.3.
 
 ### 13.2. Histórico pessoal
 
@@ -442,7 +442,7 @@ O jogador terá uma tabela com suas partidas e seus resultados, permitindo compa
 
 Abrir uma partida antiga para consultar cada palavra, todos os palpites e as dicas utilizadas **fica para uma versão futura**. A nova lista de tempos na tela de resultado não cria essa página histórica detalhada.
 
-Os campos finais da tabela, os filtros e a ordenação ainda serão definidos.
+Decisão D15 aprovada na fase 34: partidas mais recentes primeiro, filtros por modo e situação e páginas de dez registros. No individual, mostrar data, situação, palavras, acertos e pontos; partidas abertas oferecem continuar. Na galera, mostrar participantes, placar, vencedor/empate e motivo do encerramento. Não criar consulta detalhada de palavras antigas.
 
 O histórico privado do usuário autenticado também mostrará um resumo das partidas com a galera: participantes, pontuações, vencedor ou empate e indicação de desistência ou encerramento antecipado. Esses resultados ficarão separados das estatísticas e dos rankings individuais. Os convidados não terão histórico próprio, pois seus nomes existem apenas naquela partida.
 
@@ -459,7 +459,11 @@ O perfil deverá reunir:
 - Desempenho por dificuldade.
 - Quantidade de tentativas erradas.
 
-As fórmulas ainda deverão esclarecer como contabilizar respostas pertencentes a várias temáticas e o momento de atualização de cada estatística privada. Abandono definitivo será registrado pela ação de abandonar, sem confundi-lo com pausa. O momento de publicação no ranking está definido na seção 14.
+Decisão D14 aprovada na fase 34: consolidar somente individuais concluídas ou abandonadas com resultado publicado; mostrar o progresso da individual aberta separadamente. Galera não entra nos indicadores. Demonstração vinculada entra uma única vez. Abandono definitivo não se confunde com pausa.
+
+A média soma as posições das dicas nos acertos e divide pelo número de palavras acertadas (dicas 1 e 3 → média 2); sem acertos, não há média. Erros são palpites enviados e incorretos; pedir dicas não é erro. Melhor pontuação é o maior saldo encerrado, mesmo negativo; sem partidas encerradas, não há melhor resultado. Desistências de palavras contam rodadas apresentadas marcadas como desistidas, sem incluir reservas nunca apresentadas.
+
+Palavras de várias temáticas entram em cada temática de sua revisão histórica e apenas uma vez no total geral. A interface avisa que os grupos não devem ser somados. O desempenho por temática/dificuldade apresenta palavras vistas, acertos, desistências, erros, pontos das palavras e média de dicas nos acertos. Penalidades de pausa entram no saldo geral, sem atribuição artificial a temáticas. Especificação em [Histórico, estatísticas e rankings](Historico-estatisticas-rankings.md).
 
 ## 14. Ranking público
 
@@ -469,9 +473,9 @@ Haverá comparação pessoal pelo histórico e **três rankings públicos gerais
 2. Mais partidas concluídas.
 3. Mais pontos acumulados.
 
-Os dados públicos previstos são nome de usuário e indicadores usados na classificação. A inclusão de datas ainda será avaliada.
+Os dados públicos são posição, nome e valor da categoria, sem datas ou avatares. Participam perfis ativos com ao menos uma individual encerrada publicada e contas anonimizadas com resultados preservados como **Jogador excluído**.
 
-Jogadores com o mesmo resultado ocuparão a mesma posição no respectivo ranking, sem desempate por outra métrica. A sequência numérica após empates ainda poderá ser padronizada na apresentação. A demonstração vinculada à conta contará normalmente, sem publicação duplicada.
+Jogadores com o mesmo resultado ocupam a mesma posição, sem desempate por outra métrica, na sequência **1, 1, 3**. Demonstração vinculada conta normalmente, sem publicação duplicada. As categorias têm páginas de dez registros e incluem contas elegíveis mesmo com valor zero ou negativo.
 
 Resultados serão publicados nos rankings somente quando a partida individual for concluída ou abandonada definitivamente. Partidas em andamento ou pausadas não terão seus pontos, acertos ou penalidades contabilizados nos rankings até o encerramento. A publicação deverá ocorrer uma única vez por partida, sem duplicação por reenvio ou consulta do resultado.
 
@@ -598,8 +602,8 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-19 | Permitir desistir da palavra, revelar a resposta e registrar zero | Definido |
 | RF-20 | Salvar e retomar uma única partida individual em andamento por jogador | Definido |
 | RF-21 | Descontar 100 pontos por pausa/saída confirmada, sem duplicação; recarga e casos ambíguos não descontam | Implementado no individual na fase 28; limites de navegador documentados |
-| RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Definido; cálculos pendentes |
-| RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Definido |
+| RF-22 | Apresentar resultado, histórico resumido e estatísticas privadas | Implementado nas fases 26/33/34 |
+| RF-23 | Apresentar rankings gerais individuais de acertos, partidas concluídas e pontos, com posição compartilhada nos empates e sem incluir o modo com a galera | Implementado na fase 34 |
 | RF-24 | Disponibilizar modo com a galera no mesmo dispositivo, com nomes de sessão e ordem sorteada | Integrado na fase 33 |
 | RF-25 | Permitir abandono definitivo sem desconto adicional, preservando pontos e acertos e liberando nova partida | Definido |
 | RF-26 | Permitir de um a três participantes e de uma a cinco sessões regulares no modo com a galera | Definido |
@@ -625,7 +629,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-46 | Não repetir respostas entre sessões da mesma partida com a galera | Definido |
 | RF-47 | Persistir preferências de tema, áudio e movimentos na conta de usuários autenticados e no navegador de visitantes | Definido |
 | RF-48 | No individual, contar cada vogal base junto das variantes acentuadas para bloquear excesso de usos, preservando a validação exata dos acentos | Definido |
-| RF-49 | Excluir identidade após aviso e EXCLUIR, conservar resultados anônimos no ranking e permitir recadastro do zero | Implementado na fase 17; interface do ranking em fase própria |
+| RF-49 | Excluir identidade após aviso e EXCLUIR, conservar resultados anônimos no ranking e permitir recadastro do zero | Implementado na fase 17; ranking integrado na fase 34 |
 
 ## 17. Qualidade e critérios técnicos a detalhar
 
@@ -766,8 +770,8 @@ Sugestões de conteúdo por jogadores poderão ser discutidas em atualização f
 Antes de fechar a modelagem e implementar as regras, as principais decisões são:
 
 1. **Interrupções:** política e prova aprovadas na fase 13: preservação nas dúvidas, recarga sem desconto e navegação para outra página como saída. Integrar às partidas e verificar em aparelhos físicos e hospedagem.
-2. **Estatísticas privadas:** momento de atualização e cálculo de indicadores por temática; rankings já têm publicação definida no encerramento.
-3. **Ranking:** apresentação da numeração após posições compartilhadas; empates já aprovados sem critério adicional.
+2. **Estatísticas privadas:** D14 resolvida na fase 34: individuais encerradas, progresso separado, média nos acertos e contagem em todas as temáticas associadas.
+3. **Ranking e histórico:** D15 resolvida na fase 34: posições 1, 1, 3, somente nome e valor públicos; histórico privado resumido, filtros e páginas de dez registros.
 4. **Seleção de conteúdo:** falta por dificuldade e tamanho mínimo de partida reduzida. Histórico visto já é compartilhado entre os modos para o anfitrião.
 5. **Configuração:** critério do sorteio de distribuição entre as dificuldades selecionadas.
 6. **Demonstração:** persistência do identificador por navegador, prazo de transferência e entrada com Google durante a partida.

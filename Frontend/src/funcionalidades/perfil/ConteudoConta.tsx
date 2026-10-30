@@ -1,6 +1,7 @@
 import { FormularioPerfil } from "./FormularioPerfil";
 import { FormularioPreferencias } from "./FormularioPreferencias";
 import { useConta } from "./usar-conta";
+import { Link } from "react-router";
 type DadosConta = ReturnType<typeof useConta>;
 export function ConteudoConta({
   dados,
@@ -29,6 +30,12 @@ export function ConteudoConta({
   if (!perfil.data || !avatares.data) return null;
   return (
     <>
+      {perfil.data.estado === "ativo" && (
+        <p>
+          <Link to="/perfil/historico">Meu histórico</Link> ·{" "}
+          <Link to="/perfil/estatisticas">Minhas estatísticas</Link>
+        </p>
+      )}
       <FormularioPerfil
         perfil={perfil.data}
         avatares={avatares.data}
