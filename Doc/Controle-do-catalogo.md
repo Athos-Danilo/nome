@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** dezesseis lotes produzidos: 400 respostas e 2.000 dicas, aprovados na validação automática completa. Quatorze lotes aprovados pelo responsável e importados localmente: 350 respostas e 1.750 dicas. Animais é a primeira temática fechada: 100 respostas, 500 dicas, distribuição 40/35/25. As correções aprovadas de 25 dicas em 16 animais do lote 001 foram publicadas como revisão 2, preservando as revisões 1; há 366 revisões no banco. Países-001 e objetos-001 continuam em avaliação humana, sem carga. Atlas não acessado.
+**Situação atual:** dezessete lotes produzidos: 425 respostas e 2.125 dicas, aprovados na validação automática completa. Quinze lotes aprovados pelo responsável e importados localmente: 375 respostas e 1.875 dicas. Animais e filmes/séries estão fechados com 100 respostas e 500 dicas cada, distribuição 40/35/25. Banco com 394 revisões: 375 iniciais, 16 correções de animais e três de filmes/séries, todas com histórico preservado. Países-001 e objetos-001 continuam em avaliação humana, sem carga. Atlas não acessado.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -36,7 +36,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Importado localmente |
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Importado localmente |
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Importado localmente |
-| 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Não iniciado |
+| 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Importado localmente |
 | 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Não iniciado |
 | 44 | 7 | `paises-004.json` | 10 | 5 | 10 | 25 | 475 | Não iniciado |
 | 46 | 7 | `objetos-004.json` | 10 | 5 | 10 | 25 | 500 | Não iniciado |
@@ -381,3 +381,11 @@ Auditoria real no MongoDB: 100 animais únicos, 500 dicas, distribuição 40 fá
 TDD da publicação de revisões: testes falharam pela ausência do serviço/comando antes da implementação. Recuperação de reserva, concorrência, recusa de alteração de identidade/dificuldade, base divergente, plano antigo, reexecução idempotente e leitura das dicas históricas pelo adaptador do jogo foram verificados. Cinquenta testes de conteúdo, validação e integração MongoDB aprovados; Ruff e formatação aprovados. Sem mudanças no frontend, dependências, estrutura de dados ou PostgreSQL. Fontes, critérios e evidências em [animais-004](Revisoes/animais-004.md), [auditoria](Revisoes/animais-auditoria.md) e [publicação de revisões](Importacao-catalogo.md#correções-de-dicas-com-revisões--fase-37).
 
 Países-001 e objetos-001 permanecem sem carga. Atlas não acessado. A meta acumulada de 400 refere-se aos arquivos produzidos; o total aprovado/publicado é 350.
+
+
+#### Lote filmes-e-series-004 (fase 39)
+
+Produzido em 30/10/2026: 25 respostas e 125 dicas, distribuição 10/5/10. Validação global: 17 lotes, 425 respostas e 2.125 dicas. Conferência somente de leitura no banco: 25 novos, nenhum idêntico ou recuperável. Com os três anteriores: 100 títulos únicos, 500 dicas e 40/35/25. Revisão e fontes em [filmes-e-series-004.md](Revisoes/filmes-e-series-004.md); três correções propostas do 001 em [auditoria](Revisoes/filmes-e-series-auditoria.md). Importação e correções aguardam aprovação; MongoDB preservado com 350 respostas, 1.750 dicas e 366 revisões. Países-001/objetos-001 e Atlas mantêm pendências anteriores.
+
+
+**Fechamento da fase 39, 30/10/2026:** responsável aprovou lote 004 e três correções do 001. Publicados 25 novos e três revisões corretivas, preservando a base histórica; produção sincronizada. Conferência dos quatro lotes: 100 idênticos, zero novos/recuperáveis. Filmes e séries fechado com 100 títulos/500 dicas (40/35/25). MongoDB: 375 respostas, 1.875 dicas, 394 revisões. Arquivos: 425 respostas e 2.125 dicas. Os registros de preparação acima são históricos e não representam pendências atuais deste lote.

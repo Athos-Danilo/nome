@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 39 concluída:** filmes e séries fechado com 100 títulos/500 dicas (40/35/25). Lote 004 e três correções do 001 aprovados e publicados; histórico preservado, sem mudança de regras, dependências ou PostgreSQL. MongoDB com 375 respostas, 1.875 dicas e 394 revisões; arquivos com 425 respostas e 2.125 dicas. [Revisão e verificações](Revisoes/filmes-e-series-004.md).
+
 **Fase 38 concluída:** seis faixas (cinco de partida e uma exclusiva do menu), 13 efeitos, prévias e controles persistidos implementados; aprovação sonora do responsável em 30/10/2026. Howler 2.2.4 e migração 0011. [Créditos, decisões e verificações](Audio/README.md).
 
 **Fase 37 concluída:** animais fechado com 100 respostas/500 dicas, distribuição 40/35/25. Lotes 002/004 importados após autorização e 16 revisões corretivas do 001 publicadas com histórico preservado. Novo serviço/comando separado para revisão somente de dicas: validação da base e proposta, reserva imutável e publicação com comparação integral do estado esperado. MongoDB local com 350 respostas, 1.750 dicas e 366 revisões; arquivos com 400 respostas e 2.000 dicas. Sem alterações de frontend, PostgreSQL, migração ou dependências. [Revisão editorial](Revisoes/animais-004.md) e [protocolo de revisão](Importacao-catalogo.md#correções-de-dicas-com-revisões--fase-37).

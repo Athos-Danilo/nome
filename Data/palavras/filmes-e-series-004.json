@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "filmes-e-series-004",
+  "palavras": [
+    {
+      "id": "frozen-uma-aventura-congelante",
+      "resposta": "FROZEN: UMA AVENTURA CONGELANTE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação musical da Disney sobre o vínculo entre duas irmãs.",
+        "Um reino passa a enfrentar um inverno que não termina.",
+        "Uma jovem parte pelas montanhas com um vendedor de gelo e sua rena.",
+        "Os poderes de Elsa colocaram Arendelle em perigo, e Anna tenta reencontrá-la.",
+        "Kristoff, Sven e o boneco de neve Olaf acompanham a aventura das irmãs nesta animação de 2013."
+      ]
+    },
+    {
+      "id": "lilo-e-stitch",
+      "resposta": "LILO & STITCH",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Disney em que uma amizade improvável amplia uma família.",
+        "Minha história acontece no Havaí e envolve uma criatura vinda do espaço.",
+        "Uma menina adota como cachorro um pequeno fugitivo de cor azul.",
+        "A criatura é um experimento genético que começa causando muita confusão.",
+        "Na animação de 2002, o experimento 626 aprende com duas irmãs o valor de ohana, a família."
+      ]
+    },
+    {
+      "id": "meu-malvado-favorito",
+      "resposta": "MEU MALVADO FAVORITO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação em que um plano criminoso é transformado por laços familiares.",
+        "Meu protagonista quer realizar um roubo de proporções astronômicas.",
+        "Pequenos ajudantes amarelos trabalham no esconderijo desse homem.",
+        "Ele adota Margo, Edith e Agnes enquanto prepara um plano para roubar a Lua.",
+        "Gru descobre a paternidade, enfrenta Vetor e conta com os Minions nesta animação de 2010."
+      ]
+    },
+    {
+      "id": "kung-fu-panda",
+      "resposta": "KUNG FU PANDA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da DreamWorks sobre um sonhador que recebe uma missão inesperada.",
+        "Meu herói admira grandes lutadores, mas começa trabalhando com comida.",
+        "Sua escolha como Guerreiro Dragão surpreende os mestres do vale.",
+        "O mestre Shifu precisa treiná-lo para enfrentar Tai Lung.",
+        "Po, um urso preto e branco apaixonado por macarrão, aprende a lutar com os Cinco Furiosos."
+      ]
+    },
+    {
+      "id": "scooby-doo",
+      "resposta": "SCOOBY-DOO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma comédia de mistério que levou uma turma dos desenhos para um filme com atores.",
+        "Um grupo de antigos parceiros se reúne para investigar acontecimentos numa ilha turística.",
+        "A Ilha do Espanto esconde algo mais perigoso que uma atração de parque.",
+        "Fred, Daphne, Velma e Salsicha investigam o caso com um cachorro falante.",
+        "No longa de 2002, Matthew Lillard vive o amigo humano do cão medroso que dá nome ao filme."
+      ]
+    },
+    {
+      "id": "ben-10",
+      "resposta": "BEN 10",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série de animação em que as férias de um garoto ganham uma dimensão extraordinária.",
+        "Um objeto de origem extraterrestre permite que o protagonista assuma formas diferentes.",
+        "O dispositivo fica preso ao seu pulso e parece um relógio.",
+        "Gwen e o avô Max acompanham as aventuras do menino da família Tennyson.",
+        "O Omnitrix transforma o garoto em heróis alienígenas; o título combina seu primeiro nome com dois algarismos."
+      ]
+    },
+    {
+      "id": "zootopia",
+      "resposta": "ZOOTOPIA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Disney em que uma investigação confronta preconceitos.",
+        "Minha grande cidade reúne mamíferos de espécies e tamanhos muito diferentes.",
+        "Uma policial recém-chegada precisa trabalhar com um trapaceiro para resolver desaparecimentos.",
+        "A policial é uma coelha, e seu parceiro improvável é uma raposa.",
+        "Judy Hopps e Nick Wilde formam a dupla central desta animação de 2016."
+      ]
+    },
+    {
+      "id": "a-bela-e-a-fera",
+      "resposta": "A BELA E A FERA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação musical da Disney que adapta um conto sobre aparências e afeto.",
+        "Uma jovem troca sua liberdade pela do pai e passa a viver num castelo.",
+        "Os habitantes desse lugar foram transformados por um encantamento.",
+        "Um castiçal, um relógio e um bule falantes ajudam a aproximar o casal principal.",
+        "Na animação de 1991, uma rosa encantada marca o prazo para um príncipe recuperar sua forma humana."
+      ]
+    },
+    {
+      "id": "avatar",
+      "resposta": "AVATAR",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um filme de ficção científica de James Cameron lançado em 2009.",
+        "Uma expedição humana explora recursos de uma lua habitada e distante.",
+        "Um ex-fuzileiro participa da missão controlando um corpo biológico adaptado ao ambiente.",
+        "Jake Sully se aproxima de Neytiri e passa a questionar a exploração de Pandora.",
+        "Os Na'vi são os habitantes azuis que defendem seu território contra a ofensiva dos humanos."
+      ]
+    },
+    {
+      "id": "mulan",
+      "resposta": "MULAN",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação da Disney sobre coragem e expectativas impostas pela tradição.",
+        "Minha história se passa numa China ameaçada por uma invasão.",
+        "Uma jovem assume uma identidade masculina para ocupar o lugar do pai no exército.",
+        "Ela recebe a ajuda de Mushu, um pequeno dragão bastante falante.",
+        "Na animação de 1998, a filha da família Fa treina com Li Shang e enfrenta Shan Yu."
+      ]
+    },
+    {
+      "id": "a-viagem-de-chihiro",
+      "resposta": "A VIAGEM DE CHIHIRO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação japonesa sobre uma menina que precisa agir com coragem longe de casa.",
+        "Uma parada durante uma mudança leva sua família a um mundo habitado por espíritos.",
+        "Depois que os pais são transformados em porcos, ela consegue trabalho numa casa de banhos.",
+        "A bruxa Yubaba controla o estabelecimento, enquanto Haku ajuda a jovem.",
+        "Hayao Miyazaki dirigiu esta animação de 2001, em que a protagonista passa a usar o nome Sen."
+      ]
+    },
+    {
+      "id": "como-treinar-o-seu-dragao",
+      "resposta": "COMO TREINAR O SEU DRAGÃO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma animação da DreamWorks em que uma amizade desafia a tradição de um povo.",
+        "Meu protagonista é um jovem viking que não corresponde às expectativas de seu pai.",
+        "Em vez de matar uma criatura temida, ele decide ajudá-la a voltar a voar.",
+        "Soluço faz amizade com Banguela, um raro Fúria da Noite.",
+        "Na animação de 2010, a dupla mostra aos habitantes de Berk que seus antigos inimigos podem ser companheiros."
+      ]
+    },
+    {
+      "id": "o-senhor-dos-aneis-a-sociedade-do-anel",
+      "resposta": "O SENHOR DOS ANÉIS: A SOCIEDADE DO ANEL",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de fantasia que inicia uma trilogia dirigida por Peter Jackson.",
+        "Adapto a obra de J. R. R. Tolkien e acompanho uma jornada pela Terra-média.",
+        "Um hobbit recebe um objeto capaz de colocar muitos povos em perigo.",
+        "Frodo deixa o Condado com Sam e depois recebe a companhia de representantes de diferentes povos.",
+        "Gandalf, Aragorn, Legolas, Gimli e Boromir integram o grupo que parte de Valfenda para ajudar a destruir o Um Anel."
+      ]
+    },
+    {
+      "id": "o-gambito-da-rainha",
+      "resposta": "O GAMBITO DA RAINHA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma minissérie dramática sobre talento, ambição e dependência.",
+        "Minha protagonista desenvolve uma habilidade extraordinária ainda num orfanato.",
+        "Um funcionário da instituição a ensina a jogar um jogo de tabuleiro.",
+        "Beth Harmon enfrenta adversários em torneios de xadrez e também seus próprios vícios.",
+        "Anya Taylor-Joy interpreta a enxadrista nesta produção da Netflix ambientada em parte nos anos 1960."
+      ]
+    },
+    {
+      "id": "um-lugar-silencioso",
+      "resposta": "UM LUGAR SILENCIOSO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de suspense em que hábitos cotidianos podem se tornar fatais.",
+        "Uma família tenta sobreviver num mundo dominado por criaturas perigosas.",
+        "Os predadores localizam suas vítimas pelo som, exigindo extremo cuidado com qualquer ruído.",
+        "A família Abbott usa língua de sinais e caminhos de areia para reduzir os riscos.",
+        "John Krasinski e Emily Blunt interpretam os pais nesta história de 2018, que inclui a ameaça de um parto sem poder gritar."
+      ]
+    },
+    {
+      "id": "stalker",
+      "resposta": "STALKER",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme soviético de ficção científica com uma jornada de caráter filosófico.",
+        "Um guia conduz dois visitantes por uma área proibida após um acontecimento misterioso.",
+        "O destino da expedição é um recinto ao qual se atribui a realização de desejos profundos.",
+        "Os companheiros do guia são conhecidos como o Escritor e o Professor, e o território é chamado de Zona.",
+        "Andrei Tarkovsky dirigiu este longa de 1979, inspirado num romance dos irmãos Strugatsky."
+      ]
+    },
+    {
+      "id": "solaris",
+      "resposta": "SOLARIS",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme de ficção científica em que uma investigação espacial encontra questões íntimas.",
+        "Um psicólogo é enviado a uma estação cujos ocupantes relatam fenômenos inexplicáveis.",
+        "Durante a missão, lembranças e pessoas do passado parecem adquirir presença física.",
+        "Kris Kelvin reencontra uma figura ligada à esposa que havia perdido.",
+        "Nesta adaptação de Stanislaw Lem dirigida por Andrei Tarkovsky em 1972, o planeta estudado dá nome ao filme."
+      ]
+    },
+    {
+      "id": "persona",
+      "resposta": "PERSONA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama sueco que explora comunicação, silêncio e identidade.",
+        "Uma profissional da saúde recebe a tarefa de acompanhar uma artista.",
+        "A paciente é uma atriz que deixou de falar, e as duas se isolam numa casa à beira-mar.",
+        "Alma e Elisabet Vogler desenvolvem uma relação cada vez mais tensa.",
+        "Ingmar Bergman dirigiu este filme de 1966 com Bibi Andersson e Liv Ullmann nos papéis centrais."
+      ]
+    },
+    {
+      "id": "dogville",
+      "resposta": "DOGVILLE",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama em que a hospitalidade de uma comunidade é colocada à prova.",
+        "Uma fugitiva chega a uma pequena cidade e pede proteção contra gângsteres.",
+        "Ela oferece seu trabalho em troca de abrigo, mas as exigências dos moradores aumentam.",
+        "Minha encenação usa um espaço de aparência teatral, com casas delimitadas por marcas no chão.",
+        "Nicole Kidman interpreta Grace nesta obra de Lars von Trier de 2003, cujo título é o nome da cidade."
+      ]
+    },
+    {
+      "id": "o-homem-que-copiava",
+      "resposta": "O HOMEM QUE COPIAVA",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme brasileiro que mistura romance, humor e crime.",
+        "Meu protagonista trabalha numa papelaria e observa uma vizinha por sua janela.",
+        "Ele quer conseguir dinheiro para se aproximar da jovem por quem se interessou.",
+        "André opera uma fotocopiadora e passa a usar a máquina para falsificar cédulas.",
+        "Lázaro Ramos vive André e Leandra Leal interpreta Sílvia neste longa de Jorge Furtado lançado em 2003."
+      ]
+    },
+    {
+      "id": "o-som-ao-redor",
+      "resposta": "O SOM AO REDOR",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme brasileiro que encontra tensão nas relações de uma vizinhança.",
+        "Minha história acompanha moradores de uma rua de classe média do Recife.",
+        "A chegada de vigilantes particulares altera a sensação de segurança do local.",
+        "Entre os moradores está Bia, que se incomoda com os latidos constantes do cachorro de um vizinho.",
+        "Kleber Mendonça Filho dirigiu este longa com Irandhir Santos e Maeve Jinkings, no qual ruídos cotidianos ampliam a tensão."
+      ]
+    },
+    {
+      "id": "bacurau",
+      "resposta": "BACURAU",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme brasileiro que mistura gêneros ao retratar uma comunidade ameaçada.",
+        "Minha história se passa num povoado do sertão, num futuro próximo.",
+        "Depois da morte da matriarca Carmelita, os habitantes percebem que o lugar sumiu dos mapas.",
+        "A médica Domingas e a jovem Teresa integram uma comunidade que precisa organizar sua resistência.",
+        "Kleber Mendonça Filho e Juliano Dornelles dirigiram esta obra apresentada em Cannes em 2019, com Sonia Braga e Udo Kier."
+      ]
+    },
+    {
+      "id": "retrato-de-uma-jovem-em-chamas",
+      "resposta": "RETRATO DE UMA JOVEM EM CHAMAS",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um romance francês de época em que observar alguém se torna uma forma de aproximação.",
+        "Uma artista recebe uma encomenda relacionada a um casamento que ainda não aconteceu.",
+        "Ela precisa pintar a futura noiva em segredo, observando-a durante seus encontros.",
+        "Marianne e Héloïse se aproximam numa propriedade isolada junto ao mar no século XVIII.",
+        "Céline Sciamma dirigiu este filme de 2019 protagonizado por Noémie Merlant e Adèle Haenel."
+      ]
+    },
+    {
+      "id": "drive-my-car",
+      "resposta": "DRIVE MY CAR",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama japonês em que deslocamentos cotidianos abrem espaço para lidar com o luto.",
+        "Um ator e diretor de teatro aceita trabalhar num festival em Hiroshima.",
+        "A organização designa uma jovem para conduzir seu automóvel durante a estadia.",
+        "Yusuke Kafuku e a motorista Misaki Watari passam a compartilhar histórias num Saab vermelho.",
+        "Ryusuke Hamaguchi dirigiu esta adaptação de um conto de Haruki Murakami, apresentada em 2021."
+      ]
+    },
+    {
+      "id": "a-separacao",
+      "resposta": "A SEPARAÇÃO",
+      "tematicas": ["filmes-e-series"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um drama iraniano em que um conflito familiar se desdobra num impasse moral.",
+        "Um casal discorda sobre deixar o país ou permanecer para cuidar de um parente.",
+        "O marido fica com o pai, que tem Alzheimer, e contrata uma cuidadora.",
+        "Nader e Simin precisam lidar com o fim do casamento e com um conflito envolvendo a funcionária.",
+        "Asghar Farhadi dirigiu este filme de 2011, em que a filha Termeh é afetada pelas decisões dos pais."
+      ]
+    }
+  ]
+}

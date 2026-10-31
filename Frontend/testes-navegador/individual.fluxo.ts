@@ -494,7 +494,7 @@ test("captura visual da arena e da configuração", async ({ page }, info) => {
   });
 });
 
-test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos", async ({
+test("catálogos 003 e 004 preenchem expressões reais com sinais, acentos e algarismos", async ({
   page,
 }, info) => {
   test.setTimeout(90000);
@@ -505,12 +505,20 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
       dicas: string[];
       dificuldade: string;
     }[];
-  } = JSON.parse(
-    readFileSync(
-      new URL("../../Data/palavras/filmes-e-series-003.json", import.meta.url),
-      "utf8",
+  } = {
+    palavras: ["003", "004"].flatMap(
+      (lote) =>
+        JSON.parse(
+          readFileSync(
+            new URL(
+              `../../Data/palavras/filmes-e-series-${lote}.json`,
+              import.meta.url,
+            ),
+            "utf8",
+          ),
+        ).palavras,
     ),
-  );
+  };
   const exemplos = catalogo.palavras.filter((p) =>
     [
       "1917",
@@ -525,9 +533,18 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
       "brooklyn-nine-nine",
       "brilho-eterno-de-uma-mente-sem-lembrancas",
       "adeus-lenin",
+      "frozen-uma-aventura-congelante",
+      "lilo-e-stitch",
+      "ben-10",
+      "mulan",
+      "a-viagem-de-chihiro",
+      "como-treinar-o-seu-dragao",
+      "o-senhor-dos-aneis-a-sociedade-do-anel",
+      "retrato-de-uma-jovem-em-chamas",
+      "a-separacao",
     ].includes(p.id),
   );
-  expect(exemplos).toHaveLength(12);
+  expect(exemplos).toHaveLength(21);
   const controle = await preparar(page);
   let palavra = exemplos[0];
   let enviado = "";
@@ -591,9 +608,14 @@ test("catálogo 003 preenche expressões reais com sinais, acentos e algarismos"
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBeTruthy();
-    if (palavra.id === "brilho-eterno-de-uma-mente-sem-lembrancas")
+    if (
+      [
+        "brilho-eterno-de-uma-mente-sem-lembrancas",
+        "o-senhor-dos-aneis-a-sociedade-do-anel",
+      ].includes(palavra.id)
+    )
       await page.screenshot({
-        path: `test-results/catalogo-expressao-longa-${info.project.name}.png`,
+        path: `test-results/catalogo-${palavra.id}-${info.project.name}.png`,
         fullPage: true,
         animations: "disabled",
       });

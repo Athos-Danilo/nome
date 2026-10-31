@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "filmes-e-series-001",
+  "palavras": [
+    {
+      "id": "titanic",
+      "resposta": "TITANIC",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um filme dramático e romântico lançado no final dos anos noventa.",
+        "Minha narrativa se passa a bordo de uma famosa embarcação que partiu da Inglaterra.",
+        "Acompanho a história de amor entre jovens de diferentes classes sociais chamados Jack e Rose.",
+        "Fui dirigido por James Cameron e conquistei onze estatuetas do Oscar.",
+        "Retrato a trágica viagem inaugural de um navio gigante que colidiu com um iceberg em alto-mar."
+      ]
+    },
+    {
+      "id": "vingadores",
+      "resposta": "VINGADORES",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma produção cinematográfica de ação e super-heróis lançada em 2012.",
+        "Reúno personagens conhecidos dos quadrinhos em uma única equipe para defender a Terra.",
+        "A trama envolve deter o vilão Loki e recuperar o cubo cósmico conhecido como Tesseract.",
+        "A batalha climática do filme acontece nas ruas e nos céus da cidade de Nova York.",
+        "Mostro a formação do grupo liderado por Homem de Ferro, Capitão América e Thor."
+      ]
+    },
+    {
+      "id": "chaves",
+      "resposta": "CHAVES",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma série televisiva de comédia criada no México durante os anos setenta.",
+        "Meus episódios mostram o cotidiano bem-humorado dos moradores de uma vila humilde.",
+        "Personagens marcantes incluem um senhor desempregado, uma dona de casa exigente e uma garota esperta.",
+        "O protagonista adora comer sanduíche de presunto e se esconde com frequência em um barril.",
+        "O título da série leva o mesmo nome do menino órfão interpretado por Roberto Gómez Bolaños."
+      ]
+    },
+    {
+      "id": "matrix",
+      "resposta": "MATRIX",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um filme de ficção científica e ação lançado no ano de 1999.",
+        "Exploro um futuro distópico em que a realidade percebida pela humanidade é uma simulação virtual.",
+        "Minhas cenas de ação popularizaram o efeito visual de câmera lenta conhecido como bullet time.",
+        "Uma cena emblemática apresenta a escolha crucial entre tomar uma pílula azul ou uma pílula vermelha.",
+        "Acompanho o hacker Thomas Anderson, que adota o codinome Neo e descobre a verdade sobre as máquinas."
+      ]
+    },
+    {
+      "id": "shrek",
+      "resposta": "SHREK",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma animação computadorizada de comédia e fantasia lançada em 2001.",
+        "Subverto contos de fadas tradicionais apresentando criaturas mágicas e príncipes vaidosos.",
+        "O protagonista vive isolado em um pântano lamacento e tem como companheiro um burro falante.",
+        "Venci a primeira edição do Oscar na categoria de Melhor Filme de Animação.",
+        "Conto a jornada de resgate da princesa Fiona por um ogro verde e rabugento."
+      ]
+    },
+    {
+      "id": "stranger-things",
+      "resposta": "STRANGER THINGS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma popular série de suspense e ficção científica ambientada na década de oitenta.",
+        "A história se passa na pequena e fictícia cidadezinha de Hawkins, no estado de Indiana.",
+        "Um grupo de crianças anda de bicicleta e joga RPG enquanto investiga o desaparecimento de um amigo.",
+        "O enredo explora experimentos governamentais secretos e uma dimensão sombria chamada Mundo Invertido.",
+        "Apresento a garota com poderes telecinéticos chamada Eleven, que adora comer waffles."
+      ]
+    },
+    {
+      "id": "o-rei-leao",
+      "resposta": "O REI LEÃO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um aclamado longa-metragem de animação tradicional lançado pelos estúdios Disney em 1994.",
+        "Minha trilha sonora premiada inclui canções compostas por Elton John e Tim Rice.",
+        "A história se passa nas savanas africanas e é inspirada na tragédia teatral Hamlet de Shakespeare.",
+        "Dois amigos inseparáveis, um suricato e um javali, ensinam a filosofia de vida sem preocupações Hakuna Matata.",
+        "Acompanho o jovem leãozinho Simba em sua jornada para recuperar o trono usurpado pelo maldoso tio Scar."
+      ]
+    },
+    {
+      "id": "gladiador",
+      "resposta": "GLADIADOR",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um épico cinematográfico de drama histórico dirigido por Ridley Scott no ano 2000.",
+        "Minha trama é ambientada no auge do Império Romano durante o século segundo depois de Cristo.",
+        "O imperador traiçoeiro Cômodo usurpa o poder e manda assassinar a família de um leal general.",
+        "Fui premiado com cinco estatuetas do Oscar, incluindo a categoria de Melhor Filme.",
+        "Acompanho a vingança de Maximus Decimus Meridius nas arenas de combate do Coliseu."
+      ]
+    },
+    {
+      "id": "jurassic-park",
+      "resposta": "JURASSIC PARK",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um filme de aventura e ficção científica lançado em 1993 sob a direção de Steven Spielberg.",
+        "Baseio-me no livro de mesmo nome escrito pelo autor Michael Crichton.",
+        "Cientistas conseguem clonar animais pré-históricos a partir do DNA extraído de mosquitos fossilizados em âmbar.",
+        "A trama se desenrola em um parque temático instalado em uma ilha remota chamada Ilha Nublar.",
+        "Mostro o caos gerado quando dinossauros como o velociraptor e o tiranossauro rex escapam de suas jaulas."
+      ]
+    },
+    {
+      "id": "breaking-bad",
+      "resposta": "BREAKING BAD",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma aclamada série dramática de televisão norte-americana exibida entre 2008 e 2013.",
+        "A trama é ambientada na cidade desértica de Albuquerque, no estado do Novo México.",
+        "Um pacato professor de química do ensino médio recebe o diagnóstico de um câncer de pulmão terminal.",
+        "Ele se associa a um ex-aluno problemático chamado Jesse Pinkman para fabricar metanfetamina azul.",
+        "Acompanho a transformação de Walter White no temido e implacável criminoso conhecido como Heisenberg."
+      ]
+    },
+    {
+      "id": "o-poderoso-chefao",
+      "resposta": "O PODEROSO CHEFÃO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um clássico do cinema policial e dramático lançado em 1972 com direção de Francis Ford Coppola.",
+        "Baseio-me no romance do escritor Mario Puzo sobre o crime organizado ítalo-americano em Nova York.",
+        "A festa de casamento de Connie serve de cenário para apresentar os negócios e as relações da família.",
+        "Apresento a atuação marcante de Marlon Brando no papel do patriarca Don Vito Corleone.",
+        "Retrato a ascensão relutante do filho mais novo, Michael, ao comando dos negócios da máfia da família."
+      ]
+    },
+    {
+      "id": "interestelar",
+      "resposta": "INTERESTELAR",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de ficção científica e drama lançado em 2014 com direção de Christopher Nolan.",
+        "A Terra do futuro enfrenta pragas agrícolas e tempestades de poeira que ameaçam extinguir a vida humana.",
+        "Um grupo de astronautas é enviado através de um buraco de minhoca perto de Saturno em busca de um novo lar.",
+        "O físico Kip Thorne participou como consultor científico da representação de buracos negros e da relatividade.",
+        "O piloto Cooper vivencia dilatação temporal extrema em planetas vizinhos ao buraco negro chamado Gargantua."
+      ]
+    },
+    {
+      "id": "coringa",
+      "resposta": "CORINGA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um drama psicológico lançado em 2019 com direção de Todd Phillips.",
+        "A história se passa no início da década de oitenta na degradada cidade de Gotham.",
+        "O protagonista sobrevive trabalhando como palhaço de aluguel e sonha em ser um comediante de stand-up.",
+        "O ator Joaquin Phoenix venceu o Oscar de Melhor Ator por sua intensa interpretação corporal.",
+        "Retrato o colapso mental de Arthur Fleck até sua transformação no icônico vilão de cabelos verdes e sorriso maquiado."
+      ]
+    },
+    {
+      "id": "lost",
+      "resposta": "LOST",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série televisiva de drama e mistério exibida entre 2004 e 2010.",
+        "A trama tem início com a queda de um avião comercial de passageiros em uma misteriosa ilha tropical.",
+        "Os sobreviventes encontram escotilhas subterrâneas de uma misteriosa organização chamada Iniciativa Dharma.",
+        "Elementos enigmáticos incluem ursos polares na selva, uma nuvem de fumaça preta e uma famosa sequência repetida de seis números.",
+        "Acompanho personagens como Jack Shephard, John Locke e Kate Austen tentando sobreviver e desvendar os segredos da ilha."
+      ]
+    },
+    {
+      "id": "parasita",
+      "resposta": "PARASITA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de suspense e humor ácido sul-coreano lançado em 2019 sob a direção de Bong Joon-ho.",
+        "Exploro as profundas desigualdades sociais entre duas famílias da cidade de Seul.",
+        "Os membros de uma família pobre se infiltram aos poucos como funcionários na luxuosa mansão dos Park.",
+        "Fui a primeira produção em língua não inglesa a vencer o Oscar na cobiçada categoria de Melhor Filme.",
+        "A reviravolta central da história envolve a descoberta de um morador secreto vivendo escondido no porão da casa."
+      ]
+    },
+    {
+      "id": "clube-da-luta",
+      "resposta": "CLUBE DA LUTA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de suspense psicológico lançado em 1999 com direção de David Fincher.",
+        "Baseio-me no romance homônimo de autoria do escritor norte-americano Chuck Palahniuk.",
+        "Um narrador anônimo e deprimido sofre de insônia crônica e se sente vazio com a sociedade de consumo.",
+        "Ele conhece o carismático vendedor de sabão Tyler Durden e fundam uma organização clandestina de combate corporal.",
+        "Minha regra mais famosa e repetida é que você não deve falar sobre esta organização secreta."
+      ]
+    },
+    {
+      "id": "game-of-thrones",
+      "resposta": "GAME OF THRONES",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma aclamada série de fantasia medieval épica exibida pela HBO entre 2011 e 2019.",
+        "Baseio-me na saga literária As Crônicas de Gelo e Fogo do escritor George R. R. Martin.",
+        "Diversas casas nobres conspiram e guerreiam pelo controle político dos Sete Reinos no continente de Westeros.",
+        "Além das disputas pelo Trono de Ferro, uma ameaça gelada de Caminhantes Brancos avança além da grande Muralha.",
+        "Famílias famosas como os Stark, os Lannister e os Targaryen protagonizam disputas com dragões e traições sangrentas."
+      ]
+    },
+    {
+      "id": "pulp-fiction",
+      "resposta": "PULP FICTION",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um clássico do cinema policial lançado em 1994 com direção de Quentin Tarantino.",
+        "Minha narrativa inovadora e fragmentada apresenta várias histórias interligadas contadas fora de ordem cronológica.",
+        "Recebi a prestigiada Palma de Ouro no Festival de Cannes e venci o Oscar de Melhor Roteiro Original.",
+        "Uma cena inesquecível mostra Vincent Vega e Mia Wallace dançando twist descalços em uma lanchonete retrô.",
+        "Dois assassinos de terno preto conversam sobre hambúrgueres europeus enquanto buscam uma misteriosa maleta brilhante."
+      ]
+    },
+    {
+      "id": "peaky-blinders",
+      "resposta": "PEAKY BLINDERS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma série dramática britânica de época ambientada logo após o fim da Primeira Guerra Mundial.",
+        "A trama se passa nas ruas industriais e sombrias da cidade de Birmingham, na Inglaterra.",
+        "Acompanho uma ambiciosa família de gângsteres de ascendência cigana envolvida em apostas ilegais de cavalos.",
+        "Os membros da gangue usam elegantes ternos de lã e navalhas costuradas nas abas de suas boinas.",
+        "Thomas Shelby lidera sua organização criminosa com frieza, inteligência e cigarros sempre acesos."
+      ]
+    },
+    {
+      "id": "a-origem",
+      "resposta": "A ORIGEM",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um filme de ficção científica e ação cerebral lançado no ano de 2010 sob a direção de Christopher Nolan.",
+        "A trama gira em torno da espionagem corporativa através da invasão do subconsciente humano.",
+        "Uma equipe de especialistas usa tecnologia para entrar nos sonhos compartilhados de alvos influentes.",
+        "Em vez de roubar uma informação, o desafio da missão é implantar uma ideia na mente do herdeiro de um império.",
+        "O protagonista Dom Cobb utiliza um pequeno pião giratório como totem para verificar se está acordado ou sonhando."
+      ]
+    },
+    {
+      "id": "casablanca",
+      "resposta": "CASABLANCA",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um clássico do cinema dramático e romântico em preto e branco lançado em 1942.",
+        "Minha trama se passa em uma cidade portuária do Marrocos controlada pelo governo de Vichy durante a Segunda Guerra Mundial.",
+        "O protagonista Rick Blaine é um expatriado cínico que administra uma movimentada casa noturna e cassino.",
+        "Venci três estatuetas do Oscar, incluindo a prestigiosa categoria de Melhor Filme.",
+        "Mostro o reencontro doloroso entre Rick e sua antiga paixão Ilsa Lund ao som da clássica canção As Time Goes By."
+      ]
+    },
+    {
+      "id": "o-iluminado",
+      "resposta": "O ILUMINADO",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um aclamado filme de terror psicológico lançado em 1980 com direção de Stanley Kubrick.",
+        "Baseio-me na obra literária do renomado escritor de suspense Stephen King.",
+        "Um escritor em crise aceita o emprego de zelador de inverno em um isolado hotel nas montanhas do Colorado.",
+        "Fenômenos sobrenaturais perturbam a família e o garoto Danny se comunica telepaticamente através de um dom especial.",
+        "Jack Torrance sucumbe à loucura e quebra a porta do banheiro com um machado proferindo uma frase famosa."
+      ]
+    },
+    {
+      "id": "cidade-de-deus",
+      "resposta": "CIDADE DE DEUS",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um aclamado longa-metragem brasileiro de drama e ação lançado nos cinemas no ano de 2002.",
+        "Fui dirigido por Fernando Meirelles e Kátia Lund, baseado no romance homônimo do escritor Paulo Lins.",
+        "Conquistei quatro indicações ao Oscar, incluindo Melhor Diretor e Melhor Roteiro Adaptado.",
+        "A história é narrada por Buscapé, um jovem sensível que sonha em ser fotógrafo para escapar da violência do seu bairro.",
+        "Retrato a guerra sangrenta pelo controle do tráfico de drogas liderada pelo implacável Zé Pequeno em uma famosa favela carioca."
+      ]
+    },
+    {
+      "id": "psicose",
+      "resposta": "PSICOSE",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um célebre suspense psicológico em preto e branco lançado em 1960 com direção de Alfred Hitchcock.",
+        "Uma secretária rouba uma grande quantia de dinheiro da imobiliária onde trabalha e foge pela estrada durante uma tempestade.",
+        "Ela decide passar a noite em um motel de beira de estrada decadente administrado por um jovem tímido e reservado.",
+        "Uma cena histórica e aterradora no chuveiro é acompanhada pelo estridente som de violinos de Bernard Herrmann.",
+        "Norman Bates administra o motel, enquanto a casa no alto da colina e o mistério sobre sua mãe cercam o desaparecimento de Marion Crane."
+      ]
+    },
+    {
+      "id": "blade-runner",
+      "resposta": "BLADE RUNNER",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um filme seminal de ficção científica noir lançado em 1982 sob a direção de Ridley Scott.",
+        "Sou uma adaptação cinematográfica do romance de Philip K. Dick sobre ovelhas elétricas e androides.",
+        "A narrativa se passa em uma Los Angeles chuvosa, poluída e iluminada por imensos letreiros de neon no futuro.",
+        "Um teste de empatia psicológica chamado Voight-Kampff é usado para identificar humanos artificiais rebeldes.",
+        "O policial Rick Deckard tem como missão caçar e aposentar androides fugitivos biologicamente idênticos conhecidos como replicantes."
+      ]
+    }
+  ]
+}

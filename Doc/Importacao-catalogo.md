@@ -1,5 +1,7 @@
 # Catálogo e importação — fase 12
 
+**Atualização da fase 39, 30/10/2026:** 425 respostas nos arquivos, 375 publicadas localmente e 394 revisões. Filmes/séries fechado com 100 títulos e 500 dicas (40/35/25), após aprovação do lote 004 e três correções do 001. Revisões antigas preservadas e conferidas; [registro da fase](Revisoes/filmes-e-series-004.md#aprovação-e-fechamento-em-30102026). Registros das fases anteriores abaixo são históricos.
+
 **Atualização da fase 37, 2026-10-30:** 400 respostas produzidas nos arquivos, 350 publicadas localmente e 366 revisões históricas. Animais fechado com 100 respostas e 500 dicas, na distribuição 40/35/25. As 16 correções aprovadas do lote animais-001 foram publicadas por um comando separado de revisões, descrito ao final; o importador inicial mantém a recusa de sobrescritas. O registro de 2026-10-27 abaixo é histórico.
 
 **Situação em 2026-10-27:** importador implementado com PyMongo assíncrono; 125 respostas dos cinco lotes passaram pela validação completa dos arquivos. Os três lotes com aprovação editorial registrada foram importados no MongoDB local: **75 respostas, 375 dicas e 75 revisões iniciais**. Países e objetos continuam aguardando avaliação humana e não foram carregados. Nenhum conteúdo foi enviado ao Atlas.

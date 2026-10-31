@@ -5,7 +5,9 @@
     {
       "id": "titanic",
       "resposta": "TITANIC",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou um filme dramático e romântico lançado no final dos anos noventa.",
@@ -18,7 +20,9 @@
     {
       "id": "vingadores",
       "resposta": "VINGADORES",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou uma produção cinematográfica de ação e super-heróis lançada em 2012.",
@@ -31,7 +35,9 @@
     {
       "id": "chaves",
       "resposta": "CHAVES",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou uma série televisiva de comédia criada no México durante os anos setenta.",
@@ -44,7 +50,9 @@
     {
       "id": "matrix",
       "resposta": "MATRIX",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou um filme de ficção científica e ação lançado no ano de 1999.",
@@ -57,7 +65,9 @@
     {
       "id": "shrek",
       "resposta": "SHREK",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou uma animação computadorizada de comédia e fantasia lançada em 2001.",
@@ -70,7 +80,9 @@
     {
       "id": "stranger-things",
       "resposta": "STRANGER THINGS",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou uma popular série de suspense e ficção científica ambientada na década de oitenta.",
@@ -83,7 +95,9 @@
     {
       "id": "o-rei-leao",
       "resposta": "O REI LEÃO",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou um aclamado longa-metragem de animação tradicional lançado pelos estúdios Disney em 1994.",
@@ -96,7 +110,9 @@
     {
       "id": "gladiador",
       "resposta": "GLADIADOR",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou um épico cinematográfico de drama histórico dirigido por Ridley Scott no ano 2000.",
@@ -109,7 +125,9 @@
     {
       "id": "jurassic-park",
       "resposta": "JURASSIC PARK",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou um filme de aventura e ficção científica lançado em 1993 sob a direção de Steven Spielberg.",
@@ -122,7 +140,9 @@
     {
       "id": "breaking-bad",
       "resposta": "BREAKING BAD",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "facil",
       "dicas": [
         "Sou uma aclamada série dramática de televisão norte-americana exibida entre 2008 e 2013.",
@@ -135,12 +155,14 @@
     {
       "id": "o-poderoso-chefao",
       "resposta": "O PODEROSO CHEFÃO",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um clássico do cinema policial e dramático lançado em 1972 com direção de Francis Ford Coppola.",
         "Baseio-me no romance do escritor Mario Puzo sobre o crime organizado ítalo-americano em Nova York.",
-        "Minha famosa frase de abertura ressalta que a amizade é tudo e a lealdade à família vem em primeiro lugar.",
+        "A festa de casamento de Connie serve de cenário para apresentar os negócios e as relações da família.",
         "Apresento a atuação marcante de Marlon Brando no papel do patriarca Don Vito Corleone.",
         "Retrato a ascensão relutante do filho mais novo, Michael, ao comando dos negócios da máfia da família."
       ]
@@ -148,20 +170,24 @@
     {
       "id": "interestelar",
       "resposta": "INTERESTELAR",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um filme de ficção científica e drama lançado em 2014 com direção de Christopher Nolan.",
         "A Terra do futuro enfrenta pragas agrícolas e tempestades de poeira que ameaçam extinguir a vida humana.",
         "Um grupo de astronautas é enviado através de um buraco de minhoca perto de Saturno em busca de um novo lar.",
-        "O enredo utiliza teorias reais de relatividade e gravidade desenvolvidas pelo físico Kip Thorne.",
+        "O físico Kip Thorne participou como consultor científico da representação de buracos negros e da relatividade.",
         "O piloto Cooper vivencia dilatação temporal extrema em planetas vizinhos ao buraco negro chamado Gargantua."
       ]
     },
     {
       "id": "coringa",
       "resposta": "CORINGA",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um drama psicológico lançado em 2019 com direção de Todd Phillips.",
@@ -174,7 +200,9 @@
     {
       "id": "lost",
       "resposta": "LOST",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou uma série televisiva de drama e mistério exibida entre 2004 e 2010.",
@@ -187,7 +215,9 @@
     {
       "id": "parasita",
       "resposta": "PARASITA",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um filme de suspense e humor ácido sul-coreano lançado em 2019 sob a direção de Bong Joon-ho.",
@@ -200,7 +230,9 @@
     {
       "id": "clube-da-luta",
       "resposta": "CLUBE DA LUTA",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um filme de suspense psicológico lançado em 1999 com direção de David Fincher.",
@@ -213,7 +245,9 @@
     {
       "id": "game-of-thrones",
       "resposta": "GAME OF THRONES",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou uma aclamada série de fantasia medieval épica exibida pela HBO entre 2011 e 2019.",
@@ -226,7 +260,9 @@
     {
       "id": "pulp-fiction",
       "resposta": "PULP FICTION",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um clássico do cinema policial lançado em 1994 com direção de Quentin Tarantino.",
@@ -239,7 +275,9 @@
     {
       "id": "peaky-blinders",
       "resposta": "PEAKY BLINDERS",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou uma série dramática britânica de época ambientada logo após o fim da Primeira Guerra Mundial.",
@@ -252,7 +290,9 @@
     {
       "id": "a-origem",
       "resposta": "A ORIGEM",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "medio",
       "dicas": [
         "Sou um filme de ficção científica e ação cerebral lançado no ano de 2010 sob a direção de Christopher Nolan.",
@@ -265,7 +305,9 @@
     {
       "id": "casablanca",
       "resposta": "CASABLANCA",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "dificil",
       "dicas": [
         "Sou um clássico do cinema dramático e romântico em preto e branco lançado em 1942.",
@@ -278,7 +320,9 @@
     {
       "id": "o-iluminado",
       "resposta": "O ILUMINADO",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "dificil",
       "dicas": [
         "Sou um aclamado filme de terror psicológico lançado em 1980 com direção de Stanley Kubrick.",
@@ -291,7 +335,9 @@
     {
       "id": "cidade-de-deus",
       "resposta": "CIDADE DE DEUS",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "dificil",
       "dicas": [
         "Sou um aclamado longa-metragem brasileiro de drama e ação lançado nos cinemas no ano de 2002.",
@@ -304,20 +350,24 @@
     {
       "id": "psicose",
       "resposta": "PSICOSE",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "dificil",
       "dicas": [
         "Sou um célebre suspense psicológico em preto e branco lançado em 1960 com direção de Alfred Hitchcock.",
         "Uma secretária rouba uma grande quantia de dinheiro da imobiliária onde trabalha e foge pela estrada durante uma tempestade.",
         "Ela decide passar a noite em um motel de beira de estrada decadente administrado por um jovem tímido e reservado.",
         "Uma cena histórica e aterradora no chuveiro é acompanhada pelo estridente som de violinos de Bernard Herrmann.",
-        "A investigação revela os terríveis assassinatos cometidos pela mente perturbada de Norman Bates e sua falecida mãe."
+        "Norman Bates administra o motel, enquanto a casa no alto da colina e o mistério sobre sua mãe cercam o desaparecimento de Marion Crane."
       ]
     },
     {
       "id": "blade-runner",
       "resposta": "BLADE RUNNER",
-      "tematicas": ["filmes-e-series"],
+      "tematicas": [
+        "filmes-e-series"
+      ],
       "dificuldade": "dificil",
       "dicas": [
         "Sou um filme seminal de ficção científica noir lançado em 1982 sob a direção de Ridley Scott.",
