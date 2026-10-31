@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "animais-001",
+  "palavras": [
+    {
+      "id": "girafa",
+      "resposta": "GIRAFA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro originário do continente africano.",
+        "Minha pelagem amarelada é coberta por manchas marrons distintas.",
+        "Minha língua é escura, flexível e pode medir mais de quarenta centímetros.",
+        "Sou o animal terrestre mais alto do planeta.",
+        "Sou famosa por ter pernas compridas e um pescoço extremamente longo."
+      ]
+    },
+    {
+      "id": "elefante",
+      "resposta": "ELEFANTE",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um grande mamífero herbívoro que vive em manadas.",
+        "Tenho pele grossa, acinzentada e orelhas largas que ajudam a regular meu calor.",
+        "Possuo dentes incisivos compridos de marfim que crescem ao longo da vida.",
+        "Sou considerado o maior animal terrestre vivo da Terra.",
+        "Sou facilmente reconhecido pela minha tromba longa e flexível."
+      ]
+    },
+    {
+      "id": "leao",
+      "resposta": "LEÃO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero carnívoro de grande porte pertencente aos felinos.",
+        "Vivo em grupos sociais e habito savanas e campos abertos.",
+        "Meu rugido potente pode ser ouvido a vários quilômetros de distância.",
+        "Os machos da minha espécie desenvolvem uma juba densa e escura.",
+        "Sou popularmente conhecido na cultura popular como o rei da selva."
+      ]
+    },
+    {
+      "id": "golfinho",
+      "resposta": "GOLFINHO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero marinho carnívoro que precisa respirar ar na superfície.",
+        "Vivo em grupos e sou famoso pela alta inteligência e comunicação complexa.",
+        "Utilizo a ecolocalização para navegar e localizar presas no oceano.",
+        "Costumo saltar fora da água e acompanhar a proa de barcos e navios.",
+        "Meu corpo hidrodinâmico possui um orifício respiratório no topo da cabeça e um focinho alongado."
+      ]
+    },
+    {
+      "id": "pinguim",
+      "resposta": "PINGUIM",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ave adaptada a climas frios e ao ambiente marinho no hemisfério sul.",
+        "Minha plumagem preta e branca serve de camuflagem contra predadores na água.",
+        "Alimento-me principalmente de peixes e lulas que capturo em mergulhos profundos.",
+        "Não consigo voar pelo ar, mas minhas asas funcionam como eficientes nadadeiras.",
+        "Caminho sobre o gelo com passos curtos e desajeitados em grandes colônias."
+      ]
+    },
+    {
+      "id": "zebra",
+      "resposta": "ZEBRA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro nativo das savanas e planícies da África.",
+        "Pertenço à família dos equídeos, sendo parente próxima de cavalos e burros.",
+        "Vivo em grupos familiares que se reúnem em grandes manadas para migrar.",
+        "O padrão do meu desenho corporal é único para cada indivíduo, como uma impressão digital.",
+        "Minha pelagem é inconfundível por ser inteiramente listrada em preto e branco."
+      ]
+    },
+    {
+      "id": "tubarao",
+      "resposta": "TUBARÃO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um peixe carnívoro que habita mares e oceanos de todo o mundo.",
+        "Meu esqueleto é feito inteiramente de cartilagem em vez de ossos duros.",
+        "Possuo várias fileiras de dentes pontiagudos que se renovam com frequência.",
+        "Minha nadadeira dorsal triangular costuma ser temida quando vista na superfície da água.",
+        "Sou um dos principais predadores marinhos, com olfato apurado para detectar sangue."
+      ]
+    },
+    {
+      "id": "panda",
+      "resposta": "PANDA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero originário das florestas montanhosas do centro da China.",
+        "Embora pertença à ordem dos carnívoros, minha alimentação é quase totalmente vegetariana.",
+        "Minha dieta é composta praticamente por brotos e folhas de bambu.",
+        "Possuo um falso polegar nas patas dianteiras que ajuda a segurar caules.",
+        "Minha pelagem felpuda tem manchas pretas marcantes ao redor dos olhos e nas orelhas."
+      ]
+    },
+    {
+      "id": "canguru",
+      "resposta": "CANGURU",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro símbolo da fauna do continente australiano.",
+        "Minhas fêmeas carregam e amamentam os filhotes dentro de uma bolsa abdominal.",
+        "Minha cauda longa e musculosa serve de apoio para equilíbrio e impulsão.",
+        "Minhas patas traseiras são grandes e fortes, adaptadas para locomoção por saltos.",
+        "Sou o marsupial mais famoso do mundo por me deslocar pulando em alta velocidade."
+      ]
+    },
+    {
+      "id": "coruja",
+      "resposta": "CORUJA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ave de rapina predadora com hábitos predominantemente noturnos.",
+        "Possuo penas especiais nas asas que tornam o meu voo praticamente silencioso.",
+        "Meus olhos são grandes, voltados para a frente e fixos nas órbitas.",
+        "Consigo girar a cabeça em até duzentos e setenta graus para observar ao redor.",
+        "Sou popularmente associada à sabedoria e produzo um piado característico à noite."
+      ]
+    },
+    {
+      "id": "camelo",
+      "resposta": "CAMELO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um grande mamífero herbívoro adaptado à vida em regiões áridas e desertos.",
+        "Consigo passar muitos dias sem beber água suportando calor extremo.",
+        "Meus olhos possuem cílios longos e narinas que se fecham contra tempestades de areia.",
+        "Ao contrário do dromedário que possui uma elevação, tenho duas elevações nas costas.",
+        "Armazeno gordura em minhas duas corcovas dorsais para obter energia em longas jornadas."
+      ]
+    },
+    {
+      "id": "hipopotamo",
+      "resposta": "HIPOPÓTAMO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero semiaquático de grande porte nativo da África subsariana.",
+        "Passo grande parte do dia imerso em rios e lagos para manter a pele hidratada.",
+        "Apesar do corpo pesado e arredondado, consigo correr com surpreendente agilidade em terra.",
+        "Secreto um fluido avermelhado pela pele que atua como protetor solar natural.",
+        "Minha enorme boca pode se abrir em um ângulo de quase cento e cinquenta graus, revelando caninos compridos."
+      ]
+    },
+    {
+      "id": "coala",
+      "resposta": "COALA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um mamífero marsupial arborícola nativo da Austrália.",
+        "Passo a maior parte do dia dormindo nos galhos para economizar energia.",
+        "Minha alimentação é muito restrita e baseada quase exclusivamente em folhas de eucalipto.",
+        "Possuo nariz grande e escuro e orelhas arredondadas com pelos felpudos.",
+        "Raramente desço ao chão e obtenho quase toda a água de que preciso mastigando folhas."
+      ]
+    },
+    {
+      "id": "camaleao",
+      "resposta": "CAMALEÃO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um réptil arborícola insetívoro encontrado principalmente na África e em Madagascar.",
+        "Minhas patas têm formato de pinça e minha cauda preênsil ajuda a segurar galhos.",
+        "Meus olhos se movem de forma independente, permitindo enxergar em duas direções ao mesmo tempo.",
+        "Minha língua elástica e pegajosa é disparada em alta velocidade para capturar presas.",
+        "Sou famoso pela notável capacidade de mudar a cor da minha pele para camuflagem e comunicação."
+      ]
+    },
+    {
+      "id": "leopardo",
+      "resposta": "LEOPARDO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um felino carnívoro de médio a grande porte nativo da África e da Ásia.",
+        "Tenho corpo esguio e musculoso, com excelente habilidade para escalar árvores.",
+        "Costumo içar carcaças pesadas de presas até os galhos mais altos para evitar concorrentes.",
+        "Minha pelagem é coberta por manchas em formato circular chamadas rosetas, sem pontos centrais.",
+        "Indivíduos com excesso de pigmentação escura na minha espécie são frequentemente chamados de panteras negras."
+      ]
+    },
+    {
+      "id": "suricato",
+      "resposta": "SURICATO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um pequeno mamífero carnívoro que habita regiões secas do sul da África.",
+        "Pertenço à família dos mangustos e vivo em colônias subterrâneas bem organizadas.",
+        "Alimento-me de insetos, aranhas e possuo imunidade ao veneno de certos escorpiões.",
+        "Manchas escuras ao redor dos meus olhos ajudam a diminuir o reflexo da luz solar.",
+        "Costumo ficar em pé sobre as duas patas traseiras vigiando o céu como sentinela do grupo."
+      ]
+    },
+    {
+      "id": "jacare",
+      "resposta": "JACARÉ",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um réptil carnívoro semiaquático comum em rios, pântanos e lagoas das Américas.",
+        "Meu corpo é revestido por escamas duras e placas ósseas protetoras.",
+        "Passo horas tomando sol nas margens para aquecer meu corpo de sangue frio.",
+        "Diferencio-me do crocodilo pelo focinho mais largo e em formato arredondado.",
+        "Quando fecho a mandíbula, meus dentes inferiores não ficam visíveis pelo lado de fora."
+      ]
+    },
+    {
+      "id": "gorila",
+      "resposta": "GORILA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um primata herbívoro que habita florestas tropicais da África Central.",
+        "Vivo em grupos liderados por um macho dominante mais experiente.",
+        "Possuo braços muito compridos e locomovo-me apoiando os nós dos dedos no chão.",
+        "O líder protetor do grupo ganha uma pelagem prateada no dorso com a maturidade.",
+        "Sou o maior e mais pesado de todos os primatas existentes no planeta."
+      ]
+    },
+    {
+      "id": "avestruz",
+      "resposta": "AVESTRUZ",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave herbívora nativa das savanas e zonas semiáridas do continente africano.",
+        "Meus olhos são maiores do que meu próprio cérebro e tenho pescoço comprido e sem penas densas.",
+        "Não tenho a capacidade de voar, mas minhas pernas fortes me permitem correr em alta velocidade.",
+        "Coloco os maiores ovos entre todas as espécies de aves vivas da atualidade.",
+        "Sou considerada a maior e mais pesada espécie de ave do mundo."
+      ]
+    },
+    {
+      "id": "rinoceronte",
+      "resposta": "RINOCERONTE",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um grande mamífero herbívoro que habita regiões da África e do sul da Ásia.",
+        "Minha visão é relativamente fraca, mas compenso com olfato e audição aguçados.",
+        "Tenho corpo maciço protegido por uma pele espessa que parece uma couraça.",
+        "Minha estrutura frontal mais famosa é formada por queratina compactada, a mesma matéria do cabelo.",
+        "Possuo um ou dois chifres proeminentes sobre o focinho que me tornam inconfundível."
+      ]
+    },
+    {
+      "id": "ornitorrinco",
+      "resposta": "ORNITORRINCO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero semiaquático endêmico do leste da Austrália e da Tasmânia.",
+        "Ao contrário da maioria dos mamíferos, minha reprodução ocorre através da postura de ovos.",
+        "Os machos da minha espécie possuem um esporão nas patas traseiras capaz de inocular veneno doloroso.",
+        "Nado de olhos e ouvidos fechados, usando eletrorrecepção para localizar presas no leito dos rios.",
+        "Chamo atenção pela aparência inusitada que combina cauda achatada de castor e bico semelhante ao de pato."
+      ]
+    },
+    {
+      "id": "pangolim",
+      "resposta": "PANGOLIM",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero insetívoro solitário e de hábitos noturnos que vive na África e na Ásia.",
+        "Minha alimentação consiste em formigas e cupins que capturo com uma língua extremamente longa e pegajosa.",
+        "Não possuo dentes, triturando o alimento no estômago com a ajuda de pequenas pedras engolidas.",
+        "Sou o único mamífero conhecido no planeta cujo corpo é inteiramente revestido por grandes escamas de queratina.",
+        "Quando me sinto ameaçado por predadores, enrolo meu corpo formando uma bola rígida e quase impenetrável."
+      ]
+    },
+    {
+      "id": "equidna",
+      "resposta": "EQUIDNA",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno mamífero terrestre solitário encontrado apenas na Austrália e na Nova Guiné.",
+        "Junto com o ornitorrinco, sou um dos raríssimos mamíferos monotremados que põem ovos.",
+        "Possuo um focinho fino e alongado que atua como órgão sensorial para farejar insetos no solo.",
+        "Minha língua comprida e pegajosa é utilizada para capturar cupins e formigas rapidamente.",
+        "Meu corpo é recoberto por pelos misturados a uma densa camada de espinhos pontiagudos de defesa."
+      ]
+    },
+    {
+      "id": "axolote",
+      "resposta": "AXOLOTE",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma espécie de anfíbio originária do complexo lacustre de Xochimilco, no México.",
+        "Mantenho características larvais ao longo de toda a vida adulta, fenômeno conhecido como neotenia.",
+        "Tenho brânquias externas ramificadas em formato de plumas que se projetam atrás da cabeça.",
+        "Sou amplamente estudado pela ciência devido à extraordinária capacidade de regenerar membros e tecidos perdidos.",
+        "Passo a vida inteira na água parecendo uma salamandra aquática jovem com um rosto de sorriso característico."
+      ]
+    },
+    {
+      "id": "ocapi",
+      "resposta": "OCAPI",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero herbívoro esquivo e solitário que habita as densas florestas tropicais da República Democrática do Congo.",
+        "Minha língua preta e preênsil é tão longa que consigo usá-la para limpar as próprias pálpebras e orelhas.",
+        "Embora as listras horizontais nas minhas pernas lembrem uma zebra, não pertenço à família dos equídeos.",
+        "Os machos da minha espécie apresentam pequenos cornos cobertos de pele no alto da cabeça chamados ossicones.",
+        "Sou o único parente vivo e sobrevivente da girafa, compartilhando sua estrutura corporal e marcha peculiar."
+      ]
+    }
+  ]
+}

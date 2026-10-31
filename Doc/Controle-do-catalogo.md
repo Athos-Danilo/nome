@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** quinze lotes produzidos: 375 respostas e 1.875 dicas, todos aprovados na validação automática completa. Doze lotes aprovados pelo responsável e importados localmente: 300 respostas e 1.500 dicas, incluindo objetos-003 na fase 35. Países-001, objetos-001 e animais-002 permanecem em avaliação humana, sem carga. Nenhum lote foi conferido no Atlas.
+**Situação atual:** dezesseis lotes produzidos: 400 respostas e 2.000 dicas, aprovados na validação automática completa. Quatorze lotes aprovados pelo responsável e importados localmente: 350 respostas e 1.750 dicas. Animais é a primeira temática fechada: 100 respostas, 500 dicas, distribuição 40/35/25. As correções aprovadas de 25 dicas em 16 animais do lote 001 foram publicadas como revisão 2, preservando as revisões 1; há 366 revisões no banco. Países-001 e objetos-001 continuam em avaliação humana, sem carga. Atlas não acessado.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -25,7 +25,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Importado localmente |
 | 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
 | 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Em revisão (avaliação humana pendente) |
-| 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Em revisão (avaliação humana pendente) |
+| 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Importado localmente (aprovação resolvida na fase 37) |
 | 16 | 3 | `filmes-e-series-002.json` | 10 | 10 | 5 | 25 | 175 | Importado localmente |
 | 18 | 3 | `marcas-002.json` | 10 | 10 | 5 | 25 | 200 | Importado localmente |
 | 21 | 3 | `paises-002.json` | 10 | 10 | 5 | 25 | 225 | Importado localmente |
@@ -35,7 +35,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 30 | 5 | `marcas-003.json` | 10 | 10 | 5 | 25 | 325 | Importado localmente |
 | 32 | 5 | `paises-003.json` | 10 | 10 | 5 | 25 | 350 | Importado localmente |
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Importado localmente |
-| 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Não iniciado |
+| 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Importado localmente |
 | 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Não iniciado |
 | 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Não iniciado |
 | 44 | 7 | `paises-004.json` | 10 | 5 | 10 | 25 | 475 | Não iniciado |
@@ -341,12 +341,12 @@ Atualizar esta tabela a partir de evidências. Não preencher com os totais prev
 
 | Temática | Meta de respostas | Geradas | Aprovadas | Importadas localmente | Conferidas no Atlas |
 | --- | --- | --- | --- | --- | --- |
-| Animais | 100 | 75 | 50 | 50 | 0 |
+| Animais | 100 | 100 | 100 | 100 | 0 |
 | Filmes e séries | 100 | 75 | 75 | 75 | 0 |
 | Marcas | 100 | 75 | 75 | 75 | 0 |
 | Países | 100 | 75 | 50 | 50 | 0 |
 | Objetos | 100 | 75 | 50 | 50 | 0 |
-| **Total** | **500** | **375** | **300** | **300** | **0** |
+| **Total** | **500** | **400** | **350** | **350** | **0** |
 
 ## 6. Fechamento global
 
@@ -369,3 +369,15 @@ Lote [paises-003](../Data/palavras/paises-003.json): 25 países novos e 125 dica
 ## 10. Conclusão da fase 35
 
 Lote [objetos-003](../Data/palavras/objetos-003.json): 25 respostas novas, 125 dicas, distribuição 10/10/5. Validação global: quinze lotes, 375 respostas e 1.875 dicas. Conferência sem escrita: 25 novos, zero idênticos e zero recuperáveis. Banco preservado em 275 respostas, 1.375 dicas e 275 revisões. Fontes, grafias e cuidados editoriais em [Revisoes/objetos-003.md](Revisoes/objetos-003.md). Após aprovação expressa do responsável em 2026-10-30, importado somente objetos-003: 25 respostas publicadas sem sobrescritas. Conferência posterior: zero novos, 25 idênticos e zero recuperáveis. Banco final: 300 respostas, 1.500 dicas e 300 revisões; objetos possui 50 respostas importadas, distribuição 20/20/10. Os outros três lotes pendentes continuam sem carga. A fase 35 foi adiantada por decisão do responsável; a fase 34 permanece pendente. Atlas não acessado.
+
+## 11. Conclusão da fase 37 — primeira temática fechada
+
+Em 2026-10-30, o responsável aprovou o lote animais-004 e as correções do animais-001. A resposta inicial de pedido de ajuste do animais-002 foi corrigida pelo próprio responsável: “respondi errado kkk pode arrumar da forma que quiser”. A avaliação editorial existente do 002 foi mantida, sem alterações, e a importação seguiu essa correção de resposta.
+
+Foram importados somente animais-002 e animais-004: 50 novos. A conferência posterior reconheceu 50 idênticos, zero novos e zero recuperáveis. As 25 dicas corrigidas de 16 animais do lote 001 foram publicadas na revisão 2 por comando explícito, com revisão 1 preservada. Os nove animais sem mudança continuam na revisão 1. Arquivo original arquivado fora da pasta de produção, em Data/historico/animais-001/revisao-001/animais-001.json; arquivo de produção sincronizado com o conteúdo aprovado.
+
+Auditoria real no MongoDB: 100 animais únicos, 500 dicas, distribuição 40 fáceis/35 médios/25 difíceis; as 25 revisões 1 do lote 001 foram comparadas ao arquivo histórico e preservadas. Total do catálogo local: 350 respostas, 1.750 dicas e 366 revisões. A conferência global dos 16 lotes encontrou 350 idênticos e 50 novos, que são os dois lotes de outras temáticas ainda não autorizados. Arquivos de produção: 400 respostas e 2.000 dicas, sem duplicatas.
+
+TDD da publicação de revisões: testes falharam pela ausência do serviço/comando antes da implementação. Recuperação de reserva, concorrência, recusa de alteração de identidade/dificuldade, base divergente, plano antigo, reexecução idempotente e leitura das dicas históricas pelo adaptador do jogo foram verificados. Cinquenta testes de conteúdo, validação e integração MongoDB aprovados; Ruff e formatação aprovados. Sem mudanças no frontend, dependências, estrutura de dados ou PostgreSQL. Fontes, critérios e evidências em [animais-004](Revisoes/animais-004.md), [auditoria](Revisoes/animais-auditoria.md) e [publicação de revisões](Importacao-catalogo.md#correções-de-dicas-com-revisões--fase-37).
+
+Países-001 e objetos-001 permanecem sem carga. Atlas não acessado. A meta acumulada de 400 refere-se aos arquivos produzidos; o total aprovado/publicado é 350.

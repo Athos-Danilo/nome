@@ -1,6 +1,6 @@
 # Revisão do lote animais 002
 
-**Data:** 2026-10-27. **Responsável:** Codex, revisão editorial por IA, pesquisa de fatos e validação completa pelo importador. Avaliação humana pendente; o lote não foi importado.
+**Data:** 2026-10-27. **Responsável:** Codex, revisão editorial por IA, pesquisa de fatos e validação completa pelo importador. Aprovação resolvida e importação concluída na fase 37, em 2026-10-30; o restante do relatório preserva o registro da preparação de 2026-10-27.
 
 ## Seleção
 
@@ -63,3 +63,9 @@ Foram evitadas população atual, categoria de ameaça, recordes sem contexto e 
 A produção técnica do dia 2 está fechada, com 14 fases executadas e 150 de 500 respostas produzidas (**30% da meta de conteúdo**). Permanecem 350 respostas para os lotes intercalados seguintes. Países, objetos e este lote somam 75 respostas aguardando avaliação humana; não aumentar o total aprovado ou importado por causa da validação automática.
 
 Os sete dias do roteiro são referência de organização, dentro da estimativa de até um mês; não representam promessa de concluir autenticação, perfil e demonstração em um único dia. O terceiro ciclo começa pela configuração Google e hospedagem, que envolve acesso do responsável. Manter os lotes intercalados e revisar os lotes pendentes antes das próximas cargas, sem reduzir a meta ou adiantar fases dependentes de decisões pessoais.
+
+## Aprovação e importação na fase 37
+
+Em 2026-10-30, o responsável corrigiu sua resposta inicial de pedido de ajustes: “respondi errado kkk pode arrumar da forma que quiser”. A revisão editorial existente foi mantida, sem alteração de conteúdo; a carga seguiu a correção da resposta sobre a aprovação de importação. Animais-002 e animais-004 foram importados juntos: 50 novos, depois reconhecidos como 50 idênticos, zero novos e zero recuperáveis.
+
+O lote 002 possui 25 respostas e 125 dicas publicadas na distribuição 10/10/5. A temática animais foi fechada com 100 respostas, 500 dicas e distribuição 40/35/25. As correções do lote 001 foram publicadas separadamente como novas revisões, preservando as antigas. Total final do banco: 350 respostas, 1.750 dicas e 366 revisões. Países-001 e objetos-001 não foram importados por esta ação; Atlas não acessado.

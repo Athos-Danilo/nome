@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "animais-004",
+  "palavras": [
+    {
+      "id": "baleia",
+      "resposta": "BALEIA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero que passa a vida na água.",
+        "Preciso subir à superfície para respirar ar.",
+        "Minha cauda se movimenta para cima e para baixo, em vez de bater de um lado para o outro como a de muitos peixes.",
+        "Meu grupo inclui a jubarte, conhecida pelos cantos e pelos saltos fora da água.",
+        "Na espécie azul, sou o enorme cetáceo que pode ultrapassar trinta metros de comprimento."
+      ]
+    },
+    {
+      "id": "cobra",
+      "resposta": "COBRA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um réptil encontrado em ambientes muito diferentes.",
+        "Meu corpo é alongado e coberto por escamas.",
+        "Troco a camada externa da pele ao crescer.",
+        "Uso a língua bifurcada para recolher partículas químicas do ambiente; algumas espécies do meu grupo são peçonhentas.",
+        "Não tenho patas e me desloco rastejando; meu nome mais comum tem cinco letras e começa com C."
+      ]
+    },
+    {
+      "id": "burro",
+      "resposta": "BURRO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um mamífero herbívoro domesticado.",
+        "Pertenço à família dos cavalos e tenho cascos.",
+        "Minha força é utilizada no transporte de cargas em áreas rurais.",
+        "Tenho orelhas compridas e meu chamado característico é o zurro.",
+        "Sou o asinino doméstico também chamado de jumento; a resposta pedida tem cinco letras e começa com B."
+      ]
+    },
+    {
+      "id": "mosquito",
+      "resposta": "MOSQUITO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto de pequeno porte.",
+        "Minha fase de larva se desenvolve na água.",
+        "Na fase adulta, tenho pernas finas e um par de asas.",
+        "Em muitas espécies, as fêmeas procuram sangue para desenvolver os ovos, enquanto os machos não fazem isso.",
+        "Sou o pequeno voador associado ao zumbido perto do ouvido e às picadas, também conhecido popularmente como pernilongo."
+      ]
+    },
+    {
+      "id": "mosca",
+      "resposta": "MOSCA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto que pode ser encontrado perto das pessoas.",
+        "Passo por fases de ovo, larva, pupa e adulto.",
+        "Tenho um par de asas usado no voo e outro par reduzido que ajuda no equilíbrio.",
+        "Na espécie doméstica, sou atraída por restos de comida e não possuo um aparelho para picar e sugar sangue.",
+        "Sou o inseto de olhos grandes que costuma pousar nos alimentos e que se tenta afastar com um mata-insetos de cabo e tela."
+      ]
+    },
+    {
+      "id": "barata",
+      "resposta": "BARATA",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto com espécies que vivem em muitos ambientes.",
+        "Tenho corpo achatado e antenas longas.",
+        "Costumo correr para uma fresta quando sou descoberta.",
+        "Algumas espécies se adaptaram às casas e procuram alimento principalmente à noite.",
+        "Sou o inseto geralmente castanho, de corpo oval, associado a esconderijos atrás de armários e ao susto de acender a luz da cozinha."
+      ]
+    },
+    {
+      "id": "gafanhoto",
+      "resposta": "GAFANHOTO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto frequentemente encontrado em áreas com vegetação.",
+        "Muitas espécies do meu grupo se alimentam de folhas e outras partes das plantas.",
+        "Minhas patas traseiras são maiores e mais fortes do que as dianteiras.",
+        "Uso essas patas para saltar e, em geral, tenho antenas mais curtas que as dos grilos.",
+        "Sou o inseto saltador cujo grupo inclui espécies capazes de formar grandes enxames que consomem plantações."
+      ]
+    },
+    {
+      "id": "caracol",
+      "resposta": "CARACOL",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um invertebrado de corpo mole.",
+        "Na forma terrestre mais conhecida, procuro ambientes úmidos.",
+        "Deslizo sobre uma parte muscular do corpo e produzo muco durante o deslocamento.",
+        "Ao contrário de uma lesma sem grande concha externa, carrego uma proteção enrolada em espiral.",
+        "Sou o pequeno molusco representado com sua concha nas costas; o nome pedido tem sete letras e começa com C."
+      ]
+    },
+    {
+      "id": "pombo",
+      "resposta": "POMBO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma ave que se adaptou bem à convivência com seres humanos.",
+        "Posso ser visto procurando sementes e restos de alimento pelo chão.",
+        "Nas cidades, uso prédios e outras estruturas como abrigo.",
+        "Minha forma doméstica descende de uma ave que vive em paredões rochosos.",
+        "Sou a ave comum nas praças cuja capacidade de voltar ao abrigo foi aproveitada no transporte de mensagens."
+      ]
+    },
+    {
+      "id": "grilo",
+      "resposta": "GRILO",
+      "tematicas": ["animais"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um inseto que pode viver entre plantas ou em abrigos no solo.",
+        "Tenho patas traseiras adaptadas ao salto.",
+        "Minhas antenas costumam ser longas, diferentemente das dos gafanhotos.",
+        "Em muitas espécies, o macho produz som ao atritar partes das asas dianteiras.",
+        "Sou o pequeno cantor associado ao cri-cri ouvido à noite; meu nome tem cinco letras."
+      ]
+    },
+    {
+      "id": "aguia",
+      "resposta": "ÁGUIA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ave que captura outros animais para se alimentar.",
+        "Tenho visão apurada e posso observar o terreno enquanto voo.",
+        "Meu bico curvo e minhas garras fortes ajudam a segurar e consumir presas.",
+        "Uma representante muito conhecida na América do Norte tem cabeça branca e corpo escuro.",
+        "Essa representante aparece no grande selo dos Estados Unidos; o nome geral pedido tem cinco letras e começa com Á."
+      ]
+    },
+    {
+      "id": "cavalo-marinho",
+      "resposta": "CAVALO-MARINHO",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um pequeno vertebrado que vive na água salgada.",
+        "Apesar da aparência incomum, sou um peixe.",
+        "Costumo nadar em posição vertical e posso me prender à vegetação com a cauda.",
+        "A fêmea transfere os ovos para uma bolsa no corpo do macho, que os abriga durante o desenvolvimento.",
+        "Tenho focinho tubular e a cabeça lembra a de um animal de montaria, embora meu corpo seja o de um peixe."
+      ]
+    },
+    {
+      "id": "bicho-pau",
+      "resposta": "BICHO-PAU",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um inseto que se alimenta de plantas.",
+        "Minha aparência ajuda a passar despercebido na vegetação.",
+        "Posso ficar imóvel por bastante tempo para dificultar que um predador me perceba.",
+        "Meu corpo costuma ser muito alongado, com pernas finas que reforçam meu disfarce.",
+        "Sou o inseto cujo corpo parece um graveto ou um pequeno ramo seco."
+      ]
+    },
+    {
+      "id": "louva-a-deus",
+      "resposta": "LOUVA-A-DEUS",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um inseto que caça outros animais pequenos.",
+        "Posso esperar imóvel até uma presa ficar ao meu alcance.",
+        "Tenho cabeça triangular e olhos compostos bem visíveis.",
+        "Minhas patas dianteiras são adaptadas para agarrar as presas, em vez de servir apenas para caminhar.",
+        "A posição dessas patas dobradas diante do corpo lembra a de alguém fazendo uma oração."
+      ]
+    },
+    {
+      "id": "agua-viva",
+      "resposta": "ÁGUA-VIVA",
+      "tematicas": ["animais"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um invertebrado encontrado em ambientes aquáticos.",
+        "Minha forma mais conhecida tem corpo gelatinoso e vive no mar.",
+        "Possuo células especializadas que ajudam a capturar presas e podem causar acidentes por contato.",
+        "Meu corpo lembra uma sombrinha, com tentáculos em muitas espécies, e pode se contrair durante o deslocamento.",
+        "Sou a medusa gelatinosa que pode aparecer perto da praia; o nome pedido tem duas partes ligadas por hífen."
+      ]
+    },
+    {
+      "id": "vombate",
+      "resposta": "VOMBATE",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero herbívoro nativo da Austrália.",
+        "Pertenço aos marsupiais e tenho corpo robusto, com pernas curtas.",
+        "Minhas garras ajudam a escavar tocas onde posso me abrigar.",
+        "A bolsa da fêmea se abre para trás, o que ajuda a evitar a entrada de terra durante a escavação.",
+        "Pareço um pequeno urso atarracado, mas sou um parente do coala conhecido por viver em tocas e produzir fezes de formato aproximadamente cúbico."
+      ]
+    },
+    {
+      "id": "quokka",
+      "resposta": "QUOKKA",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno mamífero herbívoro australiano.",
+        "Sou um marsupial da mesma família dos cangurus.",
+        "Tenho pelagem castanho-acinzentada, orelhas arredondadas e cauda relativamente curta.",
+        "Uma população bastante conhecida vive na ilha de Rottnest, na Austrália Ocidental.",
+        "Sou o pequeno marsupial de Rottnest chamado cientificamente de Setonix brachyurus; meu nome tem seis letras e começa com Q."
+      ]
+    },
+    {
+      "id": "diabo-da-tasmania",
+      "resposta": "DIABO-DA-TASMÂNIA",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero marsupial que se alimenta de outros animais.",
+        "Tenho corpo robusto, pelagem escura e cabeça relativamente grande.",
+        "Aproveito carcaças e minhas mandíbulas conseguem quebrar ossos.",
+        "Meus gritos e rosnados durante encontros para alimentação ajudaram a criar minha fama assustadora.",
+        "Sou o marsupial carnívoro associado à ilha australiana onde vive a espécie que inspirou o personagem Taz."
+      ]
+    },
+    {
+      "id": "aie-aie",
+      "resposta": "AIE-AIE",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um mamífero que vive nas árvores.",
+        "Sou um primata de hábitos noturnos originário de Madagascar.",
+        "Tenho orelhas grandes e incisivos que continuam crescendo.",
+        "Bato nos troncos e escuto para localizar cavidades que podem conter alimento.",
+        "Uso um dedo médio muito fino e alongado para retirar larvas da madeira; meu nome repete duas vezes o mesmo grupo de três letras."
+      ]
+    },
+    {
+      "id": "quivi",
+      "resposta": "QUIVI",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma ave que procura alimento pelo chão.",
+        "Sou nativa da Nova Zelândia e não consigo voar.",
+        "Minha plumagem tem um aspecto que lembra pelos, cobrindo também as pequenas asas.",
+        "Meu bico é longo e tem narinas perto da ponta, úteis na procura de alimento pelo olfato.",
+        "Sou a ave do gênero Apteryx associada à identidade neozelandesa; a grafia portuguesa pedida tem cinco letras e começa com Q."
+      ]
+    },
+    {
+      "id": "bico-de-sapato",
+      "resposta": "BICO-DE-SAPATO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma ave africana de grande porte.",
+        "Vivo em áreas alagadas e posso esperar imóvel pela aproximação de alimento.",
+        "Tenho pernas compridas e plumagem predominantemente cinza.",
+        "Capturo peixes usando uma estrutura muito larga na parte da frente da cabeça.",
+        "Essa estrutura é enorme, tem uma ponta em gancho e lembra um calçado de madeira, característica que explica meu nome."
+      ]
+    },
+    {
+      "id": "secretario",
+      "resposta": "SECRETÁRIO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma ave de rapina nativa da África.",
+        "Embora consiga voar, procuro muitas das minhas presas caminhando pelo chão.",
+        "Tenho pernas muito longas e penas escuras que formam uma crista atrás da cabeça.",
+        "Uso golpes dos pés para atingir presas, entre elas serpentes.",
+        "Sou a ave de longas pernas da espécie Sagittarius serpentarius; meu nome também designa um profissional de apoio administrativo."
+      ]
+    },
+    {
+      "id": "dragao-de-komodo",
+      "resposta": "DRAGÃO-DE-KOMODO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um réptil carnívoro que vive em ilhas.",
+        "Minha distribuição natural fica em uma pequena região da Indonésia.",
+        "Tenho cauda forte, garras e uma língua longa e bifurcada.",
+        "Sou um varano capaz de capturar animais de grande porte e também aproveitar carcaças.",
+        "Sou o maior lagarto vivente, encontrado em ilhas indonésias como Rinca e Flores."
+      ]
+    },
+    {
+      "id": "peixe-lua",
+      "resposta": "PEIXE-LUA",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um vertebrado marinho de corpo muito incomum.",
+        "Tenho esqueleto ósseo e posso atingir um tamanho bastante grande.",
+        "Meu corpo é alto e achatado lateralmente, com nadadeiras dorsal e anal bem evidentes.",
+        "Minha parte traseira parece cortada, em vez de terminar numa cauda típica de muitos outros peixes.",
+        "Sou o grande animal de corpo arredondado chamado Mola mola; meu nome popular faz referência ao satélite natural da Terra."
+      ]
+    },
+    {
+      "id": "dragao-marinho-folhado",
+      "resposta": "DRAGÃO-MARINHO-FOLHADO",
+      "tematicas": ["animais"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um peixe encontrado junto à vegetação submersa.",
+        "Minha distribuição natural fica nas águas costeiras do sul da Austrália.",
+        "Sou parente dos cavalos-marinhos e tenho um focinho tubular.",
+        "Meu corpo apresenta prolongamentos que ajudam a me confundir com as algas ao redor.",
+        "Sou a espécie Phycodurus eques, camuflada como vegetação, cujo macho carrega os ovos presos à parte inferior da cauda, sem a bolsa de seus parentes mais conhecidos."
+      ]
+    }
+  ]
+}

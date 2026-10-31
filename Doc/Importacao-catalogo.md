@@ -1,5 +1,7 @@
 # Catálogo e importação — fase 12
 
+**Atualização da fase 37, 2026-10-30:** 400 respostas produzidas nos arquivos, 350 publicadas localmente e 366 revisões históricas. Animais fechado com 100 respostas e 500 dicas, na distribuição 40/35/25. As 16 correções aprovadas do lote animais-001 foram publicadas por um comando separado de revisões, descrito ao final; o importador inicial mantém a recusa de sobrescritas. O registro de 2026-10-27 abaixo é histórico.
+
 **Situação em 2026-10-27:** importador implementado com PyMongo assíncrono; 125 respostas dos cinco lotes passaram pela validação completa dos arquivos. Os três lotes com aprovação editorial registrada foram importados no MongoDB local: **75 respostas, 375 dicas e 75 revisões iniciais**. Países e objetos continuam aguardando avaliação humana e não foram carregados. Nenhum conteúdo foi enviado ao Atlas.
 
 ## Preparação
@@ -77,7 +79,7 @@ Se a conexão cair, registros anteriores não são apagados. Repetir `conferir` 
 
 Índices únicos também protegem importações concorrentes. Se outro processo publicar conteúdo incompatível depois da conferência, a carga para com conflito; não substitui o documento. Isso pode deixar parte válida já carregada, como uma falha de conexão, exigindo nova conferência.
 
-O importador inicial **não edita conteúdo existente**. Para corrigir um registro já carregado, interromper a carga e planejar uma publicação explícita de nova revisão, preservando as anteriores. Não apagar documentos, editar o MongoDB diretamente ou renomear identificadores para forçar uma reimportação. A manutenção de novas revisões não faz parte deste comando inicial.
+O importador inicial **não edita conteúdo existente**. Para corrigir um registro já carregado, interromper a carga e usar uma publicação explícita de nova revisão, preservando as anteriores. Não apagar documentos, editar o MongoDB diretamente ou renomear identificadores para forçar uma reimportação. A manutenção de novas revisões não faz parte deste comando inicial; o comando separado da fase 37 está descrito abaixo.
 
 ## Coleções e consultas internas
 
@@ -105,3 +107,33 @@ Para executar os testes MongoDB, exportar `DECIFRA_MONGODB_TESTE_URL` apontando 
 O GitHub Actions recebeu um serviço MongoDB para repetir a verificação; a edição do fluxo não comprova uma execução remota bem-sucedida. Os servidores isolados de teste foram encerrados após a revisão. O MongoDB de desenvolvimento e os 75 registros importados foram preservados.
 
 Referências das APIs utilizadas: [PyMongo Async](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/reference/migration/) e [índices no PyMongo](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/indexes/).
+
+## Correções de dicas com revisões — fase 37
+
+O responsável aprovou o conteúdo corrigido de animais-001. Foi implementado `PublicadorRevisoes`, separado do importador, para corrigir somente dicas. Identificador, resposta, temáticas, dificuldade e lote precisam permanecer iguais. Os dois arquivos passam pelo contrato completo; devem ter o mesmo conjunto de IDs, sem novos itens, exclusões ou duplicatas. O conteúdo da revisão base é comparado com o arquivo original e com o histórico do banco antes de planejar a publicação. Nenhuma rota pública ou editor administrativo foi criado.
+
+Conferir sem escrita, dentro de Backend:
+
+```powershell
+.venv/Scripts/python.exe -m comandos.revisar_catalogo ../Data/historico/animais-001/revisao-001/animais-001.json ../Data/palavras/animais-001.json --revisao-base 1
+```
+
+Gravar explicitamente as correções já aprovadas, usando os mesmos arquivos:
+
+```powershell
+.venv/Scripts/python.exe -m comandos.revisar_catalogo ../Data/historico/animais-001/revisao-001/animais-001.json ../Data/palavras/animais-001.json --revisao-base 1 --publicar
+```
+
+O padrão é somente conferir. Não apontar os dois argumentos para a mesma cópia atual: a base deve conter o conteúdo histórico esperado. Na primeira execução, o segundo argumento foi a proposta aprovada em Doc/Revisoes/Propostas/animais-001.json; depois do sucesso, o arquivo de produção foi sincronizado. O original foi arquivado byte a byte em Data/historico, fora da busca de lotes de produção. Esses arquivos históricos e propostas não contam como novos lotes nem entram na meta de 500 respostas.
+
+O serviço primeiro reserva a revisão seguinte em `versoes_palavras`, sem alterar as anteriores. Em seguida publica no documento atual somente se todo o conteúdo esperado da base ainda corresponder ao banco. A comparação integral evita que um plano antigo substitua uma publicação concorrente. A identidade MongoDB `_id` é preservada. A API usada está documentada pelo [PyMongo](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/crud/replace/); a checagem do estado esperado segue a [atomicidade por documento do MongoDB](https://www.mongodb.com/docs/manual/core/write-operations-atomicity/).
+
+Não há transação envolvendo todas as palavras ou as duas coleções. Um erro depois de algumas publicações pode deixar parte válida concluída; o comando informa falha e deve ser repetido com os mesmos arquivos/base após nova conferência. Se a revisão foi reservada, mas a publicação não terminou, a reexecução reutiliza o registro e sua data. Conteúdos diferentes concorrendo pela mesma revisão são recusados. Se uma revisão posterior já avançou, não reverter: preparar a base correta e revisar a nova proposta. Uma base inconsistente ou outro conflito detectado no planejamento impede iniciar a gravação do lote inteiro.
+
+Repetir uma correção já publicada é idempotente, sem gerar revisão 3 ou mudar a data. O importador inicial continua rejeitando conteúdo antigo conflitante; ele não aplica revisões automaticamente.
+
+Na fase 37 foram publicadas **16 revisões 2** para **25 dicas corrigidas**, mantendo os nove itens sem alteração na revisão 1. Auditoria real comparou as 25 revisões iniciais ao arquivo histórico. O adaptador de catálogo do individual foi testado lendo a revisão 1 após a publicação, enquanto a listagem atual retorna a revisão corrigida. As partidas não foram reescritas e nenhum dado PostgreSQL foi alterado.
+
+A importação inicial em uma base vazia cria revisão 1 do conteúdo atual dos arquivos. Isso não reconstrói o histórico de uma base anterior. Se a publicação futura migrar partidas já existentes, deve transportar também as revisões que elas referenciam; não substituir esse histórico por uma nova carga dos arquivos atuais. A conferência no Atlas permanece para a fase de publicação.
+
+Verificações: 50 testes de conteúdo, validação e MongoDB isolado; incluem rejeição de arquivo inválido antes de abrir conexão, identidade alterada, base divergente, recuperação após reserva, concorrência, plano antigo, reexecução e leitura pelo adaptador do jogo. As falhas iniciais foram a ausência do serviço/comando antes da implementação. Ruff e formatação aprovados. Sem migração ou dependências novas.

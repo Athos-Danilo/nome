@@ -8,6 +8,21 @@ from aplicacao.modulos.catalogo.validacao import validar_arquivos
 from comandos.catalogo import executar
 
 
+def teste_comando_revisao_exige_validacao_dos_dois_arquivos_antes_de_abrir_banco(
+    tmp_path, capsys, monkeypatch
+):
+    from comandos.revisar_catalogo import executar as executar_revisao
+
+    def proibir_conexao(*argumentos):
+        pytest.fail("Arquivos inválidos não devem abrir conexão.")
+
+    monkeypatch.setattr("comandos.revisar_catalogo.abrir_catalogo", proibir_conexao)
+    valido = gravar_lote(tmp_path, [palavra()])
+    ausente = tmp_path / "ausente.json"
+    assert asyncio.run(executar_revisao(valido, ausente, 1, False)) == 2
+    assert "Nenhuma gravação" in capsys.readouterr().out
+
+
 def palavra(identificador="japao", resposta="JAPÃO") -> dict:
     return {
         "id": identificador,

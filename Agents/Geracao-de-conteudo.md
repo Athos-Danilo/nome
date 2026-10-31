@@ -162,3 +162,9 @@ Junto ao pedido, informar:
 
 - Critérios mais objetivos para classificar dificuldade.
 - Necessidades de conteúdo específicas do modo com a galera.
+
+## Correção de dicas já publicadas — fase 37
+
+A partir da fase 37 há um comando separado de revisão, descrito em [Importacao-catalogo.md](../Doc/Importacao-catalogo.md#correções-de-dicas-com-revisões--fase-37). Ele exige aprovação editorial do conteúdo, base histórica esperada e gravação explícita, preservando versões anteriores. Aceita somente alterações de dicas; não modifica identidade, resposta, dificuldade, temáticas ou lote. O importador inicial continua recusando sobrescritas.
+
+Antes de atualizar um arquivo de produção, preservar sua base em `Data/historico/<lote>/revisao-<numero>/<lote>.json`, fora de `Data/palavras`. Publicar a correção validada e aprovada, conferir o resultado e só então sincronizar o arquivo de produção. Histórico e propostas não contam como novos lotes. Partidas antigas mantêm a revisão com que foram criadas; não apagar suas dicas nem trocar suas referências para a revisão nova. Para uma carga em outro ambiente, distinguir base vazia de migração de partidas com histórico existente.

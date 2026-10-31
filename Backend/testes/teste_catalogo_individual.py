@@ -2,6 +2,7 @@
 
 import os
 
+from aplicacao.modulos.catalogo.revisoes import PublicadorRevisoes
 from aplicacao.modulos.individual.catalogo import CatalogoIndividualMongo
 from aplicacao.nucleo.configuracoes import Configuracoes
 from testes.teste_catalogo_mongo import item, rodar_mongo  # noqa: F401
@@ -22,5 +23,12 @@ def teste_catalogo_individual_recupera_revisao_e_nao_escreve(rodar_mongo):  # no
         assert len(palavras) == 1 and palavras[0].resposta == "JAPÃO"
         assert (await consulta.buscar("japao", 1)).dicas == palavras[0].dicas
         assert (await catalogo.quantidades())["total_versoes"] == 1
+        corrigida = item(dicas=[f"Pista corrigida {n}." for n in range(5)])
+        publicador = PublicadorRevisoes(catalogo)
+        await publicador.publicar(await publicador.planejar([item()], [corrigida], 1))
+        # Partidas já criadas leem sua revisão; seleções novas recebem o catálogo atualizado.
+        assert (await consulta.buscar("japao", 1)).dicas == palavras[0].dicas
+        assert (await consulta.buscar("japao", 2)).dicas == corrigida.conteudo.dicas
+        assert (await consulta.listar())[0].dicas == corrigida.conteudo.dicas
 
     rodar_mongo(verificar)
