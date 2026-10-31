@@ -45,6 +45,18 @@ Se `.env` não existir, copie `.env.example`; não sobrescreva um arquivo privad
 
 Depois de instalar as dependências e aplicar `alembic upgrade head` no banco de desenvolvimento, execute a API e o Vite conforme [Ambiente local](Ambiente-local.md). No Windows, mantenha `--reload` no Uvicorn: o Psycopg assíncrono precisa de um loop Selector; a execução sem recarga exige `--loop asyncio:SelectorEventLoop`. Não confundir essa incompatibilidade de execução com uma falha de credenciais.
 
+### Correção operacional confirmada em 30/10/2026
+
+Após reiniciar a API sem recarga e sem a opção de loop, o início do login retornou `DADOS_INDISPONIVEIS`. O diagnóstico confirmou `InterfaceError` com o loop Proactor padrão do Windows; a mesma conexão funcionou com Selector. A API foi reiniciada, a partir da raiz do projeto, com:
+
+```powershell
+Backend/.venv/Scripts/python.exe -m uvicorn aplicacao.principal:aplicacao --app-dir Backend --host 127.0.0.1 --port 8000 --loop asyncio:SelectorEventLoop --no-access-log
+```
+
+A conferência operacional pelo proxy do frontend confirmou HTTP 303 para `accounts.google.com`, com cookie temporário, e HTTP 401 esperado na consulta de sessão ainda não autenticada, sem falha de banco. Em seguida, o responsável confirmou que a entrada real pelo Google funcionou. Não houve alteração de credenciais, regras de autenticação, migrações ou código executável; a correção foi na inicialização do processo local. Ao reiniciar sem `--reload`, preservar a opção de loop acima.
+
+### Conferência do fluxo
+
 Abra `http://localhost:5173/api/autenticacao/google`. O Vite encaminha `/api` à API local; o retorno registrado também passa por esse endereço. Não alterne entre localhost e 127.0.0.1 no mesmo fluxo, pois os cookies pertencem ao endereço utilizado.
 
 Após consentir, a API retorna à raiz do frontend com `?autenticacao=concluida`. A página React oferece primeiro acesso, perfil e preferências desde a fase 17; o menu completo permanece na fase 22. Consulte [Perfil e preferências](Perfil-preferencias.md). Consulte `GET /api/autenticacao/sessao` no mesmo navegador para verificar o cadastro pendente e a validade. O resultado é privado e também fornece o token de proteção das ações. Um cancelamento ou retorno inválido mostra um erro com código estável, sem criar sessão.
