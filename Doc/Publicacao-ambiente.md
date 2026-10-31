@@ -1,5 +1,7 @@
 # Publicação do ambiente — fase 41
 
+**Atualização do catálogo na fase 42, 31/10/2026:** Atlas público com **400 respostas e 2.000 dicas**, após aprovação e importação de marcas-004. Oito marcas do lote 001 receberam revisões 2 corretivas, preservando revisões 1 e partidas. Catálogo com 408 revisões; os números de 375 itens abaixo registram a carga inicial da fase 41. [Fechamento de marcas](Revisoes/marcas-004.md).
+
 **Fase 41 concluída em 31/10/2026.** Frontend e API publicados; Neon migrado, Atlas carregado com os quinze lotes aprovados e conexão final atualizada no Render. O responsável confirmou login real, individual, galera, recuperação ao atualizar, acesso pelo celular e preservação da partida no roteiro de reinício/despertar. O mesmo ambiente será promovido para a entrega; o catálogo ainda não atingiu a meta final de 500 respostas.
 
 ## Decisões e recursos

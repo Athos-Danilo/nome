@@ -6,7 +6,7 @@ Jogo de palavras com dicas progressivas e modo com a galera no mesmo dispositivo
 
 ## Desenvolvimento
 
-Individual, galera no mesmo dispositivo, demonstração, login Google, perfil, 20 avatares, preferências, histórico, estatísticas, rankings, animações do Aurélio e áudio estão implementados. Ambiente público publicado e validado na fase 41: [jogar Decifra](https://decifra-inky.vercel.app). O catálogo público contém 375 respostas aprovadas; a meta final permanece 500. A API gratuita pode levar algum tempo para despertar após inatividade. O protótipo visual aprovado é um estudo separado da aplicação.
+Individual, galera no mesmo dispositivo, demonstração, login Google, perfil, 20 avatares, preferências, histórico, estatísticas, rankings, animações do Aurélio e áudio estão implementados. Ambiente público publicado e validado na fase 41: [jogar Decifra](https://decifra-inky.vercel.app). O catálogo público contém 400 respostas aprovadas; a meta final permanece 500. A API gratuita pode levar algum tempo para despertar após inatividade. O protótipo visual aprovado é um estudo separado da aplicação.
 
 - [Preparar e executar o ambiente local](Doc/Ambiente-local.md).
 - [Revisar o protótipo aprovado](Doc/Prototipos/LEIA-ME.md).

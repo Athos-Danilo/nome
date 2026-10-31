@@ -1,0 +1,331 @@
+{
+  "versao_formato": 1,
+  "lote": "marcas-004",
+  "palavras": [
+    {
+      "id": "xbox",
+      "resposta": "XBOX",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca ligada ao entretenimento eletrônico.",
+        "Minha trajetória inclui consoles e jogos para jogar em casa.",
+        "Meu primeiro console chegou à América do Norte em 2001.",
+        "Halo e Forza fazem parte da história da minha família de jogos.",
+        "Sou a marca de consoles da Microsoft, identificada por um X dentro de uma esfera."
+      ]
+    },
+    {
+      "id": "tiktok",
+      "resposta": "TIKTOK",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma plataforma digital de criação e descoberta de conteúdo.",
+        "Fiquei conhecida por vídeos curtos com música, dança e humor.",
+        "Meu feed Para Você recomenda publicações de diferentes criadores.",
+        "Meus recursos incluem Dueto e Costurar, usados para criar a partir de outros vídeos.",
+        "Uma nota musical com detalhes em ciano e rosa identifica meu aplicativo de vídeos."
+      ]
+    },
+    {
+      "id": "pizza-hut",
+      "resposta": "PIZZA HUT",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de restaurantes de origem norte-americana.",
+        "Minha especialidade é uma preparação italiana assada, com massa e cobertura.",
+        "Minha primeira unidade surgiu em Wichita, no Kansas, em 1958.",
+        "Dois irmãos, Dan e Frank Carney, começaram meu negócio com dinheiro emprestado pela mãe.",
+        "Sou uma rede de pizzarias muito associada ao desenho de um telhado vermelho."
+      ]
+    },
+    {
+      "id": "kfc",
+      "resposta": "KFC",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma rede de alimentação com origem nos Estados Unidos.",
+        "Meu cardápio ficou especialmente associado ao frango frito.",
+        "Uma receita de onze ervas e especiarias faz parte da minha história.",
+        "Baldes de frango e a figura do Coronel Sanders ajudam a reconhecer meus restaurantes.",
+        "Minha marca usa três letras e o retrato de um senhor de óculos, cavanhaque branco e gravata preta."
+      ]
+    },
+    {
+      "id": "nubank",
+      "resposta": "NUBANK",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca ligada a serviços financeiros.",
+        "Minha história começou no Brasil, em 2013.",
+        "O uso do celular teve um papel central na experiência oferecida aos meus clientes.",
+        "Meu primeiro produto foi um cartão de crédito lançado em 2014.",
+        "O cartão roxinho se tornou um símbolo muito conhecido da minha marca."
+      ]
+    },
+    {
+      "id": "globo",
+      "resposta": "GLOBO",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca brasileira ligada à comunicação.",
+        "Minha história na televisão começou no Rio de Janeiro, em 1965.",
+        "Novelas, jornalismo e transmissões esportivas fazem parte da minha programação.",
+        "Jornal Nacional e Fantástico estão entre os programas associados à minha emissora.",
+        "Meu símbolo clássico mostra uma esfera dentro de uma tela retangular, envolvida por outra esfera."
+      ]
+    },
+    {
+      "id": "pampers",
+      "resposta": "PAMPERS",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de produtos para cuidados pessoais.",
+        "Meus produtos acompanham famílias com bebês e crianças pequenas.",
+        "Fraldas descartáveis têm papel central na minha história.",
+        "Minha origem está ligada ao trabalho do engenheiro Victor Mills na Procter & Gamble.",
+        "Baby-Dry é uma das linhas de fraldas que ajudam a identificar minha marca."
+      ]
+    },
+    {
+      "id": "bombril",
+      "resposta": "BOMBRIL",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca brasileira ligada aos cuidados com a casa.",
+        "Minha história industrial começou em 1948.",
+        "Um dos meus produtos tradicionais serve para limpar e polir utensílios.",
+        "Fiquei especialmente conhecida pela lã de aço vendida em pacotes.",
+        "A expressão 1001 utilidades e as propagandas com Carlos Moreno marcaram minha trajetória."
+      ]
+    },
+    {
+      "id": "bis",
+      "resposta": "BIS",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de alimento associada à hora da sobremesa.",
+        "Meu produto tradicional combina chocolate e uma parte crocante.",
+        "Minha história no Brasil começou em 1942.",
+        "Sou um wafer coberto com chocolate, conhecido por suas pequenas porções retangulares.",
+        "Minha versão clássica da Lacta vem em uma caixa azul com unidades embaladas separadamente."
+      ]
+    },
+    {
+      "id": "peugeot",
+      "resposta": "PEUGEOT",
+      "tematicas": ["marcas"],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma marca de origem europeia ligada à indústria.",
+        "Minha história francesa inclui ferramentas e moinhos antes dos automóveis.",
+        "Um animal passou a representar meus produtos ainda no século dezenove.",
+        "208 e 2008 são números associados a modelos dos meus automóveis.",
+        "O animal que identifica minha marca francesa de carros é um leão."
+      ]
+    },
+    {
+      "id": "duolingo",
+      "resposta": "DUOLINGO",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de tecnologia ligada à educação.",
+        "Meu aplicativo ficou conhecido pelo aprendizado de idiomas.",
+        "Organizo exercícios em lições e uso pontos para acompanhar a prática.",
+        "Uma sequência de dias de estudo é um dos incentivos para voltar às minhas lições.",
+        "Uma coruja verde é o mascote que representa meu aplicativo de aprendizado."
+      ]
+    },
+    {
+      "id": "decathlon",
+      "resposta": "DECATHLON",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de varejo com origem francesa.",
+        "Reúno produtos para a prática de diferentes esportes.",
+        "Minha primeira loja abriu em Englos, perto de Lille, em 1976.",
+        "Barracas Quechua estão entre os produtos associados às minhas lojas.",
+        "Minha rede de artigos esportivos é muito reconhecida pelo nome em branco sobre fundo azul."
+      ]
+    },
+    {
+      "id": "intel",
+      "resposta": "INTEL",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma empresa de tecnologia de origem norte-americana.",
+        "Minha história está ligada a semicondutores e componentes de computadores.",
+        "Robert Noyce e Gordon Moore fundaram minha empresa em 1968.",
+        "O microprocessador 4004 foi um marco da minha trajetória em 1971.",
+        "Pentium e Core são nomes de famílias de processadores associados à minha marca."
+      ]
+    },
+    {
+      "id": "avon",
+      "resposta": "AVON",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca ligada à beleza e ao cuidado pessoal.",
+        "Minha trajetória tem uma forte ligação com a venda direta.",
+        "Minha origem remonta a um negócio de perfumes iniciado nos Estados Unidos em 1886.",
+        "David H. McConnell criou a empresa que inicialmente se chamava California Perfume Company.",
+        "Meu nome tem quatro letras, e as linhas Renew e Color Trend fazem parte da minha trajetória."
+      ]
+    },
+    {
+      "id": "dell",
+      "resposta": "DELL",
+      "tematicas": ["marcas"],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma marca de tecnologia de origem norte-americana.",
+        "Computadores pessoais têm um papel central na minha história.",
+        "Meu negócio começou em 1984, quando meu fundador era estudante da Universidade do Texas.",
+        "Inspiron e Latitude são famílias de computadores associadas à minha marca.",
+        "Meu logotipo tradicional coloca um nome de quatro letras dentro de um círculo, com o E inclinado."
+      ]
+    },
+    {
+      "id": "bosch",
+      "resposta": "BOSCH",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca alemã ligada à engenharia e à tecnologia.",
+        "Minha trajetória começou em uma oficina de Stuttgart, em 1886.",
+        "Sistemas de ignição para motores tiveram importância no desenvolvimento do meu negócio.",
+        "Ferramentas elétricas e componentes automotivos estão entre os produtos associados ao meu nome.",
+        "Meu emblema representa a armadura de um magneto dentro de um círculo."
+      ]
+    },
+    {
+      "id": "tag-heuer",
+      "resposta": "TAG HEUER",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca suíça ligada à medição do tempo.",
+        "Minha história na relojoaria começou em 1860.",
+        "Cronógrafos e automobilismo têm uma forte ligação com minha trajetória.",
+        "Carrera e Autavia são nomes de coleções associadas à minha marca.",
+        "Meu relógio Monaco de caixa quadrada ficou ligado à imagem de Steve McQueen no filme Le Mans."
+      ]
+    },
+    {
+      "id": "fjallraven",
+      "resposta": "FJÄLLRÄVEN",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de roupas e equipamentos para atividades ao ar livre.",
+        "Minha história começou na Suécia, em 1960.",
+        "Mochilas com armação tiveram papel importante nos primeiros produtos do meu fundador, Åke Nordin.",
+        "Em 1978, minha mochila Kånken foi criada pensando em estudantes.",
+        "A mochila Kånken com alças superiores e o emblema de uma raposa ajudam a identificar minha marca."
+      ]
+    },
+    {
+      "id": "schwarzkopf",
+      "resposta": "SCHWARZKOPF",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de origem alemã ligada à beleza.",
+        "Minha trajetória começou em uma drogaria de Berlim, em 1898.",
+        "Produtos para os cabelos se tornaram o centro da minha identidade.",
+        "Um xampu em pó solúvel em água marcou os primeiros anos do meu negócio.",
+        "Meu símbolo tradicional é a silhueta preta de uma cabeça humana vista de perfil."
+      ]
+    },
+    {
+      "id": "le-creuset",
+      "resposta": "LE CREUSET",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de origem francesa ligada à cozinha.",
+        "Minha história começou em Fresnoy-le-Grand, em 1925.",
+        "Fiquei especialmente associada a utensílios de ferro fundido esmaltado.",
+        "O laranja inspirado no ferro derretido deu origem à minha cor tradicional Flame.",
+        "Minhas panelas redondas com tampa e alças laterais são conhecidas pelo esmalte colorido em degradê."
+      ]
+    },
+    {
+      "id": "seiko",
+      "resposta": "SEIKO",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca japonesa ligada à medição do tempo.",
+        "Minha história começou com um negócio de venda e reparo de relógios, em 1881.",
+        "Kintaro Hattori foi o empreendedor que iniciou essa trajetória.",
+        "Em 1969, apresentei o relógio de pulso de quartzo Astron.",
+        "A família de relógios 5 Sports e o histórico Quartz Astron ajudam a reconhecer minha marca."
+      ]
+    },
+    {
+      "id": "birkenstock",
+      "resposta": "BIRKENSTOCK",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de calçados com origem alemã.",
+        "Minha tradição familiar de fabricação de calçados tem registros desde 1774.",
+        "Palmilhas moldadas para acompanhar a anatomia do pé fazem parte da minha identidade.",
+        "Arizona e Boston são nomes de modelos associados à minha marca.",
+        "Minha sandália Arizona ficou conhecida pelas duas tiras largas com fivelas e pela base de cortiça."
+      ]
+    },
+    {
+      "id": "dyson",
+      "resposta": "DYSON",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca de tecnologia com origem britânica.",
+        "Minha história tem uma forte ligação com a engenharia de aparelhos domésticos.",
+        "Meu fundador buscou aplicar a separação ciclônica a aspiradores de pó.",
+        "O aspirador sem saco DC01 marcou minha trajetória ao ser lançado em 1993.",
+        "O modelador de cabelos Airwrap e o secador Supersonic também levam minha marca."
+      ]
+    },
+    {
+      "id": "karcher",
+      "resposta": "KÄRCHER",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca alemã ligada a equipamentos de limpeza.",
+        "Minha história empresarial tem ligação com a cidade de Winnenden.",
+        "Um equipamento de limpeza de alta pressão com água quente marcou minha trajetória em 1950.",
+        "O modelo histórico DS 350 ajudou a definir meu caminho no setor de limpeza.",
+        "Minhas lavadoras domésticas de alta pressão são muito reconhecidas pela combinação de amarelo e preto."
+      ]
+    },
+    {
+      "id": "swatch",
+      "resposta": "SWATCH",
+      "tematicas": ["marcas"],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma marca suíça ligada a acessórios usados no pulso.",
+        "Relógios coloridos e coleções com propostas artísticas fazem parte da minha identidade.",
+        "Meus primeiros modelos de quartzo foram apresentados em 1983.",
+        "Esses modelos iniciais usavam 51 componentes; mais tarde, esse número também inspirou meu movimento SISTEM51.",
+        "Uma cruz suíça branca em um quadrado vermelho acompanha meu nome em relógios conhecidos pelas cores variadas."
+      ]
+    }
+  ]
+}

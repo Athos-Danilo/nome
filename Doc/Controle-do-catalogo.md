@@ -1,6 +1,6 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** dezessete lotes produzidos: 425 respostas e 2.125 dicas, aprovados na validação automática completa. Quinze lotes aprovados pelo responsável e importados localmente: 375 respostas e 1.875 dicas. Animais e filmes/séries estão fechados com 100 respostas e 500 dicas cada, distribuição 40/35/25. Banco local com 394 revisões: 375 iniciais, 16 correções de animais e três de filmes/séries, todas com histórico preservado. Países-001 e objetos-001 continuam em avaliação humana, sem carga. **Fase 41, 31/10/2026:** os quinze lotes aprovados foram também importados no Atlas novo, com 375 respostas, 1.875 dicas e 375 revisões iniciais; conferência posterior encontrou todos os registros idênticos aos arquivos. O histórico local não foi migrado. [Procedimento e evidências](Publicacao-ambiente.md).
+**Situação atual:** dezoito lotes produzidos: 450 respostas e 2.250 dicas, aprovados na validação automática completa. Dezesseis lotes aprovados pelo responsável e publicados no MongoDB local e Atlas: **400 respostas e 2.000 dicas** em cada ambiente. Animais, filmes/séries e marcas estão fechados com 100 respostas e 500 dicas por temática, distribuição 40/35/25. Banco local com **427 revisões**: 400 iniciais, 16 correções de animais, três de filmes/séries e oito de marcas, com histórico preservado. Atlas com **408 revisões**: 400 iniciais e oito correções de marcas; a carga inicial já usou dicas corrigidas de animais e filmes, sem migrar o histórico local. Dez dicas de oito marcas do lote 001 foram aprovadas e corrigidas na fase 42. Países-001 e objetos-001 continuam em avaliação humana, sem carga. [Fechamento de marcas](Revisoes/marcas-004.md) e [publicação](Publicacao-ambiente.md).
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -37,7 +37,7 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 35 | 5 | `objetos-003.json` | 10 | 10 | 5 | 25 | 375 | Importado localmente |
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Importado localmente |
 | 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Importado localmente |
-| 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Não iniciado |
+| 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Conferido no Atlas e importado localmente |
 | 44 | 7 | `paises-004.json` | 10 | 5 | 10 | 25 | 475 | Não iniciado |
 | 46 | 7 | `objetos-004.json` | 10 | 5 | 10 | 25 | 500 | Não iniciado |
 
