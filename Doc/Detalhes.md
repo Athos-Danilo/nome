@@ -840,13 +840,17 @@ Haverá uma opção para reduzir os movimentos. A duração das animações não
 
 A experiência terá muitos efeitos sonoros, incluindo botões, teclado e retornos de ações, além de acertos, erros, mudança de turno e vitória.
 
-Haverá música de fundo durante a partida, com uma seleção de aproximadamente cinco faixas para o usuário escolher ou desativar. A seleção final de músicas e a existência de música também no menu ainda serão definidas.
+Haverá música de fundo durante as partidas, com cinco faixas para o usuário escolher ou desativar. Nas configurações, o jogador poderá ouvir prévias das faixas e dos efeitos antes de salvar suas preferências.
+
+**Decisão da fase 38:** o menu principal terá uma música exclusiva, diferente das cinco faixas das partidas. Ao lado do botão de lua/sol haverá um botão para ativar ou desativar somente a música do menu, sem alterar a escolha musical das partidas. Essa preferência também ficará disponível nas configurações e será persistida na conta ou no navegador, conforme o jogador esteja autenticado ou seja visitante. Seu padrão é ativado, respeitando o silêncio geral e o volume de música. As configurações e demais páginas não terão música automática: somente a prévia solicitada pelo jogador.
+
+O áudio começa após uma interação permitida pelo navegador. Ao ocultar a página, a música pausa; ao voltar, pode retomar se a tela e as preferências ainda permitirem. A trilha das partidas para na pausa, no resultado ou ao sair do painel. Apenas uma música toca por vez, inclusive durante prévias. Falhas de áudio geram aviso e opção de tentar novamente, sem impedir o jogo.
 
 Os estilos musicais escolhidos são **lo-fi e arcade**. A seleção poderá contemplar os dois estilos, sem definir neste momento a quantidade de faixas de cada um.
 
 O usuário poderá desabilitar todos os sons ou apenas determinados grupos de efeitos. Os controles serão separados em **música**, **interface e teclado** e **eventos da partida**, com volume independente por grupo e uma opção geral para silenciar.
 
-A origem das faixas e a permissão de uso e distribuição dos áudios precisarão ser verificadas ao preparar os recursos do projeto. Nenhuma música específica foi escolhida.
+Seis faixas CC0 foram preparadas na fase 38, com créditos e procedência em [Áudio](Audio/README.md), além de 13 efeitos sintetizados para o projeto. A seleção artística final das músicas e efeitos aguarda a escuta e aprovação do responsável; a disponibilidade das prévias não representa essa aprovação.
 
 Animações e sons deverão acompanhar o retorno visual: informações necessárias para jogar não deverão depender exclusivamente da audição. A experiência também deverá funcionar com sons desativados e movimentos reduzidos.
 

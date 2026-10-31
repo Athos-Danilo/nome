@@ -17,6 +17,7 @@ import {
   apagar,
   type EstadoEntrada,
 } from "./modelo";
+import { useAudio } from "../audio/ProvedorAudio";
 export function useDigitacao({
   estado,
   aoAlterar,
@@ -33,6 +34,7 @@ export function useDigitacao({
   aoAtivarBotao: () => void;
 }) {
   const composicao = useRef(false);
+  const audio = useAudio();
   const ignorarFinal = useRef("");
   const [texto, definirTexto] = useState("");
   function inserirTexto(valor: string) {
@@ -48,6 +50,7 @@ export function useDigitacao({
         }));
       return;
     }
+    if (/[\p{L}0-9]/u.test(normal)) audio?.efeito("tecla");
     aoAlterar((anterior) => {
       let proximo = anterior;
       const caracteres = [...normal].filter((c) => /^[\p{L}0-9]$/u.test(c));
@@ -120,6 +123,7 @@ export function useDigitacao({
       return;
     }
     if (tecla === "Backspace" || tecla === "Delete") {
+      audio?.efeito("apagar");
       evento.preventDefault();
       aoAlterar((anterior) => apagar(anterior, tecla === "Backspace"));
       return;

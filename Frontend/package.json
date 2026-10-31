@@ -20,12 +20,14 @@
     "testar-individual": "playwright test --config playwright.individual.config.ts",
     "testar-galera": "playwright test --config playwright.galera.config.ts",
     "testar-acompanhamento": "playwright test --config playwright.acompanhamento.config.ts",
-    "testar-mascote": "playwright test --config playwright.mascote.config.ts"
+    "testar-mascote": "playwright test --config playwright.mascote.config.ts",
+    "testar-audio": "playwright test --config playwright.audio.config.ts"
   },
   "dependencies": {
     "@dnd-kit/dom": "0.5.1",
     "@dnd-kit/react": "0.5.1",
     "@tanstack/react-query": "5.105.0",
+    "howler": "2.2.4",
     "motion": "14.9.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
+    "@types/howler": "2.2.13",
     "@types/node": "22.20.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",

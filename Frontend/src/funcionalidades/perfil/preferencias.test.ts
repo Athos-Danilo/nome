@@ -8,6 +8,21 @@ import {
 } from "./preferencias";
 
 describe("preferências e nomes do perfil", () => {
+  it("preserva a escolha da trilha do menu e aceita dados antigos sem esse campo", () => {
+    expect(
+      lerPreferenciasLocais({
+        getItem: () => JSON.stringify({ ...PADRAO, musica_menu_ativa: false }),
+      }),
+    ).toHaveProperty("musica_menu_ativa", false);
+    const antigas = { ...PADRAO } as Record<string, unknown>;
+    delete antigas.musica_menu_ativa;
+    expect(
+      lerPreferenciasLocais({ getItem: () => JSON.stringify(antigas) }),
+    ).toHaveProperty("musica_menu_ativa", true);
+    expect(preferenciasValidas({ ...PADRAO, musica_menu_ativa: "sim" })).toBe(
+      false,
+    );
+  });
   it("recupera preferências locais válidas", () => {
     expect(
       lerPreferenciasLocais({

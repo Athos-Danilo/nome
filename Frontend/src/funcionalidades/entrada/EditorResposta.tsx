@@ -17,6 +17,7 @@ import {
   type EstadoEntrada,
 } from "./modelo";
 import { useDigitacao } from "./usar-digitacao";
+import { useAudio } from "../audio/ProvedorAudio";
 import "./entrada.css";
 const SENSORES = [
   PointerSensor.configure({
@@ -51,6 +52,7 @@ export function EditorResposta({
   exibirMontagem?: boolean;
 }) {
   const area = useRef<HTMLDivElement>(null);
+  const audio = useAudio();
   const houveArraste = useRef(false);
   const [arrastada, definirArrastada] = useState("");
   function focar() {
@@ -70,8 +72,10 @@ export function EditorResposta({
         return;
       }
       aoEscolherLetra?.(letra);
+      audio?.efeito("tecla");
       return;
     }
+    audio?.efeito("tecla");
     aoAlterar((anterior) => inserir(anterior, valor, posicao));
   }
   const { campo, aoTeclar, aoColar, enviar } = useDigitacao({
@@ -95,6 +99,7 @@ export function EditorResposta({
     <DragDropProvider
       sensors={SENSORES}
       onDragStart={(evento) => {
+        audio?.efeito("arrastar");
         houveArraste.current = true;
         const letra = evento.operation.source?.data.letra;
         if (typeof letra === "string") definirArrastada(letra);

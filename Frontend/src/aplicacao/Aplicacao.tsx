@@ -4,6 +4,12 @@ import { Estatisticas } from "../funcionalidades/acompanhamento/Estatisticas";
 import { Rankings } from "../funcionalidades/acompanhamento/Rankings";
 import { GaleriaAurelio } from "../funcionalidades/mascote/GaleriaAurelio";
 import {
+  ProvedorAudio,
+  BotaoMusicaMenu,
+} from "../funcionalidades/audio/ProvedorAudio";
+import { AvisoAudio } from "../funcionalidades/audio/PreviasAudio";
+import "../estilos/audio.css";
+import {
   ProtecaoNavegacao,
   useSaidaPartida,
 } from "../funcionalidades/individual/saida-partida";
@@ -158,117 +164,132 @@ function Jogo() {
     }
   }
   return (
-    <div className="universo-perfil moldura-jogo">
-      <a href="#conteudo-jogo" className="pular-conteudo">
-        Pular para o conteúdo
-      </a>
-      <header className="cabecalho-jogo">
-        <Link to="/" className="marca-jogo" aria-label="Decifra início">
-          <span>D</span>
-          <b>ECIFRA</b>
-          <i aria-hidden="true">✦</i>
-        </Link>
-        <span className="selo">DICAS. DESCOBERTAS. VOCÊ.</span>
-        <div className="controles-menu">
-          <Botao aria-label="Como jogar" onClick={() => definirAjuda(true)}>
-            ?
-          </Botao>
-          <Botao
-            aria-label={
-              efetivas.tema === "claro"
-                ? "Ativar tema escuro"
-                : "Ativar tema claro"
-            }
-            onClick={alternarTema}
-            disabled={ocupado || carregando}
-          >
-            {efetivas.tema === "claro" ? "☾" : "☀"}
-          </Botao>
-          {conta && dados.atual && (
-            <Link
-              className="perfil-topo"
-              to="/perfil"
-              aria-label="Abrir meu perfil"
-            >
-              <img src={dados.atual.recurso} width="40" height="40" alt="" />
-              <span>{perfil.data?.nome_usuario ?? "Seu perfil"}</span>
-            </Link>
-          )}
-          {conta && (
-            <Botao
-              onClick={() => saidaPartida.solicitar(() => dados.sair.mutate())}
-              disabled={ocupado}
-            >
-              Sair
+    <ProvedorAudio preferencias={efetivas} menu={caminho === "/"}>
+      <div className="universo-perfil moldura-jogo">
+        <a href="#conteudo-jogo" className="pular-conteudo">
+          Pular para o conteúdo
+        </a>
+        <header className="cabecalho-jogo">
+          <Link to="/" className="marca-jogo" aria-label="Decifra início">
+            <span>D</span>
+            <b>ECIFRA</b>
+            <i aria-hidden="true">✦</i>
+          </Link>
+          <span className="selo">DICAS. DESCOBERTAS. VOCÊ.</span>
+          <div className="controles-menu">
+            <Botao aria-label="Como jogar" onClick={() => definirAjuda(true)}>
+              ?
             </Botao>
-          )}
-        </div>
-      </header>
-      {!pendente && (
-        <nav className="dock-jogo" aria-label="Navegação principal">
-          {[
-            ["/", "⌂", "Início"],
-            ...(conta
-              ? [
-                  ["/perfil", "☺", "Perfil"],
-                  ["/perfil/historico", "▤", "Histórico"],
-                ]
-              : []),
-            ["/rankings", "♜", "Rankings"],
-            ["/configuracoes", "⚙", "Configurações"],
-          ].map(([destino, icone, nome]) => (
-            <NavLink key={destino} to={destino} end aria-label={nome}>
-              <span aria-hidden="true">{icone}</span>
-              <small>{nome}</small>
-            </NavLink>
-          ))}
-        </nav>
-      )}
-      <main
-        id="conteudo-jogo"
-        tabIndex={-1}
-        className={`conteudo-jogo ${pendente ? "primeiro-acesso" : ""}`}
-      >
-        {caminho !== "/" && !carregando && !pendente && <VoltarAoMenu />}
-        {dados.mensagem && (
-          <p className="aviso-sucesso" role="status">
-            ✓ {dados.mensagem}
-          </p>
+            <Botao
+              aria-label={
+                efetivas.tema === "claro"
+                  ? "Ativar tema escuro"
+                  : "Ativar tema claro"
+              }
+              onClick={alternarTema}
+              disabled={ocupado || carregando}
+            >
+              {efetivas.tema === "claro" ? "☾" : "☀"}
+            </Botao>
+            {caminho === "/" && (
+              <BotaoMusicaMenu
+                preferencias={efetivas}
+                ocupado={ocupado || carregando}
+                aoAlternar={(novas) => {
+                  if (conta) dados.salvarAjustes.mutate(novas);
+                  else dados.salvarLocal(novas);
+                }}
+              />
+            )}
+            {conta && dados.atual && (
+              <Link
+                className="perfil-topo"
+                to="/perfil"
+                aria-label="Abrir meu perfil"
+              >
+                <img src={dados.atual.recurso} width="40" height="40" alt="" />
+                <span>{perfil.data?.nome_usuario ?? "Seu perfil"}</span>
+              </Link>
+            )}
+            {conta && (
+              <Botao
+                onClick={() =>
+                  saidaPartida.solicitar(() => dados.sair.mutate())
+                }
+                disabled={ocupado}
+              >
+                Sair
+              </Botao>
+            )}
+          </div>
+        </header>
+        {!pendente && (
+          <nav className="dock-jogo" aria-label="Navegação principal">
+            {[
+              ["/", "⌂", "Início"],
+              ...(conta
+                ? [
+                    ["/perfil", "☺", "Perfil"],
+                    ["/perfil/historico", "▤", "Histórico"],
+                  ]
+                : []),
+              ["/rankings", "♜", "Rankings"],
+              ["/configuracoes", "⚙", "Configurações"],
+            ].map(([destino, icone, nome]) => (
+              <NavLink key={destino} to={destino} end aria-label={nome}>
+                <span aria-hidden="true">{icone}</span>
+                <small>{nome}</small>
+              </NavLink>
+            ))}
+          </nav>
         )}
-        {dados.erro && <AvisoErro mensagem={dados.erro} />}
-        {conteudo}
-      </main>
-      <footer className="rodape-jogo">
-        DÊ ASAS À SUA CURIOSIDADE <span aria-hidden="true">✦</span>
-      </footer>
-      <Dialogo
-        aberto={ajuda}
-        titulo="Pequenas pistas, grandes descobertas."
-        aoFechar={() => definirAjuda(false)}
-      >
-        <p>
-          No Solo, descubra uma palavra com até cinco dicas. Quanto menos dicas
-          usar, mais pontos você ganha.
-        </p>
-        <p>
-          Na Galera, até três pessoas dividem o mesmo dispositivo e tentam
-          revelar as palavras. Acertou? Continua na vez!
-        </p>
-        <p>Você escolhe seu ritmo. Sem cronômetro, com muita curiosidade.</p>
-      </Dialogo>
-      <ExcluirConta
-        aberto={dados.aberto}
-        ocupado={dados.excluir.isPending}
-        erro={dados.erroExclusao}
-        aoCancelar={() => {
-          dados.definirAberto(false);
-          dados.definirErroExclusao("");
-        }}
-        aoConfirmar={() => {
-          dados.definirErroExclusao("");
-          dados.excluir.mutate();
-        }}
-      />
-    </div>
+        <main
+          id="conteudo-jogo"
+          tabIndex={-1}
+          className={`conteudo-jogo ${pendente ? "primeiro-acesso" : ""}`}
+        >
+          {caminho !== "/" && !carregando && !pendente && <VoltarAoMenu />}
+          {dados.mensagem && (
+            <p className="aviso-sucesso" role="status">
+              ✓ {dados.mensagem}
+            </p>
+          )}
+          {dados.erro && <AvisoErro mensagem={dados.erro} />}
+          <AvisoAudio />
+          {conteudo}
+        </main>
+        <footer className="rodape-jogo">
+          DÊ ASAS À SUA CURIOSIDADE <span aria-hidden="true">✦</span>
+        </footer>
+        <Dialogo
+          aberto={ajuda}
+          titulo="Pequenas pistas, grandes descobertas."
+          aoFechar={() => definirAjuda(false)}
+        >
+          <p>
+            No Solo, descubra uma palavra com até cinco dicas. Quanto menos
+            dicas usar, mais pontos você ganha.
+          </p>
+          <p>
+            Na Galera, até três pessoas dividem o mesmo dispositivo e tentam
+            revelar as palavras. Acertou? Continua na vez!
+          </p>
+          <p>Você escolhe seu ritmo. Sem cronômetro, com muita curiosidade.</p>
+        </Dialogo>
+        <ExcluirConta
+          aberto={dados.aberto}
+          ocupado={dados.excluir.isPending}
+          erro={dados.erroExclusao}
+          aoCancelar={() => {
+            dados.definirAberto(false);
+            dados.definirErroExclusao("");
+          }}
+          aoConfirmar={() => {
+            dados.definirErroExclusao("");
+            dados.excluir.mutate();
+          }}
+        />
+      </div>
+    </ProvedorAudio>
   );
 }

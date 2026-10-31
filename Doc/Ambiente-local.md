@@ -119,3 +119,7 @@ As pastas seguem o planejamento; módulos vazios são pontos de expansão, sem r
 ## Atualização da fase 33
 
 Migração local atual: **0010**, com progresso e tempo por sessão da galera, sem divergências no `alembic check`. A API local foi reiniciada com as rotas do painel; frontend permanece em `http://localhost:5173`. A configuração da galera fica em `/jogar/galera/novo`. Usar conta autenticada; o teste integrado utiliza outra base e não altera a partida pessoal.
+
+## Atualização da fase 38
+
+Migração local atual: **0011**, acrescentando a preferência da música do menu. Aplicada sem divergências no `alembic check`; API reiniciada. Reprodução e prévias em `http://localhost:5173/configuracoes`, com música exclusiva no menu principal após interação. Créditos, decisões, arquivos e aprovação artística pendente estão em [Áudio](Audio/README.md). Howler.js 2.2.4 instalado no frontend; nenhuma dependência Python adicional. Verificações específicas: `npm run testar-audio` no Frontend e `python -m pytest testes/teste_efeitos_audio.py` no Backend; testes de perfil/persistência exigem a base isolada já documentada.

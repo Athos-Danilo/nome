@@ -63,6 +63,7 @@ preferencias = Table(
     Column("paleta", String(10), nullable=False, server_default="original"),
     CheckConstraint("paleta IN ('original', 'azul', 'roxa', 'grafite')", name="paleta"),
     Column("musica_id", String(60)),
+    Column("musica_menu_ativa", Boolean, nullable=False, server_default=text("true")),
     Column("volume_musica", Integer, nullable=False, server_default="70"),
     Column("volume_interface", Integer, nullable=False, server_default="70"),
     Column("volume_eventos", Integer, nullable=False, server_default="70"),

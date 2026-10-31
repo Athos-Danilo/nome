@@ -167,6 +167,7 @@ def teste_preferencias_primeiro_login_nao_sobrescreve_conta_e_volta_em_outro_dis
                 "tema": "escuro",
                 "paleta": "azul",
                 "musica_id": None,
+                "musica_menu_ativa": False,
                 "volume_musica": 20,
                 "volume_interface": 35,
                 "volume_eventos": 40,
@@ -178,6 +179,7 @@ def teste_preferencias_primeiro_login_nao_sobrescreve_conta_e_volta_em_outro_dis
             )
             assert resposta.status_code == 200 and resposta.json()["salvas"] is True
             assert resposta.json()["tema"] == "escuro"
+            assert resposta.json()["musica_menu_ativa"] is False
             resposta = await cliente.put(
                 "/api/preferencias", json=dict(dados, tema="claro", somente_se_ausentes=True)
             )
@@ -188,6 +190,9 @@ def teste_preferencias_primeiro_login_nao_sobrescreve_conta_e_volta_em_outro_dis
                 await entrar(dispositivo)
                 assert (await dispositivo.get("/api/preferencias")).json()["volume_musica"] == 20
                 assert (await dispositivo.get("/api/preferencias")).json()["paleta"] == "azul"
+                assert (await dispositivo.get("/api/preferencias")).json()[
+                    "musica_menu_ativa"
+                ] is False
             for invalido in [
                 dict(dados, volume_musica=101),
                 dict(dados, volume_musica=True),
@@ -441,3 +446,14 @@ def teste_paletas_persistem_sem_alterar_tema_e_rejeitam_valor_invalido(base_perf
             ).status_code == 422
 
     executar(verificar())
+
+
+def teste_preferencia_de_musica_do_menu_tem_padrao_e_validacao_estrita():
+    from pydantic import ValidationError
+
+    from aplicacao.modulos.jogadores.esquemas import PreferenciasJogador
+
+    assert PreferenciasJogador().model_dump()["musica_menu_ativa"] is True
+    assert PreferenciasJogador(musica_menu_ativa=False).model_dump()["musica_menu_ativa"] is False
+    with pytest.raises(ValidationError):
+        PreferenciasJogador(musica_menu_ativa="sim")

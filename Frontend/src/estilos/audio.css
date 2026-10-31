@@ -1,0 +1,46 @@
+.previas-audio {
+  padding: 18px;
+  border: 1px solid var(--texto);
+  border-radius: 18px;
+  margin: 12px 0 24px;
+}
+.previas-audio p,
+.creditos-audio {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.controles-audio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.previas-audio .botao-jogo {
+  font-size: 12px;
+}
+.creditos-audio {
+  margin-top: 20px;
+}
+.creditos-audio summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.creditos-audio li {
+  margin-bottom: 8px;
+}
+.aviso-audio {
+  padding: 12px 18px;
+  background: var(--painel);
+  border: 1px solid var(--texto);
+  border-radius: 16px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+@media (max-width: 600px) {
+  .controles-audio {
+    flex-direction: column;
+  }
+  .previas-audio {
+    padding: 12px;
+  }
+}

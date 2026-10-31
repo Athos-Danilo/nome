@@ -101,6 +101,10 @@ Criar um gerenciador do projeto sobre Howler.js com três grupos: **música**, *
 
 Ele controlará volume por grupo, opção geral de silenciar, troca entre aproximadamente cinco faixas lo-fi e arcade e repetição da música selecionada. Os arquivos serão carregados de forma controlada, sem exigir toda a coleção antes de mostrar o menu.
 
+**Implementação da fase 38:** Howler.js 2.2.4 e tipos 2.2.13, gerenciador independente com adaptador injetável e contexto React. A preferência `musica_menu_ativa` (padrão verdadeiro, migração Alembic 0011) controla uma sexta faixa, exclusiva do menu principal. Botão junto ao tema e opção nas configurações; não altera `musica_id`, que continua aceitando somente as cinco faixas das partidas ou nulo. Configurações oferecem prévias e créditos. Não foi necessário instalar Zustand: o contexto de áudio consome o estado de preferências já existente, evitando duas fontes de verdade.
+
+Carregamento explícito sob demanda (`preload: false` seguido de `load()` antes de tocar), uma música por vez, descarte na troca de faixa/rota e pausa ao ocultar a página. Eventos confirmados têm identificação para evitar repetição; efeitos de digitação têm intervalo mínimo de 55 ms. Falhas são isoladas por recurso, com nova tentativa explícita. Código, arquivos, licenças e verificações estão descritos em [Áudio](Audio/README.md). A aprovação artística permanece pendente até a escuta do responsável.
+
 O início do áudio dependerá de uma interação do jogador, respeitando as restrições de reprodução dos navegadores. Evitar sons duplicados por clique e toque e excesso de sobreposição na digitação rápida.
 
 Se um áudio falhar, a partida continuará funcional. Som e animação não controlarão pontuação ou turnos.

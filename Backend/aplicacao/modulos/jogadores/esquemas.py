@@ -32,6 +32,7 @@ class PreferenciasJogador(BaseModel):
     tema: Literal["claro", "escuro"] = "claro"
     paleta: Literal["original", "azul", "roxa", "grafite"] = "original"
     musica_id: Literal["lofi_01", "lofi_02", "lofi_03", "arcade_01", "arcade_02"] | None = None
+    musica_menu_ativa: bool = True
     volume_musica: int = Field(default=70, ge=0, le=100)
     volume_interface: int = Field(default=70, ge=0, le=100)
     volume_eventos: int = Field(default=70, ge=0, le=100)

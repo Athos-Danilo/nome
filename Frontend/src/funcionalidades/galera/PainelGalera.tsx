@@ -14,6 +14,7 @@ import { TEMAS } from "../individual/apresentacao";
 import { usePainelGalera } from "./usar-painel";
 import type { Painel } from "./painel-api";
 import { Aurelio } from "../mascote/Aurelio";
+import { useTrilhaPartida } from "../audio/ProvedorAudio";
 import {
   reacaoGalera,
   type EventoReacao,
@@ -59,6 +60,7 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
   const [liberada, definirLiberada] = useState("");
   const jogo = usePainelGalera(id, token, !liberada);
   const e = jogo.consulta.data;
+  useTrilhaPartida(e?.estado === "em_andamento");
   const p = e?.painel;
   const anteriorMascote = useRef<ResumoGalera | null>(null);
   const [reacaoMascote, definirReacaoMascote] = useState<EventoReacao>();

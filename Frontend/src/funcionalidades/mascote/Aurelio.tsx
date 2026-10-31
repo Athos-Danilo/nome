@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { AurelioDesenho } from "./AurelioDesenho";
+import { useSomReacao } from "../audio/ProvedorAudio";
 import {
   concluirReacao,
   DURACOES,
@@ -28,6 +29,7 @@ export function Aurelio({
   pausado?: boolean;
 }) {
   const [estado, definirEstado] = useState(iniciarReacoes);
+  useSomReacao(evento);
   const moldura = useRef<HTMLDivElement>(null);
   const visivel = useInView(moldura);
   const preferencia = useMovimentosReduzidos();

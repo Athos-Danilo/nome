@@ -18,6 +18,7 @@ import { ResultadoIndividual } from "./ResultadoIndividual";
 import { NIVEIS, TEMAS } from "./apresentacao";
 import type { Rodada, TipoAcao } from "./api";
 import { Aurelio } from "../mascote/Aurelio";
+import { useTrilhaPartida } from "../audio/ProvedorAudio";
 function Montagem({
   rodada,
   ocupado,
@@ -77,6 +78,9 @@ export function PainelIndividual({
   const jogo = usePartida(base, token);
   const conexao = useConexaoIndividual(base, token, jogo.consulta.data);
   const estado = jogo.consulta.data;
+  useTrilhaPartida(
+    estado?.estado === "em_andamento" && conexao.pronta && !conexao.semRede,
+  );
   const cronometro = useCronometro(
     base,
     token,
@@ -255,7 +259,7 @@ function ConteudoIndividual({
         <strong className="pontos-acerto">+{jogo.retorno.pontos} pontos</strong>
         <Aurelio
           evento={{
-            id: `retorno-${estado.versao}`,
+            id: `${estado.partida_id}:retorno-${estado.versao}`,
             tipo:
               jogo.retorno.resultado === "acerto"
                 ? "comemoracao"

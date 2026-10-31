@@ -61,7 +61,8 @@ export function useConexaoIndividual(
         if (!vivo) return;
         aplicar(nova);
         definirPronta(true);
-        definirSemRede(false);
+        // Uma resposta iniciada antes da queda não pode limpar o aviso de ausência de rede.
+        definirSemRede(!navigator.onLine);
         definirErro("");
       } catch (e) {
         if (vivo) {

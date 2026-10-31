@@ -4,6 +4,7 @@ export type Preferencias = {
   tema: "claro" | "escuro";
   paleta: Paleta;
   musica_id: string | null;
+  musica_menu_ativa: boolean;
   volume_musica: number;
   volume_interface: number;
   volume_eventos: number;
@@ -16,6 +17,7 @@ export const PADRAO: Preferencias = {
   tema: "claro",
   paleta: "original",
   musica_id: null,
+  musica_menu_ativa: true,
   volume_musica: 70,
   volume_interface: 70,
   volume_eventos: 70,
@@ -27,6 +29,7 @@ export function somentePreferencias(dados: Preferencias): Preferencias {
     tema: dados.tema,
     paleta: dados.paleta ?? "original",
     musica_id: dados.musica_id,
+    musica_menu_ativa: dados.musica_menu_ativa ?? true,
     volume_musica: dados.volume_musica,
     volume_interface: dados.volume_interface,
     volume_eventos: dados.volume_eventos,
@@ -45,6 +48,8 @@ export function preferenciasValidas(valor: unknown): valor is Preferencias {
   return (
     (dados.paleta === undefined || PALETAS.some((p) => p === dados.paleta)) &&
     (dados.tema === "claro" || dados.tema === "escuro") &&
+    (dados.musica_menu_ativa === undefined ||
+      typeof dados.musica_menu_ativa === "boolean") &&
     (dados.musica_id === null ||
       ["lofi_01", "lofi_02", "lofi_03", "arcade_01", "arcade_02"].includes(
         String(dados.musica_id),

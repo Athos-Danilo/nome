@@ -1,0 +1,44 @@
+[
+  {
+    "arquivo": "arcade_01.mp3",
+    "sha256_origem": "30e0b3fb95445181250ae9a5c1a6932cb49cbfffaa6d8f06d7360fe88b601f98",
+    "sha256_final": "6b6a66ca60c0284f3d731658cb416d0ce796a5c810f320537ba53ced1b18b3ed",
+    "duracao_segundos": 120.059,
+    "bytes": 1925826
+  },
+  {
+    "arquivo": "arcade_02.mp3",
+    "sha256_origem": "f725d734d9bd54c7cb7ccf3f9d67c67e58d63dc15a0ee5899dc6f7f963d7a537",
+    "sha256_final": "cb0092900bc79d28afdae449b6400025369798f3098fb7a38b12082f523bea19",
+    "duracao_segundos": 112.039,
+    "bytes": 1793553
+  },
+  {
+    "arquivo": "lofi_01.mp3",
+    "sha256_origem": "4978e64d0cadd1446c9fa81e2ed7ebb369cf9ced37e4ce606006e0c7c414fde6",
+    "sha256_final": "3bc04c6ede138baad893253ec90b9608041238bd843bae9d5027f4bc538ee043",
+    "duracao_segundos": 67.187,
+    "bytes": 1075918
+  },
+  {
+    "arquivo": "lofi_02.mp3",
+    "sha256_origem": "d3b3410a186d45dadbcf87a8072b5a7f3b3f5a11fe38d9a7e9bdb3f66d5d86fa",
+    "sha256_final": "308e9390524340b117ae3b0bc068af03adf0b295bd57a9ba39bfe75adb6e4a14",
+    "duracao_segundos": 87.809,
+    "bytes": 1406057
+  },
+  {
+    "arquivo": "lofi_03.mp3",
+    "sha256_origem": "50e70d0b7b7a2df31c6b6e900f66d77dee3302a0e631849edcc78fe628cf4c3a",
+    "sha256_final": "cf442368ef3038651d334e058cbe35ad006b3b44e48f5578730448853612fc18",
+    "duracao_segundos": 116.4,
+    "bytes": 1863353
+  },
+  {
+    "arquivo": "menu.mp3",
+    "sha256_origem": "cec4681f1855dd96f94908e41d7ba8a06fe972a8a7a28045e515acbb4c282583",
+    "sha256_final": "49722b75cb0f84031e985b96ee426fe727f01e620fdb4b5590d4586911bf7857",
+    "duracao_segundos": 60.632,
+    "bytes": 971459
+  }
+]

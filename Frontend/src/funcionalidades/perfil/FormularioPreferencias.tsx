@@ -1,5 +1,7 @@
 import { useEffect, useState, type SubmitEvent } from "react";
 import { PALETAS, type Preferencias } from "./preferencias";
+import { MUSICAS } from "../audio/catalogo";
+import { PreviasAudio } from "../audio/PreviasAudio";
 
 export function FormularioPreferencias({
   inicial,
@@ -106,17 +108,24 @@ export function FormularioPreferencias({
             }
           >
             <option value="">Sem música</option>
-            <option value="lofi_01">Lo-fi 01</option>
-            <option value="lofi_02">Lo-fi 02</option>
-            <option value="lofi_03">Lo-fi 03</option>
-            <option value="arcade_01">Arcade 01</option>
-            <option value="arcade_02">Arcade 02</option>
+            {MUSICAS.map((musica) => (
+              <option key={musica.id} value={musica.id}>
+                {musica.nome}
+              </option>
+            ))}
           </select>
         </label>
-        <p className="nota">
-          A seleção já fica guardada. As músicas e os efeitos ainda estão em
-          preparação.
-        </p>
+        <label className="alternativa">
+          <input
+            type="checkbox"
+            checked={dados.musica_menu_ativa}
+            onChange={(evento) =>
+              alterar("musica_menu_ativa", evento.target.checked)
+            }
+          />{" "}
+          Música exclusiva do menu
+        </label>
+        <PreviasAudio dados={dados} />
         {(
           [
             ["volume_musica", "Música"],
