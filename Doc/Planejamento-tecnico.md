@@ -1,6 +1,6 @@
 # Planejamento técnico — Decifra
 
-**Fase 40 implementada, em revisão visual:** acabamento CSS, foco acessível após carregamento assíncrono, recuperação de falhas de módulos e telas carregadas por rota com React lazy/Suspense. Nenhuma dependência, migração ou regra de jogo nova. JavaScript inicial total de aproximadamente 446,62 kB, incluindo compartilhados. [Decisões, verificações e pendências](Acabamento-interface.md).
+**Fase 40 concluída, com revisão visual aprovada em 31/10/2026:** acabamento CSS, foco acessível após carregamento assíncrono, recuperação de falhas de módulos e telas carregadas por rota com React lazy/Suspense. Nenhuma dependência, migração ou regra de jogo nova. JavaScript inicial total de aproximadamente 446,62 kB, incluindo compartilhados. [Decisões, verificações e pendências](Acabamento-interface.md).
 
 **Fase 39 concluída:** filmes e séries fechado com 100 títulos/500 dicas (40/35/25). Lote 004 e três correções do 001 aprovados e publicados; histórico preservado, sem mudança de regras, dependências ou PostgreSQL. MongoDB com 375 respostas, 1.875 dicas e 394 revisões; arquivos com 425 respostas e 2.125 dicas. [Revisão e verificações](Revisoes/filmes-e-series-004.md).
 

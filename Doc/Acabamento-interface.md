@@ -1,6 +1,6 @@
 # Movimento, responsividade e carregamento — fase 40
 
-**Data:** 31/10/2026. **Situação:** implementação preparada para revisão visual do responsável; verificações registradas abaixo. A aparência aprovada, as quatro paletas e o repertório do Aurélio foram preservados.
+**Data:** 31/10/2026. **Situação:** fase 40 concluída, com acabamento experimentado e aprovado expressamente pelo responsável em 31/10/2026; verificações registradas abaixo. A aparência aprovada, as quatro paletas e o repertório do Aurélio foram preservados.
 
 ## Entrega visual
 
@@ -57,6 +57,6 @@ Verificação específica: `npm run testar-acabamento`, também adicionada à in
 - Capturas de galera com três participantes e expressões longas inspecionadas em computador e celular; as demais capturas de responsividade/texto ampliado complementam a prova automatizada. No celular, o painel completo e a montagem extensa exigem rolagem vertical; teclado e envio permanecem disponíveis.
 - Os testes de navegador usam respostas HTTP controladas. Alguns sinais de saída durante o encerramento dos contextos de teste chegaram ao proxy sem API na porta 8000 e produziram mensagens de conexão recusada; não invalidaram os cenários aprovados e não representam um teste integrado de persistência real. Não foram alterados dados pessoais ou bancos nesta fase.
 
-**Revisão visual final pendente:** experimentar as telas reais em `http://localhost:5173/`, individual e galera. Correções solicitadas pelo responsável serão registradas antes de encerrar o checklist da fase. Dispositivos físicos, Safari/Firefox e desempenho real em rede móvel continuam para a revisão de uso da fase 45.
+**Revisão visual aprovada em 31/10/2026:** o responsável experimentou o acabamento e aprovou o resultado. Checklist da fase 40 encerrado, sem ajustes adicionais solicitados nesta revisão. Dispositivos físicos, Safari/Firefox e desempenho real em rede móvel continuam para a revisão de uso da fase 45.
 
 Referências técnicas consultadas: [React — lazy](https://react.dev/reference/react/lazy), [React — Suspense](https://react.dev/reference/react/Suspense) e [MDN — prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion).
