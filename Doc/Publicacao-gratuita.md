@@ -1,6 +1,6 @@
 # Viabilidade da publicação gratuita
 
-**Verificação inicial:** 2026-10-27, com decisão D18 aprovada em 2026-10-28 na fase 15: **Vercel para o frontend e Render gratuito para a API**, mantendo Neon e Atlas. Nenhum serviço foi contratado ou provisionado. Revalidar condições antes da publicação.
+**Verificação inicial:** 2026-10-27, com decisão D18 aprovada em 2026-10-28 na fase 15: **Vercel para o frontend e Render gratuito para a API**, mantendo Neon e Atlas. **Fase 41 em andamento em 31/10/2026:** API iniciada no Render Free; projetos gratuitos criados pelo responsável no Neon e Atlas. Frontend, migrações, catálogo e login público ainda pendentes. [Procedimento e evidências](Publicacao-ambiente.md).
 
 | Serviço | Uso possível | Evidência e limite relevante |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ Render foi escolhido para a API acadêmica, com Neon e Atlas para persistência.
 
 O frontend ficará na Vercel por preferência expressa do responsável. A Vercel encaminhará `/api` ao Render por rewrite externo; o navegador utilizará a origem da interface para login, retorno Google e operações privadas. O servidor define callback a partir de `DECIFRA_ORIGEM_PUBLICA`, com cookies sem Domain, HttpOnly, SameSite=Lax e Secure em HTTPS. Não depender apenas de CORS nem definir callback a partir de cabeçalhos arbitrários.
 
-A documentação oficial da Vercel confirma rewrites externos, mas isso não comprova o funcionamento do projeto publicado. Ainda faltam os endereços reais, a configuração executável do encaminhamento e testes de Cookie/Set-Cookie, Origin, query, POST, ausência de cache privado, HTTPS e retomada após suspensão. Não foi criado um `vercel.json` com destino fictício. O [guia Google](Autenticacao-google.md) detalha desenvolvimento e publicação separados.
+A documentação oficial da Vercel confirma rewrites externos, mas isso não comprova o funcionamento do projeto publicado. `Frontend/vercel.json` foi preparado com o destino real `https://decifra-api.onrender.com`, priorizando `/api` sobre o fallback React e impedindo cache da API. Faltam o endereço estável da Vercel e testes públicos de Cookie/Set-Cookie, Origin, query, POST, ausência de cache privado, HTTPS e retomada após suspensão. O [guia Google](Autenticacao-google.md) detalha desenvolvimento e publicação separados.
 
 A prova de interrupções da fase 13 precisa distinguir falha de rede, suspensão do serviço e saída do jogador. Não aprovar agora uma penalidade baseada em ausência momentânea de conexão. Suporte do provedor a WebSocket não garante o comportamento do produto.
 
