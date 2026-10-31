@@ -475,6 +475,37 @@ test("cliques repetidos não enviam duas ações", async ({ page }) => {
   ).toBeVisible();
   expect(c.envios()).toBe(1);
 });
+
+test("interromper animações não duplica o envio nem impede avançar a rodada", async ({
+  page,
+}) => {
+  const c = await preparar(page);
+  await comecar(page);
+  await page
+    .getByRole("textbox", { name: "Digitação pelo teclado" })
+    .fill("GATO");
+  await page.evaluate(() =>
+    document.getAnimations().forEach((animacao) => animacao.cancel()),
+  );
+  await page
+    .getByRole("button", { name: "Enviar palpite" })
+    .evaluate((botao: HTMLButtonElement) => {
+      botao.click();
+      botao.click();
+    });
+  await expect(
+    page.getByRole("heading", { name: "Boa descoberta!" }),
+  ).toBeVisible();
+  expect(c.envios()).toBe(1);
+  await page.evaluate(
+    () => (document.documentElement.dataset.movimentos = "reduzidos"),
+  );
+  await page.getByRole("button", { name: /Próxima palavra/ }).click();
+  await expect(page.getByText("Dica 1 de 5", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Posição 1: vazia", exact: true }),
+  ).toBeVisible();
+});
 test("captura visual da arena e da configuração", async ({ page }, info) => {
   await preparar(page);
   await page.goto("/jogar/individual/novo");

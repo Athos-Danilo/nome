@@ -19,6 +19,7 @@ import { NIVEIS, TEMAS } from "./apresentacao";
 import type { Rodada, TipoAcao } from "./api";
 import { Aurelio } from "../mascote/Aurelio";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
+import { ValorAnimado } from "../../componentes/Tela";
 function Montagem({
   rodada,
   ocupado,
@@ -303,7 +304,9 @@ function ConteudoIndividual({
         </div>
         <div className="placar-solo">
           <span>SEUS PONTOS</span>
-          <strong>{estado.pontuacao}</strong>
+          <strong>
+            <ValorAnimado valor={estado.pontuacao} />
+          </strong>
         </div>
         <div className="progresso-solo">
           <span>PALAVRA</span>

@@ -31,7 +31,9 @@ export function Quadradinho({
       disabled={fixo || desabilitado}
       onClick={aoSelecionar}
     >
-      <span className="caractere">{letra}</span>
+      <span className="caractere" key={letra}>
+        {letra}
+      </span>
       <small aria-hidden="true">{indice + 1}</small>
     </button>
   );

@@ -830,11 +830,11 @@ O mapa de navegação e as rotas abaixo foram definidos na fase 06. Os [protóti
 
 ### 23.4. Animações e transições
 
-O projeto deverá usar muitas animações, tanto na navegação quanto nas interações do jogo. Bibliotecas de animação poderão ser utilizadas para alcançar a experiência pretendida; nenhuma biblioteca específica foi escolhida.
+O projeto utiliza animações na navegação e nas interações do jogo. A infraestrutura aprovada inclui Motion; o acabamento da interface na fase 40 utiliza também animações e transições CSS, preservando as atuações já aprovadas do Aurélio.
 
 Momentos a contemplar no desenho da experiência incluem botões, seleção de cartões, teclado virtual, preenchimento de letras, revelação de dicas, acertos, erros, mudanças de turno, sorteios e resultados.
 
-Haverá uma opção para reduzir os movimentos. A duração das animações não deverá alterar regras de pontuação nem permitir ações duplicadas. A sequência de animações e o comportamento de bloqueio temporário dos controles ainda serão projetados.
+Haverá uma opção para reduzir os movimentos. A duração das animações não deverá alterar regras de pontuação nem permitir ações duplicadas. O acabamento da fase 40 aplica entradas de tela, cartões, diálogos, preenchimento de letras e realce de valores confirmados. Esses efeitos não acrescentam bloqueios de ações nem dependem de terminar para permitir jogar; permanecem os controles de envio e as confirmações das regras existentes. Redução de movimento cobre também pseudoelementos e o fundo dos diálogos. Implementação, limites e revisão visual em [Acabamento da interface](Acabamento-interface.md).
 
 ### 23.5. Sons e preferências
 

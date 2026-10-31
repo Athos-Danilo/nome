@@ -21,7 +21,8 @@
     "testar-galera": "playwright test --config playwright.galera.config.ts",
     "testar-acompanhamento": "playwright test --config playwright.acompanhamento.config.ts",
     "testar-mascote": "playwright test --config playwright.mascote.config.ts",
-    "testar-audio": "playwright test --config playwright.audio.config.ts"
+    "testar-audio": "playwright test --config playwright.audio.config.ts",
+    "testar-acabamento": "playwright test --config playwright.acabamento.config.ts"
   },
   "dependencies": {
     "@dnd-kit/dom": "0.5.1",

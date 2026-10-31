@@ -1,0 +1,156 @@
+/* Movimento de apresentação: não controla ações, pontuação, foco ou duração da partida. */
+:root {
+  --tempo-toque: 140ms;
+  --tempo-entrada: 280ms;
+  --curva-jogo: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.entrada-tela {
+  min-width: 0;
+  animation: apresentar-tela var(--tempo-entrada) var(--curva-jogo) backwards;
+}
+.botao-jogo,
+.acao,
+.opcoes-solo button,
+.alternar-jogada button,
+.acentos-entrada button,
+.dock-jogo a {
+  transition:
+    transform var(--tempo-toque) var(--curva-jogo),
+    box-shadow var(--tempo-toque),
+    background-color var(--tempo-toque),
+    border-color var(--tempo-toque);
+}
+.botao-jogo:not(:disabled):active,
+.acao:not(:disabled):active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--tinta);
+}
+.cartao-modo {
+  animation: apresentar-tela 420ms var(--curva-jogo) backwards;
+}
+.cartao-modo:nth-child(2) {
+  animation-delay: 70ms;
+}
+.caractere:not(:empty),
+.valor-animado {
+  display: inline-block;
+  animation: confirmar-valor 220ms var(--curva-jogo) backwards;
+}
+.valor-animado {
+  font-variant-numeric: tabular-nums;
+}
+.placar-galera .valor-animado {
+  display: inline-block;
+  font: inherit;
+}
+.cartao-dica {
+  animation-timing-function: var(--curva-jogo);
+}
+.resultado-solo,
+.final-galera,
+.respostas-resultado article {
+  animation: apresentar-tela 360ms var(--curva-jogo) backwards;
+}
+dialog[open] {
+  animation: apresentar-dialogo 180ms var(--curva-jogo);
+}
+dialog::backdrop {
+  animation: aparecer-fundo 180ms ease-out;
+}
+dialog {
+  max-height: calc(100dvh - 32px);
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+:focus-visible {
+  scroll-margin-block: 24px 110px;
+}
+.respostas-resultado h2,
+.final-galera h2,
+.placar-galera strong,
+.voto-galera span {
+  overflow-wrap: anywhere;
+}
+.respostas-resultado article > div {
+  min-width: 0;
+}
+.placar-galera li > div {
+  min-width: 0;
+}
+.desempate-galera select {
+  max-width: 100%;
+}
+@keyframes apresentar-tela {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes confirmar-valor {
+  from {
+    opacity: 0.45;
+    transform: translateY(3px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes apresentar-dialogo {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes aparecer-fundo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 650px) {
+  .identidade-rodada,
+  .cabecalho-dica {
+    flex-wrap: wrap;
+  }
+  .resultado-solo {
+    padding-inline: 0;
+  }
+  .respostas-resultado article {
+    gap: 10px;
+  }
+  .final-galera {
+    padding: 20px 14px;
+  }
+  .voto-galera {
+    flex-wrap: wrap;
+  }
+  .voto-galera > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+/* Redução remove também deslocamentos decorativos de hover, sem esconder estados. */
+:root[data-movimentos="reduzidos"] .botao-jogo:not(:disabled):hover,
+:root[data-movimentos="reduzidos"] .acao:hover,
+:root[data-movimentos="reduzidos"] .cartao-modo:hover {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .botao-jogo:not(:disabled):hover,
+  .acao:hover,
+  .cartao-modo:hover {
+    transform: none;
+  }
+}

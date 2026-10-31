@@ -580,13 +580,17 @@ dialog label {
   }
 }
 :root[data-movimentos="reduzidos"] *,
-:root[data-movimentos="reduzidos"] *::before {
+:root[data-movimentos="reduzidos"] *::before,
+:root[data-movimentos="reduzidos"] *::after,
+:root[data-movimentos="reduzidos"] dialog::backdrop {
   animation: none !important;
   transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
   *,
-  *::before {
+  *::before,
+  *::after,
+  dialog::backdrop {
     animation: none !important;
     transition: none !important;
   }

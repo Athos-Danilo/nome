@@ -15,6 +15,7 @@ import { usePainelGalera } from "./usar-painel";
 import type { Painel } from "./painel-api";
 import { Aurelio } from "../mascote/Aurelio";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
+import { ValorAnimado } from "../../componentes/Tela";
 import {
   reacaoGalera,
   type EventoReacao,
@@ -194,7 +195,8 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
             <div>
               <strong>{a.nome}</strong>
               <span>
-                {a.pontuacao.toLocaleString("pt-BR")} <small>PTS</small>
+                <ValorAnimado valor={a.pontuacao.toLocaleString("pt-BR")} />{" "}
+                <small>PTS</small>
               </span>
             </div>
             {a.participante_id === p.participante_atual && <b>SUA VEZ</b>}

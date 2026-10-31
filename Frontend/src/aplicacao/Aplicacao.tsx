@@ -1,8 +1,3 @@
-import { RotaGalera } from "../funcionalidades/galera/RotaGalera";
-import { Historico } from "../funcionalidades/acompanhamento/Historico";
-import { Estatisticas } from "../funcionalidades/acompanhamento/Estatisticas";
-import { Rankings } from "../funcionalidades/acompanhamento/Rankings";
-import { GaleriaAurelio } from "../funcionalidades/mascote/GaleriaAurelio";
 import {
   ProvedorAudio,
   BotaoMusicaMenu,
@@ -13,11 +8,11 @@ import {
   ProtecaoNavegacao,
   useSaidaPartida,
 } from "../funcionalidades/individual/saida-partida";
-import { RotaIndividual } from "../funcionalidades/individual/RotaIndividual";
-import { ConteudoConta } from "../funcionalidades/perfil/ConteudoConta";
 import { PaginaEmPreparacao } from "../componentes/PaginaEmPreparacao";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
+import { Tela } from "../componentes/Tela";
+import "../estilos/acabamento.css";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -38,6 +33,42 @@ import {
   VoltarAoMenu,
 } from "../componentes/Comuns";
 import "../estilos/menu.css";
+
+const RotaGalera = lazy(() =>
+  import("../funcionalidades/galera/RotaGalera").then((modulo) => ({
+    default: modulo.RotaGalera,
+  })),
+);
+const Historico = lazy(() =>
+  import("../funcionalidades/acompanhamento/Historico").then((modulo) => ({
+    default: modulo.Historico,
+  })),
+);
+const Estatisticas = lazy(() =>
+  import("../funcionalidades/acompanhamento/Estatisticas").then((modulo) => ({
+    default: modulo.Estatisticas,
+  })),
+);
+const Rankings = lazy(() =>
+  import("../funcionalidades/acompanhamento/Rankings").then((modulo) => ({
+    default: modulo.Rankings,
+  })),
+);
+const GaleriaAurelio = lazy(() =>
+  import("../funcionalidades/mascote/GaleriaAurelio").then((modulo) => ({
+    default: modulo.GaleriaAurelio,
+  })),
+);
+const RotaIndividual = lazy(() =>
+  import("../funcionalidades/individual/RotaIndividual").then((modulo) => ({
+    default: modulo.RotaIndividual,
+  })),
+);
+const ConteudoConta = lazy(() =>
+  import("../funcionalidades/perfil/ConteudoConta").then((modulo) => ({
+    default: modulo.ConteudoConta,
+  })),
+);
 
 const consultas = new QueryClient({
   defaultOptions: {
@@ -66,14 +97,6 @@ function Jogo() {
     dados.navegar(caminho === "/configuracoes" ? "preferencias" : "perfil");
     window.scrollTo(0, 0);
   }, [caminho]);
-  useEffect(() => {
-    if (!carregando) {
-      document
-        .querySelector<HTMLElement>("main h1")
-        ?.focus({ preventScroll: true });
-      document.title = `${document.querySelector("main h1")?.textContent ?? "Jogo de palavras"} — Decifra`;
-    }
-  }, [caminho, carregando, pendente]);
   const privada =
     caminho.startsWith("/perfil") ||
     caminho.startsWith("/jogar/individual") ||
@@ -256,7 +279,7 @@ function Jogo() {
           )}
           {dados.erro && <AvisoErro mensagem={dados.erro} />}
           <AvisoAudio />
-          {conteudo}
+          <Tela caminho={caminho}>{conteudo}</Tela>
         </main>
         <footer className="rodape-jogo">
           DÊ ASAS À SUA CURIOSIDADE <span aria-hidden="true">✦</span>
@@ -274,7 +297,10 @@ function Jogo() {
             Na Galera, até três pessoas dividem o mesmo dispositivo e tentam
             revelar as palavras. Acertou? Continua na vez!
           </p>
-          <p>Você escolhe seu ritmo. Sem cronômetro, com muita curiosidade.</p>
+          <p>
+            Você escolhe seu ritmo. Sem limite de tempo: o cronômetro apenas
+            registra sua jornada.
+          </p>
         </Dialogo>
         <ExcluirConta
           aberto={dados.aberto}
