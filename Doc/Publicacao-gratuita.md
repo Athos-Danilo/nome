@@ -1,6 +1,6 @@
 # Viabilidade da publicação gratuita
 
-**Verificação inicial:** 2026-10-27, com decisão D18 aprovada em 2026-10-28 na fase 15: **Vercel para o frontend e Render gratuito para a API**, mantendo Neon e Atlas. **Fase 41 em andamento em 31/10/2026:** API iniciada no Render Free; projetos gratuitos criados pelo responsável no Neon e Atlas. Frontend, migrações, catálogo e login público ainda pendentes. [Procedimento e evidências](Publicacao-ambiente.md).
+**Verificação inicial:** 2026-10-27, com decisão D18 aprovada em 2026-10-28 na fase 15: **Vercel para o frontend e Render gratuito para a API**, mantendo Neon e Atlas. **Fase 41 concluída em 31/10/2026:** API no Render Free, [frontend na Vercel](https://decifra-inky.vercel.app), Neon na revisão 0011 e Atlas com 375 respostas aprovadas. Encaminhamento HTTP conferido; responsável confirmou login real, os dois modos, celular e retomada no roteiro de reinício/despertar. [Procedimento, evidências e limites da verificação](Publicacao-ambiente.md).
 
 | Serviço | Uso possível | Evidência e limite relevante |
 | --- | --- | --- |
@@ -10,13 +10,13 @@
 | Neon Free | PostgreSQL | Página consultada informa 100 CU-h por projeto/mês e 1 GB por projeto, sem cartão obrigatório; monitorar uso e suspensão da computação. |
 | Atlas Free | Catálogo MongoDB | Até 500 conexões; versão MongoDB 8.0 gerenciada. A instalação local 8.2.5 exige manter compatibilidade com a versão de destino. |
 
-## Organização aprovada e verificações pendentes
+## Organização publicada e limites
 
 Render foi escolhido para a API acadêmica, com Neon e Atlas para persistência. Todo progresso deve ficar nos bancos, nunca no disco do servidor. A suspensão pode prejudicar uma apresentação se o serviço estiver frio; testar inicialização e informar carregamento, sem confundir falha de hospedagem com desistência do jogador.
 
 O frontend ficará na Vercel por preferência expressa do responsável. A Vercel encaminhará `/api` ao Render por rewrite externo; o navegador utilizará a origem da interface para login, retorno Google e operações privadas. O servidor define callback a partir de `DECIFRA_ORIGEM_PUBLICA`, com cookies sem Domain, HttpOnly, SameSite=Lax e Secure em HTTPS. Não depender apenas de CORS nem definir callback a partir de cabeçalhos arbitrários.
 
-A documentação oficial da Vercel confirma rewrites externos, mas isso não comprova o funcionamento do projeto publicado. `Frontend/vercel.json` foi preparado com o destino real `https://decifra-api.onrender.com`, priorizando `/api` sobre o fallback React e impedindo cache da API. Faltam o endereço estável da Vercel e testes públicos de Cookie/Set-Cookie, Origin, query, POST, ausência de cache privado, HTTPS e retomada após suspensão. O [guia Google](Autenticacao-google.md) detalha desenvolvimento e publicação separados.
+`Frontend/vercel.json` usa o destino real `https://decifra-api.onrender.com`, priorizando `/api` sobre o fallback React e impedindo cache da API. A origem pública é `https://decifra-inky.vercel.app`. Foram conferidos GET, POST recusado, proteção de Origin, callback correto e cookie temporário pelo rewrite; login completo, jogos e retomada foram confirmados pelo responsável. A inspeção detalhada do cookie da sessão final e a medição da inicialização após suspensão não foram automatizadas. O [guia Google](Autenticacao-google.md) detalha desenvolvimento e publicação separados.
 
 A prova de interrupções da fase 13 precisa distinguir falha de rede, suspensão do serviço e saída do jogador. Não aprovar agora uma penalidade baseada em ausência momentânea de conexão. Suporte do provedor a WebSocket não garante o comportamento do produto.
 

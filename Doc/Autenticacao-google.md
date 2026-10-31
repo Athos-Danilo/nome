@@ -1,5 +1,7 @@
 # Google e autenticação — fase 15
 
+**Atualização da fase 41, 31/10/2026:** login Google público confirmado pelo responsável em `https://decifra-inky.vercel.app`, com cliente separado para a web e callback `https://decifra-inky.vercel.app/api/autenticacao/google/retorno`. API Render acessada por `/api` na Vercel. As pendências de publicação mencionadas no relato histórico da fase 15 foram tratadas na fase 41; consultar [evidências e limites atuais](Publicacao-ambiente.md). Cliente local e credenciais privadas foram preservados.
+
 **Situação:** fase 15 concluída em 2026-10-28. Login Google real confirmado pelo responsável no Chrome, com retorno ao frontend e conferência privada de uma conta em cadastro pendente e uma sessão válida no PostgreSQL de desenvolvimento. Cliente Google e configuração privada preparados; banco/usuário próprios e migrações 0001/0002 aplicadas. Saída, expiração, rotação e recusa de acesso indevido verificadas nos testes automatizados descritos abaixo. Publicação e interface final continuam nas fases próprias.
 
 ## Implementação e verificação realizadas

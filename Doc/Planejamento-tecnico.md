@@ -1,5 +1,7 @@
 # Planejamento técnico — Decifra
 
+**Fase 41 concluída em 31/10/2026:** ambiente público em https://decifra-inky.vercel.app, frontend Vercel e API Render Free com rewrite de mesma origem. Neon na revisão 0011, 23 tabelas; Atlas com 375 respostas/1.875 dicas aprovadas, sem migrar dados pessoais locais. Responsável confirmou login, os dois modos, celular, recuperação ao atualizar e retomada no roteiro de reinício/despertar. Sem nova dependência ou regra de jogo. [Publicação, preservação e limites das verificações](Publicacao-ambiente.md).
+
 **Fase 40 concluída, com revisão visual aprovada em 31/10/2026:** acabamento CSS, foco acessível após carregamento assíncrono, recuperação de falhas de módulos e telas carregadas por rota com React lazy/Suspense. Nenhuma dependência, migração ou regra de jogo nova. JavaScript inicial total de aproximadamente 446,62 kB, incluindo compartilhados. [Decisões, verificações e pendências](Acabamento-interface.md).
 
 **Fase 39 concluída:** filmes e séries fechado com 100 títulos/500 dicas (40/35/25). Lote 004 e três correções do 001 aprovados e publicados; histórico preservado, sem mudança de regras, dependências ou PostgreSQL. MongoDB com 375 respostas, 1.875 dicas e 394 revisões; arquivos com 425 respostas e 2.125 dicas. [Revisão e verificações](Revisoes/filmes-e-series-004.md).
