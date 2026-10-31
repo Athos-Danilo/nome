@@ -850,7 +850,7 @@ Os estilos musicais escolhidos são **lo-fi e arcade**. A seleção poderá cont
 
 O usuário poderá desabilitar todos os sons ou apenas determinados grupos de efeitos. Os controles serão separados em **música**, **interface e teclado** e **eventos da partida**, com volume independente por grupo e uma opção geral para silenciar.
 
-Seis faixas CC0 foram preparadas na fase 38, com créditos e procedência em [Áudio](Audio/README.md), além de 13 efeitos sintetizados para o projeto. A seleção artística final das músicas e efeitos aguarda a escuta e aprovação do responsável; a disponibilidade das prévias não representa essa aprovação.
+Seis faixas CC0 foram preparadas na fase 38, com créditos e procedência em [Áudio](Audio/README.md), além de 13 efeitos sintetizados para o projeto. A seleção artística de músicas e efeitos foi aprovada pelo responsável em 30/10/2026, após experimentar a entrega.
 
 Animações e sons deverão acompanhar o retorno visual: informações necessárias para jogar não deverão depender exclusivamente da audição. A experiência também deverá funcionar com sons desativados e movimentos reduzidos.
 
@@ -895,7 +895,7 @@ Ideias visuais para avaliação: abrir e fechar a capa como gesto, movimentar p�
 1. Hierarquia e acabamento do menu com cartões e botões.
 2. Detalhes de adaptação das telas de jogo e aplicação de acentos.
 3. Estilo dos avatares e identidade do mascote animado.
-4. Seleção final das músicas; conciliação de preferências definida e implementada na fase 17.
+4. Seleção musical aprovada e fase 38 concluída em 30/10/2026; conciliação de preferências definida e implementada na fase 17.
 5. Ilustrações e linguagem das animações; aplicar a paleta e a tipografia aprovadas no guia visual, ajustando-as se necessário após avaliação das páginas reais.
 
 ## 24. Planejamento técnico

@@ -42,7 +42,7 @@ Migração `0011`: acrescenta `preferencias.musica_menu_ativa`, booleano não nu
 
 TDD aplicado ao gerenciador, contrato de preferências, síntese dos efeitos e integração das prévias. O teste do adaptador revelou que `preload: false` exigia carregar explicitamente o recurso antes de tocar; a correção está protegida por regressão. Outra regressão cobre descarte e recuperação de efeitos que falharam. Testes de navegador conferem os controles, persistência local, erro de arquivo e sinal real na saída Web Audio, além do silêncio geral. Persistência de conta e equivalência da migração são verificadas no PostgreSQL isolado.
 
-**Pendente D16:** escuta artística das cinco músicas de partida, música do menu e conjunto de efeitos pelo responsável. Prévia funcional não substitui essa aprovação. O checklist da fase 38 permanece aberto até essa revisão. Não se declara qualidade subjetiva, emendas perfeitas ou compatibilidade com todos os navegadores apenas pelos testes automatizados.
+**D16 aprovada em 30/10/2026:** após experimentar a entrega, o responsável aprovou as músicas e os efeitos e autorizou a fase seguinte. Fase 38 concluída. A aprovação artística não equivale a garantir emendas perfeitas ou compatibilidade com todas as instalações de navegador.
 
 ### Registro das verificações (30/10/2026)
 
