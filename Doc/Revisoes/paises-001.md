@@ -2,6 +2,8 @@
 
 **Data:** 2026-10-27. **Responsável:** Codex, revisão editorial por IA e conferência estrutural local. A revisão não equivale a aprovação humana nem à execução do importador, ainda previsto para a fase 12.
 
+**Atualização em 02/11/2026 — fase 44:** responsável aprovou expressamente o conteúdo e a importação nos dois ambientes. Importação local concluída, sem alteração do conteúdo deste lote. Carga Atlas adiada para 04/11/2026, antes das demais fases. As pendências descritas abaixo registram a situação original da revisão.
+
 ## Seleção e escrita
 
 25 Estados soberanos, sem cidades, dependências ou casos de reconhecimento controverso. Foram escolhidos nomes correntes em português do Brasil; expressões usam espaços, preservam acentos e não exigem a decisão pendente sobre sinais ou algarismos. Não há variantes de uma mesma resposta cadastradas separadamente.

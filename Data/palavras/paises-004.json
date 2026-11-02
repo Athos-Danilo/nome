@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "paises-004",
+  "palavras": [
+    {
+      "id": "angola",
+      "resposta": "ANGOLA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na porção sul do continente africano.",
+        "Meu litoral é banhado pelo oceano Atlântico.",
+        "O português é minha língua oficial.",
+        "Mbanza Kongo, antiga capital de um reino africano, fica no meu território.",
+        "Minha capital é Luanda."
+      ]
+    },
+    {
+      "id": "mocambique",
+      "resposta": "MOÇAMBIQUE",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no sudeste da África.",
+        "Meu litoral é banhado pelo oceano Índico.",
+        "O português é minha língua oficial.",
+        "Minha antiga capital fica em uma ilha histórica que tem o mesmo nome do país.",
+        "Minha capital é Maputo, e a cidade de Beira também fica no meu território."
+      ]
+    },
+    {
+      "id": "cabo-verde",
+      "resposta": "CABO VERDE",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país insular ligado ao continente africano.",
+        "Meu arquipélago fica no Atlântico, ao largo da costa ocidental da África.",
+        "O português é minha língua oficial.",
+        "Cidade Velha, na ilha de Santiago, preserva vestígios de minha história colonial.",
+        "Minha capital é Praia, situada na ilha de Santiago."
+      ]
+    },
+    {
+      "id": "senegal",
+      "resposta": "SENEGAL",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na África Ocidental.",
+        "Tenho litoral no oceano Atlântico e faço fronteira com a Gâmbia.",
+        "A ilha de Gorée preserva importantes referências à memória do tráfico de pessoas escravizadas.",
+        "Essa ilha fica diante da cidade que é minha capital.",
+        "Minha capital é Dacar, cidade que deu nome a um famoso rali."
+      ]
+    },
+    {
+      "id": "camaroes",
+      "resposta": "CAMARÕES",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do continente africano.",
+        "Meu litoral fica no golfo da Guiné.",
+        "A Reserva de Fauna de Dja protege florestas e muitos primatas no meu território.",
+        "Duala é uma de minhas cidades portuárias mais conhecidas.",
+        "Minha capital é Iaundê, e minha seleção de futebol é conhecida como Leões Indomáveis."
+      ]
+    },
+    {
+      "id": "gana",
+      "resposta": "GANA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na África Ocidental.",
+        "Tenho litoral no golfo da Guiné.",
+        "Fui conhecido no período colonial britânico como Costa do Ouro.",
+        "Elmina e Cape Coast abrigam fortificações associadas à história do comércio atlântico.",
+        "Minha capital é Acra, e uma estrela preta aparece no centro de minha bandeira."
+      ]
+    },
+    {
+      "id": "tunisia",
+      "resposta": "TUNÍSIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no norte da África.",
+        "Tenho litoral no mar Mediterrâneo.",
+        "Faço fronteira terrestre com a Argélia e a Líbia.",
+        "As ruínas da antiga Cartago ficam no meu território.",
+        "Minha capital é Túnis."
+      ]
+    },
+    {
+      "id": "argelia",
+      "resposta": "ARGÉLIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico no norte da África.",
+        "Meu litoral é banhado pelo mar Mediterrâneo.",
+        "O deserto do Saara ocupa uma grande parte de meu território.",
+        "O vale do Mzab reúne antigas cidades fortificadas adaptadas ao ambiente desértico.",
+        "Minha capital é Argel, conhecida por sua Casbah histórica."
+      ]
+    },
+    {
+      "id": "libia",
+      "resposta": "LÍBIA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um país do norte da África.",
+        "Tenho litoral no mar Mediterrâneo.",
+        "Partes extensas do meu território pertencem ao deserto do Saara.",
+        "A antiga cidade de Leptis Magna preserva importantes ruínas romanas no meu território.",
+        "Minha capital é Trípoli, e Bengasi é outra cidade conhecida daqui."
+      ]
+    },
+    {
+      "id": "libano",
+      "resposta": "LÍBANO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Fico na Ásia ocidental.",
+        "Tenho uma costa voltada para o Mediterrâneo.",
+        "Baalbek abriga um importante conjunto de templos antigos no meu território.",
+        "O cedro é uma árvore muito associada à minha identidade e aparece em minha bandeira.",
+        "Minha capital é Beirute."
+      ]
+    },
+    {
+      "id": "guatemala",
+      "resposta": "GUATEMALA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na América Central.",
+        "Tenho costas no oceano Pacífico e no mar do Caribe.",
+        "Minha história reúne uma importante herança da civilização maia.",
+        "As pirâmides e templos de Tikal ficam em uma área de floresta do meu território.",
+        "Minha moeda é o quetzal, nome também de uma ave associada ao país."
+      ]
+    },
+    {
+      "id": "honduras",
+      "resposta": "HONDURAS",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Fico na América Central.",
+        "Tenho uma extensa costa no Caribe e também acesso ao Pacífico pelo golfo de Fonseca.",
+        "Meu sítio arqueológico de Copán preserva vestígios da civilização maia.",
+        "A Escadaria dos Hieróglifos é um dos monumentos conhecidos desse sítio.",
+        "Minha capital é Tegucigalpa."
+      ]
+    },
+    {
+      "id": "el-salvador",
+      "resposta": "EL SALVADOR",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país da América Central.",
+        "Meu litoral é banhado pelo oceano Pacífico.",
+        "Faço fronteira terrestre com a Guatemala e Honduras.",
+        "Joya de Cerén preserva vestígios de uma antiga aldeia soterrada por uma erupção vulcânica.",
+        "Minha capital é São Salvador, também chamada de San Salvador em espanhol."
+      ]
+    },
+    {
+      "id": "republica-dominicana",
+      "resposta": "REPÚBLICA DOMINICANA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país do Caribe.",
+        "Compartilho a ilha de Hispaniola com outro país.",
+        "Meu território ocupa a parte oriental dessa ilha; o Haiti fica a oeste.",
+        "O centro colonial de minha capital fica junto ao rio Ozama.",
+        "Minha capital é São Domingos, também conhecida como Santo Domingo."
+      ]
+    },
+    {
+      "id": "luxemburgo",
+      "resposta": "LUXEMBURGO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um país europeu sem litoral marítimo.",
+        "Francês e alemão estão entre as línguas usadas no meu território.",
+        "Minha capital preserva bairros antigos e fortificações reconhecidos pela UNESCO.",
+        "Essas fortificações tiveram grande importância estratégica na história europeia.",
+        "Sou um grão-ducado situado entre a França, a Bélgica e a Alemanha."
+      ]
+    },
+    {
+      "id": "liechtenstein",
+      "resposta": "LIECHTENSTEIN",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno país europeu sem litoral.",
+        "Fico na região dos Alpes.",
+        "Tenho apenas dois vizinhos terrestres: a Suíça e a Áustria.",
+        "O rio Reno acompanha parte de minha fronteira ocidental.",
+        "Minha capital é Vaduz, conhecida pelo castelo que se ergue sobre a cidade."
+      ]
+    },
+    {
+      "id": "andorra",
+      "resposta": "ANDORRA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno país europeu sem litoral.",
+        "Montanhas e atividades de inverno fazem parte de minhas paisagens.",
+        "Meu território fica na cordilheira dos Pireneus.",
+        "O vale de Madriu-Perafita-Claror preserva uma paisagem cultural de montanha reconhecida pela UNESCO.",
+        "Sou um principado entre a França e a Espanha, e o catalão é minha língua oficial."
+      ]
+    },
+    {
+      "id": "san-marino",
+      "resposta": "SAN MARINO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país europeu sem litoral.",
+        "Meu território é inteiramente cercado pela Itália.",
+        "Minha continuidade como república desde a Idade Média faz parte de meu reconhecimento histórico.",
+        "Meu centro histórico se ergue junto ao monte Titano.",
+        "Três torres sobre três picos aparecem no brasão da minha bandeira."
+      ]
+    },
+    {
+      "id": "monaco",
+      "resposta": "MÔNACO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um pequeno país europeu com litoral.",
+        "Minha costa fica no mar Mediterrâneo.",
+        "Tenho uma única fronteira terrestre, com a França.",
+        "Monte Carlo é um de meus bairros mais conhecidos, associado a um famoso cassino.",
+        "Sou o principado conhecido por um Grande Prêmio de Fórmula 1 disputado em ruas estreitas."
+      ]
+    },
+    {
+      "id": "malta",
+      "resposta": "MALTA",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país insular europeu.",
+        "Meu arquipélago fica no mar Mediterrâneo, ao sul da Sicília.",
+        "Gozo é uma das ilhas do meu território.",
+        "A história de minha capital tem forte ligação com os cavaleiros da Ordem de São João.",
+        "Minha capital é Valeta, uma cidade fortificada reconhecida pela UNESCO."
+      ]
+    },
+    {
+      "id": "sao-tome-e-principe",
+      "resposta": "SÃO TOMÉ E PRÍNCIPE",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país insular africano.",
+        "Minhas ilhas ficam no golfo da Guiné.",
+        "O português é minha língua oficial.",
+        "Florestas tropicais e antigas roças de cacau fazem parte de minhas paisagens.",
+        "Minha capital é São Tomé; a outra ilha principal tem o nome de um título dado ao filho de um rei."
+      ]
+    },
+    {
+      "id": "timor-leste",
+      "resposta": "TIMOR-LESTE",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país do Sudeste Asiático.",
+        "Meu território ocupa parte de uma ilha e inclui o enclave de Oecussi-Ambeno.",
+        "Compartilho uma fronteira terrestre com a Indonésia.",
+        "O tétum e o português são minhas línguas oficiais.",
+        "Minha capital é Díli, e minha independência foi restaurada em 2002."
+      ]
+    },
+    {
+      "id": "comores",
+      "resposta": "COMORES",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país insular africano.",
+        "Meu território fica no oceano Índico, entre a costa oriental da África e Madagascar.",
+        "Grande Comore, Anjouan e Mohéli são minhas três ilhas principais administradas.",
+        "O vulcão Karthala se ergue na ilha onde fica minha capital.",
+        "Minha capital é Moroni."
+      ]
+    },
+    {
+      "id": "lesoto",
+      "resposta": "LESOTO",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país africano sem saída para o mar.",
+        "Montanhas e planaltos elevados marcam meu território.",
+        "O Parque Nacional de Sehlabathebe integra o patrimônio transnacional Maloti-Drakensberg.",
+        "Sou inteiramente cercado pelo território da África do Sul.",
+        "Minha capital é Maseru."
+      ]
+    },
+    {
+      "id": "vanuatu",
+      "resposta": "VANUATU",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um país insular da Oceania.",
+        "Meu arquipélago fica na região da Melanésia.",
+        "As ilhas de Efate, Lelepa e Artok guardam lugares associados ao chefe Roi Mata.",
+        "Esses lugares preservam uma forte relação entre tradição oral e arqueologia.",
+        "Minha capital é Porto Vila, situada na ilha de Efate."
+      ]
+    }
+  ]
+}
