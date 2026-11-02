@@ -1,0 +1,381 @@
+{
+  "versao_formato": 1,
+  "lote": "objetos-004",
+  "palavras": [
+    {
+      "id": "televisor",
+      "resposta": "TELEVISOR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um aparelho eletrônico usado em ambientes domésticos.",
+        "Minha tela pode mostrar imagens acompanhadas de som.",
+        "Posso receber programação de emissoras por uma antena ou outros meios.",
+        "Um controle remoto costuma permitir trocar canais e ajustar o volume.",
+        "Sou o aparelho diante do qual muitas pessoas assistem a novelas, notícias e partidas de futebol."
+      ]
+    },
+    {
+      "id": "celular",
+      "resposta": "CELULAR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um aparelho eletrônico portátil.",
+        "Costumo acompanhar as pessoas fora de casa.",
+        "Minha função de comunicação inclui fazer e receber chamadas sem um fio ligado à parede.",
+        "Nos modelos inteligentes, uma tela permite usar aplicativos e enviar mensagens.",
+        "Sou o telefone móvel que muitas pessoas carregam no bolso."
+      ]
+    },
+    {
+      "id": "computador",
+      "resposta": "COMPUTADOR",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma máquina eletrônica usada para diferentes tarefas.",
+        "Processo informações seguindo instruções de programas.",
+        "Trabalho com memória, processador e dispositivos de entrada e saída.",
+        "Na versão de mesa, posso ser usado com monitor, teclado e mouse separados.",
+        "Sou a máquina de uso geral em que você pode instalar programas, editar documentos e executar jogos."
+      ]
+    },
+    {
+      "id": "mesa",
+      "resposta": "MESA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou uma peça de mobiliário.",
+        "Existem versões usadas para trabalhar, estudar ou fazer refeições.",
+        "Minha estrutura oferece uma superfície elevada e relativamente plana.",
+        "Cadeiras costumam ser colocadas ao meu redor.",
+        "Meu tampo serve de apoio para pratos, cadernos ou outros objetos durante uma atividade."
+      ]
+    },
+    {
+      "id": "porta",
+      "resposta": "PORTA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte de muitas construções.",
+        "Ocupo uma abertura entre ambientes ou entre o interior e o exterior.",
+        "Posso girar em dobradiças ou deslizar sobre trilhos.",
+        "Muitos modelos têm maçaneta e fechadura.",
+        "Você me abre para passar de um cômodo para outro e me fecha para bloquear essa passagem."
+      ]
+    },
+    {
+      "id": "janela",
+      "resposta": "JANELA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Faço parte de muitas construções.",
+        "Costumo ocupar uma abertura em uma parede.",
+        "Muitos modelos possuem caixilho e partes de vidro.",
+        "Posso permitir a entrada de luz e, quando aberta, a circulação do ar.",
+        "Você pode olhar através de mim para ver a rua sem sair do cômodo."
+      ]
+    },
+    {
+      "id": "bone",
+      "resposta": "BONÉ",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um acessório de vestuário.",
+        "Sou colocado sobre a cabeça.",
+        "Meu modelo comum tem uma copa de tecido e pode ter ajuste na parte de trás.",
+        "Tenho uma aba que se projeta principalmente para a frente.",
+        "Sou a cobertura de cabeça com uma pala frontal muito usada por jogadores de beisebol."
+      ]
+    },
+    {
+      "id": "chapeu",
+      "resposta": "CHAPÉU",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um acessório de vestuário.",
+        "Sou usado sobre a cabeça e posso ter função de proteção ou composição de um traje.",
+        "Posso ser feito de palha, feltro ou outros materiais.",
+        "Muitos modelos possuem uma copa rodeada por uma aba em toda a volta.",
+        "Sou o acessório de copa e aba larga associado à imagem de um vaqueiro."
+      ]
+    },
+    {
+      "id": "cinto",
+      "resposta": "CINTO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um acessório de vestuário.",
+        "Meu corpo pode ser uma tira de couro ou de tecido.",
+        "Costumo passar por pequenas alças na parte superior de uma calça.",
+        "Uma fivela permite fechar e ajustar meu comprimento útil.",
+        "Sou apertado ao redor da cintura para ajudar a segurar a calça."
+      ]
+    },
+    {
+      "id": "balde",
+      "resposta": "BALDE",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "dicas": [
+        "Sou um recipiente usado em tarefas domésticas e outros trabalhos.",
+        "Existem versões de plástico e de metal.",
+        "Meu modelo comum possui uma abertura larga na parte de cima.",
+        "Uma alça permite carregar meu conteúdo com uma das mãos.",
+        "Posso ser enchido com água para acompanhar um pano durante a limpeza do chão."
+      ]
+    },
+    {
+      "id": "escumadeira",
+      "resposta": "ESCUMADEIRA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio de cozinha.",
+        "Tenho um cabo comprido ligado a uma parte mais larga.",
+        "Minha parte útil apresenta furos ou uma malha.",
+        "Posso retirar alimentos de um líquido e deixar o excesso escorrer.",
+        "Sou a colher larga perfurada usada para retirar espuma de um caldo ou recolher uma fritura."
+      ]
+    },
+    {
+      "id": "descascador-de-legumes",
+      "resposta": "DESCASCADOR DE LEGUMES",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um utensílio usado no preparo de alimentos.",
+        "Minha versão manual cabe em uma das mãos.",
+        "Tenho uma lâmina curta montada em um suporte.",
+        "Minha lâmina retira uma camada fina da superfície sem cortar o alimento em pedaços.",
+        "Sou passado sobre batatas ou cenouras para remover sua casca."
+      ]
+    },
+    {
+      "id": "nivel-de-bolha",
+      "resposta": "NÍVEL DE BOLHA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou uma ferramenta usada em instalação e construção.",
+        "Ajudo a conferir a orientação de uma superfície.",
+        "Tenho um pequeno tubo transparente contendo líquido e uma parte de ar.",
+        "Quando essa parte de ar fica entre as marcas de referência, indica o alinhamento previsto para aquele tubo.",
+        "Sou a ferramenta em que uma pequena porção de ar se desloca no líquido para verificar se uma prateleira está horizontal."
+      ]
+    },
+    {
+      "id": "trena",
+      "resposta": "TRENA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento de medição de comprimento.",
+        "Sou comum em obras e instalações de móveis.",
+        "Minha versão de bolso guarda uma fita flexível dentro de uma caixa.",
+        "A fita pode ser puxada e depois recolhida para o interior dessa caixa.",
+        "Sou a fita graduada retrátil que você estica para medir a largura de uma parede."
+      ]
+    },
+    {
+      "id": "compasso",
+      "resposta": "COMPASSO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "dicas": [
+        "Sou um instrumento usado em desenho geométrico.",
+        "Meu modelo escolar tem duas hastes ligadas por uma articulação.",
+        "Uma haste possui uma ponta que serve de apoio.",
+        "A outra pode segurar grafite enquanto gira em torno da ponta apoiada.",
+        "Uso uma ponta fixa e outra que desenha para traçar circunferências com um raio escolhido."
+      ]
+    },
+    {
+      "id": "torquimetro",
+      "resposta": "TORQUÍMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou uma ferramenta usada em montagens mecânicas.",
+        "Ajudo a controlar uma grandeza ligada ao aperto de fixadores.",
+        "Posso ter uma escala e um encaixe para soquetes.",
+        "Alguns modelos emitem um estalo quando atingem o valor ajustado.",
+        "Sou usado para aplicar um torque especificado a uma porca ou parafuso, frequentemente indicado em newton-metro."
+      ]
+    },
+    {
+      "id": "odometro",
+      "resposta": "ODÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento relacionado a deslocamentos.",
+        "Posso aparecer no painel de veículos ou em aparelhos de medição com uma roda.",
+        "Meu funcionamento pode associar voltas de uma roda a um comprimento percorrido.",
+        "Ao contrário do velocímetro, minha leitura acumula um percurso em vez de indicar rapidez instantânea.",
+        "No painel de um automóvel, registro a distância total percorrida, normalmente em quilômetros."
+      ]
+    },
+    {
+      "id": "tacometro",
+      "resposta": "TACÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento de medição usado em máquinas.",
+        "Minha leitura se relaciona a uma peça que gira.",
+        "Existem modelos de contato e modelos ópticos que usam uma marca refletora.",
+        "Meu resultado costuma ser expresso em rotações por minuto.",
+        "Meço a velocidade de rotação de um eixo, como a de um motor."
+      ]
+    },
+    {
+      "id": "galvanometro",
+      "resposta": "GALVANÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento associado a experimentos de eletricidade.",
+        "Posso ajudar a detectar correntes de pequena intensidade.",
+        "Em um modelo de bobina móvel, uma bobina fica sob a ação de um campo magnético.",
+        "A passagem de corrente pode provocar o desvio de um ponteiro ligado ao conjunto móvel.",
+        "Sou o instrumento sensível de detecção de corrente que pode servir de base a amperímetros analógicos."
+      ]
+    },
+    {
+      "id": "osciloscopio",
+      "resposta": "OSCILOSCÓPIO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um equipamento usado em laboratórios de eletrônica.",
+        "Recebo sinais elétricos por entradas ligadas a cabos ou pontas de prova.",
+        "Minha tela apresenta uma representação gráfica do sinal observado.",
+        "No modo usual, o eixo horizontal representa o tempo e o vertical representa a tensão.",
+        "Permito visualizar formas de onda, como uma senoide, para estudar a variação de um sinal elétrico."
+      ]
+    },
+    {
+      "id": "refratometro",
+      "resposta": "REFRATÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado para analisar materiais.",
+        "Muitos modelos recebem uma pequena amostra de líquido.",
+        "Meu funcionamento explora o comportamento da luz ao passar entre meios.",
+        "Determino o índice de refração e posso relacioná-lo à concentração de uma solução.",
+        "Na análise de sucos ou mostos, posso indicar uma leitura em graus Brix a partir de uma medição óptica."
+      ]
+    },
+    {
+      "id": "densimetro",
+      "resposta": "DENSÍMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento usado na análise de materiais.",
+        "Posso ajudar a caracterizar amostras líquidas.",
+        "Uma versão tradicional é um corpo graduado que flutua dentro da amostra.",
+        "A profundidade em que essa versão flutua depende da relação entre massa e volume do líquido.",
+        "Sou usado para medir a densidade, por exemplo em amostras de combustível."
+      ]
+    },
+    {
+      "id": "goniometro",
+      "resposta": "GONIÔMETRO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Sou um instrumento de medição.",
+        "Tenho aplicações em oficinas e em outras atividades que comparam direções.",
+        "Uma versão mecânica possui braços ou réguas que podem mudar de posição entre si.",
+        "Uma escala graduada permite ler a abertura entre essas partes.",
+        "Meço ângulos; na versão de oficina, posso lembrar um transferidor com uma régua móvel."
+      ]
+    },
+    {
+      "id": "pantografo",
+      "resposta": "PANTÓGRAFO",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Minha versão de desenho é um instrumento articulado.",
+        "Tenho barras unidas de maneira a formar paralelogramos.",
+        "Uma ponta acompanha o contorno de uma figura já existente.",
+        "Outra ponta reproduz o movimento numa escala que depende dos pontos de fixação.",
+        "Posso copiar um desenho ampliando ou reduzindo suas dimensões por meio desse conjunto de hastes."
+      ]
+    },
+    {
+      "id": "morsa",
+      "resposta": "MORSA",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "dicas": [
+        "Aqui sou uma ferramenta de oficina, e não um animal.",
+        "Costumo ficar presa a uma bancada.",
+        "Tenho duas mandíbulas chamadas de mordentes.",
+        "Um fuso acionado por uma manivela aproxima uma mandíbula da outra.",
+        "Sou usada para prender firmemente uma peça enquanto ela é serrada, limada ou trabalhada."
+      ]
+    }
+  ]
+}

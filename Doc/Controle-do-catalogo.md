@@ -1,6 +1,8 @@
 # Controle de produção do catálogo — Decifra
 
-**Situação atual:** dezoito lotes produzidos: 450 respostas e 2.250 dicas, aprovados na validação automática completa. Dezesseis lotes aprovados pelo responsável e publicados no MongoDB local e Atlas: **400 respostas e 2.000 dicas** em cada ambiente. Animais, filmes/séries e marcas estão fechados com 100 respostas e 500 dicas por temática, distribuição 40/35/25. Banco local com **427 revisões**: 400 iniciais, 16 correções de animais, três de filmes/séries e oito de marcas, com histórico preservado. Atlas com **408 revisões**: 400 iniciais e oito correções de marcas; a carga inicial já usou dicas corrigidas de animais e filmes, sem migrar o histórico local. Dez dicas de oito marcas do lote 001 foram aprovadas e corrigidas na fase 42. Países-001 e objetos-001 continuam em avaliação humana, sem carga. [Fechamento de marcas](Revisoes/marcas-004.md) e [publicação](Publicacao-ambiente.md).
+**Situação atual em 02/11/2026:** vinte lotes aprovados pelo responsável e importados localmente: **500 respostas, 2.500 dicas e 527 revisões**. Os arquivos têm 500 IDs e respostas normalizadas distintos, quotas globais 200/175/125 e cinco temáticas de 100 itens (40/35/25). A conferência integral encontrou 500 registros idênticos, zero novos e zero recuperáveis. Atlas: **400 respostas, 2.000 dicas e 408 revisões**, conforme última conferência; faltam as cargas aprovadas de países-001/004 e objetos-001/004. As dez correções de dicas de oito marcas já foram publicadas nos dois ambientes, com histórico preservado. A pedido do responsável, resolver o Atlas na quarta-feira, 04/11, antes das demais fases. Catálogo local completo não equivale a 500 publicados. [Países](Revisoes/paises-004.md), [objetos](Revisoes/objetos-004.md) e [publicação](Publicacao-ambiente.md).
+
+**Fases 44/46:** criação, revisão, aprovação humana e importações locais concluídas. As fases permanecem com pendência de publicação no Atlas; não antecipar sua conclusão integral.
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 
@@ -23,8 +25,8 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 03 | 1 | `animais-001.json` | 10 | 10 | 5 | 25 | 25 | Importado localmente |
 | 05 | 1 | `filmes-e-series-001.json` | 10 | 10 | 5 | 25 | 50 | Importado localmente |
 | 07 | 1 | `marcas-001.json` | 10 | 10 | 5 | 25 | 75 | Importado localmente |
-| 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Em revisão (avaliação humana pendente) |
-| 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Em revisão (avaliação humana pendente) |
+| 09 | 2 | `paises-001.json` | 10 | 10 | 5 | 25 | 100 | Aprovado e importado localmente; Atlas pendente |
+| 11 | 2 | `objetos-001.json` | 10 | 10 | 5 | 25 | 125 | Aprovado e importado localmente; Atlas pendente |
 | 14 | 2 | `animais-002.json` | 10 | 10 | 5 | 25 | 150 | Importado localmente (aprovação resolvida na fase 37) |
 | 16 | 3 | `filmes-e-series-002.json` | 10 | 10 | 5 | 25 | 175 | Importado localmente |
 | 18 | 3 | `marcas-002.json` | 10 | 10 | 5 | 25 | 200 | Importado localmente |
@@ -38,8 +40,8 @@ Cada linha representa um arquivo futuro em `Data/palavras/`. O número acumulado
 | 37 | 6 | `animais-004.json` | 10 | 5 | 10 | 25 | 400 | Importado localmente |
 | 39 | 6 | `filmes-e-series-004.json` | 10 | 5 | 10 | 25 | 425 | Importado localmente |
 | 42 | 6 | `marcas-004.json` | 10 | 5 | 10 | 25 | 450 | Conferido no Atlas e importado localmente |
-| 44 | 7 | `paises-004.json` | 10 | 5 | 10 | 25 | 475 | Não iniciado |
-| 46 | 7 | `objetos-004.json` | 10 | 5 | 10 | 25 | 500 | Não iniciado |
+| 44 | 7 | `paises-004.json` | 10 | 5 | 10 | 25 | 475 | Aprovado e importado localmente; Atlas pendente |
+| 46 | 7 | `objetos-004.json` | 10 | 5 | 10 | 25 | 500 | Aprovado e importado localmente; Atlas pendente |
 
 ## 3. Estados possíveis
 

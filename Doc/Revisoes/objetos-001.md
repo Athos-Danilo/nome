@@ -2,6 +2,8 @@
 
 **Data:** 2026-10-27. **Responsável:** Codex, revisão editorial por IA e conferência estrutural local. Avaliação humana e execução do importador da fase 12 permanecem pendentes; nenhuma carga foi realizada nos bancos.
 
+**Atualização em 02/11/2026 — fase 46:** responsável aprovou expressamente o conteúdo e a importação nos dois ambientes. Importação local concluída, sem alteração do conteúdo deste lote. Carga Atlas adiada para 04/11/2026, antes das demais fases. As pendências descritas abaixo registram a situação original da revisão.
+
 ## Seleção e progressão
 
 25 objetos com nomes correntes em português do Brasil, sem marcas e sem variantes cadastradas como respostas adicionais. Todos os nomes usam somente letras; acentos são preservados. Foram evitados compostos com hífen, pois a interação com sinais ainda tem definição própria pendente.
