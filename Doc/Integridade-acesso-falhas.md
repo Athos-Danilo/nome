@@ -56,3 +56,7 @@ Verificações realizadas em 04/11/2026:
 Os dez testes HTTP de cache e seis testes de persistência novos estão em [teste_integridade_http.py](../Backend/testes/teste_integridade_http.py) e [teste_integridade_persistencia.py](../Backend/testes/teste_integridade_persistencia.py). Os demais cenários reutilizam a suíte existente de autenticação, perfil, demonstração, individual, galera, acompanhamento e áudio.
 
 Falhas foram provocadas de forma controlada, sem desligar PostgreSQL/MongoDB de desenvolvimento ou serviços públicos. As instâncias isoladas iniciadas para esta verificação foram encerradas ao terminar. Testes não equivalem a auditoria externa de segurança, aparelhos físicos ou revisão de infraestrutura completa. Fases 45, 47, 48 e 49 continuam abertas.
+
+## Conferência após o push
+
+Após a implantação automática do commit `2079b47`, acesso sem cookie diretamente a `https://decifra-api.onrender.com/api/demonstracoes/jogo` retornou **401**, com **`Cache-Control: no-store`** e **`Referrer-Policy: no-referrer`**. A correção está ativa na API publicada. Nenhuma partida ou visitante foi criado nessa conferência; login Google real e aceitação completa em produção permanecem na fase 48.
