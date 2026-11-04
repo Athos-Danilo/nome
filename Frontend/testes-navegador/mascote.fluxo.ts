@@ -36,9 +36,15 @@ test("saudação preserva o PNG aprovado na montagem parada", async ({
   const montagem = page.locator(".ensaio-montagem svg"),
     referencia = page.locator(".ensaio-referencia img");
   await expect(montagem).toHaveAttribute("data-arte", "png-aprovado");
+  // Comparar a arte, não a navegação fixa que pode cobrir só uma das capturas.
   const estilo =
-    ".ensaio-montagem svg,.ensaio-referencia img{background:#f5efd9!important}";
-  const a = (await montagem.screenshot({ style: estilo })).toString("base64");
+    ".ensaio-montagem svg,.ensaio-referencia img{background:#f5efd9!important}.dock-jogo{visibility:hidden!important}";
+  const a = (
+    await montagem.screenshot({
+      style: estilo,
+      path: info.outputPath("montagem-comparada.png"),
+    })
+  ).toString("base64");
   // Comparar na mesma posição física evita diferença de amostragem subpixel entre colunas.
   const limites = await montagem.boundingBox();
   expect(limites).not.toBeNull();
@@ -55,7 +61,20 @@ test("saudação preserva o PNG aprovado na montagem parada", async ({
       zIndex: "100",
     });
   }, limites);
-  const b = (await referencia.screenshot({ style: estilo })).toString("base64");
+  const b = (
+    await referencia.screenshot({
+      style: estilo,
+      path: info.outputPath("referencia-comparada.png"),
+    })
+  ).toString("base64");
+  await info.attach("montagem-comparada", {
+    body: Buffer.from(a, "base64"),
+    contentType: "image/png",
+  });
+  await info.attach("referencia-comparada", {
+    body: Buffer.from(b, "base64"),
+    contentType: "image/png",
+  });
   await referencia.evaluate((elemento, anterior) => {
     if (anterior === null) elemento.removeAttribute("style");
     else elemento.setAttribute("style", anterior);

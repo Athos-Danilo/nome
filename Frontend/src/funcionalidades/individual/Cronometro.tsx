@@ -18,7 +18,12 @@ export function Cronometro({
       </div>
       <div className="leitura-tempo">
         <span className="rotulo-tempo">SEU RITMO · SUA DESCOBERTA</span>
-        <strong data-testid="tempo-palavra" aria-hidden="true">
+        <strong
+          data-testid="tempo-palavra"
+          role="timer"
+          aria-live="off"
+          aria-label={`Tempo decorrido nesta palavra: ${formatarTempo(tempo)}`}
+        >
           {formatarTempo(tempo)}
         </strong>
         <span className="estado-tempo">

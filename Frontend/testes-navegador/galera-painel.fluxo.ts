@@ -178,6 +178,21 @@ async function mockarGalera(
   });
 }
 
+test("cronômetro da galera oferece tempo acessível sem anúncios contínuos", async ({
+  page,
+}) => {
+  await mockarGalera(page);
+  await page.goto("/jogar/galera/partida");
+  await page.getByRole("button", { name: "Iniciar desafio" }).click();
+  await page.getByRole("button", { name: "Liberar painel" }).click();
+  const tempo = page.getByRole("timer", {
+    name: /Tempo decorrido nesta sessão:/,
+  });
+  await expect(tempo).toBeVisible();
+  await expect(tempo).toHaveAttribute("aria-live", "off");
+  await expect(tempo).toHaveAttribute("aria-label", /\d{2}:\d{2}/);
+});
+
 test("três participantes e três expressões longas preservam painel e teclado no tema escuro", async ({
   page,
 }, info) => {

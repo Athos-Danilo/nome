@@ -320,6 +320,19 @@ async function digitar(p: Page, palpite: string) {
   await p.keyboard.type(palpite);
   await p.getByRole("button", { name: "Enviar palpite" }).click();
 }
+
+test("cronômetro oferece tempo acessível sem anúncios a cada segundo", async ({
+  page,
+}) => {
+  await preparar(page);
+  await comecar(page);
+  const tempo = page.getByRole("timer", {
+    name: /Tempo decorrido nesta palavra:/,
+  });
+  await expect(tempo).toBeVisible();
+  await expect(tempo).toHaveAttribute("aria-live", "off");
+  await expect(tempo).toHaveAttribute("aria-label", /\d{2}:\d{2}/);
+});
 test("configura, acerta três palavras e mostra os pontos confirmados", async ({
   page,
 }) => {

@@ -1,3 +1,4 @@
+import { Icone } from "../../componentes/Icone";
 import {
   createContext,
   useContext,
@@ -144,7 +145,7 @@ export function BotaoMusicaMenu({
         aoAlternar(novas);
       }}
     >
-      <span aria-hidden="true">{ativa ? "♫" : "♪̸"}</span>
+      <Icone nome={ativa ? "musica" : "musicaDesativada"} />
     </button>
   );
 }

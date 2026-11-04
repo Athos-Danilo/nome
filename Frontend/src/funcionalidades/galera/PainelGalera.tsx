@@ -173,7 +173,12 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
           <span aria-hidden="true">◷</span>
           <div>
             <small>TEMPO DA SESSÃO</small>
-            <strong data-testid="tempo-sessao">
+            <strong
+              data-testid="tempo-sessao"
+              role="timer"
+              aria-live="off"
+              aria-label={`Tempo decorrido nesta sessão: ${formatarTempo(final ? p.tempo_ativo_ms : jogo.crono.tempo)}`}
+            >
               {formatarTempo(final ? p.tempo_ativo_ms : jogo.crono.tempo)}
             </strong>
             <small>

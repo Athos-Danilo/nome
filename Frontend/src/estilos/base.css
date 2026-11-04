@@ -1,20 +1,20 @@
 @font-face {
   font-family: Bricolage;
-  src: url("/fontes/bricolagegrotesque-normal.ttf") format("truetype");
+  src: url("/fontes/bricolagegrotesque-normal.woff2") format("woff2");
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "DM Sans";
-  src: url("/fontes/dmsans-normal.ttf") format("truetype");
+  src: url("/fontes/dmsans-normal.woff2") format("woff2");
   font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "DM Sans";
-  src: url("/fontes/dmsans-italico.ttf") format("truetype");
+  src: url("/fontes/dmsans-italico.woff2") format("woff2");
   font-weight: 100 1000;
   font-style: italic;
   font-display: swap;

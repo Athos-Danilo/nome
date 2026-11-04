@@ -64,7 +64,7 @@ export function AurelioRecortado({
         >
           <rect width="1158" height="1359" fill="white" />
           <image
-            href="/mascote/aurelio-capa-limpa-02.png"
+            href="/mascote/aurelio-capa-limpa-02.webp"
             width="1158"
             height="1359"
             filter={referencia("alpha-preto")}
@@ -77,7 +77,7 @@ export function AurelioRecortado({
         ))}
         <image
           id={`${id}-original`}
-          href="/mascote/aurelio.png"
+          href="/mascote/aurelio.webp"
           width="1158"
           height="1359"
         />
@@ -91,7 +91,7 @@ export function AurelioRecortado({
           style={{ maskType: "alpha" }}
         >
           <image
-            href="/mascote/aurelio-capa-limpa-02.png"
+            href="/mascote/aurelio-capa-limpa-02.webp"
             width="1158"
             height="1359"
           />
@@ -227,7 +227,7 @@ export function AurelioRecortado({
             </g>
           </g>
           <image
-            href="/mascote/aurelio-capa-limpa-02.png"
+            href="/mascote/aurelio-capa-limpa-02.webp"
             width="1158"
             height="1359"
             data-parte="capa_reconstruida"

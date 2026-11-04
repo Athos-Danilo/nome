@@ -1,3 +1,4 @@
+import { Icone, type NomeIcone } from "../componentes/Icone";
 import {
   ProvedorAudio,
   BotaoMusicaMenu,
@@ -186,6 +187,25 @@ function Jogo() {
       manterPrevia();
     }
   }
+  const atalhos: { destino: string; icone: NomeIcone; nome: string }[] = [
+    { destino: "/", icone: "inicio", nome: "Início" },
+    ...(conta
+      ? [
+          { destino: "/perfil", icone: "perfil" as const, nome: "Perfil" },
+          {
+            destino: "/perfil/historico",
+            icone: "historico" as const,
+            nome: "Histórico",
+          },
+        ]
+      : []),
+    { destino: "/rankings", icone: "rankings", nome: "Rankings" },
+    {
+      destino: "/configuracoes",
+      icone: "configuracoes",
+      nome: "Configurações",
+    },
+  ];
   return (
     <ProvedorAudio preferencias={efetivas} menu={caminho === "/"}>
       <div className="universo-perfil moldura-jogo">
@@ -212,7 +232,7 @@ function Jogo() {
               onClick={alternarTema}
               disabled={ocupado || carregando}
             >
-              {efetivas.tema === "claro" ? "☾" : "☀"}
+              <Icone nome={efetivas.tema === "claro" ? "lua" : "sol"} />
             </Botao>
             {caminho === "/" && (
               <BotaoMusicaMenu
@@ -248,19 +268,9 @@ function Jogo() {
         </header>
         {!pendente && (
           <nav className="dock-jogo" aria-label="Navegação principal">
-            {[
-              ["/", "⌂", "Início"],
-              ...(conta
-                ? [
-                    ["/perfil", "☺", "Perfil"],
-                    ["/perfil/historico", "▤", "Histórico"],
-                  ]
-                : []),
-              ["/rankings", "♜", "Rankings"],
-              ["/configuracoes", "⚙", "Configurações"],
-            ].map(([destino, icone, nome]) => (
+            {atalhos.map(({ destino, icone, nome }) => (
               <NavLink key={destino} to={destino} end aria-label={nome}>
-                <span aria-hidden="true">{icone}</span>
+                <Icone nome={icone} />
                 <small>{nome}</small>
               </NavLink>
             ))}

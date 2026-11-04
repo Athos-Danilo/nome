@@ -118,3 +118,7 @@ TDD: o teste das novas poses falhou inicialmente pela ausência de `atuacoes.ts`
 Foram aprovados 77 testes unitários do frontend e 129 cenários de navegador: 45 do mascote, 48 do individual/demonstração, 12 da galera e 24 do menu, em computador, tablet e celular. Depois do ajuste de espaçamento dos botões, o cenário da galeria foi repetido nos três tamanhos. As verificações incluem poses finitas, números válidos e limites das expressões, preservação das poses da saudação, repetição apenas da espera no jogo, preferência por movimentos reduzidos, seleção/pausa e encaixes em 31 instantes distribuídos entre as nove atuações. Tipos, compilação e formatação também verificados.
 
 Os fluxos de navegador usam respostas HTTP controladas para verificar a interface; não representam nova prova dos bancos ou do login Google. Nenhum backend, migração, contrato HTTP ou dependência foi alterado. As capturas foram inspecionadas e o responsável aprovou visualmente as oito atuações restantes em 2026-10-30. A presença dos efeitos não substitui essa aprovação.
+
+## Otimização de recursos — fase 45, 04/11/2026
+
+A montagem preserva os PNGs aprovados e usa derivados WebP sem perda para transporte. Dimensões e todos os pixels RGBA conferidos como idênticos; recortes, máscaras e atuações mantidos. Imagens passaram de 2.602.841 para 1.632.042 bytes. O teste de fidelidade isola a arte da sobreposição da navegação fixa, sem alterar a tolerância de 2%; a comparação passou nos três tamanhos. [Relatório completo](Uso-real-acessibilidade-desempenho.md).

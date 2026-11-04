@@ -58,6 +58,17 @@ body {
   padding: 6px;
   font-size: 22px;
 }
+.icone-interface {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}
+.dock-jogo .icone-interface {
+  width: 25px;
+  height: 25px;
+}
 .controles-menu button:last-child:not(:first-child) {
   width: auto;
   padding: 8px 14px;
