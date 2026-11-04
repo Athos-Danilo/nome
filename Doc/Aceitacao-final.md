@@ -1,6 +1,6 @@
 # Aceitação final — fase 48
 
-Data: 04/11/2026. Situação: **em revisão**, aguardando o teste real de exclusão e novo cadastro com Google no ambiente publicado. A fase 49 ainda não foi iniciada.
+Data: 04/11/2026. Situação: **concluída**, após o aceite dos blocos publicados e a conferência da exclusão e do novo cadastro com Google. A fase 49 ainda não foi iniciada.
 
 ## Escopo e evidências
 
@@ -22,7 +22,7 @@ As suítes cobrem falta de conteúdo, repetição, acentos e C/Ç, saldo negativ
 
 O novo caso `exclusão mantém Tab e Shift+Tab no diálogo e Escape cancela sem apagar`, em `Frontend/testes-navegador/perfil.fluxo.ts`, reproduziu o foco saindo do diálogo de exclusão. O teste falhou pela contenção de foco, sem executar exclusão.
 
-A correção compartilha `conterFocoNoDialogo` entre o diálogo comum e o de exclusão, preservando o ciclo de Tab/Shift+Tab e o cancelamento por Escape. O comportamento existente do diálogo comum foi extraído sem mudança de regra. Após a correção, passaram os 45 casos de perfil (incluindo o novo caso nos três tamanhos), 24 de menu e 15 de acabamento. Também passaram novamente os 88 testes de unidade, a compilação TypeScript/Vite e a formatação. Ao todo foram verificados 304 casos distintos de navegador, além das repetições das áreas afetadas. A candidata contém a correção; o aceite real de exclusão permanece pendente.
+A correção compartilha `conterFocoNoDialogo` entre o diálogo comum e o de exclusão, preservando o ciclo de Tab/Shift+Tab e o cancelamento por Escape. O comportamento existente do diálogo comum foi extraído sem mudança de regra. Após a correção, passaram os 45 casos de perfil (incluindo o novo caso nos três tamanhos), 24 de menu e 15 de acabamento. Também passaram novamente os 88 testes de unidade, a compilação TypeScript/Vite e a formatação. Ao todo foram verificados 304 casos distintos de navegador, além das repetições das áreas afetadas. A correção foi publicada no commit `35a1724`, com HTTP 200 e recurso de produção atualizado confirmado na Vercel antes do último bloco manual.
 
 ## Aceitação no jogo publicado
 
@@ -30,14 +30,20 @@ O responsável informou sucesso no bloco de login Google, preferências/recarga,
 
 A consulta somente leitura da conta de teste confirmou duas individuais concluídas, de 160 e 60 pontos, totalizando 220 pontos de ranking individual. Há uma partida da galera concluída com 2.200 pontos agregados; esse total não deve ser confundido com o placar de um participante. A consulta aos participantes confirmou 300 pontos do anfitrião e 1.400/500 dos convidados, somando 2.200. A galera não entrou na soma individual. A conta já continha a individual de 160 pontos antes deste teste.
 
-A preferência salva observada está em Azul/claro, com silêncio geral desligado. Portanto o relato de preservação de preferências foi recebido, mas a sequência específica de salvar silêncio geral ainda não foi conciliada com o estado final. Isso não comprova defeito; não se declara aprovação independente desse detalhe somente pelo relato.
+No primeiro snapshot, o silêncio geral estava desligado. Por isso o último bloco pediu repetir explicitamente salvar “Silenciar tudo” e atualizar antes da exclusão, além de cancelar uma primeira tentativa de exclusão. O responsável respondeu que o bloco deu certo e confirmou excluir e recriar com o mesmo e-mail e nome, sem histórico. A preservação do silêncio e o cancelamento têm evidência manual; não houve snapshot intermediário antes da exclusão.
 
-Pendente antes do encerramento:
+### Exclusão e retorno — RF-49
 
-- Cancelar a exclusão da conta de teste e confirmar que continua utilizável.
-- Confirmar a exclusão digitando EXCLUIR; conferir anonimização e preservação dos resultados antigos, remoção de preferências/sessões e anonimização dos convidados.
-- Entrar novamente com o mesmo Google; confirmar novo cadastro, histórico e pontos zerados, sem restaurar a identidade anterior.
-- Consolidar os resultados da correção de foco e a versão publicada correspondente.
+A conferência somente leitura posterior no Neon confirmou:
+
+- A identidade antiga está anonimizada: identificador Google, e-mail, chaves de identidade, nome e avatar foram removidos.
+- Nenhuma preferência ou sessão de autenticação permanece vinculada à identidade antiga.
+- Nenhum participante das suas partidas mantém nome, chave do nome ou avatar identificável; todos estão anonimizados.
+- Os dois resultados individuais antigos foram preservados, totalizando 220 pontos.
+- A API pública de ranking retorna “Jogador excluído” com 220 pontos, coerente com os resultados preservados.
+- O novo cadastro com o nome reutilizado possui outro identificador interno, está ativo e não possui partidas. O responsável confirmou histórico vazio após entrar novamente com o mesmo Google.
+
+O teste real e a correção de teclado estão aceitos. Não há defeitos bloqueantes conhecidos nas verificações realizadas. A fase 48 foi concluída; a documentação de entrega, publicação final e apresentação permanecem na fase 49.
 
 IDs internos e snapshots da conta ficam apenas em arquivos ignorados de teste. Nenhum e-mail, segredo ou identificador pessoal é incluído neste relatório.
 
