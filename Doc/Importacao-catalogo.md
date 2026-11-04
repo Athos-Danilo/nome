@@ -1,5 +1,7 @@
 # Catálogo e importação — fase 12
 
+**Fase 47 concluída em 04/11/2026:** manifesto dos vinte lotes gerado e conteúdo atual correspondente nos arquivos, MongoDB local e Atlas: 500 respostas/2.500 dicas, quotas 200/175/125 e 40/35/25 por temática principal. Históricos preservados (527 local, 508 Atlas); nenhuma referência de conteúdo ausente nas rodadas consultadas em PostgreSQL/Neon. Somente leitura, sem nova carga ou limpeza necessária. 36 testes backend, 88 unitários frontend e três cenários de navegador aprovados, com 1.000 montagens do catálogo no modelo e 81 na interface. [Auditoria, manifesto e relatório por ambiente](Revisoes/catalogo-final.md).
+
 **Atualização da fase 39, 30/10/2026:** 425 respostas nos arquivos, 375 publicadas localmente e 394 revisões. Filmes/séries fechado com 100 títulos e 500 dicas (40/35/25), após aprovação do lote 004 e três correções do 001. Revisões antigas preservadas e conferidas; [registro da fase](Revisoes/filmes-e-series-004.md#aprovação-e-fechamento-em-30102026). Registros das fases anteriores abaixo são históricos.
 
 **Atualização da fase 37, 2026-10-30:** 400 respostas produzidas nos arquivos, 350 publicadas localmente e 366 revisões históricas. Animais fechado com 100 respostas e 500 dicas, na distribuição 40/35/25. As 16 correções aprovadas do lote animais-001 foram publicadas por um comando separado de revisões, descrito ao final; o importador inicial mantém a recusa de sobrescritas. O registro de 2026-10-27 abaixo é histórico.

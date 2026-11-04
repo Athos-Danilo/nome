@@ -1,0 +1,6155 @@
+{
+  "versao_manifesto": 1,
+  "gerado_em": "2026-11-04T13:37:19.710098+00:00",
+  "commit_origem_dos_lotes": "fc9e848317610c05b371cb4237e043fe3296db52",
+  "algoritmo": "SHA-256 sobre JSON UTF-8, ensure_ascii=false, sort_keys=true e separators=(virgula,dois-pontos), sem espacos adicionais",
+  "aprovacao_humana": "Vinte lotes aprovados pelo responsável; registros no controle do catálogo e nas revisões de cada temática.",
+  "registro_aprovacao": "Doc/Controle-do-catalogo.md",
+  "total_respostas": 500,
+  "total_dicas": 2500,
+  "sha256_catalogo": "8cfee38762c4e4f231815e7e65e12cdc5a55fc70443c7a4da748f8c81113eb41",
+  "arquivos": [
+    {
+      "arquivo": "Data/palavras/animais-001.json",
+      "lote": "animais-001",
+      "tematica_principal": "animais",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "11adc4fb4fec1431699e20b60b62e17df7aca004d83d097944d09d33d778cf39"
+    },
+    {
+      "arquivo": "Data/palavras/animais-002.json",
+      "lote": "animais-002",
+      "tematica_principal": "animais",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "17107ec6aec0a105a5daf2ce4c69368824ea25a498c892f1cc24b47efa92b29c"
+    },
+    {
+      "arquivo": "Data/palavras/animais-003.json",
+      "lote": "animais-003",
+      "tematica_principal": "animais",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "b7deb874ed49540226ce01786fb5e28320ee57557948ec99c143ce4f9e7bacb4"
+    },
+    {
+      "arquivo": "Data/palavras/animais-004.json",
+      "lote": "animais-004",
+      "tematica_principal": "animais",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "e5bb1d0095752a6c5fce6ce29ecfa980e956abe39cdc12192b038719fd6daf12"
+    },
+    {
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "lote": "filmes-e-series-001",
+      "tematica_principal": "filmes-e-series",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "35a6a5f7ec46b94ee4aae1236f53f9ba418be43e49ac8ef9bf81efb17b9c89f1"
+    },
+    {
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "lote": "filmes-e-series-002",
+      "tematica_principal": "filmes-e-series",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "3d5e1159e24a9af4230bba0f60bcedc6e021d8df7741866c4b1ab81c9adeaf2b"
+    },
+    {
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "lote": "filmes-e-series-003",
+      "tematica_principal": "filmes-e-series",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "1ef1e887399f6deaec21e584a25d3dcc117a4592ea35be300820699a1343adc8"
+    },
+    {
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "lote": "filmes-e-series-004",
+      "tematica_principal": "filmes-e-series",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "353c6fa65ab10a64a080698af172f1993207976382d20057bd6ea7be6399ab1f"
+    },
+    {
+      "arquivo": "Data/palavras/marcas-001.json",
+      "lote": "marcas-001",
+      "tematica_principal": "marcas",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "80e1847b3c989d573de4b71fdcd4f048b00e77e110a5ece0a692648bdc4d1b68"
+    },
+    {
+      "arquivo": "Data/palavras/marcas-002.json",
+      "lote": "marcas-002",
+      "tematica_principal": "marcas",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "54970dc304ff306cf945384c48266b4e3f6dda77373f93eb6b108227da210d7b"
+    },
+    {
+      "arquivo": "Data/palavras/marcas-003.json",
+      "lote": "marcas-003",
+      "tematica_principal": "marcas",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "5ea60ac5f87c90263bac407f9491febcee640ca412340694664b34d76fa340bd"
+    },
+    {
+      "arquivo": "Data/palavras/marcas-004.json",
+      "lote": "marcas-004",
+      "tematica_principal": "marcas",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "53112c26441f839310e0c450c35e6351080e85a1e7a5ffa8c9e925ed9f87a839"
+    },
+    {
+      "arquivo": "Data/palavras/objetos-001.json",
+      "lote": "objetos-001",
+      "tematica_principal": "objetos",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "8729551fa5370476679a7d0c4adca4ce08d6160de06500df9171a49e0065b431"
+    },
+    {
+      "arquivo": "Data/palavras/objetos-002.json",
+      "lote": "objetos-002",
+      "tematica_principal": "objetos",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "8b06393e67f5daa72174fb01ffa5ec3aa4e5b45f2022fe56537adcd1a880e2fe"
+    },
+    {
+      "arquivo": "Data/palavras/objetos-003.json",
+      "lote": "objetos-003",
+      "tematica_principal": "objetos",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "491902c3ae7303cc791020723ca7f62d817e2ea76b172bac4a9f0d6f55b07a6e"
+    },
+    {
+      "arquivo": "Data/palavras/objetos-004.json",
+      "lote": "objetos-004",
+      "tematica_principal": "objetos",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "5fd1dc29e7d2ce1edcde2afb1d32f3a902d60668ce02f1df75d54b5210bb2052"
+    },
+    {
+      "arquivo": "Data/palavras/paises-001.json",
+      "lote": "paises-001",
+      "tematica_principal": "paises",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "ba9496f7593c304081206a5093b236171f6eeb909e6cba8a85f26b458f60da25"
+    },
+    {
+      "arquivo": "Data/palavras/paises-002.json",
+      "lote": "paises-002",
+      "tematica_principal": "paises",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "54597668caa327c9dfeaff92d1f2cd4fdf8c52ea26b3e44085e2c1e140f60caa"
+    },
+    {
+      "arquivo": "Data/palavras/paises-003.json",
+      "lote": "paises-003",
+      "tematica_principal": "paises",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "c7844d2ea10b7f0f63f371d4256ab72253844f68b621b857758bd1fb1c59f4e7"
+    },
+    {
+      "arquivo": "Data/palavras/paises-004.json",
+      "lote": "paises-004",
+      "tematica_principal": "paises",
+      "quantidade_respostas": 25,
+      "sha256_json_canonico": "d943e1f9b259de06bbfca1b15fd12321e802120d6b7bd604803fbf063b1bf0e5"
+    }
+  ],
+  "respostas": [
+    {
+      "id": "1917",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 11,
+      "resposta": "1917",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d30de92837399c42ca60613adc55eee3706e0b45f99151af9c88b7cec403dd77"
+    },
+    {
+      "id": "a-bela-e-a-fera",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 8,
+      "resposta": "A BELA E A FERA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "75935d86093f4802ae4727c361e1e8f745c4d4be0a39667977c9eb8ba21fb68b"
+    },
+    {
+      "id": "a-era-do-gelo",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 6,
+      "resposta": "A ERA DO GELO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "db06d8ffa74590b81ecd593250ae2def4169665a6269b1d8ab68f3ddbc103093"
+    },
+    {
+      "id": "a-origem",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 20,
+      "resposta": "A ORIGEM",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "fe0ad6453c4ccabb0e0d3726b49bb4abc890ab7c02574f4a45368c0f3f560f08"
+    },
+    {
+      "id": "a-pequena-sereia",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 9,
+      "resposta": "A PEQUENA SEREIA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6a329125bcbfc15e1c9213cb30a9f18738270121f7ed16b59dd62c78c3633d50"
+    },
+    {
+      "id": "a-separacao",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 25,
+      "resposta": "A SEPARAÇÃO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "75f464b9f1fa69a58a8e853d42f5216352916075680030db0be1a54435e48aac"
+    },
+    {
+      "id": "a-viagem-de-chihiro",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 11,
+      "resposta": "A VIAGEM DE CHIHIRO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f3b247725e219a4dea5878bb5774b441e3e63d732da7b581b0611e98d19109f3"
+    },
+    {
+      "id": "a-vida-dos-outros",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 22,
+      "resposta": "A VIDA DOS OUTROS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ca9f916cbe95db90116fb6cf72e1eb4e0a572d8a9783df3e585d462e8781e3f8"
+    },
+    {
+      "id": "abelha",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 10,
+      "resposta": "ABELHA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "b910d9d3689e384cbf2b6cd52ef3ba76cfa2466cc4e31a0bb467dbf27155cb61"
+    },
+    {
+      "id": "abridor-de-latas",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 14,
+      "resposta": "ABRIDOR DE LATAS",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6015fc47186652684d71e775d51f38c0ce7c3751d40ffec316bd93283e47ee7e"
+    },
+    {
+      "id": "adeus-lenin",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 23,
+      "resposta": "ADEUS, LÊNIN!",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "8bb9fb168d900decf37c0812f702d45cddcb36b0f617224e4acb9973fabc64eb"
+    },
+    {
+      "id": "adidas",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 6,
+      "resposta": "ADIDAS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "cea411166835e9084a88d3aa0ff8a9a11e7ddc80b3c95b05e4e2bb25fc55324f"
+    },
+    {
+      "id": "africa-do-sul",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 20,
+      "resposta": "ÁFRICA DO SUL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "70797a7b3ba3c116ab6357e905ebdeb2a62acb5e43759dcf2c2f1811d001d2b0"
+    },
+    {
+      "id": "agua-viva",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 15,
+      "resposta": "ÁGUA-VIVA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "952d0f62fe12527456e60a8b3974a7ecc17ed1834b52bf433be8ec1b48809e09"
+    },
+    {
+      "id": "aguia",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 11,
+      "resposta": "ÁGUIA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "65081c01b28b7eb9e3cf8272ec1ca6e21b98630b40e9837de7cb09530ce65896"
+    },
+    {
+      "id": "agulha",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 19,
+      "resposta": "AGULHA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "132c08b882468df840059bae327dd9bac9dacd86294d26895efaa02cb529481f"
+    },
+    {
+      "id": "aie-aie",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 19,
+      "resposta": "AIE-AIE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "217f528f09df2080f8722424b845cf501ad0561e8b37d4a2ee3ed53823fbdeb4"
+    },
+    {
+      "id": "aladdin",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 12,
+      "resposta": "ALADDIN",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f1999fa439266398b0513b151fac23ca77ad064f7b18737e3d340ed23fcb10a2"
+    },
+    {
+      "id": "alemanha",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 14,
+      "resposta": "ALEMANHA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e5655b225553bbd4e42fd6661bce33ae33731e3d6ce7e9b76c7d7e480d8772a9"
+    },
+    {
+      "id": "alicate",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 17,
+      "resposta": "ALICATE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "604e53a2b719e79b627c28b5400e12d3542f6c29549f1b2f231813f78d497f98"
+    },
+    {
+      "id": "amazon",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 14,
+      "resposta": "AMAZON",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6e8787e2efd2363a44fad947eeedbf81e98d89003f7c008031e69e9538294e99"
+    },
+    {
+      "id": "ampulheta",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 14,
+      "resposta": "AMPULHETA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a93b244bd5039b0f429543323a53339ebfd898a505fb0d96d0347e71b1789e32"
+    },
+    {
+      "id": "andorra",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 17,
+      "resposta": "ANDORRA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "365467e014b66a5ae8951ac06dbb832f07b07f67855b7931c2191230357860a0"
+    },
+    {
+      "id": "anemometro",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 22,
+      "resposta": "ANEMÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "e485b520e5210470ad3d8eb129e225ce8cd8f0a05007d661da6de8ab265a15e8"
+    },
+    {
+      "id": "angola",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 1,
+      "resposta": "ANGOLA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "38ad164f88022c4b894ee825d45fbca782718fb0b9012c2aec9a44e8f695558a"
+    },
+    {
+      "id": "apple",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 1,
+      "resposta": "APPLE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6167215ccfb2571acb2e9c0f85c663475f55640dc9ca86bf8b2ad461c6eb6503"
+    },
+    {
+      "id": "arabia-saudita",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 6,
+      "resposta": "ARÁBIA SAUDITA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "976cf2f5a7643ca27fafbf198653bdb86c985b94b7c3cabff4ec2ddf48aa9d2e"
+    },
+    {
+      "id": "aranha",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 11,
+      "resposta": "ARANHA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3e87fae3e46a067446124e761f4de88b9f9ea49e25ec76fad77f54cf9bc61fbe"
+    },
+    {
+      "id": "argelia",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 8,
+      "resposta": "ARGÉLIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "a0f2c11ffa6ab7a972bfbf904e5fd04d2be95c522a2292ca58925a6ad35f0d36"
+    },
+    {
+      "id": "argentina",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 2,
+      "resposta": "ARGENTINA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "210c1df733cc2ec7e1018d06a65d8566237070977939023002233d9246c3a275"
+    },
+    {
+      "id": "arraia",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 12,
+      "resposta": "ARRAIA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "dc906fcd6b71630f2d4bb1bf1c37620980e0b514d63ff3d05040dc8c27201737"
+    },
+    {
+      "id": "asics",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 21,
+      "resposta": "ASICS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "af6183def9ff5d5960911b154d11205cadea8e48bc425a4ba0ed49bb527b11c7"
+    },
+    {
+      "id": "astrolabio",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 21,
+      "resposta": "ASTROLÁBIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "9c097259f4a83e312edea9c38e95334b8378f23b3b21e007641343edf38dac5b"
+    },
+    {
+      "id": "australia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 10,
+      "resposta": "AUSTRÁLIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4e7c21bae7bfada1d892284dec6754fd48d27d3ad3f3886d051e39244c326943"
+    },
+    {
+      "id": "austria",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 16,
+      "resposta": "ÁUSTRIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a0463b48c9f78768c4c0d8ca590a9754c8aa93c5767a2692c9c19cdf58760dcc"
+    },
+    {
+      "id": "avatar",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 9,
+      "resposta": "AVATAR",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6e10d45a4935bade396c1d2830a191b3b3def6f6dc925583394b0faf7d4c62ca"
+    },
+    {
+      "id": "avestruz",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 19,
+      "resposta": "AVESTRUZ",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "54859c85c7fe8f8628699651ca746f4bdcd76c44aa8fd513ff55b29ae4e141bb"
+    },
+    {
+      "id": "avon",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 14,
+      "resposta": "AVON",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7dab7592a6c0a31fbca6ffafc3bf19dba65d74a17b3d8881db6467a948b89ce8"
+    },
+    {
+      "id": "axolote",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 24,
+      "resposta": "AXOLOTE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ffa4dac37df5b6ddbb8a71775add5e1e21ae56bd303adb9a0495c133c3798abf"
+    },
+    {
+      "id": "bacurau",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 22,
+      "resposta": "BACURAU",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "34cfdc5d227026d4ba10b7f9b92e0abd90e685ace22e81a8e372b4eb84ed25d5"
+    },
+    {
+      "id": "balde",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 10,
+      "resposta": "BALDE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8397d0021946d232d6487386c5ca0aa956fa6955d6bcaf40d9ec5571aadfbc06"
+    },
+    {
+      "id": "baleia",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 1,
+      "resposta": "BALEIA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "28da557529b15f3c4c934a307b87b5201030ec9307b9c69d215b2122d557dca5"
+    },
+    {
+      "id": "bang-olufsen",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 22,
+      "resposta": "BANG & OLUFSEN",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "8c6e3c7b9708f06d65e0fb8ffdfe469880d01047333b5e3d9df83706335a4fcc"
+    },
+    {
+      "id": "barata",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 6,
+      "resposta": "BARATA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "cd040d062eef76f3b2829f2dd73acb601fcde25cbe2283883aa07f9058a7a4fb"
+    },
+    {
+      "id": "barbie",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 7,
+      "resposta": "BARBIE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "fd4e8353e570cd36fd900d418dd41a7b92b89d0d6bad34231cbc11a421a24f0e"
+    },
+    {
+      "id": "barometro",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 23,
+      "resposta": "BARÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "c058b7961525a6ba2be03c41e8819d6ad0c534f6e4dd5efc1d43ce24e3bd80a5"
+    },
+    {
+      "id": "belgica",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 14,
+      "resposta": "BÉLGICA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "daee17591092b241e48020db7ef9e413d77294cb621513ded447dd0fad9108f5"
+    },
+    {
+      "id": "ben-10",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 6,
+      "resposta": "BEN 10",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1cb4c64156a9fa4218f6ee00420dca3018dca513f3649f4a5578aa66fd417c1f"
+    },
+    {
+      "id": "bicho-pau",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 13,
+      "resposta": "BICHO-PAU",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "31e8b1d2a226771d43ea73987584f1549a54ea4800e16c1a0681f71941b9fead"
+    },
+    {
+      "id": "bicicleta",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 2,
+      "resposta": "BICICLETA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f9da87aa33cf7ca43ddf32a9f5dd2b70d6ee71aea5676e78cdddc7c6675683b2"
+    },
+    {
+      "id": "bico-de-sapato",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 21,
+      "resposta": "BICO-DE-SAPATO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "a08a7e8ffc7e53c735ab22522efe1332a5a0303b4c1990e0cf4797ade1f1e403"
+    },
+    {
+      "id": "bigorna",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 23,
+      "resposta": "BIGORNA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "462593b7c94de56b99da99311b463352b25111c85f6fcd2d062fa99ff1e201cc"
+    },
+    {
+      "id": "binoculo",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 12,
+      "resposta": "BINÓCULO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "28dabd8c7a462c87724f5a2a4a0e17f84dce7370154500dbfe10bfc7afa42866"
+    },
+    {
+      "id": "birkenstock",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 22,
+      "resposta": "BIRKENSTOCK",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "5a5723211ef911bee524ef39114f38948aa86109d734654a19910e6bef926a63"
+    },
+    {
+      "id": "bis",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 9,
+      "resposta": "BIS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c65dea0a5466fdde3b257217bb5376cc666cdab0a79f810dddb67e5ae2904bfa"
+    },
+    {
+      "id": "blade-runner",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 25,
+      "resposta": "BLADE RUNNER",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "a6dc1ec2f484ab45b9d02a121009b18bf4267d29133969bb34131df5a2443910"
+    },
+    {
+      "id": "bob-esponja-calca-quadrada",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 7,
+      "resposta": "BOB ESPONJA, CALÇA QUADRADA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7395bcc520f2e178aa77f9a6a3babc06ee37468a7200d76f4ade13389b7938f1"
+    },
+    {
+      "id": "bola",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 1,
+      "resposta": "BOLA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4167bae71393fe13f5982f4d161cd78e65cc02e06c79d945f8f131ab14ba298a"
+    },
+    {
+      "id": "bolivia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 7,
+      "resposta": "BOLÍVIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "b71443471eabe14972407c13facdd930c32818f409de326f4908207ef5baeddb"
+    },
+    {
+      "id": "bombril",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 8,
+      "resposta": "BOMBRIL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4086016ce94fdba0ab9e1b26f2cb686bb5a4859dfd0fcae321409f41a8d3c53b"
+    },
+    {
+      "id": "bone",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 7,
+      "resposta": "BONÉ",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "87601444993e2e19e687a268d847c66d47f2c81b585f499668ea9815539830a6"
+    },
+    {
+      "id": "borboleta",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 9,
+      "resposta": "BORBOLETA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "80e35c9bd3a576ee219d8878c67e53ba4e4f1ccd380d47e146a8e00526b768e4"
+    },
+    {
+      "id": "bosch",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 16,
+      "resposta": "BOSCH",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "248ab6cedc71896fab61a9a0def2c5d6f4aeb061b4e3800ee8e24a6df92e4c86"
+    },
+    {
+      "id": "botsuana",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 22,
+      "resposta": "BOTSUANA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "8c74fb21ad8de47a33353ac74b9825b2d1ac3197853ef232c426baf3af0059b7"
+    },
+    {
+      "id": "brasil",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 1,
+      "resposta": "BRASIL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d1f0bf466860ed815e3ed067c47b75f38aaae03247f8731bf1d78d4ef1e105c0"
+    },
+    {
+      "id": "breaking-bad",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 10,
+      "resposta": "BREAKING BAD",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ae14c8a7a469e7473d72769146225a46f7285ada9b0651cd5c1866c5527f019c"
+    },
+    {
+      "id": "brilho-eterno-de-uma-mente-sem-lembrancas",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 21,
+      "resposta": "BRILHO ETERNO DE UMA MENTE SEM LEMBRANÇAS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3c64988a3587f10ae6b13b8b7ab59939d518c6ebfe2f0a6c1ba865c7e963eea7"
+    },
+    {
+      "id": "brooklyn-nine-nine",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 20,
+      "resposta": "BROOKLYN NINE-NINE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "fb7569933981ae09d41e9296f9fb92e92db10aba7b07704a9f75f61e33733c61"
+    },
+    {
+      "id": "brunei",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 25,
+      "resposta": "BRUNEI",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "c568cc8e4fbe41d4cc0255bdfa4f4c07b64e650b1388786513a2c0540062fb36"
+    },
+    {
+      "id": "burger-king",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 3,
+      "resposta": "BURGER KING",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "45bf73680e53242573d58f76412f4a3a6e2696fad4ffe2cb9ce847ee22bf7a76"
+    },
+    {
+      "id": "burro",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 3,
+      "resposta": "BURRO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6c21b40255dd4f1961cd0d91e9c883b116f792ef9747aa13e2d6efd623ec8f13"
+    },
+    {
+      "id": "bussola",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 11,
+      "resposta": "BÚSSOLA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "afcd17f6a6d394f11d180bd464c9941e0ef29bfd53e79c10ea90d930eeaf724b"
+    },
+    {
+      "id": "butao",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 21,
+      "resposta": "BUTÃO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "0748dfd561dcf2b361e89c0e44f6a0d284521f0e797e6371fd45dd5c741210ef"
+    },
+    {
+      "id": "cabo-verde",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 3,
+      "resposta": "CABO VERDE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "fab8a2a6d5f6a5bbf269a53ec724a44adc727f133da5f98a110540a8652a8371"
+    },
+    {
+      "id": "cabra",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 6,
+      "resposta": "CABRA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "dc71334f4a52e22d5288817d412091d39c1ab5615a8710b824235e02a9ea4e44"
+    },
+    {
+      "id": "cachorro",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 1,
+      "resposta": "CACHORRO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7d6b0868613243fedcabbe3a52b692852c84253120db97b547f4e7e80b17ba47"
+    },
+    {
+      "id": "cadeado",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 16,
+      "resposta": "CADEADO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a93daead19cd4e5ff6d46ccb71912102358be7a77614a35c4867de39f90d4c3b"
+    },
+    {
+      "id": "cadeira",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 1,
+      "resposta": "CADEIRA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "aef40961645d657c266a544cad8f911dbec561159e1bbf3f022288a7822d025a"
+    },
+    {
+      "id": "caderno",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 4,
+      "resposta": "CADERNO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7d604a793b01b2e482c2901dc9a18cb74027075cfa1b22057f18d0001066c28d"
+    },
+    {
+      "id": "caleidoscopio",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 25,
+      "resposta": "CALEIDOSCÓPIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "35274b9eb2258714612131e02b4668a37f0c432d1893aa269ba473fe660ee2b5"
+    },
+    {
+      "id": "cama",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 8,
+      "resposta": "CAMA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "300741eed42d0e03d3b53b888c631e0a4605d659dfcb2c199d7a2ca5234d4981"
+    },
+    {
+      "id": "camaleao",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 14,
+      "resposta": "CAMALEÃO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "df711abe14e69a2b9323ada5c2cfdf9b3f7a461bd3c16c6d3d9c4281a89f7f45"
+    },
+    {
+      "id": "camaroes",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 5,
+      "resposta": "CAMARÕES",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ab7d3e3ffe1240c1f0606a34507c1c2dd42070108086ac3e2c15b42455cbe1de"
+    },
+    {
+      "id": "camelo",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 11,
+      "resposta": "CAMELO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8a2e64a13f8bb450b648376374486935691c7faa873fb1a1d49b1adbf5ee15d3"
+    },
+    {
+      "id": "canada",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 13,
+      "resposta": "CANADÁ",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6d2ba41ec1b56f5f93cfda864439862c1eba7cb2cf63182250d0d55492a0adf7"
+    },
+    {
+      "id": "caneta",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 5,
+      "resposta": "CANETA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6d79f314ecd272524b9d7f2c27f00a83d576aa1ac05f168594308d45c239e94b"
+    },
+    {
+      "id": "canguru",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 9,
+      "resposta": "CANGURU",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "becc945526c3466b8c367fd426c124a7bbfeb82b022cc9675c660f89745c8d2c"
+    },
+    {
+      "id": "canon",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 12,
+      "resposta": "CANON",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e2d720e7b01e1d02d6c564ee7f5437268ab90ccb67581e59654f928aaa670002"
+    },
+    {
+      "id": "capivara",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 14,
+      "resposta": "CAPIVARA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f99c8c6ddee4d25703e97911bb2ed857d03ba7cebec6d08b5a5687b65841c51f"
+    },
+    {
+      "id": "caracol",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 8,
+      "resposta": "CARACOL",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f9261929b6b74621d77fab65789fd59937d3c7759aa97e97fc09612c2b359b8e"
+    },
+    {
+      "id": "caranguejo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 17,
+      "resposta": "CARANGUEJO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "76cadc3027f449f2c3e05bdcbabaf458a5df8eef3c8b4cb08bfdbb90e7a6c02e"
+    },
+    {
+      "id": "carimbo",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 17,
+      "resposta": "CARIMBO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8a8f4a93380d7c351bbf2694ebafefeb0cb61fdfea0df6e565cf3ce7c1629626"
+    },
+    {
+      "id": "carros",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 4,
+      "resposta": "CARROS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "cf55819fad3f08d6851a1594f6d973f84a121f78d4c18efd0aaf271e2c62d098"
+    },
+    {
+      "id": "casablanca",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 21,
+      "resposta": "CASABLANCA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "25353fdbb0ec4ecb8a17df9ba5cb67bd34ac7befd477812e50510d7107517e52"
+    },
+    {
+      "id": "casuar",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 23,
+      "resposta": "CASUAR",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "73c0c3c93e8d3a4ece583c2d305cd37ac8fefd711662672548bae303a75d4336"
+    },
+    {
+      "id": "cavalo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 3,
+      "resposta": "CAVALO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "36063ea56051da53163e15bbc62e48fb5fc8ac99fabb44c2998a82cb309df51d"
+    },
+    {
+      "id": "cavalo-marinho",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 12,
+      "resposta": "CAVALO-MARINHO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "379dc3e98b720379d184aa6c370f7036b2d4ce80be0c1167924a1b62e482b5d3"
+    },
+    {
+      "id": "celular",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 2,
+      "resposta": "CELULAR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "344a7e122f63394211128f99ab3c23cec088f9dad4d92f8e79f90c6f6a280dda"
+    },
+    {
+      "id": "central-do-brasil",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 23,
+      "resposta": "CENTRAL DO BRASIL",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "b4f8a9fb6e8e6f870db33035d5ebbfebe85b1dbab1d75261650ef339f1854897"
+    },
+    {
+      "id": "chanel",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 11,
+      "resposta": "CHANEL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7ae67c7e4458b7ebed5535e99e2ba8d9f80f2a6cd286fa2b647a02226bf843d9"
+    },
+    {
+      "id": "chapeu",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 8,
+      "resposta": "CHAPÉU",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4420fcf04f28a22c27a910bcfca4679b955b38767c7358ef44abb76716a61252"
+    },
+    {
+      "id": "chave",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 9,
+      "resposta": "CHAVE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "e9f745adf51e723d9ac61daaaa93fa175234811f74e464551222c5c7ff15fa10"
+    },
+    {
+      "id": "chave-de-fenda",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 15,
+      "resposta": "CHAVE DE FENDA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "646ed6256ea3301bfe9911cefc56062ae7505728866d17f573d7b3d54b9cdc17"
+    },
+    {
+      "id": "chaves",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 3,
+      "resposta": "CHAVES",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d226df83a0dfdfa9d91379e51fe9452a182b207e447e2c4dcebda57e39f933f9"
+    },
+    {
+      "id": "chevrolet",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 10,
+      "resposta": "CHEVROLET",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "a9f8915a2b86e11c33957ebf4ab2daf8c4a56d978a8b37ec37fa37fd8c5e38c9"
+    },
+    {
+      "id": "chile",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 11,
+      "resposta": "CHILE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e1f78e9e5014480dc3698030ecba9e77fc0abf4d4fdb2a9a0d53afa7f92700f2"
+    },
+    {
+      "id": "china",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 9,
+      "resposta": "CHINA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1f59c3220a3595a181546b2a36d257093ff75f8b3b3838038f043686017fdfc0"
+    },
+    {
+      "id": "cidade-de-deus",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 23,
+      "resposta": "CIDADE DE DEUS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "88f566a9c184a8fd4ba0f90aeda7b2eef18843f7672fd2a6c9a9379335ce68f7"
+    },
+    {
+      "id": "cinto",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 9,
+      "resposta": "CINTO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "dbfab31798167cf5c239b867ea5da65a0e134f42f972e34077a4e55c122f89de"
+    },
+    {
+      "id": "clube-da-luta",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 16,
+      "resposta": "CLUBE DA LUTA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7cc5198f759f6d8c0dd60923e398e1e95b03cd2b794856ff790cb03dfe2018d1"
+    },
+    {
+      "id": "coala",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 13,
+      "resposta": "COALA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "dcff608126b87dd609a032a57223659f220bf210771a980bb090fbea2614dce5"
+    },
+    {
+      "id": "cobra",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 2,
+      "resposta": "COBRA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "671c016ae89a42d5011cdf8c602545329b89359285e7388a97f4748de0257acd"
+    },
+    {
+      "id": "coca-cola",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 1,
+      "resposta": "COCA-COLA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d0f3a4e0210c623a59334bd961465ee1a0b3ba357400e38eaa6b94678357118d"
+    },
+    {
+      "id": "coelho",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 5,
+      "resposta": "COELHO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "756c1a33d886529a21bf20fa8cad402ee1027e1f49830f1828e5828d017837b7"
+    },
+    {
+      "id": "coerencia",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 25,
+      "resposta": "COERÊNCIA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ba664c53c1114e6cbf3a28d28c9e6141a9e0d4b94993fd34afc961e45f8322fa"
+    },
+    {
+      "id": "colgate",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 7,
+      "resposta": "COLGATE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d5168a33deccd37277bf9f2d9bc346f2b6363e3c58b0ae4345c3bbf93c9ddf55"
+    },
+    {
+      "id": "colher",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 3,
+      "resposta": "COLHER",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7bcdafc941495fa5c921cebea522ddb194c1f89f8f0bf809f8f27308d3ceabc3"
+    },
+    {
+      "id": "colombia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 8,
+      "resposta": "COLÔMBIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "bb21edd1e92fa1ebd6be2de1b25097a541099168cbf3dc0513135d1c48779f5d"
+    },
+    {
+      "id": "como-treinar-o-seu-dragao",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 12,
+      "resposta": "COMO TREINAR O SEU DRAGÃO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "dcd15aa42c38dc4119eb9a9621b8a159926ebcc24a0507e46ff683d5b14bf8d4"
+    },
+    {
+      "id": "comores",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 23,
+      "resposta": "COMORES",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "16cfc402e5711a5ae3ba91a92ce312d9ce3329cb87639ad1a66f20103cd30f69"
+    },
+    {
+      "id": "compasso",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 15,
+      "resposta": "COMPASSO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8a6beeb161a1ed33756568d370e6dafa5a65395cafd022cfb4583e512a4c765d"
+    },
+    {
+      "id": "computador",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 3,
+      "resposta": "COMPUTADOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "86a8e39aa759af162e4610330afe4db14c888fc953f17415a22e638f0f3783a2"
+    },
+    {
+      "id": "copo",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 5,
+      "resposta": "COPO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "074bde113e3aa23134de7e59b46704e8494c6329dc43b08b7beffb31e8ef5744"
+    },
+    {
+      "id": "coreia-do-sul",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 18,
+      "resposta": "COREIA DO SUL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a99fff0ce19481ceba53db749f7043e2f9fc777f500e5d9ada33348c01946301"
+    },
+    {
+      "id": "coringa",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 13,
+      "resposta": "CORINGA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "9fb3f117d1870a534284a428deb459ea8dc2295b955bfce6f827e491c2133180"
+    },
+    {
+      "id": "coruja",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 10,
+      "resposta": "CORUJA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ed98f7558860d906981ceeb48ba4a3be4f4e0c96f57e473f82bcdaf47a97d478"
+    },
+    {
+      "id": "costa-rica",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 4,
+      "resposta": "COSTA RICA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f8a43c0b4db5951c2f9c3b66d514508f23c44813650a2fafee12f9e0591deb88"
+    },
+    {
+      "id": "croacia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 25,
+      "resposta": "CROÁCIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "cef60ab4ebceaac5042617a55b01a2777c0c4605c08b8a77c9f6b55a526852a8"
+    },
+    {
+      "id": "crocodilo",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 19,
+      "resposta": "CROCODILO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c865310896e0523f818885a0542ecc0ee73e6884599249ce0c69d4ac4943c5bc"
+    },
+    {
+      "id": "cuba",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 9,
+      "resposta": "CUBA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "754a3e0de6632e876644d81a0562a1308cd3bf5f4bafd3831a9c8c6529f3fe48"
+    },
+    {
+      "id": "dark",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 17,
+      "resposta": "DARK",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b1d27cd72d9b909f873a4eb07e158d701710bda98482409addf4dbb9a9f3f006"
+    },
+    {
+      "id": "de-volta-para-o-futuro",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 17,
+      "resposta": "DE VOLTA PARA O FUTURO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6d0835882f610572f369ec536ba3432d90b84a28927e5b4cca219ce2f1e2383f"
+    },
+    {
+      "id": "decathlon",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 12,
+      "resposta": "DECATHLON",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "2215ccf474390542077b454d94e41a4cc1ccd1b51c4b78ff898ca5a46bd26fbc"
+    },
+    {
+      "id": "dell",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 15,
+      "resposta": "DELL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "5e66cd121dc2e8467cd9045d6c61fc8fc7e5f50b31995b1b9f9518e3f45c4c31"
+    },
+    {
+      "id": "densimetro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 22,
+      "resposta": "DENSÍMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "52eaa9f5134e2736536abf61df0621fb441e351adcdb782846660767e09ac4f5"
+    },
+    {
+      "id": "descascador-de-legumes",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 12,
+      "resposta": "DESCASCADOR DE LEGUMES",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "48957cd8172f7626059ac9821d640fcfd5c7daa568551eea6235e92381c38a58"
+    },
+    {
+      "id": "diabo-da-tasmania",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 18,
+      "resposta": "DIABO-DA-TASMÂNIA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "0984553beb9b0269cec658570dddfd2f076bcef321f8aeac466239056c6a6df3"
+    },
+    {
+      "id": "diapasao",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 21,
+      "resposta": "DIAPASÃO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7faa1722a8af24208b7101c0bdae7e0297d2bead8f3885d733cd868bff5a5086"
+    },
+    {
+      "id": "dinamarca",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 13,
+      "resposta": "DINAMARCA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "572a3003ae03c654867cef684552a2356bdc1e3057e36ee6e4dbc3057d8c51e4"
+    },
+    {
+      "id": "dinamometro",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 25,
+      "resposta": "DINAMÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "0fc5f5bf96ef0ad71400ff3cf1aeac27dbc32d58ed76217e8d0e84c1767beb24"
+    },
+    {
+      "id": "disney",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 16,
+      "resposta": "DISNEY",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ea96a7abb795a284ecd6e715cd44c9dd07b8f6ac5de07054e4a538e6fb345ef9"
+    },
+    {
+      "id": "divertida-mente",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 11,
+      "resposta": "DIVERTIDA MENTE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "bc5d60b15d397205d8f0bf292a51542e58bf83e5da647808dc72800bbff004cd"
+    },
+    {
+      "id": "dogville",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 19,
+      "resposta": "DOGVILLE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "1b7411445a49848e9537bbdb54cd01a91df2cea0d38f5b9564f0398bbe1a5630"
+    },
+    {
+      "id": "doritos",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 6,
+      "resposta": "DORITOS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8c0dce01fa09dc527428ea3f6d867ef9e6bc7cdaf59191e8950ddde41b61c0e6"
+    },
+    {
+      "id": "dragao-de-komodo",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 23,
+      "resposta": "DRAGÃO-DE-KOMODO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7c7bec95c5052a4b2d3dd2d6599ec1eb3c15481c41912b28c359b54646f98a9f"
+    },
+    {
+      "id": "dragao-marinho-folhado",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 25,
+      "resposta": "DRAGÃO-MARINHO-FOLHADO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ae0205c99323bcf59110f0736c7f6fa2e1eeaa08f46a3eeca46dd16c87dc310c"
+    },
+    {
+      "id": "drive-my-car",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 24,
+      "resposta": "DRIVE MY CAR",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "27d674ba7d29a991924307c96d1b47daf8c4b9dc4e5a7a8639926564f1ae2417"
+    },
+    {
+      "id": "dugongo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 22,
+      "resposta": "DUGONGO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "33be5ba4becf91f19f014b1281a81ae20a9f5aa80f6ff78aae631a4c269a5a1f"
+    },
+    {
+      "id": "duolingo",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 11,
+      "resposta": "DUOLINGO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "1414a889fedc2866e79e1a1664737e04e937a24bf5b9edf89ceb93cbc1054367"
+    },
+    {
+      "id": "dyson",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 23,
+      "resposta": "DYSON",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "97d043edfff5c5dcc77b8b517c45ed7a032c92fd17844b2d3ccbf9af7d168a79"
+    },
+    {
+      "id": "egito",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 7,
+      "resposta": "EGITO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "36691ae2a0eaa2a37cef28ce0b91ad7787a471c159b41b7bc0f1fc766f1bfbb9"
+    },
+    {
+      "id": "el-salvador",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 13,
+      "resposta": "EL SALVADOR",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e8bfb7a183ffbc4bf1b4f0e84af64ffe610d157f4b2c81087c56adf002142c13"
+    },
+    {
+      "id": "electrolux",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 19,
+      "resposta": "ELECTROLUX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "bab192959ca133aa69472b897fe5ef542983d14731dc58e1d93aecc93fee281d"
+    },
+    {
+      "id": "elefante",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 2,
+      "resposta": "ELEFANTE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "5b867f20dd3a48e2033ddea77944f9ae6ee222fbe517a28d17985362ce18c313"
+    },
+    {
+      "id": "encanto",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 5,
+      "resposta": "ENCANTO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "a4be3d7673e5f62bfb728b37d26d1317d86642f72bcef3fe42355b9dd16eb65c"
+    },
+    {
+      "id": "equador",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 2,
+      "resposta": "EQUADOR",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2ccdd530f30368d282fc2bff06c67e024f5576340430b4fd1f8901915e4f7c36"
+    },
+    {
+      "id": "equidna",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 23,
+      "resposta": "EQUIDNA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "cbe0195de8f8c755f3e5950bc32f0b829bfeb09b7451ed30948ae7a4aaff8ccd"
+    },
+    {
+      "id": "escada",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 7,
+      "resposta": "ESCADA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f65a9146bb5e57ba87ebb3f5741d415983a1b898097cbf2f4e4e290c3ac51907"
+    },
+    {
+      "id": "escorpiao",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 16,
+      "resposta": "ESCORPIÃO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a6cc9470756c6c23fe8233334ab24def54658be0746f105f19c5f273a3d06fb6"
+    },
+    {
+      "id": "escorredor-de-macarrao",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 11,
+      "resposta": "ESCORREDOR DE MACARRÃO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "9e8635c7b532515941157dc10f1b72753f23a9413311801d0ea86343e3282aa5"
+    },
+    {
+      "id": "escova-de-dentes",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 3,
+      "resposta": "ESCOVA DE DENTES",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "51823496932039af4d433fbd4551d15bbf84972dd4739e04e7243a346db81871"
+    },
+    {
+      "id": "escumadeira",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 11,
+      "resposta": "ESCUMADEIRA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "0d4e81907d27551dbba0e09f7e9e0bea5ca083d64fbc84fdd6a2e4f8cb716372"
+    },
+    {
+      "id": "esfigmomanometro",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 23,
+      "resposta": "ESFIGMOMANÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "43456c4d5c2b36ab45c241f35e64f16c2247bb3b2103c5d9938e127ba66fd328"
+    },
+    {
+      "id": "eslovenia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 22,
+      "resposta": "ESLOVÊNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "2f525e070b08de151227ab30e8bdaa1311fc797d885f6f4b5bf6135f0ae56313"
+    },
+    {
+      "id": "espanha",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 1,
+      "resposta": "ESPANHA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d1b5ab0f193825cf3da75c0e6f7cbeb3fa8c7845791aa1efe381cd8959e083ef"
+    },
+    {
+      "id": "espatula",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 15,
+      "resposta": "ESPÁTULA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "74b57ee517380ea11eedb1601182cb3324543ce41e9e624c836c5fe6b8122acc"
+    },
+    {
+      "id": "espelho",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 4,
+      "resposta": "ESPELHO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "692dfa2c27f616b38619d3388a64d85c8945f7e4ae71eaf093277e553cd1521f"
+    },
+    {
+      "id": "estados-unidos",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 2,
+      "resposta": "ESTADOS UNIDOS",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "9c4a562690f33d31bb69dba40c0a795c3939f35d164de7ebe873fd7910f78018"
+    },
+    {
+      "id": "estetoscopio",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 19,
+      "resposta": "ESTETOSCÓPIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e8c83b98aea8a97159fefb2cf551d5478fb03e2a5fb05e79199c48c5c78e5b9a"
+    },
+    {
+      "id": "estonia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 21,
+      "resposta": "ESTÔNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "40ca88b2d41e8cd54bac733e6378880bf13e2debb60f1a75e731be02972de1e4"
+    },
+    {
+      "id": "extintor",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 19,
+      "resposta": "EXTINTOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "37a66fb7577791786a18b0a03d33f9b75a887e0a0974dd3efcbe6e321a0c97c3"
+    },
+    {
+      "id": "faber-castell",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 18,
+      "resposta": "FABER-CASTELL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "44e3aafac60d15f56eeefd0ef8689e16b57121658d956a564e48f92f7efbe7a3"
+    },
+    {
+      "id": "fanta",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 8,
+      "resposta": "FANTA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "07ce7f29e17d7d62e90cee7e71c6749987688a6fca0cfe922f39e9141cf24ad6"
+    },
+    {
+      "id": "ferrari",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 7,
+      "resposta": "FERRARI",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "285116ac91154b89a7208783c90c0b48373799b78843cb6cd1c0f4f4efdde7ee"
+    },
+    {
+      "id": "ferro-de-passar",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 20,
+      "resposta": "FERRO DE PASSAR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "004d04ff73349f01ac3edefc704f4f7508ba71b4e44009f7770cfe60e2dd859e"
+    },
+    {
+      "id": "fiat",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 9,
+      "resposta": "FIAT",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ae62fae0ba2a6dadf11f0d61c9ad7a6c1eb6ab8f01927747daaf25b5bd2f4d0e"
+    },
+    {
+      "id": "filipinas",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 16,
+      "resposta": "FILIPINAS",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "2babbc20620d4cffcc4ded19db25b708a12e0f6bea3fd593b61d84dd263c8f68"
+    },
+    {
+      "id": "finlandia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 12,
+      "resposta": "FINLÂNDIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7ee93934d52fced2ed88b9ca5a2bba95176e6d050fd63d4cdbfbc6893f9258fe"
+    },
+    {
+      "id": "fjallraven",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 18,
+      "resposta": "FJÄLLRÄVEN",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "f0fa437ce1371674e0f6d49425cf617ca25f2c419223082db0be20e3e3865a04"
+    },
+    {
+      "id": "flamingo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 20,
+      "resposta": "FLAMINGO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "5bac54c74230fec0e64d4992e92a6d29ca826ed56a234ba239f0fa2fb8c02996"
+    },
+    {
+      "id": "foca",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 12,
+      "resposta": "FOCA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "bfca1f0925fb71b89e3acc3410b17651341dba7cccdba2de956d9215c9998c96"
+    },
+    {
+      "id": "ford",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 10,
+      "resposta": "FORD",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "0994d1efb2a8de8b6e55824fe1d9db72ee7ada5beaaa30c6b560de42c11f5b25"
+    },
+    {
+      "id": "formiga",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 9,
+      "resposta": "FORMIGA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6d4d04a7bab15eed073542e35e849d2318ead14946ef186fb89d0f425da0496f"
+    },
+    {
+      "id": "fossa",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 21,
+      "resposta": "FOSSA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "6fad9ca2191057827344168c74a4607086a26f1bc515f86226de26f86e01fb07"
+    },
+    {
+      "id": "franca",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 5,
+      "resposta": "FRANÇA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "34309f3b4024039b7c2f89740333632aba1440d0abdf310547f32d7993884365"
+    },
+    {
+      "id": "friends",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 8,
+      "resposta": "FRIENDS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8af984ea6ab2c155f469dd85d1194ffe519d45f461e426ab55234bb724c848dd"
+    },
+    {
+      "id": "frozen-uma-aventura-congelante",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 1,
+      "resposta": "FROZEN: UMA AVENTURA CONGELANTE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "be99771bf54d1a3a98a2e0a0625026563ad4e67392a18e70865c068b0df9080b"
+    },
+    {
+      "id": "funil",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 16,
+      "resposta": "FUNIL",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "9fb631e7476c471b5a871f0c61318be52c7c014f83e06987bce4e60d7c0cacdc"
+    },
+    {
+      "id": "gafanhoto",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 7,
+      "resposta": "GAFANHOTO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ca83f78d5c1bc75e5ee5cb01e94bff914a7162ce4499f83e5bd360bc48100829"
+    },
+    {
+      "id": "galinha",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 7,
+      "resposta": "GALINHA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6e5a536320e79929713d111c73ae8a8bd8c5c3d1c9263908307e9025e893e6c8"
+    },
+    {
+      "id": "galvanometro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 19,
+      "resposta": "GALVANÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "cc98e958c3ee1d4cadce5ecc6945589aa4c331182a20bd0bb6ae81dca7119f90"
+    },
+    {
+      "id": "game-of-thrones",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 17,
+      "resposta": "GAME OF THRONES",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "093aa7612a5b5ac8ee45fa2ca91d7981353cf06d1a688519a05de4ea22436b0d"
+    },
+    {
+      "id": "gana",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 6,
+      "resposta": "GANA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "3ada2c756805e3e1e4d0e25baae38c31ea0c42e75c769a95cf16be57e3cf27c0"
+    },
+    {
+      "id": "garfo",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 8,
+      "resposta": "GARFO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "83d72c3837fd85d25894cfa5f625724a0f9d8d2e1552dd76c4a023ec38b27dde"
+    },
+    {
+      "id": "garrafa",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 9,
+      "resposta": "GARRAFA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2c4381c8e55ee5235efcc1508e536408121063edc99855947db3d500d5fce6ab"
+    },
+    {
+      "id": "gato",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 2,
+      "resposta": "GATO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c9caa06034c52fc933f06e13d444253222aadaa223445e9c13d5ca2b593d14f0"
+    },
+    {
+      "id": "georgia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 23,
+      "resposta": "GEÓRGIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "fe06c13eaee0affe2f5c7f9b96bbba4faea93e0e687cbf0f957df8e3d0bc438e"
+    },
+    {
+      "id": "gilmore-girls-tal-mae-tal-filha",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 18,
+      "resposta": "GILMORE GIRLS: TAL MÃE, TAL FILHA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "4363afc2119fdee49e56fa4dfb21a5937c4bc65ea51dcb092a9b8b43b19c7fc8"
+    },
+    {
+      "id": "girafa",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 1,
+      "resposta": "GIRAFA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "856dd540c542d4f3cbe0d39c27d43ef887cc0818d5443b6981791c360c42ec71"
+    },
+    {
+      "id": "gladiador",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 8,
+      "resposta": "GLADIADOR",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "0154686d9a189ec075bead04e8ff577bcfdfce874a866a2025bdd19cdeca7b01"
+    },
+    {
+      "id": "globo",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 6,
+      "resposta": "GLOBO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "280a7d7d4c1ee581098f5e25cdb4bcd743671250b47a4ac96034c8fb07c3022e"
+    },
+    {
+      "id": "golfinho",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 4,
+      "resposta": "GOLFINHO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f482abe35b69fda9c510a300541e28d77c162073d944c121a4cb34925c2aa76a"
+    },
+    {
+      "id": "goniometro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 23,
+      "resposta": "GONIÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7a880fc72ec61fc37b3c45524d4ce3073b8245384e26d4f7fe52616dae32a9bc"
+    },
+    {
+      "id": "google",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 2,
+      "resposta": "GOOGLE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "600d48db13957a15a6059ed98f381163ebc98980b8730edd66ef0b8cacf9b7da"
+    },
+    {
+      "id": "gorila",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 18,
+      "resposta": "GORILA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3371874f685223b1ad50a33f4545cadf92f64daab2343cbf6129e84b4e628a27"
+    },
+    {
+      "id": "gramofone",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 18,
+      "resposta": "GRAMOFONE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3328f1e69eaf4da8968ad85970d0f8778c2a1e390eaaf26b1166862a7b22b861"
+    },
+    {
+      "id": "grampeador",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 13,
+      "resposta": "GRAMPEADOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "33166abcf1c2ff95623a2f77aa0cf1507f82f41c7fdf0759e5032fb69e12169f"
+    },
+    {
+      "id": "grecia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 15,
+      "resposta": "GRÉCIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "fb4f1b0ff752beb5739f9ac689bf952ed29f325dc66aeeb6a201dbc028c50fb9"
+    },
+    {
+      "id": "grilo",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 10,
+      "resposta": "GRILO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "aa21d2980de3a36ec9da6f24f2f691a8a8efb0294e1eb3982c1fcc118266fafe"
+    },
+    {
+      "id": "guarda-chuva",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 1,
+      "resposta": "GUARDA-CHUVA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "0beb65ff5cb6b216c78fd80444311cf68edd4c4b4aaef199fd55676c92411a60"
+    },
+    {
+      "id": "guatemala",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 11,
+      "resposta": "GUATEMALA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d13a8fff00e87f6c23a51acf609ab6aeea70afc252823fb3b1c054b7e2bc2133"
+    },
+    {
+      "id": "gucci",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 24,
+      "resposta": "GUCCI",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "25fce14dd6cd83b62aff1eb8ecddd8dc127666c5d0a146d51a28cb8e3435cb73"
+    },
+    {
+      "id": "haagen-dazs",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 21,
+      "resposta": "HÄAGEN-DAZS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "f7467f35b1292724ff29258dfa46ae51bd9bca008cc79d6fa9d53a02f866d0c1"
+    },
+    {
+      "id": "haiti",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 5,
+      "resposta": "HAITI",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8721f345164b66d8b2c2db296a6d65dd04de9fa5d434caa5598c58c330a9691b"
+    },
+    {
+      "id": "hasbro",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 25,
+      "resposta": "HASBRO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "e296c50a5dc420848915356a28d255ba7c7c52e08dfffc007c28b2178057b7b1"
+    },
+    {
+      "id": "havaianas",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 6,
+      "resposta": "HAVAIANAS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f0a192c630a6cbddf4c946162653b7f2eced609e1cd5563e9fcf20a4d2e7ad84"
+    },
+    {
+      "id": "heineken",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 23,
+      "resposta": "HEINEKEN",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "353ae76c161d2117f57da8548ec8941ded9421f7df8c8c6ff455a3d8d3557582"
+    },
+    {
+      "id": "hermes",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 25,
+      "resposta": "HERMÈS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "95d347c928f2007d2aebbd15e690afea6e919db9a2ee7faa2d69d4d964479139"
+    },
+    {
+      "id": "hiena",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 16,
+      "resposta": "HÍENA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b5d4ddfedfb26396c2342c0654f2ce2063dac135ff1ed529e816fa4877d2b176"
+    },
+    {
+      "id": "higrometro",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 21,
+      "resposta": "HIGRÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "5708a63ecd08c05636e4926785c42c32c175b2afbb411a77dd2aa52f49596d5d"
+    },
+    {
+      "id": "hipopotamo",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 12,
+      "resposta": "HIPOPÓTAMO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c3b4235be7284131f799430dbbc3fa73cffc1a837de513b801dc679d5c1854cc"
+    },
+    {
+      "id": "homem-aranha",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 1,
+      "resposta": "HOMEM-ARANHA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "e95d72ff3c52dbd4cc10d335e89c2a491ff9a8f686f8b7eb7eafed878b4855cb"
+    },
+    {
+      "id": "honda",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 15,
+      "resposta": "HONDA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "9ba310519fcb80e44c05c59b6816b6fd7769d46a7ad138fac77dd1dd0dc4a1ef"
+    },
+    {
+      "id": "honduras",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 12,
+      "resposta": "HONDURAS",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "45810956741e88bb19b450cf57051dccce57ff18d1ea38a8a156288b77362240"
+    },
+    {
+      "id": "hungria",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 12,
+      "resposta": "HUNGRIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b47bfc0ae0da91aba014e822c29b1cfb34913d0b7fc92ecc23e5cd875ebc9df4"
+    },
+    {
+      "id": "husqvarna",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 24,
+      "resposta": "HUSQVARNA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "abe0af901604bd9a1d8e63e969bd1061c9ea638ef412c628eb326818a2bf7da8"
+    },
+    {
+      "id": "ifood",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 5,
+      "resposta": "IFOOD",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "65f81feea91dc920bcfe946d3ba83b75e005bd395993ea50d4aafa3654fb956f"
+    },
+    {
+      "id": "iguana",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 17,
+      "resposta": "IGUANA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "55618c742b279c3f377928a3b23b94fda5bf6c6e78bc44e09c5890994a478822"
+    },
+    {
+      "id": "india",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 16,
+      "resposta": "ÍNDIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "0c32ea5433ebe9ef855f03d97dfc17711f44eb770bfb2db70fa7216dffe05b39"
+    },
+    {
+      "id": "indonesia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 15,
+      "resposta": "INDONÉSIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "2dc69684338cd2b59a62108cade7d8373fc503d0eb7aad642c454be3306b3e2d"
+    },
+    {
+      "id": "instagram",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 4,
+      "resposta": "INSTAGRAM",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1856d3dd38d4f3cbedf8b11e1749f15aae300c1410fcd6f8eacf2ef094e56030"
+    },
+    {
+      "id": "intel",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 13,
+      "resposta": "INTEL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d4e7aa7a38712cb5057c63c510ddefce4ed5b37f5e33514cadcae902d9589bc1"
+    },
+    {
+      "id": "interestelar",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 12,
+      "resposta": "INTERESTELAR",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c4bbe8c1d1336e3ef37a5ce99874857be486f28be7f2dd42f3f97cf221ecb209"
+    },
+    {
+      "id": "ipiranga",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 13,
+      "resposta": "IPIRANGA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "4c25b1b1ebac0e92308acfbfd01bf16788691795a3e556a9eeb2e910e7907782"
+    },
+    {
+      "id": "ira",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 8,
+      "resposta": "IRÃ",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "5056ae54433076f6ce9cb456c78c374634b470c9d143edbe6568863ec3e22c5e"
+    },
+    {
+      "id": "iraque",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 9,
+      "resposta": "IRAQUE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "0fbdfe7af0e67f530de06e25c254b27ef6b2ab83397d69bb1544da19a5bb866c"
+    },
+    {
+      "id": "irlanda",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 10,
+      "resposta": "IRLANDA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "da321a14ceaa3e6103c89bcbdd248163b487c446f650142d0cd31f7b3f7118d7"
+    },
+    {
+      "id": "islandia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 24,
+      "resposta": "ISLÂNDIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3d8779554d1b3a6949593912bcf0dda98a48bd9820f83a640be9e360d88ae8ec"
+    },
+    {
+      "id": "israel",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 7,
+      "resposta": "ISRAEL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "b3c74352e2056772a85530bb6d2e7e1a83683db5ba21dc4dfb8671b90afc5bf8"
+    },
+    {
+      "id": "italia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 6,
+      "resposta": "ITÁLIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "365d511cbfa60747f0e8a5a9585f54fb4787aec9a5d8ed309d6469279bdbd34b"
+    },
+    {
+      "id": "jacare",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 17,
+      "resposta": "JACARÉ",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ecb9569bc5ec86f05daa9d0aca846ec8d87a8bd3e6137425eec1d5d929fd4eea"
+    },
+    {
+      "id": "jamaica",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 20,
+      "resposta": "JAMAICA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "393daf8ed2c225ff739139156fa307492cca08fb71ca1d360b5025bd15bc00c3"
+    },
+    {
+      "id": "janela",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 6,
+      "resposta": "JANELA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "69717e6fbf3f01b9266a6446943d238b81446253270293c71694a12f8fb0926c"
+    },
+    {
+      "id": "japao",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 4,
+      "resposta": "JAPÃO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2049bd50bd5b7499bf9f6868b920958f9fec4df881ff3b0a8ca4fa9f8350e4f9"
+    },
+    {
+      "id": "jbl",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 13,
+      "resposta": "JBL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "201df684927548856e2ca7189136528ae15fd1884ea9650701caf5c55aebd9fc"
+    },
+    {
+      "id": "joaninha",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 10,
+      "resposta": "JOANINHA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "51ebaa20f9ab02ab0e56a40c11d68e6ae625154378c1eb00dd0c4ec2b06aeac8"
+    },
+    {
+      "id": "jordania",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 24,
+      "resposta": "JORDÂNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "dde932bd49b20d07bc9acb331047ec4fcac7f8f94fbb5a44f4102e4366f15fe8"
+    },
+    {
+      "id": "jurassic-park",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 9,
+      "resposta": "JURASSIC PARK",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8fd0ac82bff45b11a59efbca5ecf32fbe85b516e9c1e0032fcfed9f3e463ca21"
+    },
+    {
+      "id": "karcher",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 24,
+      "resposta": "KÄRCHER",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "effad72ab79e117258ef0e0956d153cd7b9f0d0f396e8df52cf215448b81c0cd"
+    },
+    {
+      "id": "kfc",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 4,
+      "resposta": "KFC",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "20ee80c9c15b75654b6065112c07ba0655040a7c85543cca61d848952badeed3"
+    },
+    {
+      "id": "kodak",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 14,
+      "resposta": "KODAK",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "2ac0bc45329168b0601a87805d85adc57f5f6c2d325d69aad86358afadebfe21"
+    },
+    {
+      "id": "kung-fu-panda",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 4,
+      "resposta": "KUNG FU PANDA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "04fd24375df8d5146300a148f34ff6621a1adeb9e06ec30ea03fa0397c88cad0"
+    },
+    {
+      "id": "lacoste",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 15,
+      "resposta": "LACOSTE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "df6ff68f8ffecd518a6eaa9ef035e29ecdfaafef81f8ce2bd8c8dde4d7add036"
+    },
+    {
+      "id": "lamborghini",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 21,
+      "resposta": "LAMBORGHINI",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "440996f4e7700e505683fb17317fbd298bfb9034db9996007085512a5653bc5b"
+    },
+    {
+      "id": "lanterna",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 11,
+      "resposta": "LANTERNA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8f48a070eed4df73f0aee862ab365cc08dbd10c462e07e57f9449a1ebd8c525b"
+    },
+    {
+      "id": "lapis",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 5,
+      "resposta": "LÁPIS",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4bd88e08ba55f79c8f54528f2f31a85d3768eecb4c361a5c3708b470b3a0547e"
+    },
+    {
+      "id": "le-creuset",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 20,
+      "resposta": "LE CREUSET",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "198f4cd43ff6c656955500ee5f90b2c5c12b34d5d5d12d023b6e523572c953f6"
+    },
+    {
+      "id": "leao",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 3,
+      "resposta": "LEÃO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d3958f72dbc3775602abd2d5483c43855d57f2f456999b6b3dbd1fd8914423ef"
+    },
+    {
+      "id": "lego",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 13,
+      "resposta": "LEGO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d527fc51392fccd840da75414a096f9fc0b8843115cd34782c1aa1319b5f2419"
+    },
+    {
+      "id": "lemure",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 25,
+      "resposta": "LÊMURE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "aca90b411053c27c73c8535a73a6c56a4885ac973a7af379952e4be68e510480"
+    },
+    {
+      "id": "leopardo",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 15,
+      "resposta": "LEOPARDO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8ff2adf12e4f23e215b969e95606e5926a29dd4b6e4a4c44b946aa8efe15f7d8"
+    },
+    {
+      "id": "lesma",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 18,
+      "resposta": "LESMA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "563004382627d585fe22d23e27139f8150ad12759fe610aaa109783673705f58"
+    },
+    {
+      "id": "lesoto",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 24,
+      "resposta": "LESOTO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "072c412eb30e9443aa5446051326cfc277a473d72863cb5e0ef6b761b4f4f172"
+    },
+    {
+      "id": "libano",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 10,
+      "resposta": "LÍBANO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ba4556e05f488cc362a12f0e45d306d313084e1e7f19f79e9cb367608f42cdaa"
+    },
+    {
+      "id": "libia",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 9,
+      "resposta": "LÍBIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "9f9bfd089eb50bb10e247bf2437cc20b2db932575f006cf251658a197f0cf59a"
+    },
+    {
+      "id": "liechtenstein",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 16,
+      "resposta": "LIECHTENSTEIN",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "09cf1e84dd6e779934a2386392292c09d0bff1c7749dc73e5fe02874f5b5fdaa"
+    },
+    {
+      "id": "lilo-e-stitch",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 2,
+      "resposta": "LILO & STITCH",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4c0b3eb4a2f99bf368530d29c85021ac171b297c2c0ff68317ea32d6a632255a"
+    },
+    {
+      "id": "lobo",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 3,
+      "resposta": "LOBO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c31ba65d804e4ce05f797466200cb38127b142836e3e6cf3fa9c0d9e717ebf0e"
+    },
+    {
+      "id": "lontra",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 13,
+      "resposta": "LONTRA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7b2ec7cf7a32e645e3586f078c7b57c409f81ff43010de1db6961819255e4e3b"
+    },
+    {
+      "id": "lost",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 14,
+      "resposta": "LOST",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "22e9bca3887d8c247ed10b9c4c2bc49302c9dbf36d8155c5300f54e009b0e404"
+    },
+    {
+      "id": "louva-a-deus",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 14,
+      "resposta": "LOUVA-A-DEUS",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "60ce81277c925d95af2c2358ef8e1d185476bbb5fa6d4e0962f31bfe0accfbcf"
+    },
+    {
+      "id": "luca",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 13,
+      "resposta": "LUCA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "42355f154f9007a15663770d89970264632b1d9c3d8e102f8737fa02b3b2aee1"
+    },
+    {
+      "id": "lupin",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 18,
+      "resposta": "LUPIN",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f9720569a1376d5a376d31336fc1e2f392ba0ccaf9d3c9dde697e63acdef1c37"
+    },
+    {
+      "id": "luxemburgo",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 15,
+      "resposta": "LUXEMBURGO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "94ce8e0c0cee8ee3799f1857250006451f75140377b3424dfa8689115465cdab"
+    },
+    {
+      "id": "madagascar",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 25,
+      "resposta": "MADAGASCAR",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "32384406c32de5ecfc93c65189ef72d09ab124153044faf8fa3086f7aa2f3747"
+    },
+    {
+      "id": "magazine-luiza",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 17,
+      "resposta": "MAGAZINE LUIZA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3ce6035dbb07005d476ad27748109bdde43fcfbd012327941bceea7077189176"
+    },
+    {
+      "id": "malta",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 20,
+      "resposta": "MALTA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "67f56f394378f197bcc56f2629fed0ef26c52ec574c09f8e1cdb4019f1c5f8b5"
+    },
+    {
+      "id": "marrocos",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 17,
+      "resposta": "MARROCOS",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "734fc03c29b38b39e8f81e1f4ed4fca7395fe78998e5772802485a9943611ae2"
+    },
+    {
+      "id": "martelo",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 6,
+      "resposta": "MARTELO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c2e70b342e6effbe2a51bb827a20b41c8168d0cba262cba4940b1332517d1460"
+    },
+    {
+      "id": "matrix",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 4,
+      "resposta": "MATRIX",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1fce1d895ab08e9e003536ade6cbf7d98bd2883a17449e3a77bd74c7ccb856cd"
+    },
+    {
+      "id": "mcdonalds",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 2,
+      "resposta": "MCDONALD'S",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "dea313d760a8f2e20987d76307f8ab1c409d957245dccd595a0837c72568d843"
+    },
+    {
+      "id": "mercedes-benz",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 8,
+      "resposta": "MERCEDES-BENZ",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2d089cfcf4f40ff2614c2f13f45d437129952d79b8854d4b61cbd26f1357a9ae"
+    },
+    {
+      "id": "mesa",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 4,
+      "resposta": "MESA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "490f5e6d9952889849b06e8f90e03ed4b3a05f9b68f8bf79418cac491483cd86"
+    },
+    {
+      "id": "metronomo",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 24,
+      "resposta": "METRÔNOMO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "a8cbbff2b2bdde597ef24dec8eee5eee44206f08e6ae17347243e1f3bd94dfd8"
+    },
+    {
+      "id": "meu-malvado-favorito",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 3,
+      "resposta": "MEU MALVADO FAVORITO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4177c853bae814a9ae04190e4a19c48112b2a1e18b41eb1c6b3aaedf98bed193"
+    },
+    {
+      "id": "mexico",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 8,
+      "resposta": "MÉXICO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c0592de356197229d92cf9165ee816ce990a1850842489b03295acfdcd19162d"
+    },
+    {
+      "id": "micrometro",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 24,
+      "resposta": "MICRÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "bd182be5ddfe277876d66f9aa2db0ab170ed27abfb9a91f485709f5b6d26d633"
+    },
+    {
+      "id": "microscopio",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 13,
+      "resposta": "MICROSCÓPIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "67eb14fd221d9f59967187d69a4ff6fdcc501b67a084a1db972dd556395e1dbf"
+    },
+    {
+      "id": "microsoft",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 3,
+      "resposta": "MICROSOFT",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c9f1262457250ef19418e0d57b3ce6653c2fd236db6719cc091de65a4b23a798"
+    },
+    {
+      "id": "minhoca",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 20,
+      "resposta": "MINHOCA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "da18592341ec06f3c6e4a005c5457ecbb00c3f0937c3a32319d3fb73bec6253f"
+    },
+    {
+      "id": "minions",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 5,
+      "resposta": "MINIONS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "eb9e09a663e0dad68cfb81318920db4c9196015422e30440e8854075525430a1"
+    },
+    {
+      "id": "moana-um-mar-de-aventuras",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 10,
+      "resposta": "MOANA: UM MAR DE AVENTURAS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8ff761d2abd8ebe85f643d2f164f28b463bf1211be1c0d7f1c1e33ece2bec31c"
+    },
+    {
+      "id": "mocambique",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 2,
+      "resposta": "MOÇAMBIQUE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "54e0def7344829ab5bd70a084e1fe804fcf1107d11f0c58cc305c2c19127d5a6"
+    },
+    {
+      "id": "mochila",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 6,
+      "resposta": "MOCHILA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6f48c3c48f8487ddf052e64a304328654946e6433262613caaf8bc9891539f37"
+    },
+    {
+      "id": "monaco",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 19,
+      "resposta": "MÔNACO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "2f7ea87f262ff38f9555fabaea49fc40b90e972fc6ee1c4476db9f99c4180590"
+    },
+    {
+      "id": "mongolia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 23,
+      "resposta": "MONGÓLIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "f45f9957a1a8c050a00eba66502c98b17a881c0c5004a75c71bc6825778b12fb"
+    },
+    {
+      "id": "monstros-s-a",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 3,
+      "resposta": "MONSTROS S.A.",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "89c0f8acbd714424ff8a87a7aab5af335fe9ea698b0e1ce3a45cf2618de80474"
+    },
+    {
+      "id": "montblanc",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 23,
+      "resposta": "MONTBLANC",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "e723e1953ee1d4ec858783d41b6541c7376d44e7ffc023659fa29c4829d9642c"
+    },
+    {
+      "id": "morcego",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 18,
+      "resposta": "MORCEGO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "770f0f2679138118185591353504a489aa216d1abd459a64cdc398b29c4f139a"
+    },
+    {
+      "id": "morsa",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 25,
+      "resposta": "MORSA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "d71b147f76fe0193c034b7dad2a8e2182293753c2d166600b702325a14a8dcd9"
+    },
+    {
+      "id": "mosca",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 5,
+      "resposta": "MOSCA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "157c9e3560bbdbe199f0875646caf536d6fbdf16cbda433acf4ef4b0cd712dd4"
+    },
+    {
+      "id": "mosquito",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 4,
+      "resposta": "MOSQUITO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8264db3764d2c2f1ec083a4421c921e7ed74ab550a9673ca7c6d7526da681310"
+    },
+    {
+      "id": "mulan",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 10,
+      "resposta": "MULAN",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "52188d87e8eedfb95fba121f5c12456ca95b2fec36c6b0bdbd3915874fa27a08"
+    },
+    {
+      "id": "musaranho",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 23,
+      "resposta": "MUSARANHO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "c93115ec38fb1e26647d66988a1bae09511acebf2ac542b381ce19dc765a479e"
+    },
+    {
+      "id": "namibia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 21,
+      "resposta": "NAMÍBIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3d0246844bddbe50f27d9ad46f613177560f5c9d52f1094020ebe0e3c6e085f0"
+    },
+    {
+      "id": "narval",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 21,
+      "resposta": "NARVAL",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "d81cb575452718c3036d8afc52a5a547cdd48626ce1e23500e4160050d3a56cb"
+    },
+    {
+      "id": "natura",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 11,
+      "resposta": "NATURA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "13a1b1e546e09ebdb26cd6315be50e03b5d8cc00ce530750a7391bd8d9cae81e"
+    },
+    {
+      "id": "nautilo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 24,
+      "resposta": "NÁUTILO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "24ee7328b26ba151d9b81ce284289087b59d205f6b3292d8498cbd69e535f621"
+    },
+    {
+      "id": "nepal",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 22,
+      "resposta": "NEPAL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7277c8698d279e95d7b30a1f9c99828aa7001628658d598456cafa7c20b7c505"
+    },
+    {
+      "id": "nestle",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 10,
+      "resposta": "NESTLÉ",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f44318a6aec3d7b45e94f675cf9523088b500f18c9b56231b25121d9eab617fa"
+    },
+    {
+      "id": "netflix",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 9,
+      "resposta": "NETFLIX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "499cefe6536dfa7864232968be8756c0a02d5fa81e5c972aeb03d2bfc1f222bb"
+    },
+    {
+      "id": "nigeria",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 19,
+      "resposta": "NIGÉRIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3d6b241bb70074ea650b1bf54d924bf20798ea87585d6fcd763e93c9fa669973"
+    },
+    {
+      "id": "nike",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 5,
+      "resposta": "NIKE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2a0cdc395966b9a4b985ceac38dd4021f0fcfc1275ed557988cf53383e863f41"
+    },
+    {
+      "id": "nintendo",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 5,
+      "resposta": "NINTENDO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "bac38e7d9fde8be07795957ff2a4d10ce96a86739f652493906daed8e5e34bc7"
+    },
+    {
+      "id": "nivea",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 20,
+      "resposta": "NIVEA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a7a3c207c6bd07b9fb054eec254b7e80ae3beeb2a6d6956d230207a0c86db0d9"
+    },
+    {
+      "id": "nivel-de-bolha",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 13,
+      "resposta": "NÍVEL DE BOLHA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "653a995427096d67a9fe64c7095a59f0758848472b7e72663b081f8f9a4c799c"
+    },
+    {
+      "id": "noruega",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 18,
+      "resposta": "NORUEGA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ca76ccbd777c3b8352671285024109fb93d2706ef261269630c987c23bfff2e6"
+    },
+    {
+      "id": "nova-zelandia",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 19,
+      "resposta": "NOVA ZELÂNDIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "813e6657d9eb4928a38c7ca7557221e5ef411d2be7591d1922c4ab627a031ebd"
+    },
+    {
+      "id": "nubank",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 5,
+      "resposta": "NUBANK",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "52d1abfff5f49f2a419b076ab6863243b2c580e53f35f0c69aedd2258a6fca7b"
+    },
+    {
+      "id": "o-auto-da-compadecida",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 13,
+      "resposta": "O AUTO DA COMPADECIDA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a3ac12754e52ac15474b1ae8252f2d309a8199f25cae5363006b0e0271166d95"
+    },
+    {
+      "id": "o-boticario",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 12,
+      "resposta": "O BOTICÁRIO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b3e8aa342ef0075d30e7624c8175b39ca1628fe01a4abb93231de986835f3808"
+    },
+    {
+      "id": "o-diabo-veste-prada",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 16,
+      "resposta": "O DIABO VESTE PRADA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ac7bb6ad9adf3ae1ace2a8af9535353add3b47192c7db3f5dd5c2723a01350e7"
+    },
+    {
+      "id": "o-fabuloso-destino-de-amelie-poulain",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 21,
+      "resposta": "O FABULOSO DESTINO DE AMÉLIE POULAIN",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "247f5963df47869238c1b90e433ee3f1e79c32b0c1631cbba7901ef2a900a3bb"
+    },
+    {
+      "id": "o-gambito-da-rainha",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 14,
+      "resposta": "O GAMBITO DA RAINHA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b048b417a61dc25ada8231ff71fe269554b3faf464ef3ac725e201b33ef9989c"
+    },
+    {
+      "id": "o-grande-hotel-budapeste",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 24,
+      "resposta": "O GRANDE HOTEL BUDAPESTE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "6b8c77cad91c3788ea0fc08c861c4e7e74a5d888da1171b814135be42c0ae474"
+    },
+    {
+      "id": "o-homem-que-copiava",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 20,
+      "resposta": "O HOMEM QUE COPIAVA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "de83de82588bf2b5d555cff8b1e481837944cdc61133afb6a3789284066b3643"
+    },
+    {
+      "id": "o-iluminado",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 22,
+      "resposta": "O ILUMINADO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "4f144c8e8a917144a4f49c836a63fad80f9d8ce9bf2f500c2833c3e7f227ddee"
+    },
+    {
+      "id": "o-labirinto-do-fauno",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 22,
+      "resposta": "O LABIRINTO DO FAUNO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "2247a6d73f3e249dac6ed79614f12609d4b0f7125f142680a63d2a2e339664df"
+    },
+    {
+      "id": "o-menino-do-pijama-listrado",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 15,
+      "resposta": "O MENINO DO PIJAMA LISTRADO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d295d23ea3ec5de40d7512551a7fda142e0d72bc8a1b14478497508ac2ff773d"
+    },
+    {
+      "id": "o-poderoso-chefao",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 11,
+      "resposta": "O PODEROSO CHEFÃO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "51d0ee9d9c7bab70b5ed6cb480b2495f92902e11f7ac36c62388278b6d3531a8"
+    },
+    {
+      "id": "o-rei-leao",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 7,
+      "resposta": "O REI LEÃO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "45ee20b4d97d967c60bb5d7a93441bc52e2c88dc316f94715373f853ea593361"
+    },
+    {
+      "id": "o-senhor-dos-aneis-a-sociedade-do-anel",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 13,
+      "resposta": "O SENHOR DOS ANÉIS: A SOCIEDADE DO ANEL",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "52528554030ab1ed82c483cc286c9d84d5026c24552c9fe357bb8bd9b1221646"
+    },
+    {
+      "id": "o-setimo-selo",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 24,
+      "resposta": "O SÉTIMO SELO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "4cbd5069bdfadcb1ece8532ac58f93769a4879d93dd406ff3832b62394ad38c7"
+    },
+    {
+      "id": "o-sexto-sentido",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 15,
+      "resposta": "O SEXTO SENTIDO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c945491b3e4afc3a4ea3c8d4e2d6e1d17e6c1655511f91893b9e7dcf884c8836"
+    },
+    {
+      "id": "o-show-de-truman-o-show-da-vida",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 12,
+      "resposta": "O SHOW DE TRUMAN - O SHOW DA VIDA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "84ad770d6107161865acce06da1f4570951df0790559840aeec52995c7f228c4"
+    },
+    {
+      "id": "o-som-ao-redor",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 21,
+      "resposta": "O SOM AO REDOR",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "5d599388f4504fdc0fe6a828f5d863ed80a6a921c3c141ec89e1206fef9f0a7e"
+    },
+    {
+      "id": "ocapi",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 25,
+      "resposta": "OCAPI",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3c5c1c7f14491c80df2d1ba758f07e52c99f2d2b5849aaf9158f2745eada4643"
+    },
+    {
+      "id": "oculos",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 9,
+      "resposta": "ÓCULOS",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7c195b93adf65d025b524c79402bd49b384e4d71032043accda5c363ad7b2d8a"
+    },
+    {
+      "id": "odometro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 17,
+      "resposta": "ODÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ec38fb6984af8bb40388008af5f64c696e1786ab84463434fb688b4b3fcf0975"
+    },
+    {
+      "id": "oreo",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 7,
+      "resposta": "OREO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "81448cf7b00e3b61bf29f898fb9a5cc6fc24cbb93a515119c2d039faa612ee20"
+    },
+    {
+      "id": "ornitorrinco",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 21,
+      "resposta": "ORNITORRINCO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3a48bf5342cce38e46201951e3aeccd9757160ea01c72dec4c8476b8c32a2fb0"
+    },
+    {
+      "id": "os-incriveis",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 4,
+      "resposta": "OS INCRÍVEIS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "56494b1bcee856934f1989396d1ff50fc1a8997162cd8ac74ecb7b0ef7f6971f"
+    },
+    {
+      "id": "os-simpsons",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 6,
+      "resposta": "OS SIMPSONS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c4ceeb9b7b7e03517eee1c567a8f33c63e9454f9619374a36105ab892eef3425"
+    },
+    {
+      "id": "osciloscopio",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 20,
+      "resposta": "OSCILOSCÓPIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ac3b70d3415015e1a1f1386356f08b1383ecc357277ae641fd5fab5cbb507e4d"
+    },
+    {
+      "id": "ovelha",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 5,
+      "resposta": "OVELHA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "760805b310c458479314870c5751404275bb6f0c17648e1a8228865ef5c48e04"
+    },
+    {
+      "id": "paises-baixos",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 15,
+      "resposta": "PAÍSES BAIXOS",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c11ea8569191ef5b85b6dd58b91020dc64a087731d04b23c7b46c8a8702e6af1"
+    },
+    {
+      "id": "pampers",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 7,
+      "resposta": "PAMPERS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "b27bee2db10a839064b60967c96e1f3352e95e62f741f123617649f0fb59b8e6"
+    },
+    {
+      "id": "panama",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 3,
+      "resposta": "PANAMÁ",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "5f37c561bd4a5e3b6ef80d5055619fb3040b1b2f4783dc7fda238bb9b107c99b"
+    },
+    {
+      "id": "panda",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 8,
+      "resposta": "PANDA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "da046479895243ced0f28b63b876bba764517916e54808583b9096a30d56d577"
+    },
+    {
+      "id": "panela",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 4,
+      "resposta": "PANELA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f136ec044f101d8c205141272fae142b47060436585df8cad765fcdb5ac80b33"
+    },
+    {
+      "id": "pangolim",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 22,
+      "resposta": "PANGOLIM",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "2f4652193f2161cee207bfe1fc77bfef465e8b1482bf27129eb7a3acfd8b3d8f"
+    },
+    {
+      "id": "pantografo",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 24,
+      "resposta": "PANTÓGRAFO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "ca5e6df4f267767a1ba8f3179d7030ca0c6160d6ec6ee72fad76707e60dc1f29"
+    },
+    {
+      "id": "papagaio",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 15,
+      "resposta": "PAPAGAIO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d45c3df99ffe4ccffbf33fe639eb65253f847f02b609571144fefbffde5bf19b"
+    },
+    {
+      "id": "paquimetro",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 25,
+      "resposta": "PAQUÍMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "70f4c8577765ee3608344a9fc7a22d36484a2b6673b638e2e71166cb69192f5f"
+    },
+    {
+      "id": "paquistao",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 20,
+      "resposta": "PAQUISTÃO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "5548e13755425a2c0459f1e617524f7a19900e4f6c0791b81d5216f7beaf28d4"
+    },
+    {
+      "id": "paraguai",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 6,
+      "resposta": "PARAGUAI",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "bff31ffedadb16c8f3014c26afb994c192b1cc9c5a6ae7a97310bc4e76d9cd7a"
+    },
+    {
+      "id": "parasita",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 15,
+      "resposta": "PARASITA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "22d63ad61646795a5b8598b9889f2534a53356efd7332981efcdea982fb9b55e"
+    },
+    {
+      "id": "patagonia",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 22,
+      "resposta": "PATAGONIA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "c24ee776c8667179d1fd61da7acd10ef0307a5ab71ba6fff8454e5bf2f306c0e"
+    },
+    {
+      "id": "pato",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 8,
+      "resposta": "PATO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "0e0b2c42d66d39908544b5de2b5bb5f6231e5344d2924f76b1a58f41afebe5c3"
+    },
+    {
+      "id": "pavao",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 14,
+      "resposta": "PAVÃO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a91cbfc330b0a8ba5f24b276b6dca333c31343d762c50b85f622925a4032edc8"
+    },
+    {
+      "id": "peaky-blinders",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 19,
+      "resposta": "PEAKY BLINDERS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ffee68b26070814692b79eda9285c79d5d1d8e866d17cb1f492ef16b8d013109"
+    },
+    {
+      "id": "peixe-lua",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 24,
+      "resposta": "PEIXE-LUA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "5a9a0ba6d001e482a1ef4ecb822f9d18449f307989581068d867beaeff72d3dd"
+    },
+    {
+      "id": "peneira",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 15,
+      "resposta": "PENEIRA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "40e5123033fe80ca611668a8a4e5b2ff8152ff834e42163aee7509e3907d6c4f"
+    },
+    {
+      "id": "pente",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 2,
+      "resposta": "PENTE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "89a99c02f096d849c2d3be36d6ad6de02f610f227b6c822adbd3a9d91ab9f1cf"
+    },
+    {
+      "id": "pepsi",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 18,
+      "resposta": "PEPSI",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "67947539c3b479937123bb7f2503b68bc883c62d624b582bb6c2fcf4eb43bd9f"
+    },
+    {
+      "id": "persona",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 18,
+      "resposta": "PERSONA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "10f92347d512dca140e5cf6c5138c24584ff6839e3ae775c0551e40fff85e7e1"
+    },
+    {
+      "id": "peru",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 12,
+      "resposta": "PERU",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f510c7f11e0f58983b5de510e3e9587e850c19e13fb2d8e669a7bb6e14ad06e6"
+    },
+    {
+      "id": "petrobras",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 14,
+      "resposta": "PETROBRAS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "248fb2c0b80153f04d6d442f108230c3a532e9ae3ebe235cd5f2ad1b4aeaf86a"
+    },
+    {
+      "id": "peugeot",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 10,
+      "resposta": "PEUGEOT",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "96644dc3308e80a2dea029d48b9fc937e373a18c0f74101e556572658f6397de"
+    },
+    {
+      "id": "pinguim",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 5,
+      "resposta": "PINGUIM",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "cf03c489e57153dde99569852dfa0e64cf1f436fff4170ce132a57a2c96e9a39"
+    },
+    {
+      "id": "pizza-hut",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 3,
+      "resposta": "PIZZA HUT",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "e3a2d0d875b2eaede61b61638db453c03d4f50e9faa34ea5c78fc8c358849c2e"
+    },
+    {
+      "id": "playstation",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 9,
+      "resposta": "PLAYSTATION",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2408d16ea1faff1e33888919c2a18b74afe83dc60c447f6dcd5b7641b1a3eec9"
+    },
+    {
+      "id": "pluviometro",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 24,
+      "resposta": "PLUVIÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "dfcda86e305bcce964e5abb1ecb501c7367429044eedc65f8cc14100cf8e880f"
+    },
+    {
+      "id": "polonia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 11,
+      "resposta": "POLÔNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "37558b93bb1dcfce4292d657e1e190c05f4501f473874187ae6ddc79af9959bc"
+    },
+    {
+      "id": "polvo",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 11,
+      "resposta": "POLVO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "80b955dd135d17ab9cdc8bdfbb310a6870c437949531b0d388a738175c5f2711"
+    },
+    {
+      "id": "pombo",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 9,
+      "resposta": "POMBO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ca5ba6b290813fb1a73ca672dcaa4333d6453c1ea7a87e7d63ca148a44fb8df2"
+    },
+    {
+      "id": "porco",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 6,
+      "resposta": "PORCO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4c76f20c86671e5c87904180051894495ab4d482b56d135880d92bd89f842844"
+    },
+    {
+      "id": "porsche",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 17,
+      "resposta": "PORSCHE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "5c03ea881b46f4172f39af914dbea83b98e531246fede3f2489682360b4e8e1e"
+    },
+    {
+      "id": "porta",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 5,
+      "resposta": "PORTA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "16d4043715a44c510316e3376591bf313865254c78955f2775ae36dbad2379e1"
+    },
+    {
+      "id": "portugal",
+      "arquivo": "Data/palavras/paises-001.json",
+      "posicao": 3,
+      "resposta": "PORTUGAL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1768facd9fac4002e2df5b9f5c532884d4b8529a543fd60cdca30252ff93f554"
+    },
+    {
+      "id": "prato",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 6,
+      "resposta": "PRATO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "35b324f764b1cac953d3ede741b4d23d441df7d3596da81d2bdb278c83079138"
+    },
+    {
+      "id": "procurando-nemo",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 2,
+      "resposta": "PROCURANDO NEMO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "3b93763c9eddeaf7fda1b189aa6573f72e018720cf9431534b43e54eea764688"
+    },
+    {
+      "id": "psicose",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 24,
+      "resposta": "PSICOSE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "e1a4630ea4d10a16a7c0305734a1afc8eb4ca3940bef29ba6cd35d9955c90f17"
+    },
+    {
+      "id": "pulp-fiction",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 18,
+      "resposta": "PULP FICTION",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "ac64fc0b69ed872bc11b9461f48e1346a858c6d1950f37e6589ad7e14ac67c61"
+    },
+    {
+      "id": "puma",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 16,
+      "resposta": "PUMA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "9622d706ac6b3f0d6e27c6b34c8539f1192c3c5adf3629da24ff1ba6a92bf69d"
+    },
+    {
+      "id": "que-horas-ela-volta",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 14,
+      "resposta": "QUE HORAS ELA VOLTA?",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "428fe28fdcb88e64665efce6a4943402853b76458f059a77ac61003015838c84"
+    },
+    {
+      "id": "quenia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 18,
+      "resposta": "QUÊNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c0bccbb1f9339e69554599392d50f73c87a3c3c9799393268ea67e24d713ddca"
+    },
+    {
+      "id": "quirguistao",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 24,
+      "resposta": "QUIRGUISTÃO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "3521f869a2a427b37a533206dfd71ecf6cd3cef285407d0d4da0c9de849cbd27"
+    },
+    {
+      "id": "quivi",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 20,
+      "resposta": "QUIVI",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "122aa85df3add171cdafc4f7f7c1acb2280e39768abab6d21d130d6251845494"
+    },
+    {
+      "id": "quokka",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 17,
+      "resposta": "QUOKKA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "63e3ba29170f638cdca0082bf8b71aa01daed243d1e8abaa04cc269254ba0f55"
+    },
+    {
+      "id": "ralador",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 16,
+      "resposta": "RALADOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "cb6d8bbb14e13bee823d8159e85ac02c8ee1ab554a1e634e7c85b42e59e5dca4"
+    },
+    {
+      "id": "raposa",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 4,
+      "resposta": "RAPOSA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "40aac379b53c22558346213b527541a35508e471fa17c673db3e92bc1843d749"
+    },
+    {
+      "id": "ratatouille",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 3,
+      "resposta": "RATATOUILLE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "84d45fe0a99eaf437bf4f37b173239e4c3c8b2e0c10ca35fb42cbb941bbbc09f"
+    },
+    {
+      "id": "rato",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 7,
+      "resposta": "RATO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "1048e1d47d44431682c1536148b31336ebd89b889caf9d17958f5002d8584be0"
+    },
+    {
+      "id": "red-bull",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 17,
+      "resposta": "RED BULL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "1e51d47f27c5d2a1f79f7b7ee5e2b4205657544f6beae93a21f000ebb4c0a103"
+    },
+    {
+      "id": "refratometro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 21,
+      "resposta": "REFRATÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "e70f4632e5df43c9ac5b2da37b3335c6f4cabeaba4416e32ad0897bd2c3d37a2"
+    },
+    {
+      "id": "regador",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 13,
+      "resposta": "REGADOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "748335be3da8729a3836e3a4eb0c7fa1f749c81d7d7f0ff6bcc499bff69fee69"
+    },
+    {
+      "id": "reino-unido",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 3,
+      "resposta": "REINO UNIDO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "a81d035a0b22da2fcd85c7b908ac2862fe3bf6ea2502e2b2abc04875f7c8421d"
+    },
+    {
+      "id": "relogio",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 3,
+      "resposta": "RELÓGIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "700488b7802687de31eddbfe29bb47f59be9b446b1a41f536bd3ef053b7aaabf"
+    },
+    {
+      "id": "republica-dominicana",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 14,
+      "resposta": "REPÚBLICA DOMINICANA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a133a7ff61a03e9d57489541e57e1dc4a71b153b79b06c54c3f8b6abb923cb66"
+    },
+    {
+      "id": "republica-tcheca",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 13,
+      "resposta": "REPÚBLICA TCHECA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "73686c0e7e5a04e2b7696a80906cc9f2e6f733e9990c33025aefa0050d588885"
+    },
+    {
+      "id": "retrato-de-uma-jovem-em-chamas",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 23,
+      "resposta": "RETRATO DE UMA JOVEM EM CHAMAS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7ee617be7fb68007c005d82a933a9e9b2b1cf6cf8e28d593b8978bf4865dc675"
+    },
+    {
+      "id": "rimowa",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 25,
+      "resposta": "RIMOWA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7ec09d8d45cc760f5542989e562bd8644bc6cbc1fc98db6b6fe94222c4ee76b0"
+    },
+    {
+      "id": "rinoceronte",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 20,
+      "resposta": "RINOCERONTE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "8f7904dd881080d5dd65bc01ecf01b7d2cbfd48dba3e8cc1797f17118bdb9459"
+    },
+    {
+      "id": "rolex",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 22,
+      "resposta": "ROLEX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "f556c5b0829f2ce0837192d567801f0a690eb102797c1f27143697e5c81171d2"
+    },
+    {
+      "id": "rolo-de-massa",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 14,
+      "resposta": "ROLO DE MASSA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "09b399b4a1f2b54befb687b9d4c988679c5e85e9c378ecfe584637ae12beb391"
+    },
+    {
+      "id": "romenia",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 14,
+      "resposta": "ROMÊNIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f6be410fb369163ca8ee2928449fe9ee94737e701cbcabdad883fb32d62dc1d7"
+    },
+    {
+      "id": "ruptura",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 25,
+      "resposta": "RUPTURA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "f7d43d105e50226871e7fcc55e225f0821fd364302edfad4002c2125dd7e95f1"
+    },
+    {
+      "id": "russia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 4,
+      "resposta": "RÚSSIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "5dfddff9a40ec837dcc4ee33d6e4f7af24b30ab4e5a33b33fdd04c983b6b2676"
+    },
+    {
+      "id": "saca-rolhas",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 12,
+      "resposta": "SACA-ROLHAS",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b5cdf9042a1d558ec86a9f19fcc044629038a48275653e87c9a09bfe4ded1f9f"
+    },
+    {
+      "id": "sadia",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 16,
+      "resposta": "SADIA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "455330396cbfb483190d1a7df91046838559cb06d930fca03cc3536a6e452be4"
+    },
+    {
+      "id": "saiga",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 22,
+      "resposta": "SAIGA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "29218eb0c67304a9caa0e58a9c461e477d065b352621dc4572896c738c10326e"
+    },
+    {
+      "id": "samsung",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 4,
+      "resposta": "SAMSUNG",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "c1dbc68a6ec84734cbf20c1a143df582f569de95236f01204aba0256d56c9ccc"
+    },
+    {
+      "id": "san-marino",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 18,
+      "resposta": "SAN MARINO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "4de274dc7c12273c280c9f8072ef19dde07a19037d3198f31647d2bc48490ae4"
+    },
+    {
+      "id": "sao-tome-e-principe",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 21,
+      "resposta": "SÃO TOMÉ E PRÍNCIPE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "4aac91916c81d2385b03882a5205496c061d88b81a887d5fdab258b7725629ec"
+    },
+    {
+      "id": "sapato",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 10,
+      "resposta": "SAPATO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "13cb2bd1f5b421a5e3082d205a70cac567852dd6a99cca509fbfddec6d9d64ba"
+    },
+    {
+      "id": "sapo",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 8,
+      "resposta": "SAPO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "7324349b832e044a92f767cec57615ac7f1696195bc1f8809b245d1d0195578a"
+    },
+    {
+      "id": "schwarzkopf",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 19,
+      "resposta": "SCHWARZKOPF",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "dae8b755cb3d31f8756027df90be93fb727185b29118acd9a75147eac010cf82"
+    },
+    {
+      "id": "scooby-doo",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 5,
+      "resposta": "SCOOBY-DOO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "9ed9eebd0c0eb00627f16d60cb4df1496a51388c5572b039fc0201e2f5dbf799"
+    },
+    {
+      "id": "secretario",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 22,
+      "resposta": "SECRETÁRIO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "860c636012b1e6bf207aaa2bf66aaa4b465ba94243d8cca4a4f5b6c731d07e3d"
+    },
+    {
+      "id": "seiko",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 21,
+      "resposta": "SEIKO",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "12e4af0e47c4438dc4397ac5d28cf70bcc205dc615dce751d50306b7fe1ee142"
+    },
+    {
+      "id": "senegal",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 4,
+      "resposta": "SENEGAL",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "2832ec4dfaedde9bbd9f70bf1e536817a7997f4344284c038924353d6e185ae7"
+    },
+    {
+      "id": "serrote",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 20,
+      "resposta": "SERROTE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6eac83802a6efe76a9608b38ce170e2373e5dbc30525509629d63bcb44234f55"
+    },
+    {
+      "id": "sextante",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 22,
+      "resposta": "SEXTANTE",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "9422cc87a04d31c6a6fe055704f1929957b306c44000eccd57c9b0cd243994e4"
+    },
+    {
+      "id": "sherlock",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 19,
+      "resposta": "SHERLOCK",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "83b96e6bc9b38e6556a145695330f6a5bb7ce6788963b26c45bde3ee8d1dfb57"
+    },
+    {
+      "id": "shrek",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 5,
+      "resposta": "SHREK",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "69caaf37646e834c79b7f78618be6663cb1beb2f60b7105c6724b1104a13e82d"
+    },
+    {
+      "id": "sino",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 17,
+      "resposta": "SINO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "57a294da471eef2635d7993af11a4a1cb02cb72651e04aa295665d5e2d93358f"
+    },
+    {
+      "id": "skol",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 15,
+      "resposta": "SKOL",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "1b3bd734648f9da8242057de409c4a59d9d4f1ac5e0071fefe28b89de8e06bf2"
+    },
+    {
+      "id": "sofa",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 7,
+      "resposta": "SOFÁ",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "414bdddd70d1e35f817ece58c0003560b06d9a6c8ddc4090c0876176c29b841f"
+    },
+    {
+      "id": "solaris",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 17,
+      "resposta": "SOLARIS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "0143caa7cb57fa903b52d40baea252c02c37944c69b9a7a3d0d7616c15bf96a6"
+    },
+    {
+      "id": "sony",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 11,
+      "resposta": "SONY",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "d3567efd5b4446e989289d77817d13a4c941b8d29b1cd2c84a627c7100d0cd72"
+    },
+    {
+      "id": "spotify",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 3,
+      "resposta": "SPOTIFY",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ce4dceb3a61ab05b9402028c58736e3c4ca48900d3acce933318f867ae55a809"
+    },
+    {
+      "id": "stalker",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 16,
+      "resposta": "STALKER",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "c0b2b38780727bc53c2e7b7778f34d00bda677e9c3ab3dc6761e845ef303564a"
+    },
+    {
+      "id": "starbucks",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 19,
+      "resposta": "STARBUCKS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c64686da9b642dfe366ff757c8d9e079cde200bac6182ebdbaee0b33c1a52db4"
+    },
+    {
+      "id": "stranger-things",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 6,
+      "resposta": "STRANGER THINGS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6e856805974eaa5f46f8d242cf49ac1c1d2fa51965458b121ef73ddf9ffd72a0"
+    },
+    {
+      "id": "suecia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 11,
+      "resposta": "SUÉCIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "01670bd26d56d42af93a9ffce696cb094c6417eab56e2683b18f6894b7cc4b43"
+    },
+    {
+      "id": "suica",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 10,
+      "resposta": "SUÍÇA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "6c1dba0e5a047ae30f61b759353ca53b3e478c9545c9013093e9eb5d6497c21e"
+    },
+    {
+      "id": "suricato",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 16,
+      "resposta": "SURICATO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "10bdf8c49c5981f4f7779195a7d01eba7d3c4a0d6d1028f7d72488e0393e9938"
+    },
+    {
+      "id": "swarovski",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 24,
+      "resposta": "SWAROVSKI",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "8a9a131ac4d3533aba8587a9da99750f73df7ef24fd9da0d71eb807230baa1cf"
+    },
+    {
+      "id": "swatch",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 25,
+      "resposta": "SWATCH",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "99dbfac42b64255e16d1ed5f994e1a9a08b4ef77ea998f9bcab857b2090655fb"
+    },
+    {
+      "id": "tacometro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 18,
+      "resposta": "TACÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "85684feded0d1d79513d8494bed98700f14bb7c83469c4f77a084eb91d0d3e0a"
+    },
+    {
+      "id": "tag-heuer",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 17,
+      "resposta": "TAG HEUER",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "9e3cf2abd9f10d3d8e80763907518fe4e02e9cf9fac325a90124185f8c40a94a"
+    },
+    {
+      "id": "tailandia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 19,
+      "resposta": "TAILÂNDIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "3672e11336b28eeb9d8c8687f177775a75607932bf086546adf142882f6885f6"
+    },
+    {
+      "id": "tamandua",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 15,
+      "resposta": "TAMANDUÁ",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "dbc46b1076faf146a24a8ef0335baf4def0a3f08b3c3ead8d194ad0fe52bdbaa"
+    },
+    {
+      "id": "tardigrado",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 25,
+      "resposta": "TARDÍGRADO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "0a4a9eb969db4fc8d26a2b2ac545899436edd5385081ea07904ce3e27e9a9992"
+    },
+    {
+      "id": "tartaruga",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 19,
+      "resposta": "TARTARUGA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "45059a959507b0f83eefdfff11a661dcb493322e50d793ec896d652ca6e1aba4"
+    },
+    {
+      "id": "telescopio",
+      "arquivo": "Data/palavras/objetos-003.json",
+      "posicao": 20,
+      "resposta": "TELESCÓPIO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "063121d476d466c20be17e8dda6b84ce2687bc8433f47239da61f0fdb071db19"
+    },
+    {
+      "id": "televisor",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 1,
+      "resposta": "TELEVISOR",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "3e87d09e342f0ef87f2ed21ddbfb362cac20144fa679af41ef5f438a91c0b1c0"
+    },
+    {
+      "id": "teodolito",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 22,
+      "resposta": "TEODOLITO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "2b74e91ced24ad354b9172e7d8e8037b24c7875d334050d513a9426cf2059a02"
+    },
+    {
+      "id": "termometro",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 12,
+      "resposta": "TERMÔMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a02cf96a19033d771af5c0492f061764d46733cac41d2ae4761c5c84cef1ceab"
+    },
+    {
+      "id": "tesoura",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 2,
+      "resposta": "TESOURA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d03400f4d974091022504ad210b814e6b2b150b99a81cb5340bd71fa0871ac8e"
+    },
+    {
+      "id": "the-big-bang-theory",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 10,
+      "resposta": "THE BIG BANG THEORY",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "9ad1376d9209e42da2ad1ac031d8a2dbe4af6d7baaad46d75903033ac16edaf7"
+    },
+    {
+      "id": "the-good-place",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 20,
+      "resposta": "THE GOOD PLACE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "e95f57753687caaf817a496589a6e453779150af54f8c1a02e7b0e16dbae1579"
+    },
+    {
+      "id": "the-office",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 19,
+      "resposta": "THE OFFICE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b386c0254df1c4c7f29d6879bd57ddc0954ea9a749e07b5e3e45879d4192f4c6"
+    },
+    {
+      "id": "tigre",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 1,
+      "resposta": "TIGRE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "8c820421a4f9625de2e936a5323390115b941265a468587ec1ee698eace89b28"
+    },
+    {
+      "id": "tiktok",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 2,
+      "resposta": "TIKTOK",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "57bff10da8f7046c21f665a097d955f08d56ab96fd59cca74e9350b863f78135"
+    },
+    {
+      "id": "timor-leste",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 22,
+      "resposta": "TIMOR-LESTE",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "b59f4c2403a9f55ff7af64c2c3109857d4fe6a785b62a4c01c583e86f855724f"
+    },
+    {
+      "id": "titanic",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 1,
+      "resposta": "TITANIC",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "e6588191a497eea5d2c0f344b92bed234bdc53605bb63688160164b75726b8d1"
+    },
+    {
+      "id": "toalha",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 10,
+      "resposta": "TOALHA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f52ee8103bfb1f2304e7a6ae20a648a095069ea2877d09c980e3941476a1d8c1"
+    },
+    {
+      "id": "todo-mundo-odeia-o-chris",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 8,
+      "resposta": "TODO MUNDO ODEIA O CHRIS",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "a0163cf84daf45b2b7f0806cc1c5e1771f20b4f1325db663e8b9dd08575c966d"
+    },
+    {
+      "id": "torquimetro",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 16,
+      "resposta": "TORQUÍMETRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "b9ccca35f21c601846e9051bf105d6b33a4381f5d0e8bd3c609d130324064171"
+    },
+    {
+      "id": "toy-story",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 1,
+      "resposta": "TOY STORY",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ad8c19d5a0b234829d99ca3a385a328994bc2703d02c31c82bddef04560030bf"
+    },
+    {
+      "id": "toyota",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 8,
+      "resposta": "TOYOTA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "f17082bb2f2a4e313d43ebf798375b1e1e0f8adace6f32db45264d08d8ddad36"
+    },
+    {
+      "id": "tramontina",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 20,
+      "resposta": "TRAMONTINA",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c945bf6fc39a0e3615e88a2a9b30d7eeca6e9246b002e4e4c7305df49d3cbcee"
+    },
+    {
+      "id": "travesseiro",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 7,
+      "resposta": "TRAVESSEIRO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "030acc7d017bf666cdf35d01f50b07808f7e9c85c64d5ef84811d27a3d336b6b"
+    },
+    {
+      "id": "trena",
+      "arquivo": "Data/palavras/objetos-004.json",
+      "posicao": 14,
+      "resposta": "TRENA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "55b845863ca70df34eacb0f8279f6376ef09882f78acb7133f45ac2e1c7fb226"
+    },
+    {
+      "id": "tripe",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 18,
+      "resposta": "TRIPÉ",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7f09df570bde44c1b18495c60d2ebac36f220022f2f54233247256c1145ecbc3"
+    },
+    {
+      "id": "tuatara",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 24,
+      "resposta": "TUATARA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "6935f02dfd98e422a545ce8719f2ecf7199c0fcbb4d2ab43fb80f6ebe9be0b17"
+    },
+    {
+      "id": "tubarao",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 7,
+      "resposta": "TUBARÃO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "67f04fe5156fa470eca1fb525328013a18a3b74af9b4679f23b1d2dd2058aadd"
+    },
+    {
+      "id": "tucano",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 13,
+      "resposta": "TUCANO",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "b3521ebfe3bbd6b1a384396aa92803e1b5e18c23083a33f6eb4d65ba8c534b03"
+    },
+    {
+      "id": "tunisia",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 7,
+      "resposta": "TUNÍSIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "4402d97506690b20dbc79f22ac62a5951fb70406854944c38e8f723b14eda35f"
+    },
+    {
+      "id": "tupperware",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 19,
+      "resposta": "TUPPERWARE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "a8f72a87d46299a7d617f2cd3ce4540c056517db8a6e32ee75c4aaf8968b8f71"
+    },
+    {
+      "id": "turquia",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 17,
+      "resposta": "TURQUIA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "75200cf6cb4819052952827ddb45ecaffda4efa43fe6a0586b287b9e3f04dca9"
+    },
+    {
+      "id": "uber",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 4,
+      "resposta": "UBER",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "d1246ea10ace1176705bec374b7a6970c3619a7d36d32ceaa428e55f869025fe"
+    },
+    {
+      "id": "um-lugar-silencioso",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 15,
+      "resposta": "UM LUGAR SILENCIOSO",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "48f2eab3ba8906ab47d08a21b7ffdf078519cbe6242dc1d7386eedb9650eddc8"
+    },
+    {
+      "id": "uma-noite-no-museu",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 16,
+      "resposta": "UMA NOITE NO MUSEU",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "f00812dfcc9df35a99d0f1ef17b482b5ff73a5a5fd0bac39962b9400302775e0"
+    },
+    {
+      "id": "urso-polar",
+      "arquivo": "Data/palavras/animais-003.json",
+      "posicao": 2,
+      "resposta": "URSO POLAR",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "755a3227ddd708a7fe28fe0830132f2a87af1875a98a61dd85ad79e16aceea38"
+    },
+    {
+      "id": "uruguai",
+      "arquivo": "Data/palavras/paises-002.json",
+      "posicao": 5,
+      "resposta": "URUGUAI",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ac35ebe5426a1ac387085eb9a405bdbf9ca12ddce12c5579f6c5c02b977c6ba9"
+    },
+    {
+      "id": "uzbequistao",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 23,
+      "resposta": "UZBEQUISTÃO",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "994b9bcdb10d0e801e594e3a6f532dbd2c9c17cded31df5cd7eb463c6bf93a8a"
+    },
+    {
+      "id": "vaca",
+      "arquivo": "Data/palavras/animais-002.json",
+      "posicao": 4,
+      "resposta": "VACA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "06a55531f50a9429e5ded6dba0b40b4b84ed427a2b50086b3b37f69dccee41c0"
+    },
+    {
+      "id": "valente",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 14,
+      "resposta": "VALENTE",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "bf82ea66011b6ef382f06c8025ad6e1fc8f7fa56ef194c1782b2ebce075a42f0"
+    },
+    {
+      "id": "vans",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 18,
+      "resposta": "VANS",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "59923b0119fadbbdb80bcbc7d8b8c19aef5681598ffabe708eabbc9f08d5f9be"
+    },
+    {
+      "id": "vanuatu",
+      "arquivo": "Data/palavras/paises-004.json",
+      "posicao": 25,
+      "resposta": "VANUATU",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "7f4146b1324469054e384b5708d5d84a9be86838aa35cd2cc7736903d6aa0bb8"
+    },
+    {
+      "id": "vassoura",
+      "arquivo": "Data/palavras/objetos-001.json",
+      "posicao": 10,
+      "resposta": "VASSOURA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "78d899e6c534c83be68609f7d87a0232a547a823db31793fabbbaa2572597c3a"
+    },
+    {
+      "id": "vela",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 8,
+      "resposta": "VELA",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "658559f62ec182576163dc37042e33929f1ab359b2e844a81bb9c6daf99b4e73"
+    },
+    {
+      "id": "venezuela",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 1,
+      "resposta": "VENEZUELA",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "9741b47f06bdabd0a9ec8ef26a4d841c5c8434a93e7472fff8d62a827d8d8daf"
+    },
+    {
+      "id": "victorinox",
+      "arquivo": "Data/palavras/marcas-003.json",
+      "posicao": 23,
+      "resposta": "VICTORINOX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "81c6c08c5df950f7d5d0f321f9e8e59446e1fb199db1ea24f13b1a13501316d6"
+    },
+    {
+      "id": "vietna",
+      "arquivo": "Data/palavras/paises-003.json",
+      "posicao": 17,
+      "resposta": "VIETNÃ",
+      "tematica_principal": "paises",
+      "tematicas": [
+        "paises"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "dae6c55dce5d0fdc6c1d936061312d59c4290e718c8986a7f3bd67c7dcb80dbc"
+    },
+    {
+      "id": "vingadores",
+      "arquivo": "Data/palavras/filmes-e-series-001.json",
+      "posicao": 2,
+      "resposta": "VINGADORES",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "edfa0d72f39d4e3462eafe7deabdd8f58b51dbda48a507343703329fd435d6bd"
+    },
+    {
+      "id": "violino",
+      "arquivo": "Data/palavras/objetos-002.json",
+      "posicao": 18,
+      "resposta": "VIOLINO",
+      "tematica_principal": "objetos",
+      "tematicas": [
+        "objetos"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "6ea7a509c7df23d610d13b0618f07902d368edd02aee6b4b175e1f165c390461"
+    },
+    {
+      "id": "volkswagen",
+      "arquivo": "Data/palavras/marcas-001.json",
+      "posicao": 12,
+      "resposta": "VOLKSWAGEN",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "c783953c1d76d56178995531147f95ecc1d0c2fc877811831e1e17f48758276e"
+    },
+    {
+      "id": "vombate",
+      "arquivo": "Data/palavras/animais-004.json",
+      "posicao": 16,
+      "resposta": "VOMBATE",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "dificil",
+      "sha256_conteudo": "16250e52e1db55c6e3c972eaaf5727a1fdd8e19860871b7b6288c09176637a68"
+    },
+    {
+      "id": "wall-e",
+      "arquivo": "Data/palavras/filmes-e-series-003.json",
+      "posicao": 2,
+      "resposta": "WALL-E",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "5006a508c07d95c84442828bb6842b3d60315313504925903781e95acdb56a74"
+    },
+    {
+      "id": "wandinha",
+      "arquivo": "Data/palavras/filmes-e-series-002.json",
+      "posicao": 9,
+      "resposta": "WANDINHA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "67bc7d2d39d23137761169dc3575970748913be6ef27dce48188a1faa2675f69"
+    },
+    {
+      "id": "whatsapp",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 2,
+      "resposta": "WHATSAPP",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "78a2b5c1321b9ff9d549395e450f05311effb339d1892134998b7dc49c58b9ff"
+    },
+    {
+      "id": "xbox",
+      "arquivo": "Data/palavras/marcas-004.json",
+      "posicao": 1,
+      "resposta": "XBOX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "ab84693cdeabcd04a5e9a072bd961346aec622ead03e67a825a68f43e4478216"
+    },
+    {
+      "id": "xerox",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 20,
+      "resposta": "XEROX",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "medio",
+      "sha256_conteudo": "7ddf4ef701ffe47c242017cb09f893149f121c8b2660da59650cde528ac7841d"
+    },
+    {
+      "id": "youtube",
+      "arquivo": "Data/palavras/marcas-002.json",
+      "posicao": 1,
+      "resposta": "YOUTUBE",
+      "tematica_principal": "marcas",
+      "tematicas": [
+        "marcas"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "56913ba1c28c27b27aaa17eb3b198666442fc94536cf9e3ec8a86a8bcd029198"
+    },
+    {
+      "id": "zebra",
+      "arquivo": "Data/palavras/animais-001.json",
+      "posicao": 6,
+      "resposta": "ZEBRA",
+      "tematica_principal": "animais",
+      "tematicas": [
+        "animais"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "be43208cb1de70ba725f72924a17ac5f7ffd46c3f8614012cd4da8dbadaa6ea0"
+    },
+    {
+      "id": "zootopia",
+      "arquivo": "Data/palavras/filmes-e-series-004.json",
+      "posicao": 7,
+      "resposta": "ZOOTOPIA",
+      "tematica_principal": "filmes-e-series",
+      "tematicas": [
+        "filmes-e-series"
+      ],
+      "dificuldade": "facil",
+      "sha256_conteudo": "48a3d878d750d1e4c4391d2d0e7c6a1164aaaf884cd17ac7ef11e79c5a22ab5d"
+    }
+  ]
+}

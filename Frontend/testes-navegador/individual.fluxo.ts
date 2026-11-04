@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { test, expect, type Page } from "@playwright/test";
 async function preparar(pagina: Page, demo = false) {
   let ativa = false;
@@ -538,57 +538,63 @@ test("captura visual da arena e da configuração", async ({ page }, info) => {
   });
 });
 
-test("catálogos 003 e 004 preenchem expressões reais com sinais, acentos e algarismos", async ({
+test("catálogo completo preenche expressões reais com sinais, acentos e algarismos", async ({
   page,
 }, info) => {
   test.setTimeout(90000);
+  const pasta = new URL("../../Data/palavras/", import.meta.url);
   const catalogo: {
     palavras: {
       id: string;
       resposta: string;
       dicas: string[];
       dificuldade: string;
+      tematicas: string[];
     }[];
   } = {
-    palavras: ["003", "004"].flatMap(
-      (lote) =>
-        JSON.parse(
-          readFileSync(
-            new URL(
-              `../../Data/palavras/filmes-e-series-${lote}.json`,
-              import.meta.url,
-            ),
-            "utf8",
-          ),
-        ).palavras,
-    ),
+    palavras: readdirSync(pasta)
+      .filter((nome) => nome.endsWith(".json"))
+      .sort()
+      .flatMap(
+        (arquivo) =>
+          JSON.parse(readFileSync(new URL(arquivo, pasta), "utf8")).palavras,
+      ),
   };
-  const exemplos = catalogo.palavras.filter((p) =>
-    [
-      "1917",
-      "homem-aranha",
-      "wall-e",
-      "monstros-s-a",
-      "bob-esponja-calca-quadrada",
-      "moana-um-mar-de-aventuras",
-      "o-show-de-truman-o-show-da-vida",
-      "que-horas-ela-volta",
-      "gilmore-girls-tal-mae-tal-filha",
-      "brooklyn-nine-nine",
-      "brilho-eterno-de-uma-mente-sem-lembrancas",
-      "adeus-lenin",
-      "frozen-uma-aventura-congelante",
-      "lilo-e-stitch",
-      "ben-10",
-      "mulan",
-      "a-viagem-de-chihiro",
-      "como-treinar-o-seu-dragao",
-      "o-senhor-dos-aneis-a-sociedade-do-anel",
-      "retrato-de-uma-jovem-em-chamas",
-      "a-separacao",
-    ].includes(p.id),
+  const exemplos = catalogo.palavras.filter(
+    (p) =>
+      [
+        "1917",
+        "homem-aranha",
+        "wall-e",
+        "monstros-s-a",
+        "bob-esponja-calca-quadrada",
+        "moana-um-mar-de-aventuras",
+        "o-show-de-truman-o-show-da-vida",
+        "que-horas-ela-volta",
+        "gilmore-girls-tal-mae-tal-filha",
+        "brooklyn-nine-nine",
+        "brilho-eterno-de-uma-mente-sem-lembrancas",
+        "adeus-lenin",
+        "frozen-uma-aventura-congelante",
+        "lilo-e-stitch",
+        "ben-10",
+        "mulan",
+        "a-viagem-de-chihiro",
+        "como-treinar-o-seu-dragao",
+        "o-senhor-dos-aneis-a-sociedade-do-anel",
+        "retrato-de-uma-jovem-em-chamas",
+        "a-separacao",
+      ].includes(p.id) ||
+      [
+        "MCDONALD'S",
+        "BANG & OLUFSEN",
+        "DRAGÃO-MARINHO-FOLHADO",
+        "DESCASCADOR DE LEGUMES",
+        "REPÚBLICA DOMINICANA",
+        "SÃO TOMÉ E PRÍNCIPE",
+      ].includes(p.resposta),
   );
-  expect(exemplos).toHaveLength(21);
+  expect(exemplos).toHaveLength(27);
   const controle = await preparar(page);
   let palavra = exemplos[0];
   let enviado = "";
@@ -597,7 +603,7 @@ test("catálogos 003 e 004 preenchem expressões reais com sinais, acentos e alg
       ...controle.estado,
       rodada_atual: {
         ...controle.estado.rodada_atual,
-        tematicas: ["filmes-e-series"],
+        tematicas: palavra.tematicas,
         dificuldade: palavra.dificuldade,
         posicoes: Array.from(palavra.resposta, (c) =>
           /[\p{L}0-9]/u.test(c) ? null : c,

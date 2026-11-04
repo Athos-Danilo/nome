@@ -1,0 +1,294 @@
+{
+  "data": "2026-11-04T13:45:55.329914+00:00",
+  "operacao": "somente leitura; nenhuma importacao, revisao, exclusao ou migracao",
+  "sha256_manifesto_catalogo": "8cfee38762c4e4f231815e7e65e12cdc5a55fc70443c7a4da748f8c81113eb41",
+  "ambientes": {
+    "local": {
+      "total_respostas": 500,
+      "total_dicas": 2500,
+      "total_revisoes": 527,
+      "sha256_conteudo_atual": "8cfee38762c4e4f231815e7e65e12cdc5a55fc70443c7a4da748f8c81113eb41",
+      "revisao_atual_distribuicao": {
+        "1": 473,
+        "2": 27
+      },
+      "tematica_principal": {
+        "animais": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "filmes-e-series": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "marcas": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "objetos": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "paises": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        }
+      },
+      "conteudos_extras": [],
+      "conteudos_ausentes": [],
+      "historicas_invalidas": 0,
+      "revisoes_orfas": 0,
+      "correntes_sem_revisao_identica": 0,
+      "referencias_postgresql": {
+        "total_rodadas": 7,
+        "referencias_distintas": 7,
+        "referencias_ausentes": []
+      },
+      "indices": {
+        "palavras": [
+          {
+            "nome": "_id_",
+            "campos": [
+              [
+                "_id",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_palavras_id",
+            "campos": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_palavras_resposta",
+            "campos": [
+              [
+                "resposta_chave",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "ix_palavras_tematica_dificuldade",
+            "campos": [
+              [
+                "tematicas",
+                1
+              ],
+              [
+                "dificuldade",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          }
+        ],
+        "versoes_palavras": [
+          {
+            "nome": "_id_",
+            "campos": [
+              [
+                "_id",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_versoes_identificador_revisao",
+            "campos": [
+              [
+                "id",
+                1
+              ],
+              [
+                "revisao",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_versoes_resposta_inicial",
+            "campos": [
+              [
+                "resposta_chave",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": {
+              "revisao": 1
+            }
+          }
+        ]
+      },
+      "revisoes_pendentes_de_publicacao": 0,
+      "identidades_historicas_coerentes": true,
+      "sha256_historico": "a1542c212abefed8c1e95aedbdefb6025490f3a8a94c065a583e3d517a8affaa"
+    },
+    "atlas": {
+      "total_respostas": 500,
+      "total_dicas": 2500,
+      "total_revisoes": 508,
+      "sha256_conteudo_atual": "8cfee38762c4e4f231815e7e65e12cdc5a55fc70443c7a4da748f8c81113eb41",
+      "revisao_atual_distribuicao": {
+        "1": 492,
+        "2": 8
+      },
+      "tematica_principal": {
+        "animais": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "filmes-e-series": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "marcas": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "objetos": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        },
+        "paises": {
+          "facil": 40,
+          "medio": 35,
+          "dificil": 25
+        }
+      },
+      "conteudos_extras": [],
+      "conteudos_ausentes": [],
+      "historicas_invalidas": 0,
+      "revisoes_orfas": 0,
+      "correntes_sem_revisao_identica": 0,
+      "referencias_postgresql": {
+        "total_rodadas": 3,
+        "referencias_distintas": 3,
+        "referencias_ausentes": []
+      },
+      "indices": {
+        "palavras": [
+          {
+            "nome": "_id_",
+            "campos": [
+              [
+                "_id",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_palavras_id",
+            "campos": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_palavras_resposta",
+            "campos": [
+              [
+                "resposta_chave",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "ix_palavras_tematica_dificuldade",
+            "campos": [
+              [
+                "tematicas",
+                1
+              ],
+              [
+                "dificuldade",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          }
+        ],
+        "versoes_palavras": [
+          {
+            "nome": "_id_",
+            "campos": [
+              [
+                "_id",
+                1
+              ]
+            ],
+            "unico": false,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_versoes_identificador_revisao",
+            "campos": [
+              [
+                "id",
+                1
+              ],
+              [
+                "revisao",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": null
+          },
+          {
+            "nome": "uq_versoes_resposta_inicial",
+            "campos": [
+              [
+                "resposta_chave",
+                1
+              ]
+            ],
+            "unico": true,
+            "filtro_parcial": {
+              "revisao": 1
+            }
+          }
+        ]
+      },
+      "revisoes_pendentes_de_publicacao": 0,
+      "identidades_historicas_coerentes": true,
+      "sha256_historico": "a9011ce449f19540ea2f1f720e70b79d32a3628dd78dc007a60e67e1f76e60ae"
+    }
+  },
+  "conclusao": "Arquivos, MongoDB local e Atlas correspondem integralmente no conteudo atual; referencias historicas consultadas preservadas."
+}

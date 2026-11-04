@@ -2,7 +2,7 @@
 
 **Situação atual em 04/11/2026:** vinte lotes aprovados e publicados no MongoDB local e no Atlas, com **500 respostas e 2.500 dicas**. Conferência integral no Atlas: 500 idênticos, zero novos e zero recuperáveis; 508 revisões preservadas. Arquivos com 500 IDs e respostas normalizadas distintos, quotas globais 200/175/125 e cinco temáticas de 100 itens (40/35/25). Local com 527 revisões na conferência de 02/11; a diferença histórica não altera o conteúdo atual. Os quatro lotes de países/objetos foram carregados no Atlas após a liberação do IP atual, sem sobrescritas. [Países](Revisoes/paises-004.md), [objetos](Revisoes/objetos-004.md) e [publicação](Publicacao-ambiente.md).
 
-**Fases 44/46:** criação, revisão, aprovação humana e importações concluídas nos dois ambientes. Pendência remota resolvida em 04/11/2026; auditoria final da fase 47 permanece uma etapa própria.
+**Fases 44/46/47 concluídas:** catálogo integral aprovado, publicado e auditado nos dois ambientes. O [manifesto dos vinte lotes e 500 IDs](../Data/manifestos/catalogo-primeira-entrega.json) vincula os arquivos por SHA-256 canônico. Conferência integral, histórico e referências de rodada em [auditoria final](Revisoes/catalogo-final.md).
 
 Este arquivo acompanha as fases de conteúdo do roteiro da primeira entrega, mantido apenas localmente. O contrato JSON e o pedido reutilizável para IA estão em [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md).
 

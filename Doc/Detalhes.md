@@ -614,7 +614,7 @@ As regras do modo individual, incluindo penalidade de pausa e pontuação por di
 | RF-31 | Configurar dificuldade única e temáticas por sessão antes da partida com a galera, com opção de sorteio oculto e repetição de temática | Definido |
 | RF-32 | Encerrar a galera na saída confirmada; recuperar recarga e preservar painel em interrupções ambíguas | Integrado na fase 33 |
 | RF-33 | Exibir resumo das partidas com a galera no histórico privado do usuário autenticado, separado do desempenho individual | Definido |
-| RF-34 | Importar conteúdo de arquivos JSON em lotes de 25, no contrato aprovado, com validação prévia | Definido; importador ainda não implementado |
+| RF-34 | Importar conteúdo de arquivos JSON em lotes de 25, no contrato aprovado, com validação prévia | Implementado; catálogo integral auditado na fase 47 |
 | RF-35 | Exigir escolha de nome de usuário disponível e avatar no primeiro acesso com Google | Definido |
 | RF-36 | Publicar resultados individuais nos rankings apenas na conclusão ou no abandono definitivo, sem duplicação | Definido |
 | RF-37 | Permitir uma partida com a galera sem descartar uma partida individual pausada | Definido |
