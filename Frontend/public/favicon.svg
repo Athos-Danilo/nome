@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>Decifra</title>
+  <g transform="rotate(-5 64 64)">
+    <rect x="13" y="14" width="106" height="108" rx="24" fill="#292921"/>
+    <rect x="9" y="8" width="106" height="108" rx="24" fill="#D4FE62" stroke="#292921" stroke-width="4"/>
+    <path transform="translate(8 8)" d="M34 24H52C78 24 85 37 85 54S78 84 52 84H34ZM49 38V70H53C65 70 70 65 70 54S65 38 53 38Z" fill="#444439"/>
+  </g>
+</svg>

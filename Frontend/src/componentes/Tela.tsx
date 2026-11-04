@@ -46,7 +46,6 @@ function EntradaTela({ children }: { children: ReactNode }) {
       if (!titulo) return;
       titulo.tabIndex = -1;
       titulo.focus({ preventScroll: true });
-      document.title = `${titulo.textContent} — Decifra`;
       observador.disconnect();
     }
     observador.observe(painel, { childList: true, subtree: true });

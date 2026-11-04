@@ -263,3 +263,28 @@ test("atalho de tema não grava ajustes de áudio ainda não confirmados", async
     page.getByRole("slider", { name: /interface e teclado/i }),
   ).toHaveValue("70");
 });
+
+test("aba mantém Decifra e favicon da marca ao navegar e recarregar", async ({
+  page,
+}) => {
+  await preparar(page);
+  const resposta = await page.goto("/");
+  expect(await resposta!.text()).toContain("<title>Decifra</title>");
+  await expect(page).toHaveTitle("Decifra");
+  const icone = page.locator('link[rel="icon"]');
+  await expect(icone).toHaveAttribute("href", "/favicon.svg");
+  const arquivo = await page.request.get("/favicon.svg");
+  expect(arquivo.ok()).toBeTruthy();
+  expect(arquivo.headers()["content-type"]).toContain("image/svg+xml");
+  expect(await arquivo.text()).toContain("#D4FE62");
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Do seu jeito" }),
+  ).toBeVisible();
+  await expect(page).toHaveTitle("Decifra");
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Do seu jeito" }),
+  ).toBeFocused();
+  await expect(page).toHaveTitle("Decifra");
+});

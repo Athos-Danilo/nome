@@ -124,3 +124,14 @@ TDD: os testes novos falharam inicialmente pela falta de paleta na API, ausênci
 ## Acabamento da interface — fase 40 (31/10/2026)
 
 Entradas curtas de telas/cartões, resposta tátil de botões, letras, valores confirmados, diálogos e resultados compartilham tempos e curva em `Frontend/src/estilos/acabamento.css`. A redução de movimento cobre pseudoelementos e fundo de diálogo; o foco continua independente da apresentação. Mantidas as quatro paletas, fontes locais com substituição de sistema e o Aurélio aprovado. Carregamento de telas por rota, falhas recuperáveis e verificações nos três tamanhos em [Acabamento da interface](Acabamento-interface.md). Acabamento experimentado e aprovado expressamente pelo responsável em 31/10/2026, concluindo a fase 40.
+
+
+## Identificação da aba — ajuste de 04/11/2026
+
+O título da aplicação permanece **Decifra**, inclusive ao navegar e recarregar. Os títulos internos das telas continuam visíveis e recebem foco na navegação, mas não são acrescentados ao título da aba.
+
+O favicon é `Frontend/public/favicon.svg`: bloco D da marca aprovada, com destaque #D4FE62, contorno escuro, inclinação e sombra. O desenho vetorial reutiliza o D de `Doc/Identidade-visual/marca-estudo.svg`, sem fonte externa, permanecendo independente das quatro paletas e dos temas claro/escuro.
+
+Teste de navegador criado antes da alteração reproduziu o título antigo; a regressão verifica HTML inicial, título ao navegar/recarregar e entrega do SVG com o tipo correto. Ajuste posterior ao aceite da fase 48; não inicia nem conclui a fase 49.
+
+Verificação concluída: 27 testes do menu aprovados nos três tamanhos de tela, incluindo o novo teste de identificação da aba; compilação e formatação aprovadas.
