@@ -144,16 +144,13 @@ def criar_aplicacao(
     async def proteger_respostas_autenticacao(requisicao: Request, proxima):
         resposta = await proxima(requisicao)
         if requisicao.url.path.startswith(
-            ("/api/autenticacao", "/api/partidas")
+            ("/api/autenticacao", "/api/partidas", "/api/demonstracoes")
         ) or requisicao.url.path in {
             "/api/perfil",
             "/api/historico",
             "/api/estatisticas",
             "/api/preferencias",
             "/api/visitantes",
-            "/api/demonstracoes",
-            "/api/demonstracoes/atual",
-            "/api/demonstracoes/vinculo",
         }:
             resposta.headers["Cache-Control"] = "no-store"
             resposta.headers["Referrer-Policy"] = "no-referrer"
