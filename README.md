@@ -11,6 +11,7 @@ Individual, galera no mesmo dispositivo, demonstração, login Google, perfil, 2
 - [Preparar e executar o ambiente local](Doc/Ambiente-local.md).
 - [Revisão de integridade, acesso e falhas](Doc/Integridade-acesso-falhas.md).
 - [Revisão de uso real, acessibilidade e desempenho](Doc/Uso-real-acessibilidade-desempenho.md).
+- [Aceitação final e verificações pendentes](Doc/Aceitacao-final.md).
 - [Auditoria final e manifesto do catálogo](Doc/Revisoes/catalogo-final.md).
 - [Revisar o protótipo aprovado](Doc/Prototipos/LEIA-ME.md).
 - [Requisitos e regras do jogo](Doc/Detalhes.md).

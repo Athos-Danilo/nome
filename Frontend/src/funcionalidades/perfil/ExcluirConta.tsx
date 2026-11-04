@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { conterFocoNoDialogo } from "../../componentes/foco-dialogo";
 
 export function ExcluirConta({
   aberto,
@@ -27,6 +28,7 @@ export function ExcluirConta({
   return (
     <dialog
       ref={dialogo}
+      onKeyDown={conterFocoNoDialogo}
       aria-labelledby="titulo-excluir"
       aria-describedby="efeitos-excluir"
       onCancel={(evento) => {

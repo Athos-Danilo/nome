@@ -256,6 +256,35 @@ test("preferências da conta prevalecem e alterações persistem", async ({
   await expect(page.getByLabel("Silenciar tudo")).toBeChecked();
 });
 
+test("exclusão mantém Tab e Shift+Tab no diálogo e Escape cancela sem apagar", async ({
+  page,
+}) => {
+  const estado = await preparar(page, true, true);
+  await page.goto("/perfil");
+  const abrir = page.getByRole("button", { name: "Excluir minha conta" });
+  await abrir.click();
+  const dialogo = page.getByRole("dialog");
+  await page.getByLabel("Digite EXCLUIR").fill("EXCLUIR");
+  await page.getByRole("button", { name: "Cancelar", exact: true }).focus();
+  for (const tecla of [
+    "Tab",
+    "Tab",
+    "Tab",
+    "Shift+Tab",
+    "Shift+Tab",
+    "Shift+Tab",
+  ]) {
+    await page.keyboard.press(tecla);
+    expect(
+      await dialogo.evaluate((e) => e.contains(document.activeElement)),
+    ).toBe(true);
+  }
+  await page.keyboard.press("Escape");
+  await expect(dialogo).not.toBeVisible();
+  await expect(abrir).toBeFocused();
+  expect(estado.excluir).toBe(0);
+});
+
 test("cancelar exclusão não envia pedido e falha permite tentar novamente", async ({
   page,
 }) => {

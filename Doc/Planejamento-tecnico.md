@@ -276,3 +276,8 @@ A fase 33 deve carregar o estado sob bloqueio, persistir cada transição e seu 
 ## Fase 33 — painel e persistência da galera
 
 O modo foi integrado ao PostgreSQL e à interface React: teclado compartilhado, palpites completos, sorteio oficial, placar, progressão, consenso da extra, resultado e encerramento. Migração 0010 mantém 22 tabelas, acrescenta progresso privado sem respostas e intervalos por sessão e admite tentativas numéricas. Separados coordenação transacional, reconstrução/projeção, gravação e conexão; catálogo permanece somente leitura. O relógio compartilha a lógica de medição com transporte próprio para sessões, sem aplicar pontuação ou pausa do individual. Contratos, TDD, verificações e limites concretos em [Painel da galera](Painel-galera.md).
+
+
+## Aceitação final — fase 48 em revisão
+
+A regressão dos dois modos e a correção da contenção de foco no diálogo de exclusão estão registradas em [Aceitação final](Aceitacao-final.md). O manipulador compartilhado evita duplicação entre os dois diálogos. O teste de regressão falhou antes da correção e passou nos três tamanhos após a mudança. A candidata ainda aguarda a exclusão real da conta de teste e novo login Google no ambiente publicado; não representa encerramento da fase.
