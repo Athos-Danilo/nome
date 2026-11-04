@@ -1,6 +1,6 @@
 # Objetos: lote 004 e revisão final — fase 46
 
-**Data:** 02/11/2026. **Estado:** criação, revisão editorial, aprovação humana e importação local concluídas para os lotes 001 e 004. Carga Atlas aprovada, mas adiada expressamente pelo responsável para quarta-feira, 04/11/2026, antes das outras fases. A fase permanece com essa pendência.
+**Data de produção:** 02/11/2026. **Conclusão da fase 46:** 04/11/2026. Lotes 001 e 004 aprovados pelo responsável e importados nos dois ambientes; pendência de acesso ao Atlas resolvida após liberação do IP atual. O relato datado de 02/11 abaixo preserva o estado anterior à retomada; a conferência final está no fechamento ao fim deste documento.
 
 ## Conteúdo
 
@@ -50,3 +50,9 @@ Fontes utilizadas para função e distinções dos instrumentos; não há recome
 Após a aprovação expressa e a carga dos dois lotes de objetos, o banco local atingiu **500 respostas/2.500 dicas e 527 revisões**. Todos os vinte lotes estão aprovados pelo responsável. Atlas mantém a última conferência de **400 respostas/2.000 dicas e 408 revisões**; países-001/004 e objetos-001/004 estão aprovados e aguardam apenas a carga remota. Não houve nova tentativa de conexão ao Atlas durante o adiamento. A meta local foi atingida; a publicação integral ainda está pendente.
 
 Na quarta-feira, antes das demais fases: resolver a conexão Atlas; conferir o estado remoto; importar somente os países e objetos aprovados ainda ausentes; comparar todos os arquivos e revisões; então fechar as pendências das fases 44 e 46 e prosseguir para a auditoria final da fase 47.
+
+## Fechamento no Atlas — 04/11/2026
+
+Conferência anterior à carga global: 400 registros idênticos e 100 novos, sem conflitos ou recuperáveis. Os quatro lotes aprovados de países e objetos foram importados juntos: **100 publicados sem sobrescritas**. Conferência integral posterior: **500 idênticos, zero novos e zero recuperáveis**, com revisões imutáveis consistentes. Atlas com **500 respostas, 2.500 dicas e 508 revisões**; cada temática tem **100 respostas/500 dicas, com 40 fáceis, 35 médias e 25 difíceis**. As 508 revisões remotas e 527 locais refletem históricos distintos de correções; não houve cópia ou substituição desse histórico. Nenhuma credencial foi alterada e a verificação TLS permaneceu habilitada. Fases 44 e 46 concluídas; a auditoria final da fase 47 não foi antecipada.
+
+Verificação da retomada: **34 testes existentes de conteúdo e validação aprovados em 04/11/2026** (0,59 s). A primeira execução com restrições de processos foi interrompida sem resultado; execução com processos auxiliares permitidos passou integralmente. Saúde pública pela Vercel em `/api/saude`: HTTP 200, situação `disponivel`. Sem novo teste de login ou partida nesta carga editorial, nem alteração de comportamento executável.

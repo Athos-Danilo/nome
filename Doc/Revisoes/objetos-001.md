@@ -63,3 +63,7 @@ Os links e observações editoriais ficam nesta ficha, fora do JSON de conteúdo
 ## Atualização da fase 12 — 2026-10-27
 
 O lote passou na validação completa do importador, junto aos cinco arquivos existentes: contrato, campos, temáticas, dificuldades, Unicode e duplicatas conferidos. Esta atualização substitui somente a pendência de validação automática registrada na revisão original. A avaliação humana permanece pendente, e o lote não foi importado no MongoDB nem enviado ao Atlas.
+
+## Publicação pendente resolvida — 04/11/2026
+
+Lote 001 importado no Atlas com a carga final da fase 46, sem alterar seu conteúdo. Conferência integral dos vinte lotes: 500 registros idênticos, zero novos e zero recuperáveis; 100 respostas e 500 dicas nesta temática, quotas 40/35/25.
