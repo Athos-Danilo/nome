@@ -17,6 +17,23 @@ test.beforeEach(async ({ page }) => {
 test("prévia produz sinal de áudio real e o silêncio geral zera a saída", async ({
   page,
 }) => {
+  // Isola o sinal das prévias da trilha ambiente das configurações.
+  await page.addInitScript(() =>
+    localStorage.setItem(
+      "decifra_preferencias",
+      JSON.stringify({
+        tema: "claro",
+        paleta: "original",
+        musica_id: null,
+        musica_menu_ativa: false,
+        volume_musica: 70,
+        volume_interface: 70,
+        volume_eventos: 70,
+        silenciado: false,
+        movimentos_reduzidos: false,
+      }),
+    ),
+  );
   // Entrega os bytes reais via transporte de teste: gerenciadores de download locais podem interceptar mídia no Edge.
   await page.route("**/audio/**", async (rota) =>
     rota.fulfill({ response: await rota.fetch() }),

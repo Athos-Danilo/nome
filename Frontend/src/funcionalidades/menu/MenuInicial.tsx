@@ -74,9 +74,6 @@ export function MenuInicial({
                 ]}
               />
             </div>
-            <Link className="minhas-descobertas" to="/perfil/historico">
-              Minhas descobertas →
-            </Link>
           </>
         ) : (
           <div className="convite-menu">

@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useState,
+  useRef,
   useSyncExternalStore,
   type ReactNode,
 } from "react";
@@ -131,21 +132,74 @@ export function BotaoMusicaMenu({
 }) {
   const audio = useAudio();
   const ativa = preferencias.musica_menu_ativa;
+  const [rascunho, definirRascunho] = useState<number | null>(null);
+  const pendente = useRef<number | null>(null);
+  function concluirVolume() {
+    const volume = pendente.current;
+    pendente.current = null;
+    definirRascunho(null);
+    if (volume === null) return;
+    audio?.preferencias(preferencias);
+    if (volume !== preferencias.volume_musica)
+      aoAlternar({ ...preferencias, volume_musica: volume });
+  }
   return (
-    <button
-      type="button"
-      className="botao-jogo"
-      data-audio-menu="true"
-      aria-label={ativa ? "Desativar música do menu" : "Ativar música do menu"}
-      aria-pressed={ativa}
-      disabled={ocupado}
-      onClick={() => {
-        const novas = { ...preferencias, musica_menu_ativa: !ativa };
-        if (!ativa) audio?.desbloquear();
-        aoAlternar(novas);
-      }}
-    >
-      <Icone nome={ativa ? "musica" : "musicaDesativada"} />
-    </button>
+    <div className="controle-musica-menu">
+      <button
+        type="button"
+        className="botao-jogo"
+        data-audio-menu="true"
+        aria-label={
+          ativa ? "Desativar música do menu" : "Ativar música do menu"
+        }
+        aria-pressed={ativa}
+        disabled={ocupado}
+        onClick={() => {
+          const novas = { ...preferencias, musica_menu_ativa: !ativa };
+          if (!ativa) audio?.desbloquear();
+          aoAlternar(novas);
+        }}
+      >
+        <Icone nome={ativa ? "musica" : "musicaDesativada"} />
+      </button>
+      <label className="volume-menu">
+        Volume da música
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={rascunho ?? preferencias.volume_musica}
+          disabled={ocupado}
+          onChange={(evento) => {
+            const volume = evento.currentTarget.valueAsNumber;
+            pendente.current = volume;
+            definirRascunho(volume);
+            audio?.preferencias({ ...preferencias, volume_musica: volume });
+          }}
+          onPointerUp={concluirVolume}
+          onKeyUp={concluirVolume}
+          onBlur={concluirVolume}
+          onPointerCancel={concluirVolume}
+        />
+      </label>
+    </div>
+  );
+}
+
+export function AvisoPreferencias({
+  numero,
+  mensagem,
+}: {
+  numero: number;
+  mensagem: string;
+}) {
+  const audio = useAudio();
+  useEffect(() => {
+    audio?.efeito("abrir", "preferencias-" + numero);
+  }, [audio, numero]);
+  return (
+    <p className="aviso-sucesso confirmacao-menu" role="status">
+      ✓ {mensagem}
+    </p>
   );
 }

@@ -2,6 +2,7 @@ import { Icone, type NomeIcone } from "../componentes/Icone";
 import {
   ProvedorAudio,
   BotaoMusicaMenu,
+  AvisoPreferencias,
 } from "../funcionalidades/audio/ProvedorAudio";
 import { AvisoAudio } from "../funcionalidades/audio/PreviasAudio";
 import "../estilos/audio.css";
@@ -207,7 +208,17 @@ function Jogo() {
     },
   ];
   return (
-    <ProvedorAudio preferencias={efetivas} menu={caminho === "/"}>
+    <ProvedorAudio
+      preferencias={efetivas}
+      menu={[
+        "/",
+        "/perfil",
+        "/perfil/historico",
+        "/perfil/estatisticas",
+        "/rankings",
+        "/configuracoes",
+      ].includes(caminho)}
+    >
       <div className="universo-perfil moldura-jogo">
         <a href="#conteudo-jogo" className="pular-conteudo">
           Pular para o conteúdo
@@ -218,7 +229,7 @@ function Jogo() {
             <b>ECIFRA</b>
             <i aria-hidden="true">✦</i>
           </Link>
-          <span className="selo">DICAS. DESCOBERTAS. VOCÊ.</span>
+
           <div className="controles-menu">
             <Botao aria-label="Como jogar" onClick={() => definirAjuda(true)}>
               ?
@@ -282,10 +293,18 @@ function Jogo() {
           className={`conteudo-jogo ${pendente ? "primeiro-acesso" : ""}`}
         >
           {caminho !== "/" && !carregando && !pendente && <VoltarAoMenu />}
-          {dados.mensagem && (
-            <p className="aviso-sucesso" role="status">
-              ✓ {dados.mensagem}
-            </p>
+          {dados.mensagem.startsWith("Preferências salvas") ? (
+            <AvisoPreferencias
+              key={dados.confirmacao}
+              numero={dados.confirmacao}
+              mensagem={dados.mensagem}
+            />
+          ) : (
+            dados.mensagem && (
+              <p className="aviso-sucesso" role="status">
+                ✓ {dados.mensagem}
+              </p>
+            )
           )}
           {dados.erro && <AvisoErro mensagem={dados.erro} />}
           <AvisoAudio />

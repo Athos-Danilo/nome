@@ -288,3 +288,80 @@ test("aba mantém Decifra e favicon da marca ao navegar e recarregar", async ({
   ).toBeFocused();
   await expect(page).toHaveTitle("Decifra");
 });
+
+test("menu no computador cabe na janela e oferece volume e confirmação temporária", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador");
+  await page.setViewportSize({ width: 1918, height: 945 });
+  await preparar(page, true);
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeVisible();
+  await expect(page.getByText("Minhas descobertas →")).toHaveCount(0);
+  await expect(
+    page.getByText("DICAS. DESCOBERTAS. VOCÊ.", { exact: true }),
+  ).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollHeight <= innerHeight,
+    ),
+  ).toBe(true);
+  await page.getByRole("button", { name: "Desativar música do menu" }).hover();
+  const volume = page.getByRole("slider", { name: "Volume da música" });
+  await volume.focus();
+  await volume.press("Home");
+  await expect(
+    page.getByText("✓ Preferências salvas na sua conta."),
+  ).toBeVisible();
+  await expect(
+    page.getByText("✓ Preferências salvas na sua conta."),
+  ).toHaveCount(0, { timeout: 6000 });
+});
+
+test("a mesma trilha acompanha as seções do menu", async ({ page }) => {
+  await preparar(page, true);
+  await page.addInitScript(() => {
+    const janela = window as Window & {
+      iniciosMenu?: number;
+      terminouMenu?: boolean;
+    };
+    const iniciar = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      if (this.loop) {
+        janela.iniciosMenu = (janela.iniciosMenu ?? 0) + 1;
+        this.addEventListener("ended", () => {
+          janela.terminouMenu = true;
+        });
+      }
+      return iniciar.apply(this, args);
+    };
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await page.keyboard.press("Escape");
+  for (const nome of [
+    "Perfil",
+    "Histórico",
+    "Rankings",
+    "Configurações",
+    "Início",
+  ]) {
+    await page
+      .getByRole("navigation")
+      .getByRole("link", { name: nome, exact: true })
+      .click();
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const janela = window as Window & {
+            iniciosMenu?: number;
+            terminouMenu?: boolean;
+          };
+          return [janela.iniciosMenu, !!janela.terminouMenu];
+        }),
+      )
+      .toEqual([1, false]);
+  }
+});

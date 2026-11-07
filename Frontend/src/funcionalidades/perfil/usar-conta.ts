@@ -24,6 +24,16 @@ export function useConta() {
   const cache = useQueryClient();
   const [painel, definirPainel] = useState<"perfil" | "preferencias">("perfil");
   const [mensagem, definirMensagem] = useState("");
+  const [confirmacao, registrarConfirmacao] = useState(0);
+  function confirmarPreferencias(texto: string) {
+    definirMensagem(texto);
+    registrarConfirmacao((numero) => numero + 1);
+  }
+  useEffect(() => {
+    if (!confirmacao || !mensagem.startsWith("Preferências salvas")) return;
+    const tempo = window.setTimeout(() => definirMensagem(""), 3200);
+    return () => window.clearTimeout(tempo);
+  }, [mensagem, confirmacao]);
   const [erro, definirErro] = useState("");
   const [aberto, definirAberto] = useState(false);
   const [erroExclusao, definirErroExclusao] = useState("");
@@ -102,7 +112,7 @@ export function useConta() {
       cache.setQueryData(["preferencias", conta!.jogador_id], dados);
       definirPrevia(null);
       definirErro("");
-      definirMensagem("Preferências salvas na sua conta.");
+      confirmarPreferencias("Preferências salvas na sua conta.");
     },
     onError: falhar,
   });
@@ -162,7 +172,7 @@ export function useConta() {
     }
     definirLocais(dados);
     definirPrevia(null);
-    definirMensagem(
+    confirmarPreferencias(
       salvo
         ? "Preferências salvas neste navegador."
         : "Preferências aplicadas neste acesso. O navegador não permitiu salvá-las.",
@@ -194,6 +204,7 @@ export function useConta() {
     cache,
     painel,
     mensagem,
+    confirmacao,
     erro,
     aberto,
     erroExclusao,
