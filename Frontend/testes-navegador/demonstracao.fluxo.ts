@@ -132,7 +132,9 @@ test("demonstração usada bloqueia nova partida e mantém convite ao Google", a
 }) => {
   const estado = await preparar(page, false, true);
   await page.goto("/");
-  await expect(page.getByText("Demonstração já utilizada")).toBeVisible();
+  await expect(
+    page.getByText("Vamos para a próxima descoberta?"),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: /Entrar com Google/ }),
   ).toBeVisible();

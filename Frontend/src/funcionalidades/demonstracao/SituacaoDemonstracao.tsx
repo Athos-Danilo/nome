@@ -75,7 +75,6 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
   }
   return (
     <div className="cartao-demonstracao">
-      <span className="etiqueta">UMA PRIMEIRA DESCOBERTA</span>
       {visitante.isPending ? (
         <p role="status">Conferindo seu jogo rápido…</p>
       ) : visitante.error ? (
@@ -87,11 +86,18 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
         </>
       ) : dados?.demonstracao_utilizada ? (
         <>
-          <h2>Demonstração já utilizada</h2>
+          <span className="etiqueta">MAIS PALAVRAS ESPERAM POR VOCÊ</span>
+          <h2>Vamos para a próxima descoberta?</h2>
           <p>
-            Entre com Google para liberar novas partidas e guardar suas
-            descobertas.
+            Entre com Google para jogar Solo ou com a Galera e guardar seu
+            progresso.
           </p>
+          {dados.demonstracao?.estado === "concluida" && (
+            <p className="resumo-teste-menu">
+              <strong>{dados.demonstracao.pontuacao} pontos</strong>
+              <span>na sua demonstração</span>
+            </p>
+          )}
           {dados.demonstracao && !dados.vinculada && (
             <>
               <Link className="acao" to="/jogar/demonstracao">
@@ -106,6 +112,7 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
         </>
       ) : (
         <>
+          <span className="etiqueta">EXPERIMENTE O DECIFRA</span>
           <h2>Uma amostra de curiosidade</h2>
           <p>Três palavras fáceis, temas surpresa.</p>
           <Link className="acao botao-grande" to="/jogar/demonstracao">

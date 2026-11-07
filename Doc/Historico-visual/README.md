@@ -4,6 +4,7 @@
 | --- | --- | --- | --- |
 | 001 | 06/11/2026 | Versão de referência. Menu, configuração, pista, resultado e turno em três tamanhos. | [Galeria das 15 telas](../Referencia-visual-atual.md) |
 | 002 | 06/11/2026 | Menu do computador com cabeçalho simplificado, moldura ajustada e volume aberto. | [Antes](001-referencia-inicial/menu-computador.png) · [Depois](002-menu-computador/menu-computador.png) · [Decisões](../Ajustes-menu-computador.md) |
+| 003 | 07/11/2026 | Convite contextual ao visitante, composição centralizada, balão próximo ao Aurélio e refinamento das superfícies. | [Primeira visita](003-menu-visitante/primeira-visita-computador.png) · [Demonstração utilizada](003-menu-visitante/demonstracao-utilizada-computador.png) · [Tema escuro](003-menu-visitante/demonstracao-utilizada-computador-escuro.png) · [Decisões](../Menu-visitante.md) |
 
 A primeira captura do menu usa 1440 × 1000. A segunda usa 1918 × 945 para reproduzir a janela relatada pelo jogador.
 

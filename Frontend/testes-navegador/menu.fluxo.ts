@@ -190,7 +190,7 @@ test("demonstração usada mostra limite e convite ao Google", async ({
   await preparar(page, false, false, true);
   await page.goto("/");
   await expect(
-    page.getByText("Demonstração já utilizada", { exact: true }),
+    page.getByText("Vamos para a próxima descoberta?", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Jogo rápido", exact: true }),

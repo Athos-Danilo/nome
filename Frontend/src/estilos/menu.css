@@ -1000,3 +1000,136 @@ main[tabindex="-1"]:focus {
     transform: translateY(0);
   }
 }
+
+/* Composição do convite ao visitante e profundidade do menu. */
+body:has(.sala-jogo) {
+  background-color: color-mix(in srgb, var(--exterior) 83%, #34372f);
+}
+.moldura-jogo:has(.sala-jogo)::before {
+  opacity: 0.065;
+}
+.sala-visitante .escolhas-menu {
+  align-self: center;
+}
+.sala-visitante .convite-menu {
+  padding: clamp(24px, 3vw, 40px);
+  background: color-mix(in srgb, var(--painel) 94%, white);
+  box-shadow:
+    0 5px 0 var(--sombra-suave),
+    0 18px 40px #0000000c;
+}
+.sala-visitante .convite-menu > .cartao-demonstracao {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.sala-visitante .cartao-demonstracao .etiqueta {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+}
+.sala-visitante .cartao-demonstracao h2 {
+  font-size: clamp(27px, 2.7vw, 39px);
+  line-height: 1.12;
+  margin: 18px 0;
+  max-width: 15ch;
+}
+.sala-visitante .cartao-demonstracao p {
+  line-height: 1.65;
+}
+.sala-visitante .cartao-demonstracao .nota {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.sala-visitante .google-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--painel);
+  color: var(--texto);
+  border: 1.5px solid var(--texto);
+  margin-top: 26px;
+}
+.simbolo-google {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  background: white;
+  border-radius: 50%;
+}
+.resumo-teste-menu {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-block: 1px solid var(--decoracao);
+  padding-block: 16px;
+}
+.resumo-teste-menu strong {
+  font-size: 28px;
+  font-family: Bricolage, sans-serif;
+}
+.resumo-teste-menu span {
+  font-size: 13px;
+}
+@media (min-width: 961px) {
+  .moldura-jogo:has(.sala-visitante) {
+    display: flex;
+    flex-direction: column;
+  }
+  .conteudo-jogo:has(.sala-visitante) {
+    flex: 1;
+    display: grid;
+    align-items: center;
+    padding-block: 16px;
+  }
+  .sala-visitante {
+    align-items: center;
+    column-gap: 52px;
+  }
+  .sala-visitante .balao-menu {
+    right: auto;
+    left: 225px;
+    bottom: 42px;
+    max-width: 165px;
+  }
+  .moldura-jogo:has(.sala-visitante) .rodape-jogo {
+    padding-block: 14px 22px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-movimentos="reduzidos"]) .sala-visitante .convite-menu {
+    animation: apresentar-tela 380ms var(--curva-jogo) 100ms backwards;
+  }
+  :root:not([data-movimentos="reduzidos"]) .sala-visitante .balao-menu {
+    animation: apresentar-tela 320ms var(--curva-jogo) 450ms backwards;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .sala-visitante .google-menu:hover {
+    background: var(--lima);
+    color: #292921;
+    transform: translateY(-2px);
+  }
+  :root:not([data-movimentos="reduzidos"])
+    .sala-visitante:has(.escolhas-menu:hover)
+    .balao-menu {
+    transform: rotate(0deg) translateY(-3px);
+  }
+}
+.sala-visitante .balao-menu {
+  transition: transform 180ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sala-visitante .balao-menu {
+    transition: none;
+    transform: none !important;
+  }
+}
+@media (min-width: 961px) {
+  .moldura-jogo:has(.sala-visitante) .cabecalho-jogo {
+    width: 100%;
+  }
+}
