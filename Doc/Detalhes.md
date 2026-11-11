@@ -933,3 +933,8 @@ Se faltar conteúdo, manter dificuldade e temáticas solicitadas e apresentar a 
 ## Integração da galera — fase 33, 2026-10-30
 
 O painel compartilhado, turnos, sorteios, pontos, sessão extra, cronômetro por sessão/total, resultado e encerramento foram conectados à persistência. Recarregar preserva progresso; saída confirmada encerra; casos ambíguos seguem a decisão conservadora da fase 13. A galera continua fora dos rankings individuais. Contratos, registros de palavras vistas e não vistas, limites técnicos e testes em [Painel-galera.md](Painel-galera.md).
+
+
+## Evolução aprovada: menu dinâmico — 11/11/2026
+
+O responsável aprovou falas alternadas do Aurélio, cenas decorativas nos cartões Solo/Galera, cenário ambiente, respostas a mouse/toque/teclado, apresentação de entrada/retorno e surpresas do mascote. Preservar a identidade e as atuações aprovadas; respeitar movimentos reduzidos, visibilidade, leitura e áudio existente. A especificação detalhada e os critérios estão em [Menu dinâmico](Menu-dinamico.md). Estado: autorizado para desenvolvimento, ainda não entregue; revisão artística conjunta necessária antes da aceitação.

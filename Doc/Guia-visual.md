@@ -135,3 +135,8 @@ O favicon é `Frontend/public/favicon.svg`: bloco D da marca aprovada, com desta
 Teste de navegador criado antes da alteração reproduziu o título antigo; a regressão verifica HTML inicial, título ao navegar/recarregar e entrega do SVG com o tipo correto. Ajuste posterior ao aceite da fase 48; não inicia nem conclui a fase 49.
 
 Verificação concluída: 27 testes do menu aprovados nos três tamanhos de tela, incluindo o novo teste de identificação da aba; compilação e formatação aprovadas.
+
+
+## Direção do menu dinâmico — 11/11/2026
+
+Evoluir a composição atual por movimento em camadas, com descanso e acontecimentos em ritmos diferentes. Manter paletas, marca, tipografia, ícones e fidelidade do Aurélio; cenas internas dos cartões e respostas de ponteiro não devem disputar transformações. Falas e surpresas se coordenam para preservar a hierarquia de leitura. [Especificação e critérios de revisão](Menu-dinamico.md). A aprovação é das ideias, não de uma execução visual ainda inexistente.

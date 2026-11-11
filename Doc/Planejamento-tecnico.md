@@ -281,3 +281,8 @@ O modo foi integrado ao PostgreSQL e à interface React: teclado compartilhado, 
 ## Aceitação final — fase 48 concluída
 
 A regressão dos dois modos e a correção da contenção de foco no diálogo de exclusão estão registradas em [Aceitação final](Aceitacao-final.md). O manipulador compartilhado evita duplicação entre os dois diálogos. O teste de regressão falhou antes da correção e passou nos três tamanhos após a mudança. O responsável concluiu o teste real de exclusão e novo login Google no ambiente publicado. A leitura do Neon confirmou anonimização, remoção de preferências/sessões, resultados preservados e nova conta sem partidas; o ranking público manteve os pontos como Jogador excluído. Fase 48 concluída em 04/11/2026; a entrega documental e apresentação permanecem na fase 49.
+
+
+## Planejamento do menu dinâmico — 11/11/2026
+
+Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com React/TypeScript, CSS/SVG, Motion existente e a montagem/relógio aprovados do Aurélio. Separar agenda local, repertório editorial e apresentação; tempo/sorteio injetáveis, limpeza de recursos e pausa por ausência/redução de movimentos. TDD para comportamentos e revisão visual para arte, preservando SOLID. Sem nova dependência, serviço, banco ou contrato HTTP previsto. Um roteiro temporário separado e ignorado organiza dez fases MD-01 a MD-10; não substitui o roteiro geral de melhorias nem conclui a fase 49. Estado: somente documentação e planejamento nesta etapa.
