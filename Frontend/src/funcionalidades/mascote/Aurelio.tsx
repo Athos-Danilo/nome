@@ -28,6 +28,7 @@ export function Aurelio({
   reduzir?: boolean;
   pausado?: boolean;
 }) {
+  const contagem = useRef({ id: "", restante: 0 });
   const [estado, definirEstado] = useState(iniciarReacoes);
   useSomReacao(evento);
   const moldura = useRef<HTMLDivElement>(null);
@@ -39,12 +40,22 @@ export function Aurelio({
   }, [evento?.id, evento?.tipo]);
   useEffect(() => {
     const ativa = estado.ativa;
-    if (!ativa || pausado) return;
+    if (!ativa) return;
+    if (contagem.current.id !== ativa.id)
+      contagem.current = { id: ativa.id, restante: DURACOES[ativa.tipo] };
+    if (pausado) return;
+    const inicio = performance.now();
     const temporizador = window.setTimeout(
       () => definirEstado((e) => concluirReacao(e, ativa.id)),
-      DURACOES[ativa.tipo],
+      contagem.current.restante,
     );
-    return () => window.clearTimeout(temporizador);
+    return () => {
+      window.clearTimeout(temporizador);
+      contagem.current.restante = Math.max(
+        0,
+        contagem.current.restante - (performance.now() - inicio),
+      );
+    };
   }, [estado.ativa, pausado]);
   const reacao = estado.ativa?.tipo ?? repouso;
   return (

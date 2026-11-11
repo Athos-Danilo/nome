@@ -285,4 +285,9 @@ A regressão dos dois modos e a correção da contenção de foco no diálogo de
 
 ## Planejamento do menu dinâmico — 11/11/2026
 
-Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com React/TypeScript, CSS/SVG, Motion existente e a montagem/relógio aprovados do Aurélio. Separar agenda local, repertório editorial e apresentação; tempo/sorteio injetáveis, limpeza de recursos e pausa por ausência/redução de movimentos. TDD para comportamentos e revisão visual para arte, preservando SOLID. Sem nova dependência, serviço, banco ou contrato HTTP previsto. Um roteiro temporário separado e ignorado organiza dez fases MD-01 a MD-10; não substitui o roteiro geral de melhorias nem conclui a fase 49. Estado: somente documentação e planejamento nesta etapa.
+Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com React/TypeScript, CSS/SVG, Motion existente e a montagem/relógio aprovados do Aurélio. Separar agenda local, repertório editorial e apresentação; tempo/sorteio injetáveis, limpeza de recursos e pausa por ausência/redução de movimentos. TDD para comportamentos e revisão visual para arte, preservando SOLID. Sem nova dependência, serviço, banco ou contrato HTTP previsto. Um roteiro temporário separado e ignorado organiza dez fases MD-01 a MD-10; não substitui o roteiro geral de melhorias nem conclui a fase 49. Esse registro corresponde à etapa inicial de documentação; os incrementos e verificações estão registrados abaixo.
+
+
+### Menu MD-02 — coordenação temporal
+
+Política de prioridade/seleção pura, agenda com tempo e sorteio injetáveis e adaptação React/navegador separadas. Uma agenda por menu registra a entrada protegida, limita interações pendentes e suspende por ausência, redução de movimentos, diálogo ou alerta do menu. A conclusão de reação do Aurélio mantém tempo restante quando recebe pausa. A montagem e a linha de tempo de poses aprovadas permanecem as mesmas. Candidatos automáticos ainda não são conectados à interface; falas, cenas e surpresas entram nas fases próprias. [Contratos, TDD e verificações](Revisoes/menu-dinamico-md02.md).

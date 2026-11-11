@@ -122,3 +122,8 @@ Os fluxos de navegador usam respostas HTTP controladas para verificar a interfac
 ## Otimização de recursos — fase 45, 04/11/2026
 
 A montagem preserva os PNGs aprovados e usa derivados WebP sem perda para transporte. Dimensões e todos os pixels RGBA conferidos como idênticos; recortes, máscaras e atuações mantidos. Imagens passaram de 2.602.841 para 1.632.042 bytes. O teste de fidelidade isola a arte da sobreposição da navegação fixa, sem alterar a tolerância de 2%; a comparação passou nos três tamanhos. [Relatório completo](Uso-real-acessibilidade-desempenho.md).
+
+
+## Pausa de reação no menu — MD-02, 11/11/2026
+
+O menu encaminha `pausado` ao personagem quando a aba está ausente, movimentos estão reduzidos, há diálogo aberto ou alerta dentro do menu. A contagem de conclusão em `Aurelio.tsx` subtrai o tempo efetivamente reproduzido antes de suspender; retomar usa o saldo, em vez de iniciar a duração completa. A representação estática continua usando a pose neutra existente, e o relógio de quadros mantém seu funcionamento. As curvas, recortes, máscaras e imagens aprovadas não foram alterados. O teste de navegador reproduziu a saudação terminando durante a ajuda e verificou o tempo restante após a correção. [Coordenação e limites da MD-02](Revisoes/menu-dinamico-md02.md).

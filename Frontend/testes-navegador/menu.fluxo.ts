@@ -447,3 +447,67 @@ for (const cenario of [
     });
   });
 }
+
+test("agenda do menu distingue ausência, redução, diálogo e desmontagem", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const menu = page.locator(".sala-jogo");
+  await expect(menu).toHaveAttribute("data-agenda", "ativa");
+  await expect(menu).toHaveAttribute("data-acontecimento", "entrada");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(menu).toHaveAttribute("data-agenda", "pausada");
+  await expect(menu).toHaveAttribute("data-ausente", "true");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(menu).toHaveAttribute("data-reduzida", "true");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: false,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(menu).toHaveAttribute("data-agenda", "pausada");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(menu).toHaveAttribute("data-agenda", "ativa");
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(menu).toHaveAttribute("data-agenda", "pausada");
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-estatico",
+    "true",
+  );
+  await page.keyboard.press("Escape");
+  await expect(menu).toHaveAttribute("data-agenda", "ativa");
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(menu).toHaveCount(0);
+  await page.getByRole("link", { name: "Voltar ao menu" }).click();
+  await expect(menu).toHaveAttribute("data-agenda", "ativa");
+  await page.evaluate(
+    () => (document.documentElement.dataset.movimentos = "reduzidos"),
+  );
+  await expect(menu).toHaveAttribute("data-reduzida", "true");
+});
+
+test("pausa do menu preserva o restante da saudação", async ({ page }) => {
+  await preparar(page, true);
+  await page.clock.install();
+  await page.goto("/");
+  const mascote = page.locator(".aurelio-animado");
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await page.clock.runFor(3800);
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await page.clock.runFor(6000);
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await page.keyboard.press("Escape");
+  await page.clock.runFor(1000);
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await page.clock.runFor(1000);
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+});

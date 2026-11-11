@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useAgendaMenu } from "./usar-agenda-menu";
+import { DURACOES } from "../mascote/reacoes";
 import { Link } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { CartaoModo } from "../../componentes/CartaoModo";
@@ -14,14 +16,40 @@ export function MenuInicial({
   conta: Sessao | null | undefined;
   aoExpirar: (erro: Error) => void;
 }) {
+  const elemento = useRef<HTMLDivElement>(null);
+  const agenda = useAgendaMenu(elemento);
   const visitante = useQuery({
     queryKey: ["visitante", false],
     queryFn: identificarVisitante,
     enabled: !conta,
   });
   const utilizada = !conta && visitante.data?.demonstracao_utilizada;
+  const registradas = useRef(new Set<string>());
+  const solicitar = agenda.solicitar;
+  useEffect(() => {
+    if (agenda.pausada || (!conta && !visitante.isSuccess)) return;
+    const id = utilizada ? "convite-continuar" : "entrada-menu";
+    if (registradas.current.has(id)) return;
+    const reacao = utilizada ? "apresentacao" : "saudacao";
+    if (
+      solicitar({
+        id,
+        tipo: "entrada",
+        duracao: DURACOES[reacao],
+        conteudo: reacao,
+      })
+    )
+      registradas.current.add(id);
+  }, [agenda.pausada, !!conta, visitante.isSuccess, utilizada, solicitar]);
   return (
-    <div className={conta ? "sala-jogo" : "sala-jogo sala-visitante"}>
+    <div
+      ref={elemento}
+      className={conta ? "sala-jogo" : "sala-jogo sala-visitante"}
+      data-agenda={agenda.pausada ? "pausada" : "ativa"}
+      data-acontecimento={agenda.ativa?.tipo ?? "repouso"}
+      data-ausente={agenda.ausente}
+      data-reduzida={agenda.reduzida}
+    >
       <section className="boas-vindas-menu">
         <span className="etiqueta">
           {conta
@@ -53,6 +81,7 @@ export function MenuInicial({
               id: utilizada ? "convite-continuar" : "entrada-menu",
               tipo: utilizada ? "apresentacao" : "saudacao",
             }}
+            pausado={agenda.pausada}
             tamanho="grande"
           />
           <span className="balao-menu">
