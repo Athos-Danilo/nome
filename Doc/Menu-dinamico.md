@@ -92,3 +92,8 @@ Capturar computador, tablet e celular; observar também uma sequência longa de 
 ## 6. Execução
 
 O roteiro temporário detalhado é mantido somente localmente, em arquivo ignorado pelo Git. Esta especificação é a referência versionada e deve receber o registro do comportamento efetivamente entregue e das verificações. Cadências e amplitudes acima são pontos iniciais de ajuste artístico, não medições de uma implementação existente.
+
+
+### Referência MD-01 — concluída em 11/11/2026
+
+O estado anterior às novas animações foi registrado em quatro contextos e três tamanhos, com capturas locais determinísticas, inventário de movimentos e preservação dos fluxos. Passaram 88 testes de unidade e 112 cenários de navegador; dois cenários exclusivos de computador foram ignorados nos outros tamanhos. Compilação/formatação aprovadas. [Referência, reprodução e limites](Revisoes/menu-dinamico-md01.md). Nesta etapa não houve mudança na apresentação da aplicação; MD-02 é o próximo incremento.

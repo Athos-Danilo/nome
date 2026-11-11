@@ -365,3 +365,85 @@ test("a mesma trilha acompanha as seções do menu", async ({ page }) => {
       .toEqual([1, false]);
   }
 });
+
+for (const cenario of [
+  "conta",
+  "visitante",
+  "demonstracao-usada",
+  "individual-aberta",
+] as const) {
+  test(`referência estabilizada do menu: ${cenario}`, async ({
+    page,
+  }, info) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const logado = cenario === "conta" || cenario === "individual-aberta";
+    const estado = await preparar(
+      page,
+      logado,
+      false,
+      cenario === "demonstracao-usada",
+    );
+    estado.aberta = cenario === "individual-aberta";
+    await page.goto("/");
+    await expect(
+      page.getByRole("heading", { name: "Bora decifrar?" }),
+    ).toBeFocused();
+    await expect(page).toHaveTitle("Decifra");
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+      "href",
+      "/favicon.svg",
+    );
+    if (logado) {
+      await expect(
+        page.getByRole("link", { name: "Solo", exact: true }),
+      ).toHaveAttribute("href", "/jogar/individual/novo");
+      await expect(
+        page.getByRole("link", { name: "Galera", exact: true }),
+      ).toHaveAttribute("href", "/jogar/galera/novo");
+    } else {
+      await expect(
+        page.getByRole("link", { name: /Entrar com Google/ }),
+      ).toHaveAttribute("href", "/api/autenticacao/google");
+      await expect(
+        page.getByRole("link", { name: "Jogo rápido", exact: true }),
+      ).toHaveCount(cenario === "visitante" ? 1 : 0);
+    }
+    await expect(
+      page.getByRole("link", { name: "Continuar partida" }),
+    ).toHaveCount(estado.aberta ? 1 : 0);
+    if (estado.aberta) await expect(page.getByText(/80 pontos/)).toBeVisible();
+    await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+      "data-estatico",
+      "true",
+    );
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all(
+        Array.from(document.images, (imagem) => imagem.decode()),
+      );
+      const fontes = new Set(
+        Array.from(
+          document.querySelectorAll<SVGImageElement>(".aurelio-animado image"),
+          (imagem) => imagem.href.baseVal,
+        ),
+      );
+      await Promise.all(
+        Array.from(fontes, async (fonte) => {
+          const imagem = new Image();
+          imagem.src = fonte;
+          await imagem.decode();
+        }),
+      );
+    });
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({
+      path: info.outputPath(`referencia-${cenario}.png`),
+      fullPage: true,
+      animations: "disabled",
+    });
+  });
+}
