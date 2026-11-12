@@ -1099,14 +1099,6 @@ body:has(.sala-jogo) {
     padding-block: 14px 22px;
   }
 }
-@media (prefers-reduced-motion: no-preference) {
-  :root:not([data-movimentos="reduzidos"]) .sala-visitante .convite-menu {
-    animation: apresentar-tela 380ms var(--curva-jogo) 100ms backwards;
-  }
-  :root:not([data-movimentos="reduzidos"]) .sala-visitante .balao-menu {
-    animation: apresentar-tela 320ms var(--curva-jogo) 450ms backwards;
-  }
-}
 @media (hover: hover) and (pointer: fine) {
   .sala-visitante .google-menu:hover {
     background: var(--lima);

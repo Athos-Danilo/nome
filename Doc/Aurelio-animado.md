@@ -127,3 +127,8 @@ A montagem preserva os PNGs aprovados e usa derivados WebP sem perda para transp
 ## Pausa de reação no menu — MD-02, 11/11/2026
 
 O menu encaminha `pausado` ao personagem quando a aba está ausente, movimentos estão reduzidos, há diálogo aberto ou alerta dentro do menu. A contagem de conclusão em `Aurelio.tsx` subtrai o tempo efetivamente reproduzido antes de suspender; retomar usa o saldo, em vez de iniciar a duração completa. A representação estática continua usando a pose neutra existente, e o relógio de quadros mantém seu funcionamento. As curvas, recortes, máscaras e imagens aprovadas não foram alterados. O teste de navegador reproduziu a saudação terminando durante a ajuda e verificou o tempo restante após a correção. [Coordenação e limites da MD-02](Revisoes/menu-dinamico-md02.md).
+
+
+### Integração da entrada do menu — MD-04, 12/11/2026
+
+Na primeira entrada da sessão da aba, preservar a saudação/apresentação já aprovada e suas durações. Em retornos, usar espera, sem novo aceno. A sequência de entrada das camadas do menu é independente da atuação do personagem. Trocar conta/visitante ou ativar redução descarta a atuação anterior; desabilitar redução não a reinicia. Nenhuma mudança nas imagens, recortes, contornos, articulações ou curvas das poses. [Registro da MD-04](Revisoes/menu-dinamico-md04.md).

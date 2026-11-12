@@ -296,3 +296,10 @@ Política de prioridade/seleção pura, agenda com tempo e sorteio injetáveis e
 ### Menu MD-03 — cenário ambiente
 
 Componentes locais `CenarioMenu` e `FundoMenu` com animações CSS, pausa por agenda e visibilidade local (`useInView` existente) e composição estática na redução de movimentos. O recorte afeta apenas a textura de fundo; títulos, links, foco e sombras da moldura permanecem livres. Padrão compartilhado de círculos extraído em variáveis CSS sem novo recurso de imagem. Sem dependência, áudio, backend ou migração adicional. [Parâmetros, TDD e verificação da MD-03](Revisoes/menu-dinamico-md03.md).
+
+
+### Menu MD-04 — entrada por sessão da aba
+
+Registro visual isolado em `entrada-menu.ts`, adaptado ao React por `useEntradaMenu`: leitura sem consumir o marcador e confirmação idempotente após montagem. `sessionStorage` conserva o retorno na recarga; falhas de leitura/gravação usam memória do documento. Sem armazenamento, uma recarga pode apresentar novamente a entrada. A marcação não identifica jogador nem altera conta, demonstração ou progresso. Uma nova sessão independente de aba começa pela apresentação; duplicações seguem a semântica de cópia do navegador.
+
+A agenda passa a ser recriada por contexto de conta/visitante, encerrando a anterior na limpeza do efeito. Troca de contexto é retorno e descarta a saudação anterior. A preferência reduzida cancela a apresentação atual sem iniciá-la ao ser desabilitada. CSS local substitui entradas concorrentes e pausa com a agenda. Registro, adaptação, coordenação e apresentação têm responsabilidades separadas, sem novas dependências, contratos HTTP ou bancos. [TDD e verificações](Revisoes/menu-dinamico-md04.md).

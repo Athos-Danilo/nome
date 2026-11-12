@@ -1,7 +1,7 @@
 import {
   useCallback,
   useEffect,
-  useState,
+  useMemo,
   useSyncExternalStore,
   type RefObject,
 } from "react";
@@ -22,8 +22,11 @@ function lerSinais(elemento: HTMLElement | null) {
 }
 const lerServidor = () => "1000";
 
-export function useAgendaMenu(elemento: RefObject<HTMLElement | null>) {
-  const [agenda] = useState(
+export function useAgendaMenu(
+  elemento: RefObject<HTMLElement | null>,
+  contexto: string,
+) {
+  const agenda = useMemo(
     () =>
       new AgendaMenu({
         agora: () => performance.now(),
@@ -33,6 +36,7 @@ export function useAgendaMenu(elemento: RefObject<HTMLElement | null>) {
           return () => window.clearTimeout(id);
         },
       }),
+    [contexto],
   );
   const ler = useCallback(() => lerSinais(elemento.current), [elemento]);
   const observar = useCallback((avisar: () => void) => {

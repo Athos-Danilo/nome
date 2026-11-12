@@ -150,3 +150,8 @@ Preservado o padrão de círculos da composição anterior, agora com deriva len
 ### Correção móvel e percepção do fundo — 12/11/2026
 
 O responsável pediu movimento de fundo mais evidente, balão fora dos pés e menor espaço até a navegação. Fundo ajustado para 24 s e amplitude maior, sem alterar o padrão de círculos; até 650 px, balão à esquerda do personagem e menu autenticado com altura flexível dos cartões, rodapé compacto e reserva para a navegação fixa. Preservar separação do texto e do personagem ao acrescentar as falas da MD-05. [Revisão e limites](Revisoes/menu-dinamico-md03.md).
+
+
+### Apresentação e retorno do menu — MD-04, 12/11/2026
+
+A marca entra em 240 ms; boas-vindas em 340 ms após 90 ms; palco do Aurélio em 440 ms após 190 ms; escolhas em 500 ms após 360 ms. Sequência total de 860 ms, com opacidade inicial 0,68 e deslocamento de 8 px. Retorno em 260 ms, opacidade inicial 0,85 e deslocamento de 4 px; marca não repete a entrada. O aceno aprovado conserva sua duração própria e não bloqueia os controles. Redução mantém a composição estática. Animação das camadas usa `translate`, separada das rotações dos cartões e das articulações. Preservados o balão à esquerda e o espaço compacto até a navegação móvel. [Registro e inspeção](Revisoes/menu-dinamico-md04.md).

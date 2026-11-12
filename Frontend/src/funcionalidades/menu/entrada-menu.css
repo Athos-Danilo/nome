@@ -1,0 +1,54 @@
+/* A apresentação não controla foco ou navegação. Cada camada tem um único movimento de entrada. */
+.entrada-tela:has(.sala-jogo),
+.sala-jogo .cartao-modo,
+.sala-visitante .convite-menu,
+.sala-visitante .balao-menu {
+  animation: none;
+}
+.moldura-jogo:has(.sala-jogo[data-entrada="primeira"]) .marca-jogo {
+  animation: revelar-menu 240ms var(--curva-jogo) backwards;
+}
+.sala-jogo[data-entrada="primeira"] .boas-vindas-menu > .etiqueta,
+.sala-jogo[data-entrada="primeira"] .boas-vindas-menu > h1,
+.sala-jogo[data-entrada="primeira"] .boas-vindas-menu > p {
+  animation: revelar-menu 340ms var(--curva-jogo) 90ms backwards;
+}
+.sala-jogo[data-entrada="primeira"] .palco-menu {
+  animation: revelar-menu 440ms var(--curva-jogo) 190ms backwards;
+}
+.sala-jogo[data-entrada="primeira"] .escolhas-menu {
+  animation: revelar-menu 500ms var(--curva-jogo) 360ms backwards;
+}
+.sala-jogo[data-entrada="retorno"] .boas-vindas-menu,
+.sala-jogo[data-entrada="retorno"] .escolhas-menu {
+  animation: retornar-menu 260ms var(--curva-jogo) backwards;
+}
+.sala-jogo[data-agenda="pausada"] .boas-vindas-menu,
+.sala-jogo[data-agenda="pausada"] .boas-vindas-menu > .etiqueta,
+.sala-jogo[data-agenda="pausada"] .boas-vindas-menu > h1,
+.sala-jogo[data-agenda="pausada"] .boas-vindas-menu > p,
+.sala-jogo[data-agenda="pausada"] .palco-menu,
+.sala-jogo[data-agenda="pausada"] .escolhas-menu,
+.moldura-jogo:has(.sala-jogo[data-agenda="pausada"]) .marca-jogo {
+  animation-play-state: paused;
+}
+@keyframes revelar-menu {
+  from {
+    opacity: 0.68;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes retornar-menu {
+  from {
+    opacity: 0.85;
+    translate: 0 4px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

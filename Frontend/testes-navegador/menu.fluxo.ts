@@ -663,7 +663,14 @@ test.describe("inspeção do movimento ambiente", () => {
           ),
         );
       });
-      await page.waitForTimeout(650);
+      await page.locator(".sala-jogo").evaluate(async (el) => {
+        const entradas = el
+          .getAnimations({ subtree: true })
+          .filter(
+            (animacao) => animacao.effect?.getTiming().iterations !== Infinity,
+          );
+        await Promise.all(entradas.map((animacao) => animacao.finished));
+      });
       const titulo = page.getByRole("heading", { name: "Bora decifrar?" });
       const solo = page.getByRole("link", { name: "Solo", exact: true });
       const baseTitulo = await titulo.boundingBox();
@@ -825,4 +832,261 @@ test("cartões no celular ficam próximos do menu inferior sem cobrir ações", 
     .boundingBox();
   expect(navegacao!.y - fundoCartoes).toBeGreaterThanOrEqual(12);
   expect(navegacao!.y - fundoCartoes).toBeLessThanOrEqual(80);
+});
+
+test("entrada encenada ocorre uma vez na aba e retorna curta após navegação e recarga", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const menu = page.locator(".sala-jogo");
+  await expect(menu).toHaveAttribute("data-entrada", "primeira");
+  await expect(
+    page.getByRole("heading", { name: "Bora decifrar?" }),
+  ).toBeFocused();
+  const fases = await page.evaluate(() =>
+    [
+      ".marca-jogo",
+      ".boas-vindas-menu h1",
+      ".palco-menu",
+      ".escolhas-menu",
+    ].map((seletor) => {
+      const estilo = getComputedStyle(document.querySelector(seletor)!);
+      return {
+        nome: estilo.animationName,
+        atraso: parseFloat(estilo.animationDelay),
+        duracao: parseFloat(estilo.animationDuration),
+      };
+    }),
+  );
+  expect(fases.every((fase) => fase.nome !== "none")).toBe(true);
+  expect(fases.map((fase) => fase.atraso)).toEqual(
+    [...fases.map((fase) => fase.atraso)].sort((a, b) => a - b),
+  );
+  expect(
+    Math.max(...fases.map((fase) => fase.atraso + fase.duracao)),
+  ).toBeLessThanOrEqual(1.1);
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(page).toHaveURL(/\/configuracoes$/);
+  await expect(
+    page.getByRole("heading", { name: "Do seu jeito" }),
+  ).toBeVisible();
+  await page.goBack();
+  await expect(menu).toHaveAttribute("data-entrada", "retorno");
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "espera",
+  );
+  expect(
+    await page
+      .locator(".marca-jogo")
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("none");
+  expect(
+    await page
+      .locator(".boas-vindas-menu")
+      .evaluate((el) => parseFloat(getComputedStyle(el).animationDuration)),
+  ).toBeLessThanOrEqual(0.35);
+  await page.reload();
+  await expect(menu).toHaveAttribute("data-entrada", "retorno");
+  const outra = await page.context().newPage();
+  try {
+    await preparar(outra, true);
+    await outra.goto("/");
+    await expect(outra.locator(".sala-jogo")).toHaveAttribute(
+      "data-entrada",
+      "primeira",
+    );
+  } finally {
+    await outra.close();
+  }
+});
+
+test("armazenamento indisponível não impede entrada, navegação ou retorno", async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
+    Object.defineProperty(window, "sessionStorage", {
+      get() {
+        throw new Error("Bloqueado para teste");
+      },
+    }),
+  );
+  await preparar(page, true);
+  await page.goto("/");
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "primeira",
+  );
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await page.getByRole("link", { name: "Voltar ao menu" }).click();
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "retorno",
+  );
+});
+
+test("redução cancela apresentação sem reproduzir saudação ao ser desabilitada", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const menu = page.locator(".sala-jogo");
+  await expect(menu).toHaveAttribute("data-entrada", "estatica");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(menu).toHaveAttribute("data-entrada", "estatica");
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "espera",
+  );
+  await page.reload();
+  await expect(menu).toHaveAttribute("data-entrada", "retorno");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(menu).toHaveAttribute("data-entrada", "estatica");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(menu).toHaveAttribute("data-entrada", "estatica");
+});
+
+test("entrada não bloqueia ações mesmo com falhas de arte e consulta", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.route(/\/mascote\/[^/]+\.(png|webp)(\?.*)?$/, (rota) =>
+    rota.abort(),
+  );
+  await page.route("**/api/partidas/em-aberto", (rota) =>
+    rota.fulfill({
+      status: 503,
+      json: {
+        erro: {
+          codigo: "DADOS_INDISPONIVEIS",
+          mensagem: "Não foi possível conferir a partida.",
+        },
+      },
+    }),
+  );
+  await page.goto("/");
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "primeira",
+  );
+  const solo = page.getByRole("link", { name: "Solo", exact: true });
+  await solo.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await page.goBack();
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "retorno",
+  );
+});
+
+test("sair da conta durante a entrada troca para retorno sem guardar a saudação anterior", async ({
+  page,
+}) => {
+  const estado = await preparar(page, true);
+  await page.route("**/api/autenticacao/sair", (rota) => {
+    estado.expirou = true;
+    return rota.fulfill({ status: 204 });
+  });
+  await page.goto("/");
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "primeira",
+  );
+  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await expect(page.locator(".sala-visitante")).toHaveAttribute(
+    "data-entrada",
+    "retorno",
+  );
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "espera",
+  );
+  await expect(page.locator(".sala-visitante")).toHaveAttribute(
+    "data-acontecimento",
+    "repouso",
+  );
+  await expect(
+    page.getByRole("link", { name: /Entrar com Google/ }),
+  ).toBeVisible();
+});
+
+test("quadros da apresentação preservam conteúdo visível e foco", async ({
+  page,
+}, info) => {
+  await page.addInitScript(() => {
+    const observador = new MutationObserver(() => {
+      const animacoes = document
+        .getAnimations()
+        .filter(
+          (animacao) =>
+            animacao instanceof CSSAnimation &&
+            animacao.animationName === "revelar-menu",
+        );
+      if (animacoes.length >= 4) {
+        animacoes.forEach((animacao) => {
+          animacao.pause();
+          animacao.currentTime = 0;
+        });
+        observador.disconnect();
+      }
+    });
+    observador.observe(document, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["data-entrada"],
+    });
+  });
+  await preparar(page, true);
+  await page.goto("/");
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-entrada",
+    "primeira",
+  );
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(Array.from(document.images, (imagem) => imagem.decode()));
+    await Promise.all(
+      Array.from(
+        document.querySelectorAll<SVGImageElement>(".aurelio-animado image"),
+        async (el) => {
+          const imagem = new Image();
+          imagem.src = el.href.baseVal;
+          await imagem.decode();
+        },
+      ),
+    );
+  });
+  for (const instante of [0, 150, 350, 650, 900]) {
+    await page.evaluate(
+      (tempo) =>
+        document
+          .getAnimations()
+          .filter(
+            (animacao) =>
+              animacao instanceof CSSAnimation &&
+              animacao.animationName === "revelar-menu",
+          )
+          .forEach((animacao) => (animacao.currentTime = tempo)),
+      instante,
+    );
+    await expect(
+      page.getByRole("heading", { name: "Bora decifrar?" }),
+    ).toBeFocused();
+    await expect(
+      page.getByRole("link", { name: "Solo", exact: true }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({
+      path: info.outputPath(`entrada-${instante}.png`),
+      fullPage: true,
+    });
+  }
 });

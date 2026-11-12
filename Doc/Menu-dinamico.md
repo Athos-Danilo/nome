@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-03 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-04 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -111,4 +111,9 @@ Letras com trajetórias distintas, até três brilhos intercalados e círculos e
 
 ### Ajuste de percepção e composição móvel — 12/11/2026
 
-Após revisão do responsável, o fundo passou a ter deslocamento mais perceptível (ciclo de 24 s, início em fase adiantada e maior amplitude/contraste), preservando pausas e redução. No celular, balão à esquerda do Aurélio, abaixo da apresentação, e altura dos cartões distribuída para reduzir o vão antes da navegação inferior. [Parâmetros e verificações da revisão](Revisoes/menu-dinamico-md03.md). Correção da MD-03; MD-04 continua pendente.
+Após revisão do responsável, o fundo passou a ter deslocamento mais perceptível (ciclo de 24 s, início em fase adiantada e maior amplitude/contraste), preservando pausas e redução. No celular, balão à esquerda do Aurélio, abaixo da apresentação, e altura dos cartões distribuída para reduzir o vão antes da navegação inferior. [Parâmetros e verificações da revisão](Revisoes/menu-dinamico-md03.md). Correção da MD-03 aprovada pelo responsável em 12/11/2026. A MD-04 está registrada abaixo.
+
+
+### Entrada MD-04 — concluída em 12/11/2026
+
+Primeira apresentação da sessão da aba em 860 ms: marca, boas-vindas, Aurélio e modos/convite. Retornos em 260 ms, sem repetir a saudação longa; recarga preserva a marcação visual, independente da conta e da demonstração. Redução de movimentos mantém apresentação estática e não dispara a entrada ao ser desativada. Controles e foco disponíveis desde o início. Sem alteração da arte, das poses ou do áudio. [Implementação, testes e limites](Revisoes/menu-dinamico-md04.md). Próximo incremento: repertório e alternância das falas, MD-05; aceite artístico do conjunto permanece na MD-10.

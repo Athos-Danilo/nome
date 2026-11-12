@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { CenarioMenu } from "./CenarioMenu";
+import { useEntradaMenu } from "./usar-entrada-menu";
+import "./entrada-menu.css";
 import { useAgendaMenu } from "./usar-agenda-menu";
 import { DURACOES } from "../mascote/reacoes";
 import { Link } from "react-router";
@@ -18,34 +20,57 @@ export function MenuInicial({
   aoExpirar: (erro: Error) => void;
 }) {
   const elemento = useRef<HTMLDivElement>(null);
-  const agenda = useAgendaMenu(elemento);
+  const contexto = conta?.jogador_id ?? "visitante";
+  const agenda = useAgendaMenu(elemento, contexto);
+  const entrada = useEntradaMenu(agenda.reduzida, contexto);
   const visitante = useQuery({
     queryKey: ["visitante", false],
     queryFn: identificarVisitante,
     enabled: !conta,
   });
   const utilizada = !conta && visitante.data?.demonstracao_utilizada;
-  const registradas = useRef(new Set<string>());
+  const registradas = useRef({ contexto, ids: new Set<string>() });
   const solicitar = agenda.solicitar;
   useEffect(() => {
-    if (agenda.pausada || (!conta && !visitante.isSuccess)) return;
-    const id = utilizada ? "convite-continuar" : "entrada-menu";
-    if (registradas.current.has(id)) return;
+    if (
+      entrada === "estatica" ||
+      agenda.pausada ||
+      (!conta && !visitante.isSuccess)
+    )
+      return;
+    const id =
+      entrada === "retorno"
+        ? "retorno-menu"
+        : utilizada
+          ? "convite-continuar"
+          : "entrada-menu";
+    if (registradas.current.contexto !== contexto)
+      registradas.current = { contexto, ids: new Set<string>() };
+    if (registradas.current.ids.has(id)) return;
     const reacao = utilizada ? "apresentacao" : "saudacao";
     if (
       solicitar({
         id,
         tipo: "entrada",
-        duracao: DURACOES[reacao],
+        duracao: entrada === "retorno" ? 260 : DURACOES[reacao],
         conteudo: reacao,
       })
     )
-      registradas.current.add(id);
-  }, [agenda.pausada, !!conta, visitante.isSuccess, utilizada, solicitar]);
+      registradas.current.ids.add(id);
+  }, [
+    agenda.pausada,
+    !!conta,
+    visitante.isSuccess,
+    utilizada,
+    solicitar,
+    entrada,
+    contexto,
+  ]);
   return (
     <div
       ref={elemento}
       className={conta ? "sala-jogo" : "sala-jogo sala-visitante"}
+      data-entrada={entrada}
       data-agenda={agenda.pausada ? "pausada" : "ativa"}
       data-acontecimento={agenda.ativa?.tipo ?? "repouso"}
       data-ausente={agenda.ausente}
@@ -70,10 +95,15 @@ export function MenuInicial({
         <div className="palco-menu">
           <CenarioMenu pausada={agenda.pausada} reduzida={agenda.reduzida} />
           <Aurelio
-            evento={{
-              id: utilizada ? "convite-continuar" : "entrada-menu",
-              tipo: utilizada ? "apresentacao" : "saudacao",
-            }}
+            key={`${contexto}:${entrada}`}
+            evento={
+              entrada === "primeira"
+                ? {
+                    id: utilizada ? "convite-continuar" : "entrada-menu",
+                    tipo: utilizada ? "apresentacao" : "saudacao",
+                  }
+                : undefined
+            }
             pausado={agenda.pausada}
             tamanho="grande"
           />
