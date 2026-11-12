@@ -137,12 +137,16 @@ export function MenuInicial({
             <Continuidade consulta={continuidade} aoExpirar={aoExpirar} />
             <div className="cartoes-modos">
               <CartaoModo
+                pausada={agenda.pausada}
+                reduzida={agenda.reduzida}
                 modo="solo"
                 destino="/jogar/individual/novo"
                 titulo="Solo"
                 descricao="Uma palavra. Cinco pistas. Você."
               />
               <CartaoModo
+                pausada={agenda.pausada}
+                reduzida={agenda.reduzida}
                 modo="galera"
                 destino="/jogar/galera/novo"
                 titulo="Galera"

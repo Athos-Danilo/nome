@@ -327,57 +327,6 @@ body {
   height: 135px;
   margin: 8px -5px;
 }
-.arte-cartao i {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  width: 58px;
-  height: 65px;
-  font:
-    800 38px Bricolage,
-    sans-serif;
-  background: #f5efd9;
-  border: 2px solid #444439;
-  border-radius: 14px;
-  box-shadow: 0 4px 0 #444439;
-  font-style: normal;
-  top: 25px;
-  left: 0;
-  transform: rotate(-16deg);
-}
-.arte-cartao i:nth-child(2) {
-  left: 43px;
-  top: 5px;
-  transform: rotate(3deg);
-}
-.arte-cartao i:nth-child(3) {
-  left: 85px;
-  top: 30px;
-  transform: rotate(20deg);
-  background: #444439;
-  color: #d4fe62;
-}
-.arte-cartao img {
-  position: absolute;
-  width: 76px;
-  height: 76px;
-  border: 2px solid #444439;
-  border-radius: 50%;
-  left: 0;
-  top: 20px;
-  transform: rotate(-14deg);
-  box-shadow: 0 4px 0 #444439;
-}
-.arte-cartao img:nth-child(2) {
-  left: 42px;
-  top: 0;
-  transform: rotate(0);
-}
-.arte-cartao img:nth-child(3) {
-  left: 83px;
-  top: 35px;
-  transform: rotate(15deg);
-}
 .rodape-cartao {
   display: flex;
   align-items: center;

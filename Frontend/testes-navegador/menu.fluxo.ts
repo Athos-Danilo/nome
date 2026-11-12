@@ -630,7 +630,7 @@ test.describe("inspeção do movimento ambiente", () => {
   test("sequência mantém texto e controles estáveis durante os ciclos", async ({
     browser,
   }, info) => {
-    test.setTimeout(30000);
+    test.setTimeout(60000);
     const contexto = await browser.newContext({
       viewport: info.project.use.viewport,
       isMobile: info.project.name === "celular",
@@ -682,8 +682,8 @@ test.describe("inspeção do movimento ambiente", () => {
           els.map((el) => getComputedStyle(el).animationDuration),
         );
       expect(new Set(duracoes).size).toBe(2);
-      for (let passo = 0; passo < 8; passo++) {
-        if (passo) await page.waitForTimeout(1500);
+      for (let passo = 0; passo < 12; passo++) {
+        if (passo) await page.waitForTimeout(3000);
         posicoes.add(
           await page
             .locator(".cenario-menu .orbita-a")
@@ -1404,5 +1404,222 @@ test("balão do tablet não cruza o corpo do Aurélio", async ({ page }, info) =
         ),
       ).toBe(true);
     }
+  }
+});
+
+test("cenas dos modos formam SOL e LUA e preservam links e dimensões", async ({
+  page,
+}, info) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const solo = page.getByRole("link", { name: "Solo", exact: true });
+  const galera = page.getByRole("link", { name: "Galera", exact: true });
+  await expect(page.locator(".cena-solo")).toHaveAttribute(
+    "data-cena",
+    "ativa",
+  );
+  await expect(page.locator(".cena-galera")).toHaveAttribute(
+    "data-cena",
+    "ativa",
+  );
+  await page.locator(".sala-jogo").evaluate(async (el) => {
+    await Promise.all(
+      el
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished),
+    );
+  });
+  const caixaSolo = await solo.boundingBox(),
+    caixaGalera = await galera.boundingBox();
+  for (const [tempo, classe, palavra] of [
+    [0, "face-misterio", "DI?"],
+    [7200, "face-sol", "SOL"],
+    [18000, "face-lua", "LUA"],
+  ] as const) {
+    await page.locator(".cena-solo").evaluate(
+      (el, tempo) =>
+        el.getAnimations({ subtree: true }).forEach((a) => {
+          a.pause();
+          a.currentTime = tempo;
+        }),
+      tempo,
+    );
+    const faces = page.locator(`.cena-solo .${classe}`);
+    expect((await faces.allTextContents()).join("")).toBe(palavra);
+    expect(
+      await faces.evaluateAll((els) =>
+        els.every((el) => Number(getComputedStyle(el).opacity) > 0.99),
+      ),
+    ).toBe(true);
+    await expect(solo).toHaveAccessibleName("Solo");
+    await expect(galera).toHaveAccessibleName("Galera");
+    expect(await solo.boundingBox()).toEqual(caixaSolo);
+    expect(await galera.boundingBox()).toEqual(caixaGalera);
+  }
+  if (info.project.name === "computador") await solo.click();
+  else await solo.tap();
+  await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await page.goBack();
+  await page.locator(".cena-galera").evaluate((el) =>
+    el.getAnimations({ subtree: true }).forEach((a) => {
+      a.pause();
+      a.currentTime = 15000;
+    }),
+  );
+  await galera.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/jogar\/galera\/novo$/);
+});
+
+test("cenas pausam com diálogo, ausência e fora da tela e ficam estáticas com redução", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const cenas = page.locator(".cena-modo");
+  await expect(cenas).toHaveCount(2);
+  await expect(cenas.first()).toHaveAttribute("data-cena", "ativa");
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(cenas.first()).toHaveAttribute("data-cena", "pausada");
+  const tempos = () =>
+    cenas
+      .first()
+      .evaluate((el) =>
+        el.getAnimations({ subtree: true }).map((a) => Number(a.currentTime)),
+      );
+  const antes = await tempos();
+  await page.waitForTimeout(150);
+  const depois = await tempos();
+  expect(depois.every((tempo, i) => Math.abs(tempo - antes[i]) < 2)).toBe(true);
+  await page.keyboard.press("Escape");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(cenas.last()).toHaveAttribute("data-cena", "pausada");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: false,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await page
+    .locator(".cartoes-modos")
+    .evaluate((el) => (el.style.transform = "translateY(-4000px)"));
+  await expect(cenas.first()).toHaveAttribute("data-cena", "pausada");
+  await page
+    .locator(".cartoes-modos")
+    .evaluate((el) => (el.style.transform = ""));
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(cenas.first()).toHaveAttribute("data-cena", "reduzida");
+  expect(
+    await cenas.evaluateAll((els) =>
+      els.every((el) => el.getAnimations({ subtree: true }).length === 0),
+    ),
+  ).toBe(true);
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(cenas.first()).toHaveAttribute("data-cena", "ativa");
+});
+
+test("avatares indisponíveis preservam a cena e visitante não recebe cartões", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.route(
+    /\/avatares\/(coruja_sabia|capivara_zen|aurelio_comemorando)\.webp$/,
+    (rota) => rota.abort(),
+  );
+  await page.goto("/");
+  await expect(
+    page.locator(".cena-galera .retrato-cena[data-falhou='true']"),
+  ).toHaveCount(3);
+  await expect(
+    page.getByRole("link", { name: "Galera", exact: true }),
+  ).toBeVisible();
+  await page.unroute("**/api/**");
+  await preparar(page);
+  await page.reload();
+  await expect(page.locator(".cena-modo")).toHaveCount(0);
+  await expect(
+    page.getByRole("link", { name: /Entrar com Google/ }),
+  ).toBeVisible();
+});
+
+test("faces e retratos não herdam rotações e posições da arte antiga", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const imagens = page.locator(".retrato-cena img");
+  await expect(imagens).toHaveCount(3);
+  const estilos = await imagens.evaluateAll((els) =>
+    els.map((el) => {
+      const e = getComputedStyle(el);
+      return { left: e.left, top: e.top, transform: e.transform };
+    }),
+  );
+  expect(
+    estilos.every(
+      (e) => e.left === "0px" && e.top === "0px" && e.transform === "none",
+    ),
+  ).toBe(true);
+  expect(
+    await page
+      .locator(".peca-solo .face-lua")
+      .evaluateAll((els) =>
+        els.every(
+          (el) =>
+            getComputedStyle(el).backgroundColor === "rgb(245, 239, 217)" &&
+            getComputedStyle(el).transform === "none",
+        ),
+      ),
+  ).toBe(true);
+});
+
+test("destaques da Galera preservam a leitura da descrição e do botão", async ({
+  page,
+}, info) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Galera", exact: true });
+  await expect(page.locator(".cena-galera")).toHaveAttribute(
+    "data-cena",
+    "ativa",
+  );
+  await page.locator(".sala-jogo").evaluate(async (el) => {
+    await Promise.all(
+      el
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished),
+    );
+  });
+  for (const [indice, tempo] of [
+    [0, 4500],
+    [1, 14500],
+    [2, 24500],
+  ]) {
+    await page.locator(".cena-galera").evaluate(
+      (el, tempo) =>
+        el.getAnimations({ subtree: true }).forEach((a) => {
+          a.pause();
+          a.currentTime = tempo;
+        }),
+      tempo,
+    );
+    const selo = await page.locator(".vez-ilustrada").nth(indice).boundingBox();
+    const descricao = await cartao.locator("p").boundingBox();
+    const botao = await cartao.locator(".rodape-cartao").boundingBox();
+    expect(selo!.y).toBeGreaterThan(descricao!.y + descricao!.height + 2);
+    expect(selo!.y + selo!.height).toBeLessThan(botao!.y - 2);
+    await page.screenshot({
+      path: info.outputPath(`destaque-${indice}.png`),
+      fullPage: true,
+    });
   }
 });

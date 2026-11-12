@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-05 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-06 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -122,3 +122,8 @@ Primeira apresentação da sessão da aba em 860 ms: marca, boas-vindas, Auréli
 ### Falas MD-05 — concluídas em 12/11/2026
 
 Repertório local de vinte falas distintas, adaptado a visitante, demonstração usada, conta e individual em aberto, com contexto geral enquanto a situação não é conhecida. Alternância de 10–15 segundos ativos, sem repetição imediata; transição de opacidade de 180 ms e altura reservada. Frase estável com redução de movimentos e pausas por ausência, visibilidade local, diálogo ou erro relevante. Mantidos arte/espera do Aurélio, foco e áudio existentes. [Registro editorial, TDD e limites](Revisoes/menu-dinamico-md05.md). Revisão artística do conjunto permanece na MD-10. Próximo incremento: cenas dos cartões Solo e Galera, MD-06.
+
+
+### Cenas MD-06 — concluídas em 12/11/2026
+
+Solo forma SOL/LUA em um ciclo de 24 s, com antecipação, leitura e volta ao mistério; Galera alterna três retratos em 30 s, com elevação, escala e selo ilustrativo. Composição externa e links permanecem estáveis; cenas pausam com o menu e fora da área visível, e redução mantém arte estática. Imagens indisponíveis recebem reserva visual. Sem consulta ao catálogo ou novo áudio. Três gravações de ciclos e nove capturas finais dos destaques foram inspecionadas. [TDD, parâmetros, verificações e limites](Revisoes/menu-dinamico-md06.md). Próximo incremento: respostas a mouse/toque/teclado, MD-07; aceite integrado permanece na MD-10.
