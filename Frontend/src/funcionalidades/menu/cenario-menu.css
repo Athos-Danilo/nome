@@ -1,0 +1,143 @@
+/* Camadas ambiente: o enquadramento fica fixo; somente a decoração se move. */
+.cenario-menu {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  --passo-ambiente: 1px;
+}
+.cenario-menu .bloco-orbita,
+.cenario-menu .brilho-menu {
+  animation-play-state: paused;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.cenario-menu[data-cenario="ativo"] .bloco-orbita,
+.cenario-menu[data-cenario="ativo"] .brilho-menu {
+  animation-play-state: running;
+}
+.cenario-menu .orbita-a {
+  animation-name: orbitar-letra-a;
+  animation-duration: 7.6s;
+}
+.cenario-menu .orbita-b {
+  animation-name: orbitar-letra-b;
+  animation-duration: 10.4s;
+  animation-delay: -2.1s;
+}
+.cenario-menu .brilho-menu {
+  animation-name: acentuar-brilho-menu;
+  animation-duration: 11.8s;
+}
+.cenario-menu .brilho-secundario {
+  left: -15px;
+  right: auto;
+  top: 188px;
+  font-size: 17px;
+  opacity: 0.65;
+  animation-duration: 16.6s;
+  animation-delay: -6.2s;
+}
+.cenario-menu .brilho-terciario {
+  right: -2px;
+  top: 207px;
+  font-size: 13px;
+  opacity: 0.65;
+  animation-duration: 14.2s;
+  animation-delay: -9.7s;
+}
+@keyframes orbitar-letra-a {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  30% {
+    translate: calc(var(--passo-ambiente) * -3) calc(var(--passo-ambiente) * -8);
+    rotate: -3deg;
+  }
+  65% {
+    translate: calc(var(--passo-ambiente) * 4) calc(var(--passo-ambiente) * -3);
+    rotate: 2deg;
+  }
+}
+@keyframes orbitar-letra-b {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  42% {
+    translate: calc(var(--passo-ambiente) * -6) calc(var(--passo-ambiente) * 8);
+    rotate: 4deg;
+  }
+  76% {
+    translate: calc(var(--passo-ambiente) * 2) calc(var(--passo-ambiente) * -4);
+    rotate: -2deg;
+  }
+}
+@keyframes acentuar-brilho-menu {
+  0%,
+  68%,
+  100% {
+    rotate: 0deg;
+    scale: 1;
+  }
+  78% {
+    rotate: 22deg;
+    scale: 1.15;
+  }
+  90% {
+    rotate: -4deg;
+    scale: 0.94;
+  }
+}
+.fundo-menu-ambiente {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.moldura-jogo:has(.fundo-menu-ambiente)::before {
+  background: none;
+}
+.circulos-menu {
+  position: absolute;
+  inset: -20px;
+  opacity: 0.065;
+  background: var(--padrao-circulos);
+  background-size: var(--tamanho-circulos);
+  background-position: 20px 20px;
+  animation: derivar-circulos-menu 48s ease-in-out infinite paused;
+}
+.moldura-jogo:has(.cenario-menu[data-cenario="ativo"]) .circulos-menu {
+  animation-play-state: running;
+}
+@keyframes derivar-circulos-menu {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  35% {
+    transform: translate(-10px, 8px);
+  }
+  70% {
+    transform: translate(9px, -7px);
+  }
+}
+@media (max-width: 650px) {
+  .cenario-menu {
+    --passo-ambiente: 0.5px;
+  }
+  .cenario-menu .brilho-secundario,
+  .cenario-menu .brilho-terciario {
+    display: none;
+  }
+}
+.cenario-menu[data-cenario="reduzido"] .bloco-orbita,
+.cenario-menu[data-cenario="reduzido"] .brilho-menu,
+.moldura-jogo:has(.cenario-menu[data-cenario="reduzido"]) .circulos-menu {
+  animation: none;
+}

@@ -511,3 +511,199 @@ test("pausa do menu preserva o restante da saudação", async ({ page }) => {
   await page.clock.runFor(1000);
   await expect(mascote).toHaveAttribute("data-reacao", "espera");
 });
+
+test("cenário ambiente anima sem capturar controles e pausa com o menu e fora da tela", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const cenario = page.locator(".cenario-menu");
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await expect(cenario).toHaveAttribute("aria-hidden", "true");
+  await expect(cenario.locator(".bloco-orbita")).toHaveCount(2);
+  await expect(cenario.locator(".brilho-menu")).toHaveCount(3);
+  expect(
+    await cenario.evaluate((el) => getComputedStyle(el).pointerEvents),
+  ).toBe("none");
+  expect(await cenario.locator("button,a,input,[tabindex]").count()).toBe(0);
+  const tempos = () =>
+    page
+      .locator(".circulos-menu")
+      .evaluate((el) => el.getAnimations().map((a) => Number(a.currentTime)));
+  const antes = await tempos();
+  await expect
+    .poll(async () => (await tempos())[0])
+    .toBeGreaterThan(antes[0] + 50);
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(cenario).toHaveAttribute("data-cenario", "pausado");
+  await expect
+    .poll(() =>
+      page
+        .locator(".circulos-menu")
+        .evaluate((el) => el.getAnimations()[0]?.playState),
+    )
+    .toBe("paused");
+  const parado = await tempos();
+  await page.waitForTimeout(180);
+  expect(Math.abs((await tempos())[0] - parado[0])).toBeLessThan(2);
+  await page.keyboard.press("Escape");
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(cenario).toHaveAttribute("data-cenario", "pausado");
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: false,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await page
+    .locator(".palco-menu")
+    .evaluate((el) => (el.style.transform = "translateY(-3000px)"));
+  await expect(cenario).toHaveAttribute("data-cenario", "pausado");
+  await page.locator(".palco-menu").evaluate((el) => (el.style.transform = ""));
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await page.getByRole("link", { name: "Configurações", exact: true }).click();
+  await expect(cenario).toHaveCount(0);
+  await expect(page.locator(".fundo-menu-ambiente")).toHaveCount(0);
+});
+
+test("cenário respeita as oito aparências e a redução sem deslocar textos e links", async ({
+  page,
+}, info) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const cenario = page.locator(".cenario-menu");
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(cenario).toHaveAttribute("data-cenario", "reduzido");
+  for (const paleta of ["original", "azul", "roxa", "grafite"]) {
+    for (const tema of ["claro", "escuro"]) {
+      await page.evaluate(
+        ({ paleta, tema }) => {
+          document.documentElement.dataset.paleta = paleta;
+          document.documentElement.dataset.tema = tema;
+        },
+        { paleta, tema },
+      );
+      expect(
+        await cenario.evaluate(
+          (el) => el.getAnimations({ subtree: true }).length,
+        ),
+      ).toBe(0);
+      expect(
+        await page
+          .locator(".circulos-menu")
+          .evaluate((el) => el.getAnimations().length),
+      ).toBe(0);
+      await expect(
+        page.getByRole("link", { name: "Solo", exact: true }),
+      ).toBeVisible();
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await page.screenshot({
+        path: info.outputPath(`cenario-${paleta}-${tema}.png`),
+        fullPage: true,
+        animations: "disabled",
+      });
+    }
+  }
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(cenario).toHaveAttribute("data-cenario", "ativo");
+  await page.evaluate(
+    () => (document.documentElement.dataset.movimentos = "reduzidos"),
+  );
+  await expect(cenario).toHaveAttribute("data-cenario", "reduzido");
+});
+
+test.describe("inspeção do movimento ambiente", () => {
+  test("sequência mantém texto e controles estáveis durante os ciclos", async ({
+    browser,
+  }, info) => {
+    test.setTimeout(30000);
+    const contexto = await browser.newContext({
+      viewport: info.project.use.viewport,
+      isMobile: info.project.name === "celular",
+      hasTouch: info.project.name !== "computador",
+      recordVideo: { dir: info.outputPath("video") },
+    });
+    const page = await contexto.newPage();
+    try {
+      await preparar(page, true);
+      await page.goto("/");
+      await expect(page.locator(".cenario-menu")).toHaveAttribute(
+        "data-cenario",
+        "ativo",
+      );
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await Promise.all(
+          Array.from(document.images, (imagem) => imagem.decode()),
+        );
+        await Promise.all(
+          Array.from(
+            document.querySelectorAll<SVGImageElement>(
+              ".aurelio-animado image",
+            ),
+            async (el) => {
+              const imagem = new Image();
+              imagem.src = el.href.baseVal;
+              await imagem.decode();
+            },
+          ),
+        );
+      });
+      await page.waitForTimeout(650);
+      const titulo = page.getByRole("heading", { name: "Bora decifrar?" });
+      const solo = page.getByRole("link", { name: "Solo", exact: true });
+      const baseTitulo = await titulo.boundingBox();
+      const baseSolo = await solo.boundingBox();
+      const posicoes = new Set<string>();
+      const duracoes = await page
+        .locator(".cenario-menu .bloco-orbita")
+        .evaluateAll((els) =>
+          els.map((el) => getComputedStyle(el).animationDuration),
+        );
+      expect(new Set(duracoes).size).toBe(2);
+      for (let passo = 0; passo < 8; passo++) {
+        if (passo) await page.waitForTimeout(1500);
+        posicoes.add(
+          await page
+            .locator(".cenario-menu .orbita-a")
+            .evaluate((el) => getComputedStyle(el).translate),
+        );
+        const atualTitulo = await titulo.boundingBox();
+        const atualSolo = await solo.boundingBox();
+        expect(atualTitulo?.x).toBeCloseTo(baseTitulo!.x, 0);
+        expect(atualTitulo?.y).toBeCloseTo(baseTitulo!.y, 0);
+        expect(atualSolo?.x).toBeCloseTo(baseSolo!.x, 0);
+        expect(atualSolo?.y).toBeCloseTo(baseSolo!.y, 0);
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        ).toBe(true);
+        await page.screenshot({
+          path: info.outputPath(`sequencia-${passo}.png`),
+          fullPage: true,
+        });
+      }
+      expect(posicoes.size).toBeGreaterThan(2);
+      await solo.focus();
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+    } finally {
+      await contexto.close();
+    }
+  });
+});

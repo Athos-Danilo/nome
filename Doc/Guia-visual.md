@@ -140,3 +140,8 @@ Verificação concluída: 27 testes do menu aprovados nos três tamanhos de tela
 ## Direção do menu dinâmico — 11/11/2026
 
 Evoluir a composição atual por movimento em camadas, com descanso e acontecimentos em ritmos diferentes. Manter paletas, marca, tipografia, ícones e fidelidade do Aurélio; cenas internas dos cartões e respostas de ponteiro não devem disputar transformações. Falas e surpresas se coordenam para preservar a hierarquia de leitura. [Especificação e critérios de revisão](Menu-dinamico.md). A aprovação é das ideias, não de uma execução visual ainda inexistente.
+
+
+### Movimento ambiente do menu — MD-03, 11/11/2026
+
+Preservado o padrão de círculos da composição anterior, agora com deriva lenta e discreta. A e Ç flutuam com ciclos diferentes; três estrelas alternam pequenos giros e escala, com descanso. Em telas de até 650 px, a amplitude cai pela metade e os brilhos secundários são ocultos. A cena respeita redução de movimentos, ausência, diálogos e visibilidade local; não modifica a arte do Aurélio nem os cartões. [Parâmetros e inspeção](Revisoes/menu-dinamico-md03.md). A avaliação artística conjunta do menu completo permanece no marco MD-10.

@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 e MD-02 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-03 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -102,3 +102,8 @@ O estado anterior às novas animações foi registrado em quatro contextos e tr�
 ### Coordenação MD-02 — concluída em 11/11/2026
 
 Agenda local de tempo ativo e prioridades integrada à entrada existente; pausa por ausência, redução de movimentos, diálogo ou alerta. A saudação mantém seu tempo restante após pausa. Infraestrutura de oportunidades, escolha contextual e deduplicação preparada, com candidatos visuais ainda reservados às fases próprias. Dez novos testes de unidade; total de 98 unitários e 190 cenários de navegador aprovados, dois ignorados previstos, tipos/compilação/formatação aprovados. As doze referências neutras continuam idênticas à MD-01. [Decisões, TDD, contratos e limites](Revisoes/menu-dinamico-md02.md). Próximo incremento: cenário ambiente na MD-03.
+
+
+### Cenário MD-03 — concluído em 11/11/2026
+
+Letras com trajetórias distintas, até três brilhos intercalados e círculos em movimento lento, mantendo o padrão do fundo aprovado. CSS controla os ciclos; visibilidade local e agenda suspendem a cena, e redução de movimentos mantém a composição estática. Em celular, amplitude menor e apenas a estrela principal. Camadas decorativas não capturam interação nem foco. Verificados 98 testes de unidade e 88 cenários de navegador, compilação e formatação; três sequências gravadas e oito aparências inspecionadas em cada tamanho. [Implementação, TDD, parâmetros e limites](Revisoes/menu-dinamico-md03.md). O aceite artístico do conjunto continua previsto na MD-10; próximo incremento é a entrada encenada, MD-04.

@@ -1,3 +1,4 @@
+import { FundoMenu } from "../funcionalidades/menu/CenarioMenu";
 import { Icone, type NomeIcone } from "../componentes/Icone";
 import {
   ProvedorAudio,
@@ -220,6 +221,7 @@ function Jogo() {
       ].includes(caminho)}
     >
       <div className="universo-perfil moldura-jogo">
+        {caminho === "/" && <FundoMenu />}
         <a href="#conteudo-jogo" className="pular-conteudo">
           Pular para o conteúdo
         </a>

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { CenarioMenu } from "./CenarioMenu";
 import { useAgendaMenu } from "./usar-agenda-menu";
 import { DURACOES } from "../mascote/reacoes";
 import { Link } from "react-router";
@@ -67,15 +68,7 @@ export function MenuInicial({
           <em>O próximo “ah, já sei!” é seu.</em>
         </p>
         <div className="palco-menu">
-          <span className="bloco-orbita orbita-a" aria-hidden="true">
-            A
-          </span>
-          <span className="bloco-orbita orbita-b" aria-hidden="true">
-            Ç
-          </span>
-          <span className="brilho-menu" aria-hidden="true">
-            ✦
-          </span>
+          <CenarioMenu pausada={agenda.pausada} reduzida={agenda.reduzida} />
           <Aurelio
             evento={{
               id: utilizada ? "convite-continuar" : "entrada-menu",

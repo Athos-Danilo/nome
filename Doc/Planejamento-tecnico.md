@@ -291,3 +291,8 @@ Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com Reac
 ### Menu MD-02 — coordenação temporal
 
 Política de prioridade/seleção pura, agenda com tempo e sorteio injetáveis e adaptação React/navegador separadas. Uma agenda por menu registra a entrada protegida, limita interações pendentes e suspende por ausência, redução de movimentos, diálogo ou alerta do menu. A conclusão de reação do Aurélio mantém tempo restante quando recebe pausa. A montagem e a linha de tempo de poses aprovadas permanecem as mesmas. Candidatos automáticos ainda não são conectados à interface; falas, cenas e surpresas entram nas fases próprias. [Contratos, TDD e verificações](Revisoes/menu-dinamico-md02.md).
+
+
+### Menu MD-03 — cenário ambiente
+
+Componentes locais `CenarioMenu` e `FundoMenu` com animações CSS, pausa por agenda e visibilidade local (`useInView` existente) e composição estática na redução de movimentos. O recorte afeta apenas a textura de fundo; títulos, links, foco e sombras da moldura permanecem livres. Padrão compartilhado de círculos extraído em variáveis CSS sem novo recurso de imagem. Sem dependência, áudio, backend ou migração adicional. [Parâmetros, TDD e verificação da MD-03](Revisoes/menu-dinamico-md03.md).

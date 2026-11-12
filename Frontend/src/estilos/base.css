@@ -30,6 +30,20 @@
   --amarelo: #e5e37d;
   --decoracao: #8b8669;
   --foco: #444439;
+  --padrao-circulos:
+    radial-gradient(
+      circle at 20% 25%,
+      transparent 0 95px,
+      var(--decoracao) 96px 97px,
+      transparent 98px
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      transparent 0 160px,
+      var(--decoracao) 161px 162px,
+      transparent 163px
+    );
+  --tamanho-circulos: 520px 490px;
   color: var(--texto);
   background: var(--fundo);
 }
@@ -158,20 +172,8 @@ small,
   inset: 0;
   opacity: 0.16;
   pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 20% 25%,
-      transparent 0 95px,
-      var(--decoracao) 96px 97px,
-      transparent 98px
-    ),
-    radial-gradient(
-      circle at 80% 60%,
-      transparent 0 160px,
-      var(--decoracao) 161px 162px,
-      transparent 163px
-    );
-  background-size: 520px 490px;
+  background: var(--padrao-circulos);
+  background-size: var(--tamanho-circulos);
 }
 .cabecalho-jogo {
   max-width: 1240px;
