@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-07 concluídas; MD-09 em revisão antecipada; MD-08 e MD-10 pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-08 concluídas; MD-09 em revisão antecipada; MD-10 pendente.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -58,7 +58,7 @@ Ao voltar de outra tela, usar entrada simplificada, aproximadamente 200–350 ms
 
 Entre períodos de espera, Aurélio pode olhar para um cartão, ajeitar a gravata ou acompanhar uma letra flutuando. Cadência inicial: oportunidade a cada 20–35 segundos ativos, sem encadear várias surpresas. As atuações precisam variar em intenção e ter descanso, preservando o PNG aprovado e a montagem por partes.
 
-Clicar/tocar no mascote ou ativar seu controle com Enter/Espaço provoca uma reação especial curta. Oferecer nome acessível, foco visível e alternativa para quem não usa mouse, sem aninhar controles. Não repetir a surpresa a cada movimento do ponteiro nem enfileirar cliques ilimitados. Um evento do usuário tem prioridade sobre a espera; saudação ou atuação em andamento não deve ser cortada abruptamente por um evento decorativo.
+Clicar/tocar no mascote ou ativar seu controle com Enter/Espaço provoca uma reação especial curta. Oferecer nome acessível, foco visível e alternativa para quem não usa mouse, sem aninhar controles. Não repetir a surpresa a cada movimento do ponteiro nem enfileirar cliques ilimitados. Um evento do usuário tem prioridade sobre a espera. Na integração MD-08, um único pedido manual aguarda a saudação ou surpresa atual terminar, com confirmação textual imediata, para preservar a continuidade do gesto. Pedidos adicionais são ignorados. Eventos decorativos não cortam uma atuação em andamento.
 
 As novas poses devem preservar mãos, braços, pernas, sapatos, máscara dos olhos e ligação das articulações já aprovadas. Ampliar as regressões das poses extremas quando necessário. Novas atuações exigem revisão artística do responsável; aprovação desta especificação não aprova antecipadamente a execução visual.
 
@@ -141,3 +141,10 @@ A pedido do responsável, o repertório decorativo passou de duas para dez palav
 ### Revisão antecipada MD-09 — 12/11/2026
 
 O responsável pediu adiantar a revisão do conjunto antes da MD-08. A verificação cobre o menu entregue até a MD-07, com as dez palavras do Solo: observação real ampliada para cinco minutos, navegação/ausência repetidas, regressões e comparação exploratória com a versão anterior às melhorias. [Método, resultados e limites](Revisoes/menu-dinamico-md09.md). A revisão das novas surpresas depende de sua implementação e aceite; a MD-09 integral e o aceite MD-10 permanecem pendentes.
+
+
+### Surpresas MD-08 — concluída, 12/11/2026
+
+Cinco atuações novas sobre a montagem aprovada: olhar para Solo/Galera (com direção medida conforme o layout), ajeitar a gravata com a mesma luva articulada, seguir uma letra e responder ao toque com salto/piscadela. Visitantes recebem somente as duas surpresas compatíveis com seu menu. Botão nativo no mascote responde a mouse, toque, Enter e Espaço; movimentos reduzidos oferecem texto sem animação. Mantidos foco, pausas, áudio centralizado e regras de jogo.
+
+A agenda agora registra falas e surpresas independentemente. Após uma atuação, há descanso antes de outra fala/surpresa; a prioridade manual é preservada por um único pedido pendente, sem cortar um gesto no meio. As cinco opções estão em `/laboratorio/aurelio`, no grupo Surpresas do menu. [Fichas, integração, TDD e verificações](Revisoes/menu-dinamico-md08.md). As cinco atuações foram aprovadas expressamente pelo responsável em 12/11/2026, concluindo a MD-08. A revisão integrada MD-09 e o aceite MD-10 permanecem pendentes.

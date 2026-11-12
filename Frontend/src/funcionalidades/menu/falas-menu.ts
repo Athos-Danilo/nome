@@ -6,6 +6,16 @@ const fala = (id: string, texto: string, destaque: string): FalaMenu => ({
   texto,
   destaque,
 });
+export const FALA_TOQUE = fala(
+  "resposta-toque",
+  "Opa, você me achou!",
+  "Bora decifrar?",
+);
+export const FALA_PEDIDO = fala(
+  "pedido-toque",
+  "Já te vi!",
+  "Só um instantinho.",
+);
 const GERAIS = [
   fala("geral-curiosidade", "Siga a curiosidade.", "Ela abre caminhos!"),
   fala("geral-descoberta", "Uma pista de cada vez.", "Uma nova descoberta!"),

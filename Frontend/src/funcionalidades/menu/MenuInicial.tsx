@@ -1,4 +1,4 @@
-import { BalaoMenu } from "./BalaoMenu";
+import { AnfitriaoMenu } from "./AnfitriaoMenu";
 import { contextoDasFalas } from "./falas-menu";
 import type { UseQueryResult } from "@tanstack/react-query";
 import type { PartidaEmAberto } from "./api";
@@ -14,7 +14,6 @@ import { CartaoModo } from "../../componentes/CartaoModo";
 import { SituacaoDemonstracao } from "../demonstracao/SituacaoDemonstracao";
 import { consultarPartidaEmAberto } from "./api";
 import { ErroDaApi, type Sessao } from "../perfil/api";
-import { Aurelio } from "../mascote/Aurelio";
 import { identificarVisitante } from "../demonstracao/api";
 export function MenuInicial({
   conta,
@@ -24,6 +23,7 @@ export function MenuInicial({
   aoExpirar: (erro: Error) => void;
 }) {
   const elemento = useRef<HTMLDivElement>(null);
+  const palco = useRef<HTMLDivElement>(null);
   const contexto = conta?.jogador_id ?? "visitante";
   const visitante = useQuery({
     queryKey: ["visitante", false],
@@ -88,6 +88,11 @@ export function MenuInicial({
       data-entrada={entrada}
       data-agenda={agenda.pausada ? "pausada" : "ativa"}
       data-acontecimento={agenda.ativa?.tipo ?? "repouso"}
+      data-gesto={
+        agenda.ativa?.tipo === "surpresa" || agenda.ativa?.tipo === "interacao"
+          ? agenda.ativa.conteudo
+          : undefined
+      }
       data-ausente={agenda.ausente}
       data-reduzida={agenda.reduzida}
     >
@@ -107,10 +112,10 @@ export function MenuInicial({
           <br />
           <em>O próximo “ah, já sei!” é seu.</em>
         </p>
-        <div className="palco-menu">
+        <div className="palco-menu" ref={palco}>
           <CenarioMenu pausada={agenda.pausada} reduzida={agenda.reduzida} />
-          <Aurelio
-            key={`${contexto}:${entrada}`}
+          <AnfitriaoMenu
+            key={contexto}
             evento={
               entrada === "primeira"
                 ? {
@@ -119,14 +124,10 @@ export function MenuInicial({
                   }
                 : undefined
             }
-            pausado={agenda.pausada}
-            tamanho="grande"
-          />
-          <BalaoMenu
-            key={`${contexto}:${contextoFalas}`}
+            agenda={agenda}
+            conta={!!conta}
+            palco={palco}
             contexto={contextoFalas}
-            ativa={agenda.ativa}
-            configurar={agenda.configurar}
           />
         </div>
       </section>

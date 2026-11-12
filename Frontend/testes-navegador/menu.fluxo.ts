@@ -202,6 +202,192 @@ async function preparar(
   return estado;
 }
 
+test("MD-08 toque preserva saudação, não enfileira repetições e oferece resposta reduzida", async ({
+  page,
+}) => {
+  test.setTimeout(45000);
+  await preparar(page, true);
+  await page.clock.install();
+  await page.goto("/");
+  const botao = page.getByRole("button", {
+    name: "Conversar com Aurélio",
+    exact: true,
+  });
+  const mascote = page.locator(".aurelio-animado");
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await botao.click();
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await expect(botao).toHaveAttribute("aria-disabled", "true");
+  await avancarFalas(page, 5600);
+  await expect(mascote).toHaveAttribute("data-reacao", "reagir_toque");
+  const evento = await mascote.getAttribute("data-evento");
+  await botao.evaluate((el) => (el as HTMLButtonElement).click());
+  await expect(mascote).toHaveAttribute("data-evento", evento!);
+  await page.clock.runFor(200);
+  const instanteAntes = await mascote.locator("svg").getAttribute("data-tempo");
+  expect(Number(instanteAntes)).toBeGreaterThan(0);
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(mascote).toHaveAttribute("data-estatico", "true");
+  const instantePausado = await mascote
+    .locator("svg")
+    .getAttribute("data-tempo");
+  expect(Number(instantePausado)).toBeGreaterThanOrEqual(Number(instanteAntes));
+  await avancarFalas(page, 60000);
+  await expect(mascote.locator("svg")).toHaveAttribute(
+    "data-tempo",
+    instantePausado!,
+  );
+  await expect(mascote).toHaveAttribute("data-reacao", "reagir_toque");
+  await page.keyboard.press("Escape");
+  await avancarFalas(page, 5000);
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(botao).toHaveAttribute("aria-disabled", "false");
+  await botao.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".balao-menu .fala-atual")).toContainText(
+    "você me achou",
+  );
+  await expect(mascote).toHaveAttribute("data-estatico", "true");
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await expect(botao).toBeFocused();
+});
+
+test("MD-08 surpresa automática respeita contexto, pausa e não produz áudio recorrente", async ({
+  page,
+}) => {
+  test.setTimeout(45000);
+  await page.addInitScript(() => {
+    Math.random = () => 0.25;
+  });
+  await preparar(page, true);
+  await page.clock.install();
+  const audios: string[] = [];
+  page.on("request", (r) => {
+    if (/\.(mp3|ogg|wav)(\?|$)/.test(r.url())) audios.push(r.url());
+  });
+  await page.goto("/");
+  await expect(
+    page.getByRole("button", { name: "Conversar com Aurélio", exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-estatico",
+    "false",
+  );
+  // Passos menores evitam coalescer fala e surpresa em um único salto artificial.
+  await page.clock.runFor(100);
+  for (let restante = 26000; restante > 0; restante -= 250)
+    await page.clock.fastForward(250);
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-acontecimento",
+    "surpresa",
+  );
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "olhar_galera",
+  );
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-agenda",
+    "pausada",
+  );
+  await avancarFalas(page, 60000);
+  await expect(page.locator(".aurelio-animado")).toHaveAttribute(
+    "data-reacao",
+    "olhar_galera",
+  );
+  expect(audios).toEqual([]);
+});
+
+test("MD-08 um toque aguarda a surpresa e Enter/Espaço continuam nativos", async ({
+  page,
+}, info) => {
+  test.setTimeout(45000);
+  await preparar(page, true);
+  await page.addInitScript(() => {
+    Math.random = () => 0.25;
+  });
+  await page.clock.install();
+  await page.goto("/");
+  const mascote = page.locator(".aurelio-animado");
+  const botao = page.getByRole("button", {
+    name: "Conversar com Aurélio",
+    exact: true,
+  });
+  await expect(mascote).toHaveAttribute("data-estatico", "false");
+  await page.clock.runFor(100);
+  for (let restante = 26000; restante > 0; restante -= 250)
+    await page.clock.fastForward(250);
+  await expect(mascote).toHaveAttribute("data-reacao", "olhar_galera");
+  const anterior = await mascote.getAttribute("data-evento");
+  if (info.project.name === "computador") await botao.click();
+  else await botao.tap();
+  await expect(mascote).toHaveAttribute("data-evento", anterior!);
+  await expect(botao).toHaveAttribute("aria-disabled", "true");
+  await expect(page.locator(".balao-menu .fala-atual")).toContainText(
+    "Já te vi",
+  );
+  await avancarFalas(page, 3000);
+  await expect(mascote).toHaveAttribute("data-reacao", "reagir_toque");
+  await avancarFalas(page, 4000);
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await botao.focus();
+  expect(await botao.evaluate((el) => getComputedStyle(el).outlineWidth)).toBe(
+    "3px",
+  );
+  await page.keyboard.press("Space");
+  await expect(mascote).toHaveAttribute("data-reacao", "reagir_toque");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await expect(botao).toHaveAttribute("aria-disabled", "false");
+  await expect(botao).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".balao-menu .fala-atual")).toContainText(
+    "você me achou",
+  );
+});
+
+test("MD-08 visitante não recebe olhar para modos bloqueados e surpresa some fora de vista", async ({
+  page,
+}) => {
+  test.setTimeout(45000);
+  await preparar(page);
+  await page.addInitScript(() => {
+    Math.random = () => 0.25;
+  });
+  await page.clock.install();
+  await page.goto("/");
+  const mascote = page.locator(".aurelio-animado");
+  await expect(page.locator(".balao-menu")).toHaveAttribute(
+    "data-contexto",
+    "visitante",
+  );
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-acontecimento",
+    "entrada",
+  );
+  await expect(mascote).toHaveAttribute("data-estatico", "false");
+  await page.clock.runFor(100);
+  for (let restante = 26000; restante > 0; restante -= 250)
+    await page.clock.fastForward(250);
+  await expect(mascote).toHaveAttribute("data-reacao", "ajeitar_gravata");
+  await expect(page.locator(".cartao-modo")).toHaveCount(0);
+  await mascote.evaluate((el) => (el.style.transform = "translateY(-3000px)"));
+  await expect(mascote).toHaveAttribute("data-estatico", "true");
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await avancarFalas(page, 60000);
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+  await mascote.evaluate((el) => (el.style.transform = ""));
+  await expect(mascote).toHaveAttribute("data-estatico", "false");
+  await expect(mascote).toHaveAttribute("data-reacao", "espera");
+});
+
 test("MD-09 alterna navegação, diálogo e ausência sem erro atrasado nem efeito de jogo", async ({
   page,
 }) => {
@@ -1293,6 +1479,7 @@ for (const contexto of [
   test(`falas contextuais: ${contexto}, sem repetição ou mudança de geometria`, async ({
     page,
   }) => {
+    test.setTimeout(45000);
     const logado = contexto === "conta" || contexto === "continuidade";
     const estado = await preparar(
       page,
@@ -1331,7 +1518,15 @@ for (const contexto of [
       }).observe(el, { attributes: true, attributeFilter: ["data-fala"] });
     });
     for (let i = 0; i < 3; i++) {
-      await avancarFalas(page, 15000);
+      // Uma atuação protegida e seu descanso adiam a fala; esperar o acontecimento,
+      // mantendo o limite, a quantidade de trocas e as verificações de geometria.
+      for (let decorrido = 0; decorrido < 45000; decorrido += 250) {
+        await page.clock.fastForward(250);
+        const quantidade = JSON.parse(
+          (await balao.getAttribute("data-historico"))!,
+        ).length;
+        if (quantidade > i + 1) break;
+      }
       const historico: string[] = JSON.parse(
         (await balao.getAttribute("data-historico"))!,
       );
@@ -1497,6 +1692,16 @@ test("observação real de cinco minutos do conjunto sem repetição, deslocamen
       el.setAttribute("data-observacao", JSON.stringify(itens));
     }).observe(el, { attributes: true, attributeFilter: ["data-fala"] });
   });
+  await page.locator(".sala-jogo").evaluate((el) => {
+    el.setAttribute("data-observacao-gestos", "[]");
+    new MutationObserver(() => {
+      const gesto = el.getAttribute("data-gesto");
+      if (!gesto) return;
+      const itens = JSON.parse(el.getAttribute("data-observacao-gestos")!);
+      itens.push({ gesto, instante: performance.now() });
+      el.setAttribute("data-observacao-gestos", JSON.stringify(itens));
+    }).observe(el, { attributes: true, attributeFilter: ["data-gesto"] });
+  });
   const audios: string[] = [];
   page.on("request", (pedido) => {
     if (/\.(mp3|ogg|wav)(\?|$)/.test(pedido.url())) audios.push(pedido.url());
@@ -1554,16 +1759,38 @@ test("observação real de cinco minutos do conjunto sem repetição, deslocamen
   const itens: { id: string; texto: string; instante: number }[] = JSON.parse(
     (await balao.getAttribute("data-observacao"))!,
   );
-  expect(itens.length).toBeGreaterThanOrEqual(19);
+  expect(itens.length).toBeGreaterThanOrEqual(10);
   expect(itens.slice(1).every((item, i) => item.id !== itens[i].id)).toBe(true);
   for (let i = 1; i < itens.length; i++) {
     const intervalo = itens[i].instante - itens[i - 1].instante;
     expect(intervalo).toBeGreaterThanOrEqual(9900);
-    expect(intervalo).toBeLessThan(15500);
+    // Gestos finitos e o descanso adiam a próxima fala; a unidade cobre os limites exatos.
+    expect(intervalo).toBeLessThan(45000);
   }
   expect(audios).toEqual([]);
   expect(new Set(amostras.map((item) => item.palavra)).size).toBeGreaterThan(2);
-  expect(amostras.every((item) => item.reacao === "espera")).toBe(true);
+  const permitidas = [
+    "espera",
+    "olhar_solo",
+    "olhar_galera",
+    "ajeitar_gravata",
+    "seguir_letra",
+  ];
+  expect(amostras.every((item) => permitidas.includes(item.reacao ?? ""))).toBe(
+    true,
+  );
+  const gestos: { gesto: string; instante: number }[] = JSON.parse(
+    (await page.locator(".sala-jogo").getAttribute("data-observacao-gestos"))!,
+  );
+  expect(gestos.length).toBeGreaterThanOrEqual(3);
+  expect(
+    gestos.slice(1).every((item, i) => item.gesto !== gestos[i].gesto),
+  ).toBe(true);
+  await info.attach("gestos-observados", {
+    body: JSON.stringify(gestos, null, 2),
+    contentType: "application/json",
+  });
+  console.log(JSON.stringify({ gestos }));
   await info.attach("conjunto-observado", {
     body: JSON.stringify(amostras, null, 2),
     contentType: "application/json",

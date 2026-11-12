@@ -1,5 +1,7 @@
 # Aurélio — fase 36 concluída
 
+**Evolução MD-08, 12/11/2026:** cinco atuações próprias do menu foram implementadas sobre a mesma arte: olhar para Solo, olhar para Galera, ajeitar a gravata, seguir uma letra e reagir ao toque. Foram verificadas e **as cinco receberam aceite artístico explícito em 12/11/2026**, concluindo a MD-08. A aprovação histórica das nove reações da fase 36 permanece válida e não se estende automaticamente aos novos gestos. [Fichas, camadas, pausas e integração](Revisoes/menu-dinamico-md08.md).
+
 **Estado em 2026-10-30:** a primeira saudação por recortes, após a correção dos encaixes e olhos, foi **aprovada e considerada concluída pelo responsável**. Em seguida, o responsável autorizou produzir todas as demais animações. As oito novas atuações receberam aprovação visual do responsável, concluindo a fase 36. A versão aprovada do repertório é a do commit `8684d54`. A primeira interpretação vetorial e suas nove atuações continuam reprovadas por diferença na aparência, rigidez e repetição.
 
 ## Direção da revisão 02

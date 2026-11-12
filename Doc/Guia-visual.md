@@ -173,6 +173,10 @@ Solo preserva as três peças e forma duas das dez palavras de três letras em c
 
 Link fixo com superfície visual independente: mouse preciso inclina até 3° por eixo e eleva 5 px; foco de teclado recebe contorno visível e resposta de seta/ilustração, sem seguir cursor. Pressão de toque é curta e mantém um único acionamento; rolar continua sendo gesto nativo. Superfície retorna em 320 ms, seta em 180 ms e ilustração em 220 ms. Redução de movimentos elimina deslocamentos e mantém foco legível. Preservar as camadas das cenas e os espaçamentos existentes ao integrar próximas atuações. [Parâmetros, TDD e evidências](Revisoes/menu-dinamico-md07.md).
 
+### Surpresas do Aurélio — MD-08 concluída, 12/11/2026
+
+Preservar o desenho original e o repertório aprovado. As cinco novas intenções são olhar para Solo/Galera, ajeitar a gravata, acompanhar uma letra e reagir ao toque. Usar olhar coerente com a posição real dos cartões, antecipação, gesto e acomodação; a resposta manual termina com uma piscadela. O braço passa à frente da capa somente para tocar a gravata. A letra temporária substitui visualmente a letra A ambiente, sem criar um terceiro bloco permanente. Botão transparente com foco visível; reserva do balão inclui pedido e resposta manual, sem deslocar ações. [Fichas e parâmetros para revisão artística](Revisoes/menu-dinamico-md08.md). As cinco atuações receberam aprovação expressa do responsável em 12/11/2026. O aceite integrado do menu permanece na MD-10.
+
 ### Revisão antecipada do conjunto — MD-09, 12/11/2026
 
 Revisar a composição já entregue sem presumir as novas atuações da MD-08. A observação de cinco minutos mantém como referência a geometria estável do título e dos cartões, falas sem repetição imediata e cenas decorativas independentes. Preservar os parâmetros aprovados até que uma falha ou a revisão artística justifique alterá-los. [Método, evidências e pendências](Revisoes/menu-dinamico-md09.md). O aceite visual integrado continua na MD-10.

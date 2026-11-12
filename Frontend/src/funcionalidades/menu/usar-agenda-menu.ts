@@ -87,6 +87,7 @@ export function useAgendaMenu(
     pausada: ausente || reduzida || bloqueada,
     ausente,
     reduzida,
+    bloqueada,
     solicitar,
     configurar,
   };

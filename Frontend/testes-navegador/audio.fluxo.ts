@@ -14,6 +14,88 @@ test.beforeEach(async ({ page }) => {
   );
 });
 
+test("MD-08 toque no mascote usa um efeito real e pedidos recusados não repetem áudio", async ({
+  page,
+}) => {
+  test.setTimeout(30000);
+  await page.route("**/api/visitantes", (rota) =>
+    rota.fulfill({
+      json: {
+        demonstracao_utilizada: false,
+        pode_iniciar: true,
+        vinculada: false,
+        demonstracao: null,
+        token_csrf: "visitante",
+      },
+    }),
+  );
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      "decifra_preferencias",
+      JSON.stringify({
+        tema: "claro",
+        paleta: "original",
+        musica_id: null,
+        musica_menu_ativa: false,
+        volume_musica: 70,
+        volume_interface: 70,
+        volume_eventos: 70,
+        silenciado: false,
+        movimentos_reduzidos: false,
+      }),
+    );
+    const janela = window as Window & { efeitosDecifra?: number[] };
+    janela.efeitosDecifra = [];
+    const iniciar = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (
+      ...argumentos: Parameters<AudioBufferSourceNode["start"]>
+    ) {
+      // Desconsidera o buffer vazio usado pelo navegador/Howler para desbloqueio.
+      if (this.buffer && this.buffer.duration > 0.01)
+        janela.efeitosDecifra!.push(this.buffer.duration);
+      iniciar.apply(this, argumentos);
+    };
+  });
+  await page.route("**/audio/**", async (rota) =>
+    rota.fulfill({ response: await rota.fetch() }),
+  );
+  await page.goto("/");
+  const botao = page.getByRole("button", {
+    name: "Conversar com Aurélio",
+    exact: true,
+  });
+  const mascote = page.locator(".aurelio-animado");
+  await expect(page.locator(".balao-menu")).toHaveAttribute(
+    "data-contexto",
+    "visitante",
+  );
+  await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
+  await botao.click();
+  const quantidade = () =>
+    page.evaluate(
+      () =>
+        (window as Window & { efeitosDecifra?: number[] }).efeitosDecifra
+          ?.length ?? 0,
+    );
+  await expect.poll(quantidade).toBe(1);
+  await expect(botao).toHaveAttribute("aria-disabled", "true");
+  const caixa = await botao.boundingBox();
+  for (let i = 0; i < 3; i++)
+    await page.mouse.click(
+      caixa!.x + caixa!.width / 2,
+      caixa!.y + caixa!.height / 2,
+    );
+  await expect(mascote).toHaveAttribute("data-reacao", "reagir_toque", {
+    timeout: 8000,
+  });
+  await expect(mascote).toHaveAttribute("data-reacao", "espera", {
+    timeout: 6000,
+  });
+  expect(await quantidade()).toBe(1);
+  await botao.click();
+  await expect.poll(quantidade).toBe(2);
+});
+
 test("prévia produz sinal de áudio real e o silêncio geral zera a saída", async ({
   page,
 }) => {

@@ -1,4 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { GESTOS_MENU } from "../src/funcionalidades/mascote/gestos-menu";
+import { duracaoAtuacao } from "../src/funcionalidades/mascote/atuacao-visual";
+import { REPERTORIO_GESTOS } from "../src/funcionalidades/mascote/repertorio-gestos-menu";
 import { DURACOES, REACOES } from "../src/funcionalidades/mascote/reacoes";
 async function visitante(page: Page) {
   await page.route("**/api/**", async (r) => {
@@ -24,6 +27,107 @@ async function visitante(page: Page) {
     });
   });
 }
+
+test("MD-08 laboratório oferece cinco gestos com inspeção de extremos e retorno neutro", async ({
+  page,
+}, info) => {
+  test.setTimeout(60000);
+  await visitante(page);
+  await page.goto("/laboratorio/aurelio");
+  const desenho = page.locator(".ensaio-montagem svg");
+  await expect(
+    page.getByRole("group", { name: "Surpresas do menu" }).getByRole("button"),
+  ).toHaveCount(5);
+  await page.evaluate(() => document.fonts.ready);
+  for (const gesto of GESTOS_MENU) {
+    await page
+      .getByRole("button", { name: REPERTORIO_GESTOS[gesto].nome, exact: true })
+      .click();
+    await expect(desenho).toHaveAttribute("data-atuacao", gesto);
+    const inicio = await desenho
+      .locator('[data-parte="personagem"]')
+      .getAttribute("transform");
+    for (const fracao of [0.15, 0.3, 0.4, 0.55, 0.62, 0.8]) {
+      const instante = Math.round((duracaoAtuacao(gesto) * fracao) / 10) * 10;
+      await page.getByRole("slider").fill(String(instante));
+      await expect(desenho).toHaveAttribute("data-tempo", String(instante));
+      await desenho.screenshot({
+        path: info.outputPath(`${gesto}-${fracao}.png`),
+      });
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+    await page.getByRole("slider").fill(String(duracaoAtuacao(gesto)));
+    await expect(desenho.locator('[data-parte="personagem"]')).toHaveAttribute(
+      "transform",
+      inicio!,
+    );
+    await page
+      .getByRole("button", { name: "Voltar à pose original", exact: true })
+      .click();
+    await expect(desenho).toHaveAttribute("data-tempo", "0");
+  }
+});
+
+test("MD-08 grava as cinco atuações em movimento real sem acelerar relógio", async ({
+  browser,
+}, info) => {
+  test.setTimeout(90000);
+  const contexto = await browser.newContext({
+    baseURL: "http://127.0.0.1:5181",
+    viewport: info.project.use.viewport,
+    isMobile: info.project.name === "celular",
+    hasTouch: info.project.name !== "computador",
+    reducedMotion: "no-preference",
+    recordVideo: { dir: info.outputPath("video") },
+  });
+  const pagina = await contexto.newPage();
+  try {
+    await visitante(pagina);
+    await pagina.goto("/laboratorio/aurelio");
+    const desenho = pagina.locator(".ensaio-montagem svg");
+    await pagina.evaluate(() => document.fonts.ready);
+    for (const gesto of GESTOS_MENU) {
+      await pagina
+        .getByRole("button", {
+          name: REPERTORIO_GESTOS[gesto].nome,
+          exact: true,
+        })
+        .click();
+      await pagina
+        .getByRole("button", {
+          name: `Reproduzir ${REPERTORIO_GESTOS[gesto].controle}`,
+          exact: true,
+        })
+        .click();
+      await desenho.scrollIntoViewIfNeeded();
+      await expect
+        .poll(async () => Number(await desenho.getAttribute("data-tempo")), {
+          timeout: 7000,
+        })
+        .toBeGreaterThanOrEqual(duracaoAtuacao(gesto) * 0.4);
+      await pagina.screenshot({
+        path: info.outputPath(`movimento-${gesto}.png`),
+        fullPage: true,
+      });
+      await expect(desenho).toHaveAttribute(
+        "data-tempo",
+        String(duracaoAtuacao(gesto)),
+        { timeout: 7000 },
+      );
+      expect(
+        await pagina.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+  } finally {
+    await contexto.close();
+  }
+});
 test("definições fixas preservam máscaras e referências exclusivas entre poses e personagens", async ({
   page,
 }) => {
@@ -376,7 +480,7 @@ test("repouso se repete no jogo e a preferência interrompe o movimento", async 
   await expect(mascote.locator("svg")).toHaveAttribute("data-tempo", "0");
 });
 
-for (const atuacao of REACOES) {
+for (const atuacao of [...REACOES, ...GESTOS_MENU]) {
   test(`encaixes e olhos preservados nas poses de ${atuacao}`, async ({
     page,
   }) => {
@@ -392,6 +496,11 @@ for (const atuacao of REACOES) {
       turno: "Passagem de vez",
       sorteio: "Sorteio",
       resultado: "Resultado",
+      olhar_solo: "Olhar para o Solo",
+      olhar_galera: "Olhar para a Galera",
+      ajeitar_gravata: "Ajeitar a gravata",
+      seguir_letra: "Seguir a letra",
+      reagir_toque: "Reagir ao toque",
     };
     await page
       .getByRole("button", { name: nomes[atuacao], exact: true })
@@ -414,7 +523,8 @@ for (const atuacao of REACOES) {
       atuacao === "saudacao"
         ? [0, 350, 750, 1350, 2070, 3400, 5400]
         : [0.12, 0.4, 0.7].map(
-            (fracao) => Math.round((DURACOES[atuacao] * fracao) / 10) * 10,
+            (fracao) =>
+              Math.round((duracaoAtuacao(atuacao) * fracao) / 10) * 10,
           );
     for (const tempo of instantes) {
       await page.getByRole("slider").fill(String(tempo));

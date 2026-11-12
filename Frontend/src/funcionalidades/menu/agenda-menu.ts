@@ -7,6 +7,7 @@ import {
 export type OpcoesAgenda = {
   falas?: readonly string[];
   surpresas?: readonly string[];
+  duracoesSurpresas?: Readonly<Record<string, number>>;
 };
 export type CondicoesAgenda = {
   oculta: boolean;
@@ -77,13 +78,24 @@ export class AgendaMenu {
   }
   configurar(opcoes: OpcoesAgenda) {
     this.sincronizar();
-    this.opcoes = opcoes;
+    const iguais = (a: readonly string[] = [], b: readonly string[] = []) =>
+      a.length === b.length && a.every((id, i) => id === b[i]);
+    const falasMudaram =
+      opcoes.falas !== undefined && !iguais(this.opcoes.falas, opcoes.falas);
+    const surpresasMudaram =
+      opcoes.surpresas !== undefined &&
+      !iguais(this.opcoes.surpresas, opcoes.surpresas);
+    this.opcoes = { ...this.opcoes, ...opcoes };
+    if (falasMudaram) this.falaEm = this.tempo + this.intervalo(10000, 5000);
+    if (surpresasMudaram)
+      this.surpresaEm = this.tempo + this.intervalo(20000, 15000);
     if (
-      this.atual.ativa?.tipo === "fala" ||
-      this.atual.ativa?.tipo === "surpresa"
-    )
+      (falasMudaram && this.atual.ativa?.tipo === "fala") ||
+      (surpresasMudaram && this.atual.ativa?.tipo === "surpresa")
+    ) {
+      this.pendente = null;
       this.publicar({ ativa: null });
-    this.reprogramarOportunidades();
+    }
     this.programar();
   }
   condicoes(novas: Partial<CondicoesAgenda>) {
@@ -95,7 +107,8 @@ export class AgendaMenu {
       this.pendente = null;
       if (
         this.atual.ativa?.tipo === "fala" ||
-        this.atual.ativa?.tipo === "surpresa"
+        this.atual.ativa?.tipo === "surpresa" ||
+        this.atual.ativa?.tipo === "interacao"
       )
         this.publicar({ ativa: null });
       this.reprogramarOportunidades();
@@ -162,12 +175,16 @@ export class AgendaMenu {
     this.sincronizar();
     const estavaOcupada = !!this.atual.ativa;
     if (this.atual.ativa && this.tempo >= this.fim) {
+      const gestoTerminou =
+        this.atual.ativa.tipo === "surpresa" ||
+        this.atual.ativa.tipo === "interacao";
       this.publicar({ ativa: null });
       if (this.pendente) {
         const proxima = this.pendente;
         this.pendente = null;
         this.ativar(proxima);
       }
+      if (gestoTerminou) this.reprogramarOportunidades();
     }
     const falaVenceu = this.tempo >= this.falaEm;
     const surpresaVenceu = this.tempo >= this.surpresaEm;
@@ -195,7 +212,7 @@ export class AgendaMenu {
           this.ativar({
             id: `menu-${tipo}-${++this.sequencia}`,
             tipo,
-            duracao: tipo === "fala" ? 600 : 3000,
+            duracao: tipo === "fala" ? 600 : this.duracaoSurpresa(conteudo),
             conteudo,
           });
         }
@@ -203,6 +220,12 @@ export class AgendaMenu {
     }
     this.programar();
   };
+  private duracaoSurpresa(conteudo: string) {
+    const duracao = this.opcoes.duracoesSurpresas?.[conteudo];
+    return duracao !== undefined && Number.isFinite(duracao) && duracao > 0
+      ? duracao
+      : 3000;
+  }
   private programar() {
     this.cancelar?.();
     this.cancelar = null;

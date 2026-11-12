@@ -1,8 +1,9 @@
 import { useId } from "react";
 import { DefinicoesAurelio } from "./DefinicoesAurelio";
 import { RECORTES, type ParteRecortada } from "./recortes";
-import { poseAtuacao } from "./atuacoes";
-import { DURACOES, type Reacao } from "./reacoes";
+import { duracaoAtuacao, poseVisual, type TipoAtuacao } from "./atuacao-visual";
+import type { DirecaoOlhar } from "./gestos-menu";
+import { LetraCuriosa } from "./LetraCuriosa";
 import { EfeitosAurelio } from "./EfeitosAurelio";
 import { CONTORNOS_OLHOS } from "./contornos-olhos";
 
@@ -11,14 +12,16 @@ export function AurelioRecortado({
   partes = false,
   descricao = "Aurélio, o dicionário apresentador",
   atuacao = "saudacao",
+  direcaoOlhar,
 }: {
   tempo?: number;
   partes?: boolean;
   descricao?: string;
-  atuacao?: Reacao;
+  atuacao?: TipoAtuacao;
+  direcaoOlhar?: DirecaoOlhar;
 }) {
   const id = useId().replaceAll(":", "");
-  const pose = poseAtuacao(atuacao, tempo);
+  const pose = poseVisual(atuacao, tempo, direcaoOlhar);
   const referencia = (nome: string) => `url(#${id}-${nome})`;
   const imagem = (parte: ParteRecortada) => (
     <use
@@ -33,7 +36,32 @@ export function AurelioRecortado({
   );
   const girar = (graus: number, x: number, y: number) =>
     `rotate(${graus} ${x} ${y})`;
-  const neutro = tempo <= 0 || tempo >= DURACOES[atuacao];
+  const bracoDireito = (
+    <g data-parte="braco_direito" transform={girar(pose.ombro, 858, 635)}>
+      {imagem("braco_direito")}
+      <g
+        data-parte="antebraco_direito"
+        transform={girar(pose.cotovelo, 925, 622)}
+      >
+        <g data-parte="encaixe_punho" fill="none" strokeLinecap="round">
+          <path
+            d="M916 635Q935 617 951 600"
+            stroke="#231e18"
+            strokeWidth="34"
+          />
+          <path
+            d="M916 635Q935 617 951 600"
+            stroke="#343027"
+            strokeWidth="22"
+          />
+        </g>
+        <g data-parte="punho_direito" transform={girar(pose.punho, 951, 600)}>
+          {imagem("luva_direita")}
+        </g>
+      </g>
+    </g>
+  );
+  const neutro = tempo <= 0 || tempo >= duracaoAtuacao(atuacao);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -99,32 +127,7 @@ export function AurelioRecortado({
           data-parte="corpo_inteiro"
           transform={`translate(0 ${pose.corpoY}) rotate(${pose.corpoRotacao} 554 940) translate(0 940) scale(1 ${pose.corpoEscalaY}) translate(0 -940)`}
         >
-          <g data-parte="braco_direito" transform={girar(pose.ombro, 858, 635)}>
-            {imagem("braco_direito")}
-            <g
-              data-parte="antebraco_direito"
-              transform={girar(pose.cotovelo, 925, 622)}
-            >
-              <g data-parte="encaixe_punho" fill="none" strokeLinecap="round">
-                <path
-                  d="M916 635Q935 617 951 600"
-                  stroke="#231e18"
-                  strokeWidth="34"
-                />
-                <path
-                  d="M916 635Q935 617 951 600"
-                  stroke="#343027"
-                  strokeWidth="22"
-                />
-              </g>
-              <g
-                data-parte="punho_direito"
-                transform={girar(pose.punho, 951, 600)}
-              >
-                {imagem("luva_direita")}
-              </g>
-            </g>
-          </g>
+          {atuacao !== "ajeitar_gravata" && bracoDireito}
           <image
             href="/mascote/aurelio-capa-limpa-02.webp"
             width="1158"
@@ -157,11 +160,12 @@ export function AurelioRecortado({
                 pupila = i ? "pupila_direita" : "pupila_esquerda";
               const cx = i ? 662 : 503,
                 cy = i ? 394 : 454;
+              const abertura = pose.olhos * (i === 0 ? pose.olhoEsquerdo : 1);
               return (
                 <g key={lado} data-parte={`olho_${lado}`}>
-                  {pose.olhos >= 0.18 && (
+                  {abertura >= 0.18 && (
                     <g
-                      transform={`translate(0 ${cy}) scale(1 ${pose.olhos}) translate(0 ${-cy})`}
+                      transform={`translate(0 ${cy}) scale(1 ${abertura}) translate(0 ${-cy})`}
                     >
                       {neutro ? (
                         imagem(olho)
@@ -185,7 +189,7 @@ export function AurelioRecortado({
                       )}
                     </g>
                   )}
-                  {pose.olhos < 0.18 && (
+                  {abertura < 0.18 && (
                     <path
                       d={`M${cx - 40} ${cy + 5}q40 22 78 -16`}
                       fill="none"
@@ -244,6 +248,7 @@ export function AurelioRecortado({
           >
             {imagem("gravata")}
           </g>
+          {atuacao === "ajeitar_gravata" && bracoDireito}
           <g
             data-parte="braco_esquerdo"
             transform={girar(pose.bracoEsquerdo, 226, 646)}
@@ -253,7 +258,8 @@ export function AurelioRecortado({
           </g>
         </g>
       </g>
-      <EfeitosAurelio pose={pose} progresso={tempo / DURACOES[atuacao]} />
+      <EfeitosAurelio pose={pose} progresso={tempo / duracaoAtuacao(atuacao)} />
+      <LetraCuriosa pose={pose} />
       {partes && (
         <g
           fill="none"

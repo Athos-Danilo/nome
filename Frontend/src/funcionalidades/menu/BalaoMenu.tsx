@@ -2,6 +2,8 @@ import { useInView } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   repertorioDasFalas,
+  FALA_TOQUE,
+  FALA_PEDIDO,
   type ContextoFalas,
   type FalaMenu,
 } from "./falas-menu";
@@ -14,10 +16,12 @@ export function BalaoMenu({
   contexto,
   ativa,
   configurar,
+  resposta,
 }: {
   contexto: ContextoFalas;
   ativa: AcontecimentoMenu | null;
   configurar: (opcoes: OpcoesAgenda) => void;
+  resposta?: FalaMenu;
 }) {
   const elemento = useRef<HTMLSpanElement>(null);
   const visivel = useInView(elemento);
@@ -33,7 +37,7 @@ export function BalaoMenu({
   );
   useEffect(() => {
     configurar({ falas: visivel ? ids : [] });
-    return () => configurar({});
+    return () => configurar({ falas: [] });
   }, [configurar, ids, visivel]);
   useEffect(() => {
     if (ativa?.tipo !== "fala") return;
@@ -53,24 +57,26 @@ export function BalaoMenu({
       className="balao-menu"
       data-visivel={visivel}
       data-contexto={contexto}
-      data-fala={exibicao.atual.id}
+      data-fala={resposta?.id ?? exibicao.atual.id}
     >
       <span className="espaco-falas" aria-hidden="true">
         {[repertorio.inicial, ...repertorio.alternativas].map((fala) => (
           <TextoFala key={fala.id} fala={fala} />
         ))}
+        <TextoFala fala={FALA_TOQUE} />
+        <TextoFala fala={FALA_PEDIDO} />
       </span>
       <span
         key={exibicao.troca}
         className={exibicao.anterior ? "troca-falas" : "fala-inicial"}
       >
-        {exibicao.anterior && (
+        {exibicao.anterior && !resposta && (
           <span className="fala-anterior" aria-hidden="true">
             <TextoFala fala={exibicao.anterior} />
           </span>
         )}
         <span className="fala-atual">
-          <TextoFala fala={exibicao.atual} />
+          <TextoFala fala={resposta ?? exibicao.atual} />
         </span>
       </span>
     </span>

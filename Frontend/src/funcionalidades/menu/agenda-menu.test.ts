@@ -16,6 +16,90 @@ const criar = (opcoes = {}) =>
   );
 afterEach(() => vi.useRealTimers());
 
+test("um toque durante a surpresa espera seu retorno e não forma fila", () => {
+  vi.useFakeTimers();
+  const agenda = criar({ surpresas: ["gravata"] });
+  agenda.iniciar();
+  vi.advanceTimersByTime(20000);
+  const id = agenda.estado().ativa?.id;
+  expect(
+    agenda.solicitar({ id: "toque", tipo: "interacao", duracao: 1000 }),
+  ).toBe(true);
+  expect(
+    agenda.solicitar({ id: "outro", tipo: "interacao", duracao: 1000 }),
+  ).toBe(false);
+  expect(agenda.estado().ativa?.id).toBe(id);
+  vi.advanceTimersByTime(3000);
+  expect(agenda.estado().ativa?.id).toBe("toque");
+  agenda.condicoes({ reduzida: true });
+  expect(agenda.estado().ativa).toBeNull();
+  expect(vi.getTimerCount()).toBe(0);
+  agenda.parar();
+});
+
+test("registrar falas não remove surpresas nem reinicia sua oportunidade", () => {
+  vi.useFakeTimers();
+  const agenda = criar({ surpresas: ["gravata"] });
+  agenda.iniciar();
+  vi.advanceTimersByTime(12000);
+  agenda.configurar({ falas: ["a"] });
+  vi.advanceTimersByTime(8000);
+  expect(agenda.estado().ativa?.conteudo).toBe("gravata");
+  agenda.parar();
+});
+
+test("retirar falas não corta uma atuação de surpresa em andamento", () => {
+  vi.useFakeTimers();
+  const agenda = criar({ surpresas: ["gravata"] });
+  agenda.iniciar();
+  vi.advanceTimersByTime(20000);
+  agenda.configurar({ falas: [] });
+  expect(agenda.estado().ativa?.conteudo).toBe("gravata");
+  vi.advanceTimersByTime(2999);
+  expect(agenda.estado().ativa?.tipo).toBe("surpresa");
+  vi.advanceTimersByTime(1);
+  expect(agenda.estado().ativa).toBeNull();
+  agenda.parar();
+});
+
+test("surpresa usa sua duração e deixa descanso antes da próxima fala", () => {
+  vi.useFakeTimers();
+  const agenda = criar({
+    surpresas: ["gravata"],
+    duracoesSurpresas: { gravata: 4200 },
+  });
+  agenda.iniciar();
+  vi.advanceTimersByTime(20000);
+  agenda.configurar({ falas: ["a"] });
+  vi.advanceTimersByTime(4199);
+  expect(agenda.estado().ativa?.tipo).toBe("surpresa");
+  vi.advanceTimersByTime(1);
+  expect(agenda.estado().ativa).toBeNull();
+  vi.advanceTimersByTime(9999);
+  expect(agenda.estado().ativa).toBeNull();
+  vi.advanceTimersByTime(1);
+  expect(agenda.estado().ativa?.tipo).toBe("fala");
+  agenda.parar();
+});
+
+test("fala decorativa não corta uma surpresa; interação mantém prioridade", () => {
+  expect(decidirPrioridade("surpresa", "fala")).toBe("ignorar");
+  expect(decidirPrioridade("surpresa", "interacao")).toBe("aguardar");
+});
+
+test("remover candidatos da surpresa cancela só essa atuação e não a interação manual", () => {
+  vi.useFakeTimers();
+  const agenda = criar({ surpresas: ["olhar"] });
+  agenda.iniciar();
+  vi.advanceTimersByTime(20000);
+  agenda.configurar({ surpresas: [] });
+  expect(agenda.estado().ativa).toBeNull();
+  agenda.solicitar({ id: "toque", tipo: "interacao", duracao: 3000 });
+  agenda.configurar({ surpresas: [] });
+  expect(agenda.estado().ativa?.id).toBe("toque");
+  agenda.parar();
+});
+
 test("seleção respeita candidatos atuais e evita repetição imediata", () => {
   expect(escolherSemRepetir(["a", "b"], "a", () => 0)).toBe("b");
   expect(escolherSemRepetir(["a"], "a", () => 0)).toBe("a");
@@ -26,7 +110,7 @@ test("entrada protegida só guarda uma interação; ambiente não interrompe", (
   expect(decidirPrioridade("entrada", "surpresa")).toBe("ignorar");
   expect(decidirPrioridade("entrada", "interacao")).toBe("aguardar");
   expect(decidirPrioridade("interacao", "interacao")).toBe("ignorar");
-  expect(decidirPrioridade("surpresa", "interacao")).toBe("iniciar");
+  expect(decidirPrioridade("surpresa", "interacao")).toBe("aguardar");
   expect(decidirPrioridade("fala", "surpresa")).toBe("ignorar");
 });
 

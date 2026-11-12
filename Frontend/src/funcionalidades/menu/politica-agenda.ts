@@ -12,7 +12,7 @@ export function decidirPrioridade(
   proxima: TipoAcontecimento,
 ): "iniciar" | "aguardar" | "ignorar" {
   if (!ativa) return "iniciar";
-  if (ativa === "entrada")
+  if (ativa === "entrada" || ativa === "surpresa")
     return proxima === "interacao" ? "aguardar" : "ignorar";
   if (ativa === "interacao") return "ignorar";
   return PRIORIDADES[proxima] > PRIORIDADES[ativa] ? "iniciar" : "ignorar";

@@ -1,0 +1,29 @@
+.palco-menu .interagir-aurelio,
+.palco-menu .interagir-aurelio:not(:disabled):hover,
+.palco-menu .interagir-aurelio:active {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 32px;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.palco-menu .interagir-aurelio:focus-visible {
+  outline: 3px solid var(--texto);
+  outline-offset: 5px;
+}
+.palco-menu .interagir-aurelio[aria-disabled="true"] {
+  cursor: default;
+}
+.sala-jogo[data-gesto="seguir_letra"] .cenario-menu .orbita-a {
+  visibility: hidden;
+}

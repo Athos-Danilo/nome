@@ -12,6 +12,7 @@ import {
 } from "./reacoes";
 import "./mascote.css";
 import { useMovimentosReduzidos } from "./usar-movimentos-reduzidos";
+import type { GestoMenu, DirecaoOlhar } from "./gestos-menu";
 
 export function Aurelio({
   evento,
@@ -20,6 +21,11 @@ export function Aurelio({
   descricao = "Aurélio, o dicionário apresentador do Decifra",
   reduzir = false,
   pausado = false,
+  gesto,
+  direcaoOlhar,
+  aoAtivar,
+  aoVer,
+  ocupado = false,
 }: {
   evento?: EventoReacao;
   repouso?: Reacao;
@@ -27,17 +33,27 @@ export function Aurelio({
   descricao?: string;
   reduzir?: boolean;
   pausado?: boolean;
+  gesto?: { id: string; tipo: GestoMenu };
+  direcaoOlhar?: DirecaoOlhar;
+  aoAtivar?: () => void;
+  aoVer?: (visivel: boolean) => void;
+  ocupado?: boolean;
 }) {
   const contagem = useRef({ id: "", restante: 0 });
   const [estado, definirEstado] = useState(iniciarReacoes);
   useSomReacao(evento);
   const moldura = useRef<HTMLDivElement>(null);
   const visivel = useInView(moldura);
+  useEffect(() => {
+    aoVer?.(visivel);
+  }, [aoVer, visivel]);
   const preferencia = useMovimentosReduzidos();
   const estatico = reduzir || pausado || preferencia || !visivel;
   useEffect(() => {
     if (evento) definirEstado((e) => receberReacao(e, evento));
-  }, [evento?.id, evento?.tipo]);
+    // No menu, cancelar a entrada preserva o botão e o foco; partidas mantêm seu contrato.
+    else if (aoAtivar) definirEstado(iniciarReacoes());
+  }, [evento?.id, evento?.tipo, !!aoAtivar]);
   useEffect(() => {
     const ativa = estado.ativa;
     if (!ativa) return;
@@ -57,21 +73,35 @@ export function Aurelio({
       );
     };
   }, [estado.ativa, pausado]);
-  const reacao = estado.ativa?.tipo ?? repouso;
+  const reacao = gesto?.tipo ?? estado.ativa?.tipo ?? repouso;
   return (
     <div
       ref={moldura}
       className={`aurelio-animado aurelio-${tamanho}`}
       data-reacao={reacao}
       data-estatico={estatico}
-      data-evento={estado.ativa?.id ?? "repouso"}
+      data-evento={gesto?.id ?? estado.ativa?.id ?? "repouso"}
     >
       <AurelioDesenho
         reacao={reacao}
         estatico={estatico}
         descricao={descricao}
-        chave={estado.ativa?.id ?? repouso}
+        chave={gesto?.id ?? estado.ativa?.id ?? repouso}
+        direcaoOlhar={direcaoOlhar}
+        preservarPose={!!gesto && !reduzir && !preferencia}
       />
+      {aoAtivar && (
+        <button
+          type="button"
+          className="interagir-aurelio"
+          aria-label="Conversar com Aurélio"
+          aria-disabled={ocupado}
+          title="Toque ou clique para conversar com Aurélio"
+          onClick={() => {
+            if (!ocupado) aoAtivar();
+          }}
+        />
+      )}
     </div>
   );
 }
