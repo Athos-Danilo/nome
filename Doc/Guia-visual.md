@@ -166,7 +166,7 @@ Sem anúncio automático recorrente, novo áudio ou mudança do título/foco. Re
 
 ### Cenas dos cartões — MD-06, 12/11/2026
 
-Solo preserva as três peças e forma SOL/LUA em um ciclo de 24 s, com leitura e retorno ao mistério. Galera alterna os três avatares aprovados em 30 s, com elevação, escala e selo ilustrativo; não indica jogadores conectados ou sorteio real. Dimensões externas, cores e nomes dos modos são preservados. Cena em camada própria, pausada com o menu e fora da área visível; movimentos reduzidos mostram composição estática. Fallback de imagem reutiliza o ícone de perfil dentro da moldura. Sem novo som. [Parâmetros, TDD, vídeo e limites](Revisoes/menu-dinamico-md06.md).
+Solo preserva as três peças e forma duas das dez palavras de três letras em cada ciclo de 24 s, com leitura e retorno ao mistério. O grupo SOL, LUA, MAR, CÉU, RIO, PAZ, VOZ, MEL, COR e LAR é embaralhado, sem repetir antes de completar a sequência; a fronteira entre grupos evita repetição imediata. Galera alterna os três avatares aprovados em 30 s, com elevação, escala e selo ilustrativo; não indica jogadores conectados ou sorteio real. Dimensões externas, cores e nomes dos modos são preservados. Cena em camada própria, pausada com o menu e fora da área visível; movimentos reduzidos mostram composição estática. Fallback de imagem reutiliza o ícone de perfil dentro da moldura. Sem novo som. [Parâmetros, TDD, vídeo e limites](Revisoes/menu-dinamico-md06.md).
 
 
 ### Respostas dos cartões — MD-07, 12/11/2026

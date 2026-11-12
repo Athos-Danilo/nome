@@ -676,6 +676,7 @@ test.describe("inspeção do movimento ambiente", () => {
       const baseTitulo = await titulo.boundingBox();
       const baseSolo = await solo.boundingBox();
       const posicoes = new Set<string>();
+      const paresDoSolo = new Set<string>();
       const duracoes = await page
         .locator(".cenario-menu .bloco-orbita")
         .evaluateAll((els) =>
@@ -688,6 +689,11 @@ test.describe("inspeção do movimento ambiente", () => {
           await page
             .locator(".cenario-menu .orbita-a")
             .evaluate((el) => getComputedStyle(el).translate),
+        );
+        paresDoSolo.add(
+          (
+            await page.locator(".cena-solo .face-primeira").allTextContents()
+          ).join(""),
         );
         const atualTitulo = await titulo.boundingBox();
         const atualSolo = await solo.boundingBox();
@@ -706,6 +712,8 @@ test.describe("inspeção do movimento ambiente", () => {
         });
       }
       expect(posicoes.size).toBeGreaterThan(2);
+      // Renovação pelo evento real do ciclo CSS, sem disparo sintético.
+      expect(paresDoSolo.size).toBeGreaterThanOrEqual(2);
       await solo.focus();
       await page.keyboard.press("Enter");
       await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
@@ -1407,7 +1415,7 @@ test("balão do tablet não cruza o corpo do Aurélio", async ({ page }, info) =
   }
 });
 
-test("cenas dos modos formam SOL e LUA e preservam links e dimensões", async ({
+test("cenas dos modos formam palavras de três letras e preservam links e dimensões", async ({
   page,
 }, info) => {
   await preparar(page, true);
@@ -1432,10 +1440,19 @@ test("cenas dos modos formam SOL e LUA e preservam links e dimensões", async ({
   });
   const caixaSolo = await solo.boundingBox(),
     caixaGalera = await galera.boundingBox();
+  const palavraPrimeira = (
+    await page.locator(".cena-solo .face-primeira").allTextContents()
+  ).join("");
+  const palavraSegunda = (
+    await page.locator(".cena-solo .face-segunda").allTextContents()
+  ).join("");
+  expect(palavraPrimeira).toHaveLength(3);
+  expect(palavraSegunda).toHaveLength(3);
+  expect(palavraPrimeira).not.toBe(palavraSegunda);
   for (const [tempo, classe, palavra] of [
     [0, "face-misterio", "DI?"],
-    [7200, "face-sol", "SOL"],
-    [18000, "face-lua", "LUA"],
+    [7200, "face-primeira", palavraPrimeira],
+    [18000, "face-segunda", palavraSegunda],
   ] as const) {
     await page.locator(".cena-solo").evaluate(
       (el, tempo) =>
@@ -1570,7 +1587,7 @@ test("faces e retratos não herdam rotações e posições da arte antiga", asyn
   ).toBe(true);
   expect(
     await page
-      .locator(".peca-solo .face-lua")
+      .locator(".peca-solo .face-segunda")
       .evaluateAll((els) =>
         els.every(
           (el) =>
@@ -1974,4 +1991,109 @@ test.describe("inspeção das respostas dos cartões", () => {
       await contexto.close();
     }
   });
+});
+
+test("Solo percorre dez palavras de três letras sem repetição e só troca no retorno ao mistério", async ({
+  page,
+}, info) => {
+  test.setTimeout(45000);
+  await preparar(page, true);
+  await page.goto("/");
+  const cena = page.locator(".cena-solo");
+  await expect(cena).toHaveAttribute("data-cena", "ativa");
+  const lerPar = async () =>
+    Promise.all(
+      [".face-primeira", ".face-segunda"].map(async (classe) =>
+        (await cena.locator(classe).allTextContents()).join(""),
+      ),
+    );
+  const primeira = cena.locator(".peca-solo").first();
+  const avancar = () =>
+    primeira.evaluate(async (el) => {
+      el.dispatchEvent(
+        new AnimationEvent("animationiteration", {
+          bubbles: true,
+          animationName: "montar-palavra",
+        }),
+      );
+      await new Promise<void>((resolver) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolver())),
+      );
+    });
+  await page.evaluate(() => document.fonts.ready);
+  await page.locator(".sala-jogo").evaluate(async (el) => {
+    await Promise.all(
+      el
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished),
+    );
+  });
+  const vistas: string[] = [];
+  for (let i = 0; i < 5; i++) {
+    const par = await lerPar();
+    expect(par.every((p) => Array.from(p).length === 3)).toBe(true);
+    expect(par[0]).not.toBe(par[1]);
+    vistas.push(...par);
+    for (const [indice, tempo] of [
+      [0, 7200],
+      [1, 18000],
+    ]) {
+      await cena.evaluate(
+        (el, tempo) =>
+          el.getAnimations({ subtree: true }).forEach((a) => {
+            a.pause();
+            a.currentTime = tempo;
+          }),
+        tempo,
+      );
+      await cena.screenshot({
+        path: info.outputPath(`palavra-${par[indice]}.png`),
+      });
+    }
+    await cena.evaluate((el) =>
+      el.getAnimations({ subtree: true }).forEach((a) => {
+        a.currentTime = 0;
+      }),
+    );
+    await avancar();
+  }
+  expect(new Set(vistas).size).toBe(10);
+  expect(vistas).toContain("SOL");
+  expect(vistas).toContain("LUA");
+  expect((await lerPar())[0]).not.toBe(vistas.at(-1));
+  const atual = await lerPar();
+  await cena
+    .locator(".peca-solo")
+    .nth(1)
+    .evaluate((el) =>
+      el.dispatchEvent(
+        new AnimationEvent("animationiteration", {
+          bubbles: true,
+          animationName: "montar-palavra",
+        }),
+      ),
+    );
+  await primeira.evaluate((el) =>
+    el.dispatchEvent(
+      new AnimationEvent("animationiteration", {
+        bubbles: true,
+        animationName: "mostrar-primeira",
+      }),
+    ),
+  );
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolver) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolver())),
+      ),
+  );
+  expect(await lerPar()).toEqual(atual);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(cena).toHaveAttribute("data-cena", "reduzida");
+  await avancar();
+  expect(await lerPar()).toEqual(atual);
+  await expect(
+    page.getByRole("link", { name: "Solo", exact: true }),
+  ).toHaveAccessibleName("Solo");
 });

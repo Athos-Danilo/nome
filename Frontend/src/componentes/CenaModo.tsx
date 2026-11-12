@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type AnimationEvent } from "react";
+import { criarCicloPalavras, avancarCicloPalavras } from "./palavras-cena-solo";
 import { useInView } from "motion/react";
 import { Icone } from "./Icone";
 import "./cenas-modos.css";
 
-/** Ciclos CSS locais; apenas visibilidade e falha de imagem atualizam o React. */
+/** CSS move os quadros; React só acompanha condições, imagem e renovação de palavras. */
 export function CenaModo({
   modo,
   imagens = [],
@@ -17,17 +18,20 @@ export function CenaModo({
 }) {
   const elemento = useRef<HTMLSpanElement>(null);
   const visivel = useInView(elemento);
+  const estado = reduzida
+    ? "reduzida"
+    : pausada || !visivel
+      ? "pausada"
+      : "ativa";
   return (
     <span
       ref={elemento}
       className={`arte-cartao cena-modo cena-${modo}`}
       aria-hidden="true"
-      data-cena={
-        reduzida ? "reduzida" : pausada || !visivel ? "pausada" : "ativa"
-      }
+      data-cena={estado}
     >
       {modo === "solo" ? (
-        <CenaSolo />
+        <CenaSolo ativa={estado === "ativa"} />
       ) : (
         [0, 1, 2].map((indice) => (
           <RetratoCena
@@ -39,14 +43,31 @@ export function CenaModo({
     </span>
   );
 }
-function CenaSolo() {
+function CenaSolo({ ativa }: { ativa: boolean }) {
+  const [ciclo, definirCiclo] = useState(() => criarCicloPalavras(Math.random));
+  const primeira = ciclo.ordem[ciclo.inicio];
+  const segunda = ciclo.ordem[ciclo.inicio + 1];
+  function aoCompletar(evento: AnimationEvent<HTMLSpanElement>) {
+    if (
+      !ativa ||
+      evento.target !== evento.currentTarget ||
+      evento.animationName !== "montar-palavra"
+    )
+      return;
+    // O fim do ciclo está em mistério: nenhuma palavra visível é substituída.
+    definirCiclo(avancarCicloPalavras(ciclo, Math.random));
+  }
   return (
     <>
       {["D", "I", "?"].map((letra, indice) => (
-        <span className="peca-solo" key={indice}>
+        <span
+          className="peca-solo"
+          key={indice}
+          onAnimationIteration={indice === 0 ? aoCompletar : undefined}
+        >
           <i className="face-misterio">{letra}</i>
-          <i className="face-sol">{"SOL"[indice]}</i>
-          <i className="face-lua">{"LUA"[indice]}</i>
+          <i className="face-primeira">{primeira[indice]}</i>
+          <i className="face-segunda">{segunda[indice]}</i>
         </span>
       ))}
       <span className="descoberta-ilustrada">✦</span>

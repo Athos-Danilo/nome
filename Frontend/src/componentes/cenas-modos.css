@@ -58,13 +58,13 @@
 .cena-modo .face-misterio {
   animation: mostrar-misterio 24s linear infinite;
 }
-.cena-modo .face-sol {
+.cena-modo .face-primeira {
   opacity: 0;
-  animation: mostrar-sol 24s linear infinite;
+  animation: mostrar-primeira 24s linear infinite;
 }
-.cena-modo .face-lua {
+.cena-modo .face-segunda {
   opacity: 0;
-  animation: mostrar-lua 24s linear infinite;
+  animation: mostrar-segunda 24s linear infinite;
 }
 .descoberta-ilustrada {
   position: absolute;
@@ -115,7 +115,7 @@
     opacity: 0;
   }
 }
-@keyframes mostrar-sol {
+@keyframes mostrar-primeira {
   0%,
   24%,
   39%,
@@ -127,7 +127,7 @@
     opacity: 1;
   }
 }
-@keyframes mostrar-lua {
+@keyframes mostrar-segunda {
   0%,
   70%,
   85%,
@@ -257,8 +257,8 @@
 .cena-modo[data-cena="reduzida"] * {
   animation: none;
 }
-.cena-modo[data-cena="reduzida"] .face-sol,
-.cena-modo[data-cena="reduzida"] .face-lua {
+.cena-modo[data-cena="reduzida"] .face-primeira,
+.cena-modo[data-cena="reduzida"] .face-segunda {
   opacity: 0;
 }
 .cena-modo[data-cena="reduzida"] .face-misterio {

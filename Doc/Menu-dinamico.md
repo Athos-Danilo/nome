@@ -30,7 +30,7 @@ Evitar repetição imediata; respeitar disponibilidade e prioridade de mensagens
 
 ### 2.2 Cartões com pequenas cenas
 
-**Solo:** as peças se separam, aproximam e formam uma palavra curta previamente definida, com uma pausa legível; depois retornam à composição de mistério. Alternar exemplos sem sugerir resposta da próxima partida. A cena é decorativa: nome Solo, descrição e destino acessíveis permanecem estáveis. Não acrescentar cliques intermediários.
+**Solo:** as peças se separam, aproximam e formam uma palavra curta previamente definida, com uma pausa legível; depois retornam à composição de mistério. Alternar exemplos sem sugerir resposta da próxima partida. O repertório aprovado em 12/11/2026 é SOL, LUA, MAR, CÉU, RIO, PAZ, VOZ, MEL, COR e LAR, sempre com três letras. Embaralhar o grupo completo, percorrendo dez palavras antes de renovar a ordem e evitando repetição imediata na fronteira entre grupos. A cena é decorativa: nome Solo, descrição e destino acessíveis permanecem estáveis. Não acrescentar cliques intermediários.
 
 **Galera:** avatares alternam destaque como uma passagem de vez, com leve mudança de escala/posição e apoio visual. Nenhum personagem representa jogador conectado, placar ou sorteio real. Não usar a indicação apenas por cor. Reaproveitar avatares aprovados.
 
@@ -132,3 +132,8 @@ Solo forma SOL/LUA em um ciclo de 24 s, com antecipação, leitura e volta ao mi
 ### Interação MD-07 — concluída em 12/11/2026
 
 Cartões com área de link fixa e superfície própria: inclinação até 3° para mouse preciso, elevação e resposta da seta/ilustração. Teclado recebe foco visível sem seguir cursor; toque mantém navegação única e rolagem nativa. Saída, cancelamento, perda de foco, ausência e desmontagem limpam o efeito. Pausa/redução suspendem também transições de resposta. [TDD, parâmetros, inspeção e limites](Revisoes/menu-dinamico-md07.md). Próximo incremento: novas surpresas e ativação do Aurélio, MD-08, com revisão artística individual prevista; o aceite do conjunto permanece na MD-10.
+
+
+### Ampliação das palavras do Solo — 12/11/2026
+
+A pedido do responsável, o repertório decorativo passou de duas para dez palavras de três letras, mantendo peças, tempos e pausas. Duas palavras por ciclo de 24 s; a sequência é embaralhada em grupos de dez e renovada no retorno ao mistério, sem substituir uma palavra visível. Nenhum temporizador ou acesso ao catálogo novo. [Implementação e verificações da revisão](Revisoes/menu-dinamico-md06.md#ampliação-para-dez-palavras--12112026). Ajuste da MD-06; MD-08 permanece não iniciada.
