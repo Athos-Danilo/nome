@@ -105,12 +105,12 @@
 }
 .circulos-menu {
   position: absolute;
-  inset: -20px;
-  opacity: 0.065;
+  inset: -64px;
+  opacity: 0.1;
   background: var(--padrao-circulos);
   background-size: var(--tamanho-circulos);
-  background-position: 20px 20px;
-  animation: derivar-circulos-menu 48s ease-in-out infinite paused;
+  background-position: 64px 64px;
+  animation: derivar-circulos-menu 24s ease-in-out -2.5s infinite paused;
 }
 .moldura-jogo:has(.cenario-menu[data-cenario="ativo"]) .circulos-menu {
   animation-play-state: running;
@@ -121,10 +121,10 @@
     transform: translate(0, 0);
   }
   35% {
-    transform: translate(-10px, 8px);
+    transform: translate(-48px, 32px);
   }
   70% {
-    transform: translate(9px, -7px);
+    transform: translate(42px, -30px);
   }
 }
 @media (max-width: 650px) {

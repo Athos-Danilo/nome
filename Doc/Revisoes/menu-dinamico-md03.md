@@ -4,6 +4,8 @@ Data: 11/11/2026. Base: `aa589f3`. Escopo: [cenário ambiente](../Menu-dinamico.
 
 ## Entrega
 
+Parâmetros da entrega de 11/11; os ajustes de 12/11 abaixo substituem os valores do fundo e a composição móvel.
+
 `CenarioMenu.tsx` reutiliza A, Ç e a estrela do palco e acrescenta dois brilhos pequenos. Todos ficam em camada `aria-hidden`, sem foco, sem controles e com `pointer-events: none`. A visibilidade local usa o `useInView` já aprovado, com o estado de pausa/redução recebido da agenda. React muda somente nas transições de estado/visibilidade; os ciclos são CSS.
 
 | Elemento | Movimento e limite |
@@ -55,3 +57,19 @@ Amostragem, gravação e inspeção por IA não substituem o aceite artístico c
 | Tipos/compilação e formatação | Aprovados |
 
 Total: 88 cenários de navegador distintos aprovados na rodada final, sem contar execuções de diagnóstico/repetições. A ocorrência de página em branco não se repetiu nas três execuções focadas nem na rodada final completa; nenhuma expectativa foi relaxada. Permanecem 24 capturas de aparências, 24 amostras de sequência e três vídeos na pasta final, indexados com hashes em `Frontend/test-results/md03/evidencias.json`. O roteiro local foi marcado; MD-04 não foi iniciada.
+
+
+## Revisão solicitada em 12/11/2026 — fundo e celular
+
+O responsável considerou o fundo imperceptível e apontou balão sob os pés e espaço excessivo antes da navegação móvel. Três testes foram criados antes da correção e reproduziram os pontos: menos de um pixel de deslocamento em 3,2 s; balão na faixa horizontal do personagem; distância maior que 80 px entre cartões e navegação no cenário exercitado.
+
+A revisão usa:
+
+- Fundo com ciclo de 24 s, fase inicial de −2,5 s, deslocamentos de até −48/+42 px horizontal e +32/−30 px vertical, opacidade 0,10 e sobra de recorte de 64 px. O teste exige mais de 12 px em 3,2 s, mantendo pausa e redução de movimentos existentes.
+- Até 650 px de largura, balão à esquerda do personagem, abaixo do texto de apresentação: largura de 132 px, separação horizontal e inclinação menor. A verificação cobre conta e visitante em 360, 390 e 430 px, sem colisão com o personagem ou a descrição. A integração das falas longas na MD-05 deve preservar essas garantias.
+- Somente no menu móvel com cartões, moldura/conteúdo usam distribuição flexível da altura disponível. O espaço útil pode aumentar os cartões; são removidas reservas duplicadas de rodapé e mantida uma área para navegação fixa e área segura do aparelho. Não se moveu o menu inferior para cima do conteúdo.
+- Distância final entre cartões e navegação verificada entre 12 e 80 px, com alturas de 740, 844, 873 e 1.000 px, além de retomada disponível. Nos formatos mais altos, as ações também são verificadas antes de rolar; nas telas baixas, a rolagem mantém tudo alcançável.
+
+Capturas de quatro dimensões de celular foram inspecionadas, incluindo cabeçalho em uma e duas linhas. Os dados são controlados, e as evidências permanecem em `Frontend/test-results/md03-ajustes/`. Nenhuma etapa da MD-04 foi iniciada.
+
+Verificação final: 98 testes de unidade; 63 casos de menu, 15 de acabamento e seis de uso real aprovados (84 cenários de navegador). Seis casos foram ignorados conforme o dispositivo previsto. Tipos/compilação e formatação aprovados. Não houve mudança de JavaScript de produção, backend, dados, dependência ou áudio; o ajuste é CSS, acompanhado de regressões de comportamento e layout.

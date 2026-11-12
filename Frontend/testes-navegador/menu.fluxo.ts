@@ -707,3 +707,122 @@ test.describe("inspeção do movimento ambiente", () => {
     }
   });
 });
+
+test("fundo percorre distância perceptível em poucos segundos", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.goto("/");
+  await expect(page.locator(".cenario-menu")).toHaveAttribute(
+    "data-cenario",
+    "ativo",
+  );
+  const posicao = () =>
+    page.locator(".circulos-menu").evaluate((el) => {
+      const matriz = new DOMMatrixReadOnly(getComputedStyle(el).transform);
+      return { x: matriz.m41, y: matriz.m42 };
+    });
+  const inicio = await posicao();
+  await page.waitForTimeout(3200);
+  const fim = await posicao();
+  expect(Math.hypot(fim.x - inicio.x, fim.y - inicio.y)).toBeGreaterThan(12);
+});
+
+test("balão no celular fica ao lado do mascote e não sob os pés", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "celular");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  for (const logado of [true, false]) {
+    await page.unroute("**/api/**");
+    await preparar(page, logado);
+    for (const largura of [360, 390, 430]) {
+      await page.setViewportSize({ width: largura, height: 873 });
+      await page.goto("/");
+      await expect(page.locator(".balao-menu")).toBeVisible();
+      await page.evaluate(() => document.fonts.ready);
+      const balao = await page.locator(".balao-menu").boundingBox();
+      const mascote = await page
+        .locator(".palco-menu .aurelio-animado")
+        .boundingBox();
+      const descricao = await page
+        .locator(".boas-vindas-menu > p")
+        .boundingBox();
+      expect(balao!.x + balao!.width).toBeLessThan(mascote!.x - 2);
+      expect(balao!.y).toBeGreaterThan(descricao!.y + descricao!.height + 2);
+      expect(balao!.x).toBeGreaterThanOrEqual(9);
+    }
+  }
+});
+
+test("cartões no celular ficam próximos do menu inferior sem cobrir ações", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "celular");
+  const estado = await preparar(page, true);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  for (const viewport of [
+    { width: 360, height: 740 },
+    { width: 390, height: 844 },
+    { width: 430, height: 873 },
+    { width: 430, height: 1000 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await expect(
+      page.getByRole("link", { name: "Solo", exact: true }),
+    ).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    if (viewport.height >= 844) {
+      const acoes = await page
+        .locator(".rodape-cartao")
+        .evaluateAll((els) =>
+          els.map((el) => el.getBoundingClientRect().bottom),
+        );
+      const navegacao = await page
+        .getByRole("navigation", { name: "Navegação principal" })
+        .boundingBox();
+      expect(Math.max(...acoes)).toBeLessThan(navegacao!.y - 8);
+    }
+    await page.evaluate(() =>
+      window.scrollTo(0, document.documentElement.scrollHeight),
+    );
+    const cartoes = await page
+      .locator(".cartao-modo")
+      .evaluateAll((els) => els.map((el) => el.getBoundingClientRect().bottom));
+    const menu = await page
+      .getByRole("navigation", { name: "Navegação principal" })
+      .boundingBox();
+    const distancia = menu!.y - Math.max(...cartoes);
+    expect(distancia).toBeGreaterThanOrEqual(12);
+    expect(distancia).toBeLessThanOrEqual(80);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({
+      path: info.outputPath(`celular-${viewport.width}-${viewport.height}.png`),
+      fullPage: true,
+      animations: "disabled",
+    });
+  }
+  estado.aberta = true;
+  await page.goto("/");
+  await expect(
+    page.getByRole("link", { name: "Continuar partida" }),
+  ).toBeVisible();
+  await page.evaluate(() =>
+    window.scrollTo(0, document.documentElement.scrollHeight),
+  );
+  const fundoCartoes = await page
+    .locator(".cartao-modo")
+    .evaluateAll((els) =>
+      Math.max(...els.map((el) => el.getBoundingClientRect().bottom)),
+    );
+  const navegacao = await page
+    .getByRole("navigation", { name: "Navegação principal" })
+    .boundingBox();
+  expect(navegacao!.y - fundoCartoes).toBeGreaterThanOrEqual(12);
+  expect(navegacao!.y - fundoCartoes).toBeLessThanOrEqual(80);
+});

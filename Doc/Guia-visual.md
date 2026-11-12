@@ -145,3 +145,8 @@ Evoluir a composição atual por movimento em camadas, com descanso e acontecime
 ### Movimento ambiente do menu — MD-03, 11/11/2026
 
 Preservado o padrão de círculos da composição anterior, agora com deriva lenta e discreta. A e Ç flutuam com ciclos diferentes; três estrelas alternam pequenos giros e escala, com descanso. Em telas de até 650 px, a amplitude cai pela metade e os brilhos secundários são ocultos. A cena respeita redução de movimentos, ausência, diálogos e visibilidade local; não modifica a arte do Aurélio nem os cartões. [Parâmetros e inspeção](Revisoes/menu-dinamico-md03.md). A avaliação artística conjunta do menu completo permanece no marco MD-10.
+
+
+### Correção móvel e percepção do fundo — 12/11/2026
+
+O responsável pediu movimento de fundo mais evidente, balão fora dos pés e menor espaço até a navegação. Fundo ajustado para 24 s e amplitude maior, sem alterar o padrão de círculos; até 650 px, balão à esquerda do personagem e menu autenticado com altura flexível dos cartões, rodapé compacto e reserva para a navegação fixa. Preservar separação do texto e do personagem ao acrescentar as falas da MD-05. [Revisão e limites](Revisoes/menu-dinamico-md03.md).

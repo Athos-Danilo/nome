@@ -107,3 +107,8 @@ Agenda local de tempo ativo e prioridades integrada à entrada existente; pausa 
 ### Cenário MD-03 — concluído em 11/11/2026
 
 Letras com trajetórias distintas, até três brilhos intercalados e círculos em movimento lento, mantendo o padrão do fundo aprovado. CSS controla os ciclos; visibilidade local e agenda suspendem a cena, e redução de movimentos mantém a composição estática. Em celular, amplitude menor e apenas a estrela principal. Camadas decorativas não capturam interação nem foco. Verificados 98 testes de unidade e 88 cenários de navegador, compilação e formatação; três sequências gravadas e oito aparências inspecionadas em cada tamanho. [Implementação, TDD, parâmetros e limites](Revisoes/menu-dinamico-md03.md). O aceite artístico do conjunto continua previsto na MD-10; próximo incremento é a entrada encenada, MD-04.
+
+
+### Ajuste de percepção e composição móvel — 12/11/2026
+
+Após revisão do responsável, o fundo passou a ter deslocamento mais perceptível (ciclo de 24 s, início em fase adiantada e maior amplitude/contraste), preservando pausas e redução. No celular, balão à esquerda do Aurélio, abaixo da apresentação, e altura dos cartões distribuída para reduzir o vão antes da navegação inferior. [Parâmetros e verificações da revisão](Revisoes/menu-dinamico-md03.md). Correção da MD-03; MD-04 continua pendente.
