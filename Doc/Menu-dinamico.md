@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-06 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-07 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -127,3 +127,8 @@ Repertório local de vinte falas distintas, adaptado a visitante, demonstração
 ### Cenas MD-06 — concluídas em 12/11/2026
 
 Solo forma SOL/LUA em um ciclo de 24 s, com antecipação, leitura e volta ao mistério; Galera alterna três retratos em 30 s, com elevação, escala e selo ilustrativo. Composição externa e links permanecem estáveis; cenas pausam com o menu e fora da área visível, e redução mantém arte estática. Imagens indisponíveis recebem reserva visual. Sem consulta ao catálogo ou novo áudio. Três gravações de ciclos e nove capturas finais dos destaques foram inspecionadas. [TDD, parâmetros, verificações e limites](Revisoes/menu-dinamico-md06.md). Próximo incremento: respostas a mouse/toque/teclado, MD-07; aceite integrado permanece na MD-10.
+
+
+### Interação MD-07 — concluída em 12/11/2026
+
+Cartões com área de link fixa e superfície própria: inclinação até 3° para mouse preciso, elevação e resposta da seta/ilustração. Teclado recebe foco visível sem seguir cursor; toque mantém navegação única e rolagem nativa. Saída, cancelamento, perda de foco, ausência e desmontagem limpam o efeito. Pausa/redução suspendem também transições de resposta. [TDD, parâmetros, inspeção e limites](Revisoes/menu-dinamico-md07.md). Próximo incremento: novas surpresas e ativação do Aurélio, MD-08, com revisão artística individual prevista; o aceite do conjunto permanece na MD-10.

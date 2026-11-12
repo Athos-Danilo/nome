@@ -1623,3 +1623,355 @@ test("destaques da Galera preservam a leitura da descrição e do botão", async
     });
   }
 });
+
+test("ponteiro preciso inclina a superfície sem mover o link e limpa ao sair e cancelar", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador", "Ponteiro preciso.");
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Solo", exact: true });
+  const superficie = cartao.locator(".superficie-modo");
+  await expect(superficie).toBeVisible();
+  await page.locator(".sala-jogo").evaluate(async (el) => {
+    await Promise.all(
+      el
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished),
+    );
+  });
+  const caixa = (await cartao.boundingBox())!;
+  await page.mouse.move(
+    caixa.x + caixa.width * 0.8,
+    caixa.y + caixa.height * 0.2,
+  );
+  await expect
+    .poll(() =>
+      superficie.evaluate((el) =>
+        parseFloat(el.style.getPropertyValue("--inclinacao-y")),
+      ),
+    )
+    .toBeGreaterThan(0);
+  const angulos = await superficie.evaluate((el) =>
+    ["--inclinacao-x", "--inclinacao-y"].map((nome) =>
+      parseFloat(el.style.getPropertyValue(nome)),
+    ),
+  );
+  expect(angulos.every((a) => Math.abs(a) <= 3)).toBe(true);
+  expect(await cartao.boundingBox()).toEqual(caixa);
+  await page.mouse.move(0, 0);
+  await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");
+  await cartao.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: caixa.x,
+    clientY: caixa.y,
+  });
+  await cartao.dispatchEvent("pointercancel", { pointerType: "mouse" });
+  await page.waitForTimeout(350);
+  await expect(superficie).toHaveCSS("--inclinacao-x", "0deg");
+});
+
+test("teclado destaca cartão sem inclinação, sem controles aninhados e navega uma vez", async ({
+  page,
+}, info) => {
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Galera", exact: true });
+  await expect(cartao.locator(".superficie-modo")).toBeVisible();
+  await page.keyboard.press("Tab");
+  await cartao.focus();
+  expect(await cartao.evaluate((el) => el.matches(":focus-visible"))).toBe(
+    true,
+  );
+  expect(
+    await cartao.evaluate((el) =>
+      parseFloat(getComputedStyle(el).outlineWidth),
+    ),
+  ).toBeGreaterThanOrEqual(2);
+  await expect(cartao.locator("button,a,input")).toHaveCount(0);
+  await expect(cartao.locator(".superficie-modo")).toHaveCSS(
+    "--inclinacao-x",
+    "0deg",
+  );
+  const historico = await page.evaluate(() => history.length);
+  await page.screenshot({
+    path: info.outputPath("foco-cartao.png"),
+    fullPage: true,
+  });
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/jogar\/galera\/novo$/);
+  expect(await page.evaluate(() => history.length)).toBe(historico + 1);
+});
+
+test("toque permite rolar e cancelar sem ativar; um toque continua navegando", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name === "computador", "Gesto de toque real.");
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Solo", exact: true });
+  await expect(cartao.locator(".superficie-modo")).toBeVisible();
+  await page.evaluate(() => {
+    const espaco = document.createElement("div");
+    espaco.id = "espaco-rolagem-teste";
+    espaco.style.height = "1200px";
+    document.body.append(espaco);
+  });
+  const caixa = (await cartao.boundingBox())!,
+    x = caixa.x + caixa.width / 2,
+    y = caixa.y + caixa.height / 2;
+  const historico = await page.evaluate(() => history.length);
+  const sessao = await page.context().newCDPSession(page);
+  try {
+    await sessao.send("Input.dispatchTouchEvent", {
+      type: "touchStart",
+      touchPoints: [{ x, y }],
+    });
+    for (let passo = 1; passo <= 10; passo++) {
+      await sessao.send("Input.dispatchTouchEvent", {
+        type: "touchMove",
+        touchPoints: [{ x, y: y - passo * 16 }],
+      });
+      await page.waitForTimeout(16);
+    }
+    await sessao.send("Input.dispatchTouchEvent", {
+      type: "touchEnd",
+      touchPoints: [],
+    });
+  } finally {
+    await sessao.detach();
+  }
+  await expect(page).toHaveURL(/\/$/);
+  expect(await page.evaluate(() => history.length)).toBe(historico);
+  expect(await page.evaluate(() => scrollY)).toBeGreaterThan(20);
+  await page.evaluate(() => {
+    document.querySelector("#espaco-rolagem-teste")?.remove();
+    scrollTo(0, 0);
+  });
+  await expect(cartao.locator(".superficie-modo")).toHaveCSS(
+    "--inclinacao-x",
+    "0deg",
+  );
+  await cartao.tap();
+  await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  expect(await page.evaluate(() => history.length)).toBe(historico + 1);
+});
+
+test("redução em execução e diálogo removem inclinação e mantêm navegação imediata", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador", "Limpeza de ponteiro.");
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Solo", exact: true }),
+    superficie = cartao.locator(".superficie-modo");
+  await expect(superficie).toBeVisible();
+  const caixa = (await cartao.boundingBox())!;
+  await page.mouse.move(
+    caixa.x + caixa.width * 0.8,
+    caixa.y + caixa.height * 0.7,
+  );
+  await expect
+    .poll(() =>
+      superficie.evaluate((el) =>
+        parseFloat(el.style.getPropertyValue("--inclinacao-y")),
+      ),
+    )
+    .toBeGreaterThan(0);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");
+  await expect(superficie).toHaveCSS("transform", "none");
+  await page.keyboard.press("Tab");
+  await cartao.focus();
+  expect(
+    await cartao.evaluate((el) =>
+      parseFloat(getComputedStyle(el).outlineWidth),
+    ),
+  ).toBeGreaterThanOrEqual(2);
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(superficie).toHaveCSS("--inclinacao-x", "0deg");
+  await page.keyboard.press("Escape");
+  await cartao.click();
+  await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+});
+
+test("inclinação limpa em perda de foco, rolagem e desmontagem sem erro atrasado", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador", "Limpeza do mouse.");
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Solo", exact: true }),
+    superficie = cartao.locator(".superficie-modo");
+  await expect(superficie).toBeVisible();
+  await page.locator(".sala-jogo").evaluate(async (el) => {
+    await Promise.all(
+      el
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished),
+    );
+  });
+  const caixa = (await cartao.boundingBox())!;
+  await page.mouse.move(
+    caixa.x + caixa.width * 0.8,
+    caixa.y + caixa.height * 0.3,
+  );
+  await expect
+    .poll(() =>
+      superficie.evaluate((el) =>
+        parseFloat(el.style.getPropertyValue("--inclinacao-y")),
+      ),
+    )
+    .toBeGreaterThan(0);
+  await page.evaluate(() => window.dispatchEvent(new Event("blur")));
+  await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");
+  await expect(cartao).toHaveAttribute("data-ponteiro-ativo", "false");
+  await cartao.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: caixa.x + caixa.width * 0.9,
+    clientY: caixa.y,
+  });
+  await page.evaluate(() => window.dispatchEvent(new Event("scroll")));
+  await page.waitForTimeout(60);
+  await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");
+  const erros: string[] = [];
+  page.on("pageerror", (erro) => erros.push(erro.message));
+  await cartao.dispatchEvent("pointermove", {
+    pointerType: "mouse",
+    clientX: caixa.x + caixa.width * 0.9,
+    clientY: caixa.y,
+  });
+  await cartao.click();
+  await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await page.goBack();
+  await expect(superficie).toBeVisible();
+  await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");
+  expect(erros).toEqual([]);
+});
+
+test("toque em aparelho com mouse não arma inclinação", async ({
+  page,
+}, info) => {
+  test.skip(
+    info.project.name !== "computador",
+    "Simulação de ponteiro híbrido.",
+  );
+  await preparar(page, true);
+  await page.goto("/");
+  const cartao = page.getByRole("link", { name: "Solo", exact: true }),
+    superficie = cartao.locator(".superficie-modo");
+  await expect(superficie).toBeVisible();
+  const caixa = (await cartao.boundingBox())!;
+  expect(
+    await page.evaluate(
+      () => matchMedia("(hover: hover) and (pointer: fine)").matches,
+    ),
+  ).toBe(true);
+  await cartao.dispatchEvent("pointermove", {
+    pointerType: "touch",
+    clientX: caixa.x,
+    clientY: caixa.y,
+  });
+  await page.waitForTimeout(60);
+  await expect(superficie).toHaveCSS("--inclinacao-x", "0deg");
+  await expect(cartao).not.toHaveAttribute("data-ponteiro-ativo", "true");
+});
+
+test.describe("inspeção das respostas dos cartões", () => {
+  test("hover e foco permanecem legíveis nas oito aparências", async ({
+    browser,
+  }, info) => {
+    test.setTimeout(45000);
+    const contexto = await browser.newContext({
+      baseURL: "http://127.0.0.1:5177",
+      viewport: info.project.use.viewport,
+      isMobile: info.project.name === "celular",
+      hasTouch: info.project.name !== "computador",
+      recordVideo: { dir: info.outputPath("video") },
+    });
+    const page = await contexto.newPage();
+    try {
+      await preparar(page, true);
+      await page.goto("/");
+      const cartao = page.getByRole("link", { name: "Solo", exact: true });
+      await expect(cartao.locator(".superficie-modo")).toBeVisible();
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await Promise.all(
+          Array.from(document.images, (imagem) => imagem.decode()),
+        );
+        await Promise.all(
+          Array.from(
+            document.querySelectorAll<SVGImageElement>(
+              ".aurelio-animado image",
+            ),
+            async (el) => {
+              const imagem = new Image();
+              imagem.src = el.href.baseVal;
+              await imagem.decode();
+            },
+          ),
+        );
+      });
+      await page.waitForTimeout(900);
+      if (info.project.name === "computador") {
+        const caixa = (await cartao.boundingBox())!;
+        for (const [indice, x, y] of [
+          [0, 0.05, 0.05],
+          [1, 0.95, 0.95],
+          [2, 0.5, 0.5],
+        ]) {
+          await page.mouse.move(
+            caixa.x + caixa.width * x,
+            caixa.y + caixa.height * y,
+          );
+          await page.waitForTimeout(450);
+          await page.screenshot({
+            path: info.outputPath(`hover-${indice}.png`),
+            fullPage: true,
+          });
+          expect(await cartao.boundingBox()).toEqual(caixa);
+        }
+        await page.mouse.move(0, 0);
+      }
+      await page.keyboard.press("Tab");
+      await cartao.focus();
+      for (const paleta of ["original", "azul", "roxa", "grafite"])
+        for (const tema of ["claro", "escuro"]) {
+          await page.evaluate(
+            ({ paleta, tema }) => {
+              document.documentElement.dataset.paleta = paleta;
+              document.documentElement.dataset.tema = tema;
+            },
+            { paleta, tema },
+          );
+          await page.waitForTimeout(250);
+          await expect(cartao).toHaveAccessibleName("Solo");
+          await expect(cartao).toBeFocused();
+          expect(
+            await page.evaluate(
+              () => document.documentElement.scrollWidth <= innerWidth,
+            ),
+          ).toBe(true);
+          await page.screenshot({
+            path: info.outputPath(`resposta-${paleta}-${tema}.png`),
+            fullPage: true,
+          });
+        }
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await expect(cartao.locator(".superficie-modo")).toHaveCSS(
+        "transform",
+        "none",
+      );
+      await page.screenshot({
+        path: info.outputPath("foco-reduzido.png"),
+        fullPage: true,
+      });
+    } finally {
+      await contexto.close();
+    }
+  });
+});

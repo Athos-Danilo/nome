@@ -1,0 +1,95 @@
+.superficie-modo {
+  --inclinacao-x: 0deg;
+  --inclinacao-y: 0deg;
+  --elevacao: 0px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 25px 20px 18px;
+  border: 2px solid #444439;
+  border-radius: inherit;
+  background: var(--lima);
+  box-shadow: 0 7px 0 #444439;
+  transform: perspective(900px) translateY(var(--elevacao))
+    rotateX(var(--inclinacao-x)) rotateY(var(--inclinacao-y));
+  transition:
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms ease-out;
+}
+.cartao-modo.galera .superficie-modo {
+  background: var(--verde-suave);
+}
+.cartao-modo .arte-cartao {
+  translate: 0 0;
+  transition: translate 220ms ease-out;
+}
+.cartao-modo .rodape-cartao b {
+  display: inline-block;
+  transition: transform 180ms ease-out;
+}
+.cartao-modo:focus-visible {
+  outline: 3px solid var(--texto);
+  outline-offset: 6px;
+}
+.cartao-modo:focus-visible .superficie-modo {
+  --elevacao: -5px;
+  box-shadow: 0 10px 0 #444439;
+}
+.cartao-modo:focus-visible .arte-cartao {
+  translate: 0 -3px;
+}
+.cartao-modo:focus-visible .rodape-cartao b {
+  transform: translate(3px, -3px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cartao-modo[data-ponteiro-ativo="true"]:hover .superficie-modo {
+    --elevacao: -5px;
+    box-shadow: 0 10px 0 #444439;
+  }
+  .cartao-modo[data-ponteiro-ativo="true"]:hover .arte-cartao {
+    translate: 0 -3px;
+  }
+  .cartao-modo[data-ponteiro-ativo="true"]:hover .rodape-cartao b {
+    transform: translate(3px, -3px);
+  }
+}
+.cartao-modo:active .superficie-modo {
+  --elevacao: 3px;
+  box-shadow: 0 2px 0 #444439;
+  transition-duration: 90ms;
+}
+.cartao-modo:is([data-reduzida="true"], [data-pausada="true"]) .superficie-modo,
+:root[data-movimentos="reduzidos"] .cartao-modo .superficie-modo {
+  transform: none;
+  transition: none;
+}
+.cartao-modo:is([data-reduzida="true"], [data-pausada="true"]) .arte-cartao,
+:root[data-movimentos="reduzidos"] .cartao-modo .arte-cartao {
+  translate: none;
+  transition: none;
+}
+.cartao-modo:is([data-reduzida="true"], [data-pausada="true"]) .rodape-cartao b,
+:root[data-movimentos="reduzidos"] .cartao-modo .rodape-cartao b {
+  transform: none;
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cartao-modo .superficie-modo {
+    transform: none;
+    transition: none;
+  }
+  .cartao-modo .arte-cartao {
+    translate: none;
+    transition: none;
+  }
+  .cartao-modo .rodape-cartao b {
+    transform: none;
+    transition: none;
+  }
+}

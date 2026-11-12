@@ -167,3 +167,8 @@ Sem anúncio automático recorrente, novo áudio ou mudança do título/foco. Re
 ### Cenas dos cartões — MD-06, 12/11/2026
 
 Solo preserva as três peças e forma SOL/LUA em um ciclo de 24 s, com leitura e retorno ao mistério. Galera alterna os três avatares aprovados em 30 s, com elevação, escala e selo ilustrativo; não indica jogadores conectados ou sorteio real. Dimensões externas, cores e nomes dos modos são preservados. Cena em camada própria, pausada com o menu e fora da área visível; movimentos reduzidos mostram composição estática. Fallback de imagem reutiliza o ícone de perfil dentro da moldura. Sem novo som. [Parâmetros, TDD, vídeo e limites](Revisoes/menu-dinamico-md06.md).
+
+
+### Respostas dos cartões — MD-07, 12/11/2026
+
+Link fixo com superfície visual independente: mouse preciso inclina até 3° por eixo e eleva 5 px; foco de teclado recebe contorno visível e resposta de seta/ilustração, sem seguir cursor. Pressão de toque é curta e mantém um único acionamento; rolar continua sendo gesto nativo. Superfície retorna em 320 ms, seta em 180 ms e ilustração em 220 ms. Redução de movimentos elimina deslocamentos e mantém foco legível. Preservar as camadas das cenas e os espaçamentos existentes ao integrar próximas atuações. [Parâmetros, TDD e evidências](Revisoes/menu-dinamico-md07.md).

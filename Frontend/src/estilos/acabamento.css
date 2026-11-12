@@ -143,14 +143,12 @@ dialog {
 }
 /* Redução remove também deslocamentos decorativos de hover, sem esconder estados. */
 :root[data-movimentos="reduzidos"] .botao-jogo:not(:disabled):hover,
-:root[data-movimentos="reduzidos"] .acao:hover,
-:root[data-movimentos="reduzidos"] .cartao-modo:hover {
+:root[data-movimentos="reduzidos"] .acao:hover {
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .botao-jogo:not(:disabled):hover,
-  .acao:hover,
-  .cartao-modo:hover {
+  .acao:hover {
     transform: none;
   }
 }

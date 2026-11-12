@@ -315,3 +315,8 @@ Tempo ativo, prioridade e seleção sem repetição continuam em `AgendaMenu`. P
 ### Menu MD-06 — cenas decorativas locais
 
 `CartaoModo` delega a ilustração a `CenaModo`, mantendo o link nativo e seu nome acessível. `useInView` existente e condições recebidas da agenda controlam pausa/redução; CSS executa os ciclos das peças/retratos, sem novos temporizadores periódicos ou atualizações React por quadro. Estado de falha de imagem fica no retrato. As palavras SOL/LUA são conteúdo editorial local, fora do catálogo e das exposições de partidas. Estilos da arte antiga foram substituídos por estilos encapsulados; dimensões responsivas da raiz foram preservadas. Nenhum contrato HTTP, pacote ou banco novo. [Verificação e limites](Revisoes/menu-dinamico-md06.md).
+
+
+### Menu MD-07 — controle local da resposta dos cartões
+
+`inclinacao-cartao.ts` calcula ângulos limitados e recebe recursos de quadro/permissão/aplicação como contratos pequenos. `useInclinacaoCartao` adapta DOM, condições e limpeza, sem estado React por movimento. Um quadro pendente consolida eventos; a medição usa a raiz fixa e a aplicação afeta somente a superfície visual. Eventos nativos do link permanecem responsáveis pela navegação, sem captura de ponteiro ou bloqueio da rolagem. CSS separa resposta, cena interna e entrada; preferência reduzida preserva foco sem movimento. Sem novo pacote, API, recurso de mídia ou migração. [TDD, verificação e limites](Revisoes/menu-dinamico-md07.md).
