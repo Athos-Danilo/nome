@@ -320,3 +320,7 @@ Tempo ativo, prioridade e seleção sem repetição continuam em `AgendaMenu`. P
 ### Menu MD-07 — controle local da resposta dos cartões
 
 `inclinacao-cartao.ts` calcula ângulos limitados e recebe recursos de quadro/permissão/aplicação como contratos pequenos. `useInclinacaoCartao` adapta DOM, condições e limpeza, sem estado React por movimento. Um quadro pendente consolida eventos; a medição usa a raiz fixa e a aplicação afeta somente a superfície visual. Eventos nativos do link permanecem responsáveis pela navegação, sem captura de ponteiro ou bloqueio da rolagem. CSS separa resposta, cena interna e entrada; preferência reduzida preserva foco sem movimento. Sem novo pacote, API, recurso de mídia ou migração. [TDD, verificação e limites](Revisoes/menu-dinamico-md07.md).
+
+### Menu MD-09 — revisão antecipada
+
+Por solicitação do responsável, verificar o conjunto MD-01 a MD-07 antes das novas atuações MD-08: observação real de cinco minutos, ciclos repetidos de navegação/pausa e medição comparativa com referência Git isolada, usando os mesmos dados controlados e dependências. Testes de preservação começam verdes; não constituem TDD de uma funcionalidade nova. O ensaio motivou separar as definições SVG fixas em `DefinicoesAurelio`, memorizadas pelo ID; pose, relógio e arte continuam em seus módulos existentes. Sem biblioteca, banco, contrato ou regra de jogo nova. [Método, resultados e pendências](Revisoes/menu-dinamico-md09.md). Não encerrar a MD-09 integral enquanto não rever o conjunto incluindo MD-08; aprovação artística final continua na MD-10.

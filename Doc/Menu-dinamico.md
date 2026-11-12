@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-07 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-07 concluídas; MD-09 em revisão antecipada; MD-08 e MD-10 pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -137,3 +137,7 @@ Cartões com área de link fixa e superfície própria: inclinação até 3° pa
 ### Ampliação das palavras do Solo — 12/11/2026
 
 A pedido do responsável, o repertório decorativo passou de duas para dez palavras de três letras, mantendo peças, tempos e pausas. Duas palavras por ciclo de 24 s; a sequência é embaralhada em grupos de dez e renovada no retorno ao mistério, sem substituir uma palavra visível. Nenhum temporizador ou acesso ao catálogo novo. [Implementação e verificações da revisão](Revisoes/menu-dinamico-md06.md#ampliação-para-dez-palavras--12112026). Ajuste da MD-06; MD-08 permanece não iniciada.
+
+### Revisão antecipada MD-09 — 12/11/2026
+
+O responsável pediu adiantar a revisão do conjunto antes da MD-08. A verificação cobre o menu entregue até a MD-07, com as dez palavras do Solo: observação real ampliada para cinco minutos, navegação/ausência repetidas, regressões e comparação exploratória com a versão anterior às melhorias. [Método, resultados e limites](Revisoes/menu-dinamico-md09.md). A revisão das novas surpresas depende de sua implementação e aceite; a MD-09 integral e o aceite MD-10 permanecem pendentes.

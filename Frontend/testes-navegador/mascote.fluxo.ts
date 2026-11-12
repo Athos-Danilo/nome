@@ -24,6 +24,52 @@ async function visitante(page: Page) {
     });
   });
 }
+test("definições fixas preservam máscaras e referências exclusivas entre poses e personagens", async ({
+  page,
+}) => {
+  await visitante(page);
+  await page.goto("/laboratorio/aurelio");
+  const montagem = page.locator(".ensaio-montagem svg");
+  await expect(montagem).toHaveAttribute("data-tempo", "0");
+  const antes = await montagem.locator("defs").innerHTML();
+  const corpo = await montagem
+    .locator('[data-parte="corpo_inteiro"]')
+    .getAttribute("transform");
+  await page.getByRole("slider").fill("2070");
+  await expect(montagem).toHaveAttribute("data-tempo", "2070");
+  expect(await montagem.locator("defs").innerHTML()).toBe(antes);
+  expect(
+    await montagem
+      .locator('[data-parte="corpo_inteiro"]')
+      .getAttribute("transform"),
+  ).not.toBe(corpo);
+  const referencias = await page
+    .locator("svg.recorte-aurelio")
+    .evaluateAll((desenhos) => {
+      const todos = desenhos.flatMap((desenho) =>
+        Array.from(desenho.querySelectorAll("defs [id]"), (el) => el.id),
+      );
+      const ausentes = desenhos.flatMap((desenho) => {
+        const locais = new Set(
+          Array.from(desenho.querySelectorAll("defs [id]"), (el) => el.id),
+        );
+        return Array.from(desenho.querySelectorAll("*")).flatMap((el) =>
+          Array.from(el.attributes).flatMap(({ value }) => {
+            const id = value.startsWith("url(#")
+              ? value.slice(5, -1)
+              : value.startsWith("#") && el.tagName === "use"
+                ? value.slice(1)
+                : null;
+            return id && !locais.has(id) ? [id] : [];
+          }),
+        );
+      });
+      return { todos, ausentes };
+    });
+  expect(referencias.todos.length).toBeGreaterThan(20);
+  expect(new Set(referencias.todos).size).toBe(referencias.todos.length);
+  expect(referencias.ausentes).toEqual([]);
+});
 test("saudação preserva o PNG aprovado na montagem parada", async ({
   page,
 }, info) => {

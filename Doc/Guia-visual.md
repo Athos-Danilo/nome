@@ -172,3 +172,7 @@ Solo preserva as três peças e forma duas das dez palavras de três letras em c
 ### Respostas dos cartões — MD-07, 12/11/2026
 
 Link fixo com superfície visual independente: mouse preciso inclina até 3° por eixo e eleva 5 px; foco de teclado recebe contorno visível e resposta de seta/ilustração, sem seguir cursor. Pressão de toque é curta e mantém um único acionamento; rolar continua sendo gesto nativo. Superfície retorna em 320 ms, seta em 180 ms e ilustração em 220 ms. Redução de movimentos elimina deslocamentos e mantém foco legível. Preservar as camadas das cenas e os espaçamentos existentes ao integrar próximas atuações. [Parâmetros, TDD e evidências](Revisoes/menu-dinamico-md07.md).
+
+### Revisão antecipada do conjunto — MD-09, 12/11/2026
+
+Revisar a composição já entregue sem presumir as novas atuações da MD-08. A observação de cinco minutos mantém como referência a geometria estável do título e dos cartões, falas sem repetição imediata e cenas decorativas independentes. Preservar os parâmetros aprovados até que uma falha ou a revisão artística justifique alterá-los. [Método, evidências e pendências](Revisoes/menu-dinamico-md09.md). O aceite visual integrado continua na MD-10.

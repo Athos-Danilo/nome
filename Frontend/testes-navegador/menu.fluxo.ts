@@ -1,5 +1,108 @@
 import { expect, test, type Page } from "@playwright/test";
 
+test("MD-09 compara custo e cadência de quadros com referência isolada", async ({
+  browser,
+}, info) => {
+  const referencia = process.env.DECIFRA_MENU_REFERENCIA_URL;
+  test.skip(
+    !referencia || info.project.name === "tablet",
+    "Comparação opcional exige servidor de referência; computador e celular cobrem CPU normal e limitada.",
+  );
+  test.setTimeout(180000);
+  const resultados = [];
+  // Alternar a ordem reduz o viés de aquecimento; medir fora de suítes concorrentes.
+  for (const repeticao of [1, 2]) {
+    for (const versao of repeticao === 1
+      ? ["referencia", "atual"]
+      : ["atual", "referencia"]) {
+      const contexto = await browser.newContext({
+        baseURL: process.env.DECIFRA_MENU_ATUAL_URL ?? "http://127.0.0.1:5177",
+        viewport: info.project.use.viewport,
+        isMobile: info.project.name === "celular",
+        hasTouch: info.project.name === "celular",
+      });
+      try {
+        const pagina = await contexto.newPage();
+        await preparar(pagina, true);
+        const protocolo = await contexto.newCDPSession(pagina);
+        const fator = info.project.name === "celular" ? 4 : 1;
+        await protocolo.send("Emulation.setCPUThrottlingRate", { rate: fator });
+        await protocolo.send("Performance.enable");
+        await pagina.goto(versao === "referencia" ? referencia! : "/");
+        await expect(
+          pagina.getByRole("link", { name: "Solo", exact: true }),
+        ).toBeVisible();
+        await pagina.evaluate(() => document.fonts.ready);
+        // Aquecer imagens, saudação e compilação JIT antes da janela medida.
+        await pagina.waitForTimeout(8000);
+        const antes = await protocolo.send("Performance.getMetrics");
+        const quadros = await pagina.evaluate(
+          () =>
+            new Promise<number[]>((resolver) => {
+              const intervalos: number[] = [];
+              let anterior: number | null = null;
+              let inicio = 0;
+              function medir(instante: number) {
+                if (anterior !== null) intervalos.push(instante - anterior);
+                else inicio = instante;
+                anterior = instante;
+                if (instante - inicio >= 12000) resolver(intervalos);
+                else requestAnimationFrame(medir);
+              }
+              requestAnimationFrame(medir);
+            }),
+        );
+        const depois = await protocolo.send("Performance.getMetrics");
+        const valor = (lista: typeof antes.metrics, nome: string) =>
+          lista.find((m) => m.name === nome)?.value ?? 0;
+        const duracao =
+          valor(depois.metrics, "Timestamp") -
+          valor(antes.metrics, "Timestamp");
+        const ordenados = [...quadros].sort((a, b) => a - b);
+        resultados.push({
+          versao,
+          repeticao,
+          fatorCpu: fator,
+          segundos: duracao,
+          tarefaMsPorSegundo:
+            ((valor(depois.metrics, "TaskDuration") -
+              valor(antes.metrics, "TaskDuration")) *
+              1000) /
+            duracao,
+          scriptMsPorSegundo:
+            ((valor(depois.metrics, "ScriptDuration") -
+              valor(antes.metrics, "ScriptDuration")) *
+              1000) /
+            duracao,
+          layoutMsPorSegundo:
+            ((valor(depois.metrics, "LayoutDuration") -
+              valor(antes.metrics, "LayoutDuration")) *
+              1000) /
+            duracao,
+          intervaloP95Ms: ordenados[Math.floor(ordenados.length * 0.95)],
+          intervaloMaximoMs: Math.max(...quadros),
+          intervalosAcima50Ms: quadros.filter((v) => v > 50).length,
+          quadros: quadros.length,
+          nosDOM: valor(depois.metrics, "Nodes"),
+        });
+        expect(quadros.length).toBeGreaterThan(10);
+        expect(
+          await pagina.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        ).toBe(true);
+      } finally {
+        await contexto.close();
+      }
+    }
+  }
+  await info.attach("comparacao-desempenho", {
+    body: JSON.stringify(resultados, null, 2),
+    contentType: "application/json",
+  });
+  console.log(JSON.stringify({ projeto: info.project.name, resultados }));
+});
+
 async function preparar(
   pagina: Page,
   logado = false,
@@ -98,6 +201,82 @@ async function preparar(
   });
   return estado;
 }
+
+test("MD-09 alterna navegação, diálogo e ausência sem erro atrasado nem efeito de jogo", async ({
+  page,
+}) => {
+  test.setTimeout(45000);
+  const erros: string[] = [];
+  const mutacoes: string[] = [];
+  page.on("pageerror", (erro) => erros.push(erro.message));
+  page.on("request", (pedido) => {
+    // Identificar o navegador é um POST legítimo; não é uma ação de partida.
+    const caminho = new URL(pedido.url()).pathname;
+    if (
+      caminho.startsWith("/api/") &&
+      caminho !== "/api/visitantes" &&
+      pedido.method() !== "GET"
+    )
+      mutacoes.push(`${pedido.method()} ${caminho}`);
+  });
+  await preparar(page, true);
+  await page.clock.install();
+  await page.goto("/");
+  for (let volta = 0; volta < 6; volta++) {
+    const menu = page.locator(".sala-jogo");
+    await expect(menu).toHaveAttribute("data-agenda", "ativa");
+    await page.getByRole("button", { name: "Como jogar" }).click();
+    await expect(menu).toHaveAttribute("data-agenda", "pausada");
+    const fala = await page.locator(".balao-menu").getAttribute("data-fala");
+    await avancarFalas(page, 60000);
+    await expect(page.locator(".balao-menu")).toHaveAttribute(
+      "data-fala",
+      fala!,
+    );
+    await page.keyboard.press("Escape");
+    await page.evaluate(() => {
+      Object.defineProperty(document, "hidden", {
+        configurable: true,
+        value: true,
+      });
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
+    await expect(menu).toHaveAttribute("data-agenda", "pausada");
+    await avancarFalas(page, 60000);
+    await page.evaluate(() => {
+      Object.defineProperty(document, "hidden", {
+        configurable: true,
+        value: false,
+      });
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
+    await expect(menu).toHaveAttribute("data-agenda", "ativa");
+    await expect(page.locator(".balao-menu")).toHaveAttribute(
+      "data-fala",
+      fala!,
+    );
+    await page
+      .getByRole("link", { name: "Configurações", exact: true })
+      .click();
+    await expect(menu).toHaveCount(0);
+    await avancarFalas(page, 30000);
+    await page.goBack();
+    await expect(menu).toHaveAttribute("data-entrada", "retorno");
+    await expect(
+      page.getByRole("heading", { name: "Bora decifrar?" }),
+    ).toBeFocused();
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(menu).toHaveAttribute("data-agenda", "pausada");
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+  }
+  await avancarFalas(page, 16000);
+  await expect(page.locator(".balao-menu")).toHaveAttribute(
+    "data-contexto",
+    "conta",
+  );
+  expect(erros).toEqual([]);
+  expect(mutacoes).toEqual([]);
+});
 
 test("visitante navega pelo menu e volta das configurações sem consumir demonstração", async ({
   page,
@@ -1294,14 +1473,14 @@ test("repertório cabe nas oito aparências, texto ampliado e frases mais longas
   });
 });
 
-test("observação real de três minutos das falas sem repetição ou sons automáticos", async ({
+test("observação real de cinco minutos do conjunto sem repetição, deslocamento ou sons automáticos", async ({
   page,
 }, info) => {
   test.skip(
     info.project.name !== "computador",
     "Observação longa em uma sessão; layout coberto nos três tamanhos.",
   );
-  test.setTimeout(210000);
+  test.setTimeout(335000);
   await preparar(page, true);
   await page.goto("/");
   const balao = page.locator(".balao-menu");
@@ -1322,22 +1501,60 @@ test("observação real de três minutos das falas sem repetição ou sons autom
   page.on("request", (pedido) => {
     if (/\.(mp3|ogg|wav)(\?|$)/.test(pedido.url())) audios.push(pedido.url());
   });
-  for (let passo = 1; passo <= 6; passo++) {
+  const titulo = page.getByRole("heading", { name: "Bora decifrar?" });
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-acontecimento",
+    "repouso",
+    { timeout: 10000 },
+  );
+  const caixaTitulo = await titulo.boundingBox();
+  const caixaSolo = await page
+    .getByRole("link", { name: "Solo", exact: true })
+    .boundingBox();
+  const amostras: {
+    segundo: number;
+    palavra: string;
+    reacao: string | null;
+    acontecimento: string | null;
+  }[] = [];
+  for (let passo = 1; passo <= 10; passo++) {
     await page.waitForTimeout(30000);
     await expect(
       page.getByRole("heading", { name: "Bora decifrar?" }),
     ).toBeFocused();
+    const atualTitulo = await titulo.boundingBox();
+    const atualSolo = await page
+      .getByRole("link", { name: "Solo", exact: true })
+      .boundingBox();
+    expect(atualTitulo!.y).toBeCloseTo(caixaTitulo!.y, 0);
+    expect(atualSolo!.y).toBeCloseTo(caixaSolo!.y, 0);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    amostras.push({
+      segundo: passo * 30,
+      palavra: (
+        await page.locator(".cena-solo .face-primeira").allTextContents()
+      ).join(""),
+      reacao: await page
+        .locator(".aurelio-animado")
+        .getAttribute("data-reacao"),
+      acontecimento: await page
+        .locator(".sala-jogo")
+        .getAttribute("data-acontecimento"),
+    });
     console.log(`Observação das falas: ${passo * 30} segundos reais`);
-    if (passo % 2 === 0)
-      await page.screenshot({
-        path: info.outputPath(`observacao-${passo * 30}.png`),
-        fullPage: true,
-      });
+    await page.screenshot({
+      path: info.outputPath(`observacao-${passo * 30}.png`),
+      fullPage: true,
+    });
   }
   const itens: { id: string; texto: string; instante: number }[] = JSON.parse(
     (await balao.getAttribute("data-observacao"))!,
   );
-  expect(itens.length).toBeGreaterThanOrEqual(11);
+  expect(itens.length).toBeGreaterThanOrEqual(19);
   expect(itens.slice(1).every((item, i) => item.id !== itens[i].id)).toBe(true);
   for (let i = 1; i < itens.length; i++) {
     const intervalo = itens[i].instante - itens[i - 1].instante;
@@ -1345,6 +1562,12 @@ test("observação real de três minutos das falas sem repetição ou sons autom
     expect(intervalo).toBeLessThan(15500);
   }
   expect(audios).toEqual([]);
+  expect(new Set(amostras.map((item) => item.palavra)).size).toBeGreaterThan(2);
+  expect(amostras.every((item) => item.reacao === "espera")).toBe(true);
+  await info.attach("conjunto-observado", {
+    body: JSON.stringify(amostras, null, 2),
+    contentType: "application/json",
+  });
   await info.attach("falas-observadas", {
     body: JSON.stringify(itens, null, 2),
     contentType: "application/json",
