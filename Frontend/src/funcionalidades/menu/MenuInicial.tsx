@@ -1,3 +1,7 @@
+import { BalaoMenu } from "./BalaoMenu";
+import { contextoDasFalas } from "./falas-menu";
+import type { UseQueryResult } from "@tanstack/react-query";
+import type { PartidaEmAberto } from "./api";
 import { useEffect, useRef } from "react";
 import { CenarioMenu } from "./CenarioMenu";
 import { useEntradaMenu } from "./usar-entrada-menu";
@@ -21,14 +25,25 @@ export function MenuInicial({
 }) {
   const elemento = useRef<HTMLDivElement>(null);
   const contexto = conta?.jogador_id ?? "visitante";
-  const agenda = useAgendaMenu(elemento, contexto);
-  const entrada = useEntradaMenu(agenda.reduzida, contexto);
   const visitante = useQuery({
     queryKey: ["visitante", false],
     queryFn: identificarVisitante,
     enabled: !conta,
   });
+  const agenda = useAgendaMenu(elemento, contexto, !conta && visitante.isError);
+  const entrada = useEntradaMenu(agenda.reduzida, contexto);
   const utilizada = !conta && visitante.data?.demonstracao_utilizada;
+  const continuidade = useQuery({
+    queryKey: ["partida-em-aberto", conta?.jogador_id],
+    queryFn: consultarPartidaEmAberto,
+    enabled: !!conta,
+  });
+  const contextoFalas = contextoDasFalas(
+    !!conta,
+    visitante.isSuccess ? visitante.data.demonstracao_utilizada : undefined,
+    continuidade.isSuccess && !!continuidade.data,
+  );
+
   const registradas = useRef({ contexto, ids: new Set<string>() });
   const solicitar = agenda.solicitar;
   useEffect(() => {
@@ -107,18 +122,19 @@ export function MenuInicial({
             pausado={agenda.pausada}
             tamanho="grande"
           />
-          <span className="balao-menu">
-            {utilizada ? "Vamos continuar?" : "Uma dica?"}
-            <br />
-            <b>{utilizada ? "Tenho mais pistas!" : "Deixa comigo!"}</b>
-          </span>
+          <BalaoMenu
+            key={`${contexto}:${contextoFalas}`}
+            contexto={contextoFalas}
+            ativa={agenda.ativa}
+            configurar={agenda.configurar}
+          />
         </div>
       </section>
       <section className="escolhas-menu" aria-label="Escolha seu caminho">
         {conta ? (
           <>
             <SituacaoDemonstracao tokenConta={conta.token_csrf} />
-            <Continuidade jogadorId={conta.jogador_id} aoExpirar={aoExpirar} />
+            <Continuidade consulta={continuidade} aoExpirar={aoExpirar} />
             <div className="cartoes-modos">
               <CartaoModo
                 modo="solo"
@@ -177,16 +193,12 @@ export function MenuInicial({
   );
 }
 function Continuidade({
-  jogadorId,
+  consulta,
   aoExpirar,
 }: {
-  jogadorId: string;
+  consulta: UseQueryResult<PartidaEmAberto | null, Error>;
   aoExpirar: (erro: Error) => void;
 }) {
-  const consulta = useQuery({
-    queryKey: ["partida-em-aberto", jogadorId],
-    queryFn: consultarPartidaEmAberto,
-  });
   useEffect(() => {
     if (
       consulta.error instanceof ErroDaApi &&

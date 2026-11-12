@@ -25,6 +25,7 @@ const lerServidor = () => "1000";
 export function useAgendaMenu(
   elemento: RefObject<HTMLElement | null>,
   contexto: string,
+  bloqueioExterno = false,
 ) {
   const agenda = useMemo(
     () =>
@@ -65,7 +66,7 @@ export function useAgendaMenu(
   );
   const ausente = sinais[0] === "1",
     reduzida = sinais[1] === "1",
-    bloqueada = sinais[2] === "1" || sinais[3] === "1";
+    bloqueada = bloqueioExterno || sinais[2] === "1" || sinais[3] === "1";
   useEffect(() => {
     agenda.condicoes({ oculta: ausente, reduzida, bloqueada });
   }, [agenda, ausente, reduzida, bloqueada]);

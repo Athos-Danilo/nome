@@ -1,0 +1,87 @@
+.sala-jogo .balao-menu {
+  width: 192px;
+  line-height: 1.4;
+  display: grid;
+}
+.espaco-falas,
+.troca-falas,
+.fala-inicial {
+  grid-area: 1 / 1;
+  display: grid;
+}
+.espaco-falas {
+  visibility: hidden;
+  pointer-events: none;
+}
+.espaco-falas > span,
+.fala-atual,
+.fala-anterior {
+  grid-area: 1 / 1;
+}
+.fala-anterior {
+  pointer-events: none;
+  visibility: hidden;
+}
+.troca-falas .fala-atual {
+  animation: entrar-fala 180ms ease-out both;
+}
+.troca-falas .fala-anterior {
+  animation: sair-fala 180ms ease-out both;
+}
+.sala-jogo[data-agenda="pausada"] .troca-falas > span {
+  animation-play-state: paused;
+}
+@keyframes entrar-fala {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sair-fala {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.sala-jogo[data-reduzida="true"] .troca-falas > span {
+  animation: none;
+}
+@media (max-width: 650px) {
+  .sala-jogo .balao-menu {
+    width: 132px;
+  }
+}
+
+/* A especificidade mantém a reserva acima dos posicionamentos anteriores de visitante. */
+@media (min-width: 651px) and (max-width: 960px) {
+  .sala-jogo .boas-vindas-menu .palco-menu {
+    height: auto;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sala-jogo .palco-menu > .aurelio-animado {
+    flex-shrink: 0;
+  }
+  .sala-jogo .palco-menu::before {
+    bottom: 90px;
+  }
+  .sala-jogo .palco-menu .balao-menu {
+    position: relative;
+    inset: auto;
+    margin: 16px 0 0 auto;
+    width: min(192px, 100%);
+  }
+}
+@media (max-width: 650px) {
+  .sala-jogo .palco-menu .balao-menu {
+    bottom: 0;
+  }
+}

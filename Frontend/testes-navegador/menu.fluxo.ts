@@ -1090,3 +1090,319 @@ test("quadros da apresentação preservam conteúdo visível e foco", async ({
     });
   }
 });
+
+async function avancarFalas(pagina: Page, tempo: number) {
+  // Passos curtos entregam as oportunidades; não reproduzir milhares de quadros do mascote.
+  for (let restante = tempo; restante > 0; restante -= 1000)
+    await pagina.clock.fastForward(Math.min(1000, restante));
+}
+
+for (const contexto of [
+  "visitante",
+  "demonstracao-usada",
+  "conta",
+  "continuidade",
+] as const) {
+  test(`falas contextuais: ${contexto}, sem repetição ou mudança de geometria`, async ({
+    page,
+  }) => {
+    const logado = contexto === "conta" || contexto === "continuidade";
+    const estado = await preparar(
+      page,
+      logado,
+      false,
+      contexto === "demonstracao-usada",
+    );
+    estado.aberta = contexto === "continuidade";
+    await page.clock.install();
+    await page.goto("/");
+    const balao = page.locator(".balao-menu");
+    await expect(balao).toHaveAttribute("data-contexto", contexto);
+    await page.evaluate(() => document.fonts.ready);
+    await page.locator(".sala-jogo").evaluate(async (el) => {
+      await Promise.all(
+        el
+          .getAnimations({ subtree: true })
+          .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+          .map((a) => a.finished),
+      );
+    });
+    await avancarFalas(page, 5500);
+    const caixa = await balao.boundingBox();
+    const inicial = await balao.getAttribute("data-fala");
+    await avancarFalas(page, 10000);
+    await expect(balao).not.toHaveAttribute("data-fala", inicial!);
+    await balao.evaluate((el) => {
+      el.setAttribute(
+        "data-historico",
+        JSON.stringify([el.getAttribute("data-fala")]),
+      );
+      new MutationObserver(() => {
+        const historico = JSON.parse(el.getAttribute("data-historico")!);
+        historico.push(el.getAttribute("data-fala"));
+        el.setAttribute("data-historico", JSON.stringify(historico));
+      }).observe(el, { attributes: true, attributeFilter: ["data-fala"] });
+    });
+    for (let i = 0; i < 3; i++) {
+      await avancarFalas(page, 15000);
+      const historico: string[] = JSON.parse(
+        (await balao.getAttribute("data-historico"))!,
+      );
+      expect(historico.length).toBeGreaterThan(i + 1);
+      expect(
+        historico.slice(1).every((id, indice) => id !== historico[indice]),
+      ).toBe(true);
+      expect(await balao.boundingBox()).toEqual(caixa);
+    }
+    await expect(
+      page.getByRole("heading", { name: "Bora decifrar?" }),
+    ).toBeFocused();
+    expect(await balao.getAttribute("aria-live")).toBeNull();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    if (contexto === "continuidade")
+      await expect(
+        page.getByRole("link", { name: "Continuar partida" }),
+      ).toBeVisible();
+  });
+}
+
+test("falas congelam na redução e em diálogo; retorno não acumula trocas", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  test.setTimeout(45000);
+  await page.clock.install();
+  await page.goto("/");
+  const balao = page.locator(".balao-menu");
+  await expect(balao).toHaveAttribute("data-contexto", "conta");
+  await avancarFalas(page, 16000);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-reduzida",
+    "true",
+  );
+  const frase = await balao.getAttribute("data-fala");
+  await avancarFalas(page, 90000);
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-reduzida",
+    "false",
+  );
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await avancarFalas(page, 90000);
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+  await page.keyboard.press("Escape");
+  await avancarFalas(page, 1000);
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+});
+
+test("falas param fora da área visível e voltam sem rajada", async ({
+  page,
+}) => {
+  await preparar(page, true);
+  await page.clock.install();
+  await page.goto("/");
+  const balao = page.locator(".balao-menu");
+  await expect(balao).toHaveAttribute("data-contexto", "conta");
+  await avancarFalas(page, 16000);
+  await page
+    .locator(".palco-menu")
+    .evaluate((el) => (el.style.transform = "translateY(-3000px)"));
+  await page.waitForTimeout(100);
+  const frase = await balao.getAttribute("data-fala");
+  await avancarFalas(page, 30000);
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+  await page.locator(".palco-menu").evaluate((el) => (el.style.transform = ""));
+  await page.waitForTimeout(100);
+  await avancarFalas(page, 1000);
+  await expect(balao).toHaveAttribute("data-fala", frase!);
+});
+
+test("repertório cabe nas oito aparências, texto ampliado e frases mais longas", async ({
+  page,
+}, info) => {
+  test.setTimeout(45000);
+  await preparar(page, true);
+  await page.goto("/");
+  const balao = page.locator(".balao-menu");
+  await expect(balao).toHaveAttribute("data-contexto", "conta");
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(Array.from(document.images, (imagem) => imagem.decode()));
+    await Promise.all(
+      Array.from(
+        document.querySelectorAll<SVGImageElement>(".aurelio-animado image"),
+        async (el) => {
+          const imagem = new Image();
+          imagem.src = el.href.baseVal;
+          await imagem.decode();
+        },
+      ),
+    );
+  });
+  for (const paleta of ["original", "azul", "roxa", "grafite"])
+    for (const tema of ["claro", "escuro"]) {
+      await page.evaluate(
+        ({ paleta, tema }) => {
+          document.documentElement.dataset.paleta = paleta;
+          document.documentElement.dataset.tema = tema;
+        },
+        { paleta, tema },
+      );
+      await page.screenshot({
+        path: info.outputPath(`falas-${paleta}-${tema}.png`),
+        fullPage: true,
+        animations: "disabled",
+      });
+      expect(
+        await balao.evaluate((el) => el.scrollWidth <= el.clientWidth),
+      ).toBe(true);
+    }
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = "200%";
+  });
+  expect(await balao.evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(
+    true,
+  );
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await expect(
+    page.getByRole("link", { name: "Solo", exact: true }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: info.outputPath("falas-texto-ampliado.png"),
+    fullPage: true,
+    animations: "disabled",
+  });
+});
+
+test("observação real de três minutos das falas sem repetição ou sons automáticos", async ({
+  page,
+}, info) => {
+  test.skip(
+    info.project.name !== "computador",
+    "Observação longa em uma sessão; layout coberto nos três tamanhos.",
+  );
+  test.setTimeout(210000);
+  await preparar(page, true);
+  await page.goto("/");
+  const balao = page.locator(".balao-menu");
+  await expect(balao).toHaveAttribute("data-contexto", "conta");
+  await balao.evaluate((el) => {
+    el.setAttribute("data-observacao", "[]");
+    new MutationObserver(() => {
+      const itens = JSON.parse(el.getAttribute("data-observacao")!);
+      itens.push({
+        id: el.getAttribute("data-fala"),
+        texto: el.querySelector(".fala-atual")?.textContent,
+        instante: performance.now(),
+      });
+      el.setAttribute("data-observacao", JSON.stringify(itens));
+    }).observe(el, { attributes: true, attributeFilter: ["data-fala"] });
+  });
+  const audios: string[] = [];
+  page.on("request", (pedido) => {
+    if (/\.(mp3|ogg|wav)(\?|$)/.test(pedido.url())) audios.push(pedido.url());
+  });
+  for (let passo = 1; passo <= 6; passo++) {
+    await page.waitForTimeout(30000);
+    await expect(
+      page.getByRole("heading", { name: "Bora decifrar?" }),
+    ).toBeFocused();
+    console.log(`Observação das falas: ${passo * 30} segundos reais`);
+    if (passo % 2 === 0)
+      await page.screenshot({
+        path: info.outputPath(`observacao-${passo * 30}.png`),
+        fullPage: true,
+      });
+  }
+  const itens: { id: string; texto: string; instante: number }[] = JSON.parse(
+    (await balao.getAttribute("data-observacao"))!,
+  );
+  expect(itens.length).toBeGreaterThanOrEqual(11);
+  expect(itens.slice(1).every((item, i) => item.id !== itens[i].id)).toBe(true);
+  for (let i = 1; i < itens.length; i++) {
+    const intervalo = itens[i].instante - itens[i - 1].instante;
+    expect(intervalo).toBeGreaterThanOrEqual(9900);
+    expect(intervalo).toBeLessThan(15500);
+  }
+  expect(audios).toEqual([]);
+  await info.attach("falas-observadas", {
+    body: JSON.stringify(itens, null, 2),
+    contentType: "application/json",
+  });
+  console.log(JSON.stringify(itens));
+});
+
+test("consulta pendente usa fala geral e erro real conserva sua mensagem e prioridade", async ({
+  page,
+}) => {
+  await preparar(page);
+  let liberar: () => void = () => {};
+  const espera = new Promise<void>((resolver) => {
+    liberar = resolver;
+  });
+  await page.route("**/api/visitantes", async (rota) => {
+    await espera;
+    await rota.fulfill({
+      status: 503,
+      json: {
+        erro: {
+          codigo: "DADOS_INDISPONIVEIS",
+          mensagem: "Não foi possível conferir sua demonstração.",
+        },
+      },
+    });
+  });
+  await page.clock.install();
+  await page.goto("/");
+  const balao = page.locator(".balao-menu");
+  await expect(balao).toHaveAttribute("data-contexto", "geral");
+  const inicial = await balao.getAttribute("data-fala");
+  liberar();
+  await expect(page.getByRole("status")).toContainText(
+    "Não foi possível conferir sua demonstração.",
+  );
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-agenda",
+    "pausada",
+  );
+  await avancarFalas(page, 30000);
+  await expect(balao).toHaveAttribute("data-fala", inicial!);
+  await expect(
+    page.getByRole("link", { name: /Entrar com Google/ }),
+  ).toBeVisible();
+});
+
+test("balão do tablet não cruza o corpo do Aurélio", async ({ page }, info) => {
+  test.skip(info.project.name !== "tablet", "Composição intermediária.");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  for (const logado of [true, false]) {
+    await page.unroute("**/api/**");
+    await preparar(page, logado);
+    for (const largura of [700, 820, 960]) {
+      await page.setViewportSize({ width: largura, height: 1180 });
+      await page.goto("/");
+      await expect(page.locator(".balao-menu")).toBeVisible();
+      await page.evaluate(() => document.fonts.ready);
+      const fala = await page.locator(".balao-menu").boundingBox();
+      const mascote = await page.locator(".aurelio-animado").boundingBox();
+      expect(fala!.y).toBeGreaterThan(mascote!.y + mascote!.height + 2);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+  }
+});

@@ -155,3 +155,10 @@ O responsável pediu movimento de fundo mais evidente, balão fora dos pés e me
 ### Apresentação e retorno do menu — MD-04, 12/11/2026
 
 A marca entra em 240 ms; boas-vindas em 340 ms após 90 ms; palco do Aurélio em 440 ms após 190 ms; escolhas em 500 ms após 360 ms. Sequência total de 860 ms, com opacidade inicial 0,68 e deslocamento de 8 px. Retorno em 260 ms, opacidade inicial 0,85 e deslocamento de 4 px; marca não repete a entrada. O aceno aprovado conserva sua duração própria e não bloqueia os controles. Redução mantém a composição estática. Animação das camadas usa `translate`, separada das rotações dos cartões e das articulações. Preservados o balão à esquerda e o espaço compacto até a navegação móvel. [Registro e inspeção](Revisoes/menu-dinamico-md04.md).
+
+
+### Falas contextuais do menu — MD-05, 12/11/2026
+
+Repertório de vinte falas distintas: geral, visitante, demonstração usada, conta e continuidade confirmada. Trocas a cada 10–15 segundos ativos, com transição de opacidade de 180 ms; a fala permanece legível durante o descanso. O balão reserva a altura de todas as falas do contexto para não mover os cartões. Largura base de 192 px, limite existente de 165 px no visitante intermediário e 132 px no celular. No celular, o balão permanece à esquerda, com base em zero para acomodar a nova altura sem cruzar a descrição. Em 651–960 px, reservar uma linha abaixo do personagem, com margem de 16 px e sem sobrepor suas pernas. Preservar a leitura em duas partes, com a segunda em negrito; textos podem quebrar conforme fonte/espaço disponíveis.
+
+Sem anúncio automático recorrente, novo áudio ou mudança do título/foco. Redução de movimentos mantém uma frase estável. Usar a expressão neutra/espera aprovada até as novas atuações da MD-08. [Repertório, coordenação, inspeção e testes](Revisoes/menu-dinamico-md05.md).

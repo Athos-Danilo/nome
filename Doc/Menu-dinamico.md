@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-04 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-05 concluídas; demais incrementos pendentes.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -117,3 +117,8 @@ Após revisão do responsável, o fundo passou a ter deslocamento mais perceptí
 ### Entrada MD-04 — concluída em 12/11/2026
 
 Primeira apresentação da sessão da aba em 860 ms: marca, boas-vindas, Aurélio e modos/convite. Retornos em 260 ms, sem repetir a saudação longa; recarga preserva a marcação visual, independente da conta e da demonstração. Redução de movimentos mantém apresentação estática e não dispara a entrada ao ser desativada. Controles e foco disponíveis desde o início. Sem alteração da arte, das poses ou do áudio. [Implementação, testes e limites](Revisoes/menu-dinamico-md04.md). Próximo incremento: repertório e alternância das falas, MD-05; aceite artístico do conjunto permanece na MD-10.
+
+
+### Falas MD-05 — concluídas em 12/11/2026
+
+Repertório local de vinte falas distintas, adaptado a visitante, demonstração usada, conta e individual em aberto, com contexto geral enquanto a situação não é conhecida. Alternância de 10–15 segundos ativos, sem repetição imediata; transição de opacidade de 180 ms e altura reservada. Frase estável com redução de movimentos e pausas por ausência, visibilidade local, diálogo ou erro relevante. Mantidos arte/espera do Aurélio, foco e áudio existentes. [Registro editorial, TDD e limites](Revisoes/menu-dinamico-md05.md). Revisão artística do conjunto permanece na MD-10. Próximo incremento: cenas dos cartões Solo e Galera, MD-06.
