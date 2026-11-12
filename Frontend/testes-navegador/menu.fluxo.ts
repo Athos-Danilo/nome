@@ -8,7 +8,7 @@ test("MD-09 compara custo e cadência de quadros com referência isolada", async
     !referencia || info.project.name === "tablet",
     "Comparação opcional exige servidor de referência; computador e celular cobrem CPU normal e limitada.",
   );
-  test.setTimeout(180000);
+  test.setTimeout(300000);
   const resultados = [];
   // Alternar a ordem reduz o viés de aquecimento; medir fora de suítes concorrentes.
   for (const repeticao of [1, 2]) {
@@ -36,6 +36,18 @@ test("MD-09 compara custo e cadência de quadros com referência isolada", async
         // Aquecer imagens, saudação e compilação JIT antes da janela medida.
         await pagina.waitForTimeout(8000);
         const antes = await protocolo.send("Performance.getMetrics");
+        await pagina.locator(".sala-jogo").evaluate((el) => {
+          el.setAttribute("data-gestos-ensaio", "[]");
+          new MutationObserver(() => {
+            const gesto = el.getAttribute("data-gesto");
+            if (!gesto) return;
+            const itens: string[] = JSON.parse(
+              el.getAttribute("data-gestos-ensaio")!,
+            );
+            itens.push(gesto);
+            el.setAttribute("data-gestos-ensaio", JSON.stringify(itens));
+          }).observe(el, { attributes: true, attributeFilter: ["data-gesto"] });
+        });
         const quadros = await pagina.evaluate(
           () =>
             new Promise<number[]>((resolver) => {
@@ -46,13 +58,20 @@ test("MD-09 compara custo e cadência de quadros com referência isolada", async
                 if (anterior !== null) intervalos.push(instante - anterior);
                 else inicio = instante;
                 anterior = instante;
-                if (instante - inicio >= 12000) resolver(intervalos);
+                // A janela inclui ao menos uma oportunidade de surpresa após o aquecimento.
+                if (instante - inicio >= 40000) resolver(intervalos);
                 else requestAnimationFrame(medir);
               }
               requestAnimationFrame(medir);
             }),
         );
         const depois = await protocolo.send("Performance.getMetrics");
+        const gestos: string[] = JSON.parse(
+          (await pagina
+            .locator(".sala-jogo")
+            .getAttribute("data-gestos-ensaio"))!,
+        );
+        if (versao === "atual") expect(gestos.length).toBeGreaterThan(0);
         const valor = (lista: typeof antes.metrics, nome: string) =>
           lista.find((m) => m.name === nome)?.value ?? 0;
         const duracao =
@@ -63,6 +82,7 @@ test("MD-09 compara custo e cadência de quadros com referência isolada", async
           versao,
           repeticao,
           fatorCpu: fator,
+          gestos,
           segundos: duracao,
           tarefaMsPorSegundo:
             ((valor(depois.metrics, "TaskDuration") -

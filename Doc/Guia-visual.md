@@ -180,3 +180,8 @@ Preservar o desenho original e o repertório aprovado. As cinco novas intençõe
 ### Revisão antecipada do conjunto — MD-09, 12/11/2026
 
 Revisar a composição já entregue sem presumir as novas atuações da MD-08. A observação de cinco minutos mantém como referência a geometria estável do título e dos cartões, falas sem repetição imediata e cenas decorativas independentes. Preservar os parâmetros aprovados até que uma falha ou a revisão artística justifique alterá-los. [Método, evidências e pendências](Revisoes/menu-dinamico-md09.md). O aceite visual integrado continua na MD-10.
+
+
+### Revisão integrada MD-09 concluída — 12/11/2026
+
+As cinco atuações aprovadas foram incluídas na revisão do conjunto. Mantidas arte, tolerâncias, reserva do balão, foco e geometria dos controles nas oito aparências e três tamanhos emulados. A comparação passou a incluir surpresas na janela medida; seus custos e limitações estão no [relatório MD-09](Revisoes/menu-dinamico-md09.md). Nenhum ajuste visual adicional foi necessário. Aceite final e conferência do ambiente publicado permanecem na MD-10.

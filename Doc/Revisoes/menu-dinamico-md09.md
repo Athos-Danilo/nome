@@ -1,6 +1,6 @@
-# Menu MD-09 — revisão antecipada do conjunto
+# Menu MD-09 — revisão do conjunto
 
-Revisão iniciada em 12/11/2026, base `fed4b1f`, a pedido do responsável para adiantar a MD-09. Abrange o menu efetivamente implementado nas MD-01 a MD-07 e as dez palavras do Solo. **MD-08 não iniciada: a integração e revisão das novas surpresas continuam pendentes.** Este registro não aprova atuações inexistentes, não encerra a MD-10 nem a fase 49.
+Revisão iniciada em 12/11/2026, base `fed4b1f`, a pedido do responsável para adiantar a MD-09. Abrange o menu efetivamente implementado nas MD-01 a MD-07 e as dez palavras do Solo. **Esse era o alcance da revisão antecipada. A complementação integrada sobre `2cead44`, após o aceite das cinco atuações MD-08, está registrada ao final.** Este registro não encerra a MD-10 nem a fase 49.
 
 ## Alcance e organização
 
@@ -65,8 +65,47 @@ O menu atual acrescenta trabalho total: aproximadamente +57% no computador e +7,
 
 Os JSON brutos e as três séries (desenvolvimento antes/depois e compilado final) estão no diretório local da etapa. A comparação final não mede separadamente o menu `fed4b1f` compilado sem refatoração; portanto não isola o ganho desta mudança das demais diferenças em relação a `e44bd04`.
 
-## Pendências explícitas
+## Pendências registradas na revisão antecipada
 
 1. Produzir e obter o aceite artístico das atuações MD-08; depois repetir a observação conjunta, precedência de eventos, interação manual e medições afetadas. As falas atuais continuam com a pose de espera; não há associação nova com gestos nesta etapa.
 2. O responsável informou que pode testar no celular físico, mas ainda não relatou o resultado. A conferência desse aparelho permanece aguardando retorno; emulação não a substitui.
 3. Aceite visual integrado e conferência final da publicação na MD-10. A MD-09 integral permanece aberta enquanto faltar a revisão das surpresas.
+
+
+## Complementação integrada — concluída em 12/11/2026
+
+Base `2cead44`, sem alterações de comportamento do produto nesta complementação. As cinco atuações da MD-08 receberam aprovação expressa do responsável. Reutilizadas as verificações da mesma implementação registradas no [relatório MD-08](menu-dinamico-md08.md): 126 unitários e 269 cenários distintos de navegador, tipos, formatação e compilação. Não se somam novamente as repetições nem se apresentam verificações anteriores como novas execuções.
+
+A observação real do conjunto, já incluindo as novas surpresas, durou cinco minutos: 16 trocas de fala, nove surpresas, os quatro gestos automáticos disponíveis à conta, sem repetição imediata, deslocamento dos controles ou nova requisição sonora. Intervalos de fala de 10,12 a 31,48 segundos refletem os gestos protegidos e o descanso, em vez de impor fala nova a cada 15 segundos. A resposta manual tem prioridade como próximo evento, conservando um único pedido; as regressões cobrem saudação, surpresa, toque, Enter/Espaço, foco, redução, pausa e saída da área visível.
+
+As 24 aparências, as capturas intermediárias e as amostras das três gravações foram revistas. Preservados os desenhos, as tolerâncias de encaixes/olhos, a geometria dos controles e as regras dos dois modos. Nenhuma alteração de backend, dependência, pontuação, autenticação ou banco foi necessária.
+
+### Comparação incluindo as surpresas
+
+A janela medida passou de 12 para 40 segundos após oito segundos de aquecimento. Um observador local do teste registra o atributo de gesto; cada amostra atual deve conter ao menos uma surpresa. Ambas as versões usam a mesma janela maior e instrumentação, em duas repetições de ordem invertida. Mantidos computador sem limitação e celular emulado com CPU 4×. Nenhuma outra suíte é executada durante a medição. A versão antiga continua sendo a referência compilada `e44bd04`; não representa ausência de animação.
+
+O teste acrescenta somente observação e critérios de preservação, sem alterar o produto ou alegar um ciclo vermelho/verde de funcionalidade nova. A primeira tentativa não alcançou o servidor de referência por isolamento entre os processos; os dois servidores e o navegador foram reiniciados no mesmo ambiente. Falha de preparação, não regressão do jogo. A execução no ambiente comum passou nos dois cenários, sem repetição por falha. O conjunto tem oito amostras de cerca de 40 segundos: quatro por ambiente, duas por versão. As quatro amostras atuais registraram surpresas (gravata no computador, olhar para Galera/Solo no celular). Não foi medida uma amostra isolada de cada uma das cinco atuações.
+
+| Ambiente e versão | Tarefas (ms/s), média | Script (ms/s), média | Intervalo p95 nas duas repetições (ms) | Maior intervalo (ms) | Intervalos > 50 ms |
+| --- | ---: | ---: | --- | ---: | ---: |
+| Computador, referência | 127,94 | 41,45 | 10,1 / 10,1 | 11,1 | 0 |
+| Computador, atual com surpresas | 235,11 | 45,36 | 10,1 / 11,4 | 49,9 | 0 |
+| Celular emulado CPU 4×, referência | 519,03 | 157,31 | 10,1 / 10,1 | 15,8 | 0 |
+| Celular emulado CPU 4×, atual com surpresas | 707,65 | 133,96 | 10,1 / 10,1 | 20,1 | 0 |
+
+O trabalho total aumentou aproximadamente 83,8% no computador e 36,3% no celular emulado em relação à referência antiga; o script aumentou cerca de 9,4% no computador e caiu 14,8% no celular. Há variação entre repetições, especialmente na referência de computador. Os intervalos observados não identificaram bloqueio sustentado, mas o custo adicional existe e o máximo de 49,9 ms mostra que não cabe prometer ausência de engasgos. Não foi necessário alterar camadas ou cadências aprovadas nesta complementação. Os números não demonstram gasto de bateria, memória retida ou quadros efetivamente apresentados. Dados brutos em `Frontend/test-results/md09-integrado/desempenho.json`, ignorados pelo Git.
+
+As medições antigas de 12 segundos permanecem históricas e não são comparadas numericamente como se tivessem a mesma janela. O ensaio novo observa custo agregado do menu e não isola o custo de cada gesto nem promete desempenho em aparelhos físicos.
+
+### Conferência humana e próximo marco
+
+Antes da MD-08, o responsável respondeu “TUDO CERTO!” ao pedido de conferência do menu no celular. Não informou modelo ou medidas do aparelho; não atribuir a esse retorno dados de desempenho ou teste físico das cinco atuações novas. Estas tiveram aceite artístico separado e explícito. A apresentação final do conjunto e a conferência da publicação pertencem à MD-10; a fase 49 permanece independente.
+
+
+### Resultado da complementação
+
+**MD-09 concluída.** A rodada complementar passou em 29 cenários de navegador: dois de comparação compilada e 27 de integração nos três tamanhos, sem ignorados, falhas ou repetições por instabilidade. Os 27 incluem os cinco contextos afetados por gestos/ativação/navegação, sessão expirada, prioridade de erro e aparência/foco. Foram executados novamente 126 testes unitários, verificação de tipos incluída na compilação, compilação e formatação, todos aprovados. Nenhum comportamento executável do produto foi alterado; somente o ensaio de preservação foi ampliado.
+
+As regressões de mascote, áudio, acabamento e uso real da compilação são as da mesma implementação `2cead44`, já registradas na MD-08; não foram repetidas sem mudança que justificasse nova execução. Os 29 desta rodada não são somados aos 269 anteriores como se fossem todos inéditos: os 27 de integração são repetições focadas. Links locais e diff conferidos. Capturas, dados de medição, relatórios de testes e roteiro continuam ignorados.
+
+As pendências 1–3 do registro antecipado acima são históricas: a MD-08 foi implementada e aprovada, sua observação conjunta foi realizada e a medição foi complementada; o retorno geral do responsável foi registrado. Não há falha bloqueante conhecida no escopo revisado. Permanecem os limites de amostragem/emulação descritos acima e o aceite integrado com conferência da publicação na MD-10. A ocorrência isolada de página em branco da revisão antiga permanece registrada, sem recorrência identificada na complementação.

@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-08 concluídas; MD-09 em revisão antecipada; MD-10 pendente.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-08 concluídas; MD-09 concluída; MD-10 pendente.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -148,3 +148,8 @@ O responsável pediu adiantar a revisão do conjunto antes da MD-08. A verifica�
 Cinco atuações novas sobre a montagem aprovada: olhar para Solo/Galera (com direção medida conforme o layout), ajeitar a gravata com a mesma luva articulada, seguir uma letra e responder ao toque com salto/piscadela. Visitantes recebem somente as duas surpresas compatíveis com seu menu. Botão nativo no mascote responde a mouse, toque, Enter e Espaço; movimentos reduzidos oferecem texto sem animação. Mantidos foco, pausas, áudio centralizado e regras de jogo.
 
 A agenda agora registra falas e surpresas independentemente. Após uma atuação, há descanso antes de outra fala/surpresa; a prioridade manual é preservada por um único pedido pendente, sem cortar um gesto no meio. As cinco opções estão em `/laboratorio/aurelio`, no grupo Surpresas do menu. [Fichas, integração, TDD e verificações](Revisoes/menu-dinamico-md08.md). As cinco atuações foram aprovadas expressamente pelo responsável em 12/11/2026, concluindo a MD-08. A revisão integrada MD-09 e o aceite MD-10 permanecem pendentes.
+
+
+### Revisão integrada MD-09 — concluída, 12/11/2026
+
+Após a aprovação das cinco atuações MD-08, complementada a revisão do menu sobre `2cead44`. Reaproveitada a observação real de cinco minutos da mesma implementação e suas regressões; nova comparação compilada com janela de 40 segundos confirma surpresas nas amostras atuais, inclusive em celular emulado com CPU 4×. Passaram 27 cenários focados de integração e dois de comparação, além de 126 unitários, formatação, tipos e compilação. O menu acrescenta custo total em relação à referência antiga; a cadência medida não é garantia universal de fluidez. [Método, números, reaproveitamento de evidências e limites](Revisoes/menu-dinamico-md09.md#complementação-integrada--concluída-em-12112026). Nenhuma alteração de comportamento do produto foi necessária. Próximo marco: aceite e conferência da publicação MD-10; fase 49 independente.
