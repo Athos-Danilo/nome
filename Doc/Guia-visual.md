@@ -185,3 +185,8 @@ Revisar a composição já entregue sem presumir as novas atuações da MD-08. A
 ### Revisão integrada MD-09 concluída — 12/11/2026
 
 As cinco atuações aprovadas foram incluídas na revisão do conjunto. Mantidas arte, tolerâncias, reserva do balão, foco e geometria dos controles nas oito aparências e três tamanhos emulados. A comparação passou a incluir surpresas na janela medida; seus custos e limitações estão no [relatório MD-09](Revisoes/menu-dinamico-md09.md). Nenhum ajuste visual adicional foi necessário. Aceite final e conferência do ambiente publicado permanecem na MD-10.
+
+
+### Conferência visual publicada MD-10 — 13/11/2026
+
+Capturas da versão pública nos três tamanhos emulados e seis percursos conferem arte carregada, título/favicon e disposição sem rolagem horizontal. Inspecionadas amostras do menu em computador e tablet e da resposta manual no celular. Preservados identidade e comportamentos aprovados; nenhuma alteração visual necessária. [Evidências e alcance](Revisoes/menu-dinamico-md10.md). O responsável aprovou expressamente o menu completo em 13/11/2026, concluindo a MD-10. Esse aceite integrado complementa a aprovação individual dos cinco gestos.

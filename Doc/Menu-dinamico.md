@@ -1,6 +1,6 @@
 # Menu dinâmico — experiência e critérios
 
-**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-08 concluídas; MD-09 concluída; MD-10 pendente.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
+**Decisão aprovada em 11/11/2026. Estado: MD-01 a MD-10 concluídas; aceite final do menu completo em 13/11/2026.** O responsável aprovou as seis ideias apresentadas: falas alternadas, cartões animados, cenário ambiente, respostas à interação, entrada encenada e surpresas do Aurélio. O pedido inclui documentar e preparar fases antes de alterar a aplicação.
 
 ## 1. Intenção e alcance
 
@@ -153,3 +153,8 @@ A agenda agora registra falas e surpresas independentemente. Após uma atuação
 ### Revisão integrada MD-09 — concluída, 12/11/2026
 
 Após a aprovação das cinco atuações MD-08, complementada a revisão do menu sobre `2cead44`. Reaproveitada a observação real de cinco minutos da mesma implementação e suas regressões; nova comparação compilada com janela de 40 segundos confirma surpresas nas amostras atuais, inclusive em celular emulado com CPU 4×. Passaram 27 cenários focados de integração e dois de comparação, além de 126 unitários, formatação, tipos e compilação. O menu acrescenta custo total em relação à referência antiga; a cadência medida não é garantia universal de fluidez. [Método, números, reaproveitamento de evidências e limites](Revisoes/menu-dinamico-md09.md#complementação-integrada--concluída-em-12112026). Nenhuma alteração de comportamento do produto foi necessária. Próximo marco: aceite e conferência da publicação MD-10; fase 49 independente.
+
+
+### Conferência publicada MD-10 — 13/11/2026
+
+Versão em https://decifra-inky.vercel.app conferida em computador/tablet/celular emulados: seis percursos de visitante/conta simulada, quatro recursos públicos e leitura de saúde aprovados. Arte, título/favicon, surpresas, interação manual e abertura/recarga das configurações de Solo/Galera verificados sem criar dados reais. Chamadas de API nos percursos foram interceptadas; a leitura de saúde foi real. [Método, resultados e limites](Revisoes/menu-dinamico-md10.md). O responsável respondeu “Experimentei e aprovo o menu completo” em 13/11/2026, concluindo a MD-10 e o ciclo do menu dinâmico. Nenhuma regra de jogo ou recurso visual alterado nesta etapa.

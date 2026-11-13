@@ -335,3 +335,8 @@ Por solicitação do responsável, verificar o conjunto MD-01 a MD-07 antes das 
 ### Fechamento da revisão integrada MD-09 — 12/11/2026
 
 Complementação sobre `2cead44`, sem alteração do produto: ensaio compilado ampliado de 12 para 40 segundos com registro de gestos e exigência de surpresa na amostra atual. Mesma instrumentação e duração por versão, ordem invertida, sem suítes concorrentes; computador e celular emulado com CPU 4×. Dois cenários de medição e 27 regressões focadas aprovados; 126 unitários, tipos, formatação e compilação aprovados. Registros anteriores da mesma implementação são reaproveitados explicitamente, sem somar repetições. [Resultados, custo adicional e limites](Revisoes/menu-dinamico-md09.md). MD-09 concluída; publicação/aceite integrado na MD-10.
+
+
+### Conferência da publicação MD-10 — 13/11/2026
+
+Somente revisão e documentação sobre `60e0cd3`, sem mudança de código, dependência, API ou banco. Recursos públicos conferidos contra a compilação local; seis percursos com frontend Vercel real e API interceptada evitam gravações no ambiente publicado. Leitura real separada de `/api/saude` respondeu 200. Aceite final explícito do menu completo recebido em 13/11/2026; MD-10 concluída e ciclo MD-01 a MD-10 encerrado. Commit de fechamento somente documental; fase 49 independente. [Método, equivalência de arquivos e limites](Revisoes/menu-dinamico-md10.md).
