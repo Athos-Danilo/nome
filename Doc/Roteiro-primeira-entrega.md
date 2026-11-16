@@ -1,6 +1,6 @@
 # Roteiro de desenvolvimento — primeira entrega do Decifra
 
-**Registro de situação em 16/11/2026:** fases 01 a 49 concluídas (incluindo o catálogo auditado de 500 respostas/2.500 dicas na fase 47, a aceitação final na fase 48 e os indicadores de carregamento e espera na fase 49); menu dinâmico MD-01 a MD-10 concluído e arenas compactas entregues em 16/11/2026. Por solicitação do responsável, a antiga fase 49 tornou-se a **fase 50 — documentar, publicar a versão final e preparar a apresentação**. Próxima fase: **50**, pendente.
+**Registro de situação em 16/11/2026:** **todas as 50 fases concluídas** (incluindo o catálogo auditado de 500 respostas/2.500 dicas na fase 47, a aceitação final na fase 48, os indicadores de carregamento e espera na fase 49 e a documentação final, estabilização do CI e roteiro de apresentação na fase 50, além do menu dinâmico MD-01 a MD-10 e arenas compactas). Primeira entrega concluída e publicada em <https://decifra-inky.vercel.app>.
 
 **Escopo:** entregar na web os modos individual e com a galera, com login Google, histórico, rankings individuais, personalização, Aurélio animado, áudio configurável, indicadores de carregamento e catálogo revisado de 500 respostas com 2.500 dicas.
 
@@ -86,7 +86,7 @@ Este roteiro é um arquivo de acompanhamento **versionado no GitHub**, por solic
 - [x] Fase 47 — auditar e carregar o catálogo completo da entrega
 - [x] Fase 48 — executar aceitação final e corrigir regressões
 - [x] Fase 49 — projetar e integrar indicadores de carregamento para ações e espera do servidor
-- [ ] Fase 50 — documentar, publicar a versão final e preparar a apresentação
+- [x] Fase 50 — documentar, publicar a versão final e preparar a apresentação
 
 ## 2. Distribuição dos sete ciclos
 
@@ -1368,3 +1368,14 @@ IP atual autorizado pelo responsável; acesso ao Atlas restabelecido. Quatro lot
 Implementados os indicadores de carregamento e processamento em jogo para reduzir a percepção de espera no servidor gratuito, seguindo [Carregamentos.md](Carregamentos.md), TDD e SOLID: peças temáticas de palavra por contexto (`Carregando` e `CarregandoInline`), trilha rítmica, estágios progressivos com aviso transparente ao despertar (`>= 11 s`), faixa flutuante sem salto de layout (`IndicadorProcessamento`, `CLS = 0`) nos modos Solo, Demonstração, Galera e configuradores, destaque imediato da letra escolhida na Galera (`data-processando`), rótulos imediatos em botões/diálogos e feedback antecipado desde o preparo de cronômetro e rascunho no Solo. Respeita movimento reduzido, as oito combinações de tema/paleta e a compacidade sem rolagem das arenas.
 
 Verificações após a implementação final: `npm run formatar`, `npm run tipos` (`tsc --noEmit`), `npm test` (23 arquivos, 133 testes aprovados), `npm run build` (JS inicial total medido no `uso-real` em `478.440 bytes`, dentro de `500 KiB`), `npm run testar-carregamento` (12/12 aprovados em computador, tablet e celular, incluído no CI), inspeção visual das capturas em `Frontend/test-results/carregamento/`, e aprovação integral em `testar-uso-real` (6), `testar-individual` (58), `testar-galera` (19), `testar-menu` (152), `testar-entrada` (44), `testar-acabamento` (15), `testar-mascote` (69), `testar-audio` (12), `testar-perfil` (45) e `testar-interrupcoes` (32). Na suíte `testar-acompanhamento`, 12 passaram e 3 falharam exclusivamente em uma asserção pré-existente de título de aba (`"Cada descoberta conta — Decifra"` vs `"Decifra"` alterado no commit `f80b672`), sem relação com a fase 49 e mantida visível para revisão na fase 50. Nenhum código backend ou regra do jogo foi alterado. Próxima fase: **fase 50 — documentar, publicar a versão final e preparar a apresentação** (não iniciada).
+
+### Fase 50 concluída — 16/11/2026
+
+Documentação final consolidada, exemplos de configuração sem segredos conferidos ([`Backend/.env.example`](../Backend/.env.example), [`Backend/.env.teste.example`](../Backend/.env.teste.example), [`Frontend/vercel.json`](../Frontend/vercel.json)), roteiro de apresentação criado em [Apresentacao.md](Apresentacao.md) e [README.md](../README.md) completo atualizado na raiz com propósito, tecnologias, instalação limpa, bancos SQL/NoSQL, autenticação Google, catálogo, verificações, limites e procedência de recursos visuais e sonoros.
+
+Correções definitivas nas falhas do GitHub Actions:
+- `Backend/testes/teste_aceitacao_final.py`: tratado o estado `"aguardando_desempate"` quando o sorteio aleatório de 3 pessoas em 5 sessões empata em liderança (5 repetições seguidas e bateria completa do Backend com PostgreSQL 18 e MongoDB 8.2 isolados aprovadas: **287 aprovados**, 1 opcional pulado; Ruff check e format aprovados).
+- `Frontend/src/funcionalidades/menu/AnfitriaoMenu.tsx` e `BalaoMenu.tsx`: removida a `key={contexto}` que desmontava temporariamente `.balao-menu` durante consultas iniciais, corrigindo a corrida do teste em celular (`menu.fluxo.ts:1151`), além de aguardar a saída da `.sala-jogo` antes de `goBack()` (`menu.fluxo.ts:1372`).
+- `Frontend/testes-navegador/acompanhamento.fluxo.ts`: alinhada a asserção de título da aba para `"Decifra"` (`f80b672`).
+
+Verificações após a última alteração de código: Prettier, `tsc --noEmit`, `vitest run` (23 arquivos, 133 testes aprovados), `vite build` (`378,33 kB` no chunk principal; `478.531 bytes` de JS inicial no `uso-real`), `testar-acompanhamento` (15/15), `testar-menu` (152 aprovados, 22 pulados por comparação opcional), `testar-audio` (12/12), `testar-uso-real` (6/6) e `testar-carregamento` (12/12). Conferência pública somente leitura em <https://decifra-inky.vercel.app> (`/`, `/api/saude`, `/api/avatares` e `/api/rankings/pontos`) e `https://decifra-api.onrender.com/api/saude` com HTTP 200 após o despertar inicial da API gratuita. Primeira entrega das 50 fases concluída.

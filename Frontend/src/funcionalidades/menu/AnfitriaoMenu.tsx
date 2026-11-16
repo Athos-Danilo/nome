@@ -124,7 +124,6 @@ export function AnfitriaoMenu({
         ocupado={ocupado}
       />
       <BalaoMenu
-        key={contexto}
         contexto={contexto}
         ativa={agenda.ativa}
         configurar={configurar}

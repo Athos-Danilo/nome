@@ -1368,6 +1368,7 @@ test("entrada não bloqueia ações mesmo com falhas de arte e consulta", async 
   await solo.focus();
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await expect(page.locator(".sala-jogo")).toHaveCount(0);
   await page.goBack();
   await expect(page.locator(".sala-jogo")).toHaveAttribute(
     "data-entrada",
@@ -1947,6 +1948,7 @@ test("cenas dos modos formam palavras de três letras e preservam links e dimens
   if (info.project.name === "computador") await solo.click();
   else await solo.tap();
   await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await expect(page.locator(".sala-jogo")).toHaveCount(0);
   await page.goBack();
   await page.locator(".cena-galera").evaluate((el) =>
     el.getAnimations({ subtree: true }).forEach((a) => {
@@ -2333,6 +2335,7 @@ test("inclinação limpa em perda de foco, rolagem e desmontagem sem erro atrasa
   });
   await cartao.click();
   await expect(page).toHaveURL(/\/jogar\/individual\/novo$/);
+  await expect(page.locator(".sala-jogo")).toHaveCount(0);
   await page.goBack();
   await expect(superficie).toBeVisible();
   await expect(superficie).toHaveCSS("--inclinacao-y", "0deg");

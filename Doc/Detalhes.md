@@ -949,3 +949,7 @@ O editor de palpite completo oferece **Limpar palavra**, que apaga apenas a mont
 ## Fase 49 — indicadores de carregamento e espera do servidor — 16/11/2026
 
 Para tornar compreensíveis e agradáveis as esperas em hospedagem gratuita (Render Free, Neon e Atlas), a interface apresenta: peças temáticas do Decifra e mensagens progressivas na abertura de telas e partidas (incluindo aviso de despertar do servidor após 11 s), e uma faixa flutuante sem salto de layout durante jogadas no Solo, na Demonstração e na Galera, além de destaque imediato na tecla escolhida e nos botões acionados. Não altera regras de pontuação, cronômetro, áudio ou reações confirmadas do mascote. Especificação e critérios em [Carregamentos](Carregamentos.md).
+
+## Fase 50 — documentação final, entrega publicada e apresentação — 16/11/2026
+
+Entrega da primeira versão completa consolidada: [README.md](../README.md) atualizado com propósito, tecnologias, instalação limpa, configuração sem segredos, bancos SQL/NoSQL, login Google, importação do catálogo e verificações; roteiro da apresentação acadêmica em [Apresentacao.md](Apresentacao.md); estabilização das suítes de integração contínua do GitHub Actions e conferência dos endereços publicados na Vercel e no Render.

@@ -26,11 +26,20 @@ export function BalaoMenu({
   const elemento = useRef<HTMLSpanElement>(null);
   const visivel = useInView(elemento);
   const repertorio = repertorioDasFalas(contexto);
+  const [contextoAnterior, definirContextoAnterior] = useState(contexto);
   const [exibicao, definirExibicao] = useState<{
     atual: FalaMenu;
     anterior: FalaMenu | null;
     troca: string;
   }>({ atual: repertorio.inicial, anterior: null, troca: "inicial" });
+  if (contextoAnterior !== contexto) {
+    definirContextoAnterior(contexto);
+    definirExibicao({
+      atual: repertorio.inicial,
+      anterior: null,
+      troca: "inicial",
+    });
+  }
   const ids = useMemo(
     () => repertorio.alternativas.map((fala) => fala.id),
     [repertorio],

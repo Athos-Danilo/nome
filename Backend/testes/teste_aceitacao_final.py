@@ -88,6 +88,16 @@ def teste_cinco_sessoes_tema_repetido_nao_repetem_palavras_nem_publicam_ranking(
                 )
                 assert resposta.status_code == 200, resposta.text
                 estado = resposta.json()
+            if estado["painel"]["estado"] == "aguardando_desempate":
+                estado = (
+                    await agir(
+                        cliente,
+                        estado,
+                        "voto",
+                        participante_id=estado["painel"]["lideres"][0],
+                        aceita=False,
+                    )
+                ).json()
             assert estado["estado"] == "concluida" and len(sessoes_vistas) == 5
             assert sum(p["pontuacao"] for p in estado["participantes"]) == esperados
             assert len(estado["resumo_sessoes"]) == 5

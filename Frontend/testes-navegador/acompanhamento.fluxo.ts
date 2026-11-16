@@ -165,7 +165,7 @@ test("histórico, filtros, paginação e estatísticas privadas", async ({
     page.getByRole("heading", { name: "Cada descoberta conta" }),
   ).toBeVisible();
   await expect(page.getByText("Média de dicas nos acertos")).toBeVisible();
-  await expect(page).toHaveTitle("Cada descoberta conta — Decifra");
+  await expect(page).toHaveTitle("Decifra");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
