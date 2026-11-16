@@ -262,6 +262,12 @@ test("MD-08 toque preserva saudação, não enfileira repetições e oferece res
   await avancarFalas(page, 5000);
   await expect(mascote).toHaveAttribute("data-reacao", "espera");
   await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.clock.runFor(50);
+  await expect(page.locator(".sala-jogo")).toHaveAttribute(
+    "data-reduzida",
+    "true",
+  );
+  await expect(mascote).toHaveAttribute("data-estatico", "true");
   await expect(botao).toHaveAttribute("aria-disabled", "false");
   await botao.focus();
   await page.keyboard.press("Enter");
@@ -472,8 +478,11 @@ test("MD-09 alterna navegação, diálogo e ausência sem erro atrasado nem efei
       page.getByRole("heading", { name: "Bora decifrar?" }),
     ).toBeFocused();
     await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.clock.runFor(50);
     await expect(menu).toHaveAttribute("data-agenda", "pausada");
     await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.clock.runFor(50);
+    await expect(menu).toHaveAttribute("data-reduzida", "false");
   }
   await avancarFalas(page, 16000);
   await expect(page.locator(".balao-menu")).toHaveAttribute(
