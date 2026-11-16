@@ -190,3 +190,8 @@ As cinco atuações aprovadas foram incluídas na revisão do conjunto. Mantidas
 ### Conferência visual publicada MD-10 — 13/11/2026
 
 Capturas da versão pública nos três tamanhos emulados e seis percursos conferem arte carregada, título/favicon e disposição sem rolagem horizontal. Inspecionadas amostras do menu em computador e tablet e da resposta manual no celular. Preservados identidade e comportamentos aprovados; nenhuma alteração visual necessária. [Evidências e alcance](Revisoes/menu-dinamico-md10.md). O responsável aprovou expressamente o menu completo em 13/11/2026, concluindo a MD-10. Esse aceite integrado complementa a aprovação individual dos cinco gestos.
+
+
+### Arenas compactas de Solo e Galera — 16/11/2026
+
+Preservar o estilo aprovado e distribuir melhor o conteúdo: HUD com tempo/placar, trilha curta, dica/painel e mascote à esquerda e montagem/teclado à direita no computador. Moldura até 1540 px a partir de 1100 px de largura; quadradinhos de edição de 58×72 px, ou 40×58 px no celular. Ajustar espaços em janelas baixas sem reduzir o teclado abaixo de 44 px de altura nem esconder informação. Celular/tablet e conteúdo extenso conservam rolagem natural. O dock fica recolhido nas partidas em andamento; Voltar ao menu permanece visível. [Parâmetros e evidências](Revisoes/arenas-compactas.md). A mudança não altera a identidade nem o aceite histórico do menu.

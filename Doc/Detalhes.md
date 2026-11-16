@@ -938,3 +938,10 @@ O painel compartilhado, turnos, sorteios, pontos, sessão extra, cronômetro por
 ## Evolução aprovada: menu dinâmico — 11/11/2026
 
 O responsável aprovou falas alternadas do Aurélio, cenas decorativas nos cartões Solo/Galera, cenário ambiente, respostas a mouse/toque/teclado, apresentação de entrada/retorno e surpresas do mascote. Preservar a identidade e as atuações aprovadas; respeitar movimentos reduzidos, visibilidade, leitura e áudio existente. A especificação detalhada e os critérios estão em [Menu dinâmico](Menu-dinamico.md). Estado: autorizado para desenvolvimento, ainda não entregue; revisão artística conjunta necessária antes da aceitação.
+
+
+## Ajuste da experiência de partida — 16/11/2026
+
+Solo e Galera devem aproveitar a largura no computador: cronômetro junto dos indicadores, progresso compacto e espaços da resposta em destaque, mantendo o teclado e ações acessíveis. Partidas comuns devem caber nas janelas de computador verificadas; conteúdo extenso, zoom e telas menores conservam rolagem natural sem ocultar informações.
+
+O editor de palpite completo oferece **Limpar palavra**, que apaga apenas a montagem editável. Preserva sinais e revelações oficiais; não conta como erro, pedido de dica, pausa, palpite ou troca de turno, nem afeta pontos/tempo. O rascunho do Solo/demonstração é salvo vazio pelo mecanismo existente. Não há botão de limpar na escolha isolada de letra da Galera. [Organização, comportamento e verificações](Revisoes/arenas-compactas.md).

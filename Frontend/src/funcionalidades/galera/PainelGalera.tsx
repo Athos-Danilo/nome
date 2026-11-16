@@ -1,3 +1,4 @@
+import "../../estilos/partidas.css";
 import { useEffect, useRef, useState } from "react";
 import { useBlocker } from "react-router";
 import {
@@ -149,8 +150,33 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
   const bloqueado =
     jogo.ocupado || !!jogo.pendente || jogo.semRede || !jogo.pronto || sorteio;
   const selecionada = Math.min(palavra, p.palavras.length - 1);
+  const jogando = !final && p.estado === "em_andamento";
+  const placar = (
+    <ol className="placar-galera" aria-label="Placar da galera">
+      {e.participantes.map((a) => (
+        <li
+          key={a.participante_id}
+          data-testid={`placar-${a.participante_id}`}
+          className={a.participante_id === p.participante_atual ? "na-vez" : ""}
+        >
+          <img src={`/avatares/${a.avatar_id}.webp`} alt="" />
+          <div>
+            <strong>{a.nome}</strong>
+            <span>
+              <ValorAnimado valor={a.pontuacao.toLocaleString("pt-BR")} />{" "}
+              <small>PTS</small>
+            </span>
+          </div>
+          {a.participante_id === p.participante_atual && <b>SUA VEZ</b>}
+          {final && p.lideres.includes(a.participante_id) && (
+            <b>{p.lideres.length > 1 ? "EMPATE" : "VENCEU"}</b>
+          )}
+        </li>
+      ))}
+    </ol>
+  );
   return (
-    <section className="painel-galera">
+    <section className="painel-galera" data-jogando={jogando}>
       <header className="cabecalho-galera">
         <div>
           <span className="etiqueta">
@@ -166,6 +192,7 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
             {p.palavras.length} palavras no painel
           </p>
         </div>
+        {jogando && placar}
         <div
           className={`relogio-galera ${jogo.crono.ativo ? "ativo" : ""}`}
           aria-label="Tempo de jogo nesta sessão"
@@ -187,30 +214,8 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
           </div>
         </div>
       </header>
-      <ol className="placar-galera" aria-label="Placar da galera">
-        {e.participantes.map((a) => (
-          <li
-            key={a.participante_id}
-            data-testid={`placar-${a.participante_id}`}
-            className={
-              a.participante_id === p.participante_atual ? "na-vez" : ""
-            }
-          >
-            <img src={`/avatares/${a.avatar_id}.webp`} alt="" />
-            <div>
-              <strong>{a.nome}</strong>
-              <span>
-                <ValorAnimado valor={a.pontuacao.toLocaleString("pt-BR")} />{" "}
-                <small>PTS</small>
-              </span>
-            </div>
-            {a.participante_id === p.participante_atual && <b>SUA VEZ</b>}
-            {final && p.lideres.includes(a.participante_id) && (
-              <b>{p.lideres.length > 1 ? "EMPATE" : "VENCEU"}</b>
-            )}
-          </li>
-        ))}
-      </ol>
+      {!jogando && placar}
+
       {(jogo.erro || jogo.crono.aviso || jogo.semRede) && (
         <p className="aviso-erro" role="alert">
           {jogo.semRede

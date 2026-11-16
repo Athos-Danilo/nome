@@ -1,0 +1,537 @@
+.moldura-jogo:has(.painel-galera[data-jogando="true"]) .dock-jogo {
+  display: none;
+}
+/* Arenas em duas colunas; conteúdo longo e zoom continuam com rolagem natural. */
+.moldura-jogo .partida-solo .hud-solo .cronometro {
+  margin: 0;
+  padding: 8px 12px;
+  gap: 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.moldura-jogo .partida-solo .hud-solo .orbita-tempo {
+  width: 44px;
+  height: 44px;
+}
+.moldura-jogo .partida-solo .hud-solo .orbita-tempo span {
+  font-size: 27px;
+}
+.moldura-jogo .partida-solo .hud-solo .leitura-tempo strong {
+  font-size: 28px;
+}
+.moldura-jogo .partida-solo .hud-solo .rotulo-tempo {
+  font-size: 8px;
+  letter-spacing: 0.07em;
+}
+.moldura-jogo .partida-solo .hud-solo .estado-tempo {
+  font-size: 8px;
+}
+.moldura-jogo .partida-solo .trilha-solo {
+  width: min(100%, 260px);
+  gap: 6px;
+  margin: 6px 0 12px;
+}
+.moldura-jogo .partida-solo .trilha-solo span {
+  height: 5px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .quadradinho {
+  width: 58px;
+  height: 72px;
+  min-height: 72px;
+  font-size: 36px;
+  background: var(--painel);
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  .quadradinho[aria-pressed="true"] {
+  background: var(--lima);
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  .quadradinho[data-fixa] {
+  background: var(--amarelo);
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .editor-resposta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 5px 10px;
+  padding: 0;
+  margin: 0;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  :is(.resposta-montada, .instrucao-entrada, .teclado-entrada, .aviso-entrada) {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .resposta-montada {
+  margin: 2px 0 7px;
+  gap: 12px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .instrucao-entrada {
+  margin: 0;
+  font-size: 12px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  :is(.acentos-entrada, .acoes-montagem) {
+  margin: 3px 0;
+  gap: 4px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  .acentos-entrada
+  button {
+  padding: 4px 7px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .acoes-montagem button {
+  padding: 6px 8px;
+  font-size: 11px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .teclado-entrada {
+  max-width: 660px;
+  padding: 4px 0;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .linha-teclas {
+  margin-bottom: 6px;
+  gap: 6px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .tecla-letra {
+  min-height: 44px;
+  padding: 5px 0;
+  font-size: 19px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .acesso-digitacao {
+  margin: 0;
+  gap: 8px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"])
+  .acesso-digitacao
+  input:not([type="checkbox"]):not([type="range"]) {
+  width: 130px;
+  min-height: 44px;
+  margin: 0;
+  padding: 7px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .confirmar-palpite {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 44px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .aviso-entrada {
+  min-height: 0;
+  margin: 0;
+  font-size: 12px;
+}
+:is(.partida-solo, .painel-galera[data-jogando="true"]) .aviso-entrada:empty {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  body:has(:is(.partida-solo, .painel-galera[data-jogando="true"])) {
+    padding: 12px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"])) {
+    max-width: 1540px;
+    min-height: calc(100dvh - 36px);
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .cabecalho-jogo {
+    max-width: none;
+    padding: 10px 28px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .conteudo-jogo {
+    min-height: 0;
+    padding: 0 28px 6px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .voltar-menu {
+    margin: 0 0 6px;
+    min-height: 28px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .dock-jogo {
+    display: none;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .rodape-jogo {
+    padding: 6px 12px 10px;
+    font-size: 9px;
+  }
+  .moldura-jogo .partida-solo {
+    max-width: none;
+  }
+  .moldura-jogo .partida-solo .hud-solo {
+    gap: 18px;
+    padding: 0;
+  }
+  .moldura-jogo .partida-solo .hud-solo h1 {
+    font-size: 26px;
+    margin: 6px 0;
+  }
+  .moldura-jogo .partida-solo .placar-solo {
+    padding: 8px 18px;
+    min-width: 110px;
+  }
+  .moldura-jogo .partida-solo .progresso-solo {
+    min-width: 80px;
+  }
+  .moldura-jogo .partida-solo .arena-solo {
+    grid-template-columns: minmax(280px, 0.82fr) minmax(580px, 1.4fr);
+    gap: 28px;
+  }
+  .moldura-jogo .partida-solo .pistas-solo {
+    min-width: 0;
+  }
+  .moldura-jogo .partida-solo .cartao-dica {
+    padding: 16px 20px 12px;
+  }
+  .moldura-jogo .partida-solo .cartao-dica > p {
+    font-size: 1.35rem;
+    min-height: 0;
+    margin: 16px 0;
+  }
+  .moldura-jogo .partida-solo .identidade-rodada {
+    margin-bottom: 8px;
+  }
+  .moldura-jogo .partida-solo .acoes-dica {
+    margin: 12px 0;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida .aurelio-animado {
+    width: clamp(140px, 12vw, 190px);
+    flex-shrink: 0;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida p {
+    font-size: 13px;
+    text-align: left;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida .estrela-solo {
+    display: none;
+  }
+  .moldura-jogo .partida-solo .desistencias-solo {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  .painel-galera[data-jogando="true"] {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.82fr) minmax(580px, 1.4fr);
+    gap: 12px 28px;
+    align-items: start;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera {
+    grid-column: 1/-1;
+    margin: 0;
+    gap: 16px;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera h1 {
+    font-size: 30px;
+    margin: 2px 0;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera p {
+    font-size: 14px;
+  }
+  .painel-galera[data-jogando="true"] .relogio-galera {
+    min-width: 200px;
+    padding: 8px 14px;
+    gap: 10px;
+    border-radius: 20px;
+  }
+  .painel-galera[data-jogando="true"] .relogio-galera > span {
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+  .painel-galera[data-jogando="true"] .relogio-galera strong {
+    font-size: 28px;
+  }
+  .painel-galera[data-jogando="true"] .placar-galera {
+    grid-column: 1/-1;
+    gap: 12px;
+    margin: 0;
+  }
+  .painel-galera[data-jogando="true"] .placar-galera li {
+    padding: 8px 14px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+  .painel-galera[data-jogando="true"] .placar-galera li > img {
+    width: 38px;
+    height: 38px;
+  }
+  .painel-galera[data-jogando="true"] .placar-galera li span {
+    font-size: 22px;
+  }
+  .painel-galera[data-jogando="true"] .tabuleiro-galera {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 0;
+    padding: 16px;
+    border-radius: 24px;
+  }
+  .painel-galera[data-jogando="true"] .titulo-tabuleiro {
+    margin-bottom: 12px;
+  }
+  .painel-galera[data-jogando="true"] .titulo-tabuleiro h2 {
+    font-size: 24px;
+    margin: 6px 0;
+  }
+  .painel-galera[data-jogando="true"] .palavras-galera {
+    gap: 10px;
+  }
+  .painel-galera[data-jogando="true"] .palavra-painel {
+    padding: 8px;
+    gap: 8px;
+  }
+  .painel-galera[data-jogando="true"] .casas-galera {
+    gap: 5px;
+  }
+  .painel-galera[data-jogando="true"] .casas-galera .casa {
+    width: 42px;
+    height: 54px;
+    font-size: 29px;
+  }
+  .painel-galera[data-jogando="true"] .casas-galera .casa.espaco {
+    width: 12px;
+  }
+  .painel-galera[data-jogando="true"] .anfitriao-galera {
+    grid-column: 1;
+    grid-row: 4;
+    margin: 0;
+    justify-content: start;
+  }
+  .painel-galera[data-jogando="true"] .anfitriao-galera .aurelio-animado {
+    width: 100px;
+  }
+  .painel-galera[data-jogando="true"] .comandos-galera {
+    grid-column: 2;
+    grid-row: 3 / span 3;
+    margin: 0;
+    max-width: none;
+    min-width: 0;
+  }
+  .painel-galera[data-jogando="true"] .comandos-galera > p {
+    font-size: 12px;
+    margin: 8px 0 12px;
+  }
+  .painel-galera[data-jogando="true"] .alternar-jogada button {
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .painel-galera[data-jogando="true"] > .botao-secundario {
+    grid-column: 1;
+    margin: 0;
+    justify-self: start;
+  }
+
+  .moldura-jogo .partida-solo .aurelio-partida .aurelio-animado {
+    width: 130px;
+  }
+  .moldura-jogo .partida-solo .desistencias-solo {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .moldura-jogo .partida-solo .desistencias-solo button {
+    flex: 1;
+    font-size: 11px;
+    padding: 6px 7px;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.7fr) minmax(350px, 1.5fr) auto;
+    grid-column: 1/-1;
+    align-items: center;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera .placar-galera {
+    grid-column: auto;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .painel-galera[data-jogando="true"] .placar-galera li {
+    padding: 7px 10px;
+  }
+  .painel-galera[data-jogando="true"] .placar-galera li strong {
+    font-size: 13px;
+  }
+  .painel-galera[data-jogando="true"] .tabuleiro-galera {
+    grid-row: 2;
+  }
+  .painel-galera[data-jogando="true"] .anfitriao-galera {
+    grid-row: 3;
+  }
+  .painel-galera[data-jogando="true"] .comandos-galera {
+    grid-row: 2 / span 3;
+  }
+
+  .moldura-jogo .partida-solo .arena-solo {
+    row-gap: 8px;
+  }
+  .moldura-jogo .partida-solo .pistas-solo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .moldura-jogo .partida-solo .desafio-solo {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .moldura-jogo .partida-solo .desistencias-solo {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1099px) {
+  .moldura-jogo .partida-solo .arena-solo {
+    display: block;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida .aurelio-animado {
+    width: 85px;
+    flex-shrink: 0;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida p {
+    font-size: 12px;
+    text-align: left;
+  }
+  .moldura-jogo .partida-solo .aurelio-partida .estrela-solo {
+    display: none;
+  }
+  .moldura-jogo .partida-solo .hud-solo {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cabecalho-galera {
+    flex-wrap: wrap;
+  }
+  .cabecalho-galera .placar-galera {
+    flex-basis: 100%;
+    order: 3;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .moldura-jogo .partida-solo .hud-solo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .moldura-jogo .partida-solo .hud-solo > div:first-child {
+    grid-column: 1/-1;
+  }
+  .moldura-jogo .partida-solo .hud-solo .cronometro {
+    grid-column: 1 / span 2;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .moldura-jogo .partida-solo .hud-solo .placar-solo {
+    min-width: 0;
+    padding: 8px;
+  }
+  .moldura-jogo .partida-solo .hud-solo .progresso-solo {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .moldura-jogo .partida-solo .hud-solo .progresso-solo strong {
+    font-size: 20px;
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .editor-resposta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .quadradinho {
+    width: 40px;
+    height: 58px;
+    min-height: 58px;
+    font-size: 29px;
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .acentos-entrada {
+    gap: 4px;
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .linha-teclas {
+    gap: 4px;
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .tecla-letra {
+    font-size: 16px;
+  }
+  :is(.partida-solo, .painel-galera[data-jogando="true"]) .confirmar-palpite {
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 800px) {
+  body:has(:is(.partida-solo, .painel-galera[data-jogando="true"])) {
+    padding: 8px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"])) {
+    min-height: calc(100dvh - 28px);
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .cabecalho-jogo {
+    padding-block: 6px;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .rodape-jogo {
+    padding: 4px 12px;
+    line-height: 1;
+  }
+  .moldura-jogo:has(:is(.partida-solo, .painel-galera[data-jogando="true"]))
+    .rodape-jogo
+    span {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera h1 {
+    line-height: 1.05;
+  }
+  .painel-galera[data-jogando="true"] .comandos-galera > p {
+    margin: 4px 0 6px;
+  }
+
+  .painel-galera[data-jogando="true"] {
+    row-gap: 8px;
+  }
+  .painel-galera[data-jogando="true"] .relogio-galera small {
+    font-size: 8px;
+    line-height: 1.15;
+  }
+  .painel-galera[data-jogando="true"] .relogio-galera strong {
+    line-height: 1.1;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera .etiqueta {
+    font-size: 9px;
+  }
+  .painel-galera[data-jogando="true"] .cabecalho-galera p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .painel-galera[data-jogando="true"] {
+    row-gap: 6px;
+  }
+  .painel-galera[data-jogando="true"] .anfitriao-galera .aurelio-animado {
+    width: 76px;
+  }
+  .painel-galera[data-jogando="true"] .anfitriao-galera p {
+    font-size: 13px;
+    margin: 0;
+  }
+  .painel-galera[data-jogando="true"] .comandos-galera > p {
+    margin: 2px 0 3px;
+  }
+}

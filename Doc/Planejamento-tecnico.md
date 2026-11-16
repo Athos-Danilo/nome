@@ -340,3 +340,8 @@ Complementação sobre `2cead44`, sem alteração do produto: ensaio compilado a
 ### Conferência da publicação MD-10 — 13/11/2026
 
 Somente revisão e documentação sobre `60e0cd3`, sem mudança de código, dependência, API ou banco. Recursos públicos conferidos contra a compilação local; seis percursos com frontend Vercel real e API interceptada evitam gravações no ambiente publicado. Leitura real separada de `/api/saude` respondeu 200. Aceite final explícito do menu completo recebido em 13/11/2026; MD-10 concluída e ciclo MD-01 a MD-10 encerrado. Commit de fechamento somente documental; fase 49 independente. [Método, equivalência de arquivos e limites](Revisoes/menu-dinamico-md10.md).
+
+
+### Composição das arenas e limpeza de rascunho — 16/11/2026
+
+CSS compartilhado em `estilos/partidas.css`, com seletores restritos às partidas e adaptação por largura/altura; painéis conservam sua lógica de jogo. A operação pura `limpar` em `entrada/modelo.ts` preserva posições fixas e recebe a montagem em edição; `EditorResposta` reutiliza os contratos de atualização e foco. O Solo/demonstração conserva o salvamento versionado de rascunho; nenhuma chamada de palpite é produzida pela limpeza. TDD e regressões de layout/fluxos em [Arenas compactas](Revisoes/arenas-compactas.md). Sem nova dependência, API, migração ou banco; fase 49 independente.

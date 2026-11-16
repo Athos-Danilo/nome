@@ -4,6 +4,7 @@ async function mockarGalera(
   page: Page,
   falharConexao = false,
   tresPessoas = false,
+  palavrasCurtas = false,
 ) {
   let falhaPendente = falharConexao;
   const perfil = {
@@ -133,6 +134,12 @@ async function mockarGalera(
             ].map((resposta) =>
               Array.from(resposta, (c) => (/[\p{L}0-9]/u.test(c) ? null : c)),
             );
+          if (tresPessoas && palavrasCurtas)
+            estado.painel.palavras = [
+              Array(4).fill(null),
+              Array(7).fill(null),
+              Array(5).fill(null),
+            ];
           estado.resumo_sessoes = [
             {
               numero: 1,
@@ -319,7 +326,7 @@ test("sair pelo menu encerra e voltar mostra o resultado", async ({ page }) => {
   await page.goto("/jogar/galera/partida");
   await page.getByRole("button", { name: "Iniciar desafio" }).click();
   await page.getByRole("button", { name: "Liberar painel" }).click();
-  await page.getByRole("link", { name: "Início", exact: true }).click();
+  await page.getByRole("link", { name: /Voltar ao menu/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.getByRole("button", { name: "Confirmar encerramento" }).click();
   await expect(page).toHaveURL("/");
@@ -327,4 +334,72 @@ test("sair pelo menu encerra e voltar mostra o resultado", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Resultado da galera" }),
   ).toBeVisible();
+});
+
+test("arena compacta da Galera usa laterais e mantém teclado inteiro no computador", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador");
+  test.setTimeout(60000);
+  await mockarGalera(page, false, true, true);
+  await page.goto("/jogar/galera/partida");
+  await page.getByRole("button", { name: "Iniciar desafio" }).click();
+  await page.getByRole("button", { name: "Liberar painel" }).click();
+  for (const [largura, altura] of [
+    [1920, 945],
+    [1440, 900],
+    [1366, 768],
+    [1280, 720],
+  ]) {
+    await page.setViewportSize({ width: largura, height: altura });
+    await page
+      .getByRole("button", { name: "Tentar palavra completa", exact: true })
+      .click();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(
+      page.getByRole("button", { name: "Limpar palavra", exact: true }),
+    ).toBeVisible();
+    console.log(
+      JSON.stringify(
+        await page.evaluate(() => ({
+          largura: innerWidth,
+          altura: innerHeight,
+          documento: document.documentElement.scrollHeight,
+          areas: [
+            ".cabecalho-jogo",
+            ".conteudo-jogo",
+            ".hud-solo",
+            ".arena-solo",
+            ".pistas-solo",
+            ".editor-resposta",
+            ".rodape-jogo",
+            ".painel-galera",
+          ].map((seletor) => {
+            const r = document.querySelector(seletor)?.getBoundingClientRect();
+            return { seletor, y: r?.y, altura: r?.height, fim: r?.bottom };
+          }),
+        })),
+      ),
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollHeight <= innerHeight + 1,
+      ),
+    ).toBe(true);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await expect(
+      page.getByRole("button", { name: "Enviar palpite", exact: true }),
+    ).toBeInViewport({ ratio: 1 });
+    await expect(
+      page.getByRole("button", { name: "Encerrar partida", exact: true }),
+    ).toBeInViewport({ ratio: 1 });
+    await page.screenshot({
+      path: info.outputPath(`galera-${largura}-${altura}.png`),
+      fullPage: true,
+    });
+  }
 });

@@ -135,6 +135,18 @@ export function apagar(
   letras[alvo.selecionada] = "";
   return { ...alvo, letras, aviso: "" };
 }
+/** Limpa somente o rascunho, preservando sinais e revelações oficiais. */
+export function limpar(estado: EstadoEntrada): EstadoEntrada {
+  if (estado.acao === "letra") return estado;
+  const selecionada = estado.posicoes.findIndex((valor) => valor === null);
+  if (selecionada < 0) return estado;
+  return {
+    ...estado,
+    letras: estado.posicoes.map((valor) => valor ?? ""),
+    selecionada,
+    aviso: "Palavra limpa. As posições fixas foram preservadas.",
+  };
+}
 const MARCAS: Record<Exclude<Acento, "nenhum">, string> = {
   agudo: "\u0301",
   grave: "\u0300",

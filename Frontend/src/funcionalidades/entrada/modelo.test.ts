@@ -5,6 +5,7 @@ import {
   selecionar,
   mover,
   apagar,
+  limpar,
   acentuar,
   bloqueada,
   familia,
@@ -128,5 +129,34 @@ describe("montagem do palpite", () => {
     const estado = criarEntrada({ posicoes: [null] });
     for (const valor of ["AA", "!", "Dead", "", " "])
       expect(inserir(estado, valor).letras).toEqual([""]);
+  });
+});
+
+describe("limpeza da palavra em edição", () => {
+  it("remove todas as letras, libera limites e seleciona a primeira posição livre", () => {
+    const anterior = preencher("ARARA", { A: 3, R: 2 });
+    const limpo = limpar(anterior);
+    expect(limpo.letras).toEqual(["", "", "", "", ""]);
+    expect(limpo.selecionada).toBe(0);
+    expect(bloqueada(limpo, "A")).toBe(false);
+    expect(montarPalpite(limpo)).toBeNull();
+    expect(montarPalpite(anterior)).toBe("ARARA");
+  });
+  it("preserva separadores e letras reveladas da galera", () => {
+    const anterior = criarEntrada({
+      modo: "galera",
+      posicoes: ["C", null, "-", null, " ", "3"],
+      bloqueadas: ["C"],
+    });
+    const limpo = limpar(inserir(inserir(anterior, "Á"), "S"));
+    expect(limpo.letras).toEqual(["C", "", "-", "", " ", "3"]);
+    expect(limpo.selecionada).toBe(1);
+    expect(limpo.bloqueadas).toEqual(["C"]);
+  });
+  it("não altera escolha de letra isolada nem painel totalmente fixo", () => {
+    const letra = criarEntrada({ acao: "letra", posicoes: [null] });
+    expect(limpar(letra)).toBe(letra);
+    const fixo = criarEntrada({ posicoes: ["A", "-"] });
+    expect(limpar(fixo)).toBe(fixo);
   });
 });

@@ -1,3 +1,4 @@
+import "../../estilos/partidas.css";
 import { Cronometro } from "./Cronometro";
 import { useCronometro } from "./usar-cronometro";
 import { PausaIndividual } from "./PausaIndividual";
@@ -302,6 +303,11 @@ function ConteudoIndividual({
           </span>
           <h1 tabIndex={-1}>Siga sua curiosidade.</h1>
         </div>
+        <Cronometro
+          tempo={cronometro.tempo}
+          ativo={cronometro.ativo}
+          aviso={cronometro.aviso}
+        />
         <div className="placar-solo">
           <span>SEUS PONTOS</span>
           <strong>
@@ -316,11 +322,6 @@ function ConteudoIndividual({
           </strong>
         </div>
       </header>
-      <Cronometro
-        tempo={cronometro.tempo}
-        ativo={cronometro.ativo}
-        aviso={cronometro.aviso}
-      />
       <div
         className="trilha-solo"
         aria-label={`${estado.rodadas_concluidas} palavras concluídas`}
@@ -339,18 +340,7 @@ function ConteudoIndividual({
         ))}
       </div>
       <div className="arena-solo">
-        <aside className="aurelio-partida">
-          <Aurelio evento={jogo.reacaoMascote} />
-          <p>
-            Uma pista de cada vez.
-            <br />
-            <em>O seu “ahá!” está chegando.</em>
-          </p>
-          <span className="estrela-solo" aria-hidden="true">
-            ✦
-          </span>
-        </aside>
-        <div className="desafio-solo">
+        <div className="pistas-solo">
           <div className="identidade-rodada">
             <span>
               {rodada.tematicas.map((t) => TEMAS[t] ?? t).join(" + ")}
@@ -389,6 +379,19 @@ function ConteudoIndividual({
               Ver dicas anteriores
             </Botao>
           </div>
+          <aside className="aurelio-partida">
+            <Aurelio evento={jogo.reacaoMascote} />
+            <p>
+              Uma pista de cada vez.
+              <br />
+              <em>O seu “ahá!” está chegando.</em>
+            </p>
+            <span className="estrela-solo" aria-hidden="true">
+              ✦
+            </span>
+          </aside>
+        </div>
+        <div className="desafio-solo">
           {jogo.erro && (
             <p className="aviso-erro" role="alert">
               {jogo.erro}
@@ -426,31 +429,32 @@ function ConteudoIndividual({
             ocupado={bloqueado}
             aoEnviar={(p) => void agir("palpites", p)}
           />
-          <div className="desistencias-solo">
-            <Botao
-              disabled={bloqueado}
-              onClick={() => definirConfirmacao("pausa")}
-            >
-              Pausar partida
-            </Botao>
-            <Botao
-              disabled={bloqueado}
-              onClick={() => definirConfirmacao("palavra")}
-            >
-              Desistir desta palavra
-            </Botao>
-            <Botao
-              disabled={bloqueado}
-              onClick={() => definirConfirmacao("partida")}
-            >
-              Encerrar partida
-            </Botao>
-          </div>
+
           {demo && (
             <a className="convite-google" href="/api/autenticacao/google">
               Seu perfil, seus desafios. Guardar com Google ↗
             </a>
           )}
+        </div>
+        <div className="desistencias-solo">
+          <Botao
+            disabled={bloqueado}
+            onClick={() => definirConfirmacao("pausa")}
+          >
+            Pausar partida
+          </Botao>
+          <Botao
+            disabled={bloqueado}
+            onClick={() => definirConfirmacao("palavra")}
+          >
+            Desistir desta palavra
+          </Botao>
+          <Botao
+            disabled={bloqueado}
+            onClick={() => definirConfirmacao("partida")}
+          >
+            Encerrar partida
+          </Botao>
         </div>
       </div>
       <Dialogo

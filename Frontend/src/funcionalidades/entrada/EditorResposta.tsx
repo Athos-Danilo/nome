@@ -8,6 +8,7 @@ import {
   NUMEROS,
   acentuar,
   apagar,
+  limpar,
   bloqueada,
   familia,
   inserir,
@@ -214,6 +215,21 @@ export function EditorResposta({
                 }}
               >
                 Apagar posição
+              </button>
+              <button
+                type="button"
+                disabled={
+                  ocupado ||
+                  !estado.letras.some(
+                    (letra, i) => estado.posicoes[i] === null && letra,
+                  )
+                }
+                onClick={() => {
+                  aoAlterar(limpar);
+                  focar();
+                }}
+              >
+                Limpar palavra
               </button>
               <button
                 type="button"

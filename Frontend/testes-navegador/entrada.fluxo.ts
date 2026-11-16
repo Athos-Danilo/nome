@@ -323,3 +323,46 @@ test("gesto rápido no teclado permite rolar sem inserir uma letra", async ({
   ).toHaveCount(0);
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(antes);
 });
+
+test("limpar palavra remove rascunho por botão e teclado, preserva revelações e respeita ação em andamento", async ({
+  page,
+}) => {
+  await abrir(page, "ARARA");
+  const limpar = page.getByRole("button", {
+    name: "Limpar palavra",
+    exact: true,
+  });
+  await expect(limpar).toBeDisabled();
+  await page.getByRole("group", { name: "Área de montagem" }).focus();
+  await page.keyboard.type("ARARA");
+  await expect(tecla(page, "A")).toBeDisabled();
+  await limpar.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".quadradinho .caractere")).toHaveText([
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+  await expect(tecla(page, "A")).toBeEnabled();
+  await expect(page.getByLabel("Palpite enviado")).toHaveText("Nenhum");
+  await abrir(page, "GALERA");
+  await page.getByRole("group", { name: "Área de montagem" }).focus();
+  await page.keyboard.type("as");
+  await page.getByLabel("Simular ação em andamento").check();
+  await expect(limpar).toBeDisabled();
+  await page.getByLabel("Simular ação em andamento").uncheck();
+  await limpar.click();
+  await expect(page.locator(".quadradinho .caractere")).toHaveText([
+    "C",
+    "",
+    "",
+    "A",
+  ]);
+  await expect(posicao(page, 1)).toBeDisabled();
+  await expect(posicao(page, 4)).toBeDisabled();
+  await expect(page.getByLabel("Palpite enviado")).toHaveText("Nenhum");
+  await abrir(page, "LETRA");
+  await expect(limpar).toHaveCount(0);
+});

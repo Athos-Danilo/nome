@@ -852,3 +852,112 @@ test("cronômetro cresce, suspende oculto e mostra tempos no resultado", async (
   await page.getByRole("button", { name: "Encerrar definitivamente" }).click();
   await expect(page.getByText("Tempo jogado até o encerramento")).toBeVisible();
 });
+
+test("arena compacta do Solo mantém resposta, teclado e ações visíveis no computador", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "computador");
+  test.setTimeout(60000);
+  const simulado = await preparar(page);
+  simulado.estado.quantidade_palavras = 5;
+  simulado.estado.rodada_atual.posicoes = Array(7).fill(null);
+  for (const [largura, altura] of [
+    [1920, 945],
+    [1440, 900],
+    [1366, 768],
+    [1280, 720],
+  ]) {
+    await page.setViewportSize({ width: largura, height: altura });
+    await page.goto("/jogar/individual/partida");
+    await expect(page.locator(".hud-solo .cronometro")).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(
+      page.getByRole("button", { name: "Limpar palavra", exact: true }),
+    ).toBeVisible();
+    expect(
+      await page
+        .locator(".quadradinho")
+        .first()
+        .evaluate((el) => el.getBoundingClientRect().width),
+    ).toBeGreaterThanOrEqual(54);
+    expect(
+      await page
+        .locator(".trilha-solo")
+        .evaluate((el) => el.getBoundingClientRect().width),
+    ).toBeLessThanOrEqual(280);
+    console.log(
+      JSON.stringify(
+        await page.evaluate(() => ({
+          largura: innerWidth,
+          altura: innerHeight,
+          documento: document.documentElement.scrollHeight,
+          areas: [
+            ".cabecalho-jogo",
+            ".conteudo-jogo",
+            ".hud-solo",
+            ".arena-solo",
+            ".pistas-solo",
+            ".editor-resposta",
+            ".rodape-jogo",
+            ".painel-galera",
+          ].map((seletor) => {
+            const r = document.querySelector(seletor)?.getBoundingClientRect();
+            return { seletor, y: r?.y, altura: r?.height, fim: r?.bottom };
+          }),
+        })),
+      ),
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollHeight <= innerHeight + 1,
+      ),
+    ).toBe(true);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await expect(
+      page.getByRole("button", { name: "Enviar palpite", exact: true }),
+    ).toBeInViewport({ ratio: 1 });
+    await expect(
+      page.getByRole("button", { name: "Encerrar partida", exact: true }),
+    ).toBeInViewport({ ratio: 1 });
+    await page.screenshot({
+      path: info.outputPath(`solo-${largura}-${altura}.png`),
+      fullPage: true,
+    });
+  }
+});
+
+test("limpar palavra salva rascunho vazio sem enviar palpite ou mudar pontos", async ({
+  page,
+}) => {
+  const simulado = await preparar(page);
+  await comecar(page);
+  const editor = page.getByRole("group", { name: "Área de montagem" });
+  await editor.focus();
+  await page.keyboard.type("CASA");
+  await page
+    .getByRole("button", { name: "Limpar palavra", exact: true })
+    .click();
+  await expect(page.locator(".quadradinho .caractere")).toHaveText([
+    "",
+    "",
+    "",
+    "",
+  ]);
+  await expect(editor).toBeFocused();
+  expect(simulado.envios()).toBe(0);
+  expect(simulado.estado.pontuacao).toBe(0);
+  await expect
+    .poll(() => simulado.estado.rodada_atual.rascunho?.letras)
+    .toEqual(["", "", "", ""]);
+  await page.reload();
+  await expect(page.locator(".quadradinho .caractere")).toHaveText([
+    "",
+    "",
+    "",
+    "",
+  ]);
+});
