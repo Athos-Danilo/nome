@@ -6,7 +6,7 @@ As referências a roteiro privado/ignorado nos registros anteriores descrevem a 
 
 Referência permanente: [Menu dinâmico](Menu-dinamico.md). Preservar o roteiro geral de melhorias já existente; estas fases usam prefixo **MD** e não substituem as fases 01–49 da primeira entrega ou as fases do outro roteiro.
 
-**Estado:** MD-01 concluída em 11/11/2026; MD-02 concluída; MD-03 concluída; MD-04 concluída; MD-05 concluída; MD-06 concluída; MD-07 concluída; MD-08 concluída; MD-09 concluída; MD-10 concluída em 13/11/2026, com aceite final do menu completo. Escopo: as seis ideias aprovadas em 11/11. Não presumir a fase 49 iniciada ou concluída.
+**Estado:** MD-01 concluída em 11/11/2026; MD-02 concluída; MD-03 concluída; MD-04 concluída; MD-05 concluída; MD-06 concluída; MD-07 concluída; MD-08 concluída; MD-09 concluída; MD-10 concluída em 13/11/2026, com aceite final do menu completo. Escopo: as seis ideias aprovadas em 11/11. As referências históricas abaixo à “fase 49” correspondem à entrega final atualizada em 16/11/2026 para **fase 50**.
 
 ## Como acompanhar
 

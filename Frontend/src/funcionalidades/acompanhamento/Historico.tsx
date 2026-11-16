@@ -72,7 +72,7 @@ export function Historico({ jogadorId }: { jogadorId: string }) {
         </label>
       </div>
       {consulta.isPending ? (
-        <Carregando />
+        <Carregando contexto="acompanhamento" />
       ) : consulta.error ? (
         <FalhaConsulta
           erro={consulta.error}

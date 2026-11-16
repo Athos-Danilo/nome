@@ -44,6 +44,8 @@ export function EditorResposta({
   aoEscolherLetra,
   ocupado = false,
   exibirMontagem = true,
+  letraEmCurso,
+  rotuloOcupado = "Conferindo palpite…",
 }: {
   estado: EstadoEntrada;
   aoAlterar: Dispatch<SetStateAction<EstadoEntrada>>;
@@ -51,6 +53,8 @@ export function EditorResposta({
   aoEscolherLetra?: (letra: string) => void;
   ocupado?: boolean;
   exibirMontagem?: boolean;
+  letraEmCurso?: string;
+  rotuloOcupado?: string;
 }) {
   const area = useRef<HTMLDivElement>(null);
   const audio = useAudio();
@@ -259,6 +263,7 @@ export function EditorResposta({
                   letra={letra}
                   desabilitada={ocupado || bloqueada(estado, letra)}
                   arrastavel={estado.acao === "palpite"}
+                  processando={ocupado && letraEmCurso === letra}
                   aoEscolher={() => {
                     if (houveArraste.current) return;
                     escolher(letra);
@@ -281,9 +286,11 @@ export function EditorResposta({
             type="button"
             className="acao confirmar-palpite"
             disabled={ocupado}
+            data-carregando={ocupado || undefined}
             onClick={enviar}
           >
-            {ocupado ? "Aguarde…" : "Enviar palpite"}
+            {ocupado && <span className="pulso-botao" aria-hidden="true" />}
+            {ocupado ? rotuloOcupado : "Enviar palpite"}
             <span aria-hidden="true">↗</span>
           </button>
         )}

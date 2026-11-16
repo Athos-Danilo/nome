@@ -1,14 +1,14 @@
 # Roteiro de desenvolvimento — primeira entrega do Decifra
 
-**Registro de situação em 04/11/2026:** fases 01 a 47 concluídas; catálogo local e Atlas com 500 respostas/2.500 dicas e manifesto auditado. Faltam 48 e 49. Próxima fase: 48, aceitação final e correção de regressões.
+**Registro de situação em 16/11/2026:** fases 01 a 49 concluídas (incluindo o catálogo auditado de 500 respostas/2.500 dicas na fase 47, a aceitação final na fase 48 e os indicadores de carregamento e espera na fase 49); menu dinâmico MD-01 a MD-10 concluído e arenas compactas entregues em 16/11/2026. Por solicitação do responsável, a antiga fase 49 tornou-se a **fase 50 — documentar, publicar a versão final e preparar a apresentação**. Próxima fase: **50**, pendente.
 
-**Escopo:** entregar na web os modos individual e com a galera, com login Google, histórico, rankings individuais, personalização, Aurélio animado, áudio configurável e catálogo revisado de 500 respostas com 2.500 dicas.
+**Escopo:** entregar na web os modos individual e com a galera, com login Google, histórico, rankings individuais, personalização, Aurélio animado, áudio configurável, indicadores de carregamento e catálogo revisado de 500 respostas com 2.500 dicas.
 
 Este roteiro complementa [Detalhes.md](Detalhes.md), [Planejamento-tecnico.md](Planejamento-tecnico.md), [Regras.md](../Agents/Regras.md) e [Geracao-de-conteudo.md](../Agents/Geracao-de-conteudo.md). Não substitui regras aprovadas nem resolve silenciosamente decisões pendentes.
 
 ## 1. Como executar o roteiro
 
-O trabalho foi dividido em **49 fases: 29 de desenvolvimento e 20 de conteúdo**. Cada fase de conteúdo produz um lote de 25 respostas, evitando gerar as 500 de uma vez.
+O trabalho foi dividido em **50 fases: 30 de desenvolvimento e 20 de conteúdo**. Cada fase de conteúdo produz um lote de 25 respostas, evitando gerar as 500 de uma vez.
 
 Os sete dias são uma **referência ajustável de organização**, baseada no exemplo apresentado pelo responsável pelo projeto, e não um prazo garantido. O prazo anteriormente informado era de aproximadamente um mês. A quantidade de trabalho inclui desenho, revisão humana de 2.500 dicas, desenvolvimento, testes e publicação; um dia deste roteiro pode precisar de mais de um dia real. Ao fim do segundo ciclo, reavaliar o ritmo com o que tiver sido efetivamente concluído.
 
@@ -35,7 +35,7 @@ Planejar commits pequenos e coerentes. Ao concluir cada fase, fazer commit e pus
 
 Marcar cada caixa somente após cumprir a entrega e o critério de conclusão da fase correspondente. A IA responsável pelo trabalho deve atualizar este checklist ao concluir uma fase. Fases parcialmente feitas ou aguardando decisão permanecem desmarcadas.
 
-Este roteiro é um arquivo de acompanhamento **versionado no GitHub**, por solicitação expressa do responsável em 16/11/2026. As menções a acompanhamento somente local nos registros anteriores descrevem a política histórica; não se aplicam às próximas atualizações. Capturas, logs e configurações privadas continuam fora do Git. A publicação deste arquivo não conclui a fase 49.
+Este roteiro é um arquivo de acompanhamento **versionado no GitHub**, por solicitação expressa do responsável em 16/11/2026. As menções a acompanhamento somente local nos registros anteriores descrevem a política histórica; não se aplicam às próximas atualizações. Capturas, logs e configurações privadas continuam fora do Git. A publicação deste arquivo não conclui a fase 50.
 
 - [x] Fase 01 — consolidar o escopo e organizar as decisões
 - [x] Fase 02 — escolher paleta e tipografia
@@ -85,7 +85,8 @@ Este roteiro é um arquivo de acompanhamento **versionado no GitHub**, por solic
 - [x] Fase 46 — conteúdo: objetos, lote 004 e fechamento das 500 respostas
 - [x] Fase 47 — auditar e carregar o catálogo completo da entrega
 - [x] Fase 48 — executar aceitação final e corrigir regressões
-- [ ] Fase 49 — documentar, publicar a versão final e preparar a apresentação
+- [x] Fase 49 — projetar e integrar indicadores de carregamento para ações e espera do servidor
+- [ ] Fase 50 — documentar, publicar a versão final e preparar a apresentação
 
 ## 2. Distribuição dos sete ciclos
 
@@ -97,7 +98,7 @@ Este roteiro é um arquivo de acompanhamento **versionado no GitHub**, por solic
 | Dia 4 | 22–28 | Menu, teclado e individual integrado com salvamento | 75 | 300 | 1.500 |
 | Dia 5 | 29–35 | Modo com a galera, histórico e rankings | 75 | 375 | 1.875 |
 | Dia 6 | 36–42 | Aurélio, áudio, acabamento e ambiente na web | 75 | 450 | 2.250 |
-| Dia 7 | 43–49 | Revisão, últimos lotes, carga completa e entrega | 50 | 500 | 2.500 |
+| Dia 7 | 43–50 | Revisão, últimos lotes, carga completa, carregamentos e entrega | 50 | 500 | 2.500 |
 
 Os totais são **metas**, não conteúdo já existente. Um lote só entra no total revisado quando passar pela conferência estrutural e editorial. Os 500 registros estarão completos na fase 46 e auditados na 47, antes dos testes finais e da entrega.
 
@@ -1188,9 +1189,23 @@ Próximo ciclo: fase 15, com configuração Google e definições de publicaçã
 
 **Concluída quando:** não há defeitos bloqueantes conhecidos e o responsável consegue aceitar a entrega pelas evidências apresentadas.
 
-### Fase 49 — documentar, publicar a versão final e preparar a apresentação
+### Fase 49 — projetar e integrar indicadores de carregamento para ações e espera do servidor
 
-**Depende de:** fase 48 e concordância com as decisões pendentes da entrega.
+**Depende de:** fases 26, 33, 40 e 48; especificação em [Carregamentos.md](Carregamentos.md).
+
+- Substituir o indicador genérico de tela por composição temática do Decifra (peças animadas de palavra contextual, trilha rítmica e frases que evoluem conforme a duração da espera, incluindo aviso de despertar do servidor gratuito).
+- Criar faixa de processamento flutuante sem deslocamento de layout (`CLS = 0`) para ações durante partidas no Solo, na Demonstração e na Galera (palpites, dicas, desistência, pausa, retomada, encerramento, início, desempate e sincronização inicial), além dos configuradores.
+- Destacar a tecla escolhida na Galera durante o envio de letra e atualizar rótulos dos botões acionados com retorno imediato (`0 ms`), cobrindo também o preparo síncrono/assíncrono pré-jogada no Solo.
+- Preservar foco, acessibilidade (`role="status"`), redução de movimentos (`prefers-reduced-motion` e `data-movimentos="reduzidos"`), oito combinações de tema/paleta e a compacidade sem rolagem das arenas no computador.
+- Seguir TDD (testes unitários das mensagens/estágios e testes Playwright simulando servidor lento nos modos Solo e Galera) e SOLID, mantendo o pacote JavaScript inicial dentro do limite de 500 KiB.
+
+**Entrega:** experiência completa e temática de carregamento para aberturas, rotas e jogadas sob latência do servidor.
+
+**Concluída quando:** abertura, rotas, configuradores e ações de Solo/Demonstração/Galera exibem retorno visual claro e fiel ao jogo durante a espera, passam nos novos testes TDD e nas regressões existentes, com revisão visual das capturas e documentação sincronizada.
+
+### Fase 50 — documentar, publicar a versão final e preparar a apresentação
+
+**Depende de:** fases 48 e 49 e concordância com as decisões pendentes da entrega.
 
 - Atualizar README com propósito, tecnologias, execução local, configuração de bancos e autenticação, importação e verificações disponíveis.
 - Consolidar modelagem, contratos, decisões aprovadas, limites conhecidos e fontes dos recursos visuais/sonoros.
@@ -1230,9 +1245,9 @@ Se um lote ficar atrasado, continuar a tarefa técnica independente e manter a p
 | Galera e participantes: RF-24 e RF-26 a RF-32, RF-38, RF-41 e RF-43 | 29, 31, 33, 48 | Painel compartilhado, ordem por sessão, turnos, bloqueios, desistência e um desempate opcional |
 | Catálogo e repetição: RF-09, RF-34 e RF-46 | 03–46 nas fases de conteúdo, 12, 20, 29 e 47 | 20 lotes, 500 respostas distintas, 2.500 dicas, quotas e nenhuma repetição na mesma partida |
 | Preferências: RF-47 | 17, 22, 38, 40 e 45 | Tema, volumes, música e movimento persistidos na conta ou navegador |
-| Identidade, Aurélio e áudio: seção 23 | 02, 04, 06, 22, 36, 38 e 40 | Visual aprovado, mascote reagindo e cinco músicas selecionáveis com controle por grupo |
-| Responsividade, acesso e qualidade | 08, 13, 40, 43, 45 e 48 | Computador, celular e tablet; teclado/toque; acesso privado e falhas verificadas |
-| Publicação e documentação | 08, 15, 41, 47 e 49 | URL funcional, Google configurado, Neon/Atlas em uso e execução local documentada |
+| Identidade, Aurélio e áudio: seção 23 | 02, 04, 06, 22, 36, 38, 40 e 49 | Visual aprovado, mascote reagindo, cinco músicas selecionáveis e carregamentos temáticos |
+| Responsividade, acesso e qualidade | 08, 13, 40, 43, 45, 48 e 49 | Computador, celular e tablet; teclado/toque; acesso privado, esperas em servidor lento e falhas verificadas |
+| Publicação e documentação | 08, 15, 41, 47 e 50 | URL funcional, Google configurado, Neon/Atlas em uso e execução local documentada |
 
 Esta matriz acompanha os requisitos atuais. Se uma decisão aprovada acrescentar comportamento, atualizar o roteiro e os critérios afetados antes de considerá-lo coberto.
 
@@ -1347,3 +1362,9 @@ Por solicitação expressa do responsável em 02/11/2026, adiar o diagnóstico e
 ### Retomada concluída — 04/11/2026
 
 IP atual autorizado pelo responsável; acesso ao Atlas restabelecido. Quatro lotes de países/objetos importados: 100 novos sem sobrescritas. Catálogo remoto com 500 respostas, 2.500 dicas e 508 revisões; conferência integral com 500 idênticos e quotas corretas por temática. Pendências das fases 44 e 46 resolvidas antes das outras atividades. Não iniciar automaticamente outras fases nem marcar a auditoria 47 como concluída.
+
+### Fase 49 concluída — 16/11/2026
+
+Implementados os indicadores de carregamento e processamento em jogo para reduzir a percepção de espera no servidor gratuito, seguindo [Carregamentos.md](Carregamentos.md), TDD e SOLID: peças temáticas de palavra por contexto (`Carregando` e `CarregandoInline`), trilha rítmica, estágios progressivos com aviso transparente ao despertar (`>= 11 s`), faixa flutuante sem salto de layout (`IndicadorProcessamento`, `CLS = 0`) nos modos Solo, Demonstração, Galera e configuradores, destaque imediato da letra escolhida na Galera (`data-processando`), rótulos imediatos em botões/diálogos e feedback antecipado desde o preparo de cronômetro e rascunho no Solo. Respeita movimento reduzido, as oito combinações de tema/paleta e a compacidade sem rolagem das arenas.
+
+Verificações após a implementação final: `npm run formatar`, `npm run tipos` (`tsc --noEmit`), `npm test` (23 arquivos, 133 testes aprovados), `npm run build` (JS inicial total medido no `uso-real` em `478.440 bytes`, dentro de `500 KiB`), `npm run testar-carregamento` (12/12 aprovados em computador, tablet e celular, incluído no CI), inspeção visual das capturas em `Frontend/test-results/carregamento/`, e aprovação integral em `testar-uso-real` (6), `testar-individual` (58), `testar-galera` (19), `testar-menu` (152), `testar-entrada` (44), `testar-acabamento` (15), `testar-mascote` (69), `testar-audio` (12), `testar-perfil` (45) e `testar-interrupcoes` (32). Na suíte `testar-acompanhamento`, 12 passaram e 3 falharam exclusivamente em uma asserção pré-existente de título de aba (`"Cada descoberta conta — Decifra"` vs `"Decifra"` alterado no commit `f80b672`), sem relação com a fase 49 e mantida visível para revisão na fase 50. Nenhum código backend ou regra do jogo foi alterado. Próxima fase: **fase 50 — documentar, publicar a versão final e preparar a apresentação** (não iniciada).

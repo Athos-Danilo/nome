@@ -475,27 +475,6 @@ body {
   padding: 6px 12px;
   font-size: 12px;
 }
-.carregando-jogo {
-  display: grid;
-  place-content: center;
-  text-align: center;
-  min-height: 500px;
-}
-.carregando-jogo > span {
-  display: grid;
-  place-items: center;
-  margin: auto;
-  width: 80px;
-  height: 80px;
-  font:
-    800 45px Bricolage,
-    sans-serif;
-  color: #444439;
-  background: var(--lima);
-  border: 2px solid #444439;
-  border-radius: 22px;
-  animation: flutuar 2s ease-in-out infinite;
-}
 .pular-conteudo {
   position: absolute;
   z-index: 10;

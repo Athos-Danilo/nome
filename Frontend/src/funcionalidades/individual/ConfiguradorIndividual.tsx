@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Botao } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
 import {
   iniciarPartida,
   prepararPartida,
@@ -27,11 +28,14 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
   );
   const [plano, definirPlano] = useState<Plano | null>(null);
   const [configurada, definirConfigurada] = useState<Configuracao | null>(null);
-  const [ocupado, definirOcupado] = useState(false);
+  const [etapa, definirEtapa] = useState<
+    "configuracao" | "inicio_partida" | null
+  >(null);
+  const ocupado = !!etapa;
   const [erro, definirErro] = useState("");
   async function conferir(dados?: Configuracao) {
     if (ocupado) return;
-    definirOcupado(true);
+    definirEtapa("configuracao");
     definirErro("");
     const opcoes = dados ?? {
       quantidade_palavras: quantidade,
@@ -56,12 +60,12 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
     } catch (e) {
       definirErro((e as Error).message);
     } finally {
-      definirOcupado(false);
+      definirEtapa(null);
     }
   }
   async function iniciar() {
     if (ocupado || !plano?.plano_id) return;
-    definirOcupado(true);
+    definirEtapa("inicio_partida");
     definirErro("");
     try {
       const partida = await iniciarPartida(plano.plano_id, token);
@@ -70,7 +74,7 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
       definirErro((e as Error).message);
       definirPlano(null);
     } finally {
-      definirOcupado(false);
+      definirEtapa(null);
     }
   }
   return (
@@ -134,9 +138,15 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
                   <Botao
                     className="acao botao-grande"
                     disabled={ocupado}
+                    data-carregando={etapa === "inicio_partida" || undefined}
                     onClick={() => void iniciar()}
                   >
-                    {ocupado ? "Preparando…" : "Começar partida"}
+                    {etapa === "inicio_partida" && (
+                      <span className="pulso-botao" aria-hidden="true" />
+                    )}
+                    {etapa === "inicio_partida"
+                      ? "Montando partida…"
+                      : "Começar partida"}
                   </Botao>
                 </>
               ) : (
@@ -329,6 +339,7 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
               <Botao
                 type="submit"
                 className="acao botao-grande"
+                data-carregando={etapa === "configuracao" || undefined}
                 disabled={
                   ocupado ||
                   !niveis.length ||
@@ -337,13 +348,23 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
                       quantidade)
                 }
               >
-                {ocupado ? "Conferindo…" : "Conferir desafio"}{" "}
+                {etapa === "configuracao" && (
+                  <span className="pulso-botao" aria-hidden="true" />
+                )}
+                {etapa === "configuracao"
+                  ? "Conferindo desafio…"
+                  : "Conferir desafio"}{" "}
                 <span aria-hidden="true">→</span>
               </Botao>
             </form>
           )}
         </div>
       </div>
+      <IndicadorProcessamento
+        ativo={ocupado}
+        acao={etapa ?? "configuracao"}
+        modo="solo"
+      />
     </section>
   );
 }

@@ -11,6 +11,7 @@ import { DURACOES } from "../mascote/reacoes";
 import { Link } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { CartaoModo } from "../../componentes/CartaoModo";
+import { CarregandoInline } from "../../componentes/Comuns";
 import { SituacaoDemonstracao } from "../demonstracao/SituacaoDemonstracao";
 import { consultarPartidaEmAberto } from "./api";
 import { ErroDaApi, type Sessao } from "../perfil/api";
@@ -212,7 +213,7 @@ function Continuidade({
       aoExpirar(consulta.error);
   }, [consulta.error, aoExpirar]);
   if (consulta.isPending)
-    return <p role="status">Conferindo suas descobertas…</p>;
+    return <CarregandoInline texto="Conferindo suas descobertas…" />;
   if (consulta.error)
     return (
       <div className="aviso-erro" role="alert">

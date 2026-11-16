@@ -3,11 +3,13 @@ export function TeclaArrastavel({
   letra,
   desabilitada,
   arrastavel,
+  processando = false,
   aoEscolher,
 }: {
   letra: string;
   desabilitada: boolean;
   arrastavel: boolean;
+  processando?: boolean;
   aoEscolher: () => void;
 }) {
   const { ref, isDragging } = useDraggable({
@@ -24,6 +26,7 @@ export function TeclaArrastavel({
       disabled={desabilitada}
       aria-disabled={desabilitada}
       data-arrastando={isDragging || undefined}
+      data-processando={processando || undefined}
       onClick={aoEscolher}
     >
       {letra}

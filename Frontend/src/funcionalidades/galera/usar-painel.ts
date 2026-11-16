@@ -54,7 +54,10 @@ export function usePainelGalera(
     refetchOnWindowFocus: false,
   });
   const [erro, definirErro] = useState("");
-  const [ocupado, definirOcupado] = useState(false);
+  const [acaoEmCurso, definirAcaoEmCurso] = useState<ComandoGalera | null>(
+    null,
+  );
+  const ocupado = !!acaoEmCurso;
   const [pendente, definirPendente] = useState<ComandoGalera | null>(null);
   const [pronto, definirPronto] = useState(false);
   const [reconexao, definirReconexao] = useState(0);
@@ -153,7 +156,7 @@ export function usePainelGalera(
   async function executar(dados: ComandoGalera) {
     if (trava.current) return false;
     trava.current = true;
-    definirOcupado(true);
+    definirAcaoEmCurso(dados);
     definirErro("");
     crono.suspender();
     try {
@@ -176,7 +179,7 @@ export function usePainelGalera(
       return false;
     } finally {
       trava.current = false;
-      definirOcupado(false);
+      definirAcaoEmCurso(null);
       crono.liberar();
     }
   }
@@ -197,6 +200,7 @@ export function usePainelGalera(
     consulta,
     agir,
     ocupado,
+    acaoEmCurso,
     erro,
     pendente,
     semRede,

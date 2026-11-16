@@ -1,6 +1,6 @@
 # Aceitação final — fase 48
 
-Data: 04/11/2026. Situação: **concluída**, após o aceite dos blocos publicados e a conferência da exclusão e do novo cadastro com Google. A fase 49 ainda não foi iniciada.
+Data: 04/11/2026. Situação: **concluída**, após o aceite dos blocos publicados e a conferência da exclusão e do novo cadastro com Google. A etapa final de documentação e apresentação (originalmente fase 49, renumerada para fase 50 em 16/11/2026) ainda não foi iniciada.
 
 ## Escopo e evidências
 
@@ -43,7 +43,7 @@ A conferência somente leitura posterior no Neon confirmou:
 - A API pública de ranking retorna “Jogador excluído” com 220 pontos, coerente com os resultados preservados.
 - O novo cadastro com o nome reutilizado possui outro identificador interno, está ativo e não possui partidas. O responsável confirmou histórico vazio após entrar novamente com o mesmo Google.
 
-O teste real e a correção de teclado estão aceitos. Não há defeitos bloqueantes conhecidos nas verificações realizadas. A fase 48 foi concluída; a documentação de entrega, publicação final e apresentação permanecem na fase 49.
+O teste real e a correção de teclado estão aceitos. Não há defeitos bloqueantes conhecidos nas verificações realizadas. A fase 48 foi concluída; a documentação de entrega, publicação final e apresentação permanecem na fase final (fase 50 após inclusão da fase 49 em 16/11/2026).
 
 IDs internos e snapshots da conta ficam apenas em arquivos ignorados de teste. Nenhum e-mail, segredo ou identificador pessoal é incluído neste relatório.
 

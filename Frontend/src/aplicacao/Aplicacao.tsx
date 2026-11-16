@@ -105,7 +105,7 @@ function Jogo() {
     caminho.startsWith("/jogar/individual") ||
     caminho.startsWith("/jogar/galera");
   let conteudo;
-  if (carregando) conteudo = <Carregando />;
+  if (carregando) conteudo = <Carregando contexto="geral" />;
   else if (dados.falhaCarregamento)
     conteudo = (
       <EstadoVazio titulo="Vamos tentar de novo?">

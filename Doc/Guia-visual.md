@@ -195,3 +195,8 @@ Capturas da versão pública nos três tamanhos emulados e seis percursos confer
 ### Arenas compactas de Solo e Galera — 16/11/2026
 
 Preservar o estilo aprovado e distribuir melhor o conteúdo: HUD com tempo/placar, trilha curta, dica/painel e mascote à esquerda e montagem/teclado à direita no computador. Moldura até 1540 px a partir de 1100 px de largura; quadradinhos de edição de 58×72 px, ou 40×58 px no celular. Ajustar espaços em janelas baixas sem reduzir o teclado abaixo de 44 px de altura nem esconder informação. Celular/tablet e conteúdo extenso conservam rolagem natural. O dock fica recolhido nas partidas em andamento; Voltar ao menu permanece visível. [Parâmetros e evidências](Revisoes/arenas-compactas.md). A mudança não altera a identidade nem o aceite histórico do menu.
+
+
+### Indicadores de carregamento — fase 49, 16/11/2026
+
+Carregamento de telas usa fileira de peças temáticas do Decifra (`DECIFRA`, `PISTA`, `AMOSTRA`, `GALERA`, `PLACAR`) com trilha rítmica e mensagens progressivas conforme a espera; ações dentro das partidas e configuradores exibem uma faixa flutuante na base central (`position: fixed`, `pointer-events: none`) sem deslocar o layout, além de destaque verde-lima na tecla escolhida na Galera e rótulos ativos nos botões. Tudo utiliza as variáveis semânticas das quatro paletas claro/escuro e respeita redução de movimentos. Detalhes em [Carregamentos](Carregamentos.md).

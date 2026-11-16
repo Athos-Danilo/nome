@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { Botao } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
 import type { Avatar, Sessao } from "../perfil/api";
 import { nomeValido } from "../perfil/preferencias";
 import { NIVEIS, TEMAS } from "../individual/apresentacao";
@@ -31,7 +32,10 @@ export function ConfiguradorGalera({
     "objetos",
   ]);
   const [plano, definirPlano] = useState<PlanoGalera | null>(null);
-  const [ocupado, definirOcupado] = useState(false);
+  const [etapa, definirEtapa] = useState<
+    "configuracao" | "inicio_partida" | null
+  >(null);
+  const ocupado = !!etapa;
   const trava = useRef(false);
   const [erro, definirErro] = useState("");
   function mudar(acao: () => void) {
@@ -60,7 +64,7 @@ export function ConfiguradorGalera({
       return;
     }
     trava.current = true;
-    definirOcupado(true);
+    definirEtapa("configuracao");
     definirErro("");
     try {
       definirPlano(
@@ -81,13 +85,13 @@ export function ConfiguradorGalera({
       definirErro((e as Error).message);
     } finally {
       trava.current = false;
-      definirOcupado(false);
+      definirEtapa(null);
     }
   }
   async function criar() {
     if (trava.current || !plano?.plano_id) return;
     trava.current = true;
-    definirOcupado(true);
+    definirEtapa("inicio_partida");
     definirErro("");
     try {
       const partida = await criarGalera(plano.plano_id, conta.token_csrf);
@@ -96,7 +100,7 @@ export function ConfiguradorGalera({
       definirErro((e as Error).message);
     } finally {
       trava.current = false;
-      definirOcupado(false);
+      definirEtapa(null);
     }
   }
   return (
@@ -283,9 +287,15 @@ export function ConfiguradorGalera({
       <Botao
         className="acao botao-grande"
         disabled={ocupado}
+        data-carregando={etapa === "configuracao" || undefined}
         onClick={() => void conferir()}
       >
-        {ocupado ? "Preparando…" : "Conferir minha galera"}
+        {etapa === "configuracao" && (
+          <span className="pulso-botao" aria-hidden="true" />
+        )}
+        {etapa === "configuracao"
+          ? "Conferindo galera…"
+          : "Conferir minha galera"}
       </Botao>
       {plano && (
         <section className="resumo-disputa" aria-live="polite">
@@ -307,9 +317,15 @@ export function ConfiguradorGalera({
               <Botao
                 className="acao"
                 disabled={ocupado}
+                data-carregando={etapa === "inicio_partida" || undefined}
                 onClick={() => void criar()}
               >
-                Preparar partida
+                {etapa === "inicio_partida" && (
+                  <span className="pulso-botao" aria-hidden="true" />
+                )}
+                {etapa === "inicio_partida"
+                  ? "Preparando partida…"
+                  : "Preparar partida"}
               </Botao>
             </>
           ) : (
@@ -326,6 +342,11 @@ export function ConfiguradorGalera({
           )}
         </section>
       )}
+      <IndicadorProcessamento
+        ativo={ocupado}
+        acao={etapa ?? "configuracao"}
+        modo="galera"
+      />
     </section>
   );
 }

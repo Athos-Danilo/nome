@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { Botao, Dialogo } from "../../componentes/Comuns";
-import type { Partida } from "./api";
+import type { Partida, TipoAcao } from "./api";
 export function PausaIndividual({
   partida,
   ocupado,
+  acaoAtiva,
   erro,
   pendente,
   aoRetomar,
@@ -13,6 +14,7 @@ export function PausaIndividual({
 }: {
   partida: Partida;
   ocupado: boolean;
+  acaoAtiva?: TipoAcao | null;
   erro: string;
   pendente: boolean;
   aoRetomar: () => void;
@@ -45,13 +47,25 @@ export function PausaIndividual({
         <Botao
           className="acao"
           disabled={ocupado || pendente}
+          data-carregando={acaoAtiva === "retomada" || undefined}
           onClick={aoRetomar}
         >
-          Retomar partida
+          {acaoAtiva === "retomada" ? (
+            <>
+              <span className="pulso-botao" aria-hidden="true" />
+              Retomando partida…
+            </>
+          ) : (
+            "Retomar partida"
+          )}
         </Botao>
         {pendente && (
-          <Botao disabled={ocupado} onClick={aoReenviar}>
-            Reenviar mesma ação
+          <Botao
+            disabled={ocupado}
+            data-carregando={ocupado || undefined}
+            onClick={aoReenviar}
+          >
+            {ocupado ? "Reenviando…" : "Reenviar mesma ação"}
           </Botao>
         )}
         <Link to="/" className="botao-jogo">
@@ -59,9 +73,10 @@ export function PausaIndividual({
         </Link>
         <Botao
           disabled={ocupado || pendente}
+          data-carregando={acaoAtiva === "encerramento" || undefined}
           onClick={() => definirEncerrar(true)}
         >
-          Encerrar partida
+          {acaoAtiva === "encerramento" ? "Encerrando…" : "Encerrar partida"}
         </Botao>
       </div>
       <Dialogo

@@ -4,6 +4,7 @@ import { enviarJogada } from "./painel-api";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router";
 import { Botao, Carregando, EstadoVazio } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
 import type { Avatar, Sessao } from "../perfil/api";
 import { ConfiguradorGalera } from "./ConfiguradorGalera";
 import { consultarGalera } from "./api";
@@ -27,7 +28,7 @@ export function RotaGalera({
     enabled: !novo,
   });
   if (novo) return <ConfiguradorGalera conta={conta} avatares={avatares} />;
-  if (consulta.isPending) return <Carregando />;
+  if (consulta.isPending) return <Carregando contexto="galera" />;
   if (!consulta.data)
     return (
       <EstadoVazio titulo="Vamos buscar sua galera?">
@@ -90,9 +91,25 @@ export function RotaGalera({
           : `Temáticas: ${partida.configuracao.tematicas?.map((t) => TEMAS[t]).join(" → ")}`}
       </p>
       {erroInicio && <p role="alert">{erroInicio}</p>}
-      <Botao disabled={iniciando} onClick={() => void iniciar()}>
-        Iniciar desafio
+      <Botao
+        disabled={iniciando}
+        data-carregando={iniciando || undefined}
+        onClick={() => void iniciar()}
+      >
+        {iniciando ? (
+          <>
+            <span className="pulso-botao" aria-hidden="true" />
+            Iniciando desafio…
+          </>
+        ) : (
+          "Iniciar desafio"
+        )}
       </Botao>
+      <IndicadorProcessamento
+        ativo={iniciando}
+        acao="inicio_partida"
+        modo="galera"
+      />
       <div className="resumo-disputa">
         <h2>Seu próximo show de descobertas</h2>
         <p>

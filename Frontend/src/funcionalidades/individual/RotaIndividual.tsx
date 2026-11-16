@@ -7,6 +7,7 @@ import { ativarDemonstracao, type Partida } from "./api";
 import { ConfiguradorIndividual } from "./ConfiguradorIndividual";
 import { PainelIndividual } from "./PainelIndividual";
 import { Botao, Carregando, EstadoVazio } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
 import type { Sessao } from "../perfil/api";
 import "./individual.css";
 export function RotaIndividual({
@@ -36,7 +37,7 @@ function ContinuarIndividual({ conta }: { conta: Sessao }) {
     queryKey: ["partida-em-aberto", conta.jogador_id],
     queryFn: consultarPartidaEmAberto,
   });
-  if (consulta.isPending) return <Carregando />;
+  if (consulta.isPending) return <Carregando contexto="solo" />;
   if (consulta.error)
     return (
       <EstadoVazio titulo="Vamos buscar suas pistas?">
@@ -80,7 +81,7 @@ function DemonstracaoJogavel() {
       definirOcupado(false);
     }
   }
-  if (consulta.isPending) return <Carregando />;
+  if (consulta.isPending) return <Carregando contexto="demonstracao" />;
   if (consulta.error)
     return (
       <EstadoVazio titulo="Uma conexão para começar">
@@ -116,13 +117,20 @@ function DemonstracaoJogavel() {
           className="acao botao-grande"
           onClick={() => void iniciar()}
           disabled={ocupado}
+          data-carregando={ocupado || undefined}
         >
+          {ocupado && <span className="pulso-botao" aria-hidden="true" />}
           {ocupado
-            ? "Preparando…"
+            ? "Preparando demonstração…"
             : consulta.data?.demonstracao
               ? "Continuar demonstração"
               : "Começar demonstração"}
         </Botao>
+        <IndicadorProcessamento
+          ativo={ocupado}
+          acao="inicio_partida"
+          modo="demonstracao"
+        />
         <p>
           Uma demonstração por navegador. Entre com Google para guardar a
           partida inteira e jogar do seu jeito.

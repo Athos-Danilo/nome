@@ -74,6 +74,7 @@ jobs:
       - run: npm run testar-audio -- --reporter=line,github
       - run: npm run testar-acabamento -- --reporter=line,github
       - run: npm run testar-uso-real -- --reporter=line,github
+      - run: npm run testar-carregamento -- --reporter=line,github
 
   prova_interrupcoes:
     name: Prova — interrupções no navegador

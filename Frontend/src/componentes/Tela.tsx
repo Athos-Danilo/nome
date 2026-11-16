@@ -6,6 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import { Botao, Carregando, EstadoVazio } from "./Comuns";
+import { contextoDaRota } from "./carregamento";
 
 class ProtecaoTela extends Component<
   { children: ReactNode },
@@ -68,7 +69,7 @@ export function Tela({
 }) {
   return (
     <ProtecaoTela key={caminho}>
-      <Suspense fallback={<Carregando />}>
+      <Suspense fallback={<Carregando contexto={contextoDaRota(caminho)} />}>
         <EntradaTela>{children}</EntradaTela>
       </Suspense>
     </ProtecaoTela>

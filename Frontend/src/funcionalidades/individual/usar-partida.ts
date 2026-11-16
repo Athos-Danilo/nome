@@ -18,7 +18,8 @@ export function usePartida(base: string, token: string) {
   });
   const trava = useRef(false);
   const montado = useRef(true);
-  const [ocupado, definirOcupado] = useState(false);
+  const [acaoEmCurso, definirAcaoEmCurso] = useState<TipoAcao | null>(null);
+  const ocupado = !!acaoEmCurso;
   const [erro, definirErro] = useState("");
   const [pendente, definirPendente] = useState<{
     tipo: TipoAcao;
@@ -44,7 +45,7 @@ export function usePartida(base: string, token: string) {
   async function executar(tipo: TipoAcao, dados: Acao): Promise<boolean> {
     if (trava.current) return false;
     trava.current = true;
-    definirOcupado(true);
+    definirAcaoEmCurso(tipo);
     definirErro("");
     try {
       const nova = await enviarAcao(base, tipo, dados, token);
@@ -92,7 +93,7 @@ export function usePartida(base: string, token: string) {
       return false;
     } finally {
       trava.current = false;
-      if (montado.current) definirOcupado(false);
+      if (montado.current) definirAcaoEmCurso(null);
     }
   }
   function agir(tipo: TipoAcao, palpite?: string) {
@@ -111,6 +112,7 @@ export function usePartida(base: string, token: string) {
   return {
     consulta,
     ocupado,
+    acaoEmCurso,
     erro,
     pendente,
     retorno,

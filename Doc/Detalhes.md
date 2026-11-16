@@ -914,7 +914,7 @@ O planejamento de pastas foi ajustado para essas convenções. Ferramentas que n
 
 ## 26. Roteiro da primeira entrega
 
-O roteiro de acompanhamento da primeira entrega é mantido apenas localmente, fora do versionamento. Ele detalha 49 fases, com dependências, tarefas, critérios de conclusão e momentos para decisões do responsável pelo projeto. Inclui os dois modos e intercala vinte lotes de 25 respostas durante o desenvolvimento.
+O [roteiro de acompanhamento da primeira entrega](Roteiro-primeira-entrega.md) é versionado no repositório desde 16/11/2026 por solicitação do responsável. Ele detalha 50 fases, com dependências, tarefas, critérios de conclusão e momentos para decisões do responsável pelo projeto. Inclui os dois modos, indicadores de carregamento e intercala vinte lotes de 25 respostas durante o desenvolvimento.
 
 O calendário de sete dias é uma referência ajustável de organização, não um novo prazo de entrega aprovado. A fase final de validação depende de completar e revisar as 500 respostas e suas 2.500 dicas. O andamento real dos lotes será registrado em [Controle-do-catalogo.md](Controle-do-catalogo.md).
 
@@ -945,3 +945,7 @@ O responsável aprovou falas alternadas do Aurélio, cenas decorativas nos cart�
 Solo e Galera devem aproveitar a largura no computador: cronômetro junto dos indicadores, progresso compacto e espaços da resposta em destaque, mantendo o teclado e ações acessíveis. Partidas comuns devem caber nas janelas de computador verificadas; conteúdo extenso, zoom e telas menores conservam rolagem natural sem ocultar informações.
 
 O editor de palpite completo oferece **Limpar palavra**, que apaga apenas a montagem editável. Preserva sinais e revelações oficiais; não conta como erro, pedido de dica, pausa, palpite ou troca de turno, nem afeta pontos/tempo. O rascunho do Solo/demonstração é salvo vazio pelo mecanismo existente. Não há botão de limpar na escolha isolada de letra da Galera. [Organização, comportamento e verificações](Revisoes/arenas-compactas.md).
+
+## Fase 49 — indicadores de carregamento e espera do servidor — 16/11/2026
+
+Para tornar compreensíveis e agradáveis as esperas em hospedagem gratuita (Render Free, Neon e Atlas), a interface apresenta: peças temáticas do Decifra e mensagens progressivas na abertura de telas e partidas (incluindo aviso de despertar do servidor após 11 s), e uma faixa flutuante sem salto de layout durante jogadas no Solo, na Demonstração e na Galera, além de destaque imediato na tecla escolhida e nos botões acionados. Não altera regras de pontuação, cronômetro, áudio ou reações confirmadas do mascote. Especificação e critérios em [Carregamentos](Carregamentos.md).

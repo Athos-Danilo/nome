@@ -33,14 +33,7 @@ export function EstadoVazio({
     </section>
   );
 }
-export function Carregando() {
-  return (
-    <div className="carregando-jogo" role="status">
-      <span aria-hidden="true">D</span>
-      <p>Preparando suas próximas descobertas…</p>
-    </div>
-  );
-}
+export { Carregando, CarregandoInline } from "./Carregando";
 export function VoltarAoMenu() {
   return (
     <Link className="voltar-menu" to="/">

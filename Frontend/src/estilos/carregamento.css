@@ -1,0 +1,429 @@
+/* Indicadores temáticos de carregamento sem interferir em regras, foco ou layout. */
+.carregando-jogo {
+  display: grid;
+  place-items: center;
+  min-height: 440px;
+  padding: 28px 16px;
+}
+
+.palco-carregamento {
+  width: min(540px, 100%);
+  padding: 36px 28px;
+  text-align: center;
+  background: var(--painel);
+  border: 2px solid var(--texto);
+  border-radius: 30px;
+  box-shadow: 6px 7px 0 var(--tinta);
+}
+
+.pecas-carregamento {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 22px;
+}
+
+.peca-carregamento {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 58px;
+  border: 2px solid var(--texto);
+  border-radius: 14px;
+  background: var(--fundo);
+  color: var(--texto);
+  box-shadow: 0 4px 0 var(--tinta);
+  font:
+    800 28px Bricolage,
+    sans-serif;
+  animation: saltar-peca 1.6s ease-in-out calc(var(--indice) * 110ms) infinite;
+}
+
+.peca-carregamento:first-child {
+  background: var(--lima);
+  color: #292921;
+  border-color: #292921;
+}
+
+.peca-carregamento:last-child {
+  background: var(--amarelo);
+  color: #292921;
+  border-color: #292921;
+}
+
+.trilha-carregamento {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  width: min(220px, 100%);
+  margin: 0 auto 20px;
+}
+
+.trilha-carregamento i {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--decoracao);
+  opacity: 0.3;
+  animation: pulso-trilha 1.5s ease-in-out calc(var(--passo) * 160ms) infinite;
+}
+
+.trilha-carregamento i:first-child,
+.trilha-carregamento i:nth-child(2) {
+  opacity: 0.7;
+}
+
+.titulo-carregamento {
+  font:
+    700 clamp(1.15rem, 2.3vw, 1.45rem) / 1.3 Bricolage,
+    sans-serif;
+  margin: 0 0 8px;
+}
+
+.subtitulo-carregamento {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.88;
+  min-height: 2.8em;
+  animation: revelar-frase 240ms var(--curva-jogo) both;
+}
+
+/* Faixa flutuante para processamento dentro das arenas sem deslocar layout. */
+.indicador-processamento {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 40;
+  pointer-events: none;
+  width: min(460px, calc(100vw - 24px));
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px 16px;
+  background: var(--painel);
+  color: var(--texto);
+  border: 2px solid var(--texto);
+  border-radius: 22px;
+  box-shadow: 4px 5px 0 var(--tinta);
+  overflow: hidden;
+  animation: entrar-processamento 140ms var(--curva-jogo) both;
+}
+
+.emblema-processamento {
+  display: grid;
+  place-items: center;
+}
+
+.peca-destaque {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 50px;
+  border: 2px solid #292921;
+  border-radius: 12px;
+  background: var(--lima);
+  color: #292921;
+  box-shadow: 0 3px 0 #292921;
+  font:
+    800 25px Bricolage,
+    sans-serif;
+  animation: pulsar-peca 0.9s ease-in-out infinite;
+}
+
+.mini-pecas {
+  display: grid;
+  grid-template-columns: repeat(2, 20px);
+  gap: 4px;
+}
+
+.mini-pecas span {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 22px;
+  border: 1.5px solid var(--texto);
+  border-radius: 6px;
+  background: var(--fundo);
+  color: var(--texto);
+  font:
+    800 11px Bricolage,
+    sans-serif;
+  animation: saltar-peca 1.2s ease-in-out infinite;
+}
+
+.mini-pecas span:nth-child(2) {
+  background: var(--lima);
+  color: #292921;
+  border-color: #292921;
+  animation-delay: 140ms;
+}
+
+.mini-pecas span:nth-child(3) {
+  background: var(--amarelo);
+  color: #292921;
+  border-color: #292921;
+  animation-delay: 280ms;
+}
+
+.mini-pecas span:nth-child(4) {
+  animation-delay: 420ms;
+}
+
+.texto-processamento {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+}
+
+.texto-processamento .etiqueta {
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.titulo-processamento {
+  font:
+    700 15px / 1.25 Bricolage,
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.detalhe-processamento {
+  font-size: 12px;
+  line-height: 1.35;
+  opacity: 0.88;
+  overflow-wrap: anywhere;
+  animation: revelar-frase 220ms var(--curva-jogo) both;
+}
+
+.barra-processamento {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: color-mix(in srgb, var(--decoracao) 28%, transparent);
+}
+
+.barra-processamento::after {
+  content: "";
+  display: block;
+  width: 38%;
+  height: 100%;
+  background: var(--lima);
+  border-inline: 2px solid var(--texto);
+  animation: deslizar-progresso 1.25s ease-in-out infinite;
+}
+
+/* Indicador compacto em painéis do menu. */
+.carregando-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  border: 1.5px solid var(--texto);
+  border-radius: 16px;
+  background: var(--painel);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.mini-pecas-inline {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.mini-pecas-inline i {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 24px;
+  border: 1.5px solid var(--texto);
+  border-radius: 6px;
+  background: var(--fundo);
+  font:
+    800 12px Bricolage,
+    sans-serif;
+  font-style: normal;
+  animation: saltar-peca 1.2s ease-in-out infinite;
+}
+
+.mini-pecas-inline i:nth-child(2) {
+  background: var(--lima);
+  color: #292921;
+  border-color: #292921;
+  animation-delay: 150ms;
+}
+
+.mini-pecas-inline i:nth-child(3) {
+  background: var(--amarelo);
+  color: #292921;
+  border-color: #292921;
+  animation-delay: 300ms;
+}
+
+/* Retorno imediato na tecla escolhida e nos botões acionados. */
+.tecla-letra[data-processando="true"]:disabled {
+  opacity: 1;
+  background: var(--lima);
+  color: #292921;
+  border-color: #292921;
+  text-decoration: none;
+  box-shadow: 0 3px 0 #292921;
+  animation: pulsar-peca 0.9s ease-in-out infinite;
+}
+
+button:not(.acao)[data-carregando="true"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button[data-carregando="true"]:disabled {
+  opacity: 0.9;
+}
+
+.pulso-botao {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  border: 2px solid currentColor;
+  background: var(--lima);
+  animation: girar-peca 0.9s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes saltar-peca {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  45% {
+    transform: translateY(-7px) rotate(-3deg);
+  }
+}
+
+@keyframes pulsar-peca {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06) translateY(-2px);
+  }
+}
+
+@keyframes pulso-trilha {
+  0%,
+  100% {
+    opacity: 0.3;
+    background: var(--decoracao);
+  }
+  50% {
+    opacity: 1;
+    background: var(--lima);
+  }
+}
+
+@keyframes deslizar-progresso {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes entrar-processamento {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes revelar-frase {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes girar-peca {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 650px) {
+  .carregando-jogo {
+    min-height: 360px;
+    padding: 18px 8px;
+  }
+  .palco-carregamento {
+    padding: 26px 14px;
+    border-radius: 24px;
+    box-shadow: 4px 5px 0 var(--tinta);
+  }
+  .pecas-carregamento {
+    gap: 5px;
+  }
+  .peca-carregamento {
+    width: 36px;
+    height: 44px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  .indicador-processamento {
+    bottom: 12px;
+    padding: 10px 12px 14px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+  .titulo-processamento {
+    font-size: 14px;
+  }
+}
+
+:root[data-movimentos="reduzidos"] .carregando-jogo *,
+:root[data-movimentos="reduzidos"] .indicador-processamento,
+:root[data-movimentos="reduzidos"] .indicador-processamento *,
+:root[data-movimentos="reduzidos"] .carregando-inline *,
+:root[data-movimentos="reduzidos"] .tecla-letra[data-processando="true"],
+:root[data-movimentos="reduzidos"] .pulso-botao {
+  animation: none !important;
+  transition: none !important;
+}
+
+:root[data-movimentos="reduzidos"] .barra-processamento::after {
+  width: 100%;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carregando-jogo *,
+  .indicador-processamento,
+  .indicador-processamento *,
+  .carregando-inline *,
+  .tecla-letra[data-processando="true"],
+  .pulso-botao {
+    animation: none !important;
+    transition: none !important;
+  }
+  .barra-processamento::after {
+    width: 100%;
+    opacity: 0.75;
+  }
+}

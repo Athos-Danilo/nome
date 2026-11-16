@@ -7,13 +7,15 @@ import {
   Dialogo,
   EstadoVazio,
 } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
+import type { AcaoProcessamento } from "../../componentes/carregamento";
 import { EditorResposta } from "../entrada/EditorResposta";
 import { criarEntrada } from "../entrada/modelo";
 import { formatarTempo } from "../individual/usar-cronometro";
 import { useSaidaPartida } from "../individual/saida-partida";
 import { TEMAS } from "../individual/apresentacao";
 import { usePainelGalera } from "./usar-painel";
-import type { Painel } from "./painel-api";
+import type { ComandoGalera, Painel } from "./painel-api";
 import { Aurelio } from "../mascote/Aurelio";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
 import { ValorAnimado } from "../../componentes/Tela";
@@ -23,11 +25,22 @@ import {
   type ResumoGalera,
 } from "../mascote/reacoes";
 
+const ACAO_GALERA_MAPA: Record<ComandoGalera["tipo"], AcaoProcessamento> = {
+  iniciar: "inicio_partida",
+  letra: "letra",
+  palpite: "palpite",
+  voto: "desempate",
+  extra: "desempate",
+  encerrar: "encerramento",
+};
+
 function EntradaGalera({
   painel,
   palavra,
   modo,
   ocupado,
+  letraEmCurso,
+  rotuloOcupado,
   aoLetra,
   aoPalpite,
 }: {
@@ -35,6 +48,8 @@ function EntradaGalera({
   palavra: number;
   modo: "letra" | "palpite";
   ocupado: boolean;
+  letraEmCurso?: string;
+  rotuloOcupado?: string;
   aoLetra: (letra: string) => void;
   aoPalpite: (palpite: string) => void;
 }) {
@@ -54,6 +69,8 @@ function EntradaGalera({
       aoEscolherLetra={aoLetra}
       ocupado={ocupado}
       exibirMontagem={modo === "palpite"}
+      letraEmCurso={letraEmCurso}
+      rotuloOcupado={rotuloOcupado}
     />
   );
 }
@@ -129,7 +146,7 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
     definirExterna(null);
     if (bloqueio.state === "blocked") bloqueio.reset();
   }
-  if (jogo.consulta.isPending) return <Carregando />;
+  if (jogo.consulta.isPending) return <Carregando contexto="galera" />;
   if (!e || !p)
     return (
       <EstadoVazio titulo="Vamos recuperar o painel?">
@@ -151,6 +168,9 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
     jogo.ocupado || !!jogo.pendente || jogo.semRede || !jogo.pronto || sorteio;
   const selecionada = Math.min(palavra, p.palavras.length - 1);
   const jogando = !final && p.estado === "em_andamento";
+  const acaoAtiva = jogo.acaoEmCurso;
+  const sincronizando =
+    !acaoAtiva && !final && !jogo.pronto && !jogo.semRede && !jogo.erro;
   const placar = (
     <ol className="placar-galera" aria-label="Placar da galera">
       {e.participantes.map((a) => (
@@ -368,6 +388,12 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
             palavra={selecionada}
             modo={modo}
             ocupado={bloqueado}
+            letraEmCurso={
+              acaoAtiva?.tipo === "letra" ? acaoAtiva.valor : undefined
+            }
+            rotuloOcupado={
+              acaoAtiva?.tipo === "palpite" ? "Conferindo palpite…" : "Aguarde…"
+            }
             aoLetra={(valor) =>
               void jogo.agir("letra", {
                 participante_id: p.participante_atual!,
@@ -504,11 +530,27 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
         {jogo.erro && <p role="alert">{jogo.erro}</p>}
         <Botao
           disabled={jogo.ocupado || !!jogo.pendente}
+          data-carregando={acaoAtiva?.tipo === "encerrar" || undefined}
           onClick={() => void confirmarSaida()}
         >
-          Confirmar encerramento
+          {acaoAtiva?.tipo === "encerrar" ? (
+            <>
+              <span className="pulso-botao" aria-hidden="true" />
+              Encerrando partida…
+            </>
+          ) : (
+            "Confirmar encerramento"
+          )}
         </Botao>
       </Dialogo>
+      <IndicadorProcessamento
+        ativo={!!acaoAtiva || sincronizando}
+        acao={acaoAtiva ? ACAO_GALERA_MAPA[acaoAtiva.tipo] : "sincronizacao"}
+        modo="galera"
+        letra={acaoAtiva?.tipo === "letra" ? acaoAtiva.valor : undefined}
+        participante={pessoa?.nome}
+        atrasoMs={acaoAtiva ? 0 : 180}
+      />
     </section>
   );
 }

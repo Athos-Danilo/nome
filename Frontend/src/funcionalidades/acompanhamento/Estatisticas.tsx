@@ -80,7 +80,7 @@ function Indicadores({ jogadorId }: { jogadorId: string }) {
     queryKey: ["estatisticas", jogadorId],
     queryFn: consultarEstatisticas,
   });
-  if (consulta.isPending) return <Carregando />;
+  if (consulta.isPending) return <Carregando contexto="acompanhamento" />;
   if (consulta.error)
     return (
       <FalhaConsulta

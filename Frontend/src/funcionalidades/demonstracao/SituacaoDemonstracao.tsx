@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { CarregandoInline } from "../../componentes/Comuns";
 import { useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -49,7 +50,7 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
         </p>
       );
     if (vinculo.isPending)
-      return <p role="status">Guardando sua demonstração na conta…</p>;
+      return <CarregandoInline texto="Guardando sua demonstração na conta…" />;
     if (vinculo.error)
       return (
         <div className="cartao-demonstracao" role="status">
@@ -76,7 +77,7 @@ export function SituacaoDemonstracao({ tokenConta }: { tokenConta?: string }) {
   return (
     <div className="cartao-demonstracao">
       {visitante.isPending ? (
-        <p role="status">Conferindo seu jogo rápido…</p>
+        <CarregandoInline texto="Conferindo seu jogo rápido…" />
       ) : visitante.error ? (
         <>
           <p role="status">{visitante.error.message}</p>

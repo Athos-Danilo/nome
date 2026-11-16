@@ -14,6 +14,8 @@ import {
   Dialogo,
   EstadoVazio,
 } from "../../componentes/Comuns";
+import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
+import type { AcaoProcessamento } from "../../componentes/carregamento";
 import { EditorResposta } from "../entrada/EditorResposta";
 import { ResultadoIndividual } from "./ResultadoIndividual";
 import { NIVEIS, TEMAS } from "./apresentacao";
@@ -21,9 +23,21 @@ import type { Rodada, TipoAcao } from "./api";
 import { Aurelio } from "../mascote/Aurelio";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
 import { ValorAnimado } from "../../componentes/Tela";
+
+const ACAO_SOLO_MAPA: Record<TipoAcao, AcaoProcessamento> = {
+  palpites: "palpite",
+  dicas: "dica",
+  "desistencia-palavra": "desistencia_palavra",
+  pausa: "pausa",
+  retomada: "retomada",
+  encerramento: "encerramento",
+  saida: "saida",
+};
+
 function Montagem({
   rodada,
   ocupado,
+  rotuloOcupado,
   aoEnviar,
   base,
   token,
@@ -33,6 +47,7 @@ function Montagem({
 }: {
   rodada: Rodada;
   ocupado: boolean;
+  rotuloOcupado?: string;
   aoEnviar: (palpite: string) => void;
   base: string;
   token: string;
@@ -52,6 +67,7 @@ function Montagem({
         aoAlterar={rascunho.alterar}
         aoEnviar={aoEnviar}
         ocupado={ocupado}
+        rotuloOcupado={rotuloOcupado}
       />
       <p className="situacao-rascunho" role="status">
         {rascunho.aviso}
@@ -83,6 +99,12 @@ export function PainelIndividual({
   useTrilhaPartida(
     estado?.estado === "em_andamento" && conexao.pronta && !conexao.semRede,
   );
+  const travaPreparacao = useRef(false);
+  const [preparandoTipo, definirPreparandoTipo] = useState<TipoAcao | null>(
+    null,
+  );
+  const acaoAtiva = preparandoTipo ?? jogo.acaoEmCurso;
+  const processando = !!acaoAtiva;
   const cronometro = useCronometro(
     base,
     token,
@@ -90,7 +112,7 @@ export function PainelIndividual({
     estado?.estado === "em_andamento" &&
       conexao.pronta &&
       !conexao.semRede &&
-      !jogo.ocupado &&
+      !processando &&
       !jogo.pendente &&
       !jogo.retorno,
   );
@@ -112,6 +134,9 @@ export function PainelIndividual({
     preparar.current = salvar;
   };
   async function agir(tipo: TipoAcao, palpite?: string) {
+    if (travaPreparacao.current || jogo.ocupado) return false;
+    travaPreparacao.current = true;
+    definirPreparandoTipo(tipo);
     cronometro.suspender();
     try {
       if (!(await cronometro.confirmar()) || !(await preparar.current())) {
@@ -123,6 +148,8 @@ export function PainelIndividual({
       definirErroPreparacao("");
       return await jogo.agir(tipo, palpite);
     } finally {
+      travaPreparacao.current = false;
+      definirPreparandoTipo(null);
       cronometro.liberar();
     }
   }
@@ -147,6 +174,13 @@ export function PainelIndividual({
     if (bloqueio.state === "blocked") bloqueio.reset();
     definirExterna(null);
   }
+  const sincronizando =
+    !acaoAtiva &&
+    estado?.estado === "em_andamento" &&
+    !conexao.pronta &&
+    !conexao.semRede &&
+    !conexao.erro &&
+    !jogo.retorno;
   return (
     <>
       <ConteudoIndividual
@@ -155,9 +189,16 @@ export function PainelIndividual({
         demo={demo}
         jogo={jogo}
         conexao={conexao}
+        acaoAtiva={acaoAtiva}
         agir={agir}
         registrar={registrar}
         cronometro={cronometro}
+      />
+      <IndicadorProcessamento
+        ativo={processando || sincronizando}
+        acao={acaoAtiva ? ACAO_SOLO_MAPA[acaoAtiva] : "sincronizacao"}
+        modo={demo ? "demonstracao" : "solo"}
+        atrasoMs={processando ? 0 : 180}
       />
       <Dialogo
         aberto={bloqueio.state === "blocked" || !!externa}
@@ -173,22 +214,31 @@ export function PainelIndividual({
         )}
         {jogo.pendente ? (
           <Botao
-            disabled={jogo.ocupado}
+            disabled={processando}
+            data-carregando={processando || undefined}
             onClick={() =>
               void jogo.reenviar().then((ok) => {
                 if (ok) liberar();
               })
             }
           >
-            Reenviar mesma ação
+            {processando ? "Reenviando…" : "Reenviar mesma ação"}
           </Botao>
         ) : (
           <Botao
             className="acao"
-            disabled={jogo.ocupado || conexao.semRede}
+            disabled={processando || conexao.semRede}
+            data-carregando={acaoAtiva === "saida" || undefined}
             onClick={() => void sair()}
           >
-            Pausar e sair
+            {acaoAtiva === "saida" ? (
+              <>
+                <span className="pulso-botao" aria-hidden="true" />
+                Pausando partida…
+              </>
+            ) : (
+              "Pausar e sair"
+            )}
           </Botao>
         )}
       </Dialogo>
@@ -201,6 +251,7 @@ function ConteudoIndividual({
   demo,
   jogo,
   conexao,
+  acaoAtiva,
   agir,
   registrar,
   cronometro,
@@ -210,6 +261,7 @@ function ConteudoIndividual({
   demo: boolean;
   jogo: ReturnType<typeof usePartida>;
   conexao: ReturnType<typeof useConexaoIndividual>;
+  acaoAtiva: TipoAcao | null;
   agir: (tipo: TipoAcao, palpite?: string) => Promise<boolean>;
   registrar: (salvar: () => Promise<boolean>) => void;
   cronometro: ReturnType<typeof useCronometro>;
@@ -219,7 +271,8 @@ function ConteudoIndividual({
     "palavra" | "partida" | "pausa" | null
   >(null);
   const estado = jogo.consulta.data;
-  if (jogo.consulta.isPending) return <Carregando />;
+  if (jogo.consulta.isPending)
+    return <Carregando contexto={demo ? "demonstracao" : "solo"} />;
   if (!estado)
     return (
       <EstadoVazio titulo="Sua descoberta está esperando">
@@ -233,7 +286,8 @@ function ConteudoIndividual({
     return (
       <PausaIndividual
         partida={estado}
-        ocupado={jogo.ocupado || conexao.semRede}
+        ocupado={!!acaoAtiva || conexao.semRede}
+        acaoAtiva={acaoAtiva}
         pendente={!!jogo.pendente}
         erro={jogo.erro}
         aoRetomar={() => void agir("retomada")}
@@ -293,9 +347,9 @@ function ConteudoIndividual({
       </EstadoVazio>
     );
   const bloqueado =
-    jogo.ocupado || !!jogo.pendente || !conexao.pronta || conexao.semRede;
+    !!acaoAtiva || !!jogo.pendente || !conexao.pronta || conexao.semRede;
   return (
-    <section className="partida-solo" aria-busy={jogo.ocupado}>
+    <section className="partida-solo" aria-busy={!!acaoAtiva}>
       <header className="hud-solo">
         <div>
           <span className="etiqueta">
@@ -368,9 +422,17 @@ function ConteudoIndividual({
           <div className="acoes-dica">
             <Botao
               disabled={bloqueado || rodada.dica_atual === 5}
+              data-carregando={acaoAtiva === "dicas" || undefined}
               onClick={() => void agir("dicas")}
             >
-              Pedir outra dica
+              {acaoAtiva === "dicas" ? (
+                <>
+                  <span className="pulso-botao" aria-hidden="true" />
+                  Buscando dica…
+                </>
+              ) : (
+                "Pedir outra dica"
+              )}
             </Botao>
             <Botao
               onClick={() => definirAnteriores(true)}
@@ -427,6 +489,9 @@ function ConteudoIndividual({
             }}
             rodada={rodada}
             ocupado={bloqueado}
+            rotuloOcupado={
+              acaoAtiva === "palpites" ? "Conferindo palpite…" : "Aguarde…"
+            }
             aoEnviar={(p) => void agir("palpites", p)}
           />
 

@@ -46,7 +46,7 @@ export function Rankings() {
         ))}
       </div>
       {consulta.isPending ? (
-        <Carregando />
+        <Carregando contexto="acompanhamento" />
       ) : consulta.error ? (
         <FalhaConsulta
           erro={consulta.error}
