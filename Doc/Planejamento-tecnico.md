@@ -239,7 +239,7 @@ O responsável escolheu Vercel para a interface e Render gratuito para a API na 
 
 O conceito visual e os componentes podem ser preparados em paralelo ao backend. A modelagem e a lista de operações da API estão documentadas na fase 10; contratos documentados não significam rotas de negócio já disponíveis.
 
-O detalhamento operacional dessa sequência é mantido em um roteiro de acompanhamento apenas local, incluindo revisão visual antecipada, decisões pendentes e geração intercalada do catálogo. Os vinte lotes são acompanhados em [Controle-do-catalogo.md](Controle-do-catalogo.md). A divisão em sete dias de referência pode ser ampliada sem mudar o escopo aprovado.
+O detalhamento operacional dessa sequência é mantido no [roteiro da primeira entrega](Roteiro-primeira-entrega.md), versionado por solicitação do responsável em 16/11/2026, incluindo revisão visual antecipada, decisões pendentes e geração intercalada do catálogo. Os vinte lotes são acompanhados em [Controle-do-catalogo.md](Controle-do-catalogo.md). A divisão em sete dias de referência pode ser ampliada sem mudar o escopo aprovado.
 
 ## 12. Referências oficiais
 
@@ -285,7 +285,7 @@ A regressão dos dois modos e a correção da contenção de foco no diálogo de
 
 ## Planejamento do menu dinâmico — 11/11/2026
 
-Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com React/TypeScript, CSS/SVG, Motion existente e a montagem/relógio aprovados do Aurélio. Separar agenda local, repertório editorial e apresentação; tempo/sorteio injetáveis, limpeza de recursos e pausa por ausência/redução de movimentos. TDD para comportamentos e revisão visual para arte, preservando SOLID. Sem nova dependência, serviço, banco ou contrato HTTP previsto. Um roteiro temporário separado e ignorado organiza dez fases MD-01 a MD-10; não substitui o roteiro geral de melhorias nem conclui a fase 49. Esse registro corresponde à etapa inicial de documentação; os incrementos e verificações estão registrados abaixo.
+Implementar a evolução aprovada em [Menu dinâmico](Menu-dinamico.md) com React/TypeScript, CSS/SVG, Motion existente e a montagem/relógio aprovados do Aurélio. Separar agenda local, repertório editorial e apresentação; tempo/sorteio injetáveis, limpeza de recursos e pausa por ausência/redução de movimentos. TDD para comportamentos e revisão visual para arte, preservando SOLID. Sem nova dependência, serviço, banco ou contrato HTTP previsto. O [roteiro do menu dinâmico](Roteiro-menu-dinamico.md), versionado por solicitação do responsável em 16/11/2026, organiza dez fases MD-01 a MD-10; não substitui o roteiro geral de melhorias nem conclui a fase 49. Esse registro corresponde à etapa inicial de documentação; os incrementos e verificações estão registrados abaixo.
 
 
 ### Menu MD-02 — coordenação temporal

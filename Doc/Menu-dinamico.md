@@ -91,7 +91,7 @@ Capturar computador, tablet e celular; observar também uma sequência longa de 
 
 ## 6. Execução
 
-O roteiro temporário detalhado é mantido somente localmente, em arquivo ignorado pelo Git. Esta especificação é a referência versionada e deve receber o registro do comportamento efetivamente entregue e das verificações. Cadências e amplitudes acima são pontos iniciais de ajuste artístico, não medições de uma implementação existente.
+O [roteiro detalhado do menu](Roteiro-menu-dinamico.md) passou a ser versionado por solicitação do responsável em 16/11/2026. Capturas, logs e configurações privadas permanecem ignorados. Esta especificação é a referência versionada e deve receber o registro do comportamento efetivamente entregue e das verificações. Cadências e amplitudes acima são pontos iniciais de ajuste artístico, não medições de uma implementação existente.
 
 
 ### Referência MD-01 — concluída em 11/11/2026
