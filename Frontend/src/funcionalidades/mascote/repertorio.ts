@@ -12,95 +12,143 @@ export const REPERTORIO: Record<
   saudacao: {
     nome: "Saudação",
     controle: "saudação",
-    gesto: "O aceno aprovado: atenção, cumprimento e acomodação.",
+    gesto:
+      "Boas-vindas showman: agacha, dá um saltinho abrindo os braços e acena com ritmo.",
     etapas: [
-      "Olhar e preparação do corpo.",
-      "Ombro, cotovelo e punho em ritmos diferentes.",
-      "Gravata e páginas chegam depois do gesto.",
+      "Antecipação elástica dobrando os joelhos.",
+      "Saltinho alegre com aceno amplo e folhear de páginas.",
+      "Acomodação com atraso natural da gravata e retorno ao neutro.",
     ],
   },
   espera: {
     nome: "Espera",
     controle: "espera",
     gesto:
-      "Respira, observa o jogo e pisca. Um repouso discreto, sem pedir atenção o tempo todo.",
+      "Respiração viva, olhar curioso, piscadas naturais e batidinha rítmica no chão.",
     etapas: [
-      "Respiração leve, apoiado nos pés.",
-      "O olhar passeia e os olhos piscam.",
-      "Retorno suave para repetir somente no repouso.",
+      "Respiração 2.5D mantendo o volume do livro.",
+      "Olhar atento e batida dupla com a ponta do sapato direito.",
+      "Retorno contínuo para repetir somente no repouso.",
     ],
   },
   pensamento: {
     nome: "Pensamento",
     controle: "pensamento",
-    gesto: "Uma dúvida, dois olhares e aquele instante de descoberta.",
+    gesto:
+      "Mão esquerda na cintura, mão direita no queixo, olhos de detetive, folheada e ideia.",
     etapas: [
-      "Recolhe o sorriso e inclina o livro.",
-      "Sobrancelhas desencontradas e olhar curioso.",
-      "O brilho marca uma ideia; o corpo se acomoda.",
+      "Recolhe o sorriso e inclina com pálpebras semicerradas.",
+      "Contorna o livro até o queixo enquanto folheia o dicionário.",
+      "O brilho acende na descoberta antes de relaxar.",
     ],
   },
   apresentacao: {
     nome: "Apresentação de dica",
     controle: "apresentação",
-    gesto: "Abre o gesto com a palma, como quem apresenta uma boa pista.",
+    gesto:
+      "Abertura ampla de apresentador com os dois braços e olhar voltado à pista.",
     etapas: [
-      "Recolhe o gesto para criar expectativa.",
-      "Palma, olhar e brilho apresentam a dica.",
-      "Sustenta a apresentação e retorna com calma.",
+      "Comprime para criar expectativa.",
+      "Abre os dois braços com brilho e folhas em movimento.",
+      "Sustenta o convite e regressa suavemente.",
+    ],
+  },
+  folhear_dica: {
+    nome: "Folhear dica",
+    controle: "folhear dica",
+    gesto:
+      "Vira páginas do próprio dicionário buscando uma nova pista e aponta entusiasmado.",
+    etapas: [
+      "Inclina para cima olhando o miolo do livro.",
+      "Folhas dinâmicas viram enquanto a mão busca a pista.",
+      "Abre a palma com brilho apresentando a nova dica.",
+    ],
+  },
+  tensao_decisiva: {
+    nome: "Tensão decisiva",
+    controle: "tensão decisiva",
+    gesto:
+      "Clima de suspense para a 5ª dica ou empate aguardando voto decisivo.",
+    etapas: [
+      "Encolhe para frente com pálpebras semicerradas.",
+      "Mãos perto da gravata e olhares rápidos entre as opções.",
+      "Suspira aliviado e retorna ao eixo.",
     ],
   },
   erro: {
     nome: "Erro",
     controle: "erro",
     gesto:
-      "Um pequeno susto, um encolher de ombros e um sorriso de incentivo para seguir.",
+      "Susto breve, mãos encabuladas à frente da capa e sorriso acolhedor de incentivo.",
     etapas: [
-      "Surpresa breve, sem repreender o jogador.",
-      "Ombros erguidos e balanço encabulado.",
-      "Recupera a expressão acolhedora.",
+      "Pequeno salto de susto levantando páginas.",
+      "Cruza as luvas no peito com pálpebras empáticas.",
+      "Recupera a confiança com sorriso fechado.",
+    ],
+  },
+  troca_amigavel: {
+    nome: "Troca amigável",
+    controle: "troca amigável",
+    gesto:
+      "Reconhece os pontos parciais conquistados e passa a vez com elegância.",
+    etapas: [
+      "Acena positivo com a mão esquerda pelas letras certas.",
+      "Vira o corpo apontando a passagem de turno.",
+      "Piscadela rápida encerrando o convite.",
     ],
   },
   comemoracao: {
     nome: "Comemoração",
     controle: "comemoração",
-    gesto: "Prepara nos pés, dá um pulinho e pousa com o peso do livro.",
+    gesto:
+      "Agacha fundo, salta dobrando os joelhos com os dois braços erguidos e gargalha.",
     etapas: [
-      "Comprime o corpo antes do salto.",
-      "Salta inteiro, com braços, gravata e estrelas.",
-      "Amortece a aterrissagem e termina o balanço.",
+      "Squash forte preparando o impulso nos pés.",
+      "Salto cartoon com olhos felizes (^ ^) e estrelas.",
+      "Pouso com mola elástica e saltinho final.",
+    ],
+  },
+  comemoracao_epica: {
+    nome: "Comemoração épica",
+    controle: "comemoração épica",
+    gesto:
+      "Vitória dupla para acertos de 1ª dica (100 pts) ou jogadas de 300+ pontos na Galera.",
+    etapas: [
+      "Agacha fundo acumulando energia máxima.",
+      "Salto duplo com giro alegre, gargalhada, folhas e chuva de estrelas.",
+      "Pousa vibrante mantendo a gravata balançando.",
     ],
   },
   turno: {
     nome: "Passagem de vez",
     controle: "passagem de vez",
-    gesto: "Olha de um lado para o outro e convida o próximo participante.",
+    gesto: "Gira convidando o próximo participante com braços abertos.",
     etapas: [
-      "Reconhece quem acabou de jogar.",
-      "Palma e olhar acompanham a passagem de vez.",
-      "Um aceno curto encerra o convite.",
+      "Reconhece a jogada anterior.",
+      "Abre os braços acompanhando a seta de turno.",
+      "Pisca encerrando a transição.",
     ],
   },
   sorteio: {
     nome: "Sorteio",
     controle: "sorteio",
     gesto:
-      "Acompanha as possibilidades, segura o suspense e apresenta a escolha oficial do jogo.",
+      "Acompanha cartões em suspense com os dois braços e faz a revelação oficial.",
     etapas: [
-      "Prepara a expectativa.",
-      "Olhares alternados acompanham os cartões.",
-      "Abre o gesto para a revelação.",
+      "Prepara os cartões e folheia o livro.",
+      "Alterna o olhar e as mãos entre as possibilidades.",
+      "Salta revelando com brilho.",
     ],
   },
   resultado: {
     nome: "Resultado",
     controle: "resultado",
     gesto:
-      "Apresenta o fechamento da partida e agradece com uma pequena reverência.",
+      "Exibe o selo final de showman e agradece com reverência clássica ao peito.",
     etapas: [
-      "Olhar e gesto anunciam o encerramento.",
-      "O selo de conclusão acompanha a apresentação.",
-      "Faz uma reverência e volta ao repouso.",
+      "Abre os dois braços com gargalhada orgulhosa.",
+      "Exibe o selo dourado de conclusão.",
+      "Faz reverência com mão no peito e retorna.",
     ],
   },
 };

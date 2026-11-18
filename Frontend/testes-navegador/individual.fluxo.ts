@@ -346,7 +346,7 @@ test("configura, acerta três palavras e mostra os pontos confirmados", async ({
     ).toBeVisible();
     await expect(page.locator(".reacao-solo .aurelio-animado")).toHaveAttribute(
       "data-reacao",
-      "comemoracao",
+      "comemoracao_epica",
     );
     await page
       .getByRole("button", {
@@ -404,7 +404,18 @@ test("Aurélio não repete erro antigo após recarga e reage à próxima dica", 
   await page.getByRole("button", { name: "Pedir outra dica" }).click();
   await expect(
     page.locator(".aurelio-partida .aurelio-animado"),
-  ).toHaveAttribute("data-reacao", "apresentacao");
+  ).toHaveAttribute("data-reacao", "folhear_dica");
+  await expect(
+    page.getByRole("button", {
+      name: "Conversar com Aurélio durante a rodada",
+    }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Conversar com Aurélio durante a rodada" })
+    .click();
+  await expect(
+    page.locator(".aurelio-partida .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "reagir_toque");
 });
 test("desistir da palavra revela solução e encerrar pede confirmação", async ({
   page,

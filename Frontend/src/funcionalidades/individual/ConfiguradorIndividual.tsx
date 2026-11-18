@@ -10,8 +10,11 @@ import {
   type Plano,
 } from "./api";
 import { NIVEIS, TEMAS } from "./apresentacao";
+import { Aurelio } from "../mascote/Aurelio";
+import { useToqueMascote } from "../mascote/usar-toque-mascote";
 export function ConfiguradorIndividual({ token }: { token: string }) {
   const navegar = useNavigate();
+  const toque = useToqueMascote("config-solo");
   const [quantidade, definirQuantidade] = useState<3 | 5 | 7>(3);
   const [tema, definirTema] = useState("");
   const [distribuicao, definirDistribuicao] =
@@ -91,9 +94,12 @@ export function ConfiguradorIndividual({ token }: { token: string }) {
           <span className="estrela-solo" aria-hidden="true">
             ✦
           </span>
-          <img
-            src="/mascote/aurelio.png"
-            alt="Aurélio pronto para apresentar suas pistas"
+          <Aurelio
+            evento={{ id: "convite-solo", tipo: "apresentacao" }}
+            gesto={toque.gesto}
+            aoAtivar={toque.tocar}
+            tamanho="grande"
+            descricao="Aurélio pronto para apresentar suas pistas"
           />
           <blockquote>
             “O melhor palpite

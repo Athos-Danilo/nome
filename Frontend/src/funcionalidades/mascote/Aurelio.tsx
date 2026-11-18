@@ -23,9 +23,11 @@ export function Aurelio({
   pausado = false,
   gesto,
   direcaoOlhar,
+  olharVivo,
   aoAtivar,
   aoVer,
   ocupado = false,
+  rotuloInteracao = "Conversar com Aurélio",
 }: {
   evento?: EventoReacao;
   repouso?: Reacao;
@@ -35,9 +37,11 @@ export function Aurelio({
   pausado?: boolean;
   gesto?: { id: string; tipo: GestoMenu };
   direcaoOlhar?: DirecaoOlhar;
+  olharVivo?: DirecaoOlhar;
   aoAtivar?: () => void;
   aoVer?: (visivel: boolean) => void;
   ocupado?: boolean;
+  rotuloInteracao?: string;
 }) {
   const contagem = useRef({ id: "", restante: 0 });
   const [estado, definirEstado] = useState(iniciarReacoes);
@@ -47,13 +51,16 @@ export function Aurelio({
   useEffect(() => {
     aoVer?.(visivel);
   }, [aoVer, visivel]);
+
   const preferencia = useMovimentosReduzidos();
   const estatico = reduzir || pausado || preferencia || !visivel;
+
   useEffect(() => {
     if (evento) definirEstado((e) => receberReacao(e, evento));
     // No menu, cancelar a entrada preserva o botão e o foco; partidas mantêm seu contrato.
     else if (aoAtivar) definirEstado(iniciarReacoes());
   }, [evento?.id, evento?.tipo, !!aoAtivar]);
+
   useEffect(() => {
     const ativa = estado.ativa;
     if (!ativa) return;
@@ -73,6 +80,7 @@ export function Aurelio({
       );
     };
   }, [estado.ativa, pausado]);
+
   const reacao = gesto?.tipo ?? estado.ativa?.tipo ?? repouso;
   return (
     <div
@@ -88,13 +96,14 @@ export function Aurelio({
         descricao={descricao}
         chave={gesto?.id ?? estado.ativa?.id ?? repouso}
         direcaoOlhar={direcaoOlhar}
+        olharVivo={olharVivo}
         preservarPose={!!gesto && !reduzir && !preferencia}
       />
       {aoAtivar && (
         <button
           type="button"
           className="interagir-aurelio"
-          aria-label="Conversar com Aurélio"
+          aria-label={rotuloInteracao}
           aria-disabled={ocupado}
           title="Toque ou clique para conversar com Aurélio"
           onClick={() => {

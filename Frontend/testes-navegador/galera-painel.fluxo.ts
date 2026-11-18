@@ -159,6 +159,12 @@ async function mockarGalera(
             ],
             bloqueadas: ["A"],
           };
+        } else if (d.tipo === "palpite") {
+          estado.participantes[0].pontuacao += 100;
+          estado.painel = {
+            ...estado.painel,
+            participante_atual: "p2",
+          };
         } else if (d.tipo === "encerrar") {
           estado.estado = "abandonada";
           estado.resultado_galera = "vencedor";
@@ -274,7 +280,7 @@ test("joga no painel, recupera recarga e confirma desistência", async ({
   await expect(page.getByTestId("placar-p1")).toContainText("400");
   await expect(
     page.locator(".anfitriao-galera .aurelio-animado"),
-  ).toHaveAttribute("data-reacao", "comemoracao");
+  ).toHaveAttribute("data-reacao", "comemoracao_epica");
   await page.reload();
   await expect(page.getByTestId("placar-p1")).toContainText("400");
   await expect(
@@ -319,6 +325,28 @@ test("reconcilia falha inicial de conexão sem abandonar a partida", async ({
   await page.getByRole("button", { name: "Reconciliar painel" }).click();
   await page.getByRole("button", { name: "Tecla A", exact: true }).click();
   await expect(page.getByTestId("placar-p1")).toContainText("400");
+});
+
+test("palpite parcial com pontos aciona troca_amigavel e fala adaptativa na galera", async ({
+  page,
+}) => {
+  await mockarGalera(page);
+  await page.goto("/jogar/galera/partida");
+  await page.getByRole("button", { name: "Iniciar desafio" }).click();
+  await page.getByRole("button", { name: "Liberar painel" }).click();
+  await page.getByRole("button", { name: "Tentar palavra completa" }).click();
+  for (const letra of "CAMA")
+    await page
+      .getByRole("button", { name: `Tecla ${letra}`, exact: true })
+      .click();
+  await page.getByRole("button", { name: "Enviar palpite" }).click();
+  await expect(
+    page.getByRole("heading", { name: "É a vez de Beto" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".anfitriao-galera .aurelio-animado"),
+  ).toHaveAttribute("data-reacao", "troca_amigavel");
+  await expect(page.locator(".anfitriao-galera p")).toContainText("bastão");
 });
 
 test("sair pelo menu encerra e voltar mostra o resultado", async ({ page }) => {

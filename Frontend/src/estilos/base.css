@@ -264,6 +264,21 @@ small,
   filter: drop-shadow(4px 12px 1px #29292126);
   animation: flutuar 5s ease-in-out infinite;
 }
+.palco-mascote .aurelio-animado {
+  width: 280px;
+  max-width: 100%;
+  filter: drop-shadow(4px 12px 1px #29292126);
+}
+.atalho-estudio {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--borda);
+  font-size: 0.92rem;
+}
+.atalho-estudio a {
+  font-weight: 800;
+  color: inherit;
+}
 .letra-flutuante {
   position: absolute;
   left: 0;
@@ -612,8 +627,10 @@ dialog label {
   .companheiro h2 {
     font-size: 29px;
   }
-  .palco-mascote img {
+  .palco-mascote img,
+  .palco-mascote .aurelio-animado {
     height: 290px;
+    width: auto;
   }
   .selo {
     display: none;
@@ -660,7 +677,8 @@ dialog label {
     top: 12px;
     margin: 0;
   }
-  .palco-mascote img {
+  .palco-mascote img,
+  .palco-mascote .aurelio-animado {
     width: 145px;
     height: 185px;
   }

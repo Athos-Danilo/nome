@@ -1,7 +1,8 @@
-import type { PoseGestoMenu } from "./gestos-menu";
-/** O olhar e a letra usam a mesma pose, sem outro ciclo ou relógio. */
-export function LetraCuriosa({ pose }: { pose: PoseGestoMenu }) {
-  if (pose.letra <= 0) return null;
+import type { PoseCompleta } from "./pose-base";
+
+/** O olhar, o braço e a letra usam a mesma pose, sem outro ciclo ou relógio. */
+export function LetraCuriosa({ pose }: { pose: PoseCompleta }) {
+  if (pose.letra <= 0.01) return null;
   return (
     <g
       aria-hidden="true"

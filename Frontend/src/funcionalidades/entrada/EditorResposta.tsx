@@ -1,4 +1,10 @@
-import { useRef, useState, type Dispatch, type SetStateAction } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import { DragDropProvider, DragOverlay } from "@dnd-kit/react";
 import { PointerSensor, PointerActivationConstraints } from "@dnd-kit/dom";
 import { Quadradinho } from "./Quadradinho";
@@ -19,6 +25,8 @@ import {
 } from "./modelo";
 import { useDigitacao } from "./usar-digitacao";
 import { useAudio } from "../audio/ProvedorAudio";
+import { direcaoOlharMontagem } from "../mascote/falas-partida";
+import type { DirecaoOlhar } from "../mascote/gestos-menu";
 import "./entrada.css";
 const SENSORES = [
   PointerSensor.configure({
@@ -42,6 +50,7 @@ export function EditorResposta({
   aoAlterar,
   aoEnviar,
   aoEscolherLetra,
+  aoObservarMontagem,
   ocupado = false,
   exibirMontagem = true,
   letraEmCurso,
@@ -51,6 +60,7 @@ export function EditorResposta({
   aoAlterar: Dispatch<SetStateAction<EstadoEntrada>>;
   aoEnviar: (palpite: string) => void;
   aoEscolherLetra?: (letra: string) => void;
+  aoObservarMontagem?: (direcao: DirecaoOlhar) => void;
   ocupado?: boolean;
   exibirMontagem?: boolean;
   letraEmCurso?: string;
@@ -60,6 +70,23 @@ export function EditorResposta({
   const audio = useAudio();
   const houveArraste = useRef(false);
   const [arrastada, definirArrastada] = useState("");
+  const letrasPreenchidas = estado.letras.filter(Boolean).length;
+
+  useEffect(() => {
+    if (!aoObservarMontagem || !exibirMontagem || estado.acao !== "palpite")
+      return;
+    if (letrasPreenchidas === 0 && estado.selecionada === 0) return;
+    aoObservarMontagem(
+      direcaoOlharMontagem(estado.selecionada, estado.posicoes.length),
+    );
+  }, [
+    aoObservarMontagem,
+    exibirMontagem,
+    estado.acao,
+    estado.selecionada,
+    estado.posicoes.length,
+    letrasPreenchidas,
+  ]);
   function focar() {
     area.current?.focus({ preventScroll: true });
   }

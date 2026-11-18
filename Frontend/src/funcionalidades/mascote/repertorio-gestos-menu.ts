@@ -13,55 +13,55 @@ export const REPERTORIO_GESTOS: Record<
     nome: "Olhar para o Solo",
     controle: "olhar para o Solo",
     gesto:
-      "O olhar chega primeiro ao cartão; livro, palma e gravata acompanham depois. No celular ele olha para baixo, onde o cartão está.",
+      "Mira exatamente o cartão Solo no layout atual e aponta convidando com arco suave.",
     etapas: [
-      "Uma breve preparação dos olhos.",
-      "Apresenta o desafio com uma pequena inclinação e a palma.",
-      "O olhar retorna e as páginas se acomodam.",
+      "Antecipação curta do livro e dos olhos.",
+      "Inclina e aponta para a posição real do cartão Solo.",
+      "Retorna o olhar e acomoda as folhas.",
     ],
   },
   olhar_galera: {
     nome: "Olhar para a Galera",
     controle: "olhar para a Galera",
     gesto:
-      "Um convite mais aberto para jogar junto, com sobrancelha levantada e gesto da mão, sem mover o foco do jogador.",
+      "Convite aberto com os dois braços apontando para a posição real da Galera.",
     etapas: [
-      "Recolhe o corpo antes do convite.",
-      "Olhar, ombro e punho apontam para a Galera.",
-      "O gesto descansa antes de devolver o olhar.",
+      "Recolhe o corpo preparando o gesto.",
+      "Abre os dois braços com sobrancelha erguida na direção do cartão.",
+      "Relaxa o gesto antes de voltar ao neutro.",
     ],
   },
   ajeitar_gravata: {
     nome: "Ajeitar a gravata",
     controle: "ajuste da gravata",
     gesto:
-      "Confere o laço, aproxima a luva, dá dois pequenos ajustes e volta com ar satisfeito. A mão passa à frente da capa somente nesta atuação.",
+      "O braço direito sai de trás do livro, contorna a lateral em 2.5D e dá dois ajustes no laço.",
     etapas: [
-      "Olha para o laço e prepara o braço.",
-      "Ombro, cotovelo e punho levam a luva até a gravata.",
-      "Solta o laço, a mão recua e a gravata termina de oscilar.",
+      "Olha para o nó e inicia o arco externo pela direita.",
+      "Contorna a borda sem fendas, dá dois ajustes no laço e sorri.",
+      "Recua em arco suave com piscadela confiante.",
     ],
   },
   seguir_letra: {
     nome: "Seguir a letra",
     controle: "perseguição da letra",
     gesto:
-      "Uma letra passeia de um lado ao outro; pupilas e sobrancelhas acompanham a mesma trajetória. Ela some com um pequeno brilho.",
+      "Uma letra A atravessa o palco em arco enquanto olhar, corpo e braços tentam alcançá-la.",
     etapas: [
-      "Percebe a letra do lado esquerdo.",
-      "Segue o arco por cima da cabeça, sem girar o personagem inteiro.",
-      "A letra se despede e uma piscada encerra a curiosidade.",
+      "Percebe a letra surgindo à esquerda.",
+      "Ergue os dois braços e acompanha o voo por cima da cabeça.",
+      "A letra se despede em brilho e o apresentador pisca curioso.",
     ],
   },
   reagir_toque: {
     nome: "Reagir ao toque",
     controle: "resposta ao toque",
     gesto:
-      "Surpresa breve, pequeno salto e uma piscadela cúmplice. O corpo inteiro acompanha o salto e os pés continuam ligados.",
+      "Agacha surpreso, dá um salto com os braços bem abertos e solta uma piscadela cúmplice.",
     etapas: [
-      "Reconhece que você o chamou.",
-      "Dá um saltinho e acomoda o peso.",
-      "Pisca um olho e retorna ao sorriso original.",
+      "Reage ao chamado comprimindo o corpo.",
+      "Salta dobrando os joelhos com braços abertos no alto.",
+      "Pousa com piscadela e sorriso brilhante.",
     ],
   },
 };

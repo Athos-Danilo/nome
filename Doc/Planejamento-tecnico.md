@@ -362,3 +362,8 @@ Consolidação documental completa em [README.md](../README.md) e [Apresentacao.
 3. **`Frontend/testes-navegador/acompanhamento.fluxo.ts`:** atualização da asserção antiga de título para `"Decifra"` (`f80b672`).
 
 Verificações do Frontend após as últimas alterações de código: Prettier, `tsc --noEmit`, `vitest run` (23 arquivos, 133 aprovados), `vite build` (`index-BWifqNLt.js` com `378,33 kB`; `uso-real` mediu `478.531 bytes` de JS inicial), `testar-acompanhamento` (15/15), `testar-menu` (152 aprovados, 22 pulados por comparação opcional sem servidor de referência), `testar-audio` (12/12), `testar-uso-real` (6/6) e `testar-carregamento` (12/12). Primeira entrega das 50 fases concluída.
+
+### Evolução do Mascote (`AU-01` a `AU-06` — Aurélio 2.0) — 18/11/2026
+
+Especificação, decisões técnicas e resultados completos em [Evolução do Mascote Aurélio](Aurelio-evolucao.md). Rigging híbrido 2.5D combinando o `.webp` aprovado para capa/cantoneiras/luvas/sapatos/gravata com tubos *rubber-hose* IK contínuos (`cinematica-membros.ts`), *pose blending* (`160 ms`), curvas expressivas (`curvas-atuacao.ts`), física secundária, pálpebras e bocas vetoriais no traço original (`RostoAurelio.tsx`, `FolhasAurelio.tsx`), repertório ampliado para 13 reações de jogo + 5 surpresas do menu (incluindo `comemoracao_epica`, `folhear_dica`, `tensao_decisiva` e `troca_amigavel`), falas e acompanhamento de olhar durante a montagem (`falas-partida.ts`, `usar-toque-mascote.ts`), substituição das artes estáticas em Perfil/Configuradores/Demonstração pelo `<Aurelio />` vivo e estúdio `/laboratorio/aurelio` documentado com atalho no diálogo **Como jogar** e apresentação sequencial. Zero novas dependências externas; JS inicial medido em `499.764 bytes` (`uso-real`).
+

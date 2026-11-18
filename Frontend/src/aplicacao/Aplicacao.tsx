@@ -28,6 +28,8 @@ import { ExcluirConta } from "../funcionalidades/perfil/ExcluirConta";
 import { useConta } from "../funcionalidades/perfil/usar-conta";
 import { AvisoErro } from "../funcionalidades/perfil/AvisoErro";
 import { MenuInicial } from "../funcionalidades/menu/MenuInicial";
+import { Aurelio } from "../funcionalidades/mascote/Aurelio";
+import { useToqueMascote } from "../funcionalidades/mascote/usar-toque-mascote";
 import {
   Botao,
   Carregando,
@@ -94,6 +96,7 @@ function Jogo() {
   const saidaPartida = useSaidaPartida();
   const { pathname: caminho } = useLocation();
   const [ajuda, definirAjuda] = useState(false);
+  const toque = useToqueMascote("conta");
   const { conta, perfil, carregando, ocupado, efetivas } = dados;
   const pendente = conta && perfil.data?.estado === "cadastro_pendente";
   useEffect(() => {
@@ -149,11 +152,16 @@ function Jogo() {
             <em>começa com você.</em>
           </h2>
           <div className="palco-mascote">
-            <img
-              src="/mascote/aurelio.png"
-              width="290"
-              height="350"
-              alt="Aurélio, nosso dicionário apresentador"
+            <Aurelio
+              evento={
+                dados.mensagem
+                  ? { id: `conta-${dados.mensagem}`, tipo: "comemoracao" }
+                  : undefined
+              }
+              gesto={toque.gesto}
+              aoAtivar={toque.tocar}
+              tamanho="grande"
+              descricao="Aurélio, nosso dicionário apresentador"
             />
           </div>
         </aside>
@@ -331,6 +339,12 @@ function Jogo() {
           <p>
             Você escolhe seu ritmo. Sem limite de tempo: o cronômetro apenas
             registra sua jornada.
+          </p>
+          <p className="atalho-estudio">
+            Quer explorar todas as animações do mascote?{" "}
+            <Link to="/laboratorio/aurelio" onClick={() => definirAjuda(false)}>
+              Estúdio do Aurélio →
+            </Link>
           </p>
         </Dialogo>
         <ExcluirConta

@@ -22,6 +22,7 @@ test("acerto tem prioridade, guarda a próxima apresentação e não repete even
   expect(estado.ativa?.id).toBe("dica-2");
   expect(concluirReacao(estado, "acerto-1")).toBe(estado);
 });
+
 test("resultado interrompe ações menores e não guarda reações antigas", () => {
   let estado = receberReacao(iniciarReacoes(), { id: "erro", tipo: "erro" });
   estado = receberReacao(estado, { id: "fim", tipo: "resultado" });
@@ -29,7 +30,8 @@ test("resultado interrompe ações menores e não guarda reações antigas", () 
   expect(estado.ativa?.tipo).toBe("resultado");
   expect(estado.pendente).toBeNull();
 });
-test("individual reage ao estado confirmado sem transformar falha de rede em erro de palpite", () => {
+
+test("individual reage com folhear_dica, tensao_decisiva na 5ª dica e comemoracao_epica nos 100 pontos", () => {
   expect(
     reacaoIndividual({
       partida_id: "p",
@@ -41,24 +43,67 @@ test("individual reage ao estado confirmado sem transformar falha de rede em err
     reacaoIndividual({
       partida_id: "p",
       versao: 3,
-      acao: { resultado: "dica" },
+      acao: { resultado: "dica_revelada" },
+      rodada_atual: { dica_atual: 2 },
     }).tipo,
-  ).toBe("apresentacao");
+  ).toBe("folhear_dica");
+  expect(
+    reacaoIndividual({
+      partida_id: "p",
+      versao: 4,
+      acao: { resultado: "dica_revelada" },
+      rodada_atual: { dica_atual: 5 },
+    }).tipo,
+  ).toBe("tensao_decisiva");
+  expect(
+    reacaoIndividual({
+      partida_id: "p",
+      versao: 5,
+      acao: { resultado: "acerto", pontos: 100 },
+    }).tipo,
+  ).toBe("comemoracao_epica");
+  expect(
+    reacaoIndividual({
+      partida_id: "p",
+      versao: 6,
+      acao: { resultado: "acerto", pontos: 60 },
+    }).tipo,
+  ).toBe("comemoracao");
 });
-test("galera distingue pontos, troca de turno, sessão e atualização sem jogada", () => {
+
+test("galera distingue acerto épico, pontos parciais com troca de turno, desempate e sessão", () => {
   const anterior = {
     versao: 1,
     sessao: 1,
     participante: "ana",
     pontos: 0,
     estado: "em_andamento",
+    estadoSessao: "em_andamento",
   };
   expect(reacaoGalera(anterior, { ...anterior, versao: 2, pontos: 100 })).toBe(
     "comemoracao",
   );
+  expect(reacaoGalera(anterior, { ...anterior, versao: 2, pontos: 400 })).toBe(
+    "comemoracao_epica",
+  );
+  expect(
+    reacaoGalera(anterior, {
+      ...anterior,
+      versao: 2,
+      participante: "bia",
+      pontos: 200,
+    }),
+  ).toBe("troca_amigavel");
   expect(
     reacaoGalera(anterior, { ...anterior, versao: 2, participante: "bia" }),
   ).toBe("turno");
+  expect(
+    reacaoGalera(anterior, {
+      ...anterior,
+      versao: 2,
+      estadoSessao: "aguardando_desempate",
+    }),
+  ).toBe("tensao_decisiva");
   expect(reacaoGalera(anterior, { ...anterior, versao: 2, sessao: 2 })).toBe(
     "sorteio",
   );

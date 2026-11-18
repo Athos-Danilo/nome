@@ -50,6 +50,10 @@ Este roteiro organiza a demonstração prática e a defesa técnica do **Decifra
 2. Abrir **Estatísticas**: destacar que agregam **apenas partidas individuais/demonstrações encerradas** (`resultados_individuais`), sem misturar pontos da Galera e sem contar partida ainda pausada/em aberto.
 3. Abrir **Rankings públicos** (`Pontos`, `Palavras acertadas`, `Partidas concluídas`): mostrar suporte a empates, saldos negativos e a anonimização de contas excluídas (`Jogador excluído`).
 
+### 6. Estúdio do Mascote Aurélio (`/laboratorio/aurelio`) (~1 min)
+1. Abrir a rota `/laboratorio/aurelio` (diretamente na URL ou pelo atalho no diálogo **Como jogar (`?`)**) para mostrar em uma única tela **todas as atuações, expressões e surpresas** do mascote lado a lado com a ilustração original aprovada.
+2. Acionar a exibição das articulações/esqueleto, controle de instante/velocidade e reprodução contínua do repertório para demonstrar a arquitetura de animação SVG/TypeScript sem dependências externas pesadas.
+
 ---
 
 ## Parte 2 — Defesa técnica: divisão real entre SQL (PostgreSQL) e NoSQL (MongoDB)

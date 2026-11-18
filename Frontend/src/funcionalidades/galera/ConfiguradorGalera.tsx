@@ -12,6 +12,8 @@ import {
   type Convidado,
   type PlanoGalera,
 } from "./api";
+import { Aurelio } from "../mascote/Aurelio";
+import { useToqueMascote } from "../mascote/usar-toque-mascote";
 export function ConfiguradorGalera({
   conta,
   avatares,
@@ -20,6 +22,7 @@ export function ConfiguradorGalera({
   avatares: Avatar[];
 }) {
   const navegar = useNavigate();
+  const toque = useToqueMascote("config-galera");
   const [convidados, definirConvidados] = useState<Convidado[]>([]);
   const [quantidade, definirQuantidade] = useState(3);
   const [dificuldade, definirDificuldade] = useState<Dificuldade>("facil");
@@ -111,7 +114,13 @@ export function ConfiguradorGalera({
           <h1 tabIndex={-1}>Reúna sua galera</h1>
           <p>Até três pessoas, um painel compartilhado e uma boa disputa.</p>
         </div>
-        <img src="/mascote/aurelio.png" alt="Aurélio preparando a disputa" />
+        <Aurelio
+          evento={{ id: "convite-galera", tipo: "sorteio" }}
+          gesto={toque.gesto}
+          aoAtivar={toque.tocar}
+          tamanho="pequeno"
+          descricao="Aurélio preparando a disputa"
+        />
       </header>
       <fieldset disabled={ocupado} className="grupo-galera">
         <legend>Quem vai decifrar?</legend>

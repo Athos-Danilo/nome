@@ -309,7 +309,7 @@ test("repertório permite selecionar, examinar e pausar cada atuação sem perde
       desenho.locator("[data-parte='corpo_inteiro']"),
     ).not.toHaveAttribute(
       "transform",
-      "translate(0 0) rotate(0 554 940) translate(0 940) scale(1 1) translate(0 -940)",
+      "translate(0 0) rotate(0 554 940) translate(554 940) skewX(0) scale(1 1) translate(-554 -940)",
     );
     await desenho.screenshot({
       path: `test-results/aurelio-${tipo}-${info.project.name}.png`,
@@ -350,7 +350,9 @@ test("ensaio permite examinar pupilas, articulações e fim do aceno sem repetir
     desenho.locator("[data-parte='punho_direito']"),
   ).not.toHaveAttribute("transform", "rotate(0 977 559)");
   await expect(desenho.locator("[data-parte='pupila_esquerdo']")).toBeVisible();
-  await page.getByLabel("Mostrar recortes e articulações").check();
+  await page
+    .getByLabel("Mostrar esqueleto IK, recortes e articulações")
+    .check();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
@@ -369,9 +371,15 @@ test("ensaio permite examinar pupilas, articulações e fim do aceno sem repetir
   await expect(
     page.getByText("Saudação concluída", { exact: true }),
   ).toBeVisible({ timeout: 8000 });
-  await expect(desenho).toHaveAttribute("data-tempo", "5400");
+  await expect(desenho).toHaveAttribute(
+    "data-tempo",
+    String(DURACOES.saudacao),
+  );
   await page.waitForTimeout(200);
-  await expect(desenho).toHaveAttribute("data-tempo", "5400");
+  await expect(desenho).toHaveAttribute(
+    "data-tempo",
+    String(DURACOES.saudacao),
+  );
 });
 
 test("movimentos reduzidos mantêm a arte original e o menu funciona", async ({
@@ -491,8 +499,12 @@ for (const atuacao of [...REACOES, ...GESTOS_MENU]) {
       saudacao: "Saudação",
       pensamento: "Pensamento",
       apresentacao: "Apresentação de dica",
+      folhear_dica: "Folhear dica",
+      tensao_decisiva: "Tensão decisiva",
       erro: "Erro",
+      troca_amigavel: "Troca amigável",
       comemoracao: "Comemoração",
+      comemoracao_epica: "Comemoração épica",
       turno: "Passagem de vez",
       sorteio: "Sorteio",
       resultado: "Resultado",
@@ -521,7 +533,7 @@ for (const atuacao of [...REACOES, ...GESTOS_MENU]) {
     );
     const instantes =
       atuacao === "saudacao"
-        ? [0, 350, 750, 1350, 2070, 3400, 5400]
+        ? [0, 350, 750, 1350, 2070, 3400, 4800]
         : [0.12, 0.4, 0.7].map(
             (fracao) =>
               Math.round((duracaoAtuacao(atuacao) * fracao) / 10) * 10,
@@ -557,9 +569,10 @@ for (const atuacao of [...REACOES, ...GESTOS_MENU]) {
         };
         const vazios: Record<string, number> = {};
         for (const [nome, parte, area] of [
-          ["luva", "punho_direito", [905, 350, 253, 255]],
-          ["tornozelo_esquerdo", "perna_esquerda", [265, 1085, 140, 80]],
-          ["tornozelo_direito", "perna_direita", [520, 1060, 170, 90]],
+          ["luva_direita", "punho_direito", [924, 380, 224, 208]],
+          ["luva_esquerda", "punho_esquerdo", [110, 752, 202, 200]],
+          ["tornozelo_esquerdo", "sapato_esquerdo", [275, 1105, 108, 72]],
+          ["tornozelo_direito", "sapato_direito", [538, 1085, 138, 72]],
         ] as const) {
           const grupo = elemento.querySelector<SVGGElement>(
             `[data-parte='${parte}']`,
@@ -651,3 +664,37 @@ for (const atuacao of [...REACOES, ...GESTOS_MENU]) {
     }
   });
 }
+
+test("AU-06 estúdio oferece apresentação sequencial, blending, controle de velocidade e atalho em Como jogar", async ({
+  page,
+}) => {
+  await visitante(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Como jogar" }).click();
+  const linkEstudio = page.getByRole("link", {
+    name: /Estúdio do Aurélio/i,
+  });
+  await expect(linkEstudio).toBeVisible();
+  await linkEstudio.click();
+  await expect(page).toHaveURL("/laboratorio/aurelio");
+  await expect(
+    page.getByRole("heading", { name: "Aurélio em cena." }),
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "0,25×", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "0,25×", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+
+  await page.getByRole("button", { name: /Transição suave/i }).click();
+  await expect(page.locator(".ensaio-montagem svg")).toHaveAttribute(
+    "data-atuacao",
+    "pensamento",
+  );
+
+  await page.getByRole("button", { name: /Apresentar tudo/i }).click();
+  await expect(
+    page.getByRole("button", { name: "Parar apresentação" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Parar apresentação" }).click();
+});

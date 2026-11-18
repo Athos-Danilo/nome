@@ -1,5 +1,5 @@
 import "../../estilos/partidas.css";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useBlocker } from "react-router";
 import {
   Botao,
@@ -17,6 +17,9 @@ import { TEMAS } from "../individual/apresentacao";
 import { usePainelGalera } from "./usar-painel";
 import type { ComandoGalera, Painel } from "./painel-api";
 import { Aurelio } from "../mascote/Aurelio";
+import { falaGalera } from "../mascote/falas-partida";
+import type { DirecaoOlhar } from "../mascote/gestos-menu";
+import { useToqueMascote } from "../mascote/usar-toque-mascote";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
 import { ValorAnimado } from "../../componentes/Tela";
 import {
@@ -43,6 +46,7 @@ function EntradaGalera({
   rotuloOcupado,
   aoLetra,
   aoPalpite,
+  aoObservarMontagem,
 }: {
   painel: Painel;
   palavra: number;
@@ -52,6 +56,7 @@ function EntradaGalera({
   rotuloOcupado?: string;
   aoLetra: (letra: string) => void;
   aoPalpite: (palpite: string) => void;
+  aoObservarMontagem?: (direcao: DirecaoOlhar) => void;
 }) {
   const [entrada, definirEntrada] = useState(() =>
     criarEntrada({
@@ -67,6 +72,7 @@ function EntradaGalera({
       aoAlterar={definirEntrada}
       aoEnviar={aoPalpite}
       aoEscolherLetra={aoLetra}
+      aoObservarMontagem={aoObservarMontagem}
       ocupado={ocupado}
       exibirMontagem={modo === "palpite"}
       letraEmCurso={letraEmCurso}
@@ -83,21 +89,45 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
   const p = e?.painel;
   const anteriorMascote = useRef<ResumoGalera | null>(null);
   const [reacaoMascote, definirReacaoMascote] = useState<EventoReacao>();
+  const [olharVivo, definirOlharVivo] = useState<DirecaoOlhar>();
+  const toque = useToqueMascote("galera");
+  const limparOlharRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    return () => {
+      if (limparOlharRef.current) window.clearTimeout(limparOlharRef.current);
+    };
+  }, []);
+
+  const observarMontagem = useCallback((direcao: DirecaoOlhar) => {
+    definirOlharVivo(direcao);
+    if (limparOlharRef.current) window.clearTimeout(limparOlharRef.current);
+    limparOlharRef.current = window.setTimeout(
+      () => definirOlharVivo(undefined),
+      2200,
+    );
+  }, []);
+
   useEffect(() => {
     if (!e || !p) return;
-    const atual = {
+    const atual: ResumoGalera = {
       versao: e.versao,
       sessao: p.sessao,
       participante: p.participante_atual,
       pontos: e.participantes.reduce((s, a) => s + a.pontuacao, 0),
       estado: e.estado,
+      estadoSessao: p.estado,
     };
     const tipo = anteriorMascote.current
       ? reacaoGalera(anteriorMascote.current, atual)
       : null;
     anteriorMascote.current = atual;
-    if (tipo) definirReacaoMascote({ id: `${id}:${e.versao}`, tipo });
-  }, [id, e?.versao]);
+    if (tipo) {
+      definirReacaoMascote({ id: `${id}:${e.versao}`, tipo });
+      toque.limpar();
+      definirOlharVivo(undefined);
+    }
+  }, [id, e?.versao, toque.limpar]);
   const [palavra, definirPalavra] = useState(0);
   const [modo, definirModo] = useState<"letra" | "palpite">("letra");
   const [encerrar, definirEncerrar] = useState(false);
@@ -292,11 +322,22 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
       ) : null}
       {!final && (
         <aside className="anfitriao-galera">
-          <Aurelio evento={reacaoMascote} tamanho="pequeno" />
+          <Aurelio
+            evento={reacaoMascote}
+            gesto={toque.gesto}
+            olharVivo={olharVivo}
+            aoAtivar={toque.tocar}
+            tamanho="pequeno"
+            rotuloInteracao="Conversar com Aurélio no painel da galera"
+          />
           <p>
-            {p.estado === "aguardando_desempate"
-              ? "Mais uma descoberta para decidir?"
-              : "Acertou? Continua na vez. O palco é de vocês!"}
+            {falaGalera({
+              reacao: reacaoMascote?.tipo,
+              participanteAtual: pessoa?.nome,
+              estadoSessao: p.estado,
+              seed: e.versao,
+              toque: toque.gesto ? toque.contagem : 0,
+            })}
           </p>
         </aside>
       )}
@@ -388,6 +429,7 @@ export function PainelGalera({ id, token }: { id: string; token: string }) {
             palavra={selecionada}
             modo={modo}
             ocupado={bloqueado}
+            aoObservarMontagem={observarMontagem}
             letraEmCurso={
               acaoAtiva?.tipo === "letra" ? acaoAtiva.valor : undefined
             }

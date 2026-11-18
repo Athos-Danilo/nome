@@ -110,9 +110,13 @@ export function useSomReacao(evento?: EventoReacao) {
     if (!evento) return;
     const efeito: Partial<Record<EventoReacao["tipo"], TipoEfeito>> = {
       apresentacao: "dica",
+      folhear_dica: "dica",
+      tensao_decisiva: "dica",
       erro: "erro",
       comemoracao: "acerto",
+      comemoracao_epica: "acerto",
       turno: "turno",
+      troca_amigavel: "turno",
       sorteio: "sorteio",
       resultado: "resultado",
     };

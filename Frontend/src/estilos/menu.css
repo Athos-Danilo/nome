@@ -808,7 +808,8 @@ main[tabindex="-1"]:focus {
     width: 120px;
     top: 0;
   }
-  .conteudo-jogo .palco-mascote img {
+  .conteudo-jogo .palco-mascote img,
+  .conteudo-jogo .palco-mascote .aurelio-animado {
     width: 120px;
     height: 160px;
   }

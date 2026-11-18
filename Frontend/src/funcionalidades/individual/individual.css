@@ -51,6 +51,10 @@
   filter: drop-shadow(0 14px 0 #44443918);
   animation: flutuar-solo 5s ease-in-out infinite;
 }
+.convite-aurelio .aurelio-animado {
+  width: min(85%, 260px);
+  filter: drop-shadow(0 14px 0 #44443918);
+}
 .convite-aurelio blockquote {
   font:
     650 1.65rem Bricolage,
@@ -459,6 +463,9 @@
   width: 100%;
   animation: flutuar-solo 5s ease-in-out infinite;
 }
+.entrada-demo .aurelio-animado {
+  width: 100%;
+}
 .entrada-demo p {
   line-height: 1.7;
   max-width: 560px;
@@ -554,7 +561,8 @@
     padding: 10px 0;
     gap: 0;
   }
-  .entrada-demo img {
+  .entrada-demo img,
+  .entrada-demo .aurelio-animado {
     width: 150px;
     justify-self: center;
     grid-row: 1;

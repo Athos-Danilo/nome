@@ -2,7 +2,7 @@ import "../../estilos/partidas.css";
 import { Cronometro } from "./Cronometro";
 import { useCronometro } from "./usar-cronometro";
 import { PausaIndividual } from "./PausaIndividual";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useBlocker } from "react-router";
 import { useSaidaPartida } from "./saida-partida";
 import { useConexaoIndividual } from "./usar-conexao";
@@ -21,6 +21,9 @@ import { ResultadoIndividual } from "./ResultadoIndividual";
 import { NIVEIS, TEMAS } from "./apresentacao";
 import type { Rodada, TipoAcao } from "./api";
 import { Aurelio } from "../mascote/Aurelio";
+import { falaSolo } from "../mascote/falas-partida";
+import type { DirecaoOlhar } from "../mascote/gestos-menu";
+import { useToqueMascote } from "../mascote/usar-toque-mascote";
 import { useTrilhaPartida } from "../audio/ProvedorAudio";
 import { ValorAnimado } from "../../componentes/Tela";
 
@@ -39,6 +42,7 @@ function Montagem({
   ocupado,
   rotuloOcupado,
   aoEnviar,
+  aoObservarMontagem,
   base,
   token,
   versao,
@@ -49,6 +53,7 @@ function Montagem({
   ocupado: boolean;
   rotuloOcupado?: string;
   aoEnviar: (palpite: string) => void;
+  aoObservarMontagem?: (direcao: DirecaoOlhar) => void;
   base: string;
   token: string;
   versao: number;
@@ -66,6 +71,7 @@ function Montagem({
         estado={rascunho.entrada}
         aoAlterar={rascunho.alterar}
         aoEnviar={aoEnviar}
+        aoObservarMontagem={aoObservarMontagem}
         ocupado={ocupado}
         rotuloOcupado={rotuloOcupado}
       />
@@ -270,6 +276,29 @@ function ConteudoIndividual({
   const [confirmacao, definirConfirmacao] = useState<
     "palavra" | "partida" | "pausa" | null
   >(null);
+  const [olharVivo, definirOlharVivo] = useState<DirecaoOlhar>();
+  const toque = useToqueMascote("solo");
+  const limparOlharRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    toque.limpar();
+    definirOlharVivo(undefined);
+  }, [jogo.reacaoMascote?.id, toque.limpar]);
+
+  useEffect(() => {
+    return () => {
+      if (limparOlharRef.current) window.clearTimeout(limparOlharRef.current);
+    };
+  }, []);
+
+  const observarMontagem = useCallback((direcao: DirecaoOlhar) => {
+    definirOlharVivo(direcao);
+    if (limparOlharRef.current) window.clearTimeout(limparOlharRef.current);
+    limparOlharRef.current = window.setTimeout(
+      () => definirOlharVivo(undefined),
+      2200,
+    );
+  }, []);
   const estado = jogo.consulta.data;
   if (jogo.consulta.isPending)
     return <Carregando contexto={demo ? "demonstracao" : "solo"} />;
@@ -318,7 +347,9 @@ function ConteudoIndividual({
             id: `${estado.partida_id}:retorno-${estado.versao}`,
             tipo:
               jogo.retorno.resultado === "acerto"
-                ? "comemoracao"
+                ? (jogo.retorno.pontos ?? 0) >= 100
+                  ? "comemoracao_epica"
+                  : "comemoracao"
                 : "pensamento",
           }}
           tamanho="pequeno"
@@ -442,12 +473,28 @@ function ConteudoIndividual({
             </Botao>
           </div>
           <aside className="aurelio-partida">
-            <Aurelio evento={jogo.reacaoMascote} />
-            <p>
-              Uma pista de cada vez.
-              <br />
-              <em>O seu “ahá!” está chegando.</em>
-            </p>
+            <Aurelio
+              evento={jogo.reacaoMascote}
+              gesto={toque.gesto}
+              olharVivo={olharVivo}
+              aoAtivar={toque.tocar}
+              rotuloInteracao="Conversar com Aurélio durante a rodada"
+            />
+            {(() => {
+              const fala = falaSolo({
+                reacao: jogo.reacaoMascote?.tipo,
+                dicaAtual: rodada.dica_atual,
+                seed: estado.versao,
+                toque: toque.gesto ? toque.contagem : 0,
+              });
+              return (
+                <p>
+                  {fala.titulo}
+                  <br />
+                  <em>{fala.subtitulo}</em>
+                </p>
+              );
+            })()}
             <span className="estrela-solo" aria-hidden="true">
               ✦
             </span>
@@ -492,6 +539,7 @@ function ConteudoIndividual({
             rotuloOcupado={
               acaoAtiva === "palpites" ? "Conferindo palpite…" : "Aguarde…"
             }
+            aoObservarMontagem={observarMontagem}
             aoEnviar={(p) => void agir("palpites", p)}
           />
 

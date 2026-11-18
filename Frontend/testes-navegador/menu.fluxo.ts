@@ -895,7 +895,7 @@ test("pausa do menu preserva o restante da saudação", async ({ page }) => {
   await page.goto("/");
   const mascote = page.locator(".aurelio-animado");
   await expect(mascote).toHaveAttribute("data-reacao", "saudacao");
-  await page.clock.runFor(3800);
+  await page.clock.runFor(3200);
   await page.getByRole("button", { name: "Como jogar" }).click();
   await page.clock.runFor(6000);
   await expect(mascote).toHaveAttribute("data-reacao", "saudacao");

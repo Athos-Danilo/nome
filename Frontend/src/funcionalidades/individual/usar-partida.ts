@@ -33,7 +33,7 @@ export function usePartida(base: string, token: string) {
     if (rodada)
       definirReacaoMascote({
         id: `apresentacao-${rodada.rodada_id}`,
-        tipo: "apresentacao",
+        tipo: rodada.dica_atual >= 5 ? "tensao_decisiva" : "apresentacao",
       });
   }, [consulta.data?.rodada_atual?.rodada_id]);
   useEffect(() => {

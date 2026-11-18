@@ -452,7 +452,8 @@
   max-width: 620px;
   letter-spacing: -1.5px;
 }
-.chamada-galera img {
+.chamada-galera img,
+.chamada-galera .aurelio-animado {
   width: 140px;
   max-height: 180px;
   object-fit: contain;
@@ -569,7 +570,8 @@
   .pessoa-galera > button {
     margin-left: 90px;
   }
-  .chamada-galera img {
+  .chamada-galera img,
+  .chamada-galera .aurelio-animado {
     width: 90px;
   }
   .chamada-galera {

@@ -54,7 +54,7 @@ test("olhar usa direção medida para cartões abaixo ou ao lado sem sair dos li
   expect(Math.abs(limite.pupilaY)).toBeLessThanOrEqual(12);
 });
 
-test("seguir a letra coordena o olhar com uma trajetória própria", () => {
+test("seguir a letra coordena olhar e mão com a trajetória da letra A", () => {
   const esquerda = poseGestoMenu(
     "seguir_letra",
     DURACOES_GESTOS.seguir_letra * 0.25,
@@ -67,21 +67,27 @@ test("seguir a letra coordena o olhar com uma trajetória própria", () => {
   expect(esquerda.letraX).toBeLessThan(direita.letraX);
   expect(esquerda.pupilaX).toBeLessThan(0);
   expect(direita.pupilaX).toBeGreaterThan(0);
+  expect(direita.maoDireitaY).toBeLessThan(-40);
 });
 
-test("toque usa piscadela e pequeno salto; gravata usa mão articulada", () => {
-  const toque = poseGestoMenu(
+test("toque usa salto com braços abertos e piscadela; gravata contorna a capa em 2.5D", () => {
+  const salto = poseGestoMenu(
     "reagir_toque",
-    DURACOES_GESTOS.reagir_toque * 0.62,
+    DURACOES_GESTOS.reagir_toque * 0.36,
   );
-  expect(toque.olhoEsquerdo).toBeLessThan(0.18);
-  expect(
-    poseGestoMenu("reagir_toque", DURACOES_GESTOS.reagir_toque * 0.4).saltoY,
-  ).toBeLessThan(-10);
+  expect(salto.saltoY).toBeLessThan(-25);
+  expect(salto.maoEsquerdaY).toBeLessThan(-80);
+
+  const piscadela = poseGestoMenu(
+    "reagir_toque",
+    DURACOES_GESTOS.reagir_toque * 0.64,
+  );
+  expect(piscadela.olhoEsquerdo).toBeLessThan(0.18);
+
   const gravata = poseGestoMenu(
     "ajeitar_gravata",
-    DURACOES_GESTOS.ajeitar_gravata * 0.4,
+    DURACOES_GESTOS.ajeitar_gravata * 0.45,
   );
-  expect(gravata.ombro).toBeGreaterThan(90);
-  expect(gravata.cotovelo).toBeGreaterThan(30);
+  expect(gravata.bracoDireitoFrente).toBeGreaterThan(0.5);
+  expect(gravata.maoDireitaX).toBeLessThan(-200);
 });

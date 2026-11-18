@@ -9,6 +9,8 @@ import { PainelIndividual } from "./PainelIndividual";
 import { Botao, Carregando, EstadoVazio } from "../../componentes/Comuns";
 import { IndicadorProcessamento } from "../../componentes/IndicadorProcessamento";
 import type { Sessao } from "../perfil/api";
+import { Aurelio } from "../mascote/Aurelio";
+import { useToqueMascote } from "../mascote/usar-toque-mascote";
 import "./individual.css";
 export function RotaIndividual({
   conta,
@@ -63,6 +65,7 @@ function DemonstracaoJogavel() {
     queryFn: identificarVisitante,
     staleTime: 0,
   });
+  const toque = useToqueMascote("demo");
   const [partida, definirPartida] = useState<Partida | null>(null);
   const [ocupado, definirOcupado] = useState(false);
   const [erro, definirErro] = useState("");
@@ -137,9 +140,12 @@ function DemonstracaoJogavel() {
         </p>
         <a href="/api/autenticacao/google">Entrar com Google ↗</a>
       </div>
-      <img
-        src="/mascote/aurelio.png"
-        alt="Aurélio convida para sua primeira descoberta"
+      <Aurelio
+        evento={{ id: "convite-demo", tipo: "saudacao" }}
+        gesto={toque.gesto}
+        aoAtivar={toque.tocar}
+        tamanho="grande"
+        descricao="Aurélio convida para sua primeira descoberta"
       />
     </section>
   );

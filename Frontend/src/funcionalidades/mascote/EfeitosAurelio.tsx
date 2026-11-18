@@ -1,11 +1,11 @@
-import type { PoseAtuacao } from "./atuacoes";
+import type { PoseCompleta } from "./pose-base";
 
-/** Acentos de apresentação: não revelam dicas, números de pontos ou o sorteado. */
+/** Acentos visuais em SVG; nunca antecipam dicas, respostas ou pontuações. */
 export function EfeitosAurelio({
   pose,
   progresso,
 }: {
-  pose: PoseAtuacao;
+  pose: PoseCompleta;
   progresso: number;
 }) {
   const estrela = "M0-24 7-7 24 0 7 7 0 24-7 7-24 0-7-7Z";
@@ -83,16 +83,16 @@ export function EfeitosAurelio({
       )}
       {pose.festa > 0 && (
         <g data-efeito="festa" opacity={pose.festa}>
-          {[0, 1, 2, 3, 4, 5].map((indice) => {
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((indice) => {
             const lado = indice % 2 ? 1 : -1;
             const abertura = Math.min(1, progresso * 2.8);
-            const x = 550 + lado * (310 + indice * 27) * abertura;
+            const x = 550 + lado * (290 + indice * 26) * abertura;
             const y =
-              320 + indice * 100 + 90 * Math.pow(progresso, 2) - abertura * 120;
+              250 + indice * 88 + 90 * Math.pow(progresso, 2) - abertura * 125;
             return (
               <g
                 key={indice}
-                transform={`translate(${x} ${y}) rotate(${lado * (indice * 17 + progresso * 140)}) scale(${0.65 + pose.festa * 0.5})`}
+                transform={`translate(${x} ${y}) rotate(${lado * (indice * 19 + progresso * 160)}) scale(${0.65 + pose.festa * 0.55})`}
               >
                 <path d={estrela} fill={indice % 3 ? "#d4fe62" : "#e5e37d"} />
                 <path d="M-35 28-46 39" fill="none" strokeWidth="4" />

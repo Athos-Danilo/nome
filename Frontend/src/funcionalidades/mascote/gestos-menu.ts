@@ -1,4 +1,10 @@
-import { poseAtuacao, type PoseAtuacao } from "./atuacoes";
+import { poseAtuacao } from "./atuacoes";
+import {
+  aplicarFisicaSecundaria,
+  interpolarRoteiro,
+  type PoseCompleta,
+  type QuadroRoteiro,
+} from "./pose-base";
 
 export const GESTOS_MENU = [
   "olhar_solo",
@@ -7,8 +13,10 @@ export const GESTOS_MENU = [
   "seguir_letra",
   "reagir_toque",
 ] as const;
+
 export type GestoMenu = (typeof GESTOS_MENU)[number];
 export type DirecaoOlhar = { x: number; y: number };
+
 export const DURACOES_GESTOS: Record<GestoMenu, number> = {
   olhar_solo: 3200,
   olhar_galera: 3600,
@@ -16,325 +24,486 @@ export const DURACOES_GESTOS: Record<GestoMenu, number> = {
   seguir_letra: 4600,
   reagir_toque: 3400,
 };
-export type PoseGestoMenu = PoseAtuacao & {
-  olhoEsquerdo: number;
-  letra: number;
-  letraX: number;
-  letraY: number;
-  letraGiro: number;
-  atencao: number;
-};
-export const COMPLEMENTO_POSE = {
-  olhoEsquerdo: 1,
-  letra: 0,
-  letraX: 240,
-  letraY: 210,
-  letraGiro: -10,
-  atencao: 0,
-};
-const neutra: PoseGestoMenu = {
-  ...poseAtuacao("espera", 0),
-  ...COMPLEMENTO_POSE,
-};
-type Quadro = readonly [fracao: number, pose: Partial<PoseGestoMenu>];
-const roteiros: Record<GestoMenu, readonly Quadro[]> = {
+
+export type PoseGestoMenu = PoseCompleta;
+
+const roteiros: Record<GestoMenu, readonly QuadroRoteiro[]> = {
   olhar_solo: [
     [0, {}],
-    [0.12, { corpoY: 4, olhos: 0.7, sobrancelhaY: -4 }],
     [
-      0.28,
+      0.13,
       {
-        atencao: 1,
-        corpoRotacao: 0.9,
-        ombro: -4,
-        punho: -6,
-        gravata: -1.5,
-        sobrancelhaY: -7,
+        corpoY: 9,
+        corpoRotacao: -1.8,
+        corpoEscalaY: 0.96,
+        olhos: 0.65,
+        sobrancelhaY: -5,
+        maoDireitaX: -12,
+        maoDireitaY: 20,
       },
+      "antecipacao",
     ],
     [
-      0.52,
+      0.32,
+      {
+        atencao: 1,
+        corpoY: -6,
+        corpoRotacao: 3.2,
+        corpoEscalaY: 1.03,
+        perspectivaX: 2,
+        maoDireitaX: -22,
+        maoDireitaY: -82,
+        punho: -26,
+        maoEsquerdaX: -22,
+        maoEsquerdaY: -12,
+        sobrancelhaY: -9,
+        folheada: 0.3,
+      },
+      "impulso",
+    ],
+    [
+      0.56,
       {
         atencao: 1,
         corpoY: -3,
-        corpoRotacao: 1.1,
-        ombro: -6,
-        punho: -8,
-        gravata: 1,
-        bocaEscala: 1.02,
+        corpoRotacao: 3.8,
+        maoDireitaX: -26,
+        maoDireitaY: -94,
+        punho: -28,
+        bocaEscala: 1.04,
+        sobrancelhaDireita: -6,
       },
+      "suave",
     ],
-    [0.7, { atencao: 0.9, corpoY: -1, ombro: -3, sobrancelhaDireita: -4 }],
-    [0.85, { atencao: 0.2, gravata: 1.3, paginasY: -0.8 }],
-    [1, {}],
+    [
+      0.75,
+      {
+        atencao: 0.75,
+        corpoY: 2,
+        maoDireitaX: -10,
+        maoDireitaY: -32,
+        punho: -14,
+        olhos: 0.1,
+      },
+      "suave",
+    ],
+    [1, {}, "mola"],
   ],
+
   olhar_galera: [
     [0, {}],
-    [0.1, { corpoY: 5, corpoRotacao: -0.7, olhos: 0.8 }],
     [
-      0.26,
+      0.11,
       {
-        atencao: 1,
-        corpoRotacao: 1.7,
-        ombro: -9,
-        punho: -13,
-        sobrancelhaDireita: -9,
-        paginasY: -1.2,
+        corpoY: 10,
+        corpoRotacao: -2.2,
+        corpoEscalaY: 0.96,
+        olhos: 0.7,
+        maoEsquerdaX: 12,
+        maoEsquerdaY: -6,
       },
+      "antecipacao",
     ],
     [
-      0.46,
+      0.3,
+      {
+        atencao: 1,
+        corpoY: -8,
+        corpoRotacao: 4.5,
+        corpoEscalaY: 1.04,
+        perspectivaX: 2.4,
+        maoDireitaX: -28,
+        maoDireitaY: -108,
+        punho: -30,
+        maoEsquerdaX: -38,
+        maoEsquerdaY: -28,
+        bracoEsquerdo: -16,
+        sobrancelhaDireita: -12,
+        folheada: 0.4,
+      },
+      "impulso",
+    ],
+    [
+      0.54,
       {
         atencao: 1,
         corpoY: -4,
-        corpoRotacao: 1.3,
-        ombro: -7,
-        cotovelo: -3,
-        punho: -9,
-        gravata: 2,
+        corpoRotacao: 3.4,
+        maoDireitaX: -22,
+        maoDireitaY: -90,
+        punho: -26,
+        maoEsquerdaX: -30,
+        maoEsquerdaY: -20,
       },
+      "suave",
     ],
     [
-      0.64,
+      0.76,
       {
-        atencao: 0.95,
-        corpoY: 1,
-        ombro: -4,
-        punho: -5,
-        gravata: -1.2,
-        sobrancelhaY: -3,
+        atencao: 0.6,
+        corpoY: 2,
+        maoDireitaX: -10,
+        maoDireitaY: -26,
+        punho: -14,
+        olhos: 0.08,
       },
+      "suave",
     ],
-    [0.82, { atencao: 0.25, paginasY: 1, gravata: 0.8 }],
-    [1, {}],
+    [1, {}, "mola"],
   ],
+
   ajeitar_gravata: [
     [0, {}],
-    [0.1, { corpoY: 5, pupilaY: 8, sobrancelhaY: 3, bocaEscala: 0.97 }],
     [
-      0.25,
+      0.11,
       {
-        corpoY: 4,
-        ombro: 65,
-        cotovelo: 30,
-        punho: 5,
-        pupilaY: 11,
-        gravata: -2,
+        corpoY: 10,
+        corpoRotacao: -1.5,
+        corpoEscalaY: 0.96,
+        pupilaY: 10,
+        sobrancelhaY: 4,
+        bocaPensativa: 0.65,
+        maoDireitaX: -14,
+        maoDireitaY: 68,
+        punho: -12,
       },
+      "antecipacao",
     ],
     [
-      0.4,
+      0.24,
       {
-        corpoY: 3,
-        ombro: 125,
-        cotovelo: 60,
-        punho: 15,
-        pupilaX: 6,
-        pupilaY: 10,
-        gravata: -5,
-        sobrancelhaDireita: -4,
+        corpoY: 6,
+        corpoRotacao: 1.2,
+        bracoDireitoFrente: 1,
+        maoDireitaX: -120,
+        maoDireitaY: 190,
+        punho: -12,
+        pupilaY: 11,
+        bocaPensativa: 0.85,
       },
+      "suave",
+    ],
+    [
+      0.38,
+      {
+        corpoY: 5,
+        corpoRotacao: -1.5,
+        bracoDireitoFrente: 1,
+        maoDireitaX: -305,
+        maoDireitaY: 185,
+        punho: -32,
+        maoEsquerdaX: 16,
+        maoEsquerdaY: -12,
+        pupilaX: 5,
+        pupilaY: 12,
+        gravata: -9,
+        gravataEscala: 1.07,
+        sobrancelhaDireita: -6,
+        bocaPensativa: 0.9,
+      },
+      "impulso",
     ],
     [
       0.49,
       {
-        corpoY: 3,
-        ombro: 123,
-        cotovelo: 61,
-        punho: 18,
-        pupilaX: 6,
-        pupilaY: 10,
-        gravata: 5,
+        corpoY: 4,
+        bracoDireitoFrente: 1,
+        maoDireitaX: -315,
+        maoDireitaY: 178,
+        punho: -26,
+        pupilaX: 5,
+        pupilaY: 12,
+        gravata: 11,
+        gravataEscala: 1.08,
+        bocaFechada: 0.7,
       },
+      "suave",
     ],
     [
-      0.57,
+      0.6,
       {
         corpoY: 2,
-        ombro: 125,
-        cotovelo: 60,
-        punho: 14,
-        pupilaX: 5,
-        pupilaY: 9,
-        gravata: -2,
+        bracoDireitoFrente: 1,
+        maoDireitaX: -302,
+        maoDireitaY: 184,
+        punho: -30,
+        pupilaX: 4,
+        pupilaY: 11,
+        gravata: -5,
+        gravataEscala: 1.05,
+        bocaFechada: 0.9,
       },
+      "suave",
     ],
     [
-      0.67,
+      0.74,
       {
-        corpoY: -3,
-        ombro: 100,
-        cotovelo: 48,
-        punho: 9,
+        corpoY: -6,
+        corpoEscalaY: 1.03,
+        bracoDireitoFrente: 1,
+        maoDireitaX: -90,
+        maoDireitaY: 140,
+        punho: -10,
         gravata: 3,
-        sobrancelhaY: -6,
-        bocaEscala: 1.03,
+        sobrancelhaY: -9,
+        olhoEsquerdo: 0.08,
+        bocaEscala: 1.05,
       },
+      "suave",
     ],
-    [0.83, { ombro: 25, cotovelo: 12, punho: -4, gravata: -1.5, paginasY: -1 }],
-    [0.93, { gravata: 0.7, corpoY: 1 }],
-    [1, {}],
+    [
+      0.87,
+      {
+        bracoDireitoFrente: 0,
+        maoDireitaX: -10,
+        maoDireitaY: 22,
+        punho: -10,
+        corpoY: 3,
+        gravata: -1.5,
+      },
+      "suave",
+    ],
+    [1, {}, "mola"],
   ],
+
   seguir_letra: [
     [0, {}],
     [
-      0.1,
+      0.11,
       {
-        pupilaX: -9,
+        pupilaX: -10,
         pupilaY: -9,
-        sobrancelhaEsquerda: -7,
-        letra: 0.4,
+        sobrancelhaEsquerda: -8,
+        corpoY: 7,
+        corpoRotacao: -2.2,
+        maoEsquerdaX: -24,
+        maoEsquerdaY: -45,
+        letra: 0.5,
         letraX: 240,
         letraY: 230,
       },
+      "antecipacao",
     ],
     [
-      0.25,
+      0.26,
       {
-        pupilaX: -13,
+        pupilaX: -14,
         pupilaY: -11,
-        corpoRotacao: -1.2,
+        corpoRotacao: -4.5,
+        corpoEscalaY: 1.03,
+        perspectivaX: -2,
+        maoEsquerdaX: -48,
+        maoEsquerdaY: -165,
+        bracoEsquerdoAtras: 1,
+        maoDireitaX: -55,
+        maoDireitaY: -145,
+        cotoveloDireitoDobra: -0.6,
         letra: 1,
-        letraX: 250,
-        letraY: 185,
-        letraGiro: -16,
-        gravata: 1.4,
+        letraX: 260,
+        letraY: 178,
+        letraGiro: -18,
       },
+      "impulso",
     ],
     [
-      0.4,
+      0.42,
       {
         pupilaX: 2,
         pupilaY: -12,
-        corpoY: -5,
-        sobrancelhaY: -9,
+        corpoY: -10,
+        corpoRotacao: 0.5,
+        corpoEscalaY: 1.05,
+        sobrancelhaY: -11,
+        maoEsquerdaX: -36,
+        maoEsquerdaY: -220,
+        bracoEsquerdoAtras: 1,
+        maoDireitaX: -20,
+        maoDireitaY: -195,
+        cotoveloDireitoDobra: -0.6,
+        bocaSurpresa: 0.55,
         letra: 1,
-        letraX: 610,
-        letraY: 130,
+        letraX: 605,
+        letraY: 122,
         letraGiro: 6,
       },
+      "suave",
     ],
     [
-      0.55,
+      0.58,
       {
-        pupilaX: 14,
+        pupilaX: 15,
         pupilaY: -9,
-        corpoRotacao: 1.3,
+        corpoRotacao: 4,
+        perspectivaX: 2,
+        bracoEsquerdoAtras: 0,
+        maoEsquerdaX: -26,
+        maoEsquerdaY: -22,
+        maoDireitaX: -32,
+        maoDireitaY: -168,
+        punho: -28,
         letra: 1,
-        letraX: 890,
-        letraY: 220,
+        letraX: 900,
+        letraY: 215,
         letraGiro: 18,
-        ombro: -4,
-        gravata: -1,
       },
+      "suave",
     ],
     [
-      0.68,
+      0.72,
       {
-        pupilaX: 12,
+        pupilaX: 13,
         pupilaY: -4,
         olhos: 0.85,
-        letra: 0.8,
-        letraX: 990,
-        letraY: 340,
-        letraGiro: -7,
+        maoDireitaX: -18,
+        maoDireitaY: -115,
+        punho: -24,
+        letra: 0.75,
+        letraX: 995,
+        letraY: 335,
+        letraGiro: -8,
       },
+      "suave",
     ],
     [
-      0.78,
+      0.81,
       {
-        pupilaX: 10,
+        pupilaX: 9,
         pupilaY: -3,
         letra: 0,
         letraX: 1030,
         letraY: 310,
-        brilho: 0.25,
-        sobrancelhaDireita: -7,
+        brilho: 0.45,
+        sobrancelhaDireita: -9,
+        maoDireitaX: -8,
+        maoDireitaY: -38,
+        punho: -14,
       },
+      "suave",
     ],
-    [0.9, { olhos: 0.1, corpoY: 1, gravata: 0.8 }],
-    [1, {}],
+    [0.91, { olhos: 0.08, corpoY: 3 }, "suave"],
+    [1, {}, "mola"],
   ],
+
   reagir_toque: [
     [0, {}],
     [
       0.12,
       {
-        corpoY: 9,
-        corpoEscalaY: 0.99,
-        sobrancelhaY: -11,
-        bocaSurpresa: 0.35,
-        gravata: -3,
+        corpoY: 20,
+        corpoEscalaY: 0.9,
+        corpoRotacao: -2.5,
+        sobrancelhaY: -12,
+        bocaSurpresa: 0.75,
+        maoDireitaX: -18,
+        maoDireitaY: 36,
+        punho: -10,
+        maoEsquerdaX: -12,
+        maoEsquerdaY: 12,
       },
+      "antecipacao",
     ],
     [
-      0.25,
-      { corpoY: 3, sobrancelhaY: -7, bocaEscala: 1.06, ombro: -8, punho: -8 },
-    ],
-    [
-      0.4,
+      0.34,
       {
-        saltoY: -20,
-        inclinacao: -1.2,
-        pernaEsquerda: 1,
-        pernaDireita: -1,
-        gravata: 4,
-        paginasY: -2,
-        bocaEscala: 1.07,
+        saltoY: -54,
+        corpoY: -6,
+        corpoEscalaY: 1.07,
+        inclinacao: -2.5,
+        bracoEsquerdoAtras: 1,
+        maoEsquerdaX: -52,
+        maoEsquerdaY: -285,
+        bracoEsquerdo: 18,
+        maoDireitaX: -36,
+        maoDireitaY: -160,
+        punho: -30,
+        peEsquerdoX: 18,
+        peEsquerdoY: -26,
+        pernaEsquerda: 16,
+        peDireitoX: -12,
+        peDireitoY: -32,
+        pernaDireita: -18,
+        bocaGargalhada: 0.7,
+        brilho: 0.6,
+        folheada: 0.5,
+      },
+      "impulso",
+    ],
+    [
+      0.5,
+      {
+        saltoY: 0,
+        corpoY: 14,
+        corpoEscalaY: 0.93,
+        bracoEsquerdoAtras: 0,
+        maoEsquerdaX: -36,
+        maoEsquerdaY: -45,
+        maoDireitaX: -20,
+        maoDireitaY: -88,
+        punho: -24,
+        bocaEscala: 1.06,
+      },
+      "suave",
+    ],
+    [
+      0.64,
+      {
+        corpoY: -4,
+        corpoRotacao: -2.5,
+        corpoEscalaY: 1.02,
+        olhoEsquerdo: 0.06,
+        sobrancelhaEsquerda: -9,
+        sobrancelhaDireita: 3,
+        maoDireitaX: -22,
+        maoDireitaY: -106,
+        punho: -26,
+        maoEsquerdaX: -24,
+        maoEsquerdaY: -16,
+        bocaEscala: 1.05,
         brilho: 0.35,
       },
+      "impulso",
     ],
     [
-      0.52,
-      { corpoY: 6, corpoEscalaY: 0.99, gravata: -3, paginasY: 1, ombro: -5 },
-    ],
-    [
-      0.62,
+      0.8,
       {
-        olhoEsquerdo: 0.06,
-        sobrancelhaEsquerda: -7,
-        sobrancelhaDireita: 3,
-        corpoRotacao: -1,
-        punho: -11,
-        gravata: 1.7,
-        bocaEscala: 1.04,
+        olhoEsquerdo: 0.85,
+        sobrancelhaY: -4,
+        maoDireitaX: -8,
+        maoDireitaY: -30,
+        punho: -12,
+        corpoY: 3,
       },
+      "suave",
     ],
-    [0.71, { olhoEsquerdo: 0.7, sobrancelhaY: -3, punho: -5, gravata: -0.8 }],
-    [0.86, { paginasY: -0.5, gravata: 0.5, corpoY: -1 }],
-    [1, {}],
+    [1, {}, "mola"],
   ],
 };
+
 const SURPRESAS_CONTA = GESTOS_MENU.filter((gesto) => gesto !== "reagir_toque");
 const SURPRESAS_VISITANTE = ["ajeitar_gravata", "seguir_letra"] as const;
+
 export const surpresasDisponiveis = (conta: boolean): readonly GestoMenu[] =>
   conta ? SURPRESAS_CONTA : SURPRESAS_VISITANTE;
+
 export const ehGestoMenu = (valor: string | undefined): valor is GestoMenu =>
   GESTOS_MENU.some((gesto) => gesto === valor);
 
 /** Linha de tempo local, sem DOM, relógio próprio ou regra das partidas. */
 export function poseGestoMenu(
   gesto: GestoMenu,
-  tempo: number,
+  tempoMs: number,
   direcao?: DirecaoOlhar,
 ): PoseGestoMenu {
-  const t = Math.max(
-    0,
-    Math.min(1, (Number.isFinite(tempo) ? tempo : 0) / DURACOES_GESTOS[gesto]),
-  );
+  const duracao = DURACOES_GESTOS[gesto];
+  const t = Number.isFinite(tempoMs)
+    ? Math.max(0, Math.min(duracao, tempoMs))
+    : 0;
   const quadros = roteiros[gesto];
-  if (t <= 0 || t >= 1) return { ...neutra };
-  const indice = quadros.findIndex(([fracao]) => fracao > t);
-  if (indice < 0) return { ...neutra };
-  const [inicio, antes] = quadros[Math.max(0, indice - 1)];
-  const [fim, depois] = quadros[indice];
-  const fracao = (t - inicio) / (fim - inicio || 1);
-  const curva = fracao * fracao * (3 - 2 * fracao);
-  const pose = { ...neutra };
-  for (const campo of Object.keys(neutra) as (keyof PoseGestoMenu)[]) {
-    const a = antes[campo] ?? neutra[campo];
-    pose[campo] = a + ((depois[campo] ?? neutra[campo]) - a) * curva;
-  }
+  if (t <= 0 || t >= duracao) return poseAtuacao("espera", 0);
+
+  const base = interpolarRoteiro(quadros, t / duracao);
+  const pose = aplicarFisicaSecundaria(base, quadros, t, duracao);
+
   if (gesto === "olhar_solo" || gesto === "olhar_galera") {
     const alvo =
       direcao ?? (gesto === "olhar_solo" ? { x: 9, y: -8 } : { x: 15, y: -5 });
@@ -345,5 +514,6 @@ export function poseGestoMenu(
       Math.max(-12, Math.min(12, Number.isFinite(alvo.y) ? alvo.y : 0)) *
       pose.atencao;
   }
+
   return pose;
 }
